@@ -1,0 +1,16 @@
+# eval outputs (videos are large) — keep only small metrics under results/
+eval_logs/
+*.mp4
+
+# python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# training / experiment junk
+wandb/
+outputs/
+*.log
+
+# external source (installed editable into vf0s, lives at ../lerobot)
+/lerobot/

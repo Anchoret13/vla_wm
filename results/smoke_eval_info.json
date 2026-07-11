@@ -1,0 +1,47 @@
+{
+  "per_task": [
+    {
+      "task_group": "libero_spatial",
+      "task_id": 0,
+      "metrics": {
+        "sum_rewards": [
+          1.0
+        ],
+        "max_rewards": [
+          1.0
+        ],
+        "successes": [
+          true
+        ],
+        "video_paths": [
+          "/home/stargazer/Desktop/vla_wm/eval_logs/smoke/videos/libero_spatial_0/eval_episode_0.mp4"
+        ],
+        "predicted_video_paths": []
+      }
+    }
+  ],
+  "per_group": {
+    "libero_spatial": {
+      "avg_sum_reward": 1.0,
+      "avg_max_reward": 1.0,
+      "pc_success": 100.0,
+      "n_episodes": 1,
+      "video_paths": [
+        "/home/stargazer/Desktop/vla_wm/eval_logs/smoke/videos/libero_spatial_0/eval_episode_0.mp4"
+      ],
+      "predicted_video_paths": []
+    }
+  },
+  "overall": {
+    "avg_sum_reward": 1.0,
+    "avg_max_reward": 1.0,
+    "pc_success": 100.0,
+    "n_episodes": 1,
+    "eval_s": 260.0058925151825,
+    "eval_ep_s": 260.00589323043823,
+    "video_paths": [
+      "/home/stargazer/Desktop/vla_wm/eval_logs/smoke/videos/libero_spatial_0/eval_episode_0.mp4"
+    ],
+    "predicted_video_paths": []
+  }
+}
