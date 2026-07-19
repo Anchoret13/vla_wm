@@ -1,4 +1,4 @@
-"""Per-scene BDDL predicate-pool inventory over the packaged LIBERO suites (plan §2, GPU-free lane).
+"""Per-scene BDDL predicate-pool inventory (plan §2 GPU-free lane).
 
 Walks site-packages/libero/libero/bddl_files/<suite>/*.bddl for all 5 suites
 (libero_spatial, libero_object, libero_goal, libero_10, libero_90 = 130 tasks),

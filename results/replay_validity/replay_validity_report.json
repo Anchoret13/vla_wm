@@ -1,0 +1,4105 @@
+{
+  "suite": "libero_10",
+  "tasks": [
+    {
+      "suite": "libero_10",
+      "task_id": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 41,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 368,
+          "final_qpos_l2": 0.0683437127796939,
+          "max_qpos_l2": 0.5806662445713384,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": false,
+          "n_steps": 336,
+          "final_qpos_l2": 0.2533089258176635,
+          "max_qpos_l2": 5.427402660147476,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.5561673123659573,
+          "max_qpos_l2": 0.7155603556334408,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.5693819750838646,
+          "max_qpos_l2": 0.7819714928348646,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": false,
+          "n_steps": 308,
+          "final_qpos_l2": 0.04679741056821543,
+          "max_qpos_l2": 1.0973455180785996,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 306,
+          "final_qpos_l2": 0.08886549994657066,
+          "max_qpos_l2": 0.4148564856998189,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.5689594483100002,
+          "max_qpos_l2": 1.239360573511076,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 303,
+          "final_qpos_l2": 0.1522783868958702,
+          "max_qpos_l2": 0.6064212438072534,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 282,
+          "final_qpos_l2": 0.32079779919981516,
+          "max_qpos_l2": 0.845067540129181,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 219,
+          "final_qpos_l2": 2.00130178993036,
+          "max_qpos_l2": 2.00130178993036,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": false,
+          "n_steps": 286,
+          "final_qpos_l2": 0.042312662233933096,
+          "max_qpos_l2": 0.7930128980461685,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 239,
+          "final_qpos_l2": 0.9125951154572126,
+          "max_qpos_l2": 1.2968910161190192,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.16801750788740416,
+          "max_qpos_l2": 1.1723882869523072,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 277,
+          "final_qpos_l2": 0.29678494140212475,
+          "max_qpos_l2": 0.4711597000517199,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": false,
+          "n_steps": 285,
+          "final_qpos_l2": 0.061450507693930595,
+          "max_qpos_l2": 1.3810115493266046,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.625320940742468,
+          "max_qpos_l2": 0.8498800079084518,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.47205823554620807,
+          "max_qpos_l2": 0.47205823554620807,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 274,
+          "final_qpos_l2": 0.05132518232375524,
+          "max_qpos_l2": 0.5341108646129646,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 264,
+          "final_qpos_l2": 0.01968381583307894,
+          "max_qpos_l2": 1.1175757523973882,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 293,
+          "final_qpos_l2": 0.9035251772262212,
+          "max_qpos_l2": 0.9035251772262212,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": false,
+          "n_steps": 339,
+          "final_qpos_l2": 0.34340412676081394,
+          "max_qpos_l2": 1.3687072108420602,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 263,
+          "final_qpos_l2": 0.9897559536053334,
+          "max_qpos_l2": 0.9897559536053334,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.014331329508207273,
+          "max_qpos_l2": 0.44272490279231014,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.7065903718791219,
+          "max_qpos_l2": 0.7065903718791219,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 270,
+          "final_qpos_l2": 0.09147198470473986,
+          "max_qpos_l2": 0.5439175904639729,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": false,
+          "n_steps": 330,
+          "final_qpos_l2": 0.17192023952523486,
+          "max_qpos_l2": 0.9837764191874268,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 289,
+          "final_qpos_l2": 0.047762226286140526,
+          "max_qpos_l2": 0.6831206183778457,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 253,
+          "final_qpos_l2": 0.4423042535752153,
+          "max_qpos_l2": 0.6273576795237469,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 288,
+          "final_qpos_l2": 0.1156304059515429,
+          "max_qpos_l2": 0.40313608698819275,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.46943934526042125,
+          "max_qpos_l2": 0.47308655161348495,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 274,
+          "final_qpos_l2": 0.3019893905751493,
+          "max_qpos_l2": 0.42289988155127894,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 278,
+          "final_qpos_l2": 0.5937927945749742,
+          "max_qpos_l2": 0.756683737445964,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": false,
+          "n_steps": 340,
+          "final_qpos_l2": 0.07668328854529502,
+          "max_qpos_l2": 0.7672886723146889,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_33",
+          "success": false,
+          "n_steps": 368,
+          "final_qpos_l2": 0.05337923979898851,
+          "max_qpos_l2": 0.6271908143585274,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 258,
+          "final_qpos_l2": 0.4707772180731902,
+          "max_qpos_l2": 0.9251403510480055,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 265,
+          "final_qpos_l2": 0.46419388396944916,
+          "max_qpos_l2": 0.6048606156313315,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 334,
+          "final_qpos_l2": 0.6682707546363481,
+          "max_qpos_l2": 0.6945560506196911,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 256,
+          "final_qpos_l2": 0.02935555014179204,
+          "max_qpos_l2": 0.3261939261373722,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 264,
+          "final_qpos_l2": 0.6074785665566278,
+          "max_qpos_l2": 1.139889908086633,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 349,
+          "final_qpos_l2": 0.04681722733016779,
+          "max_qpos_l2": 1.187339685991318,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 245,
+          "final_qpos_l2": 0.2552486498002295,
+          "max_qpos_l2": 0.7407550985706917,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 282,
+          "final_qpos_l2": 0.26048527157876356,
+          "max_qpos_l2": 1.0249820769305162,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 288,
+          "final_qpos_l2": 0.289417850223729,
+          "max_qpos_l2": 0.6102565625160037,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 262,
+          "final_qpos_l2": 0.5729277531838702,
+          "max_qpos_l2": 0.9069483892946371,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 306,
+          "final_qpos_l2": 0.05613850123549812,
+          "max_qpos_l2": 1.4403764772083856,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 333,
+          "final_qpos_l2": 0.33460714039978184,
+          "max_qpos_l2": 1.1806177975017877,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": false,
+          "n_steps": 363,
+          "final_qpos_l2": 0.289524983195886,
+          "max_qpos_l2": 0.5380846674381111,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 301,
+          "final_qpos_l2": 0.2038073517672557,
+          "max_qpos_l2": 0.9573049520356283,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 264,
+          "final_qpos_l2": 0.3104759758623757,
+          "max_qpos_l2": 0.7263821065700897,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.13416569411258647,
+          "max_qpos_l2": 1.3643984023439026,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 1,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 50,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 0.04382304032701954,
+          "max_qpos_l2": 0.5140859212033083,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.04445698680596226,
+          "max_qpos_l2": 0.16600238821995078,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.03626446258840491,
+          "max_qpos_l2": 0.5563191847514526,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 276,
+          "final_qpos_l2": 0.050457887564306025,
+          "max_qpos_l2": 0.5219855584204673,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.043643634358739206,
+          "max_qpos_l2": 0.7288630438128684,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.3263653824647606,
+          "max_qpos_l2": 0.502641413404681,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 279,
+          "final_qpos_l2": 0.15215086320737198,
+          "max_qpos_l2": 0.8627482861546457,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.9665261674385839,
+          "max_qpos_l2": 2.991771159369735,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 219,
+          "final_qpos_l2": 0.018650172957300915,
+          "max_qpos_l2": 0.16585451552964572,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.044343205610998075,
+          "max_qpos_l2": 0.5693810420413377,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 299,
+          "final_qpos_l2": 0.04300343012891202,
+          "max_qpos_l2": 0.42713476606154255,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 240,
+          "final_qpos_l2": 0.08284510044803578,
+          "max_qpos_l2": 0.8279135820445912,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.04445244692887822,
+          "max_qpos_l2": 0.526970916695503,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 262,
+          "final_qpos_l2": 0.37200790651398197,
+          "max_qpos_l2": 2.4682776461706637,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.22849522494328778,
+          "max_qpos_l2": 0.7049757048490878,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.3002293113980369,
+          "max_qpos_l2": 1.1015298317268158,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 310,
+          "final_qpos_l2": 0.039577605533601914,
+          "max_qpos_l2": 0.4863764708865442,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.04504841882381542,
+          "max_qpos_l2": 0.424024046921444,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.7163151279784185,
+          "max_qpos_l2": 0.7163151279784185,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.4059142746422485,
+          "max_qpos_l2": 0.54622006399487,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.4538828294590448,
+          "max_qpos_l2": 1.6444451202938293,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.04428546254981616,
+          "max_qpos_l2": 0.5076353151108187,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 249,
+          "final_qpos_l2": 0.03627197168923587,
+          "max_qpos_l2": 0.654925702940337,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 261,
+          "final_qpos_l2": 0.045008515638087214,
+          "max_qpos_l2": 0.21612546314220876,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 237,
+          "final_qpos_l2": 0.3278849377127358,
+          "max_qpos_l2": 0.3278849377127358,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.2809531886452412,
+          "max_qpos_l2": 0.2872124453164822,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 311,
+          "final_qpos_l2": 0.08466239778178027,
+          "max_qpos_l2": 1.0590908333142726,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.043544710072319893,
+          "max_qpos_l2": 0.2555551680140814,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 252,
+          "final_qpos_l2": 0.04591930243875423,
+          "max_qpos_l2": 0.6687005451171368,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.050945597895676334,
+          "max_qpos_l2": 0.21622763354908894,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 242,
+          "final_qpos_l2": 0.3447065810270814,
+          "max_qpos_l2": 2.460751553164787,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 223,
+          "final_qpos_l2": 0.048297535047042206,
+          "max_qpos_l2": 0.6437274484177584,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.043535021094196706,
+          "max_qpos_l2": 0.5383700045203527,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.04696342960999803,
+          "max_qpos_l2": 0.9143548145832021,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 267,
+          "final_qpos_l2": 0.05010203227886785,
+          "max_qpos_l2": 0.5253531288228881,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 262,
+          "final_qpos_l2": 0.13629373568218206,
+          "max_qpos_l2": 0.8938446541268489,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.293156463956389,
+          "max_qpos_l2": 0.5389851228797564,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.04401790299944408,
+          "max_qpos_l2": 0.8975236873824021,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.3274730489685051,
+          "max_qpos_l2": 0.3274730489685051,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.05511143836762749,
+          "max_qpos_l2": 0.6297994346183341,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.048688034510836725,
+          "max_qpos_l2": 0.5643923057693615,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 238,
+          "final_qpos_l2": 0.04470495531964009,
+          "max_qpos_l2": 0.5777887040457048,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.3376699825512483,
+          "max_qpos_l2": 0.34219074660603643,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 273,
+          "final_qpos_l2": 1.7501683233478684,
+          "max_qpos_l2": 1.7501683233478684,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 265,
+          "final_qpos_l2": 0.04791060836688052,
+          "max_qpos_l2": 1.0688256545637904,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.07460067711004852,
+          "max_qpos_l2": 1.203110756123614,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.04626083362015519,
+          "max_qpos_l2": 1.233576140082829,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 245,
+          "final_qpos_l2": 0.5170435809922653,
+          "max_qpos_l2": 0.9260946011960535,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 0.9702027136023085,
+          "max_qpos_l2": 1.1070587898128494,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.012944373494921932,
+          "max_qpos_l2": 0.31413996940775146,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 2,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 43,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": false,
+          "n_steps": 272,
+          "final_qpos_l2": 0.08441639701713577,
+          "max_qpos_l2": 0.47181987527210495,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 267,
+          "final_qpos_l2": 0.22643842209139983,
+          "max_qpos_l2": 0.28748276563277725,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 292,
+          "final_qpos_l2": 0.11194818474902671,
+          "max_qpos_l2": 0.6088838382313748,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 276,
+          "final_qpos_l2": 0.14682222538543732,
+          "max_qpos_l2": 0.3194967777285593,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 229,
+          "final_qpos_l2": 0.0703451618960431,
+          "max_qpos_l2": 0.4512802484955969,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 289,
+          "final_qpos_l2": 0.3848724324163777,
+          "max_qpos_l2": 0.3848724324163777,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 290,
+          "final_qpos_l2": 0.1768350992735901,
+          "max_qpos_l2": 0.5731611299400771,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.0539655278205085,
+          "max_qpos_l2": 0.19927865910244563,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 258,
+          "final_qpos_l2": 0.13976242011495635,
+          "max_qpos_l2": 0.8729588643182005,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 0.5681587240585552,
+          "max_qpos_l2": 0.6671376568569075,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": false,
+          "n_steps": 255,
+          "final_qpos_l2": 0.10634311811696623,
+          "max_qpos_l2": 0.45810114626955145,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 256,
+          "final_qpos_l2": 0.025773269410355813,
+          "max_qpos_l2": 0.24423384726939865,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.02155893967082417,
+          "max_qpos_l2": 0.2335060858340429,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 208,
+          "final_qpos_l2": 0.10007055114554722,
+          "max_qpos_l2": 0.23527492782761242,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 225,
+          "final_qpos_l2": 0.06079053411913405,
+          "max_qpos_l2": 0.8233630343785445,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 221,
+          "final_qpos_l2": 0.1486734159259456,
+          "max_qpos_l2": 0.1486734159259456,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 286,
+          "final_qpos_l2": 0.03873317441435866,
+          "max_qpos_l2": 0.4623354989183198,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": false,
+          "n_steps": 250,
+          "final_qpos_l2": 0.29354572751865754,
+          "max_qpos_l2": 0.3672731031212004,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 329,
+          "final_qpos_l2": 0.17386427074924735,
+          "max_qpos_l2": 0.25826734826747133,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": false,
+          "n_steps": 242,
+          "final_qpos_l2": 0.1579868739299829,
+          "max_qpos_l2": 1.402249151251893,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 252,
+          "final_qpos_l2": 0.10189050176570669,
+          "max_qpos_l2": 0.5692115652415836,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.03806058231528421,
+          "max_qpos_l2": 0.10918269330902296,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.13259266428761787,
+          "max_qpos_l2": 0.909955294288117,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 274,
+          "final_qpos_l2": 0.09831748048647744,
+          "max_qpos_l2": 0.19393640289899772,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 0.07678905801866398,
+          "max_qpos_l2": 0.14564153261628807,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 256,
+          "final_qpos_l2": 0.07739033945222064,
+          "max_qpos_l2": 0.41939939799900827,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.04729105530111797,
+          "max_qpos_l2": 0.3317416262173104,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 289,
+          "final_qpos_l2": 0.21893678048571769,
+          "max_qpos_l2": 0.5630645029097447,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 325,
+          "final_qpos_l2": 0.15097453089529764,
+          "max_qpos_l2": 0.8380762621414474,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 211,
+          "final_qpos_l2": 0.10477777017662115,
+          "max_qpos_l2": 0.6794378544028667,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": false,
+          "n_steps": 261,
+          "final_qpos_l2": 0.043216091572725296,
+          "max_qpos_l2": 0.6321341133580184,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.04766652694196706,
+          "max_qpos_l2": 0.3894523439105779,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 262,
+          "final_qpos_l2": 0.3017674597095181,
+          "max_qpos_l2": 0.3775876300766866,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.2590488103547501,
+          "max_qpos_l2": 0.5838329277281707,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.022475445782555257,
+          "max_qpos_l2": 0.2876887721368866,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 279,
+          "final_qpos_l2": 0.14560242733496845,
+          "max_qpos_l2": 0.14560242733496845,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 302,
+          "final_qpos_l2": 0.09878604762976967,
+          "max_qpos_l2": 0.2264127341710823,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 217,
+          "final_qpos_l2": 0.1063929443602948,
+          "max_qpos_l2": 0.9488590117687387,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.07235511056676668,
+          "max_qpos_l2": 0.14470418734031687,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": false,
+          "n_steps": 290,
+          "final_qpos_l2": 0.09319912974660619,
+          "max_qpos_l2": 0.5133240429538068,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.3318015172862972,
+          "max_qpos_l2": 0.4993883892434043,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.1636126031285561,
+          "max_qpos_l2": 0.35066438462624744,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 217,
+          "final_qpos_l2": 0.5429893423076461,
+          "max_qpos_l2": 0.5429893423076461,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": false,
+          "n_steps": 240,
+          "final_qpos_l2": 0.11408418835186424,
+          "max_qpos_l2": 0.40693233247237454,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.12664036281141597,
+          "max_qpos_l2": 0.704282872893306,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 252,
+          "final_qpos_l2": 0.1921128803262247,
+          "max_qpos_l2": 0.4013724587781538,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 255,
+          "final_qpos_l2": 0.21446325809560296,
+          "max_qpos_l2": 0.4514799319734387,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.3506907774593347,
+          "max_qpos_l2": 0.5594473934797003,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 275,
+          "final_qpos_l2": 0.07440972588134839,
+          "max_qpos_l2": 0.4498037913184077,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 258,
+          "final_qpos_l2": 0.21743241996795998,
+          "max_qpos_l2": 0.6285379074086078,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 3,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 41,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": false,
+          "n_steps": 261,
+          "final_qpos_l2": 0.08740932610353251,
+          "max_qpos_l2": 1.0509447945171235,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 217,
+          "final_qpos_l2": 0.048310389861581045,
+          "max_qpos_l2": 0.5916464366172463,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": false,
+          "n_steps": 199,
+          "final_qpos_l2": 0.06026396896503661,
+          "max_qpos_l2": 3.1491699708362297,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.03765963825225784,
+          "max_qpos_l2": 1.1049676390075442,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 258,
+          "final_qpos_l2": 0.07207488583468769,
+          "max_qpos_l2": 0.7632624922928519,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 227,
+          "final_qpos_l2": 0.02051709686586475,
+          "max_qpos_l2": 1.066942738443919,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.047686512286367735,
+          "max_qpos_l2": 0.566940319196102,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 225,
+          "final_qpos_l2": 0.007738155135463287,
+          "max_qpos_l2": 0.5931199620256049,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.02616789604614713,
+          "max_qpos_l2": 0.6828390277599089,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 230,
+          "final_qpos_l2": 0.03076119266147892,
+          "max_qpos_l2": 0.658312949481658,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 242,
+          "final_qpos_l2": 0.013458551283667198,
+          "max_qpos_l2": 0.4420443916481931,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 216,
+          "final_qpos_l2": 0.019815875302521626,
+          "max_qpos_l2": 0.867968392472577,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 219,
+          "final_qpos_l2": 0.057041454364437444,
+          "max_qpos_l2": 0.6754310693505753,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.040713894246499634,
+          "max_qpos_l2": 0.8661092963546969,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 259,
+          "final_qpos_l2": 0.02410822844534606,
+          "max_qpos_l2": 0.7352965647774029,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.04320067202637153,
+          "max_qpos_l2": 0.5354020936984473,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 220,
+          "final_qpos_l2": 0.03818749680933225,
+          "max_qpos_l2": 0.8737368507466932,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 227,
+          "final_qpos_l2": 0.08836609039221595,
+          "max_qpos_l2": 0.4272420873660972,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.04371639148033806,
+          "max_qpos_l2": 0.9124470803546476,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 253,
+          "final_qpos_l2": 0.040044814002916776,
+          "max_qpos_l2": 0.4524749284954566,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.05987556568132969,
+          "max_qpos_l2": 0.6236193749111711,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 240,
+          "final_qpos_l2": 0.028150731782845956,
+          "max_qpos_l2": 0.5066940402083392,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 230,
+          "final_qpos_l2": 0.0587129346240372,
+          "max_qpos_l2": 0.4396873503240087,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.06712930058225229,
+          "max_qpos_l2": 0.41394835273605374,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 209,
+          "final_qpos_l2": 0.03478146124818371,
+          "max_qpos_l2": 0.34787312808526516,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 230,
+          "final_qpos_l2": 0.015856083933745917,
+          "max_qpos_l2": 0.782331595003726,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 220,
+          "final_qpos_l2": 0.15517993631056484,
+          "max_qpos_l2": 0.8545692108679064,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.04487267872928286,
+          "max_qpos_l2": 0.9255453384767799,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.04133004065032075,
+          "max_qpos_l2": 0.5101903789860356,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.04852256221258212,
+          "max_qpos_l2": 1.0014865071395938,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 286,
+          "final_qpos_l2": 0.01832305384001604,
+          "max_qpos_l2": 1.2768607997784243,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.05205540687686616,
+          "max_qpos_l2": 3.103909156036217,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": false,
+          "n_steps": 317,
+          "final_qpos_l2": 0.12719253805571124,
+          "max_qpos_l2": 0.9998336029276067,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_33",
+          "success": false,
+          "n_steps": 255,
+          "final_qpos_l2": 0.07636832975564435,
+          "max_qpos_l2": 0.5148922772544978,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_34",
+          "success": false,
+          "n_steps": 287,
+          "final_qpos_l2": 0.059327529042556296,
+          "max_qpos_l2": 1.3029689757357648,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_35",
+          "success": false,
+          "n_steps": 218,
+          "final_qpos_l2": 0.03112744935989709,
+          "max_qpos_l2": 0.443062620675186,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 210,
+          "final_qpos_l2": 0.026973662128545767,
+          "max_qpos_l2": 0.4792093573683147,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.007828122607417807,
+          "max_qpos_l2": 0.47991815912851266,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 273,
+          "final_qpos_l2": 0.048171190956422236,
+          "max_qpos_l2": 0.9632867226465885,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.04428125544487238,
+          "max_qpos_l2": 0.2688588085257396,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.05937912342874606,
+          "max_qpos_l2": 0.45749966408501913,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": false,
+          "n_steps": 231,
+          "final_qpos_l2": 0.06590293879932153,
+          "max_qpos_l2": 0.25268700073410727,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 283,
+          "final_qpos_l2": 0.0428734702270378,
+          "max_qpos_l2": 1.1684668142659085,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": false,
+          "n_steps": 257,
+          "final_qpos_l2": 0.0363798069293385,
+          "max_qpos_l2": 1.5341711802182383,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 249,
+          "final_qpos_l2": 0.049253008992811625,
+          "max_qpos_l2": 0.449032165196746,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 206,
+          "final_qpos_l2": 0.014441456779041231,
+          "max_qpos_l2": 0.798893818352243,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 238,
+          "final_qpos_l2": 0.015202987443050847,
+          "max_qpos_l2": 0.5013338715241783,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": false,
+          "n_steps": 306,
+          "final_qpos_l2": 0.042931330069118895,
+          "max_qpos_l2": 1.3342261134660867,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 223,
+          "final_qpos_l2": 0.07959849327274304,
+          "max_qpos_l2": 0.5903224574814111,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.020970901081623146,
+          "max_qpos_l2": 0.5733402790001112,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 4,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 44,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 225,
+          "final_qpos_l2": 0.6476585289537712,
+          "max_qpos_l2": 0.9426242777707445,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 254,
+          "final_qpos_l2": 0.7627133094299542,
+          "max_qpos_l2": 0.7952929583380581,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 280,
+          "final_qpos_l2": 0.09802345511906345,
+          "max_qpos_l2": 0.5588845749204316,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 270,
+          "final_qpos_l2": 0.4033677774202894,
+          "max_qpos_l2": 0.4033677774202894,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.6690387183318761,
+          "max_qpos_l2": 0.6690387183318761,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 249,
+          "final_qpos_l2": 0.09841305236005343,
+          "max_qpos_l2": 0.40981052973896115,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 255,
+          "final_qpos_l2": 0.1256734040667245,
+          "max_qpos_l2": 0.6475674130418172,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": false,
+          "n_steps": 264,
+          "final_qpos_l2": 0.028791468563805444,
+          "max_qpos_l2": 0.7020668922629727,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.6797992122706297,
+          "max_qpos_l2": 0.6797992122706297,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 257,
+          "final_qpos_l2": 0.0897049074534265,
+          "max_qpos_l2": 0.5837565771518184,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 243,
+          "final_qpos_l2": 0.0606627777355768,
+          "max_qpos_l2": 0.33730572863320857,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 267,
+          "final_qpos_l2": 0.023052749972707617,
+          "max_qpos_l2": 0.5912266955913111,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 243,
+          "final_qpos_l2": 0.05773824891990865,
+          "max_qpos_l2": 0.6577977484234682,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.2227516389386503,
+          "max_qpos_l2": 1.4949800600799001,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 222,
+          "final_qpos_l2": 0.285372352875442,
+          "max_qpos_l2": 0.5658206302034627,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 232,
+          "final_qpos_l2": 0.04934863138397087,
+          "max_qpos_l2": 0.3560075764861218,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 227,
+          "final_qpos_l2": 0.08017426375271268,
+          "max_qpos_l2": 0.6193229160846047,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 239,
+          "final_qpos_l2": 0.03220670492481161,
+          "max_qpos_l2": 0.4022630395209356,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.07517884302518013,
+          "max_qpos_l2": 1.1243878645067773,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 206,
+          "final_qpos_l2": 0.02473488844365833,
+          "max_qpos_l2": 0.9943011899783775,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": false,
+          "n_steps": 289,
+          "final_qpos_l2": 0.0419322342551021,
+          "max_qpos_l2": 0.556938708924909,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_21",
+          "success": false,
+          "n_steps": 263,
+          "final_qpos_l2": 0.13149111665358051,
+          "max_qpos_l2": 0.8760549974001794,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 251,
+          "final_qpos_l2": 0.1968113022019922,
+          "max_qpos_l2": 1.1889818327988502,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.1859841444794335,
+          "max_qpos_l2": 0.7440359676255074,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.014317339356561867,
+          "max_qpos_l2": 0.33824803020994665,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": false,
+          "n_steps": 277,
+          "final_qpos_l2": 0.08641939918740696,
+          "max_qpos_l2": 0.6857398232182064,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.02336098700910472,
+          "max_qpos_l2": 0.4856710176121174,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 214,
+          "final_qpos_l2": 0.07280436057795028,
+          "max_qpos_l2": 0.6649144090868162,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 223,
+          "final_qpos_l2": 0.10869201035546415,
+          "max_qpos_l2": 0.7682297694519259,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 222,
+          "final_qpos_l2": 1.5235869673119116,
+          "max_qpos_l2": 1.5235869673119116,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 238,
+          "final_qpos_l2": 0.1649918119860118,
+          "max_qpos_l2": 0.2655310972311574,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.11865382228343521,
+          "max_qpos_l2": 0.4633440167239535,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.05294615091764175,
+          "max_qpos_l2": 0.42686898798695394,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": false,
+          "n_steps": 331,
+          "final_qpos_l2": 0.06465470893964984,
+          "max_qpos_l2": 0.4636221331611278,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 0.07359383529329279,
+          "max_qpos_l2": 0.38470404784166684,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 243,
+          "final_qpos_l2": 0.1293875772382528,
+          "max_qpos_l2": 0.3818220873784224,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 222,
+          "final_qpos_l2": 0.023820351566465777,
+          "max_qpos_l2": 0.3375997782879405,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 230,
+          "final_qpos_l2": 1.0273037615428415,
+          "max_qpos_l2": 1.0273037615428415,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 215,
+          "final_qpos_l2": 0.2189690049899427,
+          "max_qpos_l2": 0.5340966823661848,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 245,
+          "final_qpos_l2": 0.0755776424564444,
+          "max_qpos_l2": 0.324345454272047,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.14818419117262496,
+          "max_qpos_l2": 0.6086781607102013,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 229,
+          "final_qpos_l2": 0.2562839319457837,
+          "max_qpos_l2": 0.40431640596946666,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 206,
+          "final_qpos_l2": 0.37042670683904383,
+          "max_qpos_l2": 0.7377917694801658,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.06350999445630404,
+          "max_qpos_l2": 0.5087591384006328,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.2078663690916065,
+          "max_qpos_l2": 0.5325842735909678,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 230,
+          "final_qpos_l2": 0.13501606261667448,
+          "max_qpos_l2": 0.35075980012361463,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 223,
+          "final_qpos_l2": 0.04790896050445695,
+          "max_qpos_l2": 0.7616448846400216,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 254,
+          "final_qpos_l2": 0.17217030172023393,
+          "max_qpos_l2": 0.6469626993451192,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": false,
+          "n_steps": 235,
+          "final_qpos_l2": 0.07512000641060415,
+          "max_qpos_l2": 0.3126483755538646,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 257,
+          "final_qpos_l2": 0.23438539410478862,
+          "max_qpos_l2": 0.8611170406162173,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 5,
+      "task_name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 46,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.019119543839733792,
+          "max_qpos_l2": 0.7012134794545685,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 178,
+          "final_qpos_l2": 0.015558428791043405,
+          "max_qpos_l2": 0.49235565881221793,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 167,
+          "final_qpos_l2": 0.2647960805857758,
+          "max_qpos_l2": 0.5920095455837062,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": false,
+          "n_steps": 185,
+          "final_qpos_l2": 0.04675280859398256,
+          "max_qpos_l2": 0.42405044714194223,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 159,
+          "final_qpos_l2": 0.6522371040617673,
+          "max_qpos_l2": 0.6522371040617673,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 165,
+          "final_qpos_l2": 0.10125151365262151,
+          "max_qpos_l2": 0.19804072345634727,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 186,
+          "final_qpos_l2": 0.2139057781631944,
+          "max_qpos_l2": 0.4922778669711425,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": false,
+          "n_steps": 200,
+          "final_qpos_l2": 0.35266977788188203,
+          "max_qpos_l2": 0.4251541467284133,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 206,
+          "final_qpos_l2": 0.1814224407962528,
+          "max_qpos_l2": 0.1814224407962528,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 151,
+          "final_qpos_l2": 0.01103903108974801,
+          "max_qpos_l2": 0.1927154156821939,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 160,
+          "final_qpos_l2": 0.10120925232666857,
+          "max_qpos_l2": 0.6100353434623269,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 190,
+          "final_qpos_l2": 0.011858208544496979,
+          "max_qpos_l2": 0.08219735876203546,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 158,
+          "final_qpos_l2": 0.010907380587458571,
+          "max_qpos_l2": 0.027993779032914227,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 200,
+          "final_qpos_l2": 0.28535814808339705,
+          "max_qpos_l2": 0.5540557424506012,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 217,
+          "final_qpos_l2": 0.7296504991033366,
+          "max_qpos_l2": 0.7296504991033366,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 229,
+          "final_qpos_l2": 0.5688434469144368,
+          "max_qpos_l2": 0.5688434469144368,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 171,
+          "final_qpos_l2": 0.15206280156091753,
+          "max_qpos_l2": 0.15206280156091753,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 156,
+          "final_qpos_l2": 0.013602699189925765,
+          "max_qpos_l2": 0.19629107581681135,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 192,
+          "final_qpos_l2": 0.15726159617424015,
+          "max_qpos_l2": 0.15726159617424015,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 154,
+          "final_qpos_l2": 0.01502254601926118,
+          "max_qpos_l2": 0.2727644219499731,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 176,
+          "final_qpos_l2": 0.0970818565548504,
+          "max_qpos_l2": 0.17707893045796938,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 173,
+          "final_qpos_l2": 0.009416803523824973,
+          "max_qpos_l2": 0.12454537155014732,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 168,
+          "final_qpos_l2": 0.03691617709459874,
+          "max_qpos_l2": 0.20171734763726082,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 189,
+          "final_qpos_l2": 0.23360907109946805,
+          "max_qpos_l2": 0.3288184021962594,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 169,
+          "final_qpos_l2": 0.40186259949040615,
+          "max_qpos_l2": 0.40186259949040615,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": false,
+          "n_steps": 167,
+          "final_qpos_l2": 0.304608591760129,
+          "max_qpos_l2": 0.6275417877189093,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 185,
+          "final_qpos_l2": 0.5941914686793831,
+          "max_qpos_l2": 0.5941914686793831,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 189,
+          "final_qpos_l2": 0.6027306070821392,
+          "max_qpos_l2": 0.6628691485924004,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 170,
+          "final_qpos_l2": 0.01888580805996573,
+          "max_qpos_l2": 0.40557199970130703,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 173,
+          "final_qpos_l2": 0.015536039701309389,
+          "max_qpos_l2": 0.5777497981715123,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": false,
+          "n_steps": 187,
+          "final_qpos_l2": 0.4266812926966199,
+          "max_qpos_l2": 0.4266812926966199,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 184,
+          "final_qpos_l2": 0.6068520616510329,
+          "max_qpos_l2": 0.6068520616510329,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.10318919974248641,
+          "max_qpos_l2": 0.3407408789933915,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 160,
+          "final_qpos_l2": 0.07303510843573253,
+          "max_qpos_l2": 0.1534446373031444,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 170,
+          "final_qpos_l2": 0.011470672450651125,
+          "max_qpos_l2": 0.670782555695236,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 179,
+          "final_qpos_l2": 0.010349415672397506,
+          "max_qpos_l2": 0.4636040509372556,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 189,
+          "final_qpos_l2": 0.008442452403039511,
+          "max_qpos_l2": 0.028643948164862064,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 185,
+          "final_qpos_l2": 0.01129276331160801,
+          "max_qpos_l2": 0.6252961469577567,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 163,
+          "final_qpos_l2": 0.009056308549140525,
+          "max_qpos_l2": 0.5120568685834329,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 195,
+          "final_qpos_l2": 0.024043823965127328,
+          "max_qpos_l2": 0.23835816577677552,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 140,
+          "final_qpos_l2": 0.22594593857011105,
+          "max_qpos_l2": 0.6162157149754385,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 166,
+          "final_qpos_l2": 0.17047531414981368,
+          "max_qpos_l2": 0.19141160875477523,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 174,
+          "final_qpos_l2": 0.060935262334734,
+          "max_qpos_l2": 0.30915737149712497,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 193,
+          "final_qpos_l2": 0.054903730544422824,
+          "max_qpos_l2": 0.9077238800880377,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 160,
+          "final_qpos_l2": 0.0568910610816792,
+          "max_qpos_l2": 0.4738683310161321,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 186,
+          "final_qpos_l2": 0.055355507321637604,
+          "max_qpos_l2": 0.554532694392858,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 157,
+          "final_qpos_l2": 0.008078755506378465,
+          "max_qpos_l2": 0.264192903116659,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 155,
+          "final_qpos_l2": 0.010229890038466579,
+          "max_qpos_l2": 0.36417373636348316,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 188,
+          "final_qpos_l2": 0.008402315063834938,
+          "max_qpos_l2": 0.49427936936837014,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 183,
+          "final_qpos_l2": 0.21235114110838266,
+          "max_qpos_l2": 0.3977388371168789,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 6,
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 39,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 192,
+          "final_qpos_l2": 0.012660815442501822,
+          "max_qpos_l2": 0.7753842832451469,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": false,
+          "n_steps": 325,
+          "final_qpos_l2": 0.05615962101765397,
+          "max_qpos_l2": 0.39848849840006134,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 242,
+          "final_qpos_l2": 0.041519677188767874,
+          "max_qpos_l2": 0.6314077802474217,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.02716144429720624,
+          "max_qpos_l2": 0.46468751272233483,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 251,
+          "final_qpos_l2": 0.024122463158180184,
+          "max_qpos_l2": 0.4966280347162738,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 216,
+          "final_qpos_l2": 0.01597287348879603,
+          "max_qpos_l2": 0.6398097230699611,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 218,
+          "final_qpos_l2": 0.016709181510957634,
+          "max_qpos_l2": 0.6411741638849914,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 195,
+          "final_qpos_l2": 0.011397123019077334,
+          "max_qpos_l2": 0.5140550233877403,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 289,
+          "final_qpos_l2": 0.010941067914050336,
+          "max_qpos_l2": 0.7860879581156884,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 207,
+          "final_qpos_l2": 0.008764529858436591,
+          "max_qpos_l2": 0.6033424132274429,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 197,
+          "final_qpos_l2": 0.011091546763097888,
+          "max_qpos_l2": 0.5311883129421596,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": false,
+          "n_steps": 247,
+          "final_qpos_l2": 0.04983264934512292,
+          "max_qpos_l2": 1.2745599739927995,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 270,
+          "final_qpos_l2": 0.27638234690730257,
+          "max_qpos_l2": 0.5714972888558622,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 266,
+          "final_qpos_l2": 0.007962589485357973,
+          "max_qpos_l2": 0.6027301496418486,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.011034402736392323,
+          "max_qpos_l2": 0.41479647291860183,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": false,
+          "n_steps": 278,
+          "final_qpos_l2": 0.08672471135228542,
+          "max_qpos_l2": 0.8354239302230793,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.011976011926326566,
+          "max_qpos_l2": 0.5789894576560694,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": false,
+          "n_steps": 249,
+          "final_qpos_l2": 0.17058007714838502,
+          "max_qpos_l2": 1.428549582517114,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 277,
+          "final_qpos_l2": 0.2591615284048537,
+          "max_qpos_l2": 0.8156073907944943,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 204,
+          "final_qpos_l2": 0.011762338450215055,
+          "max_qpos_l2": 0.6879126619805263,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 263,
+          "final_qpos_l2": 0.011051849457125796,
+          "max_qpos_l2": 0.5916137376324754,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 214,
+          "final_qpos_l2": 0.015522787647495703,
+          "max_qpos_l2": 0.42420634843893845,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.0315834170450925,
+          "max_qpos_l2": 0.4387801823712379,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 217,
+          "final_qpos_l2": 0.011530270213072239,
+          "max_qpos_l2": 0.31058200966568017,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.014177200453964993,
+          "max_qpos_l2": 0.3626918544826761,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 221,
+          "final_qpos_l2": 0.013167133639227476,
+          "max_qpos_l2": 0.5784175094440063,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 235,
+          "final_qpos_l2": 0.015343618340670395,
+          "max_qpos_l2": 0.5930972936023902,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": false,
+          "n_steps": 329,
+          "final_qpos_l2": 0.13056693987823326,
+          "max_qpos_l2": 0.9437092888415758,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_28",
+          "success": false,
+          "n_steps": 254,
+          "final_qpos_l2": 0.0294215031817708,
+          "max_qpos_l2": 0.7564511843398258,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_29",
+          "success": false,
+          "n_steps": 316,
+          "final_qpos_l2": 0.009838788781995421,
+          "max_qpos_l2": 0.6476798567645194,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_30",
+          "success": false,
+          "n_steps": 276,
+          "final_qpos_l2": 0.0525740563943013,
+          "max_qpos_l2": 0.5266641288385425,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.016336240089288,
+          "max_qpos_l2": 0.523470704581197,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 222,
+          "final_qpos_l2": 0.012265112749464322,
+          "max_qpos_l2": 0.957072009960139,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 265,
+          "final_qpos_l2": 0.009064005644461299,
+          "max_qpos_l2": 0.6937652242261597,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": false,
+          "n_steps": 292,
+          "final_qpos_l2": 0.029023881455433973,
+          "max_qpos_l2": 0.5805353803271472,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 264,
+          "final_qpos_l2": 0.15032782254842808,
+          "max_qpos_l2": 0.43846587613218585,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 224,
+          "final_qpos_l2": 0.0101429127373909,
+          "max_qpos_l2": 0.264238579637061,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 253,
+          "final_qpos_l2": 0.011689618942530197,
+          "max_qpos_l2": 0.7727035817218652,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 225,
+          "final_qpos_l2": 0.008634231540220734,
+          "max_qpos_l2": 0.5885026690044536,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 238,
+          "final_qpos_l2": 0.026736148056301836,
+          "max_qpos_l2": 0.5077653750344124,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": false,
+          "n_steps": 220,
+          "final_qpos_l2": 0.06427570537026485,
+          "max_qpos_l2": 0.9756090044519483,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_41",
+          "success": true,
+          "n_steps": 242,
+          "final_qpos_l2": 0.015221816396635895,
+          "max_qpos_l2": 0.3190633866420362,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.01333990578654722,
+          "max_qpos_l2": 0.8177719343433894,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 331,
+          "final_qpos_l2": 0.02072421950567952,
+          "max_qpos_l2": 1.4925265137788344,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": false,
+          "n_steps": 251,
+          "final_qpos_l2": 0.03770360750693011,
+          "max_qpos_l2": 0.6975568225997884,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.011411755349937427,
+          "max_qpos_l2": 0.46621671338932946,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 229,
+          "final_qpos_l2": 0.011320901101416602,
+          "max_qpos_l2": 0.300775183388598,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 261,
+          "final_qpos_l2": 0.03543504802322691,
+          "max_qpos_l2": 0.879572819337841,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.8994678701155239,
+          "max_qpos_l2": 0.8994678701155239,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 197,
+          "final_qpos_l2": 0.010396228972176276,
+          "max_qpos_l2": 1.0107256082462197,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 7,
+      "task_name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 49,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.054802122903096676,
+          "max_qpos_l2": 0.5816706334703304,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 279,
+          "final_qpos_l2": 1.9838315862855107,
+          "max_qpos_l2": 1.9838315862855107,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 234,
+          "final_qpos_l2": 0.015993061702032487,
+          "max_qpos_l2": 0.6725294143664243,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 269,
+          "final_qpos_l2": 0.3024593366942744,
+          "max_qpos_l2": 1.4299942954379525,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 290,
+          "final_qpos_l2": 0.09154204186197067,
+          "max_qpos_l2": 0.666053152967938,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 240,
+          "final_qpos_l2": 0.44057506146077835,
+          "max_qpos_l2": 0.5633568647807626,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 216,
+          "final_qpos_l2": 1.1026049526675443,
+          "max_qpos_l2": 1.1026049526675443,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.08522752618565954,
+          "max_qpos_l2": 0.5903821168848389,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 263,
+          "final_qpos_l2": 0.09242660930297625,
+          "max_qpos_l2": 0.6171003470625899,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 252,
+          "final_qpos_l2": 0.06099922391162849,
+          "max_qpos_l2": 1.7170545738395153,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 323,
+          "final_qpos_l2": 1.4614694895069313,
+          "max_qpos_l2": 1.4614694895069313,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 237,
+          "final_qpos_l2": 0.055079990662216076,
+          "max_qpos_l2": 1.5518352129305162,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 294,
+          "final_qpos_l2": 1.2867515681033048,
+          "max_qpos_l2": 1.2867515681033048,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 253,
+          "final_qpos_l2": 0.08523207835634372,
+          "max_qpos_l2": 0.6047841322358878,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 241,
+          "final_qpos_l2": 0.3738763411328233,
+          "max_qpos_l2": 0.501990431656137,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 226,
+          "final_qpos_l2": 0.45575592742450893,
+          "max_qpos_l2": 1.4400445323233817,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 225,
+          "final_qpos_l2": 0.04066787601860538,
+          "max_qpos_l2": 1.1468992381779008,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 238,
+          "final_qpos_l2": 0.02349600135455658,
+          "max_qpos_l2": 0.5842141073314581,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 274,
+          "final_qpos_l2": 0.07342150624939917,
+          "max_qpos_l2": 0.7803956526161395,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 301,
+          "final_qpos_l2": 1.3076673065036932,
+          "max_qpos_l2": 1.3076673065036932,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 291,
+          "final_qpos_l2": 0.09343727316605706,
+          "max_qpos_l2": 1.219866181714498,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 270,
+          "final_qpos_l2": 0.0530165885242312,
+          "max_qpos_l2": 1.3297517024199603,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 256,
+          "final_qpos_l2": 0.10799016805780476,
+          "max_qpos_l2": 1.6828766632303085,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 266,
+          "final_qpos_l2": 0.051228740107510634,
+          "max_qpos_l2": 1.4702525386831569,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 285,
+          "final_qpos_l2": 0.05293578803185004,
+          "max_qpos_l2": 0.6687277967426188,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 1.0724001271499848,
+          "max_qpos_l2": 1.0724001271499848,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 280,
+          "final_qpos_l2": 0.045280662254005594,
+          "max_qpos_l2": 1.1527968214955546,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 275,
+          "final_qpos_l2": 0.04592260968581441,
+          "max_qpos_l2": 1.1865730263182213,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 231,
+          "final_qpos_l2": 0.054877644964091726,
+          "max_qpos_l2": 0.7874886308061132,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 233,
+          "final_qpos_l2": 0.5520045164289035,
+          "max_qpos_l2": 0.7348117025261699,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 277,
+          "final_qpos_l2": 0.05981922521607133,
+          "max_qpos_l2": 0.8306407578713875,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 227,
+          "final_qpos_l2": 0.022696133815571264,
+          "max_qpos_l2": 0.841575932859402,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 259,
+          "final_qpos_l2": 0.4803880922190011,
+          "max_qpos_l2": 0.7046211730425002,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 260,
+          "final_qpos_l2": 0.6055059384510351,
+          "max_qpos_l2": 1.0439700818746975,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 254,
+          "final_qpos_l2": 0.9805099948567183,
+          "max_qpos_l2": 1.1549249288687367,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.06542721251804078,
+          "max_qpos_l2": 0.5009988204117475,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 279,
+          "final_qpos_l2": 0.76607920434331,
+          "max_qpos_l2": 1.167729942440464,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 236,
+          "final_qpos_l2": 0.05631333441164585,
+          "max_qpos_l2": 0.4242108930594344,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 208,
+          "final_qpos_l2": 0.05360004265097177,
+          "max_qpos_l2": 0.4946427493576229,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 270,
+          "final_qpos_l2": 0.06339325258458685,
+          "max_qpos_l2": 1.1456116077343246,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 229,
+          "final_qpos_l2": 1.6224285452059863,
+          "max_qpos_l2": 1.6224285452059863,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": false,
+          "n_steps": 272,
+          "final_qpos_l2": 0.030881776566906695,
+          "max_qpos_l2": 1.252697321492027,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 311,
+          "final_qpos_l2": 0.030812232746422044,
+          "max_qpos_l2": 1.2742312413601018,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 244,
+          "final_qpos_l2": 2.080715621093298,
+          "max_qpos_l2": 2.080715621093298,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 232,
+          "final_qpos_l2": 0.0658511699564558,
+          "max_qpos_l2": 0.8241347448914913,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 294,
+          "final_qpos_l2": 0.641389822638681,
+          "max_qpos_l2": 1.219537585772663,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 273,
+          "final_qpos_l2": 0.05858771965120258,
+          "max_qpos_l2": 0.33460875364142706,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 239,
+          "final_qpos_l2": 1.2752075609027345,
+          "max_qpos_l2": 1.2752075609027345,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.9368278668796773,
+          "max_qpos_l2": 1.57414006856916,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 281,
+          "final_qpos_l2": 0.28341352703936756,
+          "max_qpos_l2": 1.339116366298451,
+          "replay_valid": true
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 8,
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 38,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": true,
+          "n_steps": 448,
+          "final_qpos_l2": 0.02866107055495047,
+          "max_qpos_l2": 0.2961381155846032,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_1",
+          "success": false,
+          "n_steps": 439,
+          "final_qpos_l2": 0.21336550968213563,
+          "max_qpos_l2": 0.8122360720068621,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 378,
+          "final_qpos_l2": 0.03615152913851579,
+          "max_qpos_l2": 0.3861263020082597,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": false,
+          "n_steps": 429,
+          "final_qpos_l2": 0.07428254895092283,
+          "max_qpos_l2": 0.606501184888453,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_4",
+          "success": true,
+          "n_steps": 412,
+          "final_qpos_l2": 0.2041709268004015,
+          "max_qpos_l2": 0.22334093953518938,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_5",
+          "success": false,
+          "n_steps": 378,
+          "final_qpos_l2": 0.11699851308198246,
+          "max_qpos_l2": 0.5477152544965341,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_6",
+          "success": true,
+          "n_steps": 410,
+          "final_qpos_l2": 0.20157411050178703,
+          "max_qpos_l2": 0.4605138610130578,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_7",
+          "success": true,
+          "n_steps": 356,
+          "final_qpos_l2": 0.07309471554751833,
+          "max_qpos_l2": 0.656805853541582,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_8",
+          "success": false,
+          "n_steps": 373,
+          "final_qpos_l2": 0.1946761724564483,
+          "max_qpos_l2": 0.9229170050047717,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_9",
+          "success": false,
+          "n_steps": 383,
+          "final_qpos_l2": 0.06466237187955508,
+          "max_qpos_l2": 0.25161238891130927,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 376,
+          "final_qpos_l2": 0.1627216219074643,
+          "max_qpos_l2": 0.6151536444035549,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": true,
+          "n_steps": 391,
+          "final_qpos_l2": 0.3428358021703885,
+          "max_qpos_l2": 0.5711969477694392,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_12",
+          "success": true,
+          "n_steps": 353,
+          "final_qpos_l2": 0.5219599367295061,
+          "max_qpos_l2": 0.5317941328169583,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 359,
+          "final_qpos_l2": 0.26361079127402354,
+          "max_qpos_l2": 0.5874454415729482,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": false,
+          "n_steps": 385,
+          "final_qpos_l2": 0.0824451983292768,
+          "max_qpos_l2": 0.6140693413628545,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 356,
+          "final_qpos_l2": 0.03674116038468378,
+          "max_qpos_l2": 0.4905956497480167,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 421,
+          "final_qpos_l2": 0.0447374902804621,
+          "max_qpos_l2": 0.83764790074781,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 392,
+          "final_qpos_l2": 0.0455053316370429,
+          "max_qpos_l2": 0.3964367351282803,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 371,
+          "final_qpos_l2": 0.11491586283178531,
+          "max_qpos_l2": 0.5195943679057441,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 418,
+          "final_qpos_l2": 0.3354628887581894,
+          "max_qpos_l2": 0.5868043155896092,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 353,
+          "final_qpos_l2": 0.1387572285350074,
+          "max_qpos_l2": 0.462978281371974,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": false,
+          "n_steps": 459,
+          "final_qpos_l2": 0.03191760990658191,
+          "max_qpos_l2": 0.44313962834997034,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_22",
+          "success": true,
+          "n_steps": 382,
+          "final_qpos_l2": 0.0713213075127736,
+          "max_qpos_l2": 0.46068862084832524,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 399,
+          "final_qpos_l2": 0.05315206991509047,
+          "max_qpos_l2": 0.3387304043743669,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 374,
+          "final_qpos_l2": 0.0827662778012936,
+          "max_qpos_l2": 0.7575990066009258,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 444,
+          "final_qpos_l2": 0.3475772870189783,
+          "max_qpos_l2": 0.8738872405644771,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": false,
+          "n_steps": 409,
+          "final_qpos_l2": 0.15100656432803947,
+          "max_qpos_l2": 1.3726981450549616,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 402,
+          "final_qpos_l2": 0.2992857581665711,
+          "max_qpos_l2": 0.53552098979697,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 495,
+          "final_qpos_l2": 0.7094980446847531,
+          "max_qpos_l2": 0.7094980446847531,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 402,
+          "final_qpos_l2": 0.0328205866016022,
+          "max_qpos_l2": 0.5394949794912027,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 391,
+          "final_qpos_l2": 0.29229992603804344,
+          "max_qpos_l2": 0.5585901201819796,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 452,
+          "final_qpos_l2": 0.0959746978244742,
+          "max_qpos_l2": 0.5938376932724216,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 448,
+          "final_qpos_l2": 0.526801546664117,
+          "max_qpos_l2": 0.5862160489964755,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": false,
+          "n_steps": 456,
+          "final_qpos_l2": 0.08310637953045132,
+          "max_qpos_l2": 0.4761378539475898,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 446,
+          "final_qpos_l2": 0.03957693814150606,
+          "max_qpos_l2": 0.5462851023791707,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": false,
+          "n_steps": 477,
+          "final_qpos_l2": 0.10349005271183842,
+          "max_qpos_l2": 0.6289374455736467,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 505,
+          "final_qpos_l2": 0.1285837102138171,
+          "max_qpos_l2": 0.48397910717759784,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 391,
+          "final_qpos_l2": 0.17198418275009103,
+          "max_qpos_l2": 0.8481761825097858,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": true,
+          "n_steps": 440,
+          "final_qpos_l2": 0.44831665622599,
+          "max_qpos_l2": 0.9120045520788346,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 387,
+          "final_qpos_l2": 0.1564327669295235,
+          "max_qpos_l2": 0.4792364180990809,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 396,
+          "final_qpos_l2": 0.09845321054720482,
+          "max_qpos_l2": 0.603532248544096,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": false,
+          "n_steps": 506,
+          "final_qpos_l2": 0.08465528589814239,
+          "max_qpos_l2": 0.7921408272554216,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 367,
+          "final_qpos_l2": 0.0585152703720252,
+          "max_qpos_l2": 0.8628795244848078,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": true,
+          "n_steps": 448,
+          "final_qpos_l2": 0.07517512497344045,
+          "max_qpos_l2": 0.4048819043939044,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 338,
+          "final_qpos_l2": 0.17139492333143597,
+          "max_qpos_l2": 0.559114726694121,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": true,
+          "n_steps": 359,
+          "final_qpos_l2": 0.035959617988169545,
+          "max_qpos_l2": 0.4614367870038538,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 442,
+          "final_qpos_l2": 0.13354979715664553,
+          "max_qpos_l2": 0.39165006314232853,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 384,
+          "final_qpos_l2": 0.12955344216103123,
+          "max_qpos_l2": 0.6513132794857182,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 401,
+          "final_qpos_l2": 0.17965972243242867,
+          "max_qpos_l2": 0.4809848649794503,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": false,
+          "n_steps": 351,
+          "final_qpos_l2": 0.07137677714056886,
+          "max_qpos_l2": 0.6384659614067221,
+          "replay_valid": false
+        }
+      ]
+    },
+    {
+      "suite": "libero_10",
+      "task_id": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "hdf5": "/home/stargazer/Desktop/vla_wm/datasets/libero/libero_10/KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_demo.hdf5",
+      "n_demos": 50,
+      "n_valid": 39,
+      "demos": [
+        {
+          "demo_key": "demo_0",
+          "success": false,
+          "n_steps": 329,
+          "final_qpos_l2": 0.3319255411727443,
+          "max_qpos_l2": 4.273618164380266,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_1",
+          "success": true,
+          "n_steps": 237,
+          "final_qpos_l2": 0.1710007389523205,
+          "max_qpos_l2": 0.1710007389523205,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_2",
+          "success": true,
+          "n_steps": 259,
+          "final_qpos_l2": 0.2896131956168933,
+          "max_qpos_l2": 0.46355168307213673,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_3",
+          "success": true,
+          "n_steps": 401,
+          "final_qpos_l2": 0.16179352633053853,
+          "max_qpos_l2": 0.7359461523392314,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_4",
+          "success": false,
+          "n_steps": 364,
+          "final_qpos_l2": 0.18547345586914718,
+          "max_qpos_l2": 0.5314856057642117,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_5",
+          "success": true,
+          "n_steps": 280,
+          "final_qpos_l2": 0.29425604738892247,
+          "max_qpos_l2": 0.61418655378968,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_6",
+          "success": false,
+          "n_steps": 317,
+          "final_qpos_l2": 0.29473166887070706,
+          "max_qpos_l2": 0.9122544876230927,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_7",
+          "success": false,
+          "n_steps": 307,
+          "final_qpos_l2": 0.36626077797052997,
+          "max_qpos_l2": 0.9284357042565999,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_8",
+          "success": true,
+          "n_steps": 302,
+          "final_qpos_l2": 0.08445055395933927,
+          "max_qpos_l2": 0.5679272594705911,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_9",
+          "success": true,
+          "n_steps": 292,
+          "final_qpos_l2": 0.21395195317060162,
+          "max_qpos_l2": 0.5557217105909844,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_10",
+          "success": true,
+          "n_steps": 272,
+          "final_qpos_l2": 0.19899049312552314,
+          "max_qpos_l2": 0.4234681913112912,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_11",
+          "success": false,
+          "n_steps": 253,
+          "final_qpos_l2": 0.4539238999103079,
+          "max_qpos_l2": 0.8288929370714496,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_12",
+          "success": false,
+          "n_steps": 334,
+          "final_qpos_l2": 0.3376698657460305,
+          "max_qpos_l2": 0.8725437577640827,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_13",
+          "success": true,
+          "n_steps": 297,
+          "final_qpos_l2": 0.2116214050925529,
+          "max_qpos_l2": 0.6444446497284829,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_14",
+          "success": true,
+          "n_steps": 321,
+          "final_qpos_l2": 0.046815133791660385,
+          "max_qpos_l2": 0.5414642126450658,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_15",
+          "success": true,
+          "n_steps": 304,
+          "final_qpos_l2": 0.07973727296132872,
+          "max_qpos_l2": 0.563070996922004,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_16",
+          "success": true,
+          "n_steps": 258,
+          "final_qpos_l2": 0.2781315845758594,
+          "max_qpos_l2": 0.4441063356367274,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_17",
+          "success": true,
+          "n_steps": 268,
+          "final_qpos_l2": 0.6305932960816778,
+          "max_qpos_l2": 0.6305932960816778,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_18",
+          "success": true,
+          "n_steps": 248,
+          "final_qpos_l2": 0.4614482865644845,
+          "max_qpos_l2": 0.4614482865644845,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_19",
+          "success": true,
+          "n_steps": 263,
+          "final_qpos_l2": 0.42262944510897565,
+          "max_qpos_l2": 1.8726586847670161,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_20",
+          "success": true,
+          "n_steps": 273,
+          "final_qpos_l2": 0.09999887863784175,
+          "max_qpos_l2": 0.8376309025130415,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_21",
+          "success": true,
+          "n_steps": 294,
+          "final_qpos_l2": 0.09771525636418643,
+          "max_qpos_l2": 0.796799118273434,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_22",
+          "success": false,
+          "n_steps": 306,
+          "final_qpos_l2": 0.05231487776814096,
+          "max_qpos_l2": 0.7929209081571376,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_23",
+          "success": true,
+          "n_steps": 335,
+          "final_qpos_l2": 0.1430414113004823,
+          "max_qpos_l2": 2.0069087232854748,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_24",
+          "success": true,
+          "n_steps": 256,
+          "final_qpos_l2": 0.3389349700681001,
+          "max_qpos_l2": 0.7196672100101155,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_25",
+          "success": true,
+          "n_steps": 245,
+          "final_qpos_l2": 0.08915153848930046,
+          "max_qpos_l2": 0.9203364024599148,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_26",
+          "success": true,
+          "n_steps": 247,
+          "final_qpos_l2": 0.12621423357086853,
+          "max_qpos_l2": 0.48278199009192485,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_27",
+          "success": true,
+          "n_steps": 327,
+          "final_qpos_l2": 0.1362447362039236,
+          "max_qpos_l2": 0.6086099185530037,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_28",
+          "success": true,
+          "n_steps": 228,
+          "final_qpos_l2": 0.17965024109047154,
+          "max_qpos_l2": 0.3580287580833898,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_29",
+          "success": true,
+          "n_steps": 213,
+          "final_qpos_l2": 0.2036266206099668,
+          "max_qpos_l2": 0.4764933676599911,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_30",
+          "success": true,
+          "n_steps": 324,
+          "final_qpos_l2": 0.1401905387921407,
+          "max_qpos_l2": 0.7230688441229078,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_31",
+          "success": true,
+          "n_steps": 278,
+          "final_qpos_l2": 0.1387689619835328,
+          "max_qpos_l2": 0.7311064749059932,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_32",
+          "success": true,
+          "n_steps": 250,
+          "final_qpos_l2": 0.35157568592797933,
+          "max_qpos_l2": 0.5283432739379775,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_33",
+          "success": true,
+          "n_steps": 249,
+          "final_qpos_l2": 0.20805928360723122,
+          "max_qpos_l2": 0.5509557008683741,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_34",
+          "success": true,
+          "n_steps": 374,
+          "final_qpos_l2": 0.45338958730055695,
+          "max_qpos_l2": 0.635580647954863,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_35",
+          "success": true,
+          "n_steps": 254,
+          "final_qpos_l2": 0.4723900057676927,
+          "max_qpos_l2": 2.969103458925035,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_36",
+          "success": true,
+          "n_steps": 441,
+          "final_qpos_l2": 0.07679080403150912,
+          "max_qpos_l2": 1.276472485229984,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_37",
+          "success": true,
+          "n_steps": 266,
+          "final_qpos_l2": 0.254583355102362,
+          "max_qpos_l2": 0.5307447451946293,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_38",
+          "success": false,
+          "n_steps": 341,
+          "final_qpos_l2": 0.3284127617064307,
+          "max_qpos_l2": 0.7659319186356012,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_39",
+          "success": true,
+          "n_steps": 340,
+          "final_qpos_l2": 0.05372818069920952,
+          "max_qpos_l2": 0.6859084469676312,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_40",
+          "success": true,
+          "n_steps": 330,
+          "final_qpos_l2": 0.05282771975635907,
+          "max_qpos_l2": 0.6573956061547048,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_41",
+          "success": false,
+          "n_steps": 353,
+          "final_qpos_l2": 0.09142387467203916,
+          "max_qpos_l2": 0.8401200409823286,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_42",
+          "success": true,
+          "n_steps": 284,
+          "final_qpos_l2": 0.10613088380988626,
+          "max_qpos_l2": 1.1304550442380117,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_43",
+          "success": false,
+          "n_steps": 316,
+          "final_qpos_l2": 0.21671256336650274,
+          "max_qpos_l2": 0.787915136453651,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_44",
+          "success": true,
+          "n_steps": 288,
+          "final_qpos_l2": 0.14007603541456848,
+          "max_qpos_l2": 0.5753775982124811,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_45",
+          "success": false,
+          "n_steps": 375,
+          "final_qpos_l2": 0.19131070237789258,
+          "max_qpos_l2": 2.2284263497647725,
+          "replay_valid": false
+        },
+        {
+          "demo_key": "demo_46",
+          "success": true,
+          "n_steps": 246,
+          "final_qpos_l2": 0.031682299776864944,
+          "max_qpos_l2": 0.5507211644634193,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_47",
+          "success": true,
+          "n_steps": 237,
+          "final_qpos_l2": 0.052132417140115184,
+          "max_qpos_l2": 0.5213322636089721,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_48",
+          "success": true,
+          "n_steps": 266,
+          "final_qpos_l2": 0.0970999997082152,
+          "max_qpos_l2": 0.5027454902550135,
+          "replay_valid": true
+        },
+        {
+          "demo_key": "demo_49",
+          "success": true,
+          "n_steps": 282,
+          "final_qpos_l2": 0.1191480101621468,
+          "max_qpos_l2": 1.0011425228537298,
+          "replay_valid": true
+        }
+      ]
+    }
+  ]
+}

@@ -26,7 +26,8 @@ from libero.libero import benchmark  # noqa: E402
 from lerobot.configs.policies import PreTrainedConfig  # noqa: E402
 from lerobot.envs.configs import LiberoEnv as LiberoEnvConfig  # noqa: E402
 from lerobot.envs.factory import make_env_pre_post_processors  # noqa: E402
-from lerobot.envs.libero import LiberoEnv  # noqa: E402
+from lerobot.envs.libero import TASK_SUITE_MAX_STEPS, LiberoEnv  # noqa: E402
+from lerobot.envs.utils import preprocess_observation  # noqa: E402
 from lerobot.policies.factory import make_policy, make_pre_post_processors  # noqa: E402
 
 DEFAULT_MODEL = "lerobot/pi05_libero_finetuned"
@@ -50,11 +51,16 @@ def make_task_env(
     """
     cfg = env_cfg or LiberoEnvConfig(task=suite_name)
     suite = make_task_suite(suite_name)
+    # Bare LiberoEnv has no gym TimeLimit wrapper; without an explicit cap the
+    # loop can outrun robosuite's internal horizon, whose done is NOT surfaced
+    # by bddl_base_domain.step ("executing action in terminated episode").
+    # Match the vec-env eval exactly: suite-specific max steps.
+    episode_length = cfg.episode_length or TASK_SUITE_MAX_STEPS[suite_name]
     return LiberoEnv(
         task_suite=suite,
         task_id=task_id,
         task_suite_name=suite_name,
-        episode_length=cfg.episode_length,
+        episode_length=episode_length,
         camera_name=cfg.camera_name,
         obs_type=cfg.obs_type,
         observation_width=cfg.observation_width,
@@ -103,21 +109,31 @@ class Pi05Runner:
     # ---- observation plumbing -------------------------------------------------
 
     @staticmethod
+    def _batch_leaf(v: Any) -> Any:
+        """Recursively add a leading batch dim, mirroring gym's vec-env stacking
+        of (arbitrarily) nested Dict observation spaces."""
+        if isinstance(v, dict):
+            return {k: Pi05Runner._batch_leaf(x) for k, x in v.items()}
+        if isinstance(v, np.ndarray):
+            return np.expand_dims(v, 0)
+        if isinstance(v, (int, float, bool, np.number)):
+            return np.asarray([v])
+        return [v]
+
+    @staticmethod
     def _batch_obs(obs: dict, task_description: str) -> dict:
-        """Single-env obs -> the batched layout the vec-env eval loop feeds the pipelines."""
-        batched: dict[str, Any] = {}
-        for k, v in obs.items():
-            if isinstance(v, dict):
-                batched[k] = {kk: np.expand_dims(vv, 0) for kk, vv in v.items()}
-            elif isinstance(v, np.ndarray):
-                batched[k] = np.expand_dims(v, 0)
-            else:
-                batched[k] = [v]
+        """Single-env obs -> the batched layout the vec-env eval loop feeds
+        the pipelines."""
+        batched = {k: Pi05Runner._batch_leaf(v) for k, v in obs.items()}
         batched["task"] = [task_description]
         return batched
 
     def _obs_to_policy_batch(self, obs: dict, task_description: str) -> dict:
+        # Mirror the eval rollout exactly: batch -> preprocess_observation
+        # (numpy->torch, LeRobot key layout) -> task -> env pipeline -> policy pipeline.
         observation = self._batch_obs(obs, task_description)
+        observation = preprocess_observation(observation)
+        observation["task"] = [task_description]
         observation = self.env_preprocessor(observation)
         observation = self.preprocessor(observation)
         return observation

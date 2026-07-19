@@ -70,7 +70,6 @@ def replay_task_demos(
 
     env = make_task_env(suite_name, task_id)
     env.reset()
-    sim = get_sim(env)
     report = TaskReplayReport(
         suite=suite_name, task_id=task_id, task_name=task.name,
         hdf5=str(h5_path), n_demos=0, n_valid=0,
@@ -84,6 +83,11 @@ def replay_task_demos(
             grp = f["data"][key]
             actions = np.asarray(grp["actions"])            # (T, 7)
             rec_states = np.asarray(grp["states"])          # (T, D) mujoco flat states
+            # Full reset first: restoring sim state does NOT clear robosuite's episode
+            # bookkeeping (self.done / timestep) — without this, any demo that hits
+            # done poisons the next one ("executing action in terminated episode").
+            env._env.reset()
+            sim = get_sim(env)  # reset may rebuild the MjSim; re-acquire the handle
             # init from the demo's first recorded sim state
             sim.set_state_from_flattened(rec_states[0].copy())
             sim.forward()

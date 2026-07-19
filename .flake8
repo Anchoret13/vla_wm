@@ -1,0 +1,5 @@
+[flake8]
+# Repo-local: research code favors informative one-line comments; lerobot itself uses 110.
+max-line-length = 100
+extend-ignore = E203
+exclude = .git,.libero,__pycache__
