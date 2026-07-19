@@ -1,0 +1,37 @@
+{
+  "equivalence": {
+    "max_abs_diff": 0.004769742488861084,
+    "mean_abs_diff": 0.0007538460195064545,
+    "action_scale_mean_abs": 0.4801675081253052
+  },
+  "diversity_N16": {
+    "pairwise_l2_mean": 1.2402465343475342,
+    "pairwise_l2_min": 0.9384341835975647,
+    "pairwise_l2_max": 1.730427622795105,
+    "per_step_l2_first10_mean": 0.15810631215572357,
+    "per_step_l2_last10_mean": 0.17379716038703918,
+    "chunk_norm_mean": 12.703096389770508
+  },
+  "tap": {
+    "h_img_shape": [
+      192,
+      2048
+    ],
+    "e_lang_shape": [
+      2048
+    ],
+    "two_pass_ms": 153.1,
+    "shift_vs_constant_prompt": {
+      "mean_cos_dist": 0.20305848121643066,
+      "max_cos_dist": 1.2403371334075928,
+      "mean_rel_l2": 0.5085005760192871,
+      "n_img_tokens": 768
+    }
+  },
+  "timing": {
+    "prefix_forward_s": 0.075,
+    "batched_16_denoise_s": 0.217,
+    "sequential_16_full_s": 2.175,
+    "speedup_vs_sequential": 7.4
+  }
+}
