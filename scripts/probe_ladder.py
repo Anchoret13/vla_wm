@@ -35,11 +35,20 @@ LAMBDAS = [1e-2, 1e0, 1e2, 1e3, 1e4]
 
 
 def load_shards():
-    shards = defaultdict(list)  # task_id -> [shard]
-    for p in sorted(PROBE_DIR.glob("task*_demo*.pt")):
+    """task_id -> [shards], NUMERICALLY sorted by demo index (audit: glob's
+    lexicographic order polluted the demo split), excluding shards whose
+    collection replay failed (success=False) — documented exclusion rule."""
+    shards = defaultdict(list)
+    excluded = []
+    for p in PROBE_DIR.glob("task*_demo*.pt"):
         s = torch.load(p, weights_only=False)
+        if not s["success"]:
+            excluded.append(p.name)
+            continue
         shards[s["task_id"]].append(s)
-    return shards
+    for t in shards:
+        shards[t].sort(key=lambda s: s["demo"])
+    return shards, sorted(excluded)
 
 
 def frame_matrix(shard, stream):
@@ -114,37 +123,67 @@ class LocProbe(torch.nn.Module):
         return torch.einsum("bnc,nck->bnk", e3, self.aff) + self.bias
 
 
-def locprobe_fit_eval(ttr, ytr, tte, yte, epochs=300, lr=1e-2):
-    """ttr: (N,64,d) agentview tokens; y: (N,n_obj,3). Returns moving-dims R^2."""
+def locprobe_fit_eval(ttr, ytr, tte, yte, epochs=300, lr=1e-2, seeds=(0, 1, 2)):
+    """ttr: (N,64,d) agentview tokens; y: (N,n_obj,3).
+
+    Audit fixes: moving-dims mask from TRAIN variance (no test-label leakage);
+    repeated seeds, returns (mean, std) over seeds. This is a spatially-aware
+    probe (softmax + affine readout), NOT a strictly linear probe.
+    """
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     ttr, ytr, tte, yte = (v.to(dev) for v in (ttr, ytr, tte, yte))
     mu, sd = ytr.mean(0, keepdim=True), ytr.std(0, keepdim=True).clamp(min=1e-4)
-    probe = LocProbe(ttr.shape[-1], ytr.shape[1]).to(dev)
-    opt = torch.optim.Adam(probe.parameters(), lr=lr)
-    for _ in range(epochs):
-        opt.zero_grad()
-        loss = torch.nn.functional.mse_loss(probe(ttr), (ytr - mu) / sd)
-        loss.backward()
-        opt.step()
-    with torch.no_grad():
-        pred = probe(tte) * sd + mu
-    ss_res = ((yte - pred) ** 2).sum(0)
-    ss_tot = ((yte - yte.mean(0)) ** 2).sum(0).clamp(min=1e-8)
-    r2 = (1 - ss_res / ss_tot).reshape(-1)
-    moving = yte.std(0).reshape(-1) > 0.005
-    return float(r2[moving].mean()) if bool(moving.any()) else float("nan")
+    moving = ytr.std(0).reshape(-1) > 0.005  # TRAIN-defined evaluation dims
+    if not bool(moving.any()):
+        return float("nan"), float("nan"), float("nan")
+    scores, errs = [], []
+    for seed in seeds:
+        torch.manual_seed(seed)
+        probe = LocProbe(ttr.shape[-1], ytr.shape[1]).to(dev)
+        opt = torch.optim.Adam(probe.parameters(), lr=lr)
+        for _ in range(epochs):
+            opt.zero_grad()
+            loss = torch.nn.functional.mse_loss(probe(ttr), (ytr - mu) / sd)
+            loss.backward()
+            opt.step()
+        with torch.no_grad():
+            pred = probe(tte) * sd + mu
+        # POOLED R^2 over train-defined moving dims (variance-weighted): per-dim
+        # averaging explodes when a train-moving dim has ~zero test variance
+        # (v5 lesson: -3000s). Pooled ratio is the standard multi-output R^2.
+        res = ((yte - pred) ** 2).reshape(len(yte), -1)[:, moving]
+        tot = ((yte - yte.mean(0)) ** 2).reshape(len(yte), -1)[:, moving]
+        scores.append(float(1 - res.sum() / tot.sum().clamp(min=1e-8)))
+        # physical readout: mean 3D position error (cm) on moving OBJECTS
+        obj_moving = moving.reshape(-1, 3).any(-1)
+        e = (yte - pred).norm(dim=-1)[:, obj_moving]     # (N, n_moving_obj)
+        errs.append(float(e.mean()) * 100.0)
+    return float(np.mean(scores)), float(np.std(scores)), float(np.mean(errs))
 
 
 def main() -> None:
     torch.manual_seed(0)
-    shards = load_shards()
+    shards, excluded = load_shards()
     print(f"tasks: {sorted(shards)}  demos/task: "
           f"{[len(shards[t]) for t in sorted(shards)]}")
-    report: dict = {"world": {}, "task": {}}
+    print(f"excluded (collection replay failed): {excluded}")
+    meta = {
+        "excluded_shards": excluded,
+        "n_frames": int(sum(len(s["rows"]) for sh in shards.values() for s in sh)),
+        "split_demos": {int(t): {"train": [s["demo"] for s in split_demos(sh)[0]],
+                                 "test": [s["demo"] for s in split_demos(sh)[1]]}
+                        for t, sh in shards.items()},
+        "locprobe_seeds": [0, 1, 2],
+        "lambda_grid": LAMBDAS,
+        "moving_dim_rule": "train std > 5mm",
+        "note": "LocProbe is a spatially-aware probe (softmax+affine), not linear",
+    }
+    report: dict = {"meta": meta, "world": {}, "task": {}}
 
     # ---- world probes: per-task object-position regression -----------------
     for stream in STREAMS:
-        r2s, q_r2s, loc_r2s, loc_frame_r2s = [], [], [], []
+        r2s, q_r2s, loc_r2s, loc_errs = [], [], [], []
+        loc_frame_r2s, loc_frame_stds, loc_frame_errs = [], [], []
         for tid, sh in shards.items():
             tr, te = split_demos(sh)
             if not te:
@@ -167,7 +206,9 @@ def main() -> None:
                              for s in tr])
             ote = torch.cat([torch.stack([r["obj_pos"] for r in s["rows"]])
                              for s in te])
-            loc_r2s.append(locprobe_fit_eval(ttr, otr, tte, ote))
+            lr2, _, lerr = locprobe_fit_eval(ttr, otr, tte, ote)
+            loc_r2s.append(lr2)
+            loc_errs.append(lerr)
             # frame-level split: decodability (interpolation), demo identity leaks
             # by design — answers "is position IN the tokens at all", while the
             # demo split above answers few-shot layout generalization.
@@ -176,8 +217,11 @@ def main() -> None:
             g = torch.Generator().manual_seed(tid)
             perm = torch.randperm(len(tall), generator=g)
             k = int(len(tall) * 0.8)
-            loc_frame_r2s.append(locprobe_fit_eval(
-                tall[perm[:k]], oall[perm[:k]], tall[perm[k:]], oall[perm[k:]]))
+            m_, s_, e_ = locprobe_fit_eval(
+                tall[perm[:k]], oall[perm[:k]], tall[perm[k:]], oall[perm[k:]])
+            loc_frame_r2s.append(m_)
+            loc_frame_stds.append(s_)
+            loc_frame_errs.append(e_)
             qtr = torch.cat([torch.stack([r["q"] for r in s["rows"]]) for s in tr])
             qte = torch.cat([torch.stack([r["q"] for r in s["rows"]]) for s in te])
             qr2, _ = fit_best(xtr, qtr, xte, qte)
@@ -190,6 +234,10 @@ def main() -> None:
             "obj_pos_locprobe_frame_split_R2_mean": float(np.nanmean(loc_frame_r2s)),
             "obj_pos_locprobe_frame_split_per_task": [round(v, 3)
                                                       for v in loc_frame_r2s],
+            "obj_pos_locprobe_frame_split_seed_std": [round(v, 3)
+                                                      for v in loc_frame_stds],
+            "obj_pos_err_cm_demo_split": [round(v, 1) for v in loc_errs],
+            "obj_pos_err_cm_frame_split": [round(v, 1) for v in loc_frame_errs],
             "proprio_R2_mean": float(np.mean(q_r2s)),
         }
 
@@ -213,7 +261,23 @@ def main() -> None:
         return (x, torch.cat(phase).float(), torch.cat(remain).float(),
                 torch.cat(tids).long(), m)
 
-    for stream in STREAMS + ["e_lang"]:
+    # true task-only prior baseline (audit #6: e_lang is post-fusion, NOT a
+    # language-only prior): one-hot task identity as the only feature. taskid
+    # cells are 1.0 by construction and skipped; phase/remaining show how much
+    # "progress" is explained by task identity alone.
+    for stream in STREAMS + ["e_lang", "taskid_prior"]:
+        if stream == "taskid_prior":
+            _, ph, rm, tid_all, m = build_global(STREAMS[0])
+            x = torch.nn.functional.one_hot(tid_all, 10).float()
+            entry = {}
+            r2, _ = fit_best(x[m], ph[m], x[~m], ph[~m])
+            entry["phase_R2"] = round(r2, 3)
+            r2, _ = fit_best(x[m], rm[m], x[~m], rm[~m])
+            entry["remaining_R2"] = round(r2, 3)
+            entry["taskid_acc"] = None   # 1.0 by construction
+            entry["t0_vs_t1_acc"] = None
+            report["task"][stream] = entry
+            continue
         if stream == "e_lang":
             xs, tids, split = [], [], []
             phase, remain = [], []
@@ -260,13 +324,16 @@ def main() -> None:
     print("\n=== WORLD (per-task obj-pos / proprio R2) ===")
     for s, e in report["world"].items():
         print(f"{s:10s} meanpool {e['obj_pos_R2_mean']:.3f}  "
-              f"locprobe(demo-split) {e['obj_pos_locprobe_R2_mean']:.3f}  "
-              f"locprobe(frame-split) {e['obj_pos_locprobe_frame_split_R2_mean']:.3f}  "
+              f"loc(demo) {e['obj_pos_locprobe_R2_mean']:.3f} "
+              f"[{np.mean(e['obj_pos_err_cm_demo_split']):.1f}cm]  "
+              f"loc(frame) {e['obj_pos_locprobe_frame_split_R2_mean']:.3f} "
+              f"[{np.mean(e['obj_pos_err_cm_frame_split']):.1f}cm]  "
               f"proprio {e['proprio_R2_mean']:.3f}")
     print("\n=== TASK (phase / remaining / 10-way ID / t0-vs-t1) ===")
     for s, e in report["task"].items():
-        print(f"{s:10s} phase {e['phase_R2']:.3f}  remain {e['remaining_R2']:.3f}  "
-              f"taskID {e['taskid_acc']:.3f}  t0v1 {e['t0_vs_t1_acc']:.3f}")
+        tid = "  (by construction)" if e["taskid_acc"] is None else \
+            f"  taskID {e['taskid_acc']:.3f}  t0v1 {e['t0_vs_t1_acc']:.3f}"
+        print(f"{s:12s} phase {e['phase_R2']:.3f}  remain {e['remaining_R2']:.3f}{tid}")
     print(f"\n-> {out}")
 
 

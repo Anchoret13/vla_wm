@@ -21,16 +21,21 @@ GRID = 16
 
 def project_points(env, points_w: np.ndarray, camera: str = "agentview",
                    h: int = 360, w: int = 360) -> np.ndarray:
-    """World points (n,3) -> pixel coords (n,2) in the FLIPPED (policy-view) frame."""
+    """World points (n,3) -> (row, col) pixel coords in RAW render orientation.
+
+    Empirically verified (scripts/orientation_check.py, 2026-07-20): the token
+    grid lives in RAW orientation — LiberoEnv flips the obs 180° "for
+    visualization" and LiberoProcessorStep flips it BACK before SigLIP. So
+    projections must NOT be flip-compensated; obs frames must be rotated 180°
+    when displayed under token-space maps.
+    """
     sim = get_sim(env)
     mat = get_camera_transform_matrix(sim, camera, h, w)  # (4,4) world->pixel
     pts = np.concatenate([points_w, np.ones((len(points_w), 1))], axis=1)
     pix = (mat @ pts.T).T
     pix = pix[:, :2] / pix[:, 2:3]
-    # raw robosuite pixel coords are (col, row) in the unflipped image; LiberoEnv
-    # flips both axes for the policy view.
     col, row = pix[:, 0], pix[:, 1]
-    return np.stack([(h - 1) - row, (w - 1) - col], axis=1)  # (row, col) flipped
+    return np.stack([row, col], axis=1)  # raw (row, col) — token space
 
 
 def patch_disk_labels(

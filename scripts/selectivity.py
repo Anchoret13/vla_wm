@@ -104,6 +104,7 @@ def main() -> None:
     axes = np.atleast_2d(axes)
     vmax = max(m.max() for _, _, mm, _ in figs for m in mm.values())
     for r, (t, frame, maps, masks) in enumerate(figs):
+        frame = frame[::-1, ::-1]  # rotate obs to RAW/token orientation for display
         axes[r, 0].imshow(frame)
         colors = {"t0_targets": "cyan", "t1_targets": "lime",
                   "shared_goal": "yellow", "distractors": "white"}
