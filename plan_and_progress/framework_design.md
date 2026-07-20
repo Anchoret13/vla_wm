@@ -151,6 +151,21 @@ projected object masks; heatmap appearance alone is not a decision criterion.
 **[DEC]** final feature inputs remain open until these probes. Do not extract the full
 segment dataset before the decision.
 
+Evidence log (2026-07-20, pre-registered probes; details in `2026-07-19.md`):
+
+- v6 "cross-layout 0.698" RETRACTED — q-only proprio control (0.641) nearly matches
+  all token probes on that metric; it measured arm tracking.
+- Layout probe set (50 init states/task, 40/10 init-state split): ALL streams fail
+  the pass rule (siglip best at mean R² 0.035, margin over q-only 0.19 < 0.3).
+  Decision-time cm-level layout reading via frozen features + light probes is NOT
+  certified — though siglip's absolute error beats q-only (1.3–1.8 vs 1.7–2.4 cm),
+  the signal sits at the extraction edge.
+- Consequences: implicit layout learning through WM dynamics stays the primary
+  route; **Candidate-D's training-only auxiliary pose supervision is promoted to a
+  strong v0 auxiliary-loss candidate for A/B**; task-side evidence (task-ID 1.000,
+  object-role-selective modulation ~30×, paraphrase invariance) is the part of the
+  tap story that currently stands firm.
+
 ---
 
 ## 4. Candidate A — monolithic task-conditioned carry
