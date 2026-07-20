@@ -60,7 +60,8 @@ def ridge_fit(x, y, lam):
     xm, ym = x.mean(0), y.mean(0)
     xc, yc = x - xm, y - ym
     d = xc.shape[1]
-    w = torch.linalg.solve(xc.T @ xc + lam * torch.eye(d), xc.T @ yc)
+    w = torch.linalg.solve(
+        xc.T @ xc + lam * torch.eye(d, device=x.device, dtype=x.dtype), xc.T @ yc)
     return w, xm, ym
 
 
