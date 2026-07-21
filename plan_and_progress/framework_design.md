@@ -1,4 +1,4 @@
-# pi05-lcwm — Framework Design v0.1
+# pi05-lcwm — Framework Design v0.2
 
 Living design document for the language-conditioned world-model family on frozen
 π0.5, LIBERO-10. Structure candidates stay comparable under one data / interface /
@@ -7,7 +7,7 @@ open decision with current default. **[EST]** = measure rather than assume.
 
 ---
 
-## 0. Objective and Phase-1 win condition (2026-07-19)
+## 0. Objective and Phase-1 win condition (updated 2026-07-20)
 
 Language acts as a **task identifier**, not as unconstrained text state. A task
 normalizer maps paraphrases of the same task to one canonical identity:
@@ -22,7 +22,22 @@ Required representation behavior:
 - same physical history + paraphrases of the same task → the **same** task state
 - same physical history + different tasks → **different, decision-relevant** task states
 - latent difference is not sufficient by itself: changing `τ` must change future
-  prediction / candidate ranking in the correct way
+  prediction, task-relevant predicates / progress, and eventually behavior in the
+  correct way
+
+### Objective hierarchy
+
+1. **Core research objective:** learn a language-conditioned predictive state on top
+   of frozen π0.5. It must summarize physical history and canonical task identity well
+   enough for action-conditioned, multi-step future prediction. Multitask sharing,
+   long-horizon reasoning, and a better policy are consequences sought from this state.
+2. **Representation criterion:** under identical observation / action history,
+   paraphrases of one task should induce the same predictive state, while different
+   tasks should differ where their future-relevant semantics differ. Predicted futures
+   and behavior arbitrate this property; raw latent distance does not.
+3. **Phase-1 instrumental test:** use the learned state to improve frozen π0.5 on
+   LIBERO-10. Proposal reranking is the first policy interface, not the definition or
+   final objective of the world model.
 
 **Phase 1:** on standard LIBERO-10, frozen `lerobot/pi05_libero_finetuned` remains the
 proposal policy; the learned module must improve its paired closed-loop success rate.
@@ -30,7 +45,7 @@ The backbone is not finetuned. Current reference is 96/100 in Stage-1 `lerobot-e
 and 98/100 in the single-env chassis run; the final comparison must use one locked
 harness, identical init-state schedule, and paired seeds.
 
-Primary policy mechanism = **proposal reranking**, not action generation from scratch:
+Phase-1 policy interface = **proposal reranking**, not action generation from scratch:
 
 ```text
 observation + canonical task
@@ -45,6 +60,20 @@ observation + canonical task
                                       │
                               observe and replan
 ```
+
+Branch-scale candidate ranking is therefore a **downstream diagnostic and Phase-1
+interface**, not the core learning target and not a prerequisite for the first LCWM.
+Restoring one snapshot and varying only the action branch creates controlled
+counterfactual futures. Those branches serve three distinct purposes:
+
+1. test and improve action-conditioned latent dynamics outside the single demonstrated
+   action at a state;
+2. test whether a task swap changes predicted predicates / progress for the right
+   reasons under the same physical history and candidate actions;
+3. derive ranking / value labels that connect the learned state to π0.5 improvement.
+
+Purpose 3 must not replace 1–2. A direct-Q model can rank candidates without learning
+a reusable predictive state; Candidate C exists precisely as that control.
 
 Phase-1 success must report more than aggregate SR: paired ΔSR, rescue count
 (`π0.5` fail / reranker success), harm count (`π0.5` success / reranker fail),
@@ -63,7 +92,8 @@ statistical threshold and episode count are set before final eval.
 - Policy chunk = 50 env actions; commitment / decision stride `c = 10`. A candidate is
   split into five 10-action blocks for latent lookahead; `K ∈ {1, 3, 5}` is measured.
 - All candidate structures receive the same frozen visual features, proprio, executed
-  action history, task identity, branch data, and train/validation/test split.
+  action history, task identity, and train/validation/test split. Where branch data is
+  used, they receive the same snapshot siblings and labels.
 - All candidates expose the same four operations:
 
 ```python
@@ -126,6 +156,11 @@ image ── SigLIP pre-trunk ────────────────�
    └── canonical task prompt + PaliGemma last layer ──── H_task^τ
 ```
 
+Terminology is kept strict: `H_world / H_task` are frozen VLA feature inputs; they are
+not yet the world-model hidden state. `Z_t^τ` in A, or `(W_t, G_t^τ)` in B, is the
+learned recurrent predictive state. We choose the frozen input by how well a learned
+state can use it for dynamics, not by renaming the tap itself as the world model.
+
 Candidate inputs:
 
 - shared/world stream: SigLIP pre-trunk **or** constant-prompt last-layer
@@ -148,23 +183,33 @@ t0 paraphrases, canonical t1, unrelated t2, and constant prompt on identical fra
 Target-object vs distractor/background selectivity needs simulator segmentation or
 projected object masks; heatmap appearance alone is not a decision criterion.
 
-**[DEC]** final feature inputs remain open until these probes. Do not extract the full
-segment dataset before the decision.
+**[DEC]** final feature inputs remain open, but standalone probes no longer gate LCWM
+training. The next arbitration happens inside matched learned-state models using a
+small provisional input matrix: SigLIP-only, canonical-last-layer-only, and fused.
 
-Evidence log (2026-07-20, pre-registered probes; details in `2026-07-19.md`):
+Evidence log (2026-07-20, controlled probes; details in `2026-07-19.md`):
 
 - v6 "cross-layout 0.698" RETRACTED — q-only proprio control (0.641) nearly matches
-  all token probes on that metric; it measured arm tracking.
+  all token probes on that metric. The old result is heavily confounded by
+  proprio / trajectory information; A ≈ q-only does not support a percentage
+  decomposition such as "90% arm information."
 - Layout probe set (50 init states/task, 40/10 init-state split): ALL streams fail
   the pass rule (siglip best at mean R² 0.035, margin over q-only 0.19 < 0.3).
   Decision-time cm-level layout reading via frozen features + light probes is NOT
-  certified — though siglip's absolute error beats q-only (1.3–1.8 vs 1.7–2.4 cm),
-  the signal sits at the extraction edge.
-- Consequences: implicit layout learning through WM dynamics stays the primary
-  route; **Candidate-D's training-only auxiliary pose supervision is promoted to a
-  strong v0 auxiliary-loss candidate for A/B**; task-side evidence (task-ID 1.000,
-  object-role-selective modulation ~30×, paraphrase invariance) is the part of the
-  tap story that currently stands firm.
+  certified. SigLIP nevertheless lowers absolute error on 10/10 tasks (macro 1.71 cm
+  vs q-only 1.96 cm; per-task ranges 1.35–2.30 vs 1.70–2.37 cm), so this is a weak,
+  consistent visual signal rather than evidence that the frozen features contain no
+  layout information. The failure is scoped to the current agentview-only, 40-shot,
+  restricted LocProbe and single 40/10 split.
+- Task-side prompt sensitivity and preliminary paraphrase consistency keep the
+  canonical last-layer stream as a provisional `H_task` input. Object-role
+  selectivity remains OPEN: the v2 projected masks are horizontally inconsistent
+  with the displayed scene, so the reported ~30× group contrast is not evidence until
+  projection is calibrated or direct segmentation is available.
+- Consequences: choose the hidden-state input through dynamics learning rather than
+  more standalone readout probes. Candidate-D pose supervision remains an explicit
+  training-only ablation for A/B; the current light-probe failure does not establish
+  that it is necessary.
 
 ---
 
@@ -276,7 +321,8 @@ Interpretation rule: Candidate C is not the target framework, but it is the requ
 strong baseline. If A/B cannot match its held-out ranking or policy improvement, the
 claimed benefit of explicit latent dynamics is unsupported.
 
-Status: **active strong baseline**.
+Status: **downstream strong baseline**. It is implemented after the first A/B
+state-learning run, not used to choose the world-model hidden state.
 
 ---
 
@@ -339,17 +385,18 @@ bin; tune margin / uncertainty on validation snapshots only.
 
 ## 9. Training data
 
-Three sources, introduced in order:
+Three sources, introduced as needed rather than as prerequisite gates:
 
 1. **Expert demonstrations (500 LIBERO-10 demos):** recurrent-state pretraining,
    observed transition targets, object/predicate/progress auxiliaries. Only replay-valid
    trajectories are used for counterfactual anchors.
 2. **π0.5 on-policy trajectories:** actual state distribution, including current
    failure seeds and recovery attempts.
-3. **Snapshot branch dataset:** the policy-improvement supervision. From one snapshot,
-   generate stock + N-sampled candidates, restore the identical sim state, execute each
-   first 10-action block, and record next state / predicates / progress. Continue a
-   stratified subset with π0.5 to termination for success and remaining-time targets.
+3. **Snapshot branch dataset:** controlled counterfactual-future supervision and the
+   later policy-improvement interface. From one snapshot, generate stock + N-sampled
+   candidates, restore the identical sim state, execute each first 10-action block,
+   and record next state / predicates / progress. Continue a stratified subset with
+   π0.5 to termination for success and remaining-time targets.
 
 ```text
 branch record = {
@@ -368,6 +415,12 @@ model confidence. All N branches of one snapshot share a split. **[DEC]** first 
 budget and full-continuation fraction are set after the formal diversity / end-state
 dispersion measurement.
 
+Expert and on-policy sequential transitions are sufficient to start the hidden-state
+sweep. Branch siblings are added when the first LCWM exists, primarily to prevent an
+action-ignoring predictor and to test counterfactual futures from identical starts.
+The same records later supply within-snapshot value / ranking labels. Ranking success
+alone does not establish a world model because Candidate C can obtain it directly.
+
 ---
 
 ## 10. Shared objectives
@@ -382,16 +435,24 @@ L_para     : same-task paraphrase state / score consistency
 L_anchor   : proprio + optional object-pose reconstruction, anti-collapse
 ```
 
-Default family:
+State-learning core for A/B:
 
 ```python
-L = lw * L_world + lt * L_task + lp * L_pred + lv * L_value \
-    + lr * L_rank + lpara * L_para + la * L_anchor
+L_state = lw * L_world + lt * L_task + lp * L_pred \
+        + lpara * L_para + la * L_anchor
 ```
 
-Not every candidate implements every term: Candidate C uses `L_value + L_rank +
-L_para`; A has no separate `L_world/L_task`; B exposes both. Loss weights are tuned on
-held-out transition/ranking metrics, never final closed-loop test SR.
+Phase-1 downstream heads, attached after a viable learned state exists:
+
+```python
+L_policy = lv * L_value + lr * L_rank
+```
+
+A has no separate `L_world/L_task`; B exposes both. A/B are first promoted by
+predictive-state diagnostics, then tested for decision relevance with `L_policy`.
+Candidate C uses `L_value + L_rank + L_para` directly and is therefore a policy
+control, not evidence for the central world-model hypothesis. Loss weights are tuned
+on held-out transition/ranking metrics, never final closed-loop test SR.
 
 Avoid trivial task-code success:
 
@@ -404,7 +465,7 @@ Avoid trivial task-code success:
 
 ## 11. Architecture-selection experiments
 
-### 11.1 Feature / identity controls (before full segment extraction)
+### 11.1 Feature / identity controls (bounded screening role)
 
 - Correct joint-PCA centering and report explained variance.
 - Same frame prompts: canonical t0 / t0 paraphrases / same-scene t1 / unrelated t2 /
@@ -413,22 +474,46 @@ Avoid trivial task-code success:
 - World/task probe ladder; target-object vs distractor/background selectivity.
 - Task normalizer: held-out paraphrase classification and exact state/score consistency.
 
-### 11.2 Offline structure comparison
+These controls set provisional inputs and catch extraction bugs; they do not choose the
+world-model state. Except for one bounded projection correction / rerun, the next
+decision is made through actual dynamics learning.
 
-Train A / B / C on identical snapshot splits and approximately matched trainable
-parameter / compute budgets. Primary metrics:
+### 11.2 Hidden-state-first structure comparison
 
-- `k = 1..5` decision-step transition error
-- predicate/progress F1 or AUROC; remaining-time error; value calibration
+First hold minimal A fixed as a learning instrument and compare the provisional input
+arms `{SigLIP-only, canonical-LL-only, fused}` on identical sequential splits. Then
+take the top input arm(s) into a matched A-vs-B comparison; do not change the input and
+state factorization in the same ablation. Primary metrics:
+
+- one-step and `k = 2..5` action-conditioned target-state prediction
+- BDDL predicate / task-progress prediction from the learned state
+- degradation under action shuffle and task-ID shuffle relative to proper conditioning
+- same-physical-history t0/t1 intervention and same-task paraphrase consistency
+- history dependence, latent effective rank, per-dim std, and collapse diagnostics
+- held-out init-state / trajectory generalization and learning curves
+
+A hidden state is "usable for learning" only if it improves over no-action / no-task
+and trivial-copy baselines, remains non-collapsed, and changes predicted futures—not
+merely latent distance—under the task intervention. Static object-pose decodability is
+not a prerequisite.
+
+### 11.3 Branch-scale downstream assay
+
+After at least one A/B state passes §11.2, add controlled snapshot siblings and attach
+the shared value / ranking interface. Train Candidate C on the same branch split as the
+no-world-model control. Primary metrics:
+
+- branch next-state and predicate/progress prediction from identical starts
 - within-snapshot pairwise rank accuracy, NDCG, top-1 regret
 - held-out candidate noise and init-state generalization
-- same-scene t0/t1 task intervention; paraphrase invariance
-- latent effective rank / per-dim std / cosine-to-init collapse diagnostics
+- same-candidate-pool t0/t1 ranking intervention and paraphrase invariance
+- value calibration and continuation-success prediction
 
 Only the top two policy scorers enter expensive closed-loop comparison. Latent
-self-prediction alone cannot promote a structure.
+self-prediction establishes the research object; branch and policy tests establish
+that the object is decision-relevant for Phase 1.
 
-### 11.3 Closed-loop Phase-1 comparison
+### 11.4 Closed-loop Phase-1 comparison
 
 - Stock π0.5 vs `π0.5 + scorer`, identical init-state and seed schedule.
 - First report per-task and paired episode table, then aggregate.
@@ -444,8 +529,10 @@ self-prediction alone cannot promote a structure.
 ## 12. Current open-decision ledger
 
 - State form: monolithic A vs factorized B; direct-Q C is the required baseline.
-- Shared-world tap: SigLIP pre-trunk vs constant-prompt last-layer.
-- Task tap: canonical-prompt last-layer vs task queries over shared-world tokens.
+- Which provisional input arm produces the best learned predictive state:
+  SigLIP-only vs canonical-last-layer-only vs fused. Static probes do not close this.
+- In B, whether `H_task` is canonical-prompt last-layer or task queries over
+  shared-world tokens.
 - Whether one real/canonical prefix pass is sufficient for both policy and WM.
 - `M_world / M_task`, recurrence form, and EMA vs VICReg target.
 - Decision rollout `K = 1 / 3 / 5`; action-block encoder structure.
@@ -458,13 +545,17 @@ self-prediction alone cannot promote a structure.
 
 ## 13. Immediate order of work
 
-1. Same-scene/paraphrase feature controls + corrected PCA; finish the world/task probe
-   ladder and resolve only the feature-input decisions supported by it.
-2. Formal N=16 diversity + simulator end-state dispersion on stratified snapshots;
-   lock proposal-pool composition.
-3. Freeze decision-rate segment / branch schema and collect a small shared probe set.
-4. Implement Candidate C as the direct-ranking floor and Candidate A as the minimal
-   latent-dynamics baseline.
-5. Implement Candidate B on the same interface/data; run the offline selection table.
-6. Closed-loop conservative reranking for the top two, then lock and run the paired
-   Phase-1 evaluation once.
+1. Freeze the provisional input matrix `{SigLIP-only, canonical-LL-only, fused}` and
+   oracle `TASKID`. Correct / rerun the selectivity projection once in parallel; it is
+   a bounded diagnostic, not a training gate.
+2. Build the decision-rate sequential dataset / trainer and implement minimal A as the
+   fixed instrument for the frozen-input learning sweep.
+3. Select the input that supports a learnable predictive state with multi-step
+   prediction, action/task shuffles, task intervention, paraphrase consistency,
+   non-collapse, and learning curves; then compare A vs B on the top input arm(s).
+4. Measure formal N=16 action / end-state diversity and collect the small branch set
+   needed for counterfactual action coverage and the downstream Phase-1 interface.
+5. Attach the shared value / ranking head; train Candidate C on the same branches as
+   the no-WM policy control.
+6. Run conservative closed-loop reranking for promoted A/B states, then lock and run
+   the paired Phase-1 evaluation once.

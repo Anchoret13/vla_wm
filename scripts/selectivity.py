@@ -84,8 +84,10 @@ def main() -> None:
     for t in range(max(CAPTURE_STEPS) + 1):
         if t in CAPTURE_STEPS:
             pos = body_positions(env, body_names)
-            masks = patch_disk_labels(
+            masks, dropped = patch_disk_labels(
                 env, {n: pos[i] for i, n in enumerate(obj_names)})
+            if dropped:
+                print(f"[selectivity] t={t}: off-frame, excluded: {dropped}")
             ob = deepcopy(obs)
             base = agentview_tokens(runner, ob, canon)
             maps = {
@@ -93,6 +95,7 @@ def main() -> None:
                 "const_shift": cosdist_map(base, agentview_tokens(runner, ob, CONSTANT_PROMPT)),
             }
             report[t] = {k: group_means(m, masks, GROUPS) for k, m in maps.items()}
+            report[t]["off_frame_excluded"] = dropped
             figs.append((t, ob["pixels"]["image"], maps, masks))
         obs, _r, term, trunc, _i = env.step(runner.select_action(obs, canon))
         if term or trunc:

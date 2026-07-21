@@ -35,7 +35,11 @@ def project_points(env, points_w: np.ndarray, camera: str = "agentview",
     pix = (mat @ pts.T).T
     pix = pix[:, :2] / pix[:, 2:3]
     col, row = pix[:, 0], pix[:, 1]
-    return np.stack([row, col], axis=1)  # raw (row, col) — token space
+    # Codex re-review (07-20): after the 180° de-flip, overlays remained
+    # horizontally mirrored (basket left in frame, mask right) — robosuite's
+    # pixel convention needs a column mirror. Verified visually by
+    # scripts/calibrate_projection.py; do not change without re-running it.
+    return np.stack([row, (w - 1) - col], axis=1)  # (row, col) in token space
 
 
 def patch_disk_labels(
@@ -53,12 +57,18 @@ def patch_disk_labels(
     patch = h / GRID
     rr, cc = np.meshgrid(np.arange(GRID), np.arange(GRID), indexing="ij")
     patch_centers = np.stack([(rr + 0.5) * patch, (cc + 0.5) * patch], axis=-1)
-    masks = {}
+    masks, dropped = {}, []
     for i, n in enumerate(names):
+        # Objects whose center projects OUT of frame get edge-patch disks that
+        # sample background/sink tokens, not the object (selectivity v3 lesson:
+        # off-frame distractors read 0.68 from pure edge patches). Exclude them.
+        if not (0 <= centers[i][0] < h and 0 <= centers[i][1] < w):
+            dropped.append(n)
+            continue
         r = radii_px[n] if isinstance(radii_px, dict) else radii_px
         d = np.linalg.norm(patch_centers - centers[i], axis=-1)
         masks[n] = d <= (r + patch / 2)
-    return masks
+    return masks, dropped
 
 
 def group_means(shift_map: np.ndarray, masks: dict[str, np.ndarray],
