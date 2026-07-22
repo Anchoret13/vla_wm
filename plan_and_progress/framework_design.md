@@ -184,10 +184,12 @@ Target-object vs distractor/background selectivity needs simulator segmentation 
 projected object masks; heatmap appearance alone is not a decision criterion.
 
 **[DEC]** final feature inputs remain open, but standalone probes no longer gate LCWM
-training. The next arbitration happens inside matched learned-state models using a
-small provisional input matrix: SigLIP-only, canonical-last-layer-only, and fused.
+training. The first Candidate-A sweep makes SigLIP the provisional `H_world` default;
+canonical-last-layer remains the required corrected-protocol comparator. The consumed
+split is development data, so this is not yet a held-out input decision. Fused token
+concatenation is not promoted, but its result does not rule out controlled fusion.
 
-Evidence log (2026-07-20, controlled probes; details in `2026-07-19.md`):
+Evidence log:
 
 - v6 "cross-layout 0.698" RETRACTED — q-only proprio control (0.641) nearly matches
   all token probes on that metric. The old result is heavily confounded by
@@ -202,14 +204,22 @@ Evidence log (2026-07-20, controlled probes; details in `2026-07-19.md`):
   layout information. The failure is scoped to the current agentview-only, 40-shot,
   restricted LocProbe and single 40/10 split.
 - Task-side prompt sensitivity and preliminary paraphrase consistency keep the
-  canonical last-layer stream as a provisional `H_task` input. Object-role
-  selectivity remains OPEN: the v2 projected masks are horizontally inconsistent
-  with the displayed scene, so the reported ~30× group contrast is not evidence until
-  projection is calibrated or direct segmentation is available.
+  canonical last-layer stream as a provisional `H_task` input. Projection is now
+  visually calibrated and v4 makes the newly relevant target group largest at all
+  three sampled timesteps, but object-role selectivity remains OPEN: the only
+  timestep with valid distractors has a mild 0.316 vs 0.204 contrast, and disjoint
+  object-sized masks / more states are still missing. This remains a bounded
+  diagnostic rather than a training gate.
 - Consequences: choose the hidden-state input through dynamics learning rather than
   more standalone readout probes. Candidate-D pose supervision remains an explicit
   training-only ablation for A/B; the current light-probe failure does not establish
   that it is necessary.
+- 2026-07-22 Candidate-A pilot (`2026-07-22.md`): SigLIP is substantially more
+  sensitive to cross-batch action shuffling under the current co-adaptive latent
+  metric (1.06/1.10 vs real-LL 0.25/0.23), so it becomes the provisional world-input
+  default. Certification remains OPEN because the same `test` split was used for
+  selection and objective tuning, future physical/semantic heads were not evaluated
+  on predicted carries, and action-history/task-injection shortcuts remain uncontrolled.
 
 ---
 
@@ -529,12 +539,15 @@ that the object is decision-relevant for Phase 1.
 ## 12. Current open-decision ledger
 
 - State form: monolithic A vs factorized B; direct-Q C is the required baseline.
-- Which provisional input arm produces the best learned predictive state:
-  SigLIP-only vs canonical-last-layer-only vs fused. Static probes do not close this.
+- Provisional world input = SigLIP; confirm against canonical-last-layer on repaired
+  validation/dev data, freeze the choice, then verify the fully frozen configuration
+  once on an untouched audit split. The current fused-concat result is not a general
+  fusion verdict.
 - In B, whether `H_task` is canonical-prompt last-layer or task queries over
   shared-world tokens.
 - Whether one real/canonical prefix pass is sufficient for both policy and WM.
-- `M_world / M_task`, recurrence form, and EMA vs VICReg target.
+- `M_world / M_task`, recurrence form, and EMA/no-var vs EMA+variance Pareto; variance
+  regularization is not locked.
 - Decision rollout `K = 1 / 3 / 5`; action-block encoder structure.
 - Predicate/progress supervision granularity and training-only privileged pose labels.
 - Branch count, continuation fraction, σ-perturbation proposal tier.
@@ -545,14 +558,18 @@ that the object is decision-relevant for Phase 1.
 
 ## 13. Immediate order of work
 
-1. Freeze the provisional input matrix `{SigLIP-only, canonical-LL-only, fused}` and
-   oracle `TASKID`. Correct / rerun the selectivity projection once in parallel; it is
-   a bounded diagnostic, not a training gate.
-2. Build the decision-rate sequential dataset / trainer and implement minimal A as the
-   fixed instrument for the frozen-input learning sweep.
-3. Select the input that supports a learnable predictive state with multi-step
-   prediction, action/task shuffles, task intervention, paraphrase consistency,
-   non-collapse, and learning curves; then compare A vs B on the top input arm(s).
+1. Freeze an explicit demo-level train/validation/dev manifest, relabel the consumed
+   `test` split as dev, reserve an untouched audit set that does not participate in
+   selection, and repair post-block/terminal next-state collection plus the eight
+   replay-success disagreements.
+2. Complete minimal-A evaluation on predicted rollout states: future physical and
+   semantic heads, matched action controls, no-action/no-task/task-only/no-history
+   baselines, correct same-state task intervention, paraphrase consistency, collapse
+   diagnostics, per-task metrics, and learning curves.
+3. Confirm provisional SigLIP against canonical-LL on validation/dev and select
+   EMA/no-var vs EMA+variance by a documented prediction/rank Pareto; compare A vs B
+   under the same frozen development contract, then verify the fully frozen winner
+   once on the untouched audit split.
 4. Measure formal N=16 action / end-state diversity and collect the small branch set
    needed for counterfactual action coverage and the downstream Phase-1 interface.
 5. Attach the shared value / ranking head; train Candidate C on the same branches as
@@ -560,11 +577,10 @@ that the object is decision-relevant for Phase 1.
 6. Run conservative closed-loop reranking for promoted A/B states, then lock and run
    the paired Phase-1 evaluation once.
 
-- 2026-07-22 §11.2 learning-behavior arbitration (details `2026-07-21.md`): input
-  arm = **SigLIP pre-trunk** — action-shuffle sensitivity 0.96–1.16 vs real_ll
-  0.23–0.25 vs fused 0.12–0.18 (language-mixed inputs let the transition partially
-  ignore actions); all arms equal on predicate F1 (0.98–0.99) / progress R²
-  (0.92–0.94) / copy-margin (0.69–0.79). Rank criterion re-derived from data
-  references (raw-token budget 36.5 → bar 18.3; the original 96 was uncalibrated);
-  siglip + var-reg passes all criteria on both seeds. Instrument objective updated:
-  EMA + variance regularization.
+- 2026-07-22 re-review (details `2026-07-22.md`): the first Candidate-A sweep is a
+  successful pipeline pilot, not completed §11.2 arbitration. SigLIP is the
+  **provisional** world-input default because its current action-shuffle sensitivity
+  is much larger than real-LL/fused. The old `test` was consumed as dev; F1/R² are
+  current teacher-forced readouts rather than predicted-future metrics; the rank rule
+  changed post hoc; and variance regularization incurs measurable prediction error.
+  EMA + variance therefore remains OPEN pending the repaired protocol.

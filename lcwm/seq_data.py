@@ -36,7 +36,10 @@ from lcwm.probe_data import (body_positions, discover_object_bodies,  # noqa: E4
                              frame_features, valid_demo_indices)
 from lcwm.snapshot import get_sim, reset_osc_controller  # noqa: E402
 
-SEQ_DIR = DATASETS_DIR.parent / "seq_libero_10"
+import os
+
+SEQ_DIR = Path(os.environ.get("LCWM_SEQ_DIR",
+                              DATASETS_DIR.parent / "seq_libero_10"))
 STRIDE = 10  # decision commitment c
 
 
@@ -67,28 +70,35 @@ def collect_demo(runner, env, atoms, body_names, h5_grp, task_language: str,
     reset_osc_controller(env)
 
     raw = env._env
+
+    def capture(t, action_block, terminal):
+        obs = env._format_raw_obs(raw.env._get_observations())
+        feats = frame_features(runner, obs, task_language)
+        return {
+            **feats,
+            "t": t,
+            "q": torch.from_numpy(np.concatenate([
+                obs["robot_state"]["eef"]["pos"],
+                obs["robot_state"]["eef"]["quat"],
+                obs["robot_state"]["gripper"]["qpos"],
+            ])).float(),
+            "obj_pos": torch.from_numpy(
+                body_positions(env, body_names)).float(),
+            "action_block": action_block,
+            "predicate_bits": torch.from_numpy(predicate_bits(env, atoms)),
+            "success": bool(raw.check_success()),
+            "terminal": terminal,
+        }
+
     steps, first_success_t, terminal_t, success = [], None, T, False
+    t_end = 0
     for t in range(T):
         if t % stride == 0 and t + stride <= T:
-            obs = env._format_raw_obs(raw.env._get_observations())
-            feats = frame_features(runner, obs, task_language)
-            steps.append({
-                **feats,
-                "t": t,
-                "q": torch.from_numpy(np.concatenate([
-                    obs["robot_state"]["eef"]["pos"],
-                    obs["robot_state"]["eef"]["quat"],
-                    obs["robot_state"]["gripper"]["qpos"],
-                ])).float(),
-                "obj_pos": torch.from_numpy(
-                    body_positions(env, body_names)).float(),
-                "action_block": torch.from_numpy(
-                    actions[t:t + stride].copy()).float(),
-                "predicate_bits": torch.from_numpy(
-                    predicate_bits(env, atoms)),
-                "success": bool(raw.check_success()),
-            })
+            steps.append(capture(
+                t, torch.from_numpy(actions[t:t + stride].copy()).float(),
+                terminal=False))
         _o, _r, done, _i = raw.step(actions[t])
+        t_end = t + 1
         ok = bool(raw.check_success())
         if ok and first_success_t is None:
             first_success_t = t
@@ -96,6 +106,10 @@ def collect_demo(runner, env, atoms, body_names, h5_grp, task_language: str,
         if done:
             terminal_t = t + 1
             break
+    # Post-final-block terminal state (review 2026-07-22 item 8): the successor
+    # observation/predicates of the LAST executed block — including success that
+    # occurs inside it — is appended with a zero action block and terminal=True.
+    steps.append(capture(t_end, torch.zeros(stride, 7), terminal=True))
     return {
         "steps": steps, "success": success, "T_actions": T,
         "first_success_t": first_success_t, "terminal_t": terminal_t,

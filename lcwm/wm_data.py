@@ -1,39 +1,39 @@
 """Sequence dataset over the decision-rate shards (framework v0.2 §9 source 1).
 
-Windows of L consecutive decision steps from one demo. Splits by demo per task
-(7/1/2 train/val/test, numeric demo order — contract §1 siblings rule).
+Windows of L consecutive decision steps from one demo. Splits come EXCLUSIVELY
+from the explicit split manifest (train/dev/audit; contract §1 siblings rule).
 Arms: 'siglip' | 'real_ll' | 'fused' (token concat). Predicate bits padded to
 MAX_ATOMS=3 with a mask. Progress = fraction of the demo's decision steps done.
 """
 
 from __future__ import annotations
 
-from collections import defaultdict
+import json
+import os
 from pathlib import Path
 
 import torch
 from torch.utils.data import Dataset
 
-SEQ_DIR = Path("/home/stargazer/Desktop/vla_wm/datasets/seq_libero_10")
+SEQ_DIR = Path(os.environ.get(
+    "LCWM_SEQ_DIR", "/home/stargazer/Desktop/vla_wm/datasets/seq_libero_10_v2"))
 MAX_ATOMS = 3
 ARMS = ("siglip", "real_ll", "fused")
 
 
 def load_split(split: str) -> list[dict]:
-    """split in {train, val, test} -> list of demo shards."""
-    by_task = defaultdict(list)
-    for p in SEQ_DIR.glob("task*_demo*.pt"):
-        s = torch.load(p, weights_only=False)
-        if s["success"]:
-            by_task[s["task_id"]].append(s)
+    """split in {train, dev, audit} — EXPLICIT ids from the split manifest
+    (review 2026-07-22 items 1-2: no silent success-filtering, no on-the-fly
+    percentage splits; the audit split stays sealed until the frozen
+    verification)."""
+    man = json.loads((SEQ_DIR / "split_manifest.json").read_text())
     out = []
-    for tid in sorted(by_task):
-        demos = sorted(by_task[tid], key=lambda s: s["demo"])
-        n = len(demos)
-        cut1, cut2 = int(n * 0.7), int(n * 0.8)
-        sel = {"train": demos[:cut1], "val": demos[cut1:cut2],
-               "test": demos[cut2:]}[split]
-        out.extend(sel)
+    for tid_s, m in man["tasks"].items():
+        for d in m[split]:
+            s = torch.load(SEQ_DIR / f"task{tid_s}_demo{d}.pt",
+                           weights_only=False)
+            assert s["success"], f"manifest lists failed shard task{tid_s}/{d}"
+            out.append(s)
     return out
 
 

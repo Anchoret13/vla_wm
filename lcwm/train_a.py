@@ -164,7 +164,7 @@ def main() -> None:
     torch.manual_seed(args.seed)
 
     tr = WMSeqDataset("train", args.arm)
-    te = WMSeqDataset("test", args.arm)
+    te = WMSeqDataset("dev", args.arm)
     print(f"[{args.arm}/s{args.seed}] train windows {len(tr)}  test {len(te)}")
     ltr = DataLoader(tr, batch_size=args.batch, shuffle=True, num_workers=4,
                      drop_last=True)
@@ -204,7 +204,16 @@ def main() -> None:
     torch.save(model.state_dict(), CKPT_DIR / f"{tag}.pt")
     report = {"arm": args.arm, "seed": args.seed, "epochs": args.epochs,
               "params_M": n_par / 1e6, "train_windows": len(tr),
-              "test_windows": len(te), "curves": curves, "diagnostics": diag}
+              "dev_windows": len(te), "curves": curves, "diagnostics": diag,
+              "config": {**vars(args), "W_PRED": W_PRED, "W_PROG": W_PROG,
+                         "W_Q": W_Q, "BURN_IN": BURN_IN, "T_ROLL": T_ROLL,
+                         "eval_split": "dev"},
+              "manifest_sha": __import__("hashlib").sha256(
+                  (Path(__import__("lcwm.wm_data", fromlist=["SEQ_DIR"]).SEQ_DIR)
+                   / "split_manifest.json").read_bytes()).hexdigest()[:16],
+              "git_commit": __import__("subprocess").run(
+                  ["git", "rev-parse", "HEAD"], capture_output=True,
+                  text=True).stdout.strip()}
     (OUT_DIR / f"{tag}.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(diag, indent=2))
 
