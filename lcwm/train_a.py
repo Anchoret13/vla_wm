@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 from pathlib import Path
 
 import numpy as np
@@ -33,7 +32,7 @@ def to_dev(b, dev):
     return {k: v.to(dev, non_blocking=True) for k, v in b.items()}
 
 
-def loss_step(model, batch, dev):
+def loss_step(model, batch, dev, anchor_scale: float = 1.0, var_reg: float = 0.0):
     e = model.e_task(batch["task_id"])
     z = model.encode(batch, e)                      # (B,L,M,d) online
     with torch.no_grad():
@@ -59,9 +58,16 @@ def loss_step(model, batch, dev):
         prog, batch["progress"][:, BURN_IN:].reshape(-1))
     l_q = torch.nn.functional.mse_loss(
         qhat, batch["q"][:, BURN_IN:].reshape(-1, 9))
-    total = l_sp + W_PRED * l_pred + W_PROG * l_prog + W_Q * l_q
-    return total, {"sp": float(l_sp), "pred": float(l_pred),
-                   "prog": float(l_prog), "q": float(l_q)}
+    total = l_sp + anchor_scale * (W_PRED * l_pred + W_PROG * l_prog + W_Q * l_q)
+    l_var = torch.tensor(0.0, device=dev)
+    if var_reg > 0:  # VICReg-lite: hinge per-dim std of LN'd carry toward 1
+        zf = torch.nn.functional.layer_norm(zf, zf.shape[-1:])
+        std = zf.reshape(-1, zf.shape[-2] * zf.shape[-1]).std(0)
+        l_var = torch.relu(1.0 - std).mean()
+        total = total + var_reg * l_var
+    return total, {"sp": float(l_sp.detach()), "pred": float(l_pred.detach()),
+                   "prog": float(l_prog.detach()), "q": float(l_q.detach()),
+                   "var": float(l_var.detach())}
 
 
 @torch.no_grad()
@@ -113,8 +119,11 @@ def diagnostics(model, loader, dev):
         prog_gt.append(batch["progress"][:, t0:].reshape(-1))
         zs.append(z[:, t0:].reshape(-1, z.shape[-2] * z.shape[-1]))
 
-    lo = torch.cat(logits_all); bi = torch.cat(bits_all); ma = torch.cat(mask_all)
-    ph = torch.cat(prog_hat); pg = torch.cat(prog_gt)
+    lo = torch.cat(logits_all)
+    bi = torch.cat(bits_all)
+    ma = torch.cat(mask_all)
+    ph = torch.cat(prog_hat)
+    pg = torch.cat(prog_gt)
     pred = (torch.sigmoid(lo) > 0.5).float()
     tp = ((pred == 1) & (bi == 1) & (ma == 1)).sum()
     fp = ((pred == 1) & (bi == 0) & (ma == 1)).sum()
@@ -147,6 +156,9 @@ def main() -> None:
     ap.add_argument("--epochs", type=int, default=30)
     ap.add_argument("--batch", type=int, default=64)
     ap.add_argument("--lr", type=float, default=3e-4)
+    ap.add_argument("--anchor-scale", type=float, default=1.0)
+    ap.add_argument("--var-reg", type=float, default=0.0)
+    ap.add_argument("--tag", default="")
     args = ap.parse_args()
     dev = "cuda"
     torch.manual_seed(args.seed)
@@ -171,7 +183,8 @@ def main() -> None:
         logs = []
         for batch in ltr:
             batch = to_dev(batch, dev)
-            loss, parts = loss_step(model, batch, dev)
+            loss, parts = loss_step(model, batch, dev,
+                                    args.anchor_scale, args.var_reg)
             opt.zero_grad()
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -187,7 +200,7 @@ def main() -> None:
     diag = diagnostics(model, lte, dev)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     CKPT_DIR.mkdir(parents=True, exist_ok=True)
-    tag = f"{args.arm}_seed{args.seed}"
+    tag = f"{args.arm}_seed{args.seed}" + (f"_{args.tag}" if args.tag else "")
     torch.save(model.state_dict(), CKPT_DIR / f"{tag}.pt")
     report = {"arm": args.arm, "seed": args.seed, "epochs": args.epochs,
               "params_M": n_par / 1e6, "train_windows": len(tr),

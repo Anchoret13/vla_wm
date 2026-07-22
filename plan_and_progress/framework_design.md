@@ -559,3 +559,12 @@ that the object is decision-relevant for Phase 1.
    the no-WM policy control.
 6. Run conservative closed-loop reranking for promoted A/B states, then lock and run
    the paired Phase-1 evaluation once.
+
+- 2026-07-22 §11.2 learning-behavior arbitration (details `2026-07-21.md`): input
+  arm = **SigLIP pre-trunk** — action-shuffle sensitivity 0.96–1.16 vs real_ll
+  0.23–0.25 vs fused 0.12–0.18 (language-mixed inputs let the transition partially
+  ignore actions); all arms equal on predicate F1 (0.98–0.99) / progress R²
+  (0.92–0.94) / copy-margin (0.69–0.79). Rank criterion re-derived from data
+  references (raw-token budget 36.5 → bar 18.3; the original 96 was uncalibrated);
+  siglip + var-reg passes all criteria on both seeds. Instrument objective updated:
+  EMA + variance regularization.
