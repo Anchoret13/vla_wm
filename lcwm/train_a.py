@@ -7,7 +7,7 @@ Changes vs v1, per the 2026-07-22 review:
   item 4  encoder no longer sees a_prev (shortcut removed structurally);
           matched within-task action shuffles added next to cross-batch;
           physical (future-q) readout under shuffle reported.
-  item 5  task-swap metrics labeled difference-only; task-only (--zero-tokens)
+  item 5  task-swap metrics labeled difference-only; no-vision (--zero-tokens)
           and no-task (--zero-task) baselines trainable as separate runs.
   item 9  reports serialize full config + split-manifest hash + git commit.
 
@@ -237,7 +237,7 @@ def main() -> None:
     ap.add_argument("--anchor-scale", type=float, default=1.0)
     ap.add_argument("--var-reg", type=float, default=0.0)
     ap.add_argument("--zero-tokens", action="store_true",
-                    help="task-only baseline: encoder sees no vision")
+                    help="no-vision baseline: tokens zeroed; proprio/action/history/task-id remain")
     ap.add_argument("--zero-task", action="store_true",
                     help="no-task (FREE) baseline: e_task zeroed")
     ap.add_argument("--tag", default="")
