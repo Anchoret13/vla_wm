@@ -32,33 +32,37 @@ class CrossAttnBlock(nn.Module):
 
 
 class Encoder(nn.Module):
-    """Token/proprio/prev-action -> carry update (the EMA-target subject)."""
+    """Token/proprio -> carry update (the EMA-target subject).
+
+    v2 (review 2026-07-22 item 4): previous-action input REMOVED. The carry
+    encodes observation/proprio history only; actions enter solely through the
+    Transition, so action-shuffle sensitivity cannot come from the transition
+    reproducing action-history content in the target.
+    """
 
     def __init__(self, d_in=2048, d=384, m=4, d_e=256, blocks=2, heads=6):
         super().__init__()
         self.tok = nn.Linear(d_in, d)
         self.qp = nn.Linear(9, d)
-        self.ap = nn.Linear(70, d)
         self.film = nn.Linear(d_e, 2 * d)
         self.blocks = nn.ModuleList(CrossAttnBlock(d, heads) for _ in range(blocks))
         self.init_carry = nn.Parameter(0.02 * torch.randn(m, d))
 
-    def step(self, z_prev, tokens, q, a_prev, e):
-        kv = torch.cat([self.tok(tokens), self.qp(q)[:, None],
-                        self.ap(a_prev.flatten(1))[:, None]], dim=1)
+    def step(self, z_prev, tokens, q, e):
+        kv = torch.cat([self.tok(tokens), self.qp(q)[:, None]], dim=1)
         g, b = self.film(e).chunk(2, -1)
         z = z_prev * (1 + g[:, None]) + b[:, None]
         for blk in self.blocks:
             z = blk(z, kv)
         return z
 
-    def forward(self, tokens, q, a_prev, e):
+    def forward(self, tokens, q, e):
         """Teacher-forced chain over L steps -> (B, L, M, d)."""
         B, L = tokens.shape[:2]
         z = self.init_carry.expand(B, -1, -1)
         out = []
         for t in range(L):
-            z = self.step(z, tokens[:, t], q[:, t], a_prev[:, t], e)
+            z = self.step(z, tokens[:, t], q[:, t], e)
             out.append(z)
         return torch.stack(out, dim=1)
 
@@ -104,9 +108,11 @@ class CandidateA(nn.Module):
                          self.ema_encoder.parameters()):
             pe.mul_(self.ema_tau).add_(p, alpha=1 - self.ema_tau)
 
-    def encode(self, batch, e, ema=False):
+    def encode(self, batch, e, ema=False, zero_tokens=False):
         enc = self.ema_encoder if ema else self.encoder
-        return enc(batch["tokens"], batch["q"], batch["a_prev"], e)
+        tokens = torch.zeros_like(batch["tokens"]) if zero_tokens \
+            else batch["tokens"]
+        return enc(tokens, batch["q"], e)
 
     def rollout(self, z, actions, e, k: int):
         """(B,M,d) + (B,>=k,10,7) -> list of k predicted carries."""
