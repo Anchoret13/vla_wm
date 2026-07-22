@@ -33,7 +33,7 @@ BDDL_DIR = Path(__file__).resolve().parent.parent / "bddl" / "chains"
 CHAINS = {
     "chain3_lr2": {"episode_length": 700, "n_subgoals": 3},
     "chain4_lr2": {"episode_length": 900, "n_subgoals": 4},
-    "chain5_lr2": {"episode_length": 1100, "n_subgoals": 5},
+    "chain5_lr2": {"episode_length": 990, "n_subgoals": 5},  # robosuite internal horizon is 1000; 1100 raised "terminated episode" at step 1001
 }
 
 SUBGOAL_PHRASE = {
@@ -68,11 +68,23 @@ def read_language(name: str) -> str:
 
 
 def make_chain_env(name: str) -> LiberoEnv:
+    """Mirror chassis.make_task_env's construction EXACTLY (obs_type,
+    resolution, cameras from LiberoEnvConfig defaults) — the smoke failure
+    'State is required for PI05' came from ctor defaults (pixels, 256px)
+    diverging from the eval contract (pixels_agent_pos, 360px)."""
+    from lerobot.envs.configs import LiberoEnv as LiberoEnvConfig
+    cfg = LiberoEnvConfig(task="libero_10")
     lang = read_language(name)
     task = _StubTask(name, lang)
     env = LiberoEnv(
         task_suite=_StubSuite(task), task_id=0, task_suite_name="libero_10",
-        episode_length=CHAINS[name]["episode_length"], init_states=False,
+        episode_length=CHAINS[name]["episode_length"],
+        camera_name=cfg.camera_name,
+        obs_type=cfg.obs_type,
+        observation_width=cfg.observation_width,
+        observation_height=cfg.observation_height,
+        init_states=False,
+        camera_name_mapping=cfg.camera_name_mapping,
     )
     env._task_bddl_file = str(BDDL_DIR / f"{name}.bddl")  # bypass suite path
     return env

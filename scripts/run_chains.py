@@ -31,12 +31,16 @@ def main() -> None:
     out_dir = REPO_ROOT / "results" / "chains"
     out_dir.mkdir(parents=True, exist_ok=True)
     results = []
+    jl = out_dir / "chain_exam.jsonl"   # incremental: a crash never loses data
+    jl.write_text("")
     for name in CHAINS:
         env = make_chain_env(name)
         for condition in ("full", "decomp"):
             for ep in range(EPISODES):
                 res = run_chain_episode(runner, env, condition, seed=1000 + ep)
                 results.append(asdict(res))
+                with jl.open("a") as f:
+                    f.write(json.dumps(asdict(res)) + "\n")
                 print(f"[{name}/{condition}] ep{ep} seed{1000+ep}: "
                       f"success={res.success} q={res.q_score:.2f} "
                       f"steps={res.steps} instr_used={len(res.instructions_used)}",
