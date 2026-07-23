@@ -149,15 +149,28 @@ def run_chain_episode(runner: Pi05Runner, env: LiberoEnv, condition: str,
 
     instr = current_instruction()
     instructions.append(instr)
-    done, t = False, 0
+    done, success_from_info, t = False, False, 0
     limit = env.episode_length
     while not done and t < limit:
         action = runner.select_action(obs, instr)
-        obs, _r, term, trunc, _i = env.step(action)
+        obs, _r, term, trunc, step_info = env.step(action)
         t += 1
         done = bool(term or trunc)
+        # This is also a compatibility guard for a plain LeRobot LiberoEnv:
+        # its step() auto-resets before returning on success.  The wrapper's
+        # terminal info remains valid even when reading predicates from `env`
+        # would now inspect the reset scene.
+        success_from_info = (
+            success_from_info or bool(step_info.get("is_success", False))
+        )
         if t % stride == 0 or done:
             new_bits = predicate_bits(env, atoms)
+            if success_from_info and not new_bits.all():
+                # LIBERO success is exactly conjunction(goal_atoms).  Recover
+                # that terminal fact if a caller supplied the auto-resetting
+                # base environment instead of ChainEnv.
+                new_bits = new_bits.copy()
+                new_bits[:] = True
             for i, (a, old, new) in enumerate(zip(atoms, bits, new_bits)):
                 if new and not old and a[1] not in completion:
                     completion[a[1]] = t
@@ -171,10 +184,14 @@ def run_chain_episode(runner: Pi05Runner, env: LiberoEnv, condition: str,
             bits = new_bits
             timeline.append((t, bits.tolist()))
 
-    final_bits = predicate_bits(env, atoms)
+    # On termination `bits` is the terminal capture made inside the loop.  Do
+    # not re-read the simulator here: auto-resetting wrappers may already expose
+    # the next episode.  At an evaluator-imposed step limit no step terminated,
+    # so a final live-state read is both safe and necessary when limit % stride.
+    final_bits = bits.copy() if done else predicate_bits(env, atoms)
     return ChainResult(
         task=env.task, condition=condition, seed=seed,
-        success=bool(final_bits.all()),
+        success=bool(success_from_info or final_bits.all()),
         q_score=float(final_bits.mean()),
         steps=t, bits_timeline=timeline,
         subgoal_completion_t=completion, instructions_used=instructions,

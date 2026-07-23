@@ -13,23 +13,90 @@ Design constraints honored (v0.3 §1, §3.1, ledger):
   i.e. through the state it has already selected.
 - The prefix forward that updates z REUSES the same trunk pass/KV cache used
   for action sampling (lcwm.sampler.prefix_forward) — no second 3B forward.
-- W_z's output layer is zero-initialized: at init the policy is EXACTLY stock
-  (verified by scripts/test_lcflow_noop.py under fixed flow noise).
+- W_z's output layer is zero-initialized: at init the injection is bitwise
+  neutral on the chosen custom sampler path under fixed flow noise. Native
+  PI05 parity is tested separately.
 - Trainable boundary v0: E_a, T, U, D, W_z. PrefixVLM (2B) and action expert
   (300M) frozen; expert unfreezing is a later explicit escalation.
 """
 
 from __future__ import annotations
 
+import json
 import types
+from collections import deque
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
 
 import torch
-from torch import nn
+import torch.nn.functional as F
+from torch import Tensor, nn
 
-from lcwm.candidate_a import CrossAttnBlock
+from lerobot.policies.pi05.modeling_pi05 import (
+    clone_past_key_values,
+    make_att_2d_masks,
+)
+from lerobot.utils.constants import (
+    ACTION,
+    OBS_LANGUAGE_ATTENTION_MASK,
+    OBS_LANGUAGE_TOKENS,
+)
 
-MAX_OBJ = 8      # ΔW object slots (masked; SCENE2 has 8)
-MAX_ATOMS = 3    # semantic predicate slots (masked)
+
+@dataclass(frozen=True)
+class LCFlowConfig:
+    """Serializable dimensions for the frozen-base LC-Flow adapter."""
+
+    d_h: int = 2048
+    d_z: int = 384
+    state_tokens: int = 4
+    heads: int = 6
+    transition_layers: int = 2
+    update_blocks: int = 2
+    expert_width: int = 1024
+    action_dim: int = 7
+    execution_horizon: int = 10
+    proprio_dim: int = 9
+    max_objects: int = 8
+    max_atoms: int = 5
+
+
+class CrossAttnBlock(nn.Module):
+    """Cross-attention with an explicit prefix validity mask."""
+
+    def __init__(self, d: int, heads: int):
+        super().__init__()
+        self.ln_q, self.ln_kv = nn.LayerNorm(d), nn.LayerNorm(d)
+        self.attn = nn.MultiheadAttention(d, heads, batch_first=True)
+        self.ln2 = nn.LayerNorm(d)
+        self.mlp = nn.Sequential(
+            nn.Linear(d, 4 * d), nn.GELU(), nn.Linear(4 * d, d)
+        )
+
+    def forward(
+        self,
+        x: Tensor,
+        kv: Tensor,
+        kv_mask: Tensor | None = None,
+    ) -> Tensor:
+        key_padding_mask = None
+        if kv_mask is not None:
+            if kv_mask.shape != kv.shape[:2]:
+                raise ValueError(
+                    f"prefix mask {tuple(kv_mask.shape)} != tokens {tuple(kv.shape[:2])}"
+                )
+            key_padding_mask = ~kv_mask.bool()
+        kv_norm = self.ln_kv(kv)
+        a, _ = self.attn(
+            self.ln_q(x),
+            kv_norm,
+            kv_norm,
+            key_padding_mask=key_padding_mask,
+            need_weights=False,
+        )
+        x = x + a
+        return x + self.mlp(self.ln2(x))
 
 
 class LCTransition(nn.Module):
