@@ -31,7 +31,7 @@ def main() -> None:
     out_dir = REPO_ROOT / "results" / "chains"
     out_dir.mkdir(parents=True, exist_ok=True)
     results = []
-    jl = out_dir / "chain_exam.jsonl"   # incremental: a crash never loses data
+    jl = out_dir / "chain_exam_v2.jsonl"   # v2: no-auto-reset ChainEnv   # incremental: a crash never loses data
     jl.write_text("")
     for name in CHAINS:
         env = make_chain_env(name)
@@ -47,7 +47,7 @@ def main() -> None:
                       flush=True)
         env.close()
 
-    (out_dir / "chain_exam.json").write_text(json.dumps(results, indent=1))
+    (out_dir / "chain_exam_v2.json").write_text(json.dumps(results, indent=1))
     print(f"\n{'task':12s} {'cond':7s} {'SR':>5s} {'Q':>6s}")
     for name in CHAINS:
         for condition in ("full", "decomp"):

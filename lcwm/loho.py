@@ -33,7 +33,9 @@ BDDL_DIR = Path(__file__).resolve().parent.parent / "bddl" / "chains"
 CHAINS = {
     "chain3_lr2": {"episode_length": 700, "n_subgoals": 3},
     "chain4_lr2": {"episode_length": 900, "n_subgoals": 4},
-    "chain5_lr2": {"episode_length": 990, "n_subgoals": 5},  # robosuite internal horizon is 1000; 1100 raised "terminated episode" at step 1001
+    # 990 not the planned 1100: robosuite internal horizon is 1000
+    # (1100 raised "terminated episode" at step 1001). Recorded as-run.
+    "chain5_lr2": {"episode_length": 990, "n_subgoals": 5},
 }
 
 SUBGOAL_PHRASE = {
@@ -43,6 +45,29 @@ SUBGOAL_PHRASE = {
     "butter_1": "pick up the butter and place it in the basket",
     "milk_1": "pick up the milk and place it in the basket",
 }
+
+
+class ChainEnv(LiberoEnv):
+    """LiberoEnv WITHOUT the auto-reset-on-termination behavior.
+
+    Known-problem ledger 2026-07-23 (confirmed): the parent's step() calls
+    self.reset() the moment `done or is_success` fires, so any terminal-state
+    readout (predicate bits, Q-score) scored the freshly RESET scene. Two
+    chain-exam episodes recorded q=0.00 that were in fact terminal successes.
+    Here the evaluator owns reset; step() never resets.
+    """
+
+    def step(self, action):
+        self._ensure_env()
+        if action.ndim != 1:
+            raise ValueError(f"expected 1-D action, got {action.shape}")
+        raw_obs, reward, done, info = self._env.step(action)
+        is_success = self._env.check_success()
+        terminated = bool(done or is_success)
+        info.update({"task": self.task, "task_id": self.task_id,
+                     "done": done, "is_success": is_success})
+        observation = self._format_raw_obs(raw_obs)
+        return observation, reward, terminated, False, info
 
 
 class _StubTask:
@@ -76,7 +101,7 @@ def make_chain_env(name: str) -> LiberoEnv:
     cfg = LiberoEnvConfig(task="libero_10")
     lang = read_language(name)
     task = _StubTask(name, lang)
-    env = LiberoEnv(
+    env = ChainEnv(
         task_suite=_StubSuite(task), task_id=0, task_suite_name="libero_10",
         episode_length=CHAINS[name]["episode_length"],
         camera_name=cfg.camera_name,

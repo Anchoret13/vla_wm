@@ -1,21 +1,65 @@
-# pi05-lcwm — Framework Design v0.2
+# pi05-lcwm — Framework Design v0.3
 
-Living design document for the language-conditioned world-model family on frozen
-π0.5, LIBERO-10. Structure candidates stay comparable under one data / interface /
-evaluation contract; experiments promote, modify, or delete them here. **[DEC]** =
-open decision with current default. **[EST]** = measure rather than assume.
+Living design document for a language-conditioned predictive state integrated
+into π0.5. Structure candidates stay comparable under one data / interface /
+evaluation contract; experiments promote, modify, or delete them here.
+**[DEC]** = open decision with current default. **[EST]** = measure rather than
+assume.
+
+**2026-07-23 active direction:** directly modify π0.5's flow-matching action
+distribution with a persistent LC state. Frozen-policy reranking and the earlier
+Candidate-A diagnostics remain useful controls, but neither is the main Phase-1
+system nor a prerequisite for attempting it.
+
+## FIRST PRINCIPLE
+
+> **The purpose of pi05-lcwm is to improve the VLA through a learned
+> understanding of real-world dynamics.**
+
+Language-conditioned state, long-horizon tasks, branch collection, flow
+fine-tuning, and reranking are mechanisms or tests—not independent objectives.
+Every promoted experiment must connect to the following causal chain:
+
+```text
+action intervention at a fixed real state
+                  ↓
+observed difference in the physical future
+                  ↓
+action-conditioned predictive state learns that effect
+                  ↓
+the learned dynamics information influences π0.5 actions
+                  ↓
+closed-loop VLA performance improves
+```
+
+This creates two non-interchangeable success bars:
+
+1. **Engineering success:** improve full-prompt chain Q/SR without destroying
+   standard LIBERO-10 competence.
+2. **Scientific success:** show that the gain uses learned action-conditioned
+   dynamics, rather than only task/phase lookup, extra policy capacity, prompt
+   routing, branch imitation, or best-of-N search.
+
+A result may clear the engineering bar without yet clearing the scientific bar.
+Such a result is retained, but it is labeled policy improvement—not LCWM
+evidence—until held-out controlled-effect prediction and matched no-dynamics
+controls establish attribution.
 
 ---
 
-## 0. Objective and Phase-1 win condition (updated 2026-07-20)
+## 0. Objective and Phase-1 win condition (updated 2026-07-23)
 
-Language acts as a **task identifier**, not as unconstrained text state. A task
-normalizer maps paraphrases of the same task to one canonical identity:
+Language acts as a **task identifier**, not as unconstrained text state.
+Conceptually, paraphrases define one canonical task equivalence class:
 
 ```text
 τ = g(language)                  # canonical task identity
 z_t^τ = F(o_≤t, a_<t, τ)        # task-conditioned predictive state
 ```
+
+LC-Flow v0 does not insert an oracle hard normalizer into this path. It consumes
+the real prompt and learns the equivalence through shared outcome and
+paraphrase-consistency supervision; `τ` states the desired semantics.
 
 Required representation behavior:
 
@@ -27,167 +71,188 @@ Required representation behavior:
 
 ### Objective hierarchy
 
-1. **Core research objective:** learn a language-conditioned predictive state on top
-   of frozen π0.5. It must summarize physical history and canonical task identity well
-   enough for action-conditioned, multi-step future prediction. Multitask sharing,
-   long-horizon reasoning, and a better policy are consequences sought from this state.
-2. **Representation criterion:** under identical observation / action history,
-   paraphrases of one task should induce the same predictive state, while different
-   tasks should differ where their future-relevant semantics differ. Predicted futures
-   and behavior arbitrate this property; raw latent distance does not.
-3. **Phase-1 instrumental test:** use the learned state to improve frozen π0.5 on
-   LIBERO-10. Proposal reranking is the first policy interface, not the definition or
-   final objective of the world model.
+1. **Core research objective:** improve π0.5 through a language-conditioned,
+   action-conditioned understanding of real-world dynamics. The predictive state
+   should retain the physical/history distinctions that matter for the task,
+   forecast the consequences of actions, and alter the action distribution in
+   the useful direction.
+2. **Representation criterion:** under identical observation/action history,
+   paraphrases of one task should induce equivalent predictive outcomes, while
+   different tasks should differ where their future-relevant semantics differ.
+   Outcome prediction and behavior arbitrate this property; raw latent distance
+   does not.
+3. **Dynamics criterion:** from a fixed history, different executed action blocks
+   must yield correctly predicted differences in physical and task-relevant
+   futures, including held-out effectful branches.
+4. **Phase-1 instrumental test:** improve stock π0.5 on the self-built
+   LoHo-inspired chain3/4/5 domain under the full composite instruction. The main
+   result is a modified `N = 1` policy, not an external best-of-N selector.
+5. **Retention criterion:** preserve the policy's existing standard LIBERO-10
+   competence. LIBERO-10 is now a regression test rather than the main headroom
+   benchmark.
 
-**Phase 1:** on standard LIBERO-10, frozen `lerobot/pi05_libero_finetuned` remains the
-proposal policy; the learned module must improve its paired closed-loop success rate.
-The backbone is not finetuned. Current reference is 96/100 in Stage-1 `lerobot-eval`
-and 98/100 in the single-env chassis run; the final comparison must use one locked
-harness, identical init-state schedule, and paired seeds.
+The physical world remains language-independent. Language changes which physical
+distinctions the finite-capacity latent retains and how the same physical future
+is evaluated:
 
-Phase-1 policy interface = **proposal reranking**, not action generation from scratch:
+\[
+x_{t+1}\sim P(x_{t+1}\mid x_t,a_t),
+\qquad
+z_t^\ell=\phi(H_t,\ell),
+\qquad
+\hat z_{t+1}^\ell=\hat T(z_t^\ell,a_t).
+\]
+
+Although `T` does not receive a second explicit language token in the active
+implementation, the induced latent transition is language-conditioned because
+its input state is `z_t^\ell`. This is deliberately different from Candidate A,
+where oracle task ID was also bypassed directly into the transition.
+
+Phase-1 primary interface:
 
 ```text
-observation + canonical task
-              │
-              ├── frozen π0.5: N candidate 50-action plans
-              │
-              └── learned state + predictor: score each candidate
-                                      │
-                         conservative selector / gate
-                                      │
-                         execute the winning first 10 actions
-                                      │
-                              observe and replan
+full instruction + observation + executed history
+                         │
+               persistent LC predictive state
+                         │
+          π0.5 flow-matching action expert (modified)
+                         │
+                one 50-action chunk, N = 1
+                         │
+                 execute first 10, reobserve
 ```
 
-Branch-scale candidate ranking is therefore a **downstream diagnostic and Phase-1
-interface**, not the core learning target and not a prerequisite for the first LCWM.
-Restoring one snapshot and varying only the action branch creates controlled
-counterfactual futures. Those branches serve three distinct purposes:
+Snapshot branches still matter, but their role is now:
 
-1. test and improve action-conditioned latent dynamics outside the single demonstrated
-   action at a state;
-2. test whether a task swap changes predicted predicates / progress for the right
-   reasons under the same physical history and candidate actions;
-3. derive ranking / value labels that connect the learned state to π0.5 improvement.
+1. provide action variation at the same history for outcome-grounded dynamics;
+2. provide language crossing / full-goal relabeling on one physical continuation;
+3. identify positive-progress actions that directly supervise the flow action
+   expert;
+4. optionally support reranking as a bootstrap, headroom measurement, and
+   secondary deployment interface.
 
-Purpose 3 must not replace 1–2. A direct-Q model can rank candidates without learning
-a reusable predictive state; Candidate C exists precisely as that control.
+A direct-Q model can satisfy purpose 4 without learning a reusable predictive
+state; Candidate C remains the corresponding control.
 
-Phase-1 success must report more than aggregate SR: paired ΔSR, rescue count
-(`π0.5` fail / reranker success), harm count (`π0.5` success / reranker fail),
-intervention rate, latency, and seed/init-level uncertainty. **[DEC]** provisional
-done-check = positive paired ΔSR with rescue > harm on the full locked schedule;
-statistical threshold and episode count are set before final eval.
+Phase-1 success reports paired full-prompt ΔSR and ΔQ, per-atom completion
+timelines, chain-length profile, failure localization, and standard LIBERO-10
+retention. Best-of-N rescue/harm/intervention metrics are reported only for the
+secondary reranking condition.
 
 ---
 
 ## 1. Locked common contract
 
-- Environment: LIBERO-10, all 10 tasks. Development may prioritize current weak tasks
-  t6 / t8 / t9, but architecture selection and final reporting cover all tasks.
-- Policy: frozen π0.5; candidate `0` is the stock action plan the baseline would have
-  used, candidates `1..N-1` are additional π0.5 samples. Default `N = 16`.
-- Policy chunk = 50 env actions; commitment / decision stride `c = 10`. A candidate is
-  split into five 10-action blocks for latent lookahead; `K ∈ {1, 3, 5}` is measured.
-- All candidate structures receive the same frozen visual features, proprio, executed
-  action history, task identity, and train/validation/test split. Where branch data is
-  used, they receive the same snapshot siblings and labels.
-- All candidates expose the same four operations:
+- Main development/evaluation domain: self-built LoHo-inspired chain3/4/5 on
+  `LIVING_ROOM_SCENE2`; standard LIBERO-10 is the retention suite.
+- Stock baseline: frozen `lerobot/pi05_libero_finetuned`.
+- Main system: LC-Flow π0.5, with the PrefixVLM initially frozen and the LC
+  state/update/transition/outcome path trainable. The action distribution is
+  changed through a trainable state-conditioning path; later action-expert
+  unfreezing/PEFT is an explicit escalation, not assumed in v0.
+- Final-policy input: the full natural-language composite instruction throughout
+  the episode. No oracle predicate bits, current subgoal, task ID, or decomposition.
+- Policy chunk = 50 environment actions; commitment / decision stride `c = 10`.
+  Only the first 10 actions receive a branch outcome unless a continuation was
+  actually executed.
+- Primary evaluation uses one sampled chunk per decision (`N = 1`). `N = 8/16`
+  candidate pools are allowed for data collection, oracle headroom, and secondary
+  reranking.
+- Main system operations:
 
 ```python
-e_task = task_encoder(language_or_task_id)
-state = state_encoder(obs_features, proprio, action_history, state_prev, e_task)
-future = dynamics.rollout(state, candidate_action_blocks, e_task)
-score = scorer(state, future, candidate_action_blocks)
+H, kv = prefix_vlm(observation, full_instruction)
+z_prior = transition(z_prev, encode(executed_actions_prev[:10]))
+z = observation_update(z_prior, H)
+action_chunk = flow_action_expert(H, kv, lc_state=z)     # N = 1 primary
+predicted_outcome = outcome_head(transition(z, encode(action_chunk[:10])))
 ```
 
-- Main success / progress / value heads may not receive raw language or `e_task`
-  directly: task information must pass through the learned task state. Direct-language
-  heads are retained only as explicit language-prior baselines.
-- Branch siblings from one simulator snapshot stay in the same dataset split.
-- Shared randomization schedules, pinned seeds, environment fingerprints, replay-valid
-  filtering, and exact candidate noise are saved with every comparison.
+- The language-conditioned prefix forward used to update `z` must reuse the same
+  KV cache used for action sampling; v0 does not add a second 3B forward.
+- Physical outcome heads must not change under same-history/action language swaps
+  beyond tolerance. Task predicates/progress/return may change, but task
+  information must pass through the learned LC state in the primary model.
+- Branch siblings from one simulator snapshot stay in one data split.
+- Save environment state/fingerprint, proposal provenance, exact policy flow noise,
+  executed action count, pre-reset terminal labels, and all paired evaluation seeds.
 
 ---
 
 ## 2. Task normalizer
 
-Phase-1 structural experiments use the oracle identity table first, so task parsing and
-world-model structure are not changed simultaneously:
-
-```python
-e_task = nn.Embedding(num_tasks=10, embedding_dim=256)(task_id)
-```
-
-The text-facing version is then attached as:
+The active model consumes the real natural-language instruction through π0.5's
+existing PrefixVLM. It does **not** use oracle task ID as the primary task
+interface:
 
 ```text
-language / paraphrase → frozen text features → 10-way prototype matcher → τ → E[τ]
+image + proprio + full language
+              │
+       π0.5 prefix hidden H_t^ℓ
+              │
+       LC observation update U
+              │
+              z_t^ℓ
 ```
 
-`TASKID` is therefore the Phase-1 canonical semantics / oracle upper bound, not merely
-an ablation. Conditioning controls:
+Language still acts semantically like a task identifier: paraphrases of the same
+goal should produce equivalent outcome predictions and behavior, while different
+goals should select different task-relevant state. We do not require literal
+vector equality, because prompt surface form may occupy nuisance dimensions.
 
-- `TASKID`: oracle canonical identity, used to choose the state architecture
-- `LANG→TASKID`: production text interface; held-out paraphrases must map to the same `τ`
-- `FREE`: no task identity, negative control
-- `SHUFFLED`: wrong identity on the same physical history, causal control
+Conditioning controls:
 
-**[DEC]** whether `LANG→TASKID` uses hard argmax prototypes (exact paraphrase
-invariance) or a soft mixture. Default = hard identity for Phase 1; continuous/open-task
-semantics are deferred.
+- `REAL-LANG`: primary full-prompt interface;
+- `PARAPHRASE`: same-goal invariance/equivalence test;
+- `TASKID`: oracle canonical identity, diagnostic upper bound only;
+- `FREE`: remove task information, negative control;
+- `SHUFFLED`: wrong instruction on the same physical history, causal control;
+- `READOUT-ONLY`: language-free state/transition with language-conditioned
+  outcome/action readout, matched-capacity scientific baseline.
+
+The readout-only model is not a route-selection gate. It tests the eventual claim
+that putting language inside the predictive state is more useful at fixed capacity;
+the LC-Flow vertical slice is attempted first.
 
 ---
 
-## 3. Frozen feature streams and tap-source decision
+## 3. Prefix feature interface
 
-The 2026-07-19 visualization establishes a heavy-tailed, spatially nonuniform prompt
-effect in last-layer image tokens, but does **not yet** separate generic prompt
-sensitivity from task-specific modulation. Current shift-map magnitude correlations
-(`r = 0.38–0.69`) are evidence of a shared prompt-sensitive subset, not proof that the
-remaining signal is content-free.
+### Active v0 binding
 
-The tap decision is therefore split by **role**, rather than forced into one global tap:
+LC-Flow v0 uses the real-prompt last hidden state from the same π0.5 prefix
+forward that constructs the action sampler's KV cache:
 
 ```text
-image ── SigLIP pre-trunk ─────────────────────────────── H_world
-   └── canonical task prompt + PaliGemma last layer ──── H_task^τ
+real image + full instruction
+              │
+        frozen PrefixVLM
+              ├── H_t^ℓ ── LC observation update
+              └── KV cache ── π0.5 action expert
 ```
 
-Terminology is kept strict: `H_world / H_task` are frozen VLA feature inputs; they are
-not yet the world-model hidden state. `Z_t^τ` in A, or `(W_t, G_t^τ)` in B, is the
-learned recurrent predictive state. We choose the frozen input by how well a learned
-state can use it for dynamics, not by renaming the tap itself as the world model.
+This is a compute/interface decision, not a claim that the last layer has already
+been certified as an LC world state. `H_t^\ell` is an input feature; the recurrent
+`z_t^\ell` is the learned predictive state. Reusing the same forward avoids a
+constant-prompt second trunk pass and lets the policy and model see exactly the
+same language-conditioned scene representation.
 
-Candidate inputs:
+SigLIP-only, constant-prompt last-layer, and fused features remain ablations if v0
+fails to retain physical detail. They do not gate implementation. The critical
+same-scene language control remains LIBERO-10 t0 vs t1
+(`LIVING_ROOM_SCENE2`), together with same-goal paraphrases.
 
-- shared/world stream: SigLIP pre-trunk **or** constant-prompt last-layer
-- task stream: canonical real-prompt last-layer
-- monolithic control: one selected stream plus explicit `e_task`
+### Historical tap evidence
 
-A single canonical-prompt π0.5 prefix forward can expose SigLIP features,
-task-conditioned last-layer features, and the KV cache for N-sampling. Constant + real
-last-layer taps require two trunk passes and carry an online latency cost.
+The 2026-07-19 visualization established a heavy-tailed, spatially nonuniform
+prompt effect in last-layer image tokens, but did not separate generic prompt
+sensitivity from task-specific modulation. Shift-map magnitude correlations
+(`r = 0.38–0.69`) showed a shared prompt-sensitive subset, not proof that the
+remaining signal was content-free.
 
-Tap arbitration uses two probe families:
-
-1. **World probes:** object pose, proprio, controlled next-state prediction.
-2. **Task probes:** BDDL predicate/progress, remaining-time/success value, candidate
-   ranking, same-task paraphrase consistency, and same-state task intervention.
-
-The critical same-scene control is LIBERO-10 t0 vs t1 (`LIVING_ROOM_SCENE2`): the
-physical scene is shared while the target object pair changes. Compare canonical t0,
-t0 paraphrases, canonical t1, unrelated t2, and constant prompt on identical frames.
-Target-object vs distractor/background selectivity needs simulator segmentation or
-projected object masks; heatmap appearance alone is not a decision criterion.
-
-**[DEC]** final feature inputs remain open, but standalone probes no longer gate LCWM
-training. The first Candidate-A sweep makes SigLIP the provisional `H_world` default;
-canonical-last-layer remains the required corrected-protocol comparator. The consumed
-split is development data, so this is not yet a held-out input decision. Fused token
-concatenation is not promoted, but its result does not rule out controlled fusion.
+That evidence motivated separate SigLIP/world and last-layer/task streams in the
+older A/B candidates. The split is retained as an ablation, not as the active v0
+architecture.
 
 Evidence log:
 
@@ -210,16 +275,136 @@ Evidence log:
   timestep with valid distractors has a mild 0.316 vs 0.204 contrast, and disjoint
   object-sized masks / more states are still missing. This remains a bounded
   diagnostic rather than a training gate.
-- Consequences: choose the hidden-state input through dynamics learning rather than
-  more standalone readout probes. Candidate-D pose supervision remains an explicit
-  training-only ablation for A/B; the current light-probe failure does not establish
-  that it is necessary.
+- Consequence: choose the hidden-state input while training the main dynamics/policy
+  system rather than through more standalone readout gates. Candidate-D pose
+  supervision remains a training-only ablation; the light-probe failure does not
+  establish that it is necessary.
 - 2026-07-22 Candidate-A pilot (`2026-07-22.md`): SigLIP is substantially more
   sensitive to cross-batch action shuffling under the current co-adaptive latent
   metric (1.06/1.10 vs real-LL 0.25/0.23), so it becomes the provisional world-input
-  default. Certification remains OPEN because the same `test` split was used for
-  selection and objective tuning, future physical/semantic heads were not evaluated
-  on predicted carries, and action-history/task-injection shortcuts remain uncontrolled.
+  default inside that diagnostic. Certification remained OPEN because the same
+  `test` split was used for selection and objective tuning, future
+  physical/semantic heads were not evaluated on predicted carries, and
+  action-history/task-injection shortcuts remained uncontrolled.
+
+---
+
+## 3.1 Active primary framework — LC-Flow π0.5
+
+### Persistent predictive state
+
+At decision boundary `t`:
+
+\[
+H_t^\ell = \operatorname{PrefixVLM}(o_t,\ell),
+\]
+
+\[
+\bar z_t^\ell =
+T_\theta\!\left(
+z_{t-1}^\ell,E_a(a^{\mathrm{exec}}_{t-1,0:10})
+\right),
+\qquad
+z_t^\ell =
+U_\theta(\bar z_t^\ell,H_t^\ell).
+\]
+
+```text
+z_(t-1)^ℓ + previous executed 10 actions
+                     │
+           action-conditioned prior T
+                     │
+                 z̄_t^ℓ
+                     │
+real-prompt H_t^ℓ ── observation correction U
+                     │
+                  z_t^ℓ
+             ┌───────┴────────┐
+       outcome rollout    π0.5 flow expert
+```
+
+`z_t^\ell` persists across the episode and resets only when the environment
+resets. `T` receives no explicit task embedding: language has already selected
+the predictive state that it advances. `U` performs posterior correction after
+the new observation. This prior/posterior split makes action history functional
+without giving the target step a raw previous-action shortcut.
+
+**[DEC] v0 state scale:** start with `M = 4` state tokens and `d_z = 384` or the
+smallest width convenient for projection into the 1024-wide action expert. Scale
+only if outcome learning is capacity-limited.
+
+### Direct action-expert integration
+
+π0.5's action expert is a flow-matching Gemma module whose AdaRMS conditioning
+currently receives the flow-time embedding. LC-Flow changes:
+
+\[
+c_{\mathrm{expert}}
+=
+c_{\mathrm{time}}
++
+W_z\operatorname{Pool}(z_t^\ell),
+\]
+
+and therefore:
+
+\[
+v_\psi(x_\tau,\tau\mid H_t^\ell)
+\quad\longrightarrow\quad
+v_\psi(x_\tau,\tau\mid H_t^\ell,z_t^\ell).
+\]
+
+The final layer of `W_z` is zero-initialized. At initialization the extension is
+an exact stock-policy no-op; training can then change the flow field without
+changing token positions, prefix length, or cache behavior. Suffix LC tokens are
+a later alternative if global AdaRMS modulation is insufficient.
+
+The first trainable boundary is:
+
+- freeze the 2B PrefixVLM;
+- train `E_a`, `T`, `U`, outcome heads, and `W_z`;
+- optionally unfreeze/PEFT the 300M action expert only after measuring whether
+  the conditioning adapter has enough control.
+
+Even with the action expert initially frozen, the trainable state projection
+changes its normalized activations and therefore its output distribution.
+
+### Outcome-grounded transition
+
+For candidate branch `i`:
+
+\[
+\hat z_{t+1}^{\ell,i}
+=
+T_\theta(z_t^\ell,E_a(a^{(i)}_{0:10})),
+\]
+
+\[
+D_\theta(\hat z_{t+1}^{\ell,i})
+=
+\left(
+\widehat{\Delta W}^{\,i},
+\widehat{\Delta Y}^{\,\ell,i},
+\widehat{\Delta \mathrm{Prog}}^{\,\ell,i},
+\widehat R^{\,\ell,i}
+\right).
+\]
+
+`ΔW` is an instruction-independent physical-effect block (proprio, object
+displacement, and fixed physical predicates where available). `ΔY`, progress,
+and return are evaluated under the full task. On the same `(history, action)`,
+instruction swaps should preserve `ΔW` while changing task relevance correctly.
+
+The state is not allowed to collapse into task progress alone. Progress memory
+can help LoHo behavior, but the project requires `T(z,a)` to predict how the
+executed action changes the real scene. Physical controlled effects are therefore
+core supervision and held-out evaluation, not an optional interpretability head.
+
+Latent self-prediction is an auxiliary training constraint, never the
+certification metric. The model is judged by controlled outcome effects and by
+the action distribution it induces.
+
+**Status: active primary implementation.**
 
 ---
 
@@ -248,12 +433,14 @@ Initial scale: `M = 4`, `d_z = 384`, two observation cross-attention blocks, fou
 transition blocks. **[DEC]** match Candidate B parameter count if the initial result is
 capacity-limited.
 
-Strengths: smallest path from current plan to an end-to-end trained reranker; cheap
-multi-step rollout. Risks: physical and task state are entangled; task identity can be
-copied into `Z` without changing useful dynamics; counterfactual task swaps are hard to
-interpret.
+Strengths: it established the end-to-end data/training pipeline and exposed
+action/history shortcuts. Risks realized in the pilot: oracle task ID FiLM enters
+the encoder, and the same embedding enters `Transition` directly. Therefore
+“task-swap changes the latent” is partly guaranteed by construction. Successful
+expert trajectories also do not identify visual action-conditioned effects.
 
-Status: **active baseline**.
+Status: **completed diagnostic instrument; retired as a final LCWM candidate.**
+Keep it for smoke tests and historical comparisons, not certification sweeps.
 
 ---
 
@@ -299,7 +486,9 @@ more moving pieces; `W` can discard task-relevant detail, or `G` can reduce to a
 task code. State trajectories, prediction behavior, and ranking—not raw latent
 distance—must arbitrate.
 
-Status: **active primary candidate**; favored conceptually, not yet experimentally.
+Status: **structured factorization ablation.** Conceptually attractive and still
+available if LC-Flow's monolithic state corrupts shared physics or wastes capacity,
+but it is no longer a gate before the primary vertical slice.
 
 ---
 
@@ -327,12 +516,12 @@ Strengths: objective matches Phase-1 selection directly; no compounding latent r
 error; likely data-efficient. Risks: not a reusable world model, weaker action-OOD
 generalization, no inspectable future state.
 
-Interpretation rule: Candidate C is not the target framework, but it is the required
-strong baseline. If A/B cannot match its held-out ranking or policy improvement, the
-claimed benefit of explicit latent dynamics is unsupported.
+Interpretation rule: Candidate C is not the target framework. It measures how much
+of best-of-N improvement can be obtained without a reusable predictive transition.
+It cannot decide whether the direct `N = 1` LC-Flow policy should be attempted.
 
-Status: **downstream strong baseline**. It is implemented after the first A/B
-state-learning run, not used to choose the world-model hidden state.
+Status: **secondary reranking / oracle-headroom baseline.** Implement after or
+alongside the first LC-Flow vertical slice as resources allow.
 
 ---
 
@@ -352,235 +541,430 @@ auxiliary targets.
 
 Strengths: interpretable task state and explicit long-horizon relations. Risks: slot
 identity drift, additional perception supervision, and substantially larger engineering
-surface before the reranking hypothesis is established.
+surface before the LC-Flow vertical slice is established.
 
-Status: **deferred**. Promote only if A/B diagnostics show that unstructured carry
-cannot retain object identity or predicate state.
+Status: **deferred**. Promote only if LC-Flow outcome errors show that an
+unstructured carry cannot retain object identity or predicate state.
 
 ---
 
-## 8. Decision-rate dynamics and scoring
+## 8. Decision-rate dynamics and control interfaces
 
-One learned transition corresponds to the policy commitment `c = 10`, not one MuJoCo
-step. Each π0.5 candidate supplies five coherent action blocks:
+One learned transition corresponds to the executed commitment `c = 10`, not one
+MuJoCo step. π0.5 still represents a 50-step chunk internally:
 
 ```text
-A_i = [a_0:10] [a_10:20] [a_20:30] [a_30:40] [a_40:50]
-                │
-          K latent transitions, K ∈ {1, 3, 5}
-                │
-       predicted progress + terminal value
+A = [a_0:10] [a_10:20] [a_20:30] [a_30:40] [a_40:50]
+     executed + labeled       unexecuted at this decision
 ```
 
-Candidate score default:
+### Primary interface — learned `N = 1` action distribution
+
+LC-Flow samples one chunk conditioned on `(H_t^\ell,z_t^\ell)`, executes the
+first 10 actions, observes, updates its persistent state, and replans. No external
+selector is required. This is the behavior the main experiment must improve.
+
+### Secondary interface — best-of-N bootstrap / reranking
+
+For collection or secondary evaluation, sample `N = 8/16` chunks and predict:
 
 ```python
-score_i = predicted_progress_gain_i + gamma**K * terminal_value_i
+score_i = predicted_progress_gain_i + gamma * predicted_short_return_i
 ```
 
-**[DEC]** direct Q, predicate completion, failure-risk, and π0.5-prior terms may join
-after calibration. Runtime selection is conservative:
+Candidate `0` is the paired stock/noise reference. Reranking provides:
 
-```python
-if best_score - baseline_score > margin and uncertainty < threshold:
-    execute(best_candidate[:10])
-else:
-    execute(stock_candidate[:10])
-```
+- a search-based teacher for branch-weighted flow learning;
+- an oracle-headroom check—does a useful action exist in π0.5's support?;
+- a fallback policy interface if direct distillation is initially weak;
+- Candidate-C comparison against explicit dynamics.
 
-Candidate `0` is always retained. Report intervention, rescue, and harm by confidence
-bin; tune margin / uncertainty on validation snapshots only.
+Reranking improvement alone is not the Phase-1 claim. The final comparison
+contains a full-prompt, no-oracle, `N = 1` LC-Flow arm.
 
 ---
 
-## 9. Training data
+## 9. Crossed branch data
 
-Three sources, introduced as needed rather than as prerequisite gates:
+### 9.1 Sources
 
-1. **Expert demonstrations (500 LIBERO-10 demos):** recurrent-state pretraining,
-   observed transition targets, object/predicate/progress auxiliaries. Only replay-valid
-   trajectories are used for counterfactual anchors.
-2. **π0.5 on-policy trajectories:** actual state distribution, including current
-   failure seeds and recovery attempts.
-3. **Snapshot branch dataset:** controlled counterfactual-future supervision and the
-   later policy-improvement interface. From one snapshot, generate stock + N-sampled
-   candidates, restore the identical sim state, execute each first 10-action block,
-   and record next state / predicates / progress. Continue a stratified subset with
-   π0.5 to termination for success and remaining-time targets.
+1. **Original LIBERO demonstrations:** preserve generic manipulation through the
+   normal full 50-step π0.5 flow-matching loss. They are rehearsal data, not
+   sufficient evidence for action-conditioned dynamics.
+2. **Stock π0.5 chained rollouts:** locate late-chain stall/recovery snapshots on
+   the actual failure distribution.
+3. **Snapshot branches:** restore one history, execute different first-10 action
+   blocks, and relabel the resulting physical continuation under compatible goals.
+4. **Improved-policy rollouts:** one DAgger-style recollection after the first
+   closed-loop policy exposes its own state distribution.
+
+### 9.2 Proposal pool
+
+At each useful stall/recovery snapshot, take the union of action chunks proposed
+under:
+
+- the full composite instruction;
+- the exact in-distribution pair instruction for the scene;
+- compatible atomic remaining-goal instructions;
+- multiple explicitly saved flow-noise samples.
+
+The proposal prompt only expands action support. Every branch is evaluated under
+the full composite evaluation goal, so a pair/atomic-prompt action with positive
+full-task advantage becomes a teacher for the **full-instruction** LC state.
+`proposal_prompt_id` is stored as provenance and never used as the training
+target's task identity.
+
+### 9.3 Storage contract
+
+Physical continuation, goal specification, and semantic relabel remain
+decoupled:
 
 ```text
-branch record = {
-  snapshot_id, suite, task_id, task_identity,
-  obs_features, q, action_history, state_flat,
-  candidates: (N, 50, 7),
-  next_obs_features: (N, ...),
-  predicate_bits / progress: (N, ...),
-  continuation_success: (N,), remaining_steps: (N,),
-  replay_valid, policy_seed, candidate_noise_seed,
-}
+PhysicalTransition
+  snapshot_id, source_episode_id, history, state_flat
+  branch_id, proposal_prompt_id, flow_noise_id
+  proposed_action_50, executed_action_10
+  next_observation, next_state_flat, terminal_before_reset
+
+GoalSpec
+  goal_id, canonical_instruction, paraphrases
+  BDDL predicates, compatible scenes
+
+SemanticRelabel
+  snapshot_id, branch_id, evaluation_goal_id
+  predicates_before/after, progress_delta
+  reward, success, failure flags, optional continuation return
 ```
 
-Sampling is stratified by task, early/mid/late phase, success/failure trajectory, and
-model confidence. All N branches of one snapshot share a split. **[DEC]** first branch
-budget and full-continuation fraction are set after the formal diversity / end-state
-dispersion measurement.
+Dataset indices are `(snapshot_id, branch_id, evaluation_goal_id,
+text_variant_id)`. One physical branch is not duplicated on disk for every
+language label. All sibling branches and relabels from a snapshot share one
+train/validation/test group.
 
-Expert and on-policy sequential transitions are sufficient to start the hidden-state
-sweep. Branch siblings are added when the first LCWM exists, primarily to prevent an
-action-ignoring predictor and to test counterfactual futures from identical starts.
-The same records later supply within-snapshot value / ranking labels. Ranking success
-alone does not establish a world model because Candidate C can obtain it directly.
+### 9.4 Initial collection scale
+
+Start with roughly 128–256 **useful** late-chain snapshots rather than delaying
+the model for a large corpus. Contact/object-moving/recovery states are
+preferable to free-space motion. During collection, repeat a small fraction of
+identical `(snapshot, action)` branches to log restore noise and discard invalid
+siblings. This is data quality control inside the main collection, not a
+separate architecture gate.
+
+Measure end-state/predicate dispersion, not action-space L2 alone. Fixed
+environment seeds do not fix π0.5 flow noise, so proposal noise is explicitly
+seeded and stored.
 
 ---
 
-## 10. Shared objectives
+## 10. Joint objectives
+
+### 10.1 Predictive-state / outcome losses
 
 ```text
-L_world    : k-step target-state prediction (EMA or VICReg target)
-L_task     : task-state prediction under the same canonical identity
-L_pred     : BDDL predicate bits + progress / remaining-time prediction
-L_value    : continuation success / calibrated terminal value
-L_rank     : within-snapshot pairwise ranking
-L_para     : same-task paraphrase state / score consistency
-L_anchor   : proprio + optional object-pose reconstruction, anti-collapse
+L_phys     : instruction-independent proprio/object/fixed-predicate effects
+L_sem      : task predicate flips and progress change
+L_return   : short continuation return / success where actually observed
+L_self     : target-state latent consistency, auxiliary only
+L_shared   : same physical branch predicts the same physical future across language
+L_para     : same-task paraphrase outcome/action consistency
+L_anchor   : optional privileged pose/predicate reconstruction, training only
 ```
 
-State-learning core for A/B:
+Controlled effects are preferred to absolute state priors:
 
-```python
-L_state = lw * L_world + lt * L_task + lp * L_pred \
-        + lpara * L_para + la * L_anchor
-```
+\[
+\Delta y_i^\ell =
+y^\ell(s'_i)-y^\ell(s),
+\qquad
+\mathcal L_{\mathrm{outcome}}
+=
+\lambda_{\mathrm{phys}}\mathcal L_{\mathrm{phys}}
++
+\lambda_{\mathrm{sem}}\mathcal L_{\mathrm{sem}}
++
+\lambda_{\mathrm{return}}\mathcal L_{\mathrm{return}}.
+\]
 
-Phase-1 downstream heads, attached after a viable learned state exists:
+`L_phys + L_sem` is the dynamics-understanding core. A policy trained with
+`L_branch-FM` but without controlled-effect learning is a matched behavior-learning
+baseline, not a reduced version that can support the same scientific claim.
 
-```python
-L_policy = lv * L_value + lr * L_rank
-```
+Overall predicate F1 is not a sufficient metric because unchanged predicates
+dominate. Report flip AUPRC/precision/recall, progress-effect error, object
+displacement error, and results restricted to effectful branches.
 
-A has no separate `L_world/L_task`; B exposes both. A/B are first promoted by
-predictive-state diagnostics, then tested for decision relevance with `L_policy`.
-Candidate C uses `L_value + L_rank + L_para` directly and is therefore a policy
-control, not evidence for the central world-model hypothesis. Loss weights are tuned
-on held-out transition/ranking metrics, never final closed-loop test SR.
+### 10.2 Branch-weighted flow matching
 
-Avoid trivial task-code success:
+All branches train the state transition and outcome heads. Only
+positive-progress or within-snapshot superior branches are action targets:
 
-- no raw-language/task embedding bypass into the main heads
-- report a task-only language-prior scorer
-- measure dynamic state change, not only `G_t^τ ≠ G_t^τ'`
-- require the same-state task swap to change candidate outcomes correctly
+\[
+\mathcal L_{\mathrm{branch\text{-}FM}}
+=
+w_i
+\left\|
+M_{0:10}\odot
+\left[
+v_\psi(x_\tau,\tau,H_t^\ell,z_t^\ell)
+-
+(\epsilon-a_i)
+\right]
+\right\|^2.
+\]
+
+`w_i` is derived from full-goal branch advantage and is nonnegative. The
+first-10 mask is mandatory because the other forty proposed actions were not
+executed under this label. Negative branches remain valuable outcome examples
+but are not trained as reverse imitation. Original demonstrations keep the
+unmasked full-chunk flow objective:
+
+\[
+\mathcal L_{\mathrm{joint}}
+=
+\mathcal L_{\mathrm{outcome}}
++
+\lambda_{\mathrm{self}}\mathcal L_{\mathrm{self}}
++
+\lambda_{\mathrm{shared}}\mathcal L_{\mathrm{shared}}
++
+\lambda_{\mathrm{para}}\mathcal L_{\mathrm{para}}
++
+\lambda_{\mathrm{branch}}\mathcal L_{\mathrm{branch\text{-}FM}}
++
+\lambda_{\mathrm{demo}}\mathcal L_{\mathrm{demo\text{-}FM}}.
+\]
+
+LeRobot's π0.5 loss already exposes per-sample flow error; implementation still
+needs a first-10 action mask and the full-goal branch-quality weighter.
+
+### 10.3 Shortcut controls
+
+- no oracle task ID or proposal prompt bypass into the primary transition/head;
+- predict changes/effects, not only absolute task/phase labels;
+- same physical continuation is reused across compatible instruction labels;
+- paraphrases must preserve outcome/action behavior;
+- instruction swaps may change task relevance but not predicted shared physics;
+- latent distance/effective rank are monitoring signals, never primary evidence.
 
 ---
 
-## 11. Architecture-selection experiments
+## 11. Experimental sequence
 
-### 11.1 Feature / identity controls (bounded screening role)
+### 11.1 Primary vertical slice
 
-- Correct joint-PCA centering and report explained variance.
-- Same frame prompts: canonical t0 / t0 paraphrases / same-scene t1 / unrelated t2 /
-  constant. Report quantiles and tail fractions, not mean only.
-- Compare shift-vector direction as well as shift magnitude maps.
-- World/task probe ladder; target-object vs distractor/background selectivity.
-- Task normalizer: held-out paraphrase classification and exact state/score consistency.
+1. Repair pre-reset terminal capture so the evaluation target is trustworthy.
+2. Implement persistent `LCState`, `T`, `U`, outcome heads, and zero-init AdaRMS
+   injection.
+3. Collect the first late-chain branch set and immediately joint-train the
+   predictive/outcome and masked flow objectives.
+4. From the same checkpoint, measure held-out controlled physical/task effects
+   and run stock π0.5 vs LC-Flow π0.5 on chain3 with the full prompt and
+   `N = 1`.
+5. If paired Q/SR and dynamics prediction show signal, extend to chain4/5;
+   otherwise use the already
+   trained outcome model and oracle best-of-N to distinguish missing action
+   support from failed state/action learning.
+6. Perform at most one improved-policy recollection/retrain pass before
+   revisiting architecture scale.
+7. Check standard LIBERO-10 retention.
 
-These controls set provisional inputs and catch extraction bugs; they do not choose the
-world-model state. Except for one bounded projection correction / rerun, the next
-decision is made through actual dynamics learning.
+The vertical slice is the focus experiment. Feature probes, Candidate-A
+certification, A-vs-B comparison, and exhaustive branch diagnostics are not
+preconditions.
 
-### 11.2 Hidden-state-first structure comparison
+The vertical slice deliberately produces both model evidence and behavior
+evidence. We do not postpone all dynamics evaluation until after optimizing the
+policy, because that would make a positive result impossible to attribute.
 
-First hold minimal A fixed as a learning instrument and compare the provisional input
-arms `{SigLIP-only, canonical-LL-only, fused}` on identical sequential splits. Then
-take the top input arm(s) into a matched A-vs-B comparison; do not change the input and
-state factorization in the same ablation. Primary metrics:
+### 11.2 Matched explanatory controls
 
-- one-step and `k = 2..5` action-conditioned target-state prediction
-- BDDL predicate / task-progress prediction from the learned state
-- degradation under action shuffle and task-ID shuffle relative to proper conditioning
-- same-physical-history t0/t1 intervention and same-task paraphrase consistency
-- history dependence, latent effective rank, per-dim std, and collapse diagnostics
-- held-out init-state / trajectory generalization and learning curves
+Run the smallest set needed to explain the main result:
 
-A hidden state is "usable for learning" only if it improves over no-action / no-task
-and trivial-copy baselines, remains non-collapsed, and changes predicted futures—not
-merely latent distance—under the task intervention. Static object-pose decodability is
-not a prerequisite.
+| arm | question |
+|---|---|
+| stock π0.5, `N = 1` | baseline full-prompt policy |
+| corrected oracle decomp | how much explicit goal/progress routing can help |
+| branch-FM, no persistent state | are better actions alone sufficient? |
+| LC-Flow, no outcome/world loss | is recurrence only acting as extra policy capacity? |
+| LC-Flow, `N = 1` | primary method |
+| LC-Flow + rerank, `N = 8/16` | proposal-support/headroom and bootstrap value |
+| readout-only matched capacity | does language need to enter predictive state? |
 
-### 11.3 Branch-scale downstream assay
+Candidate A is a smoke-test/chronology arm. Candidate B is promoted only if
+shared-physics or capacity results motivate explicit factorization. Candidate C
+is the direct-Q reranking baseline.
 
-After at least one A/B state passes §11.2, add controlled snapshot siblings and attach
-the shared value / ranking interface. Train Candidate C on the same branch split as the
-no-world-model control. Primary metrics:
+The branch-FM/no-state and LC-Flow/no-world-loss arms are required before the
+final scientific claim. If either matches LC-Flow, the result says the branch
+actions improved π0.5, but does not yet say real-world dynamics understanding
+caused the improvement.
 
-- branch next-state and predicate/progress prediction from identical starts
-- within-snapshot pairwise rank accuracy, NDCG, top-1 regret
-- held-out candidate noise and init-state generalization
-- same-candidate-pool t0/t1 ranking intervention and paraphrase invariance
-- value calibration and continuation-success prediction
+### 11.3 Evaluation contract
 
-Only the top two policy scorers enter expensive closed-loop comparison. Latent
-self-prediction establishes the research object; branch and policy tests establish
-that the object is decision-relevant for Phase 1.
+- full composite instruction remains fixed for the main policy episode;
+- no oracle predicate bits, current stage, or decomposition;
+- held-out source-episode/snapshot groups and held-out rollout seeds;
+- exact policy-noise pairing where the policy architectures permit it;
+- report paired Q-score, SR, per-atom completion time, stall duration, chain
+  horizon profile, and confidence intervals;
+- report held-out action-effect prediction on proprio, objects/contact,
+  predicate flips, and task progress from the same training checkpoint;
+- report standard LIBERO-10 SR/steps as a retention check;
+- separate primary `N = 1` from secondary best-of-N results.
 
-### 11.4 Closed-loop Phase-1 comparison
+The first chain3 run is a development result, not a final significance claim.
+Final seed counts and acceptance threshold are locked after measuring runtime
+and variance, before the final evaluation schedule is opened.
 
-- Stock π0.5 vs `π0.5 + scorer`, identical init-state and seed schedule.
-- First report per-task and paired episode table, then aggregate.
-- Report rescue, harm, intervention, confidence, steps-to-success, and wall-clock.
-- Development failure states may tune data collection but never enter a separate
-  cherry-picked primary score.
-- **[DEC]** proposed final schedule = all 50 init states × 10 tasks (500 paired
-  episodes), with additional policy-noise repetitions only if the paired confidence
-  interval remains unresolved.
+Final reporting separates:
 
----
-
-## 12. Current open-decision ledger
-
-- State form: monolithic A vs factorized B; direct-Q C is the required baseline.
-- Provisional world input = SigLIP; confirm against canonical-last-layer on repaired
-  validation/dev data, freeze the choice, then verify the fully frozen configuration
-  once on an untouched audit split. The current fused-concat result is not a general
-  fusion verdict.
-- In B, whether `H_task` is canonical-prompt last-layer or task queries over
-  shared-world tokens.
-- Whether one real/canonical prefix pass is sufficient for both policy and WM.
-- `M_world / M_task`, recurrence form, and EMA/no-var vs EMA+variance Pareto; variance
-  regularization is not locked.
-- Decision rollout `K = 1 / 3 / 5`; action-block encoder structure.
-- Predicate/progress supervision granularity and training-only privileged pose labels.
-- Branch count, continuation fraction, σ-perturbation proposal tier.
-- Ensemble / uncertainty method and conservative intervention threshold.
-- Final paired episode count and significance criterion.
+- **policy result:** did the VLA improve?;
+- **model result:** did it predict controlled real-world effects?;
+- **attribution result:** did dynamics-grounded LC-Flow outperform
+  capacity/data-matched no-dynamics policy learning?
 
 ---
 
-## 13. Immediate order of work
+## 12. Current evidence and interpretation ledger
 
-1. Freeze an explicit demo-level train/validation/dev manifest, relabel the consumed
-   `test` split as dev, reserve an untouched audit set that does not participate in
-   selection, and repair post-block/terminal next-state collection plus the eight
-   replay-success disagreements.
-2. Complete minimal-A evaluation on predicted rollout states: future physical and
-   semantic heads, matched action controls, no-action/no-task/task-only/no-history
-   baselines, correct same-state task intervention, paraphrase consistency, collapse
-   diagnostics, per-task metrics, and learning curves.
-3. Confirm provisional SigLIP against canonical-LL on validation/dev and select
-   EMA/no-var vs EMA+variance by a documented prediction/rank Pareto; compare A vs B
-   under the same frozen development contract, then verify the fully frozen winner
-   once on the untouched audit split.
-4. Measure formal N=16 action / end-state diversity and collect the small branch set
-   needed for counterfactual action coverage and the downstream Phase-1 interface.
-5. Attach the shared value / ranking head; train Candidate C on the same branches as
-   the no-WM policy control.
-6. Run conservative closed-loop reranking for promoted A/B states, then lock and run
-   the paired Phase-1 evaluation once.
+### Candidate A
 
-- 2026-07-22 re-review (details `2026-07-22.md`): the first Candidate-A sweep is a
-  successful pipeline pilot, not completed §11.2 arbitration. SigLIP is the
-  **provisional** world-input default because its current action-shuffle sensitivity
-  is much larger than real-LL/fused. The old `test` was consumed as dev; F1/R² are
-  current teacher-forced readouts rather than predicted-future metrics; the rank rule
-  changed post hoc; and variance regularization incurs measurable prediction error.
-  EMA + variance therefore remains OPEN pending the repaired protocol.
+- Candidate A is a successful pipeline diagnostic, not a certified LCWM.
+- Oracle task-ID FiLM plus direct task embedding into `Transition` structurally
+  produces task-dependent latents.
+- Successful expert trajectories bind task, scene, phase, and action; they do
+  not identify visual action-conditioned dynamics.
+- Removing raw `a_prev` removed a major action-sensitivity shortcut.
+- Task information helps predict task-specific predicates, but that observation
+  is also compatible with language-conditioned readouts.
+
+Therefore further Candidate-A rank/variance/seed sweeps do not precede LC-Flow.
+
+### Chained-domain correction and failure target
+
+The 2026-07-22 evaluator reread predicates after auto-reset and hid two decomp
+successes. Trajectory-audited provisional correction:
+
+| task | full SR / Q | decomp SR / Q |
+|---|---:|---:|
+| chain3 | 0% / 0.67 | 20% / 0.67 |
+| chain4 | 0% / 0.55 | 20% / 0.75 |
+| chain5 | 0% / 0.44 | 0% / 0.60 |
+
+**OPEN EVAL-001:** LeRobot `LiberoEnv.step()` calls `reset()` after setting
+`info["is_success"]`; `run_chain_episode` ignores that field and queries
+`predicate_bits(env, atoms)` from the reset simulator at its terminal paths.
+The fix must preserve terminal bits/state before reset, consume that immutable
+record in the runner, add a success-serialization regression test, and rerun the
+affected cells. The raw artifact is still contaminated. What survives:
+
+- full prompt is 0/15;
+- all 15 full runs complete alphabet soup and 14/15 complete tomato sauce;
+- butter completes twice, cream cheese once, and milk never;
+- all chain3 full runs stall at 2/3 for roughly 400+ steps;
+- decomp sometimes rescues, so task/progress routing matters;
+- late-chain decomp still misgrounds the requested object (cream often induces
+  butter), so routing text alone is not reliable.
+
+Generic manipulation is not the first bottleneck: standard LIBERO-10 same-scene
+t0/t1 are 10/10 each; atomic cream-cheese and milk tasks are 10/10, and butter
+is 9/10. The first intervention should target persistent task/progress state and
+its effect on action generation, not a generic low-level controller.
+
+### Scientific interpretation
+
+The central hypothesis remains fixed: language belongs in the learned predictive
+state/dynamics. The readout-only system is the principal matched alternative, not
+a go/no-go selector. Crossed branch data exists to prevent the LC system from
+winning through task–trajectory correlation. Policy improvement tests whether
+the learned distinctions are decision-relevant. The north star is not merely a
+better latent or a better chain score: it is a better VLA **because** the VLA has
+learned action-conditioned real-world dynamics.
+
+---
+
+## 13. Active known-problem ledger (2026-07-23)
+
+| status | problem | consequence for the framework |
+|---|---|---|
+| confirmed | evaluator read predicates after auto-reset | repair pre-reset terminal capture before any new policy comparison |
+| confirmed | raw chain JSON stores reset-state Q/success for two terminal episodes | preserve it as contaminated provenance; write repaired results to a versioned artifact |
+| confirmed | chain5 executed at 990 rather than planned 1100 steps | treat 990 as the recorded executed horizon; do not claim the preregistered cap was run |
+| confirmed | environment seed does not fix flow-matching noise | save/pair policy-noise seeds or tensors |
+| confirmed | Candidate A has oracle-FiLM and direct task-to-transition shortcuts | diagnostic instrument only; no further certification sweeps |
+| confirmed | old `a_prev` target path inflated action sensitivity | separate predictive prior from posterior correction |
+| confirmed | expert demos permit task/phase/no-vision shortcuts | crossed fixed-snapshot branches are the main learning data |
+| confirmed | old task swaps did not always recompute prompt-conditioned VLA features | every language arm must use its matching real-prompt prefix |
+| open | contact-heavy replay has shown eight success disagreements | repeat identical branches and reject snapshots whose restore noise dominates |
+| design-critical | only candidate actions 0:10 are executed but the proposal has length 50 | mask branch flow loss to 0:10; never propagate the label to unexecuted actions |
+| design-critical | failed branches are informative but are not desirable action targets | train transition/outcome heads on them; do not use negative-weight imitation |
+| open implementation | π0.5 training lacks branch-quality weighting and a first-10 mask | implement both before branch outcomes update the action expert |
+| design-critical | pair/atomic prompts expand proposal support | proposal identity is provenance only; full composite goal supplies training labels |
+| open | LC state may copy a static task code | outcome effects and behavior, not latent separation, are the acceptance criteria |
+| open | language conditioning may corrupt predicted shared physics | enforce/report cross-language physical-effect consistency |
+| open | zero-init AdaRMS adapter may have insufficient action control | measure distribution shift and escalate to PEFT/unfreezing only if needed |
+| claim constraint | best-of-N may improve selection without improving the action distribution | full-prompt direct `N = 1` remains the primary endpoint |
+| open implementation | branch learning may forget stock skills or a no-op extension may be wired incorrectly | demo rehearsal, LIBERO-10 retention, and fixed-noise pre-training equivalence test |
+| scope | one scene family and five seeds/cell | treat initial chain3 as development; use held-out seeds and later cross-scene confirmation |
+
+Long-continuation return is also policy-dependent. The first target is therefore
+the observed one-block physical/semantic effect; continuation value is auxiliary
+and used only where its generating policy is recorded.
+
+The dated log `2026-07-23.md` records consequences and required actions in full.
+Only the evaluator repair blocks scoring; the remaining items are handled inside
+the main implementation/data/evaluation contract.
+
+---
+
+## 14. Current open-decision ledger
+
+- LC state scale (`M`, `d_z`) and pooling used by `W_z`.
+- Minimum controlled-effect and attribution result required for the final LCWM
+  claim.
+- Add LC conditioning to every action-expert AdaRMS layer or a selected subset.
+- Whether the zero-init adapter alone moves the policy sufficiently; criterion
+  for PEFT/unfreezing the action expert.
+- Exact action-block encoder and whether a second/third latent transition uses
+  predicted or observed correction.
+- Branch-advantage definition, temperature/clipping, and demo/branch mixture.
+- Initial proposal count and allocation among full/pair/atomic prompt sources.
+- Which compatible alternative goals/paraphrases form the crossed language set.
+- Fraction of branches receiving longer continuation-return labels.
+- Physical-effect target: proprio + object pose + fixed predicate vocabulary.
+- Whether explicit factorization (Candidate B) is needed after the monolithic
+  LC-Flow result.
+- Final evaluation seed count, paired significance rule, and acceptable
+  LIBERO-10 regression.
+
+These decisions are made from the first vertical slice and its learning curves,
+not from another standalone diagnostic program.
+
+---
+
+## 15. Immediate order of work
+
+1. Fix and rerun terminal evaluation capture.
+2. Implement recurrent LC prior/posterior state and outcome heads.
+3. Inject the zero-initialized state projection into the π0.5 action expert.
+4. Collect roughly 128–256 useful late-chain snapshots with saved flow noise,
+   full-goal relabels, and first-10 outcomes.
+5. Joint-train outcome-grounded dynamics plus branch/demo flow matching.
+6. Evaluate held-out controlled effects and run chain3, full prompt, no oracle,
+   `N = 1`, from the same checkpoint.
+7. Extend to chain4/5; use best-of-N only as bootstrap/headroom/secondary result.
+8. Optionally recollect once under the improved policy and retrain.
+9. Run standard LIBERO-10 retention and the matched no-dynamics attribution
+   ablations.
+
+This order supersedes the 2026-07-22 sequence “finish Candidate A → A-vs-B →
+branch ranking → frozen-policy reranking.”
+
+---
+
+## 16. Scope / provenance
+
+The chained domain is a **self-built LoHo-inspired exam**, not official
+LIBERO-LoHo. Its BDDL tasks extend packaged `LIVING_ROOM_SCENE2` goals and its
+evaluator/decomp controller live in this repository. Results are not directly
+comparable to the unreleased benchmark or its paper numbers.
