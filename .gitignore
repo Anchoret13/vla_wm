@@ -12,5 +12,13 @@ wandb/
 outputs/
 *.log
 
+# LC-Flow run directories: adapters/optimizers are GBs and reproducible from
+# the locked contracts + hashes recorded in the committed audit JSONs.
+# Small metrics (training_summary.json, *_audit.json, closed_loop_*.json)
+# stay visible for explicit commits.
+results/**/epoch_*/
+results/**/optimizer_latest.pt
+results/**/*.safetensors
+
 # external source (installed editable into vf0s, lives at ../lerobot)
 /lerobot/
