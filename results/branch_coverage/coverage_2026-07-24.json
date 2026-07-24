@@ -201,6 +201,28 @@
       "effect_floor_mm": 2.0
     },
     {
+      "path": "chain3ct-seed1018-skip1-cd50mm-src38000-prop48000-n13-f4p4a4-m238ad15d-c873fae4b36.pt",
+      "split": "dev",
+      "source_trajectory_id": "chain3_lr2-full-seed1018-src38000",
+      "source_seed": 1018,
+      "snapshot_mode": "on_policy_contact",
+      "contact_object": "alphabet_soup_1",
+      "decision_index": 6,
+      "branches": 13,
+      "task_object_max_disp_mm": 66.63484126329422,
+      "incidental_max_disp_mm": 0.0,
+      "replay_object_linf_mm": 0.0,
+      "replay_q_dispersion": 0.0006798683316446841,
+      "q_resolved": true,
+      "object_resolved": true,
+      "structural_valid": true,
+      "positive_flow_targets": 0,
+      "predicate_flip_branches": 0,
+      "dense_progress_branches": 0,
+      "effect_resolved": true,
+      "effect_floor_mm": 2.0
+    },
+    {
       "path": "chain3ct-seed1038-skip0-cd50mm-src58000-prop68000-n13-f4p4a4-m238ad15d-ce6d65d011f.pt",
       "split": "dev",
       "source_trajectory_id": "chain3_lr2-full-seed1038-src58000",
@@ -220,6 +242,28 @@
       "predicate_flip_branches": 0,
       "dense_progress_branches": 0,
       "effect_resolved": false,
+      "effect_floor_mm": 2.0
+    },
+    {
+      "path": "chain3ct-seed1038-skip1-cd50mm-src58000-prop68000-n13-f4p4a4-m238ad15d-cc60803eb26.pt",
+      "split": "dev",
+      "source_trajectory_id": "chain3_lr2-full-seed1038-src58000",
+      "source_seed": 1038,
+      "snapshot_mode": "on_policy_contact",
+      "contact_object": "alphabet_soup_1",
+      "decision_index": 6,
+      "branches": 13,
+      "task_object_max_disp_mm": 89.80197459459305,
+      "incidental_max_disp_mm": 0.0,
+      "replay_object_linf_mm": 0.0,
+      "replay_q_dispersion": 0.0006869601202197373,
+      "q_resolved": false,
+      "object_resolved": true,
+      "structural_valid": true,
+      "positive_flow_targets": 0,
+      "predicate_flip_branches": 0,
+      "dense_progress_branches": 0,
+      "effect_resolved": true,
       "effect_floor_mm": 2.0
     },
     {
@@ -254,11 +298,11 @@
       "independent_effect_resolved_episodes": 5
     },
     "dev": {
-      "groups": 3,
-      "effect_resolved_groups": 0,
+      "groups": 5,
+      "effect_resolved_groups": 2,
       "positive_flow_targets": 0,
       "independent_source_episodes": 2,
-      "independent_effect_resolved_episodes": 0
+      "independent_effect_resolved_episodes": 2
     },
     "test": {
       "groups": 1,
