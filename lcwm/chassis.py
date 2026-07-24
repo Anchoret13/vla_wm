@@ -157,6 +157,39 @@ class Pi05Runner:
         observation = self._obs_to_policy_batch(obs, task_description)
         return self.policy.predict_action_chunk(observation)
 
+    @torch.no_grad()
+    def action_to_env(self, action_norm: torch.Tensor) -> np.ndarray:
+        """One normalized policy action -> one executable LIBERO action."""
+        if action_norm.ndim == 1:
+            action_norm = action_norm.unsqueeze(0)
+        if action_norm.ndim != 2 or action_norm.shape[0] != 1:
+            raise ValueError(
+                f"expected normalized action [7] or [1,7], got {action_norm.shape}"
+            )
+        # Collected branch chunks are intentionally stored on CPU, whereas the
+        # LeRobot postprocessor was constructed for the policy device.  Make
+        # this boundary explicit so online GPU chunks and reloaded CPU chunks
+        # follow the exact same inverse-normalization path.
+        policy_device = next(self.policy.parameters()).device
+        action_norm = action_norm.to(device=policy_device, dtype=torch.float32)
+        action = self.postprocessor(action_norm)
+        transition = self.env_postprocessor({"action": action})
+        value = transition["action"]
+        if torch.is_tensor(value):
+            return value[0].detach().cpu().numpy()
+        return np.asarray(value)[0]
+
+    @torch.no_grad()
+    def chunk_to_env(self, chunk_norm: torch.Tensor) -> np.ndarray:
+        """Normalized ``[1,T,7]`` or ``[T,7]`` chunk -> executable ``[T,7]``."""
+        if chunk_norm.ndim == 3:
+            if chunk_norm.shape[0] != 1:
+                raise ValueError(f"expected one chunk, got {chunk_norm.shape}")
+            chunk_norm = chunk_norm[0]
+        if chunk_norm.ndim != 2:
+            raise ValueError(f"expected [T,7] chunk, got {chunk_norm.shape}")
+        return np.stack([self.action_to_env(action) for action in chunk_norm])
+
     def reset(self) -> None:
         self.policy.reset()  # clears the internal action queue
 
