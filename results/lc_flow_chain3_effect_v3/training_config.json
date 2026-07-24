@@ -1,0 +1,136 @@
+{
+  "data": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1",
+  "output": "/home/stargazer/Desktop/vla_wm/vla_wm/results/lc_flow_chain3_effect_v3",
+  "epochs": 15,
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "outcome_scale": 1.0,
+  "outcome_objective": "effect_centered_v1",
+  "flow_scale": 0.1,
+  "flow_microbatch": 1,
+  "truncate_bptt": 16,
+  "max_grad_norm": 1.0,
+  "max_groups": null,
+  "seed": 0,
+  "probe_seed": 12345,
+  "device": "cuda",
+  "dry_run": false,
+  "dataset_schema": "lcwm_chain_branch_v1_1",
+  "base_model_id": "lerobot/pi05_libero_finetuned",
+  "lc_flow_config": {
+    "d_h": 2048,
+    "d_z": 384,
+    "state_tokens": 4,
+    "heads": 6,
+    "transition_layers": 2,
+    "transition_dropout": 0.0,
+    "update_blocks": 2,
+    "expert_width": 1024,
+    "action_dim": 7,
+    "execution_horizon": 10,
+    "proprio_dim": 9,
+    "max_objects": 8,
+    "max_atoms": 5
+  },
+  "group_weighting": "one rotating group per source episode per epoch",
+  "effect_scale_report": {
+    "rule": "source-balanced train sibling RMS, floored by 3x replay RMS and fixed physical resolution",
+    "source_episode_groups": {
+      "chain3_lr2-full-seed1000-src20000": 1,
+      "chain3_lr2-full-seed1001-src21100": 3,
+      "chain3_lr2-full-seed1010-src30000": 1,
+      "chain3_lr2-full-seed1011-src31000": 1,
+      "chain3_lr2-full-seed1012-src32000": 1
+    },
+    "signal_variance": {
+      "q_position": 2.4178784212836035e-05,
+      "q_quaternion": 1.2611460867143859e-05,
+      "q_gripper": 1.8720083414019175e-07,
+      "d_obj": 7.147766649969374e-07,
+      "d_prog": 1.8555355798829017e-06
+    },
+    "replay_variance": {
+      "q_position": 1.9299306427851083e-08,
+      "q_quaternion": 2.0715591556956054e-09,
+      "q_gripper": 1.4725519873871157e-11,
+      "d_obj": 3.447160516980081e-17,
+      "d_prog": 0.0
+    },
+    "floors": {
+      "q_position": 0.0001,
+      "q_quaternion": 0.0001,
+      "q_gripper": 0.0001,
+      "d_obj": 0.0001,
+      "d_prog": 0.0001
+    },
+    "scales": {
+      "q_position": 0.004917192716666292,
+      "q_quaternion": 0.0035512618696941878,
+      "q_gripper": 0.000432667117008205,
+      "d_obj": 0.0008454446551944944,
+      "d_prog": 0.0013621804505581858
+    }
+  },
+  "unidentified_heads": [
+    "next_bits",
+    "continuation_success"
+  ],
+  "proposal_language_usage": "provenance only; full_instruction conditions training",
+  "selected_train_groups": 7,
+  "selected_positive_flow_targets": 8,
+  "fixed_probe_snapshot_id": "chain3_lr2-full-seed1000-src20000-pn20000-d44-r16-rkacc1f5b6-m238ad15d",
+  "dataset_manifest_sha256": "f1d9fd12ca39ba3dc6485faf9428e1e24090784d1f91f450379809cb6f7ca645",
+  "selected_train_artifacts": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1000-src20000-prop30000-ar16-r0c4-rpn50000-n13-f4p4a4-m238ad15d.pt",
+      "sha256": "25b3c79f0798180b46b457652ef1c450a49cd0543fe003f2a54e93bd5594e18c"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-src21000-prop31000-ar16-r0c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c44f9a6917c.pt",
+      "sha256": "13a7a40dcc2b5f842add53236b54d34f54a8a76b90b620c4b4bb23fca18d0916"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-srcbase21000-prop31000-ar24-r0c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c5a74fbcb09.pt",
+      "sha256": "b52a0e1c9f0ea99a5c4ad1d7b99b7c7bbd077e8b5280583e568a2c0980cee800"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-srcbase21000-prop31000-ar24-r1c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c55c7f4d98a.pt",
+      "sha256": "4107260a03ebcf9a19b1bd814acd1637d3cb1cb864fd697a7a8ed024b85fa9c6"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1010-skip0-cd50mm-src30000-prop40000-n13-f4p4a4-m238ad15d-cf89d2cb533.pt",
+      "sha256": "b80893913842a9b40736bfa575d27d9b6f1170ff38af6ce00c725cb6a684ae3d"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1011-skip0-cd50mm-src31000-prop41000-n13-f4p4a4-m238ad15d-c0dc9adc25b.pt",
+      "sha256": "28301a24070a0500e07038df5e18825c908895e970613d883130163ff57e3a51"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1012-skip0-cd50mm-src32000-prop42000-n13-f4p4a4-m238ad15d-cbcfbfd7eaa.pt",
+      "sha256": "c58764914be7754d7f7d2ea57030d32c03761e333e6838bb313510f7bb7e933c"
+    }
+  ],
+  "selected_dev_artifacts": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1018-srcbase38000-prop48000-ar24-r1c4-rpn68000-sa4-n13-f4p4a4-m238ad15d-c7785b7ba42.pt",
+      "sha256": "7fa06aaee54227b8612884b9768967fd66a4587ec7697003ce2e122da23730ab"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1018-skip0-cd50mm-src38000-prop48000-n13-f4p4a4-m238ad15d-c3bd91abeb9.pt",
+      "sha256": "5a5e767c8b0713887005b3e0bb83c92da5538a14536196f3ab5ff4a03744925c"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1018-skip1-cd50mm-src38000-prop48000-n13-f4p4a4-m238ad15d-c873fae4b36.pt",
+      "sha256": "1be633a40441205cde378be0b6c43db5352982a4e15769819967e511a92fbdd0"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1038-skip0-cd50mm-src58000-prop68000-n13-f4p4a4-m238ad15d-ce6d65d011f.pt",
+      "sha256": "6450b88ac42f850655e091f3c1d92f7086ac556e05095ae715df650e28074709"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3ct-seed1038-skip1-cd50mm-src58000-prop68000-n13-f4p4a4-m238ad15d-cc60803eb26.pt",
+      "sha256": "4457aaf7ed132732ffe7b46bf04b411ab512eaf7c3b91c3549d58d9dbb4471df"
+    }
+  ],
+  "training_source_sha256": "024713ddb5f5bb2d22c941cefef1e3180a41207624c38d6164e415dde9aab957"
+}
