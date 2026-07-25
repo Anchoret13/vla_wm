@@ -1,0 +1,875 @@
+{
+  "history": [
+    {
+      "epoch": 0,
+      "train_self": 0.34295502775593806,
+      "train_res": 27.898970629039564,
+      "train_out": 1032.0347547029194,
+      "train_vic": 0.8203211583589253
+    },
+    {
+      "epoch": 1,
+      "train_self": 0.09429370572692469,
+      "train_res": 23.49833950243498,
+      "train_out": 225.5578284012644,
+      "train_vic": 0.8817957765177676
+    },
+    {
+      "epoch": 2,
+      "train_self": 0.019919001056175483,
+      "train_res": 9.786699997751336,
+      "train_out": 147.94702068128083,
+      "train_vic": 0.8690050369814822
+    },
+    {
+      "epoch": 3,
+      "train_self": 0.009550305205936494,
+      "train_res": 6.175439389128434,
+      "train_out": 108.67082575747841,
+      "train_vic": 0.8574170313383404
+    },
+    {
+      "epoch": 4,
+      "train_self": 0.010937053612188288,
+      "train_res": 11.137039209667005,
+      "train_out": 77.49388724879215,
+      "train_vic": 0.7917553437383551,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.01078372448682785,
+            "copy_state": 0.00471903383731842,
+            "ignore_action": 0.010752426460385323,
+            "mean_next": 0.0024088833015412092,
+            "model_delta": 2.890715156109179,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 2.895307341397021,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.010615214705467224,
+            "copy_state": 0.004476482048630714,
+            "ignore_action": 0.010581837967038155,
+            "mean_next": 0.0021556210704147816,
+            "model_delta": 3.0012773767098158,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 3.0102869396208063,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.011843614280223846,
+            "copy_state": 0.00521760992705822,
+            "ignore_action": 0.011807707138359547,
+            "mean_next": 0.002418702933937311,
+            "model_delta": 2.8285490169674645,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 2.8347492953932245,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.01169788558036089,
+            "copy_state": 0.0044147358275949955,
+            "ignore_action": 0.011655398644506931,
+            "mean_next": 0.0021491555962711573,
+            "model_delta": 3.316652127559489,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 3.3153807800282733,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.009778630919754505,
+            "copy_state": 0.0033052254002541304,
+            "ignore_action": 0.009770873934030533,
+            "mean_next": 0.002246284857392311,
+            "model_delta": 3.820433455444619,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 3.827017541279685,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.010968362912535667,
+            "copy_state": 0.016062110662460327,
+            "ignore_action": 0.01099078357219696,
+            "mean_next": 0.0021933417301625013,
+            "model_delta": 0.8667207266264593,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.8622403218983797,
+            "beats_all_absolute": false,
+            "beats_all": false
+          }
+        },
+        "sources_beating_all_baselines": 0,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.07043717801570892,
+          "min_per_dim_std": 0.03306228667497635,
+          "effective_rank": 14.4142484664917
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.009044215083122253,
+          "min_per_dim_std": 0.002938710618764162,
+          "effective_rank": 3.8307652473449707
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_self": 0.007732013277219315,
+      "train_res": 12.559965560310765,
+      "train_out": 57.20539173326994,
+      "train_vic": 0.7509712859203941
+    },
+    {
+      "epoch": 6,
+      "train_self": 0.0054336358474469494,
+      "train_res": 9.23343489044591,
+      "train_out": 41.4398731432463,
+      "train_vic": 0.7519979163220054
+    },
+    {
+      "epoch": 7,
+      "train_self": 0.005502232534222697,
+      "train_res": 9.732563909731413,
+      "train_out": 37.52489491512901,
+      "train_vic": 0.7545470124796817
+    },
+    {
+      "epoch": 8,
+      "train_self": 0.0030209803218512158,
+      "train_res": 6.146947107816997,
+      "train_out": 34.29131919459293,
+      "train_vic": 0.740818064463766
+    },
+    {
+      "epoch": 9,
+      "train_self": 0.004499132285433772,
+      "train_res": 11.9210349635074,
+      "train_out": 31.278785002859014,
+      "train_vic": 0.7822882031139574,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.002215702086687088,
+            "copy_state": 0.005051379092037678,
+            "ignore_action": 0.002252770122140646,
+            "mean_next": 0.0010356176644563675,
+            "model_delta": 1.508710804751877,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.4961034567741165,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0022360568400472403,
+            "copy_state": 0.005062423646450043,
+            "ignore_action": 0.0022611217573285103,
+            "mean_next": 0.0009582310449331999,
+            "model_delta": 1.524423160278826,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.495937435223332,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.0025918958708643913,
+            "copy_state": 0.005918937735259533,
+            "ignore_action": 0.0026396161410957575,
+            "mean_next": 0.0010360466549172997,
+            "model_delta": 1.3573402016788327,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.337219592025446,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0023299299646168947,
+            "copy_state": 0.005110038444399834,
+            "ignore_action": 0.0023652613162994385,
+            "mean_next": 0.0008989995694719255,
+            "model_delta": 1.51332801627135,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.4980485796561995,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.001982226502150297,
+            "copy_state": 0.003427407704293728,
+            "ignore_action": 0.0020290096290409565,
+            "mean_next": 0.0009936895221471786,
+            "model_delta": 2.1440097931732462,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 2.14025906396813,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.0021206936798989773,
+            "copy_state": 0.020716411992907524,
+            "ignore_action": 0.002180829644203186,
+            "mean_next": 0.0008959472179412842,
+            "model_delta": 0.3454919294681704,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.3612966542966686,
+            "beats_all_absolute": false,
+            "beats_all": true
+          }
+        },
+        "sources_beating_all_baselines": 1,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.04629353806376457,
+          "min_per_dim_std": 0.02531336434185505,
+          "effective_rank": 12.955888748168945
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.009478902444243431,
+          "min_per_dim_std": 0.0034670252352952957,
+          "effective_rank": 3.534040689468384
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "train_self": 0.002450394585091425,
+      "train_res": 11.411207813965646,
+      "train_out": 33.04121850666247,
+      "train_vic": 0.767630934715271
+    },
+    {
+      "epoch": 11,
+      "train_self": 0.002161997204989587,
+      "train_res": 15.975263419904207,
+      "train_out": 38.51477974339535,
+      "train_vic": 0.7372541835433558
+    },
+    {
+      "epoch": 12,
+      "train_self": 0.002257964855648185,
+      "train_res": 12.894345032541375,
+      "train_out": 40.429379312615644,
+      "train_vic": 0.7311924570485165
+    },
+    {
+      "epoch": 13,
+      "train_self": 0.006768551630605208,
+      "train_res": 23.006975566086016,
+      "train_out": 35.59311716180099,
+      "train_vic": 0.7392590391008478
+    },
+    {
+      "epoch": 14,
+      "train_self": 0.0035565342496786463,
+      "train_res": 13.046866592608,
+      "train_out": 33.58386561745092,
+      "train_vic": 0.7362045739826403,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.007833052426576614,
+            "copy_state": 0.006443939637392759,
+            "ignore_action": 0.007901834324002266,
+            "mean_next": 0.0007137203356251121,
+            "model_delta": 1.2217855839007774,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.2340156700813496,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.007817191071808338,
+            "copy_state": 0.00636316416785121,
+            "ignore_action": 0.00791023951023817,
+            "mean_next": 0.0006773334462195635,
+            "model_delta": 1.234951152954283,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.251021925400611,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.0075604720041155815,
+            "copy_state": 0.0077141993679106236,
+            "ignore_action": 0.0076627470552921295,
+            "mean_next": 0.0006894720136187971,
+            "model_delta": 0.9848968201674212,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.9994958877682214,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.007751330733299255,
+            "copy_state": 0.006652378477156162,
+            "ignore_action": 0.007825968787074089,
+            "mean_next": 0.000606573827099055,
+            "model_delta": 1.1712716200411506,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.1838232057801992,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.007852837443351746,
+            "copy_state": 0.004161829128861427,
+            "ignore_action": 0.00789178442209959,
+            "mean_next": 0.0006821983843110502,
+            "model_delta": 1.8966491312652487,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 1.9088660391859595,
+            "beats_all_absolute": false,
+            "beats_all": false
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.008090779185295105,
+            "copy_state": 0.027002273127436638,
+            "ignore_action": 0.007972615770995617,
+            "mean_next": 0.0006296585197560489,
+            "model_delta": 0.30062541709848334,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.29687886628439353,
+            "beats_all_absolute": false,
+            "beats_all": false
+          }
+        },
+        "sources_beating_all_baselines": 1,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.03820844739675522,
+          "min_per_dim_std": 0.019674448296427727,
+          "effective_rank": 11.450791358947754
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.010023720562458038,
+          "min_per_dim_std": 0.002850249642506242,
+          "effective_rank": 4.1664204597473145
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "train_self": 0.003002957330624524,
+      "train_res": 11.812591728411222,
+      "train_out": 31.181713204634818,
+      "train_vic": 0.7238444842790303
+    },
+    {
+      "epoch": 16,
+      "train_self": 0.0021473317112969724,
+      "train_res": 8.087386821445666,
+      "train_out": 27.459340446873714,
+      "train_vic": 0.7327477806492856
+    },
+    {
+      "epoch": 17,
+      "train_self": 0.0022497420186961166,
+      "train_res": 9.763681210969624,
+      "train_out": 28.798615405434056,
+      "train_vic": 0.7287006660511619
+    },
+    {
+      "epoch": 18,
+      "train_self": 0.004142187593970448,
+      "train_res": 20.432840937062313,
+      "train_out": 25.50445466292532,
+      "train_vic": 0.7228235288670188
+    },
+    {
+      "epoch": 19,
+      "train_self": 0.005201918220049457,
+      "train_res": 24.110840546457393,
+      "train_out": 26.64962346930253,
+      "train_vic": 0.7252955562190005,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.002204857300966978,
+            "copy_state": 0.007804383523762226,
+            "ignore_action": 0.0022829468362033367,
+            "mean_next": 0.0006134113064035773,
+            "model_delta": 0.30243496537137804,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.30901084904621623,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.002366011030972004,
+            "copy_state": 0.007542076054960489,
+            "ignore_action": 0.0024485928006470203,
+            "mean_next": 0.0005957764224149287,
+            "model_delta": 0.3342325751881906,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.3414261137434869,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.0025713134091347456,
+            "copy_state": 0.009466886520385742,
+            "ignore_action": 0.0026619054842740297,
+            "mean_next": 0.00056163762928918,
+            "model_delta": 0.2885327942189391,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.2943903084256454,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.002265527844429016,
+            "copy_state": 0.008164336904883385,
+            "ignore_action": 0.0023356745950877666,
+            "mean_next": 0.0005057710222899914,
+            "model_delta": 0.29698611240815637,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.30194522254714057,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.0019418951123952866,
+            "copy_state": 0.00484877172857523,
+            "ignore_action": 0.0020042213145643473,
+            "mean_next": 0.0005807377747260034,
+            "model_delta": 0.43233426253100077,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.4400645863069817,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.0018243815284222364,
+            "copy_state": 0.032280612736940384,
+            "ignore_action": 0.0018738135695457458,
+            "mean_next": 0.0005448138108476996,
+            "model_delta": 0.06139711501845891,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.06244572011935995,
+            "beats_all_absolute": false,
+            "beats_all": true
+          }
+        },
+        "sources_beating_all_baselines": 6,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.03501737862825394,
+          "min_per_dim_std": 0.01689073257148266,
+          "effective_rank": 10.071868896484375
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.011249537579715252,
+          "min_per_dim_std": 0.003920807968825102,
+          "effective_rank": 4.174875736236572
+        }
+      }
+    },
+    {
+      "epoch": 20,
+      "train_self": 0.0019630059158723605,
+      "train_res": 17.24285952668441,
+      "train_out": 21.948957443237305,
+      "train_vic": 0.7253849569119906
+    },
+    {
+      "epoch": 21,
+      "train_self": 0.00150454439541423,
+      "train_res": 8.052120189917716,
+      "train_out": 20.943104994924443,
+      "train_vic": 0.7225409212865328
+    },
+    {
+      "epoch": 22,
+      "train_self": 0.0022001537145115435,
+      "train_res": 10.532188942557887,
+      "train_out": 23.391916475797956,
+      "train_vic": 0.7077961187613638
+    },
+    {
+      "epoch": 23,
+      "train_self": 0.0017017486113074579,
+      "train_res": 7.459499685387862,
+      "train_out": 23.286107715807464,
+      "train_vic": 0.7329989954044944
+    },
+    {
+      "epoch": 24,
+      "train_self": 0.001584076059148892,
+      "train_res": 6.627818910699141,
+      "train_out": 19.708668859381426,
+      "train_vic": 0.7123715563824302,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.0012039411813020706,
+            "copy_state": 0.009336110204458237,
+            "ignore_action": 0.0013707559555768967,
+            "mean_next": 0.0006079729646444321,
+            "model_delta": 0.12968835293308334,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.14733633961748263,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0013427668018266559,
+            "copy_state": 0.008792649023234844,
+            "ignore_action": 0.0015252017183229327,
+            "mean_next": 0.0006136685260571539,
+            "model_delta": 0.15336397573374946,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.17397056587870402,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.0013636763906106353,
+            "copy_state": 0.01125953160226345,
+            "ignore_action": 0.001563920290209353,
+            "mean_next": 0.0005193325923755765,
+            "model_delta": 0.12177141862425658,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.1393127164526872,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0011654519475996494,
+            "copy_state": 0.009722093120217323,
+            "ignore_action": 0.0013268798356875777,
+            "mean_next": 0.0004820442118216306,
+            "model_delta": 0.12063019159800992,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.13696812284658866,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.0010551089653745294,
+            "copy_state": 0.005525839515030384,
+            "ignore_action": 0.001171377138234675,
+            "mean_next": 0.000568047515116632,
+            "model_delta": 0.1918684721989101,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.21261278166002634,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.0010055353632196784,
+            "copy_state": 0.037270791828632355,
+            "ignore_action": 0.0010685002198442817,
+            "mean_next": 0.000565680384170264,
+            "model_delta": 0.027308640324873516,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.028946447938998275,
+            "beats_all_absolute": false,
+            "beats_all": true
+          }
+        },
+        "sources_beating_all_baselines": 6,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.03442085534334183,
+          "min_per_dim_std": 0.015957791358232498,
+          "effective_rank": 8.647868156433105
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.014333609491586685,
+          "min_per_dim_std": 0.004472760017961264,
+          "effective_rank": 3.6496245861053467
+        }
+      }
+    },
+    {
+      "epoch": 25,
+      "train_self": 0.0015373531251067394,
+      "train_res": 6.676948472073204,
+      "train_out": 19.606238314979954,
+      "train_vic": 0.7132942645173324
+    },
+    {
+      "epoch": 26,
+      "train_self": 0.0023446826441948744,
+      "train_res": 11.158753683692531,
+      "train_out": 26.729216123882093,
+      "train_vic": 0.7134984543449
+    },
+    {
+      "epoch": 27,
+      "train_self": 0.00132480453038098,
+      "train_res": 6.498737322656732,
+      "train_out": 30.661781913355778,
+      "train_vic": 0.7106109637963144
+    },
+    {
+      "epoch": 28,
+      "train_self": 0.0016211423453090614,
+      "train_res": 7.4137621427837175,
+      "train_out": 30.983083323428506,
+      "train_vic": 0.7007147011003996
+    },
+    {
+      "epoch": 29,
+      "train_self": 0.0017517100848061474,
+      "train_res": 7.660422965099937,
+      "train_out": 27.50076042978387,
+      "train_vic": 0.6995002721485338,
+      "dev": {
+        "per_source": {
+          "libero_10-task0-demo11": {
+            "kind": "demo",
+            "transitions": 24,
+            "model": 0.0010666412999853492,
+            "copy_state": 0.010444276034832,
+            "ignore_action": 0.0014730989933013916,
+            "mean_next": 0.0007953370804898441,
+            "model_delta": 0.10299891503031605,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.14178486899218656,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task0-demo12": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0012118327431380749,
+            "copy_state": 0.009584075771272182,
+            "ignore_action": 0.001694421749562025,
+            "mean_next": 0.0008353418088518083,
+            "model_delta": 0.12735082809752252,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.17769899495567215,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo8": {
+            "kind": "demo",
+            "transitions": 22,
+            "model": 0.0012187639949843287,
+            "copy_state": 0.012628978118300438,
+            "ignore_action": 0.0016435201978310943,
+            "mean_next": 0.0005850467132404447,
+            "model_delta": 0.09712609222806722,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.1307647729841271,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "libero_10-task1-demo9": {
+            "kind": "demo",
+            "transitions": 25,
+            "model": 0.0010390650713816285,
+            "copy_state": 0.010842557065188885,
+            "ignore_action": 0.0014038466615602374,
+            "mean_next": 0.0005846697022207081,
+            "model_delta": 0.0964884390616763,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.13015181663528747,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1018-src38000": {
+            "kind": "chain",
+            "transitions": 43,
+            "model": 0.0008602693560533226,
+            "copy_state": 0.005927263759076595,
+            "ignore_action": 0.0011430531740188599,
+            "mean_next": 0.0007209292380139232,
+            "model_delta": 0.14618642807398574,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.19374072679532925,
+            "beats_all_absolute": false,
+            "beats_all": true
+          },
+          "chain3_lr2-full-seed1038-src58000": {
+            "kind": "chain",
+            "transitions": 6,
+            "model": 0.0009652351727709174,
+            "copy_state": 0.03970937803387642,
+            "ignore_action": 0.0012103592744097114,
+            "mean_next": 0.0007725010509602726,
+            "model_delta": 0.02457246368226733,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": 0.030646134975095145,
+            "beats_all_absolute": false,
+            "beats_all": true
+          }
+        },
+        "sources_beating_all_baselines": 6,
+        "source_count": 6,
+        "collapse_targets": {
+          "mean_per_dim_std": 0.03815462440252304,
+          "min_per_dim_std": 0.01701059192419052,
+          "effective_rank": 6.433439254760742
+        },
+        "collapse_predictions": {
+          "mean_per_dim_std": 0.01980523392558098,
+          "min_per_dim_std": 0.005275886971503496,
+          "effective_rank": 2.702047824859619
+        }
+      }
+    }
+  ],
+  "gate_a": {
+    "rule": "v2 (registered 2026-07-25): \u0394-space normalized error < 1.0 (copy-state) AND < ignore-action per held-out source; target non-collapsed; absolute distances reported alongside (structural gate, v0.4 \u00a79 Gate A)",
+    "final": {
+      "per_source": {
+        "libero_10-task0-demo11": {
+          "kind": "demo",
+          "transitions": 24,
+          "model": 0.0010666412999853492,
+          "copy_state": 0.010444276034832,
+          "ignore_action": 0.0014730989933013916,
+          "mean_next": 0.0007953370804898441,
+          "model_delta": 0.10299891503031605,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.14178486899218656,
+          "beats_all_absolute": false,
+          "beats_all": true
+        },
+        "libero_10-task0-demo12": {
+          "kind": "demo",
+          "transitions": 25,
+          "model": 0.0012118327431380749,
+          "copy_state": 0.009584075771272182,
+          "ignore_action": 0.001694421749562025,
+          "mean_next": 0.0008353418088518083,
+          "model_delta": 0.12735082809752252,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.17769899495567215,
+          "beats_all_absolute": false,
+          "beats_all": true
+        },
+        "libero_10-task1-demo8": {
+          "kind": "demo",
+          "transitions": 22,
+          "model": 0.0012187639949843287,
+          "copy_state": 0.012628978118300438,
+          "ignore_action": 0.0016435201978310943,
+          "mean_next": 0.0005850467132404447,
+          "model_delta": 0.09712609222806722,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.1307647729841271,
+          "beats_all_absolute": false,
+          "beats_all": true
+        },
+        "libero_10-task1-demo9": {
+          "kind": "demo",
+          "transitions": 25,
+          "model": 0.0010390650713816285,
+          "copy_state": 0.010842557065188885,
+          "ignore_action": 0.0014038466615602374,
+          "mean_next": 0.0005846697022207081,
+          "model_delta": 0.0964884390616763,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.13015181663528747,
+          "beats_all_absolute": false,
+          "beats_all": true
+        },
+        "chain3_lr2-full-seed1018-src38000": {
+          "kind": "chain",
+          "transitions": 43,
+          "model": 0.0008602693560533226,
+          "copy_state": 0.005927263759076595,
+          "ignore_action": 0.0011430531740188599,
+          "mean_next": 0.0007209292380139232,
+          "model_delta": 0.14618642807398574,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.19374072679532925,
+          "beats_all_absolute": false,
+          "beats_all": true
+        },
+        "chain3_lr2-full-seed1038-src58000": {
+          "kind": "chain",
+          "transitions": 6,
+          "model": 0.0009652351727709174,
+          "copy_state": 0.03970937803387642,
+          "ignore_action": 0.0012103592744097114,
+          "mean_next": 0.0007725010509602726,
+          "model_delta": 0.02457246368226733,
+          "copy_state_delta": 1.0,
+          "ignore_action_delta": 0.030646134975095145,
+          "beats_all_absolute": false,
+          "beats_all": true
+        }
+      },
+      "sources_beating_all_baselines": 6,
+      "source_count": 6,
+      "collapse_targets": {
+        "mean_per_dim_std": 0.03815462440252304,
+        "min_per_dim_std": 0.01701059192419052,
+        "effective_rank": 6.433439254760742
+      },
+      "collapse_predictions": {
+        "mean_per_dim_std": 0.01980523392558098,
+        "min_per_dim_std": 0.005275886971503496,
+        "effective_rank": 2.702047824859619
+      }
+    }
+  }
+}

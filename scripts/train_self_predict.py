@@ -62,6 +62,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--scales", choices=("locked_v2", "fit_std"), default="locked_v2"
     )
+    # v3 registration: pool the VIC penalty across this many episodes per
+    # optimizer step so temporal correlation within one episode (physical)
+    # is no longer conflated with cross-sample collapse (pathological).
+    parser.add_argument("--accumulate-episodes", type=int, default=1)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
     parser.add_argument(
@@ -343,46 +347,51 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     history = []
     order = list(range(len(train_set)))
+    accumulate = max(1, args.accumulate_episodes)
     for epoch in range(args.epochs):
         random.shuffle(order)
         epoch_self, epoch_res, epoch_out, epoch_vic = [], [], [], []
-        for index in order:
-            episode = train_set.episodes[index]
+        for start in range(0, len(order), accumulate):
+            chunk = order[start : start + accumulate]
             optimizer.zero_grad(set_to_none=True)
-            result = run_episode(
-                lc,
-                predictor,
-                ema,
-                episode,
-                device,
-                distance=args.distance,
-                truncate_bptt=args.truncate_bptt,
-                scales=scales,
-                outcome_scale=args.outcome_scale,
-                train=True,
-                res_weight=args.res_weight,
-                huber_delta=args.huber_delta,
-            )
+            chunk_states = []
+            chunk_loss = torch.zeros((), device=device)
+            for index in chunk:
+                episode = train_set.episodes[index]
+                result = run_episode(
+                    lc,
+                    predictor,
+                    ema,
+                    episode,
+                    device,
+                    distance=args.distance,
+                    truncate_bptt=args.truncate_bptt,
+                    scales=scales,
+                    outcome_scale=args.outcome_scale,
+                    train=True,
+                    res_weight=args.res_weight,
+                    huber_delta=args.huber_delta,
+                )
+                chunk_states.append(result["online_states"])
+                chunk_loss = chunk_loss + (
+                    args.self_scale * result["self_loss"]
+                    + args.res_weight * result["res_loss"]
+                    + args.outcome_scale * result["out_loss"]
+                ) / len(chunk)
+                epoch_self.append(float(result["self_loss"]))
+                epoch_res.append(float(result["res_loss"]))
+                epoch_out.append(float(result["out_loss"]))
             anti_collapse = variance_covariance_penalty(
-                result["online_states"],
+                torch.cat(chunk_states),
                 var_weight=args.var_weight,
                 cov_weight=args.cov_weight,
             )
-            loss = (
-                args.self_scale * result["self_loss"]
-                + args.res_weight * result["res_loss"]
-                + args.outcome_scale * result["out_loss"]
-                + anti_collapse
-            )
-            loss.backward()
+            (chunk_loss + anti_collapse).backward()
             torch.nn.utils.clip_grad_norm_(
                 [*lc.parameters(), *predictor.parameters()], 1.0
             )
             optimizer.step()
             ema.ema_update(lc)
-            epoch_self.append(float(result["self_loss"]))
-            epoch_res.append(float(result["res_loss"]))
-            epoch_out.append(float(result["out_loss"]))
             epoch_vic.append(float(anti_collapse))
         record = {
             "epoch": epoch,
@@ -432,6 +441,18 @@ def main() -> None:
         lc, predictor, ema, dev_set.episodes, device,
         distance=args.distance, scales=scales,
     )
+    # v3 explicit collapse criterion: target effective rank non-decreasing
+    # over the final three dev evaluations.
+    rank_trajectory = [
+        record["dev"]["collapse_targets"]["effective_rank"]
+        for record in history
+        if "dev" in record
+    ]
+    final3 = rank_trajectory[-3:]
+    rank_non_decreasing = bool(
+        len(final3) >= 2
+        and all(b >= a - 1e-6 for a, b in zip(final3, final3[1:]))
+    )
     torch.save(
         {
             "lc_state": lc.state_dict(),
@@ -453,12 +474,15 @@ def main() -> None:
                 ],
                 "gate_a": {
                     "rule": (
-                        "v2 (registered 2026-07-25): Δ-space normalized "
+                        "v3 (registered 2026-07-25): Δ-space normalized "
                         "error < 1.0 (copy-state) AND < ignore-action per "
-                        "held-out source; target non-collapsed; absolute "
-                        "distances reported alongside (structural gate, "
-                        "v0.4 §9 Gate A)"
+                        "held-out source; AND target effective rank "
+                        "non-decreasing over the final three evaluations; "
+                        "absolute distances reported alongside (structural "
+                        "gate, v0.4 §9 Gate A)"
                     ),
+                    "rank_trajectory": rank_trajectory,
+                    "rank_non_decreasing_final3": rank_non_decreasing,
                     "final": final_eval,
                 },
             },
