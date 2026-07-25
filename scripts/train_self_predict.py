@@ -199,7 +199,14 @@ def run_episode(
         targets_previous.append(z_target)
         priors_no_action.append(predictor(prior_no_action).detach())
 
-        if episode["has_labels"] and scales is not None:
+        window_labeled = episode["has_labels"] and bool(
+            episode.get("label_mask") is None
+            or (
+                episode["label_mask"][index]
+                and episode["label_mask"][index + 1]
+            )
+        )
+        if window_labeled and scales is not None:
             out = lc.outcome(prior)
             d_q_t, d_obj_t = outcome_targets(episode, index, device)
             q_loss = outcome_error(out["d_q"], d_q_t, scales["q"])

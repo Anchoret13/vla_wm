@@ -113,6 +113,31 @@ def main() -> None:
         checked += 1
     print(f"terminal records verified on {checked} cache episodes")
 
+    # -- 7. chain label merge: prefix-bounded, recovery tails unlabeled --------
+    labeled_chain = merged_prefix = 0
+    for episode in union:
+        if episode["source_kind"] != "chain" or not episode["has_labels"]:
+            continue
+        labeled_chain += 1
+        mask = episode["label_mask"]
+        R = episode["prefix_hidden"].shape[0]
+        prefix_len = int(mask.sum())
+        assert bool(mask[:prefix_len].all()) and not bool(
+            mask[prefix_len:].any()
+        ), "label mask must be a contiguous prefix"
+        merged_prefix += prefix_len
+        assert episode["generating_policy"] == "pi05_full_prompt_frozen"
+        if prefix_len < R:  # stall episode with recovery tail
+            windows = list(iter_windows(episode, k=1))
+            assert not windows[-1]["labeled"], (
+                "recovery-tail window must be unlabeled"
+            )
+    assert labeled_chain > 0, "no chain episode received labels"
+    print(
+        f"chain label merge: {labeled_chain} episodes, "
+        f"{merged_prefix} labeled prefix records; recovery tails unlabeled"
+    )
+
     # -- 6. LCState shape compatibility (CPU, random init) ---------------------
     from lcwm.lc_flow import LCState
 

@@ -33,12 +33,14 @@ import torch
 BRANCH_DIR_DEFAULT = Path(
     "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1"
 )
+CHAIN_LABELS_DIR_DEFAULT = Path(
+    "/home/stargazer/Desktop/vla_wm/datasets/chain_source_labels_v1"
+)
 SEALED_SPLITS = ("audit", "test")
 
 
 def _episode_from_cache(path: Path) -> dict[str, Any]:
     data = torch.load(path, weights_only=False)
-    T = data["prefix_hidden"].shape[0]
     stride = int(data["stride"])
     t = data["t"]
     # Block i connects record i -> i+1. The final connecting block may be
@@ -57,6 +59,10 @@ def _episode_from_cache(path: Path) -> dict[str, Any]:
         "actions_norm": data["action_block_norm"][:-1].float(),
         "action_exec_mask": exec_mask,
         "has_labels": True,
+        "label_mask": torch.ones(
+            data["prefix_hidden"].shape[0], dtype=torch.bool
+        ),
+        "generating_policy": "expert_demonstration",
         "t": t,
         "q": data["q"],
         "obj_pos": data["obj_pos"],
@@ -129,7 +135,19 @@ def load_chain_history_episodes(
             ):
                 continue
             length = hidden.shape[0]
-            best[source_id] = {
+            behavior_ids = list(
+                group.get("history_behavior_prompt_id", [])
+            )
+            # Records 0..n_full are states of the pure full-prompt rollout
+            # (bitwise-verified against the relabel replay); records after
+            # the first recovery action are off that rollout and stay
+            # unlabeled (2026-07-25 alignment finding).
+            n_full = 0
+            for behavior in behavior_ids:
+                if behavior != "full":
+                    break
+                n_full += 1
+            episode = {
                 "source_id": source_id,
                 "split": split_name,
                 "source_kind": "chain",
@@ -145,12 +163,46 @@ def load_chain_history_episodes(
                     dtype=torch.bool,
                 ),
                 "has_labels": False,
+                "label_mask": torch.zeros(length, dtype=torch.bool),
                 "stride": 10,
                 "goal_atoms": group.get("goal_specs", {})
                 .get("chain3_full", {})
                 .get("atoms"),
                 "path": str(Path(branch_dir) / relative),
             }
+            sidecar_path = (
+                CHAIN_LABELS_DIR_DEFAULT / f"{source_id}.pt"
+            )
+            if sidecar_path.exists():
+                sidecar = torch.load(sidecar_path, weights_only=False)
+                labeled = min(n_full + 1, length, sidecar["q"].shape[0])
+                if labeled > 0:
+                    R = length
+                    q = torch.zeros(R, sidecar["q"].shape[1])
+                    obj = torch.zeros(R, *sidecar["obj_pos"].shape[1:])
+                    bits = torch.zeros(
+                        R, sidecar["bits"].shape[1], dtype=torch.bool
+                    )
+                    q[:labeled] = sidecar["q"][:labeled]
+                    obj[:labeled] = sidecar["obj_pos"][:labeled]
+                    bits[:labeled] = sidecar["bits"][:labeled]
+                    episode["label_mask"][:labeled] = True
+                    episode.update(
+                        {
+                            "has_labels": True,
+                            "q": q,
+                            "obj_pos": obj,
+                            "predicate_bits": bits,
+                            "success": torch.zeros(R, dtype=torch.bool),
+                            "terminal": torch.zeros(R, dtype=torch.bool),
+                            "sidecar_bits": sidecar["bits"],
+                            "sidecar_t": sidecar["t"],
+                            "generating_policy": sidecar[
+                                "generating_policy"
+                            ],
+                        }
+                    )
+            best[source_id] = episode
     return list(best.values())
 
 
@@ -226,7 +278,11 @@ def iter_windows(
             "h_next": episode["prefix_hidden"][i + k],
             "mask_next": episode["prefix_mask"][i + k],
         }
-        if episode["has_labels"]:
+        labeled = episode["has_labels"] and bool(
+            episode["label_mask"][i] and episode["label_mask"][i + k]
+        )
+        window["labeled"] = labeled
+        if labeled:
             window.update(
                 {
                     "q_t": episode["q"][i],
@@ -237,6 +293,7 @@ def iter_windows(
                     "bits_next": episode["predicate_bits"][i + k],
                     "success_next": episode["success"][i + k],
                     "terminal_next": episode["terminal"][i + k],
+                    "generating_policy": episode["generating_policy"],
                 }
             )
         yield window
