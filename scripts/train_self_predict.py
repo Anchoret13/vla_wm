@@ -18,7 +18,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import random
 import sys
 from pathlib import Path
@@ -33,7 +32,10 @@ from lcwm.self_predict import (  # noqa: E402
     EMATarget,
     LatentPredictor,
     collapse_metrics,
+    delta_space_score,
     latent_distance,
+    residual_self_loss,
+    variance_covariance_penalty,
 )
 from lcwm.seq_prefix_cache import CACHE_DIR  # noqa: E402
 from lcwm.seq_windows import SequentialEpisodeDataset  # noqa: E402
@@ -50,6 +52,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--self-scale", type=float, default=1.0)
     parser.add_argument("--outcome-scale", type=float, default=1.0)
     parser.add_argument("--distance", default="cosine")
+    # v2 registration (2026-07-25.md): anti-collapse + residual objective +
+    # locked physical scales with Huber. Set all three weights to 0 and
+    # --scales fit_std to reproduce the v1 configuration.
+    parser.add_argument("--var-weight", type=float, default=1.0)
+    parser.add_argument("--cov-weight", type=float, default=0.01)
+    parser.add_argument("--res-weight", type=float, default=1.0)
+    parser.add_argument("--huber-delta", type=float, default=4.0)
+    parser.add_argument(
+        "--scales", choices=("locked_v2", "fit_std"), default="locked_v2"
+    )
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
     parser.add_argument(
@@ -73,6 +85,24 @@ def outcome_targets(episode, index, device):
         episode["obj_pos"][index + 1] - episode["obj_pos"][index]
     ).to(device)
     return d_q[None], d_obj[None]
+
+
+def locked_outcome_scales(episodes, device) -> dict[str, torch.Tensor]:
+    """The LOCKED effect-centered physical scales (2026-07-23 §15.10 table):
+    EEF position 7.344e-3, quaternion 5.451e-3, gripper 2.598e-4, object
+    1.175e-3 — instead of data-fit std, whose mostly-static transitions made
+    rare grasp-phase motion into normalized outliers (v1 out-loss 3226)."""
+    n_obj = episodes[0]["obj_pos"].shape[1] if episodes else 8
+    q_scale = torch.tensor(
+        [7.344e-3] * 3 + [5.451e-3] * 4 + [2.598e-4] * 2,
+        device=device,
+    )
+    obj_scale = torch.full((n_obj * 3,), 1.175e-3, device=device)
+    return {
+        "q": q_scale,
+        "obj": obj_scale,
+        "obj_shape": torch.tensor([n_obj, 3]),
+    }
 
 
 def fit_outcome_scales(episodes, device) -> dict[str, torch.Tensor]:
@@ -105,6 +135,8 @@ def run_episode(
     scales,
     outcome_scale: float,
     train: bool,
+    res_weight: float = 0.0,
+    huber_delta: float | None = None,
 ):
     hidden, mask = episode["prefix_hidden"], episode["prefix_mask"]
     actions = episode["actions_norm"]
@@ -121,9 +153,21 @@ def run_episode(
     with torch.no_grad():
         z_target = ema.posterior(h0, m0)
 
-    self_losses, out_losses = [], []
-    predictions, targets, priors_no_action = [], [], []
+    self_losses, res_losses, out_losses = [], [], []
+    predictions, targets, targets_previous = [], [], []
+    priors_no_action = []
+    online_states = [z]
     n_obj = int(scales["obj_shape"][0]) if scales else 0
+
+    def outcome_error(prediction, target, scale):
+        normalized_p = prediction / scale
+        normalized_t = target / scale
+        if huber_delta is not None:
+            return torch.nn.functional.huber_loss(
+                normalized_p, normalized_t, delta=huber_delta
+            )
+        return ((normalized_p - normalized_t) ** 2).mean()
+
     for index in range(transitions):
         if detach_before is not None and index == detach_before - 1:
             z = z.detach()
@@ -142,27 +186,36 @@ def run_episode(
         self_losses.append(
             latent_distance(predicted, z_target_next, distance)
         )
+        if res_weight > 0:
+            res_losses.append(
+                residual_self_loss(predicted, z_target_next, z_target)
+            )
         predictions.append(predicted.detach())
         targets.append(z_target_next)
+        targets_previous.append(z_target)
         priors_no_action.append(predictor(prior_no_action).detach())
 
         if episode["has_labels"] and scales is not None:
             out = lc.outcome(prior)
             d_q_t, d_obj_t = outcome_targets(episode, index, device)
-            q_loss = (
-                ((out["d_q"] - d_q_t) / scales["q"]) ** 2
-            ).mean()
+            q_loss = outcome_error(out["d_q"], d_q_t, scales["q"])
             obj_pred = out["d_obj"][:, :n_obj].flatten(1)
-            obj_loss = (
-                ((obj_pred - d_obj_t.flatten(1)) / scales["obj"]) ** 2
-            ).mean()
+            obj_loss = outcome_error(
+                obj_pred, d_obj_t.flatten(1), scales["obj"]
+            )
             out_losses.append(q_loss + obj_loss)
 
         z = lc.step(z, a, h_next, m_next, a_mask)
+        online_states.append(z)
         with torch.no_grad():
             z_target = z_target_next
 
     self_loss = torch.stack(self_losses).mean()
+    res_loss = (
+        torch.stack(res_losses).mean()
+        if res_losses
+        else torch.zeros((), device=device)
+    )
     out_loss = (
         torch.stack(out_losses).mean()
         if out_losses
@@ -170,9 +223,12 @@ def run_episode(
     )
     return {
         "self_loss": self_loss,
+        "res_loss": res_loss,
         "out_loss": out_loss,
+        "online_states": torch.cat(online_states),
         "predictions": torch.cat(predictions),
         "targets": torch.cat(targets),
+        "targets_previous": torch.cat(targets_previous),
         "priors_no_action": torch.cat(priors_no_action),
     }
 
@@ -197,9 +253,7 @@ def evaluate(lc, predictor, ema, episodes, device, *, distance, scales):
             train=False,
         )
         targets = result["targets"]
-        previous = torch.cat(
-            [targets[0:1], targets[:-1]]
-        )  # z⁺_i as copy-state prediction for z⁺_{i+1}
+        previous = result["targets_previous"]
         model = float(
             latent_distance(result["predictions"], targets, distance)
         )
@@ -214,6 +268,13 @@ def evaluate(lc, predictor, ema, episodes, device, *, distance, scales):
                 distance,
             )
         )
+        # Δ-space (v2 primary): copy-state ≡ 1.0 by construction.
+        model_delta = delta_space_score(
+            result["predictions"], targets, previous
+        )
+        ignore_action_delta = delta_space_score(
+            result["priors_no_action"], targets, previous
+        )
         per_source[episode["source_id"]] = {
             "kind": episode["source_kind"],
             "transitions": int(targets.shape[0]),
@@ -221,8 +282,14 @@ def evaluate(lc, predictor, ema, episodes, device, *, distance, scales):
             "copy_state": copy_state,
             "ignore_action": ignore_action,
             "mean_next": mean_next,
-            "beats_all": bool(
+            "model_delta": model_delta,
+            "copy_state_delta": 1.0,
+            "ignore_action_delta": ignore_action_delta,
+            "beats_all_absolute": bool(
                 model < min(copy_state, ignore_action, mean_next)
+            ),
+            "beats_all": bool(
+                model_delta < 1.0 and model_delta < ignore_action_delta
             ),
         }
         all_targets.append(targets)
@@ -262,7 +329,10 @@ def main() -> None:
     lc = LCState().to(device)
     predictor = LatentPredictor().to(device)
     ema = EMATarget(lc, tau=args.ema_tau).to(device)
-    scales = fit_outcome_scales(train_set.episodes, device)
+    if args.scales == "locked_v2":
+        scales = locked_outcome_scales(train_set.episodes, device)
+    else:
+        scales = fit_outcome_scales(train_set.episodes, device)
 
     optimizer = torch.optim.AdamW(
         [*lc.parameters(), *predictor.parameters()],
@@ -275,7 +345,7 @@ def main() -> None:
     order = list(range(len(train_set)))
     for epoch in range(args.epochs):
         random.shuffle(order)
-        epoch_self, epoch_out = [], []
+        epoch_self, epoch_res, epoch_out, epoch_vic = [], [], [], []
         for index in order:
             episode = train_set.episodes[index]
             optimizer.zero_grad(set_to_none=True)
@@ -290,10 +360,19 @@ def main() -> None:
                 scales=scales,
                 outcome_scale=args.outcome_scale,
                 train=True,
+                res_weight=args.res_weight,
+                huber_delta=args.huber_delta,
+            )
+            anti_collapse = variance_covariance_penalty(
+                result["online_states"],
+                var_weight=args.var_weight,
+                cov_weight=args.cov_weight,
             )
             loss = (
                 args.self_scale * result["self_loss"]
+                + args.res_weight * result["res_loss"]
                 + args.outcome_scale * result["out_loss"]
+                + anti_collapse
             )
             loss.backward()
             torch.nn.utils.clip_grad_norm_(
@@ -302,11 +381,15 @@ def main() -> None:
             optimizer.step()
             ema.ema_update(lc)
             epoch_self.append(float(result["self_loss"]))
+            epoch_res.append(float(result["res_loss"]))
             epoch_out.append(float(result["out_loss"]))
+            epoch_vic.append(float(anti_collapse))
         record = {
             "epoch": epoch,
             "train_self": sum(epoch_self) / len(epoch_self),
+            "train_res": sum(epoch_res) / len(epoch_res),
             "train_out": sum(epoch_out) / len(epoch_out),
+            "train_vic": sum(epoch_vic) / len(epoch_vic),
         }
         if (epoch + 1) % 5 == 0 or epoch == args.epochs - 1:
             record["dev"] = evaluate(
@@ -319,11 +402,18 @@ def main() -> None:
                 scales=scales,
             )
             dev = record["dev"]
+            deltas = [
+                v["model_delta"] for v in dev["per_source"].values()
+            ]
             print(
                 f"[epoch {epoch}] self={record['train_self']:.4f} "
-                f"out={record['train_out']:.4f} | dev sources beating all "
-                f"baselines: {dev['sources_beating_all_baselines']}/"
-                f"{dev['source_count']} | target rank "
+                f"res={record['train_res']:.4f} "
+                f"out={record['train_out']:.4f} "
+                f"vic={record['train_vic']:.4f} | dev Δ-gate: "
+                f"{dev['sources_beating_all_baselines']}/"
+                f"{dev['source_count']} "
+                f"(model_delta {min(deltas):.3f}–{max(deltas):.3f}) | "
+                f"target rank "
                 f"{dev['collapse_targets']['effective_rank']:.1f} "
                 f"min_std {dev['collapse_targets']['min_per_dim_std']:.2e}",
                 flush=True,
@@ -331,7 +421,9 @@ def main() -> None:
         else:
             print(
                 f"[epoch {epoch}] self={record['train_self']:.4f} "
-                f"out={record['train_out']:.4f}",
+                f"res={record['train_res']:.4f} "
+                f"out={record['train_out']:.4f} "
+                f"vic={record['train_vic']:.4f}",
                 flush=True,
             )
         history.append(record)
@@ -361,9 +453,11 @@ def main() -> None:
                 ],
                 "gate_a": {
                     "rule": (
-                        "held-out one-step prediction beats copy-state, "
-                        "ignore-action and mean-next on dev sources; target "
-                        "non-collapsed (structural gate, v0.4 §9 Gate A)"
+                        "v2 (registered 2026-07-25): Δ-space normalized "
+                        "error < 1.0 (copy-state) AND < ignore-action per "
+                        "held-out source; target non-collapsed; absolute "
+                        "distances reported alongside (structural gate, "
+                        "v0.4 §9 Gate A)"
                     ),
                     "final": final_eval,
                 },

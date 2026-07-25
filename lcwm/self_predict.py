@@ -143,6 +143,72 @@ def collapse_metrics(states: Tensor) -> dict[str, float]:
     }
 
 
+def variance_covariance_penalty(
+    states: Tensor,
+    var_target: float = 1.0,
+    var_weight: float = 1.0,
+    cov_weight: float = 0.01,
+) -> Tensor:
+    """VICReg-form anti-collapse on the ONLINE posterior states [N,M,d].
+
+    v2 registration (2026-07-25.md): the v1 run collapsed jointly (target
+    rank 9.1, prediction rank 5.0) because batch-1 episode training has none
+    of BYOL's implicit variance sources. The hinge keeps every dimension's
+    std near var_target; the covariance term decorrelates dimensions. The
+    EMA target inherits online rank, so regularizing online states is
+    sufficient.
+    """
+    flat = states.reshape(states.shape[0], -1)
+    if flat.shape[0] < 2:
+        return flat.sum() * 0.0
+    centered = flat - flat.mean(dim=0, keepdim=True)
+    std = (centered.var(dim=0) + 1e-4).sqrt()
+    variance_term = torch.relu(var_target - std).square().mean()
+    covariance = (centered.T @ centered) / (flat.shape[0] - 1)
+    off_diagonal = covariance - torch.diag(torch.diag(covariance))
+    covariance_term = off_diagonal.square().sum() / flat.shape[1]
+    return var_weight * variance_term + cov_weight * covariance_term
+
+
+def residual_self_loss(
+    predicted: Tensor,
+    target_next: Tensor,
+    target_previous: Tensor,
+    eps: float = 1e-6,
+) -> Tensor:
+    """Per-sample normalized Δ-space error (v2 registration item 2).
+
+    Optimizes exactly what the Δ-space Gate-A metric measures: the CHANGE of
+    the target state under the executed action, so slow-moving targets no
+    longer make copy-state trivially dominant.
+    """
+    model_residual = predicted - target_previous
+    target_residual = target_next - target_previous
+    numerator = (
+        (model_residual - target_residual).square().sum(dim=(-2, -1))
+    )
+    denominator = target_residual.square().sum(dim=(-2, -1)) + eps
+    return (numerator / denominator).mean()
+
+
+@torch.no_grad()
+def delta_space_score(
+    predictions: Tensor,
+    targets_next: Tensor,
+    targets_previous: Tensor,
+    eps: float = 1e-6,
+) -> float:
+    """Ratio of sums (robust to tiny per-step denominators):
+    Σ‖(pred − z⁺_t) − (z⁺_{t+1} − z⁺_t)‖² / Σ‖z⁺_{t+1} − z⁺_t‖².
+    Copy-state (pred = z⁺_t) scores exactly 1.0 by construction.
+    """
+    model_residual = predictions - targets_previous
+    target_residual = targets_next - targets_previous
+    numerator = float((model_residual - target_residual).square().sum())
+    denominator = float(target_residual.square().sum()) + eps
+    return numerator / denominator
+
+
 @torch.no_grad()
 def trivial_baseline_distances(
     target_previous: Tensor,
