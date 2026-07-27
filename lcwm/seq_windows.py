@@ -36,7 +36,46 @@ BRANCH_DIR_DEFAULT = Path(
 CHAIN_LABELS_DIR_DEFAULT = Path(
     "/home/stargazer/Desktop/vla_wm/datasets/chain_source_labels_v1"
 )
+CHAIN_EPISODE_CACHE_DIR_DEFAULT = Path(
+    "/home/stargazer/Desktop/vla_wm/datasets/chain_episode_cache_v1"
+)
 SEALED_SPLITS = ("audit", "test")
+
+
+def _episode_from_chain_cache(path: Path) -> dict[str, Any]:
+    """Full-episode chain cache (A2): all decisions labeled, exact stock
+    actions; raw observations stay on disk (policy interface loads them
+    lazily) so the training loader stays memory-sane."""
+    data = torch.load(path, weights_only=False)
+    R = data["prefix_hidden"].shape[0]
+    lengths = data["executed_lengths"]
+    exec_mask = (
+        torch.arange(int(data["stride"]))[None, :] < lengths[:, None]
+    )
+    return {
+        "source_id": data["source_trajectory_id"],
+        "split": data["split"],
+        "source_kind": "chain",
+        "language": data["language"],
+        "prefix_hidden": data["prefix_hidden"],
+        "prefix_mask": data["prefix_mask"],
+        "actions_norm": data["action_block_norm"].float(),
+        "action_exec_mask": exec_mask,
+        "has_labels": True,
+        "label_mask": torch.ones(R, dtype=torch.bool),
+        "generating_policy": data["generating_policy"],
+        "q": data["q"],
+        "obj_pos": data["obj_pos"],
+        "predicate_bits": data["predicate_bits"],
+        "success": torch.zeros(R, dtype=torch.bool),
+        "terminal": data["terminal"],
+        "sidecar_bits": data["predicate_bits"],
+        "object_names": data["object_names"],
+        "goal_atoms": data["goal_atoms"],
+        "stride": int(data["stride"]),
+        "full_episode_cache": True,
+        "path": str(path),
+    }
 
 
 def _episode_from_cache(path: Path) -> dict[str, Any]:
@@ -114,6 +153,16 @@ def load_chain_history_episodes(
     )
     source_split = manifest["source_episode_splits"]
     best: dict[str, dict[str, Any]] = {}
+    # A2 preference: a full-episode cache supersedes the branch-history
+    # prefix for its source (all decisions labeled, exact stock actions).
+    for source_id, split_name in source_split.items():
+        if split_name not in splits:
+            continue
+        cache_path = (
+            CHAIN_EPISODE_CACHE_DIR_DEFAULT / f"{source_id}.pt"
+        )
+        if cache_path.exists():
+            best[source_id] = _episode_from_chain_cache(cache_path)
     for split_name, paths in manifest["splits"].items():
         if split_name not in splits:
             continue
