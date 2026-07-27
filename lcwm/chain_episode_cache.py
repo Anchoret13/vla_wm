@@ -80,20 +80,36 @@ def build_chain_episode(
                 ]
             )
         ).float()
+        obj_now = torch.from_numpy(
+            body_positions(env, body_names)
+        ).float()
         bits_now = torch.from_numpy(predicate_bits(env, atoms))
-        if sidecar is not None and decision < sidecar["q"].shape[0]:
+        if sidecar is not None:
+            # Codex review 2026-07-27: assert the FULL fidelity claim —
+            # q, object poses, and predicate bits, at every decision.
+            if decision >= sidecar["q"].shape[0]:
+                raise RuntimeError(
+                    f"seed {seed}: replay produced decision {decision} "
+                    f"beyond sidecar length {sidecar['q'].shape[0]}"
+                )
             q_error = float((sidecar["q"][decision] - q_now).abs().max())
-            if q_error > 1e-4 or not torch.equal(
-                sidecar["bits"][decision].bool(), bits_now.bool()
+            obj_error = float(
+                (sidecar["obj_pos"][decision] - obj_now).abs().max()
+            )
+            if (
+                q_error > 1e-4
+                or obj_error > 1e-4
+                or not torch.equal(
+                    sidecar["bits"][decision].bool(), bits_now.bool()
+                )
             ):
                 raise RuntimeError(
                     f"seed {seed} decision {decision}: replay diverged from "
-                    f"sidecar (q err {q_error:.2e}) — determinism broken"
+                    f"sidecar (q err {q_error:.2e}, obj err {obj_error:.2e})"
+                    " — determinism broken"
                 )
         qs.append(q_now)
-        obj_positions.append(
-            torch.from_numpy(body_positions(env, body_names)).float()
-        )
+        obj_positions.append(obj_now)
         bits_list.append(bits_now)
         terminals.append(terminal)
         raw_observations.append(_clone_observation(obs))
@@ -125,6 +141,11 @@ def build_chain_episode(
             break
     # Terminal record: state after the final executed block, before reset.
     capture(t, decision, terminal=True)
+    if sidecar is not None and len(qs) != sidecar["q"].shape[0]:
+        raise RuntimeError(
+            f"seed {seed}: replay produced {len(qs)} records, sidecar has "
+            f"{sidecar['q'].shape[0]} — exact-length check failed"
+        )
     batch = runner._obs_to_policy_batch(obs, env.task_description)
     prefix = prefix_forward(runner.policy, batch)
     hiddens.append(prefix.hidden[0].half().cpu())

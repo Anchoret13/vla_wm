@@ -1,23 +1,30 @@
 """P3 — separated reward/progress/terminal/value heads and targets (v0.4 §4).
 
 The legacy `ret` output must not stand for reward, return, and success at
-once (audit correction; framework §4.2). This module defines four heads with
-one documented target each, all consuming the predicted prior z̄ = T(z, a):
+once (audit correction; framework §4.2). Five heads, one documented target
+each, all consuming the predicted prior z̄ = T(z, a):
 
-- `r_hat`   one-block task reward. Target: goal-atom completion delta
-            sum(bits_{t+1}) − sum(bits_t), from live predicate labels.
-- `p_hat`   phase-aware progress. Target: fraction of goal atoms true at
-            t+1 (dense per-atom distances can extend this later).
-- `term`    terminal/success probability at t+1. Target: the stored
-            terminal/success flag (real label variation exists in demo
-            episodes and in π0 chain episodes via atom flips).
-- `v_hat`   V^{π0}: discounted atom-completion return-to-go along
-            π0-GENERATED episodes only (registered 2026-07-25; generating
-            policy must be `pi05_full_prompt_frozen`; expert-demo returns
-            are a separately-labeled diagnostic, never V^{π0} targets).
-            Discount per decision: GAMMA_DECISION = 0.99 (registered
-            default for the open value-estimator [DEC]; MC form chosen by
-            the 2026-07-25 audit).
+- `r_hat`    one-block task reward. Target: goal-atom completion delta
+             sum(bits_{t+1}) − sum(bits_t), from live predicate labels.
+- `p_hat`    predicate fraction (NOT phase-aware — Codex mainline review
+             2026-07-27). Target: fraction of goal atoms true at t+1. Kept
+             as a coarse task-progress signal.
+- `dphi_hat` phase-aware progress change ΔΦ under the candidate block —
+             the A1 lexicographic potential (lcwm/phase_potential.py);
+             these are exactly the ΔΦ semantics the P5 score consumes.
+- `term`     terminal/success probability at t+1. Target: the stored
+             terminal/success flag (real label variation exists in demo
+             episodes and in π0 chain episodes via atom flips).
+- `v_hat`    V^{π0}: discounted atom-completion return-to-go along
+             π0-GENERATED episodes only (registered 2026-07-25; generating
+             policy must be `pi05_full_prompt_frozen`; expert-demo returns
+             are a separately-labeled diagnostic, never V^{π0} targets).
+
+The ONLY model score (A1 registration; stale r̂+γ^c·V̂ superseded):
+
+    Q̂_score = r̂ + λ_Φ·ΔΦ̂ + γ_decision·V̂,  γ_decision = 0.99, λ_Φ = 1.0
+
+implemented once in `q_score` — every consumer must call it.
 """
 
 from __future__ import annotations
@@ -26,11 +33,24 @@ import torch
 from torch import Tensor, nn
 
 GAMMA_DECISION = 0.99
+LAMBDA_PHI = 1.0
 PI0_POLICY_ID = "pi05_full_prompt_frozen"
 
 
+def q_score(
+    r_hat: Tensor,
+    dphi_hat: Tensor,
+    v_hat_next: Tensor,
+    lambda_phi: float = LAMBDA_PHI,
+    gamma_decision: float = GAMMA_DECISION,
+) -> Tensor:
+    """Canonical P5 model score — the single implementation all consumers
+    must use: Q̂ = r̂ + λ_Φ·ΔΦ̂ + γ_decision·V̂(T(z,u))."""
+    return r_hat + lambda_phi * dphi_hat + gamma_decision * v_hat_next
+
+
 class ValueHeads(nn.Module):
-    """Four scalar heads over the pooled predicted prior [B, M, d_z]."""
+    """Five scalar heads over the pooled predicted prior [B, M, d_z]."""
 
     def __init__(self, d_z: int = 384, hidden: int = 256):
         super().__init__()
@@ -41,7 +61,8 @@ class ValueHeads(nn.Module):
             )
 
         self.reward = head()
-        self.progress = head()
+        self.predicate_fraction = head()
+        self.phase_delta = head()
         self.terminal = head()
         self.value = head()
 
@@ -49,7 +70,8 @@ class ValueHeads(nn.Module):
         pooled = z_bar.mean(dim=1)
         return {
             "r_hat": self.reward(pooled).squeeze(-1),
-            "p_hat": self.progress(pooled).squeeze(-1),
+            "p_hat": self.predicate_fraction(pooled).squeeze(-1),
+            "dphi_hat": self.phase_delta(pooled).squeeze(-1),
             "term_logit": self.terminal(pooled).squeeze(-1),
             "v_hat": self.value(pooled).squeeze(-1),
         }
@@ -60,7 +82,10 @@ def reward_target(bits_t: Tensor, bits_next: Tensor) -> Tensor:
     return bits_next.float().sum(-1) - bits_t.float().sum(-1)
 
 
-def progress_target(bits_next: Tensor) -> Tensor:
+def predicate_fraction_target(bits_next: Tensor) -> Tensor:
+    """Coarse task progress: fraction of goal atoms true. This is NOT the
+    phase-aware progress — ΔΦ targets come from
+    `lcwm.phase_potential.delta_phi_targets` (A1)."""
     return bits_next.float().mean(-1)
 
 

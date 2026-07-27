@@ -67,8 +67,15 @@ def _episode_from_chain_cache(path: Path) -> dict[str, Any]:
         "q": data["q"],
         "obj_pos": data["obj_pos"],
         "predicate_bits": data["predicate_bits"],
-        "success": torch.zeros(R, dtype=torch.bool),
-        "terminal": data["terminal"],
+        # Composite success from the goal predicates themselves (Codex
+        # review 2026-07-27) — never hard-coded.
+        "success": data["predicate_bits"].bool().all(-1),
+        # A record is an ENVIRONMENT termination only if the episode
+        # actually terminated; a time-limit truncation must not become a
+        # positive termination label.
+        "terminal": data["terminal"] & bool(data["terminated"]),
+        "episode_terminated": bool(data["terminated"]),
+        "episode_truncated": bool(data["truncated"]),
         "sidecar_bits": data["predicate_bits"],
         "object_names": data["object_names"],
         "goal_atoms": data["goal_atoms"],
