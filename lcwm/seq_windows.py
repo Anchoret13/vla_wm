@@ -193,6 +193,8 @@ def load_chain_history_episodes(
                             "q": q,
                             "obj_pos": obj,
                             "predicate_bits": bits,
+                            "object_names": sidecar["object_names"],
+                            "goal_atoms": sidecar["goal_atoms"],
                             "success": torch.zeros(R, dtype=torch.bool),
                             "terminal": torch.zeros(R, dtype=torch.bool),
                             "sidecar_bits": sidecar["bits"],
