@@ -139,6 +139,10 @@ def build_chain_episode(
         decision += 1
         if terminated or truncated:
             break
+    # Exiting by the decision/length cap without an env done IS a
+    # truncation (time-limit exhaustion), never a termination.
+    if not terminated:
+        truncated = True
     # Terminal record: state after the final executed block, before reset.
     capture(t, decision, terminal=True)
     if sidecar is not None and len(qs) != sidecar["q"].shape[0]:

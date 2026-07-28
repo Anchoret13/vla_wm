@@ -70,12 +70,16 @@ def _episode_from_chain_cache(path: Path) -> dict[str, Any]:
         # Composite success from the goal predicates themselves (Codex
         # review 2026-07-27) — never hard-coded.
         "success": data["predicate_bits"].bool().all(-1),
-        # A record is an ENVIRONMENT termination only if the episode
-        # actually terminated; a time-limit truncation must not become a
-        # positive termination label.
-        "terminal": data["terminal"] & bool(data["terminated"]),
+        # POSITION marker only (the final captured record). The
+        # termination-vs-truncation split happens in p4_targets: a term-head
+        # target is env_terminal = terminal AND episode_terminated; raw
+        # `terminal` must never be consumed as a positive termination label.
+        "terminal": data["terminal"],
         "episode_terminated": bool(data["terminated"]),
-        "episode_truncated": bool(data["truncated"]),
+        # Length-cap exhaustion without env done is a truncation; caches
+        # built before the builder recorded this are derived here.
+        "episode_truncated": bool(data["truncated"])
+        or not bool(data["terminated"]),
         "sidecar_bits": data["predicate_bits"],
         "object_names": data["object_names"],
         "goal_atoms": data["goal_atoms"],
