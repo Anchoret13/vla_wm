@@ -1,0 +1,120 @@
+{
+ "schema": "paired_n1_5seed_v1",
+ "task": "chain3_lr2",
+ "arms": [
+  "stock(zero_lc_bitwise)",
+  "v0.4-e2e-v1"
+ ],
+ "seeds": {
+  "1048": {
+   "zero_lc_custom_fixed_noise": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     150,
+     270,
+     null
+    ]
+   },
+   "trained_lc": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     150,
+     260,
+     null
+    ]
+   }
+  },
+  "1058": {
+   "zero_lc_custom_fixed_noise": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     130,
+     240,
+     null
+    ]
+   },
+   "trained_lc": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     130,
+     230,
+     null
+    ]
+   }
+  },
+  "1068": {
+   "zero_lc_custom_fixed_noise": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     120,
+     230,
+     null
+    ]
+   },
+   "trained_lc": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     120,
+     240,
+     null
+    ]
+   }
+  },
+  "1078": {
+   "zero_lc_custom_fixed_noise": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     150,
+     260,
+     null
+    ]
+   },
+   "trained_lc": {
+    "success": true,
+    "q": 1.0,
+    "steps": 670,
+    "atom_steps": [
+     140,
+     250,
+     670
+    ]
+   }
+  },
+  "1088": {
+   "zero_lc_custom_fixed_noise": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     140,
+     260,
+     null
+    ]
+   },
+   "trained_lc": {
+    "success": false,
+    "q": 0.667,
+    "steps": 700,
+    "atom_steps": [
+     130,
+     260,
+     null
+    ]
+   }
+  }
+ }
+}
