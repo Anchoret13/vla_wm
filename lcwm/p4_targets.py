@@ -64,7 +64,12 @@ def sequential_targets(episode: dict) -> dict[str, Tensor]:
         "success": bits[1:].bool().all(-1),
         "env_terminal": terminal & env_terminated,
         "truncated_final": terminal & (not env_terminated) & truncated,
-        "v_pi0": episode_value_targets(episode)[:-1],
+        # A0 (2026-07-29): the transitioned value target is V^pi0(s_{t+1}) —
+        # the NEXT state's value — so Q̂ = r̂_t + ΔΦ̂_t + γ·V̂_{t+1} neither
+        # reuses the current-state value nor double-counts r_t. MC identity
+        # V_t = r_t + γ·V_{t+1} holds exactly and is asserted in the smoke.
+        "v_pi0": episode_value_targets(episode)[1:],
+        "v_pi0_current": episode_value_targets(episode)[:-1],
         "generating_policy": episode.get("generating_policy", "unknown"),
         "source_id": episode["source_id"],
         "split": episode["split"],

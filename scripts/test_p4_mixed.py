@@ -53,6 +53,31 @@ def main() -> None:
             assert int(targets["env_terminal"].sum()) == 1
         else:
             assert finite_v > 0, "pi0 chain episode must have V^pi0"
+            # A0 assertions (2026-07-29): transition-level alignment.
+            from lcwm.value_heads import GAMMA_DECISION, value_target_mc
+
+            v_next = targets["v_pi0"]
+            v_curr = targets["v_pi0_current"]
+            r = targets["reward"]
+            for t in (0, 30, int(targets["n_windows"]) - 1):
+                if torch.isnan(v_next[t]):
+                    continue
+                expected = value_target_mc(episode["sidecar_bits"], t + 1)
+                assert abs(float(v_next[t]) - expected) < 1e-5, (
+                    f"v_pi0[{t}] != V(s_{t+1})"
+                )
+                identity = float(r[t]) + GAMMA_DECISION * float(v_next[t])
+                assert abs(float(v_curr[t]) - identity) < 1e-5, (
+                    f"MC identity V_t = r_t + gamma*V_{{t+1}} broken at {t}"
+                )
+            last = int(targets["n_windows"]) - 1
+            assert abs(float(v_next[last])) < 1e-9, (
+                "terminal next-state value must be zero"
+            )
+            print(
+                "A0 value-alignment assertions PASSED "
+                "(V_next indexing, MC identity, zero terminal)"
+            )
             assert int(targets["env_terminal"].sum()) == 0, (
                 "stalled chain episode must not emit env termination"
             )
