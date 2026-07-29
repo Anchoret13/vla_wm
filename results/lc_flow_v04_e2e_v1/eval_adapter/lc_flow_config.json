@@ -1,0 +1,29 @@
+{
+  "schema": "lc_flow_adapter_v1",
+  "config": {
+    "d_h": 2048,
+    "d_z": 384,
+    "state_tokens": 4,
+    "heads": 6,
+    "transition_layers": 2,
+    "transition_dropout": 0.0,
+    "update_blocks": 2,
+    "expert_width": 1024,
+    "action_dim": 7,
+    "execution_horizon": 10,
+    "proprio_dim": 9,
+    "max_objects": 8,
+    "max_atoms": 5
+  },
+  "metadata": {
+    "run": "v0.4-e2e-v1",
+    "wm_checkpoint_sha256": "7e553b70d586fb30145e638fe4235e810410d2cd1e584f632c27bac4fce37baa",
+    "teacher_sha256": "c5ec87747410eb16c97b57c5bf7cf28437962d764b628fea76fa680fb76f644a",
+    "adapter_config": {
+      "epochs": 5,
+      "lr": 0.0001,
+      "seed": 0,
+      "spec": "2026-07-28 M4 fast-pilot"
+    }
+  }
+}
