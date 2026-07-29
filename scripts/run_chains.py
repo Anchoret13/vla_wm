@@ -56,7 +56,7 @@ def main() -> None:
             sr = sum(r["success"] for r in rs) / len(rs)
             q = sum(r["q_score"] for r in rs) / len(rs)
             print(f"{name:12s} {condition:7s} {sr:5.0%} {q:6.2f}")
-    print(f"-> {out_dir / 'chain_exam.json'}")
+    print(f"-> {out_dir / 'chain_exam_v2.json'}")
 
 
 if __name__ == "__main__":
