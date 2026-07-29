@@ -1,0 +1,35 @@
+{
+  "schema": "behavior_factorial_v1",
+  "run_id": "h1_longer_chains_v1",
+  "noise_contract": "20e6 + task_index*2e6 + env_seed*1e3 + decision; chain3/4/5 = 0/1/2; shared across arms",
+  "prompt_mode": "full",
+  "arms": {
+    "stock": "wz_zero_of_reference",
+    "v04e2e": "results/lc_flow_v04_e2e_v1/eval_adapter"
+  },
+  "adapter_hashes": {
+    "v04e2e": "949f76f037ea7961aa1007967a3edabc1cfae598204f010b9f1d945d40298053"
+  },
+  "tasks": [
+    "chain4_lr2",
+    "chain5_lr2"
+  ],
+  "seeds": [
+    1098,
+    1108,
+    1118,
+    1128,
+    1138
+  ],
+  "code_files": {
+    "scripts/eval_long_horizon_paired.py": "8dee01af50f578d26131265fc0beab66e7d8b75a01a48dd4c123e3b14a6a5669",
+    "lcwm/lc_flow.py": "9e088e93b3382d557f1bda8095e9206bfa67d5cbdb6e757dbdb0c60772a452c4",
+    "lcwm/loho.py": "814c1c77c2e63ee5fac9fbecdecc7d75ce7b2a5712009c58ab12721de76bf059",
+    "lcwm/chassis.py": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705"
+  },
+  "bddl_hashes": {
+    "chain4_lr2": "6b0b42950b8efa02da94cfbb2c4b2c72e4ed409a0717dd378a54f88e92f72933",
+    "chain5_lr2": "4dc64da6e4d5a5036de17f5e06f24988fd98a7346763a05aaba128810150614d"
+  },
+  "manifest_sha256": "e39dba610b9cc44f6888d0851d6c04088f43cf64f974a76904b44e69a37a04ec"
+}

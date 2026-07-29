@@ -140,10 +140,18 @@ def main() -> None:
     (ROOT / "videos").mkdir(exist_ok=True)
     records_path = panel_dir / "records.jsonl"
 
+    # Arm syntax: name[=adapter_dir][@current]; '@current' deploys the
+    # current-observation-only state rule (H3): z reset before every chunk
+    # so z_t = U(z0, h_t) with no history carry.
     arm_specs: dict[str, Path | None] = {}
+    arm_state_mode: dict[str, str] = {}
     for spec in args.arms:
         name, _, path = spec.partition("=")
+        mode = "recurrent"
+        if path.endswith("@current"):
+            path, mode = path[: -len("@current")], "current"
         arm_specs[name] = Path(path) if path else None
+        arm_state_mode[name] = mode
     reference_adapter = next(
         (p for p in arm_specs.values() if p is not None), None
     )
@@ -219,6 +227,11 @@ def main() -> None:
 
     base = Pi05Runner(suite_name="libero_10")
 
+    class CurrentOnlyFlow(LCFlowRunner):
+        def _generate_chunk(self, *a, **k):
+            self.z = None  # H3 rule: posterior from the current prefix only
+            return super()._generate_chunk(*a, **k)
+
     def build_flow(arm: str):
         adapter_dir = arm_specs[arm] or reference_adapter
         lc_state, _ = load_lc_adapter(adapter_dir, device=args.device)
@@ -227,7 +240,12 @@ def main() -> None:
             if lc_state.wz_out.bias is not None:
                 torch.nn.init.zeros_(lc_state.wz_out.bias)
             assert float(lc_state.wz_out.weight.abs().max()) == 0.0
-        return LCFlowRunner(base, lc_state)
+        cls = (
+            CurrentOnlyFlow
+            if arm_state_mode[arm] == "current"
+            else LCFlowRunner
+        )
+        return cls(base, lc_state)
 
     ledger_path = panel_dir / "ledger.jsonl"
 
@@ -259,7 +277,7 @@ def main() -> None:
                             self.flow.decision_index,
                         )
                         action = self.flow.select_action(
-                            obs, desc, noise_seed=ns,
+                            obs, desc, seed=ns,
                         )
                         self.noise_seeds.append(ns)
                         self.actions_env.append(np.asarray(action))

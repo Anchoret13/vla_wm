@@ -96,6 +96,13 @@ def main() -> None:
         "--mode", choices=("model_guided", "belief_bc"),
         default="model_guided",
     )
+    # H3 (2026-07-29): current-only arms replace the recurrent history state
+    # with z_t = U(z0, h_t) computed independently at every decision, in
+    # training AND deployment; targets/schedule/budget unchanged.
+    parser.add_argument(
+        "--state-mode", choices=("recurrent", "current"),
+        default="recurrent",
+    )
     args = parser.parse_args()
     torch.manual_seed(args.seed)
     device = torch.device(args.device)
@@ -155,7 +162,10 @@ def main() -> None:
     def teacher_loss(row, noise, time, suffix_perturb=None):
         episode = episodes[row["source_id"]]
         prefix = interface.prefix_at(episode, row["decision"])
-        z = row["z_state"][None].to(device)
+        if args.state_mode == "current":
+            z = lc.posterior(prefix.hidden, prefix.pad_masks).detach()
+        else:
+            z = row["z_state"][None].to(device)
         bias = lc.adarms_bias(z)
         if args.mode == "belief_bc":
             chunk = row["stock_chunk"][None].to(device).float()
@@ -177,7 +187,10 @@ def main() -> None:
                        suffix_perturb=None):
         episode = episodes[source]
         prefix = interface.prefix_at(episode, decision)
-        z = z_cache[source][decision]
+        if args.state_mode == "current":
+            z = lc.posterior(prefix.hidden, prefix.pad_masks).detach()
+        else:
+            z = z_cache[source][decision]
         bias = lc.adarms_bias(z)
         chunk = episode["chunks_norm"][decision][None].to(device).float()
         if suffix_perturb is not None:
