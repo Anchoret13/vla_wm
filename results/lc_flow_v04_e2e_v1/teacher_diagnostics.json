@@ -1,0 +1,23 @@
+{
+  "n_decisions": 207,
+  "wm_checkpoint_sha256": "7e553b70d586fb30145e638fe4235e810410d2cd1e584f632c27bac4fce37baa",
+  "positive_teacher_fraction": 0.7342995169082126,
+  "positive_by_source": {
+    "chain3_lr2-full-seed1010-src30000": 0.7045454545454546,
+    "chain3_lr2-full-seed1011-src31000": 0.7391304347826086,
+    "chain3_lr2-full-seed1012-src32000": 0.7142857142857143,
+    "chain3_lr2-full-seed1001-src21100": 0.8181818181818182,
+    "chain3_lr2-full-seed1000-src20000": 0.7142857142857143
+  },
+  "advantage_quantiles": [
+    0.005499542690813541,
+    0.024743221700191498,
+    0.09418640285730362
+  ],
+  "mean_candidate_diversity_l2": 0.12502014636993408,
+  "advantage_components_mean_on_positive": {
+    "r": -0.0007052612490952015,
+    "dphi": -0.008202026598155499,
+    "gamma_v_next": 0.054004281759262085
+  }
+}
