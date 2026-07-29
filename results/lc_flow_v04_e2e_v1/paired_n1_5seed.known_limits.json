@@ -1,0 +1,11 @@
+{
+  "schema": "known_limits_sidecar_v1",
+  "applies_to_sha256": "acd6c3bfe8b628bad310464ef1ddc0550fa6c2d333c4448347e0832539e9eb31",
+  "known_limits": [
+    "noise_contract=legacy_chain3_v1: flow-noise base 9_028_000 reused across environment seeds; fresh-seed contract required for new statistics",
+    "N=5 development seeds; one success; no significance claim",
+    "stock arm = zero-LC custom sampler (bitwise stock parity previously verified), not the native sampler",
+    "no LIBERO-10 retention run for this checkpoint",
+    "teacher advantages driven by extrapolated V-hat with all-zero late-chain training targets"
+  ]
+}

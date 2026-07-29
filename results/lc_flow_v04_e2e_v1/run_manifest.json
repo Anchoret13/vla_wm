@@ -1,0 +1,16 @@
+{
+  "schema": "phase1_freeze_v1",
+  "name": "v0.4-e2e-v1-wm-selected-uniform",
+  "noise_contract": "legacy_chain3_v1 (policy-noise base 9_028_000 reused across environment seeds)",
+  "claim_boundary": "Chain3 development SR 1/5 vs 0/5 (paired, dev seeds); no advantage weighting beyond 1+clip(A,0,1) uniform convention, no statistical significance, no LIBERO-10 retention, no language-conditioning evidence claimed",
+  "code_commit": "8bf013720fc6ade38507ee9275ee2b32231f8fac",
+  "hashes": {
+    "wm_checkpoint": "7e553b70d586fb30145e638fe4235e810410d2cd1e584f632c27bac4fce37baa",
+    "candidate_teacher": "c5ec87747410eb16c97b57c5bf7cf28437962d764b628fea76fa680fb76f644a",
+    "policy_adapter": "920f5e71e9f7e59c5eed2d6ddb1275aa369c01d76f4fb5dd761278282928c7b1",
+    "eval_adapter": "949f76f037ea7961aa1007967a3edabc1cfae598204f010b9f1d945d40298053",
+    "paired_n1_5seed_json": "acd6c3bfe8b628bad310464ef1ddc0550fa6c2d333c4448347e0832539e9eb31",
+    "assembly_script": "a2ce8e85403548b7c65767480b6cb02be353f43ef8ac3c330d26cc0f6d3e8398"
+  },
+  "assembly": "python scripts/assemble_eval_adapter.py --wm world_model/checkpoint_final.pt --adapter policy_adapter/adapter.pt --output eval_adapter --run-name v0.4-e2e-v1-wm-selected-uniform (bit-identical reproduction verified 2026-07-29)"
+}

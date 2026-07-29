@@ -1,4 +1,4 @@
-"""Chained long-horizon exam (self-built LIBERO-LoHo equivalent).
+"""Chained long-horizon exam (self-built, LoHo-inspired).
 
 Custom chained-goal BDDL tasks on scenes INSIDE pi05_libero_finetuned's
 training distribution (construction condition from the 2026-07-22 discussion:
