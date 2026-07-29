@@ -88,6 +88,14 @@ def main() -> None:
     )
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda")
+    # B0 (2026-07-29 Phase II): belief_bc replaces model-selected teacher
+    # chunks with the cached stock chunk at the SAME states, weight 1.0 —
+    # identical recurrence, capacity, budget, schedule, and rehearsal; no
+    # q_score, no candidate selection, no predicted advantage.
+    parser.add_argument(
+        "--mode", choices=("model_guided", "belief_bc"),
+        default="model_guided",
+    )
     args = parser.parse_args()
     torch.manual_seed(args.seed)
     device = torch.device(args.device)
@@ -149,11 +157,15 @@ def main() -> None:
         prefix = interface.prefix_at(episode, row["decision"])
         z = row["z_state"][None].to(device)
         bias = lc.adarms_bias(z)
-        chunk = row["selected_chunk"][None].to(device).float()
+        if args.mode == "belief_bc":
+            chunk = row["stock_chunk"][None].to(device).float()
+            weight = 1.0
+        else:
+            chunk = row["selected_chunk"][None].to(device).float()
+            weight = 1.0 + min(max(row["advantage"], 0.0), 1.0)
         if suffix_perturb is not None:
             chunk = chunk.clone()
             chunk[:, 10:] += suffix_perturb
-        weight = 1.0 + min(max(row["advantage"], 0.0), 1.0)
         loss, _ = cached_branch_flow_loss(
             runner.policy, prefix, chunk, bias,
             torch.tensor([weight], device=device),
@@ -221,7 +233,7 @@ def main() -> None:
                 )
                 optimizer.zero_grad(set_to_none=True)
                 losses = []
-                if row["selected"] != 0:
+                if args.mode == "belief_bc" or row["selected"] != 0:
                     t_loss = teacher_loss(row, noise, time)
                     losses.append(t_loss)
                     epoch_teacher.append(float(t_loss))
