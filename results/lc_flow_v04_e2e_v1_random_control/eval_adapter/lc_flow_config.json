@@ -1,0 +1,25 @@
+{
+  "schema": "lc_flow_adapter_v1",
+  "config": {
+    "d_h": 2048,
+    "d_z": 384,
+    "state_tokens": 4,
+    "heads": 6,
+    "transition_layers": 2,
+    "transition_dropout": 0.0,
+    "update_blocks": 2,
+    "expert_width": 1024,
+    "action_dim": 7,
+    "execution_horizon": 10,
+    "proprio_dim": 9,
+    "max_objects": 8,
+    "max_atoms": 5
+  },
+  "metadata": {
+    "run": "v0.4-e2e-v1-random-selected-uniform",
+    "wm_checkpoint_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/lc_flow_v04_e2e_v1/world_model/checkpoint_final.pt",
+    "wm_checkpoint_sha256": "7e553b70d586fb30145e638fe4235e810410d2cd1e584f632c27bac4fce37baa",
+    "adapter_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/lc_flow_v04_e2e_v1_random_control/policy_adapter/adapter.pt",
+    "adapter_sha256": "92cb117279ae028d6c76b2f262d76dd5ee191f06108c632dbdb951fdf391d330"
+  }
+}
