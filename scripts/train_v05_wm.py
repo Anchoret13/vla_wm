@@ -246,6 +246,31 @@ def main() -> None:
                if any(n.startswith(f) for f in frozen_names)]
     for a, b in zip(frozen, current):
         assert torch.equal(a, b), "policy interface changed in WM stage"
+    # r1 launch check: grounded scores must vary within a sibling group
+    # (the class of the escaped v0 wiring defect).
+    with torch.no_grad():
+        item = snaps[0]
+        state = item["state"]
+        h_early = state["h_early"][None].float().to(device)
+        h_late = state["h_late"][None].float().to(device)
+        mask = state["h_late_mask"][None].to(device)
+        q = state["q"][None].to(device)
+        zero_a = torch.zeros(1, 10, 7, device=device)
+        zero_m = torch.zeros(1, 10, dtype=torch.bool, device=device)
+        w0, g0 = model.initial(1, device)
+        w = model.step_physical(w0, zero_a, h_early, q, action_mask=zero_m)
+        c = model.current(h_early, h_late, mask, q)
+        g = model.step_task(g0, w, zero_a, h_late, mask, action_mask=zero_m)
+        chunks = torch.stack([b["chunk_norm"][:10]
+                              for b, _ in item["branches"]]).to(device)
+        n_b = chunks.shape[0]
+        prior = model.physical_prior(w.expand(n_b, -1, -1), chunks)
+        v = model.outcomes(prior, c.expand(n_b, -1, -1),
+                           g.expand(n_b, -1, -1))["v_hat"]
+        assert float(v.std()) > 0.0, (
+            "grounded v_hat has zero within-sibling variance")
+        print(f"sibling-variance launch check PASSED "
+              f"(v_hat std {float(v.std()):.2e})", flush=True)
     torch.save({"model": model.state_dict(), "epoch": args.epochs - 1,
                 "seed": args.seed, "budget": {
                     "lr": LR, "wd": WD, "epochs": args.epochs,

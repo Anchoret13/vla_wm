@@ -150,9 +150,9 @@ class V05State(nn.Module):
 
         d = cfg.d_z
 
-        def head(out_dim):
+        def head(out_dim, d_in=d):
             return nn.Sequential(
-                nn.Linear(d, 256), nn.GELU(), nn.Linear(256, out_dim))
+                nn.Linear(d_in, 256), nn.GELU(), nn.Linear(256, out_dim))
 
         self.h_dq = head(cfg.d_q)
         self.h_dobj = head(cfg.max_objects * 3)
@@ -160,10 +160,15 @@ class V05State(nn.Module):
         nn.init.zeros_(self.h_dq[-1].bias)
         nn.init.zeros_(self.h_dobj[-1].weight)
         nn.init.zeros_(self.h_dobj[-1].bias)
-        self.h_subgoal = head(cfg.max_subgoals)
-        self.h_reward = head(1)
-        self.h_dq_public = head(1)
-        self.h_value = head(1)
+        # r1 repair (2026-07-30): grounded task heads consume
+        # concat[pool(c,g) ‖ pool(w_prior)] so the candidate action
+        # (through T_w) conditions every grounded outcome — the registered
+        # "transition before decoding" contract. The defective
+        # task-pool-only wiring produced bit-identical sibling scores.
+        self.h_subgoal = head(cfg.max_subgoals, d_in=2 * d)
+        self.h_reward = head(1, d_in=2 * d)
+        self.h_dq_public = head(1, d_in=2 * d)
+        self.h_value = head(1, d_in=2 * d)
 
     def initial(self, batch: int, device) -> tuple[Tensor, Tensor]:
         return (self.w0[None].expand(batch, -1, -1).contiguous().to(device),
@@ -207,12 +212,13 @@ class V05State(nn.Module):
     def outcomes(self, w_prior: Tensor, c: Tensor, g: Tensor) -> dict:
         w_pool = w_prior.mean(dim=1)
         task_pool = torch.cat([c, g], dim=1).mean(dim=1)
+        grounded = torch.cat([task_pool, w_pool], dim=-1)
         return {
             "d_q": self.h_dq(w_pool),
             "d_obj": self.h_dobj(w_pool).view(
                 -1, self.cfg.max_objects, 3),
-            "subgoal_logits": self.h_subgoal(task_pool),
-            "r_hat": self.h_reward(task_pool).squeeze(-1),
-            "dq_public_hat": self.h_dq_public(task_pool).squeeze(-1),
-            "v_hat": self.h_value(task_pool).squeeze(-1),
+            "subgoal_logits": self.h_subgoal(grounded),
+            "r_hat": self.h_reward(grounded).squeeze(-1),
+            "dq_public_hat": self.h_dq_public(grounded).squeeze(-1),
+            "v_hat": self.h_value(grounded).squeeze(-1),
         }
