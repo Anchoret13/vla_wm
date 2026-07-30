@@ -147,3 +147,58 @@ Artifacts: results/libero_loho_public_v1/v05_gated_wm/ (checkpoints every
 5 epochs + strict final bundle + per-loss logs).
 Next: H7.4 three matched adapters (v05_current_wm / v05_gated_wm /
 v05_gated_random) under the locked matching contract.
+
+## H7.4 scoping registration (before any teacher/adapter run)
+
+Arms follow the registered table EXACTLY: `v05_reset_wm`, `v05_reset_random`,
+`v05_recurrent_wm`, `v05_recurrent_random`. (An earlier working note of mine
+used a three-arm naming; that note is superseded by the document.)
+
+Registered deviations and bindings, each with reason:
+
+1. **Teacher score Ĝ_i = v̂ (predicted continuation Q_public) only.** The
+   registered formula adds P̂(terminal success); the H7.3 training data
+   contains 0/160 terminal successes in the 100-action stock continuations,
+   so a success head has no positive labels and was not trained (H7.3
+   scoping). The omission is a deviation, not an equivalence claim.
+2. **Within-sibling ranking loss: not in the fixed H7.3 run** — my H7.3
+   scoping missed it; under the one-fixed-run rule I am not retraining.
+   Substitute measurement (reported, non-gating): within-group rank
+   agreement (Spearman) of frozen v̂ against observed continuation Q_public
+   on the grounded 4-branch groups, train and dev separately.
+3. **Manifest size:** spec says ~200 decisions from "15 training source
+   rollouts"; the registered H7.2 collection has 10 train sources. Rule:
+   20 evenly spaced decision bins per source; in each bin the median
+   decision with an unresolved subgoal; bins with none are dropped
+   (yield ≤200).
+4. **Candidate pools at manifest states:** N=4 fresh full-prompt stock
+   samples, seed = collection contract noise_seed(d) + 100000*cand.
+   Candidate 0 is the designated exchangeable stock reference; for stock
+   sources it reproduces the executed rollout chunk exactly (replay
+   determinism asserted at the collection snapshot decisions). For cur_wm
+   sources the executed v0.4 chunk is NOT placed in the pool (pools are
+   pure frozen-π0.5 support; v0.4 stays a collection policy only).
+5. **Scoring state = reset-computed (c, w, g) for every arm**, matching the
+   WM's training distribution (branch-w init = w0 + one null-action update),
+   so reset and recurrent arms share bit-identical selected chunks as the
+   spec requires. Recurrent arms differ only in the policy state fed to the
+   bias at training/deployment.
+6. **Uniform teacher weight 1.0** (spec's default branch; no batched
+   weighting implementation added).
+7. **Rehearsal:** pool = the 5 stock train sources only, decisions in the
+   first 2/3 of each rollout, full-50 flow loss on the executed stock chunk,
+   paired 1:1 with each teacher item (cyclic, source-balanced). v0.4 cur_wm
+   behavior is never a rehearsal target.
+8. **Trainable set per arm:** W_c, W_w, W_g, α_w, α_g only (1.18M params);
+   everything else frozen at the H7.3 checkpoint. At init the total bias is
+   exactly 0 (zero-init W_c; tanh(0) gates) — asserted, giving stock parity
+   at start for all four arms. Budget: AdamW lr 1e-4 / wd 1e-4, grad-norm
+   1.0, 5 epochs, one optimizer step per positive teacher state
+   (teacher + paired rehearsal averaged), deterministic per-item noise/time
+   (base 998000) shared across arms; positive-state mask shared across all
+   four arms; random arms replace only the candidate index
+   (fixed generator, seed 777000 + state index, uniform over {1,2,3}).
+9. **Recorded per arm:** selected-chunk sha256s, score decomposition
+   (v̂, dq̂_public, r̂ per candidate), action shift at fixed states, gate
+   trajectory (tanh α_w, tanh α_g, ‖W·‖ per epoch), recurrent-vs-reset
+   state divergence stats. Value targets are NOT refreshed.
