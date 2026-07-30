@@ -59,3 +59,26 @@ fixed before this run (predicate names must be lowercase; top_side regions
 use On-semantics). H7.1 exit met: five valid stock episodes recorded in
 evaluator_smoke.jsonl. Next per night plan: H7.0 (a)(b)(c) repairs, then
 H7.2 overnight collection.
+
+## H7.2 registration (operationalizations, written before implementation)
+
+- Sources: per public task, 2 stock + 2 frozen v0.4 cur_wm rollouts
+  (seeds registered: stock 1400/1410, cur_wm 1420/1430 per task) = 20
+  source episodes; split by source episode at collection time.
+- Snapshot rule (registered): (i) "first persistent failure" = first
+  decision where the tracker's first-unresolved subgoal is unchanged for 5
+  consecutive decisions; (ii) "late unresolved state" = the decision at
+  80% of the episode if >= 1 subgoal is unresolved there (else the last
+  unresolved decision). 2 per source = 40 snapshot groups.
+- Branches: deterministic N=4 pool (candidate 0 = the source policy's own
+  chunk via recorded noise; 3 fresh seeded pi0.5 samples), each executed
+  once (10 actions) = 160 branches; restore/replay provenance kept.
+- Continuations: one bounded 100-action stock continuation per branch =
+  160; labels: public subgoal flips, damage, reward (subgoal delta),
+  dQ_public, terminal success, continuation Q. Immediate object distance
+  is never an advantage.
+- Language: canonical instruction + ONE registered paraphrase per task
+  (fixed texts in the manifest) + compatible same-scene relabels:
+  T1<->T5 (shared KITCHEN_SCENE10 objects; cross-evaluable) and, for every
+  task, its per-object atomic subgoal goals. Physical outcomes shared
+  across labels.
