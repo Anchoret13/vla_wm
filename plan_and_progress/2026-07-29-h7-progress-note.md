@@ -310,3 +310,49 @@ dSR −0.040. Neither reset adapter improves on stock in this tranche;
 the WM-vs-random selection difference is at noise level. Registered plan:
 tranche 2 (recurrent pair + v0.4 legacy reference) runs regardless;
 routing decisions only after the full matrix.
+
+## H7.5 full matrix COMPLETE (150 episodes) + H7.6 routing analysis
+
+Per-arm (25 episodes each, seeds 1500–1540, CRN-paired):
+
+| arm | SR | Q_public |
+|---|---|---|
+| stock | 0.040 | 0.516 |
+| v04_cur_wm (legacy ref) | 0.040 | 0.512 |
+| v05_reset_random | 0.040 | 0.472 |
+| v05_reset_wm | 0.000 | 0.482 |
+| v05_recurrent_random | 0.040 | 0.470 |
+| v05_recurrent_wm | 0.000 | 0.070 |
+
+Registered matched effects (25 pairs each): selection_reset +0.0099 Q /
+−0.040 SR; selection_rec −0.4004 Q (confounded, see below); history_random
+−0.0015 Q; history_wm −0.4118 Q (confounded); rec_wm−stock −0.4459;
+reset_wm−stock −0.0341. Per-task selection_reset spans −0.10 (T3) to
++0.143 (T5): mixed at seed n=5 per task.
+
+**Reading, in registered-branch terms:**
+1. **No v0.5 arm improves on stock** in the development matrix (n=25/arm).
+2. **Branch 3 fires** (WM-selected ≈ matched random for the stable reset
+   pair): model selection is behaviorally ungrounded. Constraint on its
+   prescribed repair: the already-collected grounded bank has observed
+   continuation-Q variance in only 3/20 train groups (verified), so a
+   ranking repair on existing branches is nearly unpowered — the
+   100-action stock continuations mostly wash out first-ten differences.
+3. **Branch 4 fires for the random pair**: history carry is behaviorally
+   inactive (−0.0015 Q), with the mechanism measured pre-eval: gates shut
+   (|tanh α| ≤ 0.0011; rec-vs-reset deployed bias delta 0.05%). The WM-pair
+   history contrast is NOT interpretable as a history effect — it is the
+   recorded recurrent_wm training instability (its collapse is uniform
+   across all five tasks: Q 0.12/0.00/0.00/0.00/0.23).
+4. Branch 5's capacity-escalation condition is NOT met: saved first-ten
+   action shifts are substantial (L2 4.3–12.5), so the registered routing
+   points at target coverage/optimization, not action-expert PEFT.
+5. v0.4 cur_wm ≈ stock on the public tasks (0.512 vs 0.516) — the local
+   chain3/4/5 gains did not transfer positively, and did not hurt.
+
+**No promotion; the sealed public confirmation is NOT run.** The choice
+among localized repairs — (a) grounding-signal repair beyond the current
+bank's 3 variance-bearing groups (would require a new collection design,
+outside current bounds), (b) shorter-horizon continuation grounding on
+existing snapshots, (c) optimization repair for the unstable arm — changes
+data-collection scope and is left for review, not chosen unilaterally.
