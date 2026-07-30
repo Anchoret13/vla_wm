@@ -40,20 +40,32 @@ TASK_ORDER = ["loho_t1_drawer", "loho_t2_basket3", "loho_t3_tray",
 
 
 @torch.no_grad()
-def capture_features(runner, env, instruction, pool_image_tokens):
+def capture_features(runner, env, instruction, pool_image_tokens,
+                     language_variants=None):
+    """language_variants: {name: text} — H_late is additionally captured
+    under each variant (paraphrase / compatible-goal prefixes for the
+    crossed-language losses of the v0.5 objective)."""
     from lcwm.sampler import prefix_forward
     from lcwm.probe_data import body_positions, discover_object_bodies
 
     obs = env._format_raw_obs(env._env.env._get_observations())
     batch = runner._obs_to_policy_batch(obs, instruction)
     prefix = prefix_forward(runner.policy, batch)
+    variants = {}
+    for name, text in (language_variants or {}).items():
+        p = prefix_forward(
+            runner.policy, runner._obs_to_policy_batch(obs, text))
+        variants[name] = {
+            "h_late": p.hidden[0].half().cpu(),
+            "h_late_mask": p.pad_masks[0].bool().cpu(),
+        }
     images, img_masks = runner.policy._preprocess_images(batch)
     model = runner.policy.model
-    early = []
-    for img, mask in zip(images, img_masks):
-        if bool(mask.all()):
-            early.append(model.paligemma_with_expert.embed_image(img)[0])
-    early_pooled = pool_image_tokens(torch.cat(early, dim=0)[None])[0]
+    # Mirror probe_data.frame_features exactly: per-slot validity is m[0].
+    sig = torch.cat(
+        [model.paligemma_with_expert.embed_image(img)[0].float()
+         for img, m in zip(images, img_masks) if bool(m[0])], dim=0)
+    early_pooled = pool_image_tokens(sig)
     bodies = discover_object_bodies(env)
     q = torch.from_numpy(np.concatenate([
         obs["robot_state"]["eef"]["pos"],
@@ -68,6 +80,7 @@ def capture_features(runner, env, instruction, pool_image_tokens):
         "h_early": early_pooled.half().cpu(),
         "q": q, "obj_pos": obj,
         "object_names": list(bodies),
+        "language_variants": variants,
     }
 
 
@@ -97,6 +110,19 @@ def main() -> None:
         task_index = TASK_ORDER.index(task_name)
         policy_name = record["policy"]
         instruction = record["language"]["canonical"]
+        import json as _json
+        manifest_tasks = _json.loads(
+            (REPO_ROOT / "results" / "libero_loho_public_v1"
+             / "task_source_manifest.json").read_text())["tasks"]
+        language_variants = {
+            "paraphrase": record["language"]["paraphrase"],
+        }
+        for other in record["language"]["compatible_goals"]:
+            other_bddl = REPO_ROOT / manifest_tasks[other]["bddl"]
+            import re as _re
+            language_variants[f"compatible:{other}"] = _re.search(
+                r"\(:language ([^)]*)\)", other_bddl.read_text()
+            ).group(1).strip()
 
         def noise_seed(decision):
             return (NOISE_BASE + task_index * 2_000_000
@@ -140,11 +166,12 @@ def main() -> None:
                 if term or trunc:
                     break
 
-            features = {"schema": "loho_features_v1", "snapshots": {}}
+            features = {"schema": "loho_features_v2", "snapshots": {}}
             for d, snapshot in snap_states.items():
                 restore(env, snapshot)
                 at_snapshot = capture_features(
-                    runner, env, instruction, pool_image_tokens)
+                    runner, env, instruction, pool_image_tokens,
+                    language_variants)
                 branch_feats = []
                 for branch in wanted[d]["branches"]:
                     restore(env, snapshot)
@@ -152,7 +179,8 @@ def main() -> None:
                             branch["chunk_norm"][None].cuda()[:, :10]):
                         env.step(a)
                     branch_feats.append(capture_features(
-                        runner, env, instruction, pool_image_tokens))
+                        runner, env, instruction, pool_image_tokens,
+                        language_variants))
                 features["snapshots"][d] = {
                     "state": at_snapshot, "after_branches": branch_feats,
                 }
