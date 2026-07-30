@@ -41,7 +41,7 @@ ensure_project_libero_config()
 
 DATA = Path("/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1")
 OUT = DATA / "teacher_manifest"
-WM_CKPT = (REPO_ROOT / "results" / "libero_loho_public_v1" / "v05_gated_wm"
+WM_CKPT = (REPO_ROOT / "results" / "libero_loho_public_v1" / "v05_gated_wm_r1"
            / "checkpoint_final.pt")
 NOISE_BASE = 30_000_000
 EPISODE_LENGTH = {"loho_t1_drawer": 700, "loho_t2_basket3": 900,

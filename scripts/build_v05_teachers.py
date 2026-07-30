@@ -34,7 +34,7 @@ from lcwm.v05_model import V05State  # noqa: E402
 
 DATA = Path("/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1")
 MANIFEST = DATA / "teacher_manifest"
-WM_CKPT = (REPO_ROOT / "results" / "libero_loho_public_v1" / "v05_gated_wm"
+WM_CKPT = (REPO_ROOT / "results" / "libero_loho_public_v1" / "v05_gated_wm_r1"
            / "checkpoint_final.pt")
 OUT = REPO_ROOT / "results" / "libero_loho_public_v1" / "v05_teachers"
 RANDOM_SEED_BASE = 777_000
