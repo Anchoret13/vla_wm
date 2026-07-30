@@ -298,3 +298,15 @@ memory paths earned deployment influence — currently they have not; only
 environment-chaos amplification could separate rec from reset arms.
 This maps to H7.6 branch 4 if it holds behaviorally. Tranches run as
 registered regardless.
+
+## H7.5a tranche 1 result (75/75 episodes, seeds 1500–1540)
+
+Per-arm over 25 episodes each: stock SR 0.040 / Q 0.516;
+v05_reset_random SR 0.040 / Q 0.472; v05_reset_wm SR 0.000 / Q 0.482.
+Stock Q matches the H7.1 smoke mean (0.521) and is in the range of the
+paper's external stock reference. Matched effects (25 CRN pairs each):
+selection_reset dQ +0.0099 / dSR −0.040; reset_wm − stock dQ −0.0341 /
+dSR −0.040. Neither reset adapter improves on stock in this tranche;
+the WM-vs-random selection difference is at noise level. Registered plan:
+tranche 2 (recurrent pair + v0.4 legacy reference) runs regardless;
+routing decisions only after the full matrix.

@@ -1,0 +1,44 @@
+{
+  "schema": "loho_public_eval_v1",
+  "run_id": "h75a_tranche1",
+  "noise_contract": "20e6 + public_task_index*2e6 + env_seed*1e3 + decision; shared across arms; all arms sample via sample_chunks_lc (stock bias=0)",
+  "prompt_mode": "canonical_full",
+  "arms": [
+    "stock",
+    "v05_reset_random",
+    "v05_reset_wm"
+  ],
+  "adapter_hashes": {
+    "v05_reset_wm": "59ee5b99437265df1839bb5f1d2f889cc4c767c99e5287b9b26c15e94f0d2571",
+    "v05_reset_random": "3a443e632658c6184f8a914ef79efdfd749beb42f16d78f3f49413437ab742a8"
+  },
+  "wm_checkpoint_sha256": "0c5d17706c4479310fed6114d89771c8401a55a36f28517945faa6e328614c10",
+  "tasks": [
+    "loho_t1_drawer",
+    "loho_t2_basket3",
+    "loho_t3_tray",
+    "loho_t4_tray",
+    "loho_t5_drawer_cabinet"
+  ],
+  "seeds": [
+    1500,
+    1510,
+    1520,
+    1530,
+    1540
+  ],
+  "code_files": {
+    "scripts/eval_loho_public_paired.py": "8f346546897d0439860b2b77b75df2c1078d5c1293db59c7752f151a3842f0c0",
+    "lcwm/loho_public.py": "098d51d7e17a41b712611a038b51efabee041e02c17905cb2194a702d63811f6",
+    "lcwm/v05_model.py": "58e2172b1be2eb348e6ebecb02eb1e24278dfc976b97568426e416ec3b885e60",
+    "lcwm/lc_flow.py": "9e088e93b3382d557f1bda8095e9206bfa67d5cbdb6e757dbdb0c60772a452c4"
+  },
+  "bddl_hashes": {
+    "loho_t1_drawer": "a310db9cf5886163de475406f6e2365cd1d97d9137c7ad6c1d0bcf2efd511968",
+    "loho_t2_basket3": "dcdee51958416702d9d4a7df30d1789237971877c0ec35196d0586c405af3596",
+    "loho_t3_tray": "d9c4bd76d829c977f88bd99c48e7e78e9c65a648f0db07f27a7ec1a0c861731e",
+    "loho_t4_tray": "36278903d25d422d92120af0052128e39c8509069b5e3ad7f054518d25bbef49",
+    "loho_t5_drawer_cabinet": "2a3201cb57471182f2fdb02f1669c6ec800efd954a14d358757e9c154cd0ceb7"
+  },
+  "manifest_sha256": "8322952209998fe4cc4978d5265d928d9fa225f013f2f665f37d2ac09110d7bd"
+}

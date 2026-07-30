@@ -1,0 +1,783 @@
+{
+  "run_ids": [
+    "h75a_tranche1"
+  ],
+  "tasks": [
+    "loho_t1_drawer",
+    "loho_t2_basket3",
+    "loho_t3_tray",
+    "loho_t4_tray",
+    "loho_t5_drawer_cabinet"
+  ],
+  "seeds": [
+    1500,
+    1510,
+    1520,
+    1530,
+    1540
+  ],
+  "arms": [
+    "stock",
+    "v05_reset_random",
+    "v05_reset_wm"
+  ],
+  "per_arm": {
+    "stock": {
+      "n": 25,
+      "sr": 0.04,
+      "q_mean": 0.5156190476190476,
+      "per_task": {
+        "loho_t1_drawer": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.44000000000000006,
+          "q_values": [
+            0.0,
+            0.2,
+            0.8,
+            0.6,
+            0.6
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "close wooden_cabinet_1_top_region",
+            "place butter_1 wooden_cabinet_1_top_region",
+            "place butter_1 wooden_cabinet_1_top_region"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t2_basket3": {
+          "n": 5,
+          "sr": 0.2,
+          "q_mean": 0.7333333333333333,
+          "q_values": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            1.0,
+            0.6666666666666666
+          ],
+          "successes": [
+            1530
+          ],
+          "first_unresolved": [
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up butter_1",
+            null,
+            "pick_up butter_1"
+          ],
+          "n_invalidated": 1
+        },
+        "loho_t3_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.5,
+          "q_values": [
+            0.0,
+            0.6666666666666666,
+            0.5,
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t4_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.3333333333333333,
+          "q_values": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t5_drawer_cabinet": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.5714285714285714,
+          "q_values": [
+            0.7142857142857143,
+            0.42857142857142855,
+            0.5714285714285714,
+            0.5714285714285714,
+            0.5714285714285714
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "close wooden_cabinet_1_top_region",
+            "pick_up butter_2",
+            "close wooden_cabinet_1_top_region",
+            "place butter_2 wooden_cabinet_1_top_region",
+            "place butter_2 wooden_cabinet_1_top_region"
+          ],
+          "n_invalidated": 0
+        }
+      }
+    },
+    "v05_reset_random": {
+      "n": 25,
+      "sr": 0.04,
+      "q_mean": 0.4716190476190476,
+      "per_task": {
+        "loho_t1_drawer": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.32,
+          "q_values": [
+            0.6,
+            0.0,
+            0.6,
+            0.0,
+            0.4
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "place butter_1 wooden_cabinet_1_top_region",
+            "pick_up butter_1",
+            "place butter_1 wooden_cabinet_1_top_region",
+            "pick_up butter_1",
+            "place butter_1 wooden_cabinet_1_top_region"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t2_basket3": {
+          "n": 5,
+          "sr": 0.2,
+          "q_mean": 0.6666666666666666,
+          "q_values": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.3333333333333333,
+            1.0
+          ],
+          "successes": [
+            1540
+          ],
+          "first_unresolved": [
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up alphabet_soup_1",
+            null
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t3_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.6666666666666666,
+          "q_values": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up cream_cheese_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t4_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.3333333333333333,
+          "q_values": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t5_drawer_cabinet": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.3714285714285714,
+          "q_values": [
+            0.42857142857142855,
+            0.14285714285714285,
+            0.5714285714285714,
+            0.42857142857142855,
+            0.2857142857142857
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up butter_2",
+            "pick_up butter_2",
+            "close wooden_cabinet_1_top_region",
+            "pick_up butter_2",
+            "pick_up butter_2"
+          ],
+          "n_invalidated": 0
+        }
+      }
+    },
+    "v05_reset_wm": {
+      "n": 25,
+      "sr": 0.0,
+      "q_mean": 0.4815238095238095,
+      "per_task": {
+        "loho_t1_drawer": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.36,
+          "q_values": [
+            0.0,
+            0.2,
+            0.8,
+            0.6,
+            0.2
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "close wooden_cabinet_1_top_region",
+            "place butter_1 wooden_cabinet_1_top_region",
+            "pick_up butter_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t2_basket3": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.6333333333333333,
+          "q_values": [
+            0.5,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up butter_1",
+            "pick_up butter_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t3_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.5666666666666667,
+          "q_values": [
+            0.16666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1",
+            "pick_up alphabet_soup_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t4_tray": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.3333333333333333,
+          "q_values": [
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up new_salad_dressing_1",
+            "pick_up akita_black_bowl_1"
+          ],
+          "n_invalidated": 0
+        },
+        "loho_t5_drawer_cabinet": {
+          "n": 5,
+          "sr": 0.0,
+          "q_mean": 0.5142857142857142,
+          "q_values": [
+            0.5714285714285714,
+            0.2857142857142857,
+            0.5714285714285714,
+            0.5714285714285714,
+            0.5714285714285714
+          ],
+          "successes": [],
+          "first_unresolved": [
+            "pick_up butter_2",
+            "pick_up butter_2",
+            "close wooden_cabinet_1_top_region",
+            "place butter_2 wooden_cabinet_1_top_region",
+            "place butter_2 wooden_cabinet_1_top_region"
+          ],
+          "n_invalidated": 0
+        }
+      }
+    }
+  },
+  "effects": {
+    "selection_reset": {
+      "arms": [
+        "v05_reset_wm",
+        "v05_reset_random"
+      ],
+      "per_task": {
+        "loho_t1_drawer": {
+          "n_pairs": 5,
+          "mean_d_q": 0.040000000000000015,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": -0.6,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.2,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.20000000000000007,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.6,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": -0.2,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t2_basket3": {
+          "n_pairs": 5,
+          "mean_d_q": -0.03333333333333334,
+          "mean_d_sr": -0.2,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": -0.16666666666666663,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.3333333333333333,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": -0.33333333333333337,
+              "d_sr": -1
+            }
+          ]
+        },
+        "loho_t3_tray": {
+          "n_pairs": 5,
+          "mean_d_q": -0.1,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": -0.5,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t4_tray": {
+          "n_pairs": 5,
+          "mean_d_q": 0.0,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t5_drawer_cabinet": {
+          "n_pairs": 5,
+          "mean_d_q": 0.14285714285714285,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": 0.14285714285714285,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.14285714285714285,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.14285714285714285,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.2857142857142857,
+              "d_sr": 0
+            }
+          ]
+        }
+      },
+      "pooled_n_pairs": 25,
+      "pooled_mean_d_q": 0.009904761904761906,
+      "pooled_mean_d_sr": -0.04
+    },
+    "reset_wm_vs_stock": {
+      "arms": [
+        "v05_reset_wm",
+        "stock"
+      ],
+      "per_task": {
+        "loho_t1_drawer": {
+          "n_pairs": 5,
+          "mean_d_q": -0.07999999999999999,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": -0.39999999999999997,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t2_basket3": {
+          "n_pairs": 5,
+          "mean_d_q": -0.1,
+          "mean_d_sr": -0.2,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": -0.16666666666666663,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": -0.33333333333333337,
+              "d_sr": -1
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t3_tray": {
+          "n_pairs": 5,
+          "mean_d_q": 0.06666666666666665,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": 0.16666666666666666,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.16666666666666663,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t4_tray": {
+          "n_pairs": 5,
+          "mean_d_q": 0.0,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        },
+        "loho_t5_drawer_cabinet": {
+          "n_pairs": 5,
+          "mean_d_q": -0.05714285714285715,
+          "mean_d_sr": 0.0,
+          "per_seed": [
+            {
+              "seed": 1500,
+              "d_q": -0.1428571428571429,
+              "d_sr": 0
+            },
+            {
+              "seed": 1510,
+              "d_q": -0.14285714285714285,
+              "d_sr": 0
+            },
+            {
+              "seed": 1520,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1530,
+              "d_q": 0.0,
+              "d_sr": 0
+            },
+            {
+              "seed": 1540,
+              "d_q": 0.0,
+              "d_sr": 0
+            }
+          ]
+        }
+      },
+      "pooled_n_pairs": 25,
+      "pooled_mean_d_q": -0.034095238095238095,
+      "pooled_mean_d_sr": -0.04
+    }
+  },
+  "per_subgoal": {
+    "v05_reset_random": {
+      "loho_t1_drawer::pick_up butter_1": 3,
+      "loho_t1_drawer::pick_up chocolate_pudding_1": 3,
+      "loho_t1_drawer::place chocolate_pudding_1 wooden_cabinet_1_top_region": 2,
+      "loho_t2_basket3::pick_up alphabet_soup_1": 4,
+      "loho_t2_basket3::place alphabet_soup_1 basket_1_contain_region": 4,
+      "loho_t2_basket3::pick_up tomato_sauce_1": 5,
+      "loho_t2_basket3::place tomato_sauce_1 basket_1_contain_region": 5,
+      "loho_t2_basket3::pick_up butter_1": 1,
+      "loho_t2_basket3::place butter_1 basket_1_contain_region": 1,
+      "loho_t3_tray::pick_up alphabet_soup_1": 1,
+      "loho_t3_tray::place alphabet_soup_1 wooden_tray_1_contain_region": 1,
+      "loho_t3_tray::pick_up butter_1": 5,
+      "loho_t3_tray::place butter_1 wooden_tray_1_contain_region": 5,
+      "loho_t3_tray::pick_up cream_cheese_1": 4,
+      "loho_t3_tray::place cream_cheese_1 wooden_tray_1_contain_region": 4,
+      "loho_t4_tray::pick_up akita_black_bowl_1": 5,
+      "loho_t4_tray::place akita_black_bowl_1 wooden_tray_1_contain_region": 5,
+      "loho_t5_drawer_cabinet::pick_up chocolate_pudding_1": 4,
+      "loho_t5_drawer_cabinet::place chocolate_pudding_1 wooden_cabinet_1_top_region": 3,
+      "loho_t5_drawer_cabinet::pick_up akita_black_bowl_1": 4,
+      "loho_t5_drawer_cabinet::pick_up butter_2": 1,
+      "loho_t5_drawer_cabinet::place butter_2 wooden_cabinet_1_top_region": 1
+    },
+    "v05_reset_wm": {
+      "loho_t1_drawer::pick_up chocolate_pudding_1": 4,
+      "loho_t1_drawer::pick_up butter_1": 2,
+      "loho_t1_drawer::place butter_1 wooden_cabinet_1_top_region": 1,
+      "loho_t1_drawer::place chocolate_pudding_1 wooden_cabinet_1_top_region": 2,
+      "loho_t2_basket3::pick_up alphabet_soup_1": 5,
+      "loho_t2_basket3::place alphabet_soup_1 basket_1_contain_region": 5,
+      "loho_t2_basket3::pick_up tomato_sauce_1": 5,
+      "loho_t2_basket3::place tomato_sauce_1 basket_1_contain_region": 4,
+      "loho_t3_tray::pick_up cream_cheese_1": 5,
+      "loho_t3_tray::place cream_cheese_1 wooden_tray_1_contain_region": 4,
+      "loho_t3_tray::pick_up butter_1": 4,
+      "loho_t3_tray::place butter_1 wooden_tray_1_contain_region": 4,
+      "loho_t4_tray::pick_up akita_black_bowl_1": 4,
+      "loho_t4_tray::place akita_black_bowl_1 wooden_tray_1_contain_region": 4,
+      "loho_t4_tray::pick_up chocolate_pudding_1": 1,
+      "loho_t4_tray::place chocolate_pudding_1 wooden_tray_1_contain_region": 1,
+      "loho_t5_drawer_cabinet::pick_up chocolate_pudding_1": 5,
+      "loho_t5_drawer_cabinet::place chocolate_pudding_1 wooden_cabinet_1_top_region": 4,
+      "loho_t5_drawer_cabinet::pick_up akita_black_bowl_1": 4,
+      "loho_t5_drawer_cabinet::place akita_black_bowl_1 wooden_cabinet_1_top_side": 1,
+      "loho_t5_drawer_cabinet::pick_up butter_2": 3,
+      "loho_t5_drawer_cabinet::place butter_2 wooden_cabinet_1_top_region": 1
+    },
+    "stock": {
+      "loho_t1_drawer::pick_up chocolate_pudding_1": 4,
+      "loho_t1_drawer::pick_up butter_1": 3,
+      "loho_t1_drawer::place butter_1 wooden_cabinet_1_top_region": 1,
+      "loho_t1_drawer::place chocolate_pudding_1 wooden_cabinet_1_top_region": 3,
+      "loho_t2_basket3::pick_up alphabet_soup_1": 5,
+      "loho_t2_basket3::place alphabet_soup_1 basket_1_contain_region": 5,
+      "loho_t2_basket3::pick_up tomato_sauce_1": 5,
+      "loho_t2_basket3::place tomato_sauce_1 basket_1_contain_region": 5,
+      "loho_t2_basket3::pick_up butter_1": 1,
+      "loho_t2_basket3::place butter_1 basket_1_contain_region": 1,
+      "loho_t3_tray::pick_up cream_cheese_1": 4,
+      "loho_t3_tray::place cream_cheese_1 wooden_tray_1_contain_region": 4,
+      "loho_t3_tray::pick_up butter_1": 4,
+      "loho_t3_tray::place butter_1 wooden_tray_1_contain_region": 3,
+      "loho_t4_tray::pick_up akita_black_bowl_1": 5,
+      "loho_t4_tray::place akita_black_bowl_1 wooden_tray_1_contain_region": 5,
+      "loho_t5_drawer_cabinet::pick_up butter_2": 4,
+      "loho_t5_drawer_cabinet::place butter_2 wooden_cabinet_1_top_region": 2,
+      "loho_t5_drawer_cabinet::pick_up chocolate_pudding_1": 5,
+      "loho_t5_drawer_cabinet::place chocolate_pudding_1 wooden_cabinet_1_top_region": 5,
+      "loho_t5_drawer_cabinet::pick_up akita_black_bowl_1": 4
+    }
+  }
+}
