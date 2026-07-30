@@ -95,3 +95,14 @@ value/reward targets now have real positive support. One source
 (T1 cur_wm s1420) has 0/8 — recorded, not resampled.
 Artifacts: data/…/libero_loho_public_v1/*.pt + collection_manifest.json.
 Next: H7.3 fixed v0.5-gated world model.
+
+## Feature recompute COMPLETE (20/20)
+
+All sources replayed deterministically; stored candidate-0 chunks asserted
+equal to the replayed source chunks on every snapshot (both stock and
+cur_wm replay paths). Sidecars <source>.features.pt: full-prefix H_late +
+mask, pooled SigLIP H_early (frame_features pattern), q/obj before and
+after every branch. One SigLIP-capture defect found and fixed before the
+successful run (per-slot validity is m[0], not mask.all()). v0.5 training
+data surface is complete. Next: scripts/train_v05_wm.py (fixed objective,
+seed 0, registered budget).
