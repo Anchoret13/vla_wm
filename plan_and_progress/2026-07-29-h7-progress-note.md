@@ -264,3 +264,18 @@ value →0.0099, para ~0.015. Sibling-variance launch check PASSED
 defective run (0.026/0.011) even though they now fit action-conditional
 targets rather than group means. Interface-frozen assert passed.
 Artifacts: results/libero_loho_public_v1/v05_gated_wm_r1/.
+
+## H7.4 teacher table (r1 checkpoint) — FROZEN
+
+Scoring the 200-state manifest with r1: **155/200 states select a non-stock
+candidate (77.5%)**; per-source range 0.55–0.95; advantage quantiles
+(10/50/90%) = 0.0005 / 0.0023 / 0.0110 in predicted-Q units — small.
+Registered rank diagnostic: 33/40 grounded groups have IDENTICAL observed
+continuation Q across all four branches (verified observation-side, not a
+prediction artifact), so the effective n is 3 train / 4 dev groups; on
+those, Spearman 0.34 train / 0.11 dev, argmax hit 2/3 train / 2/4 dev.
+Reading: the grounded evidence that WM ranking tracks observed outcomes is
+weak and nearly unpowered at this bank size; recorded as registered, not a
+gate. H7.5 is the behavioral test. Random-arm indices drawn at the same
+155 states (seed 777000 + state index).
+Artifacts: results/libero_loho_public_v1/v05_teachers/.

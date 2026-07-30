@@ -1,0 +1,44 @@
+{
+  "n_teacher_states": 200,
+  "wm_checkpoint_sha256": "0c5d17706c4479310fed6114d89771c8401a55a36f28517945faa6e328614c10",
+  "positive_fraction": 0.775,
+  "positive_by_source": {
+    "loho_t1_drawer_cur_wm_s1420": 0.75,
+    "loho_t1_drawer_stock_s1400": 0.55,
+    "loho_t2_basket3_cur_wm_s1420": 0.8,
+    "loho_t2_basket3_stock_s1400": 0.7,
+    "loho_t3_tray_cur_wm_s1420": 0.95,
+    "loho_t3_tray_stock_s1400": 0.75,
+    "loho_t4_tray_cur_wm_s1420": 0.9,
+    "loho_t4_tray_stock_s1400": 0.7,
+    "loho_t5_drawer_cabinet_cur_wm_s1420": 0.7,
+    "loho_t5_drawer_cabinet_stock_s1400": 0.95
+  },
+  "positive_by_phase": {
+    "0": 0.784,
+    "1": 0.75,
+    "2": 0.7678571428571429,
+    "3": 0.5,
+    "5": 0.7777777777777778
+  },
+  "advantage_quantiles": [
+    0.0005037009832449257,
+    0.0023398995399475098,
+    0.011049374006688595
+  ],
+  "mean_candidate_diversity_l2": 0.23612800240516663,
+  "grounded_rank_agreement": {
+    "train": {
+      "n_groups": 3,
+      "n_skipped_zero_variance": 17,
+      "spearman_mean": 0.3442651927471161,
+      "argmax_hit_rate": 0.6666666865348816
+    },
+    "dev": {
+      "n_groups": 4,
+      "n_skipped_zero_variance": 16,
+      "spearman_mean": 0.11180341243743896,
+      "argmax_hit_rate": 0.5
+    }
+  }
+}
