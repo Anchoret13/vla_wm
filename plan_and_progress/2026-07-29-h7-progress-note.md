@@ -202,3 +202,34 @@ Registered deviations and bindings, each with reason:
    (v̂, dq̂_public, r̂ per candidate), action shift at fixed states, gate
    trajectory (tanh α_w, tanh α_g, ‖W·‖ per epoch), recurrent-vs-reset
    state divergence stats. Value targets are NOT refreshed.
+
+## H7.4 defect found by the registered scorer — bounded contract repair r1
+
+**Observation (frozen scorer, 200 states, 40 grounded groups):** positive
+teacher fraction 0/200; ALL 40 grounded groups skipped for zero prediction
+variance. Cause confirmed on saved rows: v̂/dq̂/r̂ are bit-identical across
+the 4 candidates of every pool. `V05State.outcomes()` feeds the
+subgoal/reward/dq_public/value heads from pool(c,g) ONLY — the
+action-transitioned prior enters just the physical heads. The registered
+H7.3 objective says "transition the posterior state BEFORE decoding …
+G^{π0}_{100}"; my implementation violated that for every grounded task
+head. The H7.3 launch checks did not include a within-sibling
+score-variance assert, which is why this escaped to the scorer stage.
+Corrected reading of the H7.3 loss record: the reported dq_public=0.011 /
+value=0.026 are fits to snapshot-group MEANS, not action-conditional
+predictions.
+
+**Registered repair (r1, bounded; no other changes):**
+- `outcomes()` heads for subgoal / reward / dq_public / value consume
+  concat[pool(c,g) ‖ pool(w_prior)] (input 2·d_z); physical heads
+  unchanged. This is the minimal wiring that routes the action through
+  T_w into every grounded head, matching the registered equation.
+- Retrain with the IDENTICAL registered budget (seed 0, AdamW 3e-4/1e-4,
+  30 epochs, TBPTT 16, same data) → `v05_gated_wm_r1/`. The defective
+  run's artifacts stay in `v05_gated_wm/` for the record.
+- New launch check: after training, assert within-sibling v̂ variance > 0
+  on at least one grounded group (the class of this escape).
+- Teacher manifest is rebuilt from scratch with the r1 checkpoint (its
+  cached c/w/g tokens are checkpoint-dependent; the π0.5 rollouts and
+  candidate pools are checkpoint-independent and reproduce bit-exactly).
+- No loss-weight, architecture-width, or budget changes ride along.
