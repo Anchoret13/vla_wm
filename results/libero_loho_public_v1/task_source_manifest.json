@@ -1,0 +1,61 @@
+{
+  "schema": "libero_loho_public_source_manifest_v1",
+  "provenance_class": "specification-based LIBERO-LoHo reimplementation",
+  "public_source": {
+    "paper": "H-WM, arXiv:2602.11291 (LIBERO-LoHo: five tasks, 5-7 steps)",
+    "author_artifacts_available": false,
+    "note": "No author-released BDDL/init-state/evaluator artifacts present in this repository; tasks reconstructed from the public specification and labeled accordingly. Numbers are not comparable to the paper's table until protocol parity is demonstrated (stock pi0.5 reference Q=55.3/SR=6.4% treated as external)."
+  },
+  "q_score_semantics": "completed public subgoals / registered task length; subgoal list is ORDERED and includes pick-up, place, and drawer open/close as separate subgoals; terminal SR = full task conjunction",
+  "tasks": {
+    "loho_t2_basket3": {
+      "public_description": "alphabet soup + butter + tomato sauce -> basket",
+      "registered_length": 6,
+      "ordered_subgoals": [
+        "pick_up alphabet_soup_1",
+        "place alphabet_soup_1 basket_1_contain_region",
+        "pick_up butter_1",
+        "place butter_1 basket_1_contain_region",
+        "pick_up tomato_sauce_1",
+        "place tomato_sauce_1 basket_1_contain_region"
+      ],
+      "bddl": "bddl/libero_loho_public_v1/loho_t2_basket3.bddl",
+      "scene_basis": "LIVING_ROOM_SCENE2 layout (verified in-distribution for pi05_libero_finetuned); goal atoms swapped to the public T2 object set",
+      "status": "reconstructed",
+      "reconstruction_notes": "Region layout byte-identical to the audited local chain3 base; only language, obj_of_interest, and goal atoms differ."
+    },
+    "loho_t1_drawer": {
+      "public_description": "front butter + chocolate pudding -> cabinet top drawer; close drawer",
+      "registered_length": 5,
+      "status": "pending_asset_inventory",
+      "blockers": "host scene with cabinet top drawer + butter + chocolate_pudding; front/back butter instance naming"
+    },
+    "loho_t3_tray": {
+      "public_description": "alphabet soup + cream cheese + butter -> wooden tray",
+      "registered_length": 6,
+      "status": "pending_asset_inventory",
+      "blockers": "wooden_tray fixture scene with the three objects"
+    },
+    "loho_t4_tray": {
+      "public_description": "left black bowl + salad dressing + chocolate pudding -> wooden tray",
+      "registered_length": 6,
+      "status": "pending_asset_inventory",
+      "blockers": "scene with black_bowl instances (left naming), salad_dressing, chocolate_pudding, wooden_tray"
+    },
+    "loho_t5_drawer_cabinet": {
+      "public_description": "back butter + chocolate pudding -> top drawer; close it; black bowl -> cabinet top",
+      "registered_length": 7,
+      "status": "pending_asset_inventory",
+      "blockers": "cabinet with top drawer AND top surface region; back butter naming; black_bowl"
+    }
+  },
+  "locked_protocol": {
+    "policy": "lerobot/pi05_libero_finetuned, frozen",
+    "chunk_length": 50,
+    "execute_length": 10,
+    "camera_and_obs": "LiberoEnvConfig defaults (pixels_agent_pos, 360px) as in chassis parity contract",
+    "action_normalization": "policy preprocessor mean-std (verified stats)",
+    "noise_contract": "20e6 + task_index*2e6 + env_seed*1e3 + decision; task_index = registered task order 0-4",
+    "panels": "disjoint source-training / five-seed development / sealed confirmation seeds to be registered before policy data collection"
+  }
+}
