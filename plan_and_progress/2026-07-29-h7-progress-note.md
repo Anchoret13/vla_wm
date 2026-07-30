@@ -82,3 +82,16 @@ H7.2 overnight collection.
   T1<->T5 (shared KITCHEN_SCENE10 objects; cross-evaluable) and, for every
   task, its per-object atomic subgoal goals. Physical outcomes shared
   across labels.
+
+## H7.2 result: collection COMPLETE (20/20 sources)
+
+40 snapshots / 160 branches / 160 bounded continuations, per the
+registered contract; splits fixed at collection (1400/1420 train,
+1410/1430 dev). Positive-continuation support (dQ_public > 0):
+T1 12/32, T2 14/32, T3 16/32, T4 16/32, T5 12/32 — **70/160 (43.8%)**
+overall, with every task and both source policies contributing. Contrast
+with the local chain data (0/52 successful continuations): public-task
+value/reward targets now have real positive support. One source
+(T1 cur_wm s1420) has 0/8 — recorded, not resampled.
+Artifacts: data/…/libero_loho_public_v1/*.pt + collection_manifest.json.
+Next: H7.3 fixed v0.5-gated world model.
