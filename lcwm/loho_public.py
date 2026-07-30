@@ -108,11 +108,15 @@ class SubgoalTracker:
             kind = parts[0]
             done = False
             if kind == "place":
-                done = bool(inner._eval_predicate(["In", parts[1], parts[2]]))
-            elif kind in ("open", "close"):
+                # Predicate function names are lowercase in LIBERO's
+                # VALIDATE_PREDICATE_FN_DICT; 'place ... top_side' regions
+                # are On-semantics, contain regions are In-semantics.
+                predicate = "on" if parts[2].endswith("top_side") else "in"
                 done = bool(
-                    inner._eval_predicate([kind.capitalize(), parts[1]])
+                    inner._eval_predicate([predicate, parts[1], parts[2]])
                 )
+            elif kind in ("open", "close"):
+                done = bool(inner._eval_predicate([kind, parts[1]]))
             elif kind == "pick_up":
                 pos = body_positions(env, [self.bodies[parts[1]]])[0]
                 start = self.start_pos[parts[1]]

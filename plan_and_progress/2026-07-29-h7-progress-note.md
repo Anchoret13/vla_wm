@@ -41,3 +41,21 @@ those limits, all UNCOMPILED and UNCOMMITTED until the platform recovers
 4. T2 one-seed stock smoke, then five-task smoke set;
 5. commit + push everything above;
 6. H7.2 bounded collection (20 sources / 160 branches).
+
+## H7.1 smoke result (seed 1300, stock π0.5, full prompt)
+
+| task | Q_public | completed | first unresolved |
+|---|---|---|---|
+| T1 drawer | 0.200 (1/5) | pudding picked | pick butter |
+| T2 basket3 | 0.833 (5/6) | soup+sauce placed, butter picked | place butter |
+| T3 tray | 0.667 (4/6) | cheese+butter placed | pick soup |
+| T4 tray | 0.333 (2/6) | left bowl placed | pick dressing |
+| T5 drawer+cabinet | 0.571 (4/7) | pudding in drawer, butter+bowl picked | place butter |
+
+SR 0/5; mean Q_public 0.521. The paper's stock reference (Q=55.3%,
+SR=6.4%) remains an external number — no protocol-parity claim — but the
+observed magnitude is consistent with it. One evaluator defect found and
+fixed before this run (predicate names must be lowercase; top_side regions
+use On-semantics). H7.1 exit met: five valid stock episodes recorded in
+evaluator_smoke.jsonl. Next per night plan: H7.0 (a)(b)(c) repairs, then
+H7.2 overnight collection.
