@@ -279,3 +279,22 @@ weak and nearly unpowered at this bank size; recorded as registered, not a
 gate. H7.5 is the behavioral test. Random-arm indices drawn at the same
 155 states (seed 777000 + state index).
 Artifacts: results/libero_loho_public_v1/v05_teachers/.
+
+## H7.4 adapters COMPLETE (4/4, fixed budget) — pre-eval observations
+
+All four arms passed init-parity (bias exactly 0) and suffix-credit
+regressions; frozen-WM bitwise asserts passed. Epoch-4 readouts:
+- reset_wm  teacher 0.122 / rehearsal 0.145 ; reset_random 0.115 / 0.150 ;
+  recurrent_random 0.119 / 0.162 ;
+- recurrent_wm 0.257 / 0.393 — its losses RISE over epochs 3–4
+  (0.110→0.257 teacher); recorded as instability under the fixed budget,
+  not repaired. Its max fixed-state action shift is also largest
+  (12.5 L2 vs 4.3–6.2 for the others).
+- Gates stayed shut in every arm: |tanh α| ≤ 0.0011.
+**Structural pre-eval expectation (measured, not speculation):** with the
+gates shut, deployed rec-vs-reset bias differs by 0.04–0.05% of bias norm
+at manifest states. The H7.5 history contrasts therefore test whether the
+memory paths earned deployment influence — currently they have not; only
+environment-chaos amplification could separate rec from reset arms.
+This maps to H7.6 branch 4 if it holds behaviorally. Tranches run as
+registered regardless.
