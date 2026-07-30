@@ -133,3 +133,17 @@ seed 0, registered budget).
 6. Budget (fixed): AdamW 3e-4 / wd 1e-4, 30 epochs, grad-norm 1.0,
    TBPTT 16 on demo episodes, source-balanced rotation (18 demo episodes
    + 40 public snapshots), seed 0, no sweeps.
+
+## H7.3 result: v05_gated_wm training COMPLETE (fixed budget, no sweeps)
+
+Sidecars v3 (20/20, + paraphrase & compatible-goal H_late) then one fixed
+run, seed 0, 30 epochs: train surface = 14 demo episodes (t-alignment
+asserted per episode) + 20 public snapshots / 80 branches. Loss families
+(epoch 0 → 29): phys 35.3→12.4, subgoal 0.56→0.090, reward 0.101→0.011,
+dq_public 0.065→0.011, value 0.120→0.026, paraphrase-consistency ~0.02
+throughout. Policy interface (W_c/W_w/W_g, α) asserted bitwise unchanged.
+Offline numbers are training diagnostics only — no gate claimed.
+Artifacts: results/libero_loho_public_v1/v05_gated_wm/ (checkpoints every
+5 epochs + strict final bundle + per-loss logs).
+Next: H7.4 three matched adapters (v05_current_wm / v05_gated_wm /
+v05_gated_random) under the locked matching contract.
