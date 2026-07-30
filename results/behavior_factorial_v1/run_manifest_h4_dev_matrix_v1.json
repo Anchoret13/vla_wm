@@ -1,0 +1,51 @@
+{
+  "schema": "behavior_factorial_v1",
+  "run_id": "h4_dev_matrix_v1",
+  "noise_contract": "20e6 + task_index*2e6 + env_seed*1e3 + decision; chain3/4/5 = 0/1/2; shared across arms",
+  "prompt_mode": "full",
+  "arms": {
+    "stock": "wz_zero_of_reference",
+    "rec_wm": "results/lc_flow_v04_e2e_v1/eval_adapter",
+    "rec_random": "results/lc_flow_v04_e2e_v1_random_control/eval_adapter",
+    "cur_wm": "results/lc_flow_v04_e2e_v1_cur_wm/eval_adapter",
+    "cur_random": "results/lc_flow_v04_e2e_v1_cur_random/eval_adapter"
+  },
+  "adapter_hashes": {
+    "rec_wm": "949f76f037ea7961aa1007967a3edabc1cfae598204f010b9f1d945d40298053",
+    "rec_random": "dd83abb5c09ea299fd9f5dd0f762fded3d38fbda973fa67833728f32bad4dd17",
+    "cur_wm": "1126dd879fa242d27c771e73e2455e78947aa1842916b8abf0b11dfbc0378b48",
+    "cur_random": "451ab5343635b3b57bd91ea0a06b3fdeca0fe4437083b54226feaa9c5961a181"
+  },
+  "tasks": [
+    "chain3_lr2",
+    "chain4_lr2",
+    "chain5_lr2"
+  ],
+  "seeds": [
+    1098,
+    1108,
+    1118,
+    1128,
+    1138
+  ],
+  "code_files": {
+    "scripts/eval_long_horizon_paired.py": "461056da2ccdc292170b6506f5b3d5d39fe92d1ab7f407e60a66ece5f868d8b0",
+    "lcwm/lc_flow.py": "9e088e93b3382d557f1bda8095e9206bfa67d5cbdb6e757dbdb0c60772a452c4",
+    "lcwm/loho.py": "2904a3579dc8f7cac7ad914cf83f51c79435b526b668b07bd37406424d928c54",
+    "lcwm/chassis.py": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705"
+  },
+  "bddl_hashes": {
+    "chain3_lr2": "312eaba15b045368b7fe48b22c44105d8276c1099f2e19e853cd62d47e748ca1",
+    "chain4_lr2": "6b0b42950b8efa02da94cfbb2c4b2c72e4ed409a0717dd378a54f88e92f72933",
+    "chain5_lr2": "4dc64da6e4d5a5036de17f5e06f24988fd98a7346763a05aaba128810150614d"
+  },
+  "manifest_sha256": "303557f00f5a59142780476ccd062ca81c4502008be1d3e74ef25b0822ae00d9",
+  "reconstruction_note": "H7.0(a): reconstructed post hoc; hash DOES NOT match the value recorded in the H4 records (code files edited after the run: loho.py docstring rewrite; arm paths stored without @current). Recorded values preserved in records.jsonl are authoritative.",
+  "arm_state_mode": {
+    "stock": "recurrent",
+    "rec_wm": "recurrent",
+    "rec_random": "recurrent",
+    "cur_wm": "current",
+    "cur_random": "current"
+  }
+}

@@ -169,6 +169,7 @@ def main() -> None:
             name: (str(p) if p else "wz_zero_of_reference")
             for name, p in arm_specs.items()
         },
+        "arm_state_mode": dict(arm_state_mode),
         "adapter_hashes": {
             name: sha256_file(p / "lc_flow.safetensors")
             for name, p in arm_specs.items()
@@ -194,7 +195,9 @@ def main() -> None:
     manifest_payload = json.dumps(manifest, sort_keys=True)
     manifest_hash = hashlib.sha256(manifest_payload.encode()).hexdigest()
     manifest["manifest_sha256"] = manifest_hash
-    manifest_file = ROOT / "run_manifest.json"
+    # H7.0: one immutable manifest PER run_id (the shared-file scheme lost
+    # the H4 payload when H1's manifest occupied it).
+    manifest_file = ROOT / f"run_manifest_{args.run_id}.json"
     if manifest_file.exists():
         existing = json.loads(manifest_file.read_text())
         if existing.get("run_id") == args.run_id:
