@@ -255,3 +255,12 @@ predictions.
 - Evaluator: scripts/eval_loho_public_paired.py (immutable per-run
   manifest, hash-verified resume, hash-permutation arm interleaving,
   action traces). Local chain statistics are not merged into this matrix.
+
+## r1 training result (identical registered budget, seed 0)
+
+Epoch 0→29: phys →9.51, subgoal →0.080, reward →0.013, dq_public →0.0051,
+value →0.0099, para ~0.015. Sibling-variance launch check PASSED
+(within-group v̂ std 7.6e-3 > 0). Note: value/dq_public end LOWER than the
+defective run (0.026/0.011) even though they now fit action-conditional
+targets rather than group means. Interface-frozen assert passed.
+Artifacts: results/libero_loho_public_v1/v05_gated_wm_r1/.
