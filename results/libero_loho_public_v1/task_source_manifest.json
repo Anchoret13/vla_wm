@@ -56,8 +56,17 @@
     "loho_t4_tray": {
       "public_description": "left black bowl + salad dressing + chocolate pudding -> wooden tray",
       "registered_length": 6,
-      "status": "pending_asset_inventory",
-      "blockers": "scene with black_bowl instances (left naming), salad_dressing, chocolate_pudding, wooden_tray"
+      "status": "reconstructed",
+      "bddl": "bddl/libero_loho_public_v1/loho_t4_tray.bddl",
+      "scene_basis": "LIVING_ROOM_SCENE4 (libero_90; akita_black_bowl_1 = left instance per its init region)",
+      "ordered_subgoals": [
+        "pick_up akita_black_bowl_1",
+        "place akita_black_bowl_1 wooden_tray_1_contain_region",
+        "pick_up new_salad_dressing_1",
+        "place new_salad_dressing_1 wooden_tray_1_contain_region",
+        "pick_up chocolate_pudding_1",
+        "place chocolate_pudding_1 wooden_tray_1_contain_region"
+      ]
     },
     "loho_t5_drawer_cabinet": {
       "public_description": "back butter + chocolate pudding -> top drawer; close it; black bowl -> cabinet top",
