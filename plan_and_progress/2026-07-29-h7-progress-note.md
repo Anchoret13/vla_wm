@@ -106,3 +106,30 @@ after every branch. One SigLIP-capture defect found and fixed before the
 successful run (per-slot validity is m[0], not mask.all()). v0.5 training
 data surface is complete. Next: scripts/train_v05_wm.py (fixed objective,
 seed 0, registered budget).
+
+## H7.3 trainer scoping decisions (registered before implementation)
+
+1. Sequential data for the first v0.5 run = the 18 cached DEMO episodes
+   (tasks 0/1): H_late from seq_prefix_cache_v1, H_early from
+   seq_libero_10_v2's stored pooled SigLIP, aligned by decision t values
+   (asserted per episode). CHAIN sequential episodes are deferred from
+   this first run (no H_early captured for them) — a recorded scoping
+   choice, not a silent drop.
+2. "Task-state prediction" is operationalized head-based (next public
+   subgoal/predicate state, reward, ΔQ, value) — no EMA latent loss in the
+   first run, consistent with the H7.3 grounded emphasis.
+3. Crossed-language: paraphrase consistency = g-state + task-head
+   agreement under canonical vs paraphrase H_late (captured in sidecars
+   v2/v3). Shared-physics under compatible goals is enforced
+   STRUCTURALLY (w never receives language), so no loss term is needed;
+   compatible-goal g-states are unconstrained in run one (their
+   task-relative labels are not yet captured) — recorded.
+4. Branch-state w initialization: the first run initializes w at the
+   snapshot from w0 + one physical update on snapshot features (no
+   history unroll for public branches) — recorded limitation.
+5. Value target for public branches = bounded continuation q_public
+   (generating policy recorded per source; both stock and cur_wm sources
+   included). Demo episodes contribute NO value targets (expert policy).
+6. Budget (fixed): AdamW 3e-4 / wd 1e-4, 30 epochs, grad-norm 1.0,
+   TBPTT 16 on demo episodes, source-balanced rotation (18 demo episodes
+   + 40 public snapshots), seed 0, no sweeps.
