@@ -27,14 +27,31 @@
     "loho_t1_drawer": {
       "public_description": "front butter + chocolate pudding -> cabinet top drawer; close drawer",
       "registered_length": 5,
-      "status": "pending_asset_inventory",
-      "blockers": "host scene with cabinet top drawer + butter + chocolate_pudding; front/back butter instance naming"
+      "status": "reconstructed",
+      "bddl": "bddl/libero_loho_public_v1/loho_t1_drawer.bddl",
+      "scene_basis": "KITCHEN_SCENE10 (libero_90; butter_1=front, butter_2=back; goal composed from the scene's own component tasks)",
+      "ordered_subgoals": [
+        "pick_up butter_1",
+        "place butter_1 wooden_cabinet_1_top_region",
+        "pick_up chocolate_pudding_1",
+        "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+        "close wooden_cabinet_1_top_region"
+      ]
     },
     "loho_t3_tray": {
       "public_description": "alphabet soup + cream cheese + butter -> wooden tray",
       "registered_length": 6,
-      "status": "pending_asset_inventory",
-      "blockers": "wooden_tray fixture scene with the three objects"
+      "status": "reconstructed",
+      "bddl": "bddl/libero_loho_public_v1/loho_t3_tray.bddl",
+      "scene_basis": "LIVING_ROOM_SCENE3 (libero_90; regions byte-identical to base, goal composed)",
+      "ordered_subgoals": [
+        "pick_up alphabet_soup_1",
+        "place alphabet_soup_1 wooden_tray_1_contain_region",
+        "pick_up cream_cheese_1",
+        "place cream_cheese_1 wooden_tray_1_contain_region",
+        "pick_up butter_1",
+        "place butter_1 wooden_tray_1_contain_region"
+      ]
     },
     "loho_t4_tray": {
       "public_description": "left black bowl + salad dressing + chocolate pudding -> wooden tray",
@@ -45,8 +62,18 @@
     "loho_t5_drawer_cabinet": {
       "public_description": "back butter + chocolate pudding -> top drawer; close it; black bowl -> cabinet top",
       "registered_length": 7,
-      "status": "pending_asset_inventory",
-      "blockers": "cabinet with top drawer AND top surface region; back butter naming; black_bowl"
+      "status": "reconstructed",
+      "bddl": "bddl/libero_loho_public_v1/loho_t5_drawer_cabinet.bddl",
+      "scene_basis": "KITCHEN_SCENE10 (butter_2=back; cabinet top via top_side On predicate)",
+      "ordered_subgoals": [
+        "pick_up butter_2",
+        "place butter_2 wooden_cabinet_1_top_region",
+        "pick_up chocolate_pudding_1",
+        "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+        "close wooden_cabinet_1_top_region",
+        "pick_up akita_black_bowl_1",
+        "place akita_black_bowl_1 wooden_cabinet_1_top_side"
+      ]
     }
   },
   "locked_protocol": {
