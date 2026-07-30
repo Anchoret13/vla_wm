@@ -233,3 +233,25 @@ predictions.
   cached c/w/g tokens are checkpoint-dependent; the π0.5 rollouts and
   candidate pools are checkpoint-independent and reproduce bit-exactly).
 - No loss-weight, architecture-width, or budget changes ride along.
+
+## H7.5 pre-registration (before any evaluation episode)
+
+- **Development seeds: 1500, 1510, 1520, 1530, 1540** — fresh; never used
+  by smoke (1300) or collection (1400–1430).
+- Noise contract: 20e6 + public_task_index·2e6 + env_seed·1e3 + decision,
+  public task index 0–4 in registered T1–T5 order; stream shared bit-exactly
+  across arms; every arm (stock included, bias ≡ 0) samples through the
+  same seeded LC code path — stock parity holds by construction.
+- Tranche 1 (75 episodes): stock + v05_reset_random + v05_reset_wm.
+  Tranche 2 (50): v05_recurrent_random + v05_recurrent_wm; plus the
+  25-episode frozen v0.4 cur_wm legacy reference (secondary, outside the
+  factorial). Both tranches registered now; tranche-1 readout changes
+  neither seeds nor whether tranche 2 runs.
+- Primary metrics per episode: terminal-conjunction SR, Q_public,
+  per-subgoal first-completion step, later-invalidation at terminal state,
+  first unresolved subgoal, steps. Effects reported per registered H7.5
+  formulas; canonical prompts only in this matrix (paraphrase panel is a
+  separate frozen secondary run, not used for selection).
+- Evaluator: scripts/eval_loho_public_paired.py (immutable per-run
+  manifest, hash-verified resume, hash-permutation arm interleaving,
+  action traces). Local chain statistics are not merged into this matrix.
