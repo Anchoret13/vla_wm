@@ -315,7 +315,9 @@ def demo_losses(model, ema, episode, device):
     fam = {k: [] for k in FAMILIES}
     h, mask = episode["prefix_hidden"], episode["prefix_mask"]
     actions = episode["action_block_norm"].float()
-    lens = episode["executed_lengths"]
+    # seq_prefix_cache_v1 blocks are full 10-action strides
+    lens = episode.get("executed_lengths",
+                       [10] * actions.shape[0])
     q_scale = Q_SCALE.to(device)
     n = min(h.shape[0], actions.shape[0] + 1)
     zs = unroll(model, h[:n], mask[:n],

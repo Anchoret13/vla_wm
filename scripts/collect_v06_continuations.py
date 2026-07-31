@@ -108,7 +108,12 @@ def main() -> None:
             print(f"[skip] {source_id}", flush=True)
             continue
 
-        env = make_public_env(task_name, EPISODE_LENGTH[task_name])
+        # +200: the robosuite horizon (episode_length+10) must cover
+        # late snapshots + branch + 100-action continuations; restore()
+        # does not rewind the internal timestep, and at the horizon the
+        # env sets done while RETURNING term=False (measured), so the
+        # next step raises. Dynamics/replays are horizon-independent.
+        env = make_public_env(task_name, EPISODE_LENGTH[task_name] + 200)
         try:
             runner.reset()
             obs, _ = env.reset(seed=source["seed"])
