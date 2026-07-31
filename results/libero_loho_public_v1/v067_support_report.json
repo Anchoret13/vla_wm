@@ -1,0 +1,1098 @@
+{
+  "abs_floor_m": 0.005,
+  "frozen_outcome_tolerances": {
+    "neg_damage": 0.0,
+    "neg_tau_next": 3.549999999999997,
+    "p_valid_100": 0.0,
+    "q_valid_mean": 0.04166666666666666,
+    "success_by_100": 0.0
+  },
+  "groups": [
+    {
+      "cross_goal_disagreement": true,
+      "decision": 20,
+      "group": "loho_t1_drawer_staged_s2001_d20",
+      "max_dispersion_m": 0.002496242554370434,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.002496242554370434,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t1_drawer_staged_s2001",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t1_drawer_staged_s2001_d5",
+      "max_dispersion_m": 0.0025134324707852818,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0025134324707852818,
+      "n_valid_before": 2,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t1_drawer_staged_s2001",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 11,
+      "group": "loho_t1_drawer_staged_s2003_d11",
+      "max_dispersion_m": 0.0026699291151844884,
+      "max_fixture_joint_dispersion": 0.002706136663629316,
+      "max_task_object_dispersion_m": 0.0026699291151844884,
+      "n_valid_before": 2,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t1_drawer_staged_s2003",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 15,
+      "group": "loho_t1_drawer_stock_s2000_d15",
+      "max_dispersion_m": 0.005185007660984564,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.005185007660984564,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t1_drawer_stock_s2000",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 60,
+      "group": "loho_t1_drawer_stock_s2000_d60",
+      "max_dispersion_m": 0.0032580366539219086,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0032580366539219086,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t1_drawer_stock_s2000",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 6,
+      "group": "loho_t1_drawer_stock_s2002_d6",
+      "max_dispersion_m": 0.0031323341763901807,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0031323341763901807,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t1_drawer",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 22,
+      "group": "loho_t2_basket3_staged_s2011_d22",
+      "max_dispersion_m": 0.0034860451418439187,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0034860451418439187,
+      "n_valid_before": 4,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t2_basket3_staged_s2011",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t2_basket3_staged_s2011_d5",
+      "max_dispersion_m": 0.0007540185127447863,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0007540185127447863,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t2_basket3_staged_s2011",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 24,
+      "group": "loho_t2_basket3_staged_s2013_d24",
+      "max_dispersion_m": 0.0015476692055423902,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0015476692055423902,
+      "n_valid_before": 4,
+      "nontied_pairs": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          1,
+          3,
+          -1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t2_basket3_staged_s2013_d5",
+      "max_dispersion_m": 0.0019284390785379024,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0019284390785379024,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t2_basket3_stock_s2010_d5",
+      "max_dispersion_m": 0.005252713304924883,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.005252713304924883,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t2_basket3_stock_s2010",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 9,
+      "group": "loho_t2_basket3_stock_s2012_d9",
+      "max_dispersion_m": 0.007510732729737346,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.007510732729737346,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t2_basket3",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 6,
+      "group": "loho_t3_tray_staged_s2021_d6",
+      "max_dispersion_m": 0.005591756753990873,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.005591756753990873,
+      "n_valid_before": 3,
+      "nontied_pairs": [
+        [
+          1,
+          3,
+          1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t3_tray_staged_s2021",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t3_tray",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 8,
+      "group": "loho_t3_tray_staged_s2021_d8",
+      "max_dispersion_m": 0.0020965927543891427,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0020965927543891427,
+      "n_valid_before": 4,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t3_tray_staged_s2021",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t3_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t3_tray_staged_s2023_d5",
+      "max_dispersion_m": 0.009795109434046694,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.009795109434046694,
+      "n_valid_before": 2,
+      "nontied_pairs": [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t3_tray_staged_s2023",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t3_tray",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t3_tray_stock_s2020_d5",
+      "max_dispersion_m": 0.0049639746376425875,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0049639746376425875,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t3_tray_stock_s2020",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t3_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 12,
+      "group": "loho_t3_tray_stock_s2022_d12",
+      "max_dispersion_m": 0.001884612714602385,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.001884612714602385,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t3_tray_stock_s2022",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t3_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t4_tray_staged_s2031_d5",
+      "max_dispersion_m": 0.0012233935947528751,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0012233935947528751,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t4_tray_staged_s2031",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 7,
+      "group": "loho_t4_tray_staged_s2031_d7",
+      "max_dispersion_m": 0.0027594699712271686,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0027594699712271686,
+      "n_valid_before": 4,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t4_tray_staged_s2031",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 4,
+      "group": "loho_t4_tray_staged_s2033_d4",
+      "max_dispersion_m": 0.0027996030514489956,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0027996030514489956,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t4_tray_staged_s2033",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 12,
+      "group": "loho_t4_tray_stock_s2030_d12",
+      "max_dispersion_m": 0.0012346179660550627,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0012346179660550627,
+      "n_valid_before": 2,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t4_tray_stock_s2030",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 5,
+      "group": "loho_t4_tray_stock_s2030_d5",
+      "max_dispersion_m": 0.006729323339647042,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.006729323339647042,
+      "n_valid_before": 0,
+      "nontied_pairs": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          1,
+          3,
+          -1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [
+        [
+          0,
+          1,
+          "t4_canonical"
+        ],
+        [
+          1,
+          2,
+          "t4_canonical"
+        ],
+        [
+          1,
+          3,
+          "t4_canonical"
+        ]
+      ],
+      "semantic_effect": true,
+      "slot": "slot1",
+      "source_id": "loho_t4_tray_stock_s2030",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": false,
+      "decision": 4,
+      "group": "loho_t4_tray_stock_s2032_d4",
+      "max_dispersion_m": 0.0031341022451880085,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.0031341022451880085,
+      "n_valid_before": 0,
+      "nontied_pairs": [
+        [
+          1,
+          3,
+          1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t4_tray_stock_s2032",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t4_tray",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 12,
+      "group": "loho_t5_drawer_cabinet_staged_s2041_d12",
+      "max_dispersion_m": 0.004117621347190253,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.004117621347190253,
+      "n_valid_before": 5,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t5_drawer_cabinet_staged_s2041",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 2,
+      "group": "loho_t5_drawer_cabinet_staged_s2041_d2",
+      "max_dispersion_m": 0.0025328509531868104,
+      "max_fixture_joint_dispersion": 0.0025622944408521253,
+      "max_task_object_dispersion_m": 0.0025328509531868104,
+      "n_valid_before": 4,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t5_drawer_cabinet_staged_s2041",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 22,
+      "group": "loho_t5_drawer_cabinet_staged_s2043_d22",
+      "max_dispersion_m": 0.003529298529629382,
+      "max_fixture_joint_dispersion": 0.00370406573047663,
+      "max_task_object_dispersion_m": 0.003529298529629382,
+      "n_valid_before": 5,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 3,
+      "group": "loho_t5_drawer_cabinet_staged_s2043_d3",
+      "max_dispersion_m": 0.0012831644589810787,
+      "max_fixture_joint_dispersion": 0.00127996626099397,
+      "max_task_object_dispersion_m": 0.0012831644589810787,
+      "n_valid_before": 4,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "staged",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "split": "dev",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 29,
+      "group": "loho_t5_drawer_cabinet_stock_s2040_d29",
+      "max_dispersion_m": 0.00711820794660234,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.00711820794660234,
+      "n_valid_before": 0,
+      "nontied_pairs": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          1,
+          3,
+          -1
+        ]
+      ],
+      "physical_effect": true,
+      "policy_rankable": true,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t5_drawer_cabinet_stock_s2040",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": true
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 93,
+      "group": "loho_t5_drawer_cabinet_stock_s2040_d93",
+      "max_dispersion_m": 9.325496680968881e-05,
+      "max_fixture_joint_dispersion": 1.4716026808248017e-07,
+      "max_task_object_dispersion_m": 9.325496680968881e-05,
+      "n_valid_before": 3,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": false,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot2",
+      "source_id": "loho_t5_drawer_cabinet_stock_s2040",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    },
+    {
+      "cross_goal_disagreement": true,
+      "decision": 8,
+      "group": "loho_t5_drawer_cabinet_stock_s2042_d8",
+      "max_dispersion_m": 0.002787994186065623,
+      "max_fixture_joint_dispersion": 0.0,
+      "max_task_object_dispersion_m": 0.002787994186065623,
+      "n_valid_before": 0,
+      "nontied_pairs": [],
+      "physical_effect": true,
+      "policy_rankable": false,
+      "provenance_source": "stock",
+      "reference_improving": [],
+      "replay_unstable": true,
+      "semantic_detail": [],
+      "semantic_effect": false,
+      "slot": "slot1",
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "split": "train",
+      "support_improving": false,
+      "task": "loho_t5_drawer_cabinet",
+      "task_object_effect": false
+    }
+  ],
+  "history_contrast_thresholds": {
+    "eef": 0.005,
+    "grip": 0.02,
+    "obj": 0.005
+  },
+  "history_contrasts": [],
+  "replay_delta_distributions": {
+    "neg_damage": {
+      "max": 0.0,
+      "n": 30,
+      "p95": 0.0
+    },
+    "neg_tau_next": {
+      "max": 66.0,
+      "n": 30,
+      "p95": 3.549999999999997
+    },
+    "p_valid_100": {
+      "max": 0.0,
+      "n": 30,
+      "p95": 0.0
+    },
+    "q_valid_mean": {
+      "max": 0.08333333333333337,
+      "n": 30,
+      "p95": 0.04166666666666666
+    },
+    "success_by_100": {
+      "max": 1.0,
+      "n": 30,
+      "p95": 1.0
+    }
+  },
+  "replay_unstable_groups": {
+    "loho_t1_drawer_stock_s2000_d15": {
+      "endpoint_deltas": {
+        "eef_pos": 0.00021517276763916016,
+        "eef_quat": 0.00023216009140014648,
+        "gripper": 0.0001630689948797226,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    },
+    "loho_t2_basket3_staged_s2013_d24": {
+      "endpoint_deltas": {
+        "eef_pos": 0.0009091496467590332,
+        "eef_quat": 0.0001489780843257904,
+        "gripper": 4.3213367462158203e-07,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 66.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.08333333333333337,
+        "success_by_100": 1.0
+      }
+    },
+    "loho_t3_tray_staged_s2021_d6": {
+      "endpoint_deltas": {
+        "eef_pos": 0.0004393160343170166,
+        "eef_quat": 0.00013323873281478882,
+        "gripper": 2.2349879145622253e-05,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.04166666666666663,
+        "success_by_100": 1.0
+      }
+    },
+    "loho_t3_tray_staged_s2023_d5": {
+      "endpoint_deltas": {
+        "eef_pos": 0.00020611286163330078,
+        "eef_quat": 0.00014549493789672852,
+        "gripper": 0.0005839280784130096,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 3.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.041666666666666685,
+        "success_by_100": 1.0
+      }
+    },
+    "loho_t3_tray_stock_s2022_d12": {
+      "endpoint_deltas": {
+        "eef_pos": 0.00027304887771606445,
+        "eef_quat": 0.00017140977433882654,
+        "gripper": 0.000254584476351738,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    },
+    "loho_t4_tray_stock_s2030_d12": {
+      "endpoint_deltas": {
+        "eef_pos": 0.0005851387977600098,
+        "eef_quat": 0.00041627418249845505,
+        "gripper": 0.0007836855947971344,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    },
+    "loho_t4_tray_stock_s2030_d5": {
+      "endpoint_deltas": {
+        "eef_pos": 0.0020502209663391113,
+        "eef_quat": 0.00045225024223327637,
+        "gripper": 3.2531097531318665e-06,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "eef_pos"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    },
+    "loho_t5_drawer_cabinet_stock_s2040_d29": {
+      "endpoint_deltas": {
+        "eef_pos": 6.407499313354492e-05,
+        "eef_quat": 4.027038812637329e-05,
+        "gripper": 0.0006125140935182571,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    },
+    "loho_t5_drawer_cabinet_stock_s2042_d8": {
+      "endpoint_deltas": {
+        "eef_pos": 0.0003771781921386719,
+        "eef_quat": 0.00036504119634628296,
+        "gripper": 0.00027551501989364624,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "endpoint_exceeds": [
+        "gripper"
+      ],
+      "outcome_deltas": {
+        "neg_damage": 0.0,
+        "neg_tau_next": 0.0,
+        "p_valid_100": 0.0,
+        "q_valid_mean": 0.0,
+        "success_by_100": 0.0
+      }
+    }
+  },
+  "run_schema": "v067",
+  "schema": "v067_support_report_v1",
+  "summary": {
+    "cross_goal_by_task": {
+      "loho_t1_drawer": 6,
+      "loho_t2_basket3": 6,
+      "loho_t3_tray": 5,
+      "loho_t4_tray": 5,
+      "loho_t5_drawer_cabinet": 7
+    },
+    "dev_nontied_groups": [],
+    "dev_nontied_sources": [],
+    "history_contrast_pairs": 0,
+    "max_task_object_dispersion_by_group": {
+      "loho_t1_drawer_staged_s2001_d20": 0.0025,
+      "loho_t1_drawer_staged_s2001_d5": 0.00251,
+      "loho_t1_drawer_staged_s2003_d11": 0.00267,
+      "loho_t1_drawer_stock_s2000_d15": 0.00519,
+      "loho_t1_drawer_stock_s2000_d60": 0.00326,
+      "loho_t1_drawer_stock_s2002_d6": 0.00313,
+      "loho_t2_basket3_staged_s2011_d22": 0.00349,
+      "loho_t2_basket3_staged_s2011_d5": 0.00075,
+      "loho_t2_basket3_staged_s2013_d24": 0.00155,
+      "loho_t2_basket3_staged_s2013_d5": 0.00193,
+      "loho_t2_basket3_stock_s2010_d5": 0.00525,
+      "loho_t2_basket3_stock_s2012_d9": 0.00751,
+      "loho_t3_tray_staged_s2021_d6": 0.00559,
+      "loho_t3_tray_staged_s2021_d8": 0.0021,
+      "loho_t3_tray_staged_s2023_d5": 0.0098,
+      "loho_t3_tray_stock_s2020_d5": 0.00496,
+      "loho_t3_tray_stock_s2022_d12": 0.00188,
+      "loho_t4_tray_staged_s2031_d5": 0.00122,
+      "loho_t4_tray_staged_s2031_d7": 0.00276,
+      "loho_t4_tray_staged_s2033_d4": 0.0028,
+      "loho_t4_tray_stock_s2030_d12": 0.00123,
+      "loho_t4_tray_stock_s2030_d5": 0.00673,
+      "loho_t4_tray_stock_s2032_d4": 0.00313,
+      "loho_t5_drawer_cabinet_staged_s2041_d12": 0.00412,
+      "loho_t5_drawer_cabinet_staged_s2041_d2": 0.00253,
+      "loho_t5_drawer_cabinet_staged_s2043_d22": 0.00353,
+      "loho_t5_drawer_cabinet_staged_s2043_d3": 0.00128,
+      "loho_t5_drawer_cabinet_stock_s2040_d29": 0.00712,
+      "loho_t5_drawer_cabinet_stock_s2040_d93": 9e-05,
+      "loho_t5_drawer_cabinet_stock_s2042_d8": 0.00279
+    },
+    "n_groups": 30,
+    "n_replay_unstable": 9,
+    "physical_effect_by_task": {
+      "loho_t1_drawer": 6,
+      "loho_t2_basket3": 6,
+      "loho_t3_tray": 5,
+      "loho_t4_tray": 6,
+      "loho_t5_drawer_cabinet": 7
+    },
+    "policy_rankable_by_task": {
+      "loho_t1_drawer": 0,
+      "loho_t2_basket3": 1,
+      "loho_t3_tray": 2,
+      "loho_t4_tray": 2,
+      "loho_t5_drawer_cabinet": 1
+    },
+    "reference_improving_by_task_train": {
+      "loho_t1_drawer": 0,
+      "loho_t2_basket3": 0,
+      "loho_t3_tray": 0,
+      "loho_t4_tray": 0,
+      "loho_t5_drawer_cabinet": 0
+    },
+    "semantic_effect_by_task": {
+      "loho_t1_drawer": 0,
+      "loho_t2_basket3": 0,
+      "loho_t3_tray": 0,
+      "loho_t4_tray": 1,
+      "loho_t5_drawer_cabinet": 0
+    },
+    "support_improving_by_task": {
+      "loho_t1_drawer": 0,
+      "loho_t2_basket3": 0,
+      "loho_t3_tray": 0,
+      "loho_t4_tray": 0,
+      "loho_t5_drawer_cabinet": 0
+    },
+    "task_object_effect_by_task": {
+      "loho_t1_drawer": 1,
+      "loho_t2_basket3": 2,
+      "loho_t3_tray": 2,
+      "loho_t4_tray": 1,
+      "loho_t5_drawer_cabinet": 1
+    }
+  },
+  "v68_triggers": {
+    "dev_calibration_single_group": true,
+    "history_contrast_unsupported": true,
+    "support_improves_but_policy_does_not": [],
+    "task_without_reference_improving_train_group": [
+      "loho_t1_drawer",
+      "loho_t2_basket3",
+      "loho_t3_tray",
+      "loho_t4_tray",
+      "loho_t5_drawer_cabinet"
+    ]
+  }
+}

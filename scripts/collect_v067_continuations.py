@@ -143,6 +143,10 @@ def main() -> None:
     parser.add_argument("--run-id", default="v067_pb1")
     parser.add_argument("--sources", nargs="*", default=None,
                         help="optional source_id filter")
+    parser.add_argument("--groups-json", default=None,
+                        help="JSON with {groups: [{source_id, decision"
+                             ", slot}]} overriding the accepted set "
+                             "(V6.8 backlog, run v067_pb2)")
     args = parser.parse_args()
 
     from lcwm.chassis import Pi05Runner
@@ -176,6 +180,8 @@ def main() -> None:
                          "goal_spec_id|repeat|cont_dec)[:8] & (2^63-1); "
                          "branch identity structurally absent"),
         "goal_manifest_sha256": goal_manifest["manifest_sha256"],
+        "groups_json_sha256": (sha256_file(args.groups_json)
+                               if args.groups_json else None),
         "tolerances_95pct": tol, "R": R, "horizons": list(HORIZONS),
         "cont_max_actions": CONT_MAX,
         "code_files": {f: sha256_file(REPO_ROOT / f) for f in (
@@ -193,8 +199,15 @@ def main() -> None:
     else:
         run_manifest_path.write_text(json.dumps(run_manifest, indent=2))
 
+    if args.groups_json:
+        group_list = json.loads(
+            Path(args.groups_json).read_text())
+        assert group_list.get("run_schema") == RUN_SCHEMA
+        group_list = group_list["groups"]
+    else:
+        group_list = selection["accepted"]
     by_source: dict[str, list[dict]] = {}
-    for g in selection["accepted"]:
+    for g in group_list:
         by_source.setdefault(g["source_id"], []).append(g)
 
     for source_id, groups in sorted(by_source.items()):
