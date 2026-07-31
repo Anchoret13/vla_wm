@@ -1,0 +1,1397 @@
+{
+  "frozen_on": "2026-07-31",
+  "namespaces": {
+    "continuations_iter1": {
+      "files": {
+        "loho_t1_drawer_staged_s2001_d20.pt": {
+          "bytes": 6333,
+          "sha256": "7c78706ac39fcbf02da1e032f83000df2ac3e6e68c967d5d4db712086a9ad6aa"
+        },
+        "loho_t1_drawer_staged_s2001_d5.pt": {
+          "bytes": 6327,
+          "sha256": "79dcb75379b8284c77f3a891fb395674d7005b11dcf3735c91a320d3b141eedc"
+        },
+        "loho_t1_drawer_staged_s2003_d11.pt": {
+          "bytes": 6333,
+          "sha256": "e7df68a5102804282f92d75ba2b7d5caa577e0007367cc931807bbcb6a8e9424"
+        },
+        "loho_t1_drawer_stock_s2000_d15.pt": {
+          "bytes": 6327,
+          "sha256": "5f3fbaccd55bdb9304ac9309eab6b66e5181a450ce2313025387593893d191b9"
+        },
+        "loho_t1_drawer_stock_s2000_d60.pt": {
+          "bytes": 6327,
+          "sha256": "89f041c4fbcbb948ae0ca0a6ad3e30cec6e32d4115580a2c2722b480b4a1ffcc"
+        },
+        "loho_t1_drawer_stock_s2002_d6.pt": {
+          "bytes": 6321,
+          "sha256": "f8a3c00c56d7d561601c8833063780392537834e5ef680658708b5b4a4c05e4f"
+        },
+        "loho_t2_basket3_staged_s2011_d22.pt": {
+          "bytes": 6211,
+          "sha256": "a3320b02f9f27e8d72364be1fe6c514c21792bea3d4d59f73282b57a979d02df"
+        },
+        "loho_t2_basket3_staged_s2011_d5.pt": {
+          "bytes": 6205,
+          "sha256": "2e6fb756180c48183ca9fb9cec6b59bb66b35b8163e0cb88b1de3d550880bfa2"
+        },
+        "loho_t2_basket3_staged_s2013_d24.pt": {
+          "bytes": 6211,
+          "sha256": "045818af160feee541460c61eb4eef5307552428c77238cfa33d8538e49100d8"
+        },
+        "loho_t2_basket3_staged_s2013_d5.pt": {
+          "bytes": 6205,
+          "sha256": "fc753aa3be3df53147ca5df98ba33c25170ab07426006973396efa65aade8286"
+        },
+        "loho_t2_basket3_stock_s2010_d5.pt": {
+          "bytes": 6199,
+          "sha256": "8928523b753acf66ac18d903e80bf343bf398117d08115c4cde82a68bce9b8c0"
+        },
+        "loho_t2_basket3_stock_s2012_d9.pt": {
+          "bytes": 6199,
+          "sha256": "3c2d8017443bbd51ce0926d08a86945cb5695843d1e0954e26c1e9d281e06a07"
+        },
+        "loho_t3_tray_staged_s2021_d6.pt": {
+          "bytes": 6187,
+          "sha256": "8ef86ccfe9f5c7ba0bdbe373b4cc62354435a7bbcc89063ee25cd528fd7dabea"
+        },
+        "loho_t3_tray_staged_s2021_d8.pt": {
+          "bytes": 6187,
+          "sha256": "8c879b9349f715a44d91d77c72c0f4bee9cdf252bd470b35c09dfa614da424d6"
+        },
+        "loho_t3_tray_staged_s2023_d5.pt": {
+          "bytes": 6187,
+          "sha256": "558f766227bbdedd59cb837953a9efe39b874c5e55b1fcd248dd4dc85fedadb4"
+        },
+        "loho_t3_tray_stock_s2020_d5.pt": {
+          "bytes": 6181,
+          "sha256": "fe8897f4a03cb09bf61c38d3cb203adddaae2f32bfb5b310393c63efd7fdfa91"
+        },
+        "loho_t3_tray_stock_s2022_d12.pt": {
+          "bytes": 6187,
+          "sha256": "1483a52f14cfc1bb47f2fdf0bddd0547fc4091589a1b9eb0b3d1e1e0fcf2e224"
+        },
+        "loho_t4_tray_staged_s2031_d5.pt": {
+          "bytes": 4843,
+          "sha256": "d46ad5239e057729527c70a0de650c673400d4794d9a544fd142ecca29a5084a"
+        },
+        "loho_t4_tray_staged_s2031_d7.pt": {
+          "bytes": 4843,
+          "sha256": "d2cf47c28c8ce5dcd7679e785414e35c57c4bc7b65d47566150998c7eec6df26"
+        },
+        "loho_t4_tray_staged_s2033_d4.pt": {
+          "bytes": 4843,
+          "sha256": "c2c7ff16588122d905bb80e19e4a393150b0a7a25848edacda823f36c0efc50e"
+        },
+        "loho_t4_tray_stock_s2030_d12.pt": {
+          "bytes": 4843,
+          "sha256": "258396e19220a2cb14dd632bffd2574d4562e0d2813fc13ceff725bd1d21ffd5"
+        },
+        "loho_t4_tray_stock_s2030_d5.pt": {
+          "bytes": 4837,
+          "sha256": "53f72ac36779624561560b1bdd7b6439460179fd76bffbfcf7ad78021a613666"
+        },
+        "loho_t4_tray_stock_s2032_d4.pt": {
+          "bytes": 4837,
+          "sha256": "7342d6ddafddde41bba81e52e96c0047d9a69d0a83e1db86a74244c798fb21ba"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041_d12.pt": {
+          "bytes": 6445,
+          "sha256": "cd20352e5ca160a8c58b37ce71e7088a5eeb83a858320c68c286bc389cffd4d5"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041_d2.pt": {
+          "bytes": 6439,
+          "sha256": "c7d25f98ae40b094a30e1f2273393ab94410e61e8d6b5ed2416357598541874d"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043_d22.pt": {
+          "bytes": 6445,
+          "sha256": "2daf430c652b416f7f2ea77bcc4d88b5c5c7652fce798134f6f12b814e5ffbfb"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043_d3.pt": {
+          "bytes": 6439,
+          "sha256": "4bacd563e502531ba310eb9e057563ebf0a6333669d0ec42e5fbe7b0bc203161"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040_d29.pt": {
+          "bytes": 6439,
+          "sha256": "25706b8a60ab6ba740477d683df29233a21b9871ecf6877e15ffc04d30166796"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040_d93.pt": {
+          "bytes": 6439,
+          "sha256": "2a3d76ba5daaae4bd7fa2f54ad2feb2318f7ff0899fe853d24f9fc6bd31a3d87"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042_d8.pt": {
+          "bytes": 6433,
+          "sha256": "720d75b8f317768c5f22e4a55a92bc28466d7a770f9a3f164df68e5024823922"
+        }
+      },
+      "n_files": 30,
+      "root": "/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1/v06_effect_crossed/continuations"
+    },
+    "features": {
+      "files": {
+        "loho_t1_drawer_staged_s2001__canonical.pt": {
+          "bytes": 277615325,
+          "sha256": "f57224ab60a2ebda57495e8eab5aeacb5275f17d119f871c45d8b21c8142d382"
+        },
+        "loho_t1_drawer_staged_s2001__distinct_t1_back_butter.pt": {
+          "bytes": 277615437,
+          "sha256": "0a5f89182d3cb64b9f3a5d6e22443750eef38033a59aa826aa68d375cb96bad2"
+        },
+        "loho_t1_drawer_staged_s2001__distinct_t5_canonical.pt": {
+          "bytes": 277615485,
+          "sha256": "0ddd8225ae927891d0213a9f1e28c84f2a653958cefc790386ae7f6e2defdd6e"
+        },
+        "loho_t1_drawer_staged_s2001__paraphrase_0.pt": {
+          "bytes": 277615349,
+          "sha256": "cd0f65a0a3aca350345d81bf2394075475d8d2e8d0e9178bea5e1b781d542853"
+        },
+        "loho_t1_drawer_staged_s2001__paraphrase_1.pt": {
+          "bytes": 277615349,
+          "sha256": "93ab99f7c1f399e83857bce8fe31186f5787a30941fea2047b042fc73991f037"
+        },
+        "loho_t1_drawer_staged_s2003__canonical.pt": {
+          "bytes": 277615325,
+          "sha256": "adda7ccff612654e53a18f913abbbf024e8d05ed9c9f4a8542644c80046fb579"
+        },
+        "loho_t1_drawer_staged_s2003__distinct_t1_back_butter.pt": {
+          "bytes": 277615437,
+          "sha256": "7f9ba9eef22d72989707e53941a8f6f61c07769a87f0b77c1e0b179665ea2285"
+        },
+        "loho_t1_drawer_staged_s2003__distinct_t5_canonical.pt": {
+          "bytes": 277615485,
+          "sha256": "78793c1d33a6b8c3c41492cc2d8f881785a2877620d27ef7a1407da53e2bc542"
+        },
+        "loho_t1_drawer_staged_s2003__paraphrase_0.pt": {
+          "bytes": 277615349,
+          "sha256": "a86d201c09309398be2b3a075fa90282ada22c9e0e4fcad4a100f5e3cf23a20e"
+        },
+        "loho_t1_drawer_staged_s2003__paraphrase_1.pt": {
+          "bytes": 277615349,
+          "sha256": "f87e98e691bef8aab2f570acf4250c58dff54c60e0b50242023aaa0c0210714e"
+        },
+        "loho_t1_drawer_stock_s2000__canonical.pt": {
+          "bytes": 277615317,
+          "sha256": "1df91307837e5c8ede311f008bf8a7842b22397b198e5361622dcc72d3bf2156"
+        },
+        "loho_t1_drawer_stock_s2000__distinct_t1_back_butter.pt": {
+          "bytes": 277615429,
+          "sha256": "d124abe94fbae211a6ef3f65b3bc5618e82f4b64e66604bc17c3baf92b96b793"
+        },
+        "loho_t1_drawer_stock_s2000__distinct_t5_canonical.pt": {
+          "bytes": 277615477,
+          "sha256": "2d2e0739100afc83ff4e64edfc1363cba8fb01077eb78cb0db25e41abd6d85e4"
+        },
+        "loho_t1_drawer_stock_s2000__paraphrase_0.pt": {
+          "bytes": 277615341,
+          "sha256": "555bc5d2a365117fd0fb39e42b2798a689b6dc34f41c7f3a1cb7e783e1efaeb3"
+        },
+        "loho_t1_drawer_stock_s2000__paraphrase_1.pt": {
+          "bytes": 277615341,
+          "sha256": "2e24d08441f1e4397c2f316c1d7028551d704481d970ed704b485167e9c0b542"
+        },
+        "loho_t1_drawer_stock_s2002__canonical.pt": {
+          "bytes": 277615317,
+          "sha256": "195cc8cb84e3930cb6ce9d01cb26eaaaf06660550cbc26da21b66943722da17f"
+        },
+        "loho_t1_drawer_stock_s2002__distinct_t1_back_butter.pt": {
+          "bytes": 277615429,
+          "sha256": "55e2589353327cd78dd13e2a0c68b08c45fc96eae7c0d961552cdc05a709d7b6"
+        },
+        "loho_t1_drawer_stock_s2002__distinct_t5_canonical.pt": {
+          "bytes": 277615477,
+          "sha256": "19aab57a75f9918c707c85eb2ec9c0999942a33d1a3ab6bd5c677c748da5e53e"
+        },
+        "loho_t1_drawer_stock_s2002__paraphrase_0.pt": {
+          "bytes": 277615341,
+          "sha256": "8fd48f34a196caff18904b8d50eeb654c2cc41996f6627e1661d169656f09ff8"
+        },
+        "loho_t1_drawer_stock_s2002__paraphrase_1.pt": {
+          "bytes": 277615341,
+          "sha256": "7aa82ce2d371f93491e65bd5a0e97cb542d15c903d9331348e2f9a5fdad3a338"
+        },
+        "loho_t2_basket3_staged_s2011__canonical.pt": {
+          "bytes": 107081701,
+          "sha256": "377f52e53225ae20b8c1079dfaa780e6b5601381f8d6719d0c04232757417286"
+        },
+        "loho_t2_basket3_staged_s2011__distinct_t2_cheese_butter_milk.pt": {
+          "bytes": 107082125,
+          "sha256": "d57655460c6991c2871bf22f3ec23b44dfdcb025365192a44a4d9b3fd2a99183"
+        },
+        "loho_t2_basket3_staged_s2011__distinct_t2_milk_ketchup_oj.pt": {
+          "bytes": 107082037,
+          "sha256": "5dffc4bad567dfba2ab6425b3f0524750d3f6734deca036d32a76e21ec96e860"
+        },
+        "loho_t2_basket3_staged_s2011__paraphrase_0.pt": {
+          "bytes": 107081789,
+          "sha256": "583b40e0e6e5febcc024220465c588af195be19de2a5d9b6326f80628f42458b"
+        },
+        "loho_t2_basket3_staged_s2011__paraphrase_1.pt": {
+          "bytes": 107081789,
+          "sha256": "7b8393876d9e70a9e7101f629ae3d64387135177c42d8edb9846e9d58902a389"
+        },
+        "loho_t2_basket3_staged_s2013__canonical.pt": {
+          "bytes": 115013541,
+          "sha256": "00554c6debca5c6605ecef123c62c24b2094d6a885d6534e3fc78df19467c7b9"
+        },
+        "loho_t2_basket3_staged_s2013__distinct_t2_cheese_butter_milk.pt": {
+          "bytes": 115013901,
+          "sha256": "8f1e6c65d5eaa372616f1ab46d75c4493a692c0ae8a87ba79d205de7a4d31255"
+        },
+        "loho_t2_basket3_staged_s2013__distinct_t2_milk_ketchup_oj.pt": {
+          "bytes": 115013813,
+          "sha256": "4b860d2d8d83af866bfb3e561824af6216b4edb1e559575d93b42ab8874b8ac6"
+        },
+        "loho_t2_basket3_staged_s2013__paraphrase_0.pt": {
+          "bytes": 115013629,
+          "sha256": "5348199af517a5c1802ebf3b46dd7c6228eb5e846558dce4847277ce0bf78129"
+        },
+        "loho_t2_basket3_staged_s2013__paraphrase_1.pt": {
+          "bytes": 115013629,
+          "sha256": "1ce6d24123f9317c75acc2b251ac4ff7b6f181e39156942eaacac7e949a6a98c"
+        },
+        "loho_t2_basket3_stock_s2010__canonical.pt": {
+          "bytes": 356933149,
+          "sha256": "a7d669c9e4dfc44fd270d8cc1181c776d71e41fcc4cf23a546ea60a81fb2d2f6"
+        },
+        "loho_t2_basket3_stock_s2010__distinct_t2_cheese_butter_milk.pt": {
+          "bytes": 356933573,
+          "sha256": "21db907f544220e3e15ed0e017c6b722868ebe855d203b2adbfaef41214cd2aa"
+        },
+        "loho_t2_basket3_stock_s2010__distinct_t2_milk_ketchup_oj.pt": {
+          "bytes": 356933485,
+          "sha256": "444bb56d1c486c85c644c456135c344b55151881bce82326b14b092068fe854e"
+        },
+        "loho_t2_basket3_stock_s2010__paraphrase_0.pt": {
+          "bytes": 356933237,
+          "sha256": "52bfac2d18d06da4656df55eb1d0ba032cc8406723ae594e46facb3e36692821"
+        },
+        "loho_t2_basket3_stock_s2010__paraphrase_1.pt": {
+          "bytes": 356933237,
+          "sha256": "0f85ac844aceafef7f987c26c13aec1d6f8a654e7cd372c7580e1313cdb79e6c"
+        },
+        "loho_t2_basket3_stock_s2012__canonical.pt": {
+          "bytes": 356933149,
+          "sha256": "a0fd3e8b676f8ba1a726d69a8303c8c12364d5879333e4b6fb1bdad076041a57"
+        },
+        "loho_t2_basket3_stock_s2012__distinct_t2_cheese_butter_milk.pt": {
+          "bytes": 356933573,
+          "sha256": "0732d4a4a00dac97215beefa2644b7763f87509beaf506052bd50b3bc957d35f"
+        },
+        "loho_t2_basket3_stock_s2012__distinct_t2_milk_ketchup_oj.pt": {
+          "bytes": 356933485,
+          "sha256": "d67ebe124d6ebd8a2c8051fc1640bbb9014793fb37f7e9e927f31195ef0ebd0d"
+        },
+        "loho_t2_basket3_stock_s2012__paraphrase_0.pt": {
+          "bytes": 356933237,
+          "sha256": "964bd8dcea5f85ca76620a13e8066faa3462fd8a57ab4e2f552aeec5763ad16f"
+        },
+        "loho_t2_basket3_stock_s2012__paraphrase_1.pt": {
+          "bytes": 356933237,
+          "sha256": "d18d5b1c5a3011dccde8116486fbd8d75f80c560a2dcb51c2a4f4f6dd99706b3"
+        },
+        "loho_t3_tray_staged_s2021__canonical.pt": {
+          "bytes": 91218125,
+          "sha256": "919c3422d4233186b6df92c5d26b59a47b4a5dc7b77212daef2a0d99cbe0fd0a"
+        },
+        "loho_t3_tray_staged_s2021__distinct_t3_sauce_ketchup_butter.pt": {
+          "bytes": 91218501,
+          "sha256": "e2da2ddd7d3d2f29280bd4d400ddd9b66c33ccb7925cfbfb9898eef3cbc4daa2"
+        },
+        "loho_t3_tray_staged_s2021__distinct_t3_soup_sauce_ketchup.pt": {
+          "bytes": 91218421,
+          "sha256": "ca1f73c48d5a14cf7650b8b9a91a1ddad0f2c36eb41d96742f28218b86da5588"
+        },
+        "loho_t3_tray_staged_s2021__paraphrase_0.pt": {
+          "bytes": 91218213,
+          "sha256": "1037194594fe06eaa5c9214af2d8d6f46d95a1876d5b1f60fe8d4990b2ba5048"
+        },
+        "loho_t3_tray_staged_s2021__paraphrase_1.pt": {
+          "bytes": 91218213,
+          "sha256": "9fcd40f50cd4630ddc30ecb56622fa6a2ca14cf37f01c6138d07edd16f73e499"
+        },
+        "loho_t3_tray_staged_s2023__canonical.pt": {
+          "bytes": 67422733,
+          "sha256": "fe3fe18ca373385cdab9abed0d2b24a627a26ae1ab17bbf1358538ba0585fa37"
+        },
+        "loho_t3_tray_staged_s2023__distinct_t3_sauce_ketchup_butter.pt": {
+          "bytes": 67423109,
+          "sha256": "11c317a93e4374936abe43d426f78241ca276427f3819cd2e0ad7bc168639b7f"
+        },
+        "loho_t3_tray_staged_s2023__distinct_t3_soup_sauce_ketchup.pt": {
+          "bytes": 67423029,
+          "sha256": "4bbaad18ab2ce7d67d925c1116ae46a78c3d42c4047a6af15432116fd8f4a1ab"
+        },
+        "loho_t3_tray_staged_s2023__paraphrase_0.pt": {
+          "bytes": 67422821,
+          "sha256": "e6cfeea3bc9b384ba745e5520c90a402ca4592273360b8f880907f417e47f6a0"
+        },
+        "loho_t3_tray_staged_s2023__paraphrase_1.pt": {
+          "bytes": 67422821,
+          "sha256": "c5a904401b3b4906dd60e0ebc02f5ab8c43bb98d5a4a2e0d8924e9b8dd86bfb4"
+        },
+        "loho_t3_tray_stock_s2020__canonical.pt": {
+          "bytes": 356933125,
+          "sha256": "927c29e07cf8432b9475aff05c7edf523f3763660201a650c8412cdc4d0c3ffd"
+        },
+        "loho_t3_tray_stock_s2020__distinct_t3_sauce_ketchup_butter.pt": {
+          "bytes": 356933501,
+          "sha256": "3f80e81fbc1407197fa91ab362001fd474b4e7dce78d3ad410e56ab3d437e833"
+        },
+        "loho_t3_tray_stock_s2020__distinct_t3_soup_sauce_ketchup.pt": {
+          "bytes": 356933485,
+          "sha256": "40601ae3c2ab00034218e1f8d2aac02e14e174516004187177d2058259b9b23a"
+        },
+        "loho_t3_tray_stock_s2020__paraphrase_0.pt": {
+          "bytes": 356933213,
+          "sha256": "330f4fbb8e72920d127aff8b001e9f7ede244effd40c838f9f906e6293d53b6f"
+        },
+        "loho_t3_tray_stock_s2020__paraphrase_1.pt": {
+          "bytes": 356933213,
+          "sha256": "c78dbdbe4a0acd86c00451ee3b5245fa73f2964e3a2cae97a7a3457f7bacfe21"
+        },
+        "loho_t3_tray_stock_s2022__canonical.pt": {
+          "bytes": 356933125,
+          "sha256": "e8fe4aeef1bd266588bfa94197a013e3540c5a282dbb2a03f1bb29a22e5a976d"
+        },
+        "loho_t3_tray_stock_s2022__distinct_t3_sauce_ketchup_butter.pt": {
+          "bytes": 356933501,
+          "sha256": "b564a957ed24908f08d4b8267a65e489611e6afad9faec3c563937207e646700"
+        },
+        "loho_t3_tray_stock_s2022__distinct_t3_soup_sauce_ketchup.pt": {
+          "bytes": 356933485,
+          "sha256": "75dcc97aa4df764c1f41f9a91062312c6b8a3b202803ae09852f8f50487d2b32"
+        },
+        "loho_t3_tray_stock_s2022__paraphrase_0.pt": {
+          "bytes": 356933213,
+          "sha256": "d9991eda097623964e6a2942a25a5fa5c6d2289f84cad855031107b9b94d479d"
+        },
+        "loho_t3_tray_stock_s2022__paraphrase_1.pt": {
+          "bytes": 356933213,
+          "sha256": "c082a5ccc1db38ea5e20d16f8c65fee5c74c088537112e33aadc76a3bbbbc2fb"
+        },
+        "loho_t4_tray_staged_s2031__canonical.pt": {
+          "bytes": 63456909,
+          "sha256": "1d80911ddfbf8d4990943afd7338b1edae8cf33ad133a87b8a22e89501d4cb6d"
+        },
+        "loho_t4_tray_staged_s2031__distinct_t4_right_bowl.pt": {
+          "bytes": 63457013,
+          "sha256": "57732b5ee74b2f3a8dd579dfedbd9275845320ee4e9b852592c68ae0798a335d"
+        },
+        "loho_t4_tray_staged_s2031__paraphrase_0.pt": {
+          "bytes": 63456933,
+          "sha256": "c31a85600d53973033486fe8945fe55aa87c0a26b2980ca5f23cd1c6cdc001a9"
+        },
+        "loho_t4_tray_staged_s2031__paraphrase_1.pt": {
+          "bytes": 63456933,
+          "sha256": "1989c3477c1ace181c11ae0b2ada0084b6e64ed6fc67f770a06d13166d3a8479"
+        },
+        "loho_t4_tray_staged_s2033__canonical.pt": {
+          "bytes": 356933197,
+          "sha256": "b0e0e564b1c648e382a430d7da8ebeaa1bd7f3387a76ebe42dacd41269aea84d"
+        },
+        "loho_t4_tray_staged_s2033__distinct_t4_right_bowl.pt": {
+          "bytes": 356933301,
+          "sha256": "fefc4a11aa6beed0a6f19c683a82f1d8018b56d1f3f02de8551a3350b259254e"
+        },
+        "loho_t4_tray_staged_s2033__paraphrase_0.pt": {
+          "bytes": 356933221,
+          "sha256": "7a1805b8b24a3998256c77d6519dfe60b9c413b2780b93a127ddea4186fa5352"
+        },
+        "loho_t4_tray_staged_s2033__paraphrase_1.pt": {
+          "bytes": 356933221,
+          "sha256": "980067dc8df6f930d16f734adf29512570870178081f4c6dde805e4e752e6fdb"
+        },
+        "loho_t4_tray_stock_s2030__canonical.pt": {
+          "bytes": 356933189,
+          "sha256": "82a3bf1fd9ef70a8f66ca1e6422221eeaa1cce214d65e8d831560658ad3fdfc4"
+        },
+        "loho_t4_tray_stock_s2030__distinct_t4_right_bowl.pt": {
+          "bytes": 356933293,
+          "sha256": "1cb7b22c7f4b934400efe79899c4109094a721980592ebf1088f1dae017b48bb"
+        },
+        "loho_t4_tray_stock_s2030__paraphrase_0.pt": {
+          "bytes": 356933213,
+          "sha256": "a172d7c00b2e16dc77f7432e6877c23a8cf5c5465ccfa241485e61ae226513d0"
+        },
+        "loho_t4_tray_stock_s2030__paraphrase_1.pt": {
+          "bytes": 356933213,
+          "sha256": "7cb1a0e36083a0f6e5302ff12b5d9d50d561a9d786a66eb09023b1d5950584f1"
+        },
+        "loho_t4_tray_stock_s2032__canonical.pt": {
+          "bytes": 356933189,
+          "sha256": "a9df573d7b09b451fa3061c63c33fa7fa13b548c50995a389378dab645a6aa75"
+        },
+        "loho_t4_tray_stock_s2032__distinct_t4_right_bowl.pt": {
+          "bytes": 356933293,
+          "sha256": "b71d360fecdda903c6ef0b7d6dd4011a228da021919255e2850df5adee86eee2"
+        },
+        "loho_t4_tray_stock_s2032__paraphrase_0.pt": {
+          "bytes": 356933213,
+          "sha256": "82370c400e2a431bbeb4c99a67aed1c98a6236d0923c63e3da1402d13f065991"
+        },
+        "loho_t4_tray_stock_s2032__paraphrase_1.pt": {
+          "bytes": 356933213,
+          "sha256": "b94ca1d1cd90a6a5761beee6d8eaee60fd1597dcba88a6efe2fde90eebb37959"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041__canonical.pt": {
+          "bytes": 392626397,
+          "sha256": "846e3ccbb99e9a7427b9d497312713cc633d66de1902ee0370b65aeb04e9d7ce"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041__distinct_t1_canonical.pt": {
+          "bytes": 392626621,
+          "sha256": "4c332e16a9434dcd73202966f77d99df72e6f604052c3b3ed5e0afbf1214b810"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041__distinct_t5_front_butter.pt": {
+          "bytes": 392626709,
+          "sha256": "2f4d5a233e73500551803812e74c55361488b94135d0eb54b2a1a662adcbf132"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041__paraphrase_0.pt": {
+          "bytes": 392626485,
+          "sha256": "3d28ed1e547f6eb599204d59ca01f9e13ebaaacf0814cd3a127a547d4cbf1e08"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041__paraphrase_1.pt": {
+          "bytes": 392626485,
+          "sha256": "0c7b54d827bb5ba259f80b1b8a9b52bdb6a0cee9232c955594af8d1234dbcbbe"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043__canonical.pt": {
+          "bytes": 392626397,
+          "sha256": "cd6cc94720be646bfab2b729a19adb438e1828ac3b5778810388e5db1cb1fd86"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043__distinct_t1_canonical.pt": {
+          "bytes": 392626621,
+          "sha256": "df7a707a3f5879061e052c6aa478e097f47efd3e0435fbf0fb30eadf57630b91"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043__distinct_t5_front_butter.pt": {
+          "bytes": 392626709,
+          "sha256": "ca352da6850f8af1018e61cd6b47f5b1f1a8a80ca4aca3f65367f7d468696f90"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043__paraphrase_0.pt": {
+          "bytes": 392626485,
+          "sha256": "cb42fe674f59482d0d1e3daa5a7d196d1553808ac3a4359d6a392f6947960c2c"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043__paraphrase_1.pt": {
+          "bytes": 392626485,
+          "sha256": "b14edaf9b4abe5e05f6e00f90a9ef3ec74235c1fc5d4306bcebef015dcb32159"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040__canonical.pt": {
+          "bytes": 392626389,
+          "sha256": "4300eddf52541a6508553ace7c8ab50ae4b3d06cf439f052275e9f316ea79476"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040__distinct_t1_canonical.pt": {
+          "bytes": 392626613,
+          "sha256": "c39bc970068a3414e8edfc6effaa56fc35a8ad985b832e8e63aa68e67086f5ac"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040__distinct_t5_front_butter.pt": {
+          "bytes": 392626701,
+          "sha256": "3481b7ecb33afa789b7e26a96b579dd80107fd8faf5a89b52dc7559a08d300bf"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040__paraphrase_0.pt": {
+          "bytes": 392626477,
+          "sha256": "79fc486738f4bb1486887edb712bab384deab37dc5a2d84e94c6f1d8513528c6"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040__paraphrase_1.pt": {
+          "bytes": 392626477,
+          "sha256": "759c50b6ad354adc7e1ff277ab9f040d9aa0c00eed82f2c9724ad3d11bb07187"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042__canonical.pt": {
+          "bytes": 392626389,
+          "sha256": "43675cbc5e3286fe2e131496623a7a2aa5f5dd5680c9f80a313d5969d82735ed"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042__distinct_t1_canonical.pt": {
+          "bytes": 392626613,
+          "sha256": "ea4e5794ac4de7ac5003466470957b092696ada6aaf7258cc84cb8f138a5d98d"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042__distinct_t5_front_butter.pt": {
+          "bytes": 392626701,
+          "sha256": "5f832c26bf353d0c99873c59c7271c471d1acc1b4841c20c406492ec35533c55"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042__paraphrase_0.pt": {
+          "bytes": 392626477,
+          "sha256": "ad93786fd1466717afecd37b805b45343d4fee23dbe6021277a5f645f400fee2"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042__paraphrase_1.pt": {
+          "bytes": 392626477,
+          "sha256": "bba48ec4b6f0f5af7bca6c4eb99d9814ca0c7ec49e1e406d65efde4c21836314"
+        }
+      },
+      "n_files": 96,
+      "root": "/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1/v06_effect_crossed/features"
+    },
+    "goal_spec_manifest.json": {
+      "files": {
+        "goal_spec_manifest.json": {
+          "bytes": 12943,
+          "sha256": "c2c359a5d049ae8f0911d42748edec0a5149cd50e0a0d6bfdca31a17e4e4950d"
+        }
+      },
+      "n_files": 1,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1"
+    },
+    "labels_iter1": {
+      "files": {
+        "loho_t1_drawer_staged_s2001.pt": {
+          "bytes": 26789,
+          "sha256": "74e3cd622c3e899ed2778c0a9e1c924ce6c1243f6a5bc5678b5b6ef03c977891"
+        },
+        "loho_t1_drawer_staged_s2003.pt": {
+          "bytes": 24101,
+          "sha256": "67d97433be3ea336016e59eafa851b28a545602ff3aef34495eddcdc64d6941e"
+        },
+        "loho_t1_drawer_stock_s2000.pt": {
+          "bytes": 25695,
+          "sha256": "03c133414985ec38844d0b59b5d73264a619b8f739d684db308805e618018129"
+        },
+        "loho_t1_drawer_stock_s2002.pt": {
+          "bytes": 23839,
+          "sha256": "2e61e11db0c910562841b313110101a96f962388a7424245d57737856e082297"
+        },
+        "loho_t2_basket3_staged_s2011.pt": {
+          "bytes": 11307,
+          "sha256": "a78f745e3f1a2e6c302cfcc5e3afadc44d38d298aac25eec1c7dbe1436f64303"
+        },
+        "loho_t2_basket3_staged_s2013.pt": {
+          "bytes": 12075,
+          "sha256": "f6f132ba781df64f53693667cd6bbb967a8b33b394f6068318b998f799bb5490"
+        },
+        "loho_t2_basket3_stock_s2010.pt": {
+          "bytes": 32485,
+          "sha256": "258e84a704797b19580aac6afc49d5ee3b0bbb4e4681c0fed51f2240e6cd2230"
+        },
+        "loho_t2_basket3_stock_s2012.pt": {
+          "bytes": 32613,
+          "sha256": "edae676ed66b65e3fd4bce308e075f2f35f051ffc3e537527882138887c98529"
+        },
+        "loho_t3_tray_staged_s2021.pt": {
+          "bytes": 9497,
+          "sha256": "847ef5896176d4ea9648f89c9d675fd674aa4018cb33a1a0c736a0865e429fe1"
+        },
+        "loho_t3_tray_staged_s2023.pt": {
+          "bytes": 7129,
+          "sha256": "1ff680e1d8166a7a03eb86e8bc775b7833fe8bef6a9f5fb1f99d9823fc697aa6"
+        },
+        "loho_t3_tray_stock_s2020.pt": {
+          "bytes": 34707,
+          "sha256": "78cf1956548499acfde5f62cedbdc3968cd206a65c8ee754e525037a09d3319c"
+        },
+        "loho_t3_tray_stock_s2022.pt": {
+          "bytes": 32851,
+          "sha256": "38a678859eb4598b6509f0c66efb52fbfb98d737f648264c5cafbf646b1d6c6e"
+        },
+        "loho_t4_tray_staged_s2031.pt": {
+          "bytes": 5529,
+          "sha256": "bb0cd8eacedcd90c473694d57d0ab37da90d1735fce0694f9d4c51d95b912679"
+        },
+        "loho_t4_tray_staged_s2033.pt": {
+          "bytes": 26521,
+          "sha256": "60cd99516379b011da99d3943ef1c2b83045cea985e1c81f169f17ea2e17b909"
+        },
+        "loho_t4_tray_stock_s2030.pt": {
+          "bytes": 23955,
+          "sha256": "1205b7126f3ead740839038330263ed09fd8f056d323a93f343c8e8bd0426eb0"
+        },
+        "loho_t4_tray_stock_s2032.pt": {
+          "bytes": 25747,
+          "sha256": "0ba5f8e7ed1a53e0aaabbc84edfadf445fd259c6bfeab29276a3fd4fe0231a77"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041.pt": {
+          "bytes": 42261,
+          "sha256": "6b4deff83416e747608306c83ecb506de0336e85d5756597d1d1b166f5d60431"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043.pt": {
+          "bytes": 44757,
+          "sha256": "f5f49e6f8ca3400ff31e03aefb3e10ea0c0ad965af420b7cb0c8c3f460744207"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040.pt": {
+          "bytes": 37007,
+          "sha256": "185a99811fbd8992b06fd8b3a5ddc98c05d3238c971109db8cdb30116fb736b9"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042.pt": {
+          "bytes": 38415,
+          "sha256": "6eeffbea533fb0f76174d1dd8cac468683e209b908687327d132bb21d7b00d5a"
+        }
+      },
+      "n_files": 20,
+      "root": "/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1/v06_effect_crossed/labels"
+    },
+    "sources": {
+      "files": {
+        "loho_t1_drawer_staged_s2001.pt": {
+          "bytes": 140646399,
+          "sha256": "482f7572f6febe1bd3af9f4c24d79f3ae0b2ddecf4e9eaa078b7cbadbe3efdb5"
+        },
+        "loho_t1_drawer_staged_s2003.pt": {
+          "bytes": 117810151,
+          "sha256": "acea6a0ac27ff840f7cb2b00a83f83a26840d212c7d3e9facad05b021abbb834"
+        },
+        "loho_t1_drawer_stock_s2000.pt": {
+          "bytes": 146367381,
+          "sha256": "f1061528a57f68e8cfe68265c0a89a55c3c74eb2ad0f08306f7b71a994af1e11"
+        },
+        "loho_t1_drawer_stock_s2002.pt": {
+          "bytes": 131250143,
+          "sha256": "726184cbd509413771d4c9fd85bf046962a87a9245ae94bc602de7d606c23f51"
+        },
+        "loho_t2_basket3_staged_s2011.pt": {
+          "bytes": 64340167,
+          "sha256": "b1c0dbc326e6da406341c156462bdd9101872707729748e1cbf42b33e6280bde"
+        },
+        "loho_t2_basket3_staged_s2013.pt": {
+          "bytes": 65641299,
+          "sha256": "fa27e45116fd5a7da14f2df05583ae5db3157586c0f4b68017a0d6961336c19f"
+        },
+        "loho_t2_basket3_stock_s2010.pt": {
+          "bytes": 117229967,
+          "sha256": "e1c2a27c5feb883af21ac83eb2995e6b4f0eb51de26f92e0f5f108d2332f8e3a"
+        },
+        "loho_t2_basket3_stock_s2012.pt": {
+          "bytes": 116203279,
+          "sha256": "16bdbef8ef600c88924a6f6daa335508207e843296be7d1772bccc7ccb37d1b0"
+        },
+        "loho_t3_tray_staged_s2021.pt": {
+          "bytes": 54915099,
+          "sha256": "548755c936438a98771d010605e23cae71d3c59a7d27126578654f5753248dca"
+        },
+        "loho_t3_tray_staged_s2023.pt": {
+          "bytes": 34573793,
+          "sha256": "c7b628580a0ce5ae97b1198f7970dc0c42c53905895982bfbc2e8fc703c77f3b"
+        },
+        "loho_t3_tray_stock_s2020.pt": {
+          "bytes": 116739481,
+          "sha256": "5e087be60e5fd7df911651726c5014e1a46305bd75fadf8a54a771e599a6575a"
+        },
+        "loho_t3_tray_stock_s2022.pt": {
+          "bytes": 116455705,
+          "sha256": "d43ff51cd189f7a5e36937c3cd7d3a325716c3cfaf76c0fa3056e2a08cb4f04c"
+        },
+        "loho_t4_tray_staged_s2031.pt": {
+          "bytes": 49055931,
+          "sha256": "49fc693b93b390813cc5d3ba976b46f4b63623fa283eb34dbacb0713deb58548"
+        },
+        "loho_t4_tray_staged_s2033.pt": {
+          "bytes": 95996779,
+          "sha256": "c50f014b840bf4449d53c8de4a29070f031e70433ff790bbf52b27c2bf2bcb64"
+        },
+        "loho_t4_tray_stock_s2030.pt": {
+          "bytes": 107913551,
+          "sha256": "bfee7923ef2b82d7d76b174f7cf4516a4a81138f55d58cd72882262722b2b5d7"
+        },
+        "loho_t4_tray_stock_s2032.pt": {
+          "bytes": 107429839,
+          "sha256": "ab91b760f3abc830d7715b218c1941b2482bfee70d6bb9edb58345a86b4680ee"
+        },
+        "loho_t5_drawer_cabinet_staged_s2041.pt": {
+          "bytes": 184938099,
+          "sha256": "7cca5e7bd04aa91b2770f92b54face39f0e63935989e79e1365c56c19ae6daf3"
+        },
+        "loho_t5_drawer_cabinet_staged_s2043.pt": {
+          "bytes": 166791253,
+          "sha256": "c77d2f689c9a3dade474f5979baae8b5e6dcd868b807529f4c13ee47237ad6ba"
+        },
+        "loho_t5_drawer_cabinet_stock_s2040.pt": {
+          "bytes": 164317097,
+          "sha256": "4a66ea1b6bdfde004ab0b146412539d791c2078758fb20c29c8151c6d4036b39"
+        },
+        "loho_t5_drawer_cabinet_stock_s2042.pt": {
+          "bytes": 168994665,
+          "sha256": "b6baa4d7a105be696c356ee7c1bc100f250280086c2d824d06b038c199a2a05f"
+        }
+      },
+      "n_files": 20,
+      "root": "/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1/v06_effect_crossed/sources"
+    },
+    "v06_collection_manifest.json": {
+      "files": {
+        "v06_collection_manifest.json": {
+          "bytes": 9224,
+          "sha256": "94e1e69ec32ff8ab66d6fbbecde40ae59315a60fa055a54ef54a1d8a63fb2be0"
+        }
+      },
+      "n_files": 1,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1"
+    },
+    "v06_eval": {
+      "files": {
+        "development/records.jsonl": {
+          "bytes": 52883,
+          "sha256": "a1c2e1e5cc8823bf4780e5b0fde89dbf7af3ab5251e5549bbb0e278a41e31626"
+        },
+        "run_manifest_v66_dev.json": {
+          "bytes": 1504,
+          "sha256": "d4c2a53e63c2d748bf071e8df279ff68141c0f6587182d6c3901845060f13644"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1600_stock.npz": {
+          "bytes": 19207,
+          "sha256": "01c06e3ce1e37f51a6ab902ad1a505e538555cf819a854e21ee9069e785ba676"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1600_v06_gt_current.npz": {
+          "bytes": 19117,
+          "sha256": "b3589c1533732e5886edd12cbbd077a7822b7ac135fe1abf36f0da7719343551"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1600_v06_gt_recurrent.npz": {
+          "bytes": 19246,
+          "sha256": "c7078cc97bc631c5f8bf3dde256646e1293e20d93d8ef5a0460965d8fec0ee17"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1600_v06_recurrent_random.npz": {
+          "bytes": 19246,
+          "sha256": "c7078cc97bc631c5f8bf3dde256646e1293e20d93d8ef5a0460965d8fec0ee17"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1600_v06_recurrent_wm.npz": {
+          "bytes": 19246,
+          "sha256": "c7078cc97bc631c5f8bf3dde256646e1293e20d93d8ef5a0460965d8fec0ee17"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1610_stock.npz": {
+          "bytes": 19185,
+          "sha256": "41c3e4bfaa81d74ba9c4ba1556551ef08681420f501dac76ba154a30dcac615e"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1610_v06_gt_current.npz": {
+          "bytes": 19232,
+          "sha256": "0493755ba7cae2f852ac23f43624bb916b12bce83b436e2d0b9cb8b8e6944dba"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1610_v06_gt_recurrent.npz": {
+          "bytes": 19231,
+          "sha256": "f1e2c24cbc8f5a88777707f79f39f87581d2066ecc5ea95b0330f3041469033f"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1610_v06_recurrent_random.npz": {
+          "bytes": 19231,
+          "sha256": "f1e2c24cbc8f5a88777707f79f39f87581d2066ecc5ea95b0330f3041469033f"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1610_v06_recurrent_wm.npz": {
+          "bytes": 19231,
+          "sha256": "f1e2c24cbc8f5a88777707f79f39f87581d2066ecc5ea95b0330f3041469033f"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1620_stock.npz": {
+          "bytes": 19183,
+          "sha256": "8748468b81347bcc70ab4f10f6d8ebf2de307a669a5846a22112bcbbf38ebc7c"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1620_v06_gt_current.npz": {
+          "bytes": 19171,
+          "sha256": "03a5a646be526230dc82318ab854a0ddc1dd510ce7fb2ad35ce0a529480707a8"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1620_v06_gt_recurrent.npz": {
+          "bytes": 19227,
+          "sha256": "2c32f06bc512dc509855c2c1261c53ac91160f14ebc4f6719e3a91a822992dcc"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1620_v06_recurrent_random.npz": {
+          "bytes": 19227,
+          "sha256": "2c32f06bc512dc509855c2c1261c53ac91160f14ebc4f6719e3a91a822992dcc"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1620_v06_recurrent_wm.npz": {
+          "bytes": 19227,
+          "sha256": "2c32f06bc512dc509855c2c1261c53ac91160f14ebc4f6719e3a91a822992dcc"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1630_stock.npz": {
+          "bytes": 19200,
+          "sha256": "3162c04da5709d6f22da84de18db8b0557a6442541222fceeeb10133188a9d13"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1630_v06_gt_current.npz": {
+          "bytes": 19195,
+          "sha256": "a57573a838226dfd3d791e884fa8f8cc820ea463fd5df59011a32e74d1bee775"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1630_v06_gt_recurrent.npz": {
+          "bytes": 19207,
+          "sha256": "6ca85b201fa33fdbbd31ce32530f9c19b168eff5faabb086d4ee4340a4d62919"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1630_v06_recurrent_random.npz": {
+          "bytes": 19207,
+          "sha256": "6ca85b201fa33fdbbd31ce32530f9c19b168eff5faabb086d4ee4340a4d62919"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1630_v06_recurrent_wm.npz": {
+          "bytes": 19207,
+          "sha256": "6ca85b201fa33fdbbd31ce32530f9c19b168eff5faabb086d4ee4340a4d62919"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1640_stock.npz": {
+          "bytes": 19234,
+          "sha256": "681a5586207efede8628ce293df8096f8786a981ad7a4ba9e967d9bb86057e17"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1640_v06_gt_current.npz": {
+          "bytes": 19209,
+          "sha256": "a80198ef0f323dacaf36c19d2d238c6e1d494b2eb4f6722c3460f8225fb83182"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1640_v06_gt_recurrent.npz": {
+          "bytes": 19215,
+          "sha256": "ef39b1ee2959f90050dd27b877d84e76c265f5a1efb565c320311e56d6ebcdd0"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1640_v06_recurrent_random.npz": {
+          "bytes": 19215,
+          "sha256": "ef39b1ee2959f90050dd27b877d84e76c265f5a1efb565c320311e56d6ebcdd0"
+        },
+        "traces/v66_dev_loho_t1_drawer_s1640_v06_recurrent_wm.npz": {
+          "bytes": 19215,
+          "sha256": "ef39b1ee2959f90050dd27b877d84e76c265f5a1efb565c320311e56d6ebcdd0"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1600_stock.npz": {
+          "bytes": 24323,
+          "sha256": "75f86ff43452613a34ec41b6987b134dd37a9cca863b6c41618a0e4e50ed35a5"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1600_v06_gt_current.npz": {
+          "bytes": 13356,
+          "sha256": "0c48ad5b24cf6fd537da856db8e1a5c7101c9e53585657b3fbdad81a889a6af5"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1600_v06_gt_recurrent.npz": {
+          "bytes": 24312,
+          "sha256": "66f1a6d92c478a72d50517b308f4b626a64f62497c2aa22bd5c396df704e3fc6"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1600_v06_recurrent_random.npz": {
+          "bytes": 24312,
+          "sha256": "66f1a6d92c478a72d50517b308f4b626a64f62497c2aa22bd5c396df704e3fc6"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1600_v06_recurrent_wm.npz": {
+          "bytes": 24312,
+          "sha256": "66f1a6d92c478a72d50517b308f4b626a64f62497c2aa22bd5c396df704e3fc6"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1610_stock.npz": {
+          "bytes": 24356,
+          "sha256": "53843a67b1dd1e69a533107483147892c876aa9a616d01f13dd1423709e512d6"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1610_v06_gt_current.npz": {
+          "bytes": 24318,
+          "sha256": "216015f1f0e49d48a34b46fb6bb4e801207c425950d856303c5d534dc86c075d"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1610_v06_gt_recurrent.npz": {
+          "bytes": 24390,
+          "sha256": "102b833e2a4c6052af7a654baa3a0e820ba88e0f4e14b850e7211e0bd6358491"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1610_v06_recurrent_random.npz": {
+          "bytes": 24390,
+          "sha256": "102b833e2a4c6052af7a654baa3a0e820ba88e0f4e14b850e7211e0bd6358491"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1610_v06_recurrent_wm.npz": {
+          "bytes": 24390,
+          "sha256": "102b833e2a4c6052af7a654baa3a0e820ba88e0f4e14b850e7211e0bd6358491"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1620_stock.npz": {
+          "bytes": 24292,
+          "sha256": "b9494e51634580739b23f39003204fa84cdba58437af9081d75c8f7113ccaee9"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1620_v06_gt_current.npz": {
+          "bytes": 24315,
+          "sha256": "0477a8e20222c0e3255f350908bd382b8079f2eac8017871db4efbdc136365c6"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1620_v06_gt_recurrent.npz": {
+          "bytes": 24288,
+          "sha256": "b51674acccfa8258c50a69deee5eafd2c4df278fa4736465b9ece6084c7b03f0"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1620_v06_recurrent_random.npz": {
+          "bytes": 24288,
+          "sha256": "b51674acccfa8258c50a69deee5eafd2c4df278fa4736465b9ece6084c7b03f0"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1620_v06_recurrent_wm.npz": {
+          "bytes": 24288,
+          "sha256": "b51674acccfa8258c50a69deee5eafd2c4df278fa4736465b9ece6084c7b03f0"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1630_stock.npz": {
+          "bytes": 24240,
+          "sha256": "79c27bd60dd7c80d2c639b78dfb12d8cb99bf549c7037330614d450a0bb3f8fb"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1630_v06_gt_current.npz": {
+          "bytes": 24284,
+          "sha256": "03eadbad59521f70fd2b5f75401c64259313839507047685168f9df9bc360ccd"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1630_v06_gt_recurrent.npz": {
+          "bytes": 24290,
+          "sha256": "2c106967b8dcec287d41a32561ecaf4b1c70d78d20366e6606cbcb57af453dda"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1630_v06_recurrent_random.npz": {
+          "bytes": 24290,
+          "sha256": "2c106967b8dcec287d41a32561ecaf4b1c70d78d20366e6606cbcb57af453dda"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1630_v06_recurrent_wm.npz": {
+          "bytes": 24290,
+          "sha256": "2c106967b8dcec287d41a32561ecaf4b1c70d78d20366e6606cbcb57af453dda"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1640_stock.npz": {
+          "bytes": 16522,
+          "sha256": "46d40d6f34b5aae0cb9afaf8f0eab5dd957c4eacaa4bb323fc858e3b8c5ac9ff"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1640_v06_gt_current.npz": {
+          "bytes": 24285,
+          "sha256": "7b41b1a7871db640e2fc5955c594719af82ac0276ab856d2f16b2da538813320"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1640_v06_gt_recurrent.npz": {
+          "bytes": 24322,
+          "sha256": "3f7d17fc0bd11956307f34892416ab944ba722fca7af96a241121d66fef90c74"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1640_v06_recurrent_random.npz": {
+          "bytes": 24322,
+          "sha256": "3f7d17fc0bd11956307f34892416ab944ba722fca7af96a241121d66fef90c74"
+        },
+        "traces/v66_dev_loho_t2_basket3_s1640_v06_recurrent_wm.npz": {
+          "bytes": 24322,
+          "sha256": "3f7d17fc0bd11956307f34892416ab944ba722fca7af96a241121d66fef90c74"
+        },
+        "traces/v66_dev_loho_t3_tray_s1600_stock.npz": {
+          "bytes": 24363,
+          "sha256": "81eab5b3096dfb040e64f1dd254684ecf730683e164623f9507c53c8aec4d7e7"
+        },
+        "traces/v66_dev_loho_t3_tray_s1600_v06_gt_current.npz": {
+          "bytes": 24207,
+          "sha256": "83ad496bc724a630debb2034d3e50361303d645be3574ff1678b43a4c14b266f"
+        },
+        "traces/v66_dev_loho_t3_tray_s1600_v06_gt_recurrent.npz": {
+          "bytes": 24340,
+          "sha256": "85a7b4b343d97602489fc5ffeb61a0f700d06800d9b4488f54c025a30cfe6da8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1600_v06_recurrent_random.npz": {
+          "bytes": 24340,
+          "sha256": "85a7b4b343d97602489fc5ffeb61a0f700d06800d9b4488f54c025a30cfe6da8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1600_v06_recurrent_wm.npz": {
+          "bytes": 24340,
+          "sha256": "85a7b4b343d97602489fc5ffeb61a0f700d06800d9b4488f54c025a30cfe6da8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1610_stock.npz": {
+          "bytes": 24447,
+          "sha256": "e04ac81af8ea821b0b9bb3d42525eb14ecc4ae4e59aa85e8c429b38524bfb6ad"
+        },
+        "traces/v66_dev_loho_t3_tray_s1610_v06_gt_current.npz": {
+          "bytes": 24400,
+          "sha256": "a7f70bfbfe7cdb7b07ad1395d8933e691f8b4789564c77becab82052131ed494"
+        },
+        "traces/v66_dev_loho_t3_tray_s1610_v06_gt_recurrent.npz": {
+          "bytes": 24319,
+          "sha256": "60cbe975e31017bfbbd50d109ccab2ded25ca7a0950fd4f005bf0e4a94bc03e8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1610_v06_recurrent_random.npz": {
+          "bytes": 24319,
+          "sha256": "60cbe975e31017bfbbd50d109ccab2ded25ca7a0950fd4f005bf0e4a94bc03e8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1610_v06_recurrent_wm.npz": {
+          "bytes": 24319,
+          "sha256": "60cbe975e31017bfbbd50d109ccab2ded25ca7a0950fd4f005bf0e4a94bc03e8"
+        },
+        "traces/v66_dev_loho_t3_tray_s1620_stock.npz": {
+          "bytes": 24199,
+          "sha256": "dfe66491d2aae584c3f82a7fe92c6ee88d7652e8feb1317a3dc2880369dc5e6e"
+        },
+        "traces/v66_dev_loho_t3_tray_s1620_v06_gt_current.npz": {
+          "bytes": 24210,
+          "sha256": "3c270d13521cd128f411b64b4e6f0bc99f7149cbec7ab24b7720855db706f89f"
+        },
+        "traces/v66_dev_loho_t3_tray_s1620_v06_gt_recurrent.npz": {
+          "bytes": 24164,
+          "sha256": "a2bac98ada759a90e9ea4087fef3ef0ea097b7b6337b4a0decf238c60141e782"
+        },
+        "traces/v66_dev_loho_t3_tray_s1620_v06_recurrent_random.npz": {
+          "bytes": 24164,
+          "sha256": "a2bac98ada759a90e9ea4087fef3ef0ea097b7b6337b4a0decf238c60141e782"
+        },
+        "traces/v66_dev_loho_t3_tray_s1620_v06_recurrent_wm.npz": {
+          "bytes": 24164,
+          "sha256": "a2bac98ada759a90e9ea4087fef3ef0ea097b7b6337b4a0decf238c60141e782"
+        },
+        "traces/v66_dev_loho_t3_tray_s1630_stock.npz": {
+          "bytes": 24380,
+          "sha256": "1cf5b826aec26189702bf59ca915e547ea5cb176e7a998ab7bddcb230e8b2b4c"
+        },
+        "traces/v66_dev_loho_t3_tray_s1630_v06_gt_current.npz": {
+          "bytes": 24353,
+          "sha256": "96ab85a85e1616c0fb21414f324dfbd62c706b5d14c662180f59bc29ace58ea5"
+        },
+        "traces/v66_dev_loho_t3_tray_s1630_v06_gt_recurrent.npz": {
+          "bytes": 24389,
+          "sha256": "48c97c5ab1919982bec4fd5001f16c69b57eb13a014f1f281212213436566498"
+        },
+        "traces/v66_dev_loho_t3_tray_s1630_v06_recurrent_random.npz": {
+          "bytes": 24389,
+          "sha256": "48c97c5ab1919982bec4fd5001f16c69b57eb13a014f1f281212213436566498"
+        },
+        "traces/v66_dev_loho_t3_tray_s1630_v06_recurrent_wm.npz": {
+          "bytes": 24389,
+          "sha256": "48c97c5ab1919982bec4fd5001f16c69b57eb13a014f1f281212213436566498"
+        },
+        "traces/v66_dev_loho_t3_tray_s1640_stock.npz": {
+          "bytes": 24276,
+          "sha256": "dbf11b394f074733b69a9f9c203a53683788a43025ad5f2914fc1594265e003f"
+        },
+        "traces/v66_dev_loho_t3_tray_s1640_v06_gt_current.npz": {
+          "bytes": 24312,
+          "sha256": "d1faf0f62069a99be190ef2bc727bbc303d2cedfc7be784cd73423d7b53c6f66"
+        },
+        "traces/v66_dev_loho_t3_tray_s1640_v06_gt_recurrent.npz": {
+          "bytes": 24244,
+          "sha256": "8502cc7a64c9ecb82e63bd9f8df7d489239c22134595c36c9b709e06787b1a60"
+        },
+        "traces/v66_dev_loho_t3_tray_s1640_v06_recurrent_random.npz": {
+          "bytes": 24244,
+          "sha256": "8502cc7a64c9ecb82e63bd9f8df7d489239c22134595c36c9b709e06787b1a60"
+        },
+        "traces/v66_dev_loho_t3_tray_s1640_v06_recurrent_wm.npz": {
+          "bytes": 24244,
+          "sha256": "8502cc7a64c9ecb82e63bd9f8df7d489239c22134595c36c9b709e06787b1a60"
+        },
+        "traces/v66_dev_loho_t4_tray_s1600_stock.npz": {
+          "bytes": 24285,
+          "sha256": "31b4b155e69e2d0cfe3fae524e95fb153a643f6e92416ae249d92844c71fcf5e"
+        },
+        "traces/v66_dev_loho_t4_tray_s1600_v06_gt_current.npz": {
+          "bytes": 24294,
+          "sha256": "fc9d6596dea4d60d8151cfe7578928f30c86caea5956b66fe4a2af0dcdd2fd7d"
+        },
+        "traces/v66_dev_loho_t4_tray_s1600_v06_gt_recurrent.npz": {
+          "bytes": 24531,
+          "sha256": "442e507e2aecacf29022b37fbc5f0f8abc5581e7d5edf036096ce502cc8980ac"
+        },
+        "traces/v66_dev_loho_t4_tray_s1600_v06_recurrent_random.npz": {
+          "bytes": 24531,
+          "sha256": "442e507e2aecacf29022b37fbc5f0f8abc5581e7d5edf036096ce502cc8980ac"
+        },
+        "traces/v66_dev_loho_t4_tray_s1600_v06_recurrent_wm.npz": {
+          "bytes": 24531,
+          "sha256": "442e507e2aecacf29022b37fbc5f0f8abc5581e7d5edf036096ce502cc8980ac"
+        },
+        "traces/v66_dev_loho_t4_tray_s1610_stock.npz": {
+          "bytes": 24303,
+          "sha256": "db4c5bceee1cdc91ea0ccd3e4e9c715301b7de26108b5071b1ea14f0745d52a9"
+        },
+        "traces/v66_dev_loho_t4_tray_s1610_v06_gt_current.npz": {
+          "bytes": 24331,
+          "sha256": "1a94dc82f42bb43a9a2e377a6d93daac7b5c3ac0d5b26fb6f2e2fcefb0e0317a"
+        },
+        "traces/v66_dev_loho_t4_tray_s1610_v06_gt_recurrent.npz": {
+          "bytes": 24262,
+          "sha256": "7c83e88f092b616d0eab3e70c2bff625ecffe39217e091cd7adfe7084385da4d"
+        },
+        "traces/v66_dev_loho_t4_tray_s1610_v06_recurrent_random.npz": {
+          "bytes": 24262,
+          "sha256": "7c83e88f092b616d0eab3e70c2bff625ecffe39217e091cd7adfe7084385da4d"
+        },
+        "traces/v66_dev_loho_t4_tray_s1610_v06_recurrent_wm.npz": {
+          "bytes": 24262,
+          "sha256": "7c83e88f092b616d0eab3e70c2bff625ecffe39217e091cd7adfe7084385da4d"
+        },
+        "traces/v66_dev_loho_t4_tray_s1620_stock.npz": {
+          "bytes": 24199,
+          "sha256": "a704a2a8c30f362814bd4be9a5be390db83fce10461e9a354a1598dc35ec136a"
+        },
+        "traces/v66_dev_loho_t4_tray_s1620_v06_gt_current.npz": {
+          "bytes": 24405,
+          "sha256": "56ca03bb99c8da4eb8f5e3b608e63544ea2b09358537a9c2d4cce05bd9fa681b"
+        },
+        "traces/v66_dev_loho_t4_tray_s1620_v06_gt_recurrent.npz": {
+          "bytes": 24448,
+          "sha256": "8b468d0ab9458614e59ab640fd431b9ee5ae2ea15357b601a43c4176f4445fe5"
+        },
+        "traces/v66_dev_loho_t4_tray_s1620_v06_recurrent_random.npz": {
+          "bytes": 24448,
+          "sha256": "8b468d0ab9458614e59ab640fd431b9ee5ae2ea15357b601a43c4176f4445fe5"
+        },
+        "traces/v66_dev_loho_t4_tray_s1620_v06_recurrent_wm.npz": {
+          "bytes": 24448,
+          "sha256": "8b468d0ab9458614e59ab640fd431b9ee5ae2ea15357b601a43c4176f4445fe5"
+        },
+        "traces/v66_dev_loho_t4_tray_s1630_stock.npz": {
+          "bytes": 24190,
+          "sha256": "2a7b9b1419b24646cbee0baa422129b2a556f6e615554a07bb435dbe1b802110"
+        },
+        "traces/v66_dev_loho_t4_tray_s1630_v06_gt_current.npz": {
+          "bytes": 24358,
+          "sha256": "57f7d8b7257f9383b3d84c8ad471f239c99dd28e0e2f4193def9d2fd2be5c8fc"
+        },
+        "traces/v66_dev_loho_t4_tray_s1630_v06_gt_recurrent.npz": {
+          "bytes": 24416,
+          "sha256": "ccf067f18bd7731a741c29e16891b19473ea49d8d67c6bf8ce9f1b6ce1a4b0b1"
+        },
+        "traces/v66_dev_loho_t4_tray_s1630_v06_recurrent_random.npz": {
+          "bytes": 24416,
+          "sha256": "ccf067f18bd7731a741c29e16891b19473ea49d8d67c6bf8ce9f1b6ce1a4b0b1"
+        },
+        "traces/v66_dev_loho_t4_tray_s1630_v06_recurrent_wm.npz": {
+          "bytes": 24416,
+          "sha256": "ccf067f18bd7731a741c29e16891b19473ea49d8d67c6bf8ce9f1b6ce1a4b0b1"
+        },
+        "traces/v66_dev_loho_t4_tray_s1640_stock.npz": {
+          "bytes": 24266,
+          "sha256": "9b37b6e69c81203d33f77e873b8c63330fb0c84540a4b54a42fdcdb2267002be"
+        },
+        "traces/v66_dev_loho_t4_tray_s1640_v06_gt_current.npz": {
+          "bytes": 24333,
+          "sha256": "07bf2704de7a0cb6ef011a96fa1124490362087155b6d89bd69047af5f8968cc"
+        },
+        "traces/v66_dev_loho_t4_tray_s1640_v06_gt_recurrent.npz": {
+          "bytes": 24431,
+          "sha256": "72aa0d25c0234798006354424f60f55e14d99f7f4f4aa316f5f19a5f3f2c07c7"
+        },
+        "traces/v66_dev_loho_t4_tray_s1640_v06_recurrent_random.npz": {
+          "bytes": 24431,
+          "sha256": "72aa0d25c0234798006354424f60f55e14d99f7f4f4aa316f5f19a5f3f2c07c7"
+        },
+        "traces/v66_dev_loho_t4_tray_s1640_v06_recurrent_wm.npz": {
+          "bytes": 24431,
+          "sha256": "72aa0d25c0234798006354424f60f55e14d99f7f4f4aa316f5f19a5f3f2c07c7"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1600_stock.npz": {
+          "bytes": 26901,
+          "sha256": "6a8588e06632bd2da670348f4da55a22327658c40e7256608ea8e81e8cf801a3"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1600_v06_gt_current.npz": {
+          "bytes": 26916,
+          "sha256": "c732637d3828589f5cc3fddca0ce7e4be864f570c953ad5a80987e3aa81c63d6"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1600_v06_gt_recurrent.npz": {
+          "bytes": 26950,
+          "sha256": "d745dd8678619993401e5bd30e2a2e7056b02589938726303856587fdb0fba61"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1600_v06_recurrent_random.npz": {
+          "bytes": 26950,
+          "sha256": "d745dd8678619993401e5bd30e2a2e7056b02589938726303856587fdb0fba61"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1600_v06_recurrent_wm.npz": {
+          "bytes": 26950,
+          "sha256": "d745dd8678619993401e5bd30e2a2e7056b02589938726303856587fdb0fba61"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1610_stock.npz": {
+          "bytes": 26858,
+          "sha256": "c4b2e18f5586008cd1eaf4fdbc332b09f9afce1a5825646b2fce404a317c93c9"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1610_v06_gt_current.npz": {
+          "bytes": 26923,
+          "sha256": "b4b5958f4d5ee8cbdc4a7dff83ffa75b36f5574fb2179ced5626f71a310815e4"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1610_v06_gt_recurrent.npz": {
+          "bytes": 26961,
+          "sha256": "c6b13064b566d3b2b8deec8216bb267ae062fc807a46bc5f5ad8929f5d4dde27"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1610_v06_recurrent_random.npz": {
+          "bytes": 26961,
+          "sha256": "c6b13064b566d3b2b8deec8216bb267ae062fc807a46bc5f5ad8929f5d4dde27"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1610_v06_recurrent_wm.npz": {
+          "bytes": 26961,
+          "sha256": "c6b13064b566d3b2b8deec8216bb267ae062fc807a46bc5f5ad8929f5d4dde27"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1620_stock.npz": {
+          "bytes": 26914,
+          "sha256": "c97115cf9de4b35a557b6c22e00077a255cd49b9c35fddf3c55976a6b014d668"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1620_v06_gt_current.npz": {
+          "bytes": 26934,
+          "sha256": "fec5d0327e620226404379ab4a0c69cea8102a9f425bae9faaf631318f2072f2"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1620_v06_gt_recurrent.npz": {
+          "bytes": 26871,
+          "sha256": "8f99963b0406e7652bfa9019407fc00ff3a50029c94bf67649fa2c807732f9e8"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1620_v06_recurrent_random.npz": {
+          "bytes": 26871,
+          "sha256": "8f99963b0406e7652bfa9019407fc00ff3a50029c94bf67649fa2c807732f9e8"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1620_v06_recurrent_wm.npz": {
+          "bytes": 26871,
+          "sha256": "8f99963b0406e7652bfa9019407fc00ff3a50029c94bf67649fa2c807732f9e8"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1630_stock.npz": {
+          "bytes": 26919,
+          "sha256": "3c39bab9368e3911f838ee36105a750f2884c733e7cc331e570b0a0b6471c717"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1630_v06_gt_current.npz": {
+          "bytes": 26888,
+          "sha256": "54f1f568f7b2913f5f6d3fe6b7c6ef3da59f8063775b28991ead5c40f4ff76c0"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1630_v06_gt_recurrent.npz": {
+          "bytes": 26894,
+          "sha256": "65505c13f6d91247d8731a6a0632f88fc7550e2080b4b3008ef326938009fb80"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1630_v06_recurrent_random.npz": {
+          "bytes": 26894,
+          "sha256": "65505c13f6d91247d8731a6a0632f88fc7550e2080b4b3008ef326938009fb80"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1630_v06_recurrent_wm.npz": {
+          "bytes": 26894,
+          "sha256": "65505c13f6d91247d8731a6a0632f88fc7550e2080b4b3008ef326938009fb80"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1640_stock.npz": {
+          "bytes": 26943,
+          "sha256": "904640c971e99b57d787e933b6331b3023438ea3faafb814f442fc20d6cb09fc"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1640_v06_gt_current.npz": {
+          "bytes": 26937,
+          "sha256": "3c385092656f17fcda7809022c79a2ecbfca49c9451b8ee03dc05b5ba71b59d3"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1640_v06_gt_recurrent.npz": {
+          "bytes": 26925,
+          "sha256": "6b671d1601973109a9a023c5700d5dae0c2ec6359a10a4162bdea466331a4ce4"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1640_v06_recurrent_random.npz": {
+          "bytes": 26925,
+          "sha256": "6b671d1601973109a9a023c5700d5dae0c2ec6359a10a4162bdea466331a4ce4"
+        },
+        "traces/v66_dev_loho_t5_drawer_cabinet_s1640_v06_recurrent_wm.npz": {
+          "bytes": 26925,
+          "sha256": "6b671d1601973109a9a023c5700d5dae0c2ec6359a10a4162bdea466331a4ce4"
+        }
+      },
+      "n_files": 127,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v06_eval"
+    },
+    "v06_group_selection.json": {
+      "files": {
+        "v06_group_selection.json": {
+          "bytes": 33985,
+          "sha256": "53e7e2787164fc5d34d1981ac718fbef2ae99c2e4b7427a5df0b3fb20e8bed60"
+        }
+      },
+      "n_files": 1,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1"
+    },
+    "v06_policy": {
+      "files": {
+        "action_shift.json": {
+          "bytes": 297,
+          "sha256": "93bea0bfaccce69f6f8c4c32a1e616dd7c2ec675bc3c5de9a3f846d21f21ce4d"
+        },
+        "v06_gt/policy_logs.json": {
+          "bytes": 984,
+          "sha256": "a654b99a17f1d4da60bfd1b0e0dedb7adb0755ec92c9968f94742d677e5cb8f5"
+        },
+        "v06_gt/wz_selected.pt": {
+          "bytes": 1579333,
+          "sha256": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327"
+        },
+        "v06_gt/wz_step0050.pt": {
+          "bytes": 1579077,
+          "sha256": "be90a1b4585ca5707b567dfc8caa5b80407bdfd460e53b8c8b9dae4d981a3882"
+        },
+        "v06_gt/wz_step0100.pt": {
+          "bytes": 1579077,
+          "sha256": "9bc9d0958069d68850fcdb10702c274f025b88ddd94acd60e96914ed209ef0b8"
+        },
+        "v06_gt/wz_step0150.pt": {
+          "bytes": 1579077,
+          "sha256": "5aa4a6f578e34a97bdb9b76599a1b3716a11e38de29487b5f63a33a47e9aa9f3"
+        },
+        "v06_gt/wz_step0200.pt": {
+          "bytes": 1579077,
+          "sha256": "70aa8a3489c40e56ad016985ae341f0b9e3eb00f9ec68106cbf4b7e8792786fc"
+        },
+        "v06_gt/wz_step0250.pt": {
+          "bytes": 1579077,
+          "sha256": "aab3c5e9d427c7031a40a02f15119961943a7259e0fc95a631c764d2a624e2c2"
+        },
+        "v06_gt/wz_step0300.pt": {
+          "bytes": 1579077,
+          "sha256": "ada93ed14b1e1df946279ba30119c62c232df560b65b3e927679d082b1621865"
+        },
+        "v06_random/policy_logs.json": {
+          "bytes": 984,
+          "sha256": "a654b99a17f1d4da60bfd1b0e0dedb7adb0755ec92c9968f94742d677e5cb8f5"
+        },
+        "v06_random/wz_selected.pt": {
+          "bytes": 1579333,
+          "sha256": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327"
+        },
+        "v06_random/wz_step0050.pt": {
+          "bytes": 1579077,
+          "sha256": "be90a1b4585ca5707b567dfc8caa5b80407bdfd460e53b8c8b9dae4d981a3882"
+        },
+        "v06_random/wz_step0100.pt": {
+          "bytes": 1579077,
+          "sha256": "9bc9d0958069d68850fcdb10702c274f025b88ddd94acd60e96914ed209ef0b8"
+        },
+        "v06_random/wz_step0150.pt": {
+          "bytes": 1579077,
+          "sha256": "5aa4a6f578e34a97bdb9b76599a1b3716a11e38de29487b5f63a33a47e9aa9f3"
+        },
+        "v06_random/wz_step0200.pt": {
+          "bytes": 1579077,
+          "sha256": "70aa8a3489c40e56ad016985ae341f0b9e3eb00f9ec68106cbf4b7e8792786fc"
+        },
+        "v06_random/wz_step0250.pt": {
+          "bytes": 1579077,
+          "sha256": "aab3c5e9d427c7031a40a02f15119961943a7259e0fc95a631c764d2a624e2c2"
+        },
+        "v06_random/wz_step0300.pt": {
+          "bytes": 1579077,
+          "sha256": "ada93ed14b1e1df946279ba30119c62c232df560b65b3e927679d082b1621865"
+        },
+        "v06_wm/policy_logs.json": {
+          "bytes": 984,
+          "sha256": "a654b99a17f1d4da60bfd1b0e0dedb7adb0755ec92c9968f94742d677e5cb8f5"
+        },
+        "v06_wm/wz_selected.pt": {
+          "bytes": 1579333,
+          "sha256": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327"
+        },
+        "v06_wm/wz_step0050.pt": {
+          "bytes": 1579077,
+          "sha256": "be90a1b4585ca5707b567dfc8caa5b80407bdfd460e53b8c8b9dae4d981a3882"
+        },
+        "v06_wm/wz_step0100.pt": {
+          "bytes": 1579077,
+          "sha256": "9bc9d0958069d68850fcdb10702c274f025b88ddd94acd60e96914ed209ef0b8"
+        },
+        "v06_wm/wz_step0150.pt": {
+          "bytes": 1579077,
+          "sha256": "5aa4a6f578e34a97bdb9b76599a1b3716a11e38de29487b5f63a33a47e9aa9f3"
+        },
+        "v06_wm/wz_step0200.pt": {
+          "bytes": 1579077,
+          "sha256": "70aa8a3489c40e56ad016985ae341f0b9e3eb00f9ec68106cbf4b7e8792786fc"
+        },
+        "v06_wm/wz_step0250.pt": {
+          "bytes": 1579077,
+          "sha256": "aab3c5e9d427c7031a40a02f15119961943a7259e0fc95a631c764d2a624e2c2"
+        },
+        "v06_wm/wz_step0300.pt": {
+          "bytes": 1579077,
+          "sha256": "ada93ed14b1e1df946279ba30119c62c232df560b65b3e927679d082b1621865"
+        }
+      },
+      "n_files": 25,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v06_policy"
+    },
+    "v06_teachers": {
+      "files": {
+        "calibration.json": {
+          "bytes": 389,
+          "sha256": "7b9d249082f5396da7610bf4d7dff26e4018889d419d64882b79e02a6a7ed089"
+        },
+        "gt_manifest.pt": {
+          "bytes": 5061,
+          "sha256": "1ffbef2f3deef58bd8430ffd9f7c730060647dc2a97588048759f45dba778f14"
+        },
+        "teacher_manifest.pt": {
+          "bytes": 1456949,
+          "sha256": "40b74e048dfc286070ac6ae4b609d8f515e818aea6613cfb62de531f00a841a1"
+        }
+      },
+      "n_files": 3,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v06_teachers"
+    },
+    "v06_wm": {
+      "files": {
+        "checkpoint_epoch004.pt": {
+          "bytes": 103489787,
+          "sha256": "85ea4155822d313f03eb8b2c2019541ad48a84dbdcbaf503f46294e09192ed36"
+        },
+        "checkpoint_epoch009.pt": {
+          "bytes": 103489787,
+          "sha256": "1164e59d89429e9ff347ec5c87b67eaadcd91e45e7d7838a74ea5876f18010d1"
+        },
+        "checkpoint_epoch014.pt": {
+          "bytes": 103489787,
+          "sha256": "57e716bc2ab7eeb4cc57d75e3ce48b0986c2a03a8bb9bfeff4eb6c812c4b6522"
+        },
+        "checkpoint_epoch019.pt": {
+          "bytes": 103489787,
+          "sha256": "6fb545262bb212711e0fb6855ba8694043ad202b3c7a08108d896ef532e23af0"
+        },
+        "checkpoint_epoch024.pt": {
+          "bytes": 103489787,
+          "sha256": "4b2bea3724c1b9f2f6a5ed6b3ae875e812311a5fd660eb79c323426874d60239"
+        },
+        "checkpoint_final.pt": {
+          "bytes": 103488979,
+          "sha256": "08b3ac2ae7bd6c6cf61d26bdcc869fc0f5115e1d4f9269a5b141910b39e71000"
+        },
+        "per_loss_logs.json": {
+          "bytes": 10415,
+          "sha256": "930a9cefb42e80b742340905e2b17147d4614d68ba1a919c2b07a0ce5921cc5c"
+        }
+      },
+      "n_files": 7,
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v06_wm"
+    }
+  },
+  "run_schema": "v067",
+  "schema": "v067_iter1_freeze"
+}
