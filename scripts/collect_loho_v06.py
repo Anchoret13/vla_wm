@@ -3,7 +3,7 @@
 replay audits (NO continuations here; phase B runs them for accepted
 groups only, after tranche-A tolerances are frozen).
 
-Registered contract (2026-07-30 + v6 progress note):
+Registered contract (`plan_and_progress/2026-07-30.md`, execution record):
 - tranche A sources: per task k: stock_train_A seed 2000+10k (stock π0.5,
   canonical prompt), support_train_A seed 2001+10k (privileged pose-set
   staging, DATA-ONLY, provenance `staged`, then stock π0.5 rollout);

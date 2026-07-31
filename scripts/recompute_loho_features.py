@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """H7.3 prerequisite — deterministic feature recompute for the H7.2
-collection (contract gap recorded in the progress note: the collector kept
+collection (contract gap recorded in the 2026-07-29 daily record: the collector kept
 replay provenance but not visual features).
 
 For every collected source: replay the SAME rollout (seed + noise stream),

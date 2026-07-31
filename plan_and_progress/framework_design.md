@@ -1,6 +1,7 @@
 # pi05-lcwm — Framework Design v0.6
 
-Working design record, updated 2026-07-30.
+Working design record, updated 2026-07-31. Architecture v0.6 is unchanged;
+the active work is its supervision-correct execution repair.
 
 H7/v0.5 is complete and remains a negative implementation baseline. It did
 not instantiate the predictive-state contract in Sections 2–5: candidate
@@ -8,6 +9,13 @@ actions transitioned a physical prior while current task features bypassed
 the transition into the outcome heads. v0.6 therefore keeps the research
 identity but replaces the implementation with one language-conditioned
 recurrent predictive state used by both the world model and π0.5.
+
+The first v0.6 execution reached public behavior, but its post-run audit found
+that sibling continuations were not common-noise paired, distinct-goal success
+used the canonical environment goal, and four registered `D_next` semantic
+heads received no loss. Its `0/208` model teachers made the WM/random behavior
+contrast void. Those results are execution evidence, not a negative result on
+the architecture or hypothesis. `2026-07-31.md` owns the repair and next run.
 
 `[LOCKED]` denotes the current method commitment. `[DEC]` denotes an unresolved
 design choice. `[EST]` denotes a quantity that must be measured.
@@ -593,6 +601,11 @@ Successful demonstrations do not identify all alternative-action effects, but
 they are sufficient to learn broad nominal recursive dynamics. They must not be
 reduced to rehearsal-only data.
 
+They also cannot, by repetition alone, identify supported counterfactual
+actions, crossed-goal next semantics, history hidden by the current frame, or
+better-than-reference policy targets. Those require the intervention,
+GoalSpec, history, and paired-continuation data roles below.
+
 ### 6.2 Existing snapshot branches
 
 The H7 bank is not primary candidate-ranking supervision. Although it contains
@@ -628,17 +641,24 @@ collects a fixed task-balanced batch from contact, commitment, recovery,
 placement, and final-two-unresolved states. State selection is semantic and
 physical, never elapsed-time percentile.
 
-Every sibling group includes repeated-action replay-noise estimation and
-common-random-number continuations. Outcomes are exposed at multiple horizons,
-and the labels distinguish current predicate truth, milestones, invalidation,
-damage, and recovery. Crossed language variants are materialized in the
-training index with prompt-conditioned features recomputed from raw
-observations.
+Every valid sibling group **must** include repeated-action replay-noise
+estimation and candidate-independent common-random-number continuations.
+Outcomes are exposed at multiple horizons, and the labels distinguish current
+predicate truth, milestones, invalidation, damage, and recovery. Crossed
+language variants are materialized in the training index with
+prompt-conditioned features recomputed from raw observations.
 
-Collection runs as two bounded tranches and overlaps model implementation. It
-is training-data construction, not a diagnostic gate; the complete budgets,
-candidate provenance, paired-continuation rule, and artifacts are locked in
-V6.2 of `2026-07-30.md`.
+Iteration 1 did not satisfy this normative contract: its continuation RNG
+included branch identity, its distinct-goal success label used the canonical
+environment goal, and numerical micro-motion could satisfy the single
+`effect_resolved` flag. The repair separates physical effect, task-object
+effect, semantic disagreement, policy rankability, reference improvement, and
+history contrast instead of treating one flag as all six.
+
+Collection is training-data construction, not a standalone diagnostic gate.
+The original two tranches and their physical branches are retained as
+iteration-1 evidence; the corrected continuation/relabel contract and any
+conditional targeted expansion are owned by `2026-07-31.md`.
 
 ---
 
@@ -723,7 +743,8 @@ Report from held-out source episodes:
 - one-step latent prediction against the EMA posterior target;
 - two- and three-block open-loop latent prediction;
 - comparison with no-action, copy-state, and mean-next-state baselines;
-- task-object physical-effect error on effect-resolved branches;
+- task-object physical-effect error on separately labeled meaningful-effect
+  branches, always against a zero-effect baseline;
 - predicate-flip and phase-aware progress metrics;
 - reward/value calibration;
 - candidate pairwise accuracy, top-1 regret, and ranking correlation;
@@ -771,10 +792,12 @@ The final claim requires all three:
 
 ## 9. Promotion logic
 
-Offline losses, rank statistics, and latent diagnostics do not decide whether
-v0.6 reaches policy training. Mechanical contract checks prevent invalid jobs;
-the first scientific route selector is the fixed public-LoHo `N=1` behavior
-matrix:
+Offline losses, rank statistics, and latent diagnostics do not choose the
+architecture or substitute for behavior. Mechanical contract checks prevent
+invalid jobs, and a nonempty state/weight assertion prevents a nominal arm
+from becoming a byte-identical zero-loss duplicate. Every informative channel
+then reaches the public-LoHo `N=1` behavior matrix, which remains the first
+scientific route selector:
 
 | arm | purpose |
 |---|---|
@@ -842,15 +865,21 @@ ablations rather than serial preconditions for the first training run.
 - freeze the world model during the first policy readout and train only the
   registered state-to-flow projection;
 - use ordinary trajectories for recursive dynamics;
-- use effect-resolved branches for alternative-action learning and grounded
-  policy controls;
-- run policy training after mechanical correctness checks without an offline
-  performance gate;
+- use separately labeled physical-effect, semantic-effect, rankable, and
+  reference-improving branches for their corresponding losses and controls;
+- run policy training after mechanical correctness and nonempty-comparison
+  checks without using an offline model score to choose architecture;
 - treat public H-WM LIBERO-LoHo Task1–5 as the primary long-horizon endpoint;
 - deploy a full-prompt `N = 1` VLA.
 
 ### Open
 
+- whether corrected counterfactual data produces source-disjoint,
+  task-relevant action and reference-improvement support;
+- whether the complete transitioned next-semantic heads generalize beyond
+  numerical zero/copy baselines;
+- whether a corrected model emits calibrated teachers that beat their exactly
+  matched random assignments;
 - whether the faithful recurrent state improves public behavior;
 - whether WM-selected training beats matched random selection;
 - whether grounded executed targets improve the current-state policy;
@@ -869,6 +898,22 @@ ablations rather than serial preconditions for the first training run.
 - the H7 recurrent gate was behaviorally inactive, so H7 does not tell us
   whether useful carried state helps.
 
+### Resolved by v0.6 iteration 1
+
+- the recurrent LC state, transitioned candidate path, no-bypass decoder,
+  recurrent teacher unroll, Wz-only π0.5 interface, and public-LoHo evaluator
+  can be executed end to end;
+- iteration-1 model teachers were `0/208`, so its WM/random behavior contrast
+  was void rather than a learned tie;
+- continuation branch identity entered the RNG, so iteration-1 ranking,
+  calibration, and GT targets are not clean sibling-paired labels;
+- distinct-goal terminal success and four registered `D_next` semantic heads
+  were not faithfully supervised;
+- the existing interface can create a large action shift, but two repeated
+  targets mostly learned a shared bias; PEFT is not the first repair;
+- generic `effect_resolved` counts do not measure the policy-relevant
+  counterfactual support required by a world model.
+
 ### Retired as immediate priorities
 
 - further q-channel-only diagnostics;
@@ -878,36 +923,40 @@ ablations rather than serial preconditions for the first training run.
 - collecting large crossed branch datasets before a method vertical slice;
 - making frozen-policy reranking the main system;
 - treating crossed-language data as the paper's central contribution;
-- requiring perfect physical-state reconstruction before policy learning.
+- requiring perfect physical-state reconstruction before policy learning;
+- expanding the same zero-tolerance micro-effect selector before repairing
+  causal pairing, GoalSpec labels, and next-semantic supervision.
 
 ---
 
 ## 11. Immediate implementation sequence
 
-H0–H7 are complete. The only active executable sequence is v0.6:
+H0–H7 and v0.6 iteration 1 are complete. The only active sequence is its V6.7
+supervision-correct rerun:
 
-1. freeze the H7 negative baseline and its implementation audit;
-2. implement one faithful
-   \(z_t^\ell\rightarrow T(z_t^\ell,a_i)\rightarrow\widehat y_i^\ell\)
-   candidate path plus mechanical leakage/gradient/parity tests;
-3. collect two bounded tranches of task-balanced contact/late/recovery
-   branches with replay-noise repeats, common-noise continuations, task
-   automata, and real crossed-language labels;
-4. train one fixed seed-0 recurrent world model with latent closure, grounded
-   outcome heads, and pairwise sibling preference;
-5. freeze approximately 200 full-prompt `N=4` teacher states and generate
-   calibrated WM and exactly matched random targets;
-6. train GT-only, recurrent-random, and recurrent-WM π0.5 flow interfaces
-   from the same stock initialization; evaluate the GT-only checkpoint in
-   current/reset and recurrent-carry modes with identical weights;
-7. run the 125-episode public-LoHo development matrix immediately;
-8. either freeze a winner for sealed confirmation and LIBERO-10 retention or
-   make one repair localized by the behavior contrasts.
+1. freeze iteration-1 artifacts and bind a new non-overwriting lineage;
+2. repair candidate-independent sibling CRN and GoalSpec-specific terminal
+   semantics;
+3. regenerate phase-B continuations and full crossed next-semantic labels on
+   the existing physical branch bank;
+4. train every registered `D_next` head through the transitioned latent and
+   add real history support plus source-held-out metrics;
+5. train one fixed seed-0 v0.6 world model from scratch;
+6. rebuild corrected GT, calibrated WM, and exactly matched random teachers;
+7. post-train `W_z` with task/source/phase-balanced target and rehearsal
+   coverage;
+8. run a fresh public-LoHo development matrix whenever the compared channels
+   are nonempty;
+9. if clean data leave a task/channel empty, use the old audit backlog and
+   then bounded failure-anchored V6.8 acquisition before returning to the
+   same model→teacher→policy→behavior chain;
+10. freeze a winner for sealed confirmation and LIBERO-10 retention, or route
+    one failure localized by the valid behavioral contrasts.
 
-The exact source budget, candidate provenance, automaton target, common-noise
-contract, file surfaces, policy matching rules, and failure routing are in
-`2026-07-30.md`. Earlier H7 checklists are historical and must not be used as
-implementation instructions.
+`2026-07-31.md` is the only active action queue and owns exact artifact paths,
+validity assertions, job order, and V6.8 routing. `2026-07-30.md` contains the
+frozen preregistration, merged iteration-1 execution record, and appended
+audit. Earlier H7 queues remain historical.
 
 ---
 
@@ -933,9 +982,21 @@ It does not establish that language-conditioned predictive dynamics or
 visual-action history are unnecessary. The H7 branch bank was mostly tied,
 continuation randomness was not paired, candidate actions did not transition
 the complete task-conditioned state, crossed distinct-goal labels did not
-enter training, and recurrence remained gated out of the policy. v0.6 is the
-first implementation required to instantiate those parts together and carry
-them through a policy behavior readout.
+enter training, and recurrence remained gated out of the policy.
+
+v0.6 iteration 1 then implemented the intended recurrent candidate graph and
+reached a 125-episode behavior matrix. Stock achieved `SR=.040/Q=.560`; the
+GT-current arm achieved `SR=.040/Q=.511`; all three recurrent arms shared one
+byte-identical `W_z` and achieved `SR=.000/Q=.528`. This is not evidence that
+WM selection ties random selection: the calibrated teacher set was empty, so
+the comparison was void by construction.
+
+The post-run audit further found candidate-specific continuation noise,
+canonical-only success labels for distinct goals, silent next-semantic heads,
+micro-effect admission, no explicit history contrasts, and a task-truncated
+policy rehearsal schedule. v0.6 iteration 1 therefore does not establish
+whether the faithful predictive state improves policy. V6.7 keeps the graph
+and repairs the supervision before repeating the same policy behavior readout.
 
 LC-Flow becomes the intended framework only when the following causal chain is
 instantiated:
@@ -991,10 +1052,16 @@ decisions.
 
 v0.6 removes the separate current `c/g` candidate readout and binds every
 candidate head to one transitioned \(z^\ell\). The same \(z^\ell\) enters the
-π0.5 flow interface through one zero-initialized projection. Crossed language
-labels, task automata, paired continuations, one-/multi-block latent closure,
-physical/task grounding, and sibling preference are all trained in the same
-fixed run.
+π0.5 flow interface through one zero-initialized projection. A faithful
+execution **must** jointly train crossed language labels, task automata,
+candidate-independent paired continuations, one-/multi-block latent closure,
+physical/task grounding, and sibling preference through that state.
+
+Iteration 1 instantiated the graph but not all of this supervision: its
+continuations were candidate-noise-specific, distinct-goal success was wrong,
+and four next-semantic heads remained at initialization. V6.7 is the second
+execution of the same architecture and exists to make this paragraph true in
+the trained checkpoint.
 
 The data batch targets contact, object motion, recovery, placement, and final
 unresolved subgoals. Ranking support is a within-snapshot paired contrast
@@ -1003,8 +1070,10 @@ not evidence.
 
 ### 13.3 Execution ownership
 
-The detailed v0.6 contract in `2026-07-30.md` is the only active action queue.
-This design document owns the architectural invariants; the daily file owns
-budgets, artifacts, job order, and routing. H7 documents remain immutable
-evidence. Another broad diagnostic phase or a fixed 360-sample prerequisite
-is not part of the mainline.
+The detailed repair contract in `2026-07-31.md` is the only active action
+queue. This design document owns the architectural invariants; the daily file
+owns budgets, artifacts, job order, and routing. `2026-07-30.md` remains the
+frozen preregistration with its immutable merged iteration-1 record and dated
+audit correction. The H7 record in `2026-07-29.md` remains historical evidence.
+Another broad diagnostic phase or a fixed 360-sample
+prerequisite is not part of the mainline.

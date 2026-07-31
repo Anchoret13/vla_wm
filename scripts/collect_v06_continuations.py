@@ -202,7 +202,7 @@ def main() -> None:
                             # validity/events, zero the flip log so
                             # damage/tau_next measure THIS continuation
                             # (branch-window flips are in the phase-A
-                            # record). Registered in the v6 note.
+                            # record). Registered in the 2026-07-30 execution record.
                             auto.flips = []
                             obs_c = env._format_raw_obs(
                                 env._env.env._get_observations())

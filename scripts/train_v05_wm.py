@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """H7.3 — train the fixed `v05_gated_wm` world model (seed 0, registered
-budget; scoping decisions in 2026-07-29-h7-progress-note.md).
+budget; scoping decisions in `plan_and_progress/2026-07-29.md`, H7 record).
 
 Data: 18 demo episodes (H_late from seq_prefix_cache_v1 + H_early SigLIP
 from seq_libero_10_v2, t-aligned) + 40 public snapshots / 160 branches with

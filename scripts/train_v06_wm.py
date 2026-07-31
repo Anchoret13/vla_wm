@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-"""V6.3 — one fixed v0.6 world-model training job (bindings in the
-2026-07-30 v6 progress note; registered before any run).
+"""V6.3 — one fixed v0.6 world-model training job (bindings in the merged
+execution record of `plan_and_progress/2026-07-30.md`; registered before any run).
 
 π0.5 is never loaded here: h features come from the fp16 sidecars.
 Loss families: seq_phys, current, reward, closure1, closure23, para,

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """H7.2 — bounded public-task training collection (registered contract in
-2026-07-29-h7-progress-note.md; operationalizations fixed before this run).
+`plan_and_progress/2026-07-29.md`, H7 record; fixed before this run).
 
 20 sources (5 tasks x [stock 1400/1410, cur_wm 1420/1430]) -> 40 snapshots
 (first-persistent-failure + late-unresolved per source) -> 160 branches
@@ -122,7 +122,7 @@ def main() -> None:
         "sources": sorted(source_manifest),
         "split_rule": "by source episode: seeds 1400/1420 train, 1410/1430 dev",
         "noise_base": NOISE_BASE,
-        "registered": "2026-07-29-h7-progress-note.md H7.2 registration",
+        "registered": "plan_and_progress/2026-07-29.md H7.2 registration",
     }, indent=2))
     print(f"-> {OUT}", flush=True)
 
