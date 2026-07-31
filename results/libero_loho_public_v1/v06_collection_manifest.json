@@ -1,0 +1,377 @@
+{
+  "schema": "v06_collection_manifest_v1",
+  "sources": {
+    "loho_t1_drawer_staged_s2001": {
+      "task": "loho_t1_drawer",
+      "seed": 2001,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "staged",
+      "n_decisions": 70,
+      "staging": {
+        "anchor_site": "wooden_cabinet_1_top_region",
+        "staged": [
+          {
+            "object": "butter_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "482f7572f6febe1b"
+    },
+    "loho_t1_drawer_staged_s2003": {
+      "task": "loho_t1_drawer",
+      "seed": 2003,
+      "tranche": "B",
+      "split": "dev",
+      "provenance": "staged",
+      "n_decisions": 70,
+      "staging": {
+        "anchor_site": "wooden_cabinet_1_top_region",
+        "staged": [
+          {
+            "object": "butter_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "acea6a0ac27ff840"
+    },
+    "loho_t1_drawer_stock_s2000": {
+      "task": "loho_t1_drawer",
+      "seed": 2000,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 70,
+      "staging": null,
+      "sha256": "f1061528a57f68e8"
+    },
+    "loho_t1_drawer_stock_s2002": {
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "tranche": "B",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 70,
+      "staging": null,
+      "sha256": "726184cbd5094137"
+    },
+    "loho_t2_basket3_staged_s2011": {
+      "task": "loho_t2_basket3",
+      "seed": 2011,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "staged",
+      "n_decisions": 27,
+      "staging": {
+        "anchor_body": "basket_1_main",
+        "staged": [
+          {
+            "object": "alphabet_soup_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "butter_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "b1c0dbc326e6da40"
+    },
+    "loho_t2_basket3_staged_s2013": {
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "tranche": "B",
+      "split": "dev",
+      "provenance": "staged",
+      "n_decisions": 29,
+      "staging": {
+        "anchor_site": "basket_1_contain_region",
+        "staged": [
+          {
+            "object": "alphabet_soup_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "butter_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "fa27e45116fd5a7d"
+    },
+    "loho_t2_basket3_stock_s2010": {
+      "task": "loho_t2_basket3",
+      "seed": 2010,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "e1c2a27c5feb883a"
+    },
+    "loho_t2_basket3_stock_s2012": {
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "tranche": "B",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "16bdbef8ef600c88"
+    },
+    "loho_t3_tray_staged_s2021": {
+      "task": "loho_t3_tray",
+      "seed": 2021,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "staged",
+      "n_decisions": 23,
+      "staging": {
+        "anchor_body": "wooden_tray_1_main",
+        "staged": [
+          {
+            "object": "alphabet_soup_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "cream_cheese_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "548755c936438a98"
+    },
+    "loho_t3_tray_staged_s2023": {
+      "task": "loho_t3_tray",
+      "seed": 2023,
+      "tranche": "B",
+      "split": "dev",
+      "provenance": "staged",
+      "n_decisions": 17,
+      "staging": {
+        "anchor_site": "wooden_tray_1_contain_region",
+        "staged": [
+          {
+            "object": "alphabet_soup_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "cream_cheese_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "c7b628580a0ce5ae"
+    },
+    "loho_t3_tray_stock_s2020": {
+      "task": "loho_t3_tray",
+      "seed": 2020,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "5e087be60e5fd7df"
+    },
+    "loho_t3_tray_stock_s2022": {
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "tranche": "B",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "d43ff51cd189f7a5"
+    },
+    "loho_t4_tray_staged_s2031": {
+      "task": "loho_t4_tray",
+      "seed": 2031,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "staged",
+      "n_decisions": 16,
+      "staging": {
+        "anchor_body": "wooden_tray_1_main",
+        "staged": [
+          {
+            "object": "akita_black_bowl_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "new_salad_dressing_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "49fc693b93b39081"
+    },
+    "loho_t4_tray_staged_s2033": {
+      "task": "loho_t4_tray",
+      "seed": 2033,
+      "tranche": "B",
+      "split": "dev",
+      "provenance": "staged",
+      "n_decisions": 90,
+      "staging": {
+        "anchor_site": "wooden_tray_1_contain_region",
+        "staged": [
+          {
+            "object": "akita_black_bowl_1",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "new_salad_dressing_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "c50f014b840bf444"
+    },
+    "loho_t4_tray_stock_s2030": {
+      "task": "loho_t4_tray",
+      "seed": 2030,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "bfee7923ef2b82d7"
+    },
+    "loho_t4_tray_stock_s2032": {
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "tranche": "B",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 90,
+      "staging": null,
+      "sha256": "ab91b760f3abc830"
+    },
+    "loho_t5_drawer_cabinet_staged_s2041": {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2041,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "staged",
+      "n_decisions": 99,
+      "staging": {
+        "anchor_site": "wooden_cabinet_1_top_region",
+        "staged": [
+          {
+            "object": "butter_2",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "chocolate_pudding_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "7cca5e7bd04aa91b"
+    },
+    "loho_t5_drawer_cabinet_staged_s2043": {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "tranche": "B",
+      "split": "dev",
+      "provenance": "staged",
+      "n_decisions": 99,
+      "staging": {
+        "anchor_site": "wooden_cabinet_1_top_region",
+        "staged": [
+          {
+            "object": "butter_2",
+            "placed": true,
+            "z": 0.1
+          },
+          {
+            "object": "chocolate_pudding_1",
+            "placed": true,
+            "z": 0.1
+          }
+        ]
+      },
+      "sha256": "c77d2f689c9a3dad"
+    },
+    "loho_t5_drawer_cabinet_stock_s2040": {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2040,
+      "tranche": "A",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 99,
+      "staging": null,
+      "sha256": "4a66ea1b6bdfde00"
+    },
+    "loho_t5_drawer_cabinet_stock_s2042": {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "tranche": "B",
+      "split": "train",
+      "provenance": "stock",
+      "n_decisions": 99,
+      "staging": null,
+      "sha256": "b6baa4d7a105be69"
+    }
+  },
+  "split_counts": {
+    "train": 15,
+    "dev": 5
+  },
+  "tolerances": {
+    "eef_pos": 0.001965653896331787,
+    "eef_quat": 0.0007840547710657111,
+    "gripper": 0.0001548120751976959,
+    "obj_pos": 0.0,
+    "valid_bits": 0.0
+  },
+  "accepted_groups": 30,
+  "per_task_counts": {
+    "loho_t1_drawer": {
+      "groups": 6,
+      "policy_rankable": 0,
+      "cross_goal_disagreement": 1
+    },
+    "loho_t2_basket3": {
+      "groups": 6,
+      "policy_rankable": 1,
+      "cross_goal_disagreement": 2
+    },
+    "loho_t3_tray": {
+      "groups": 5,
+      "policy_rankable": 2,
+      "cross_goal_disagreement": 3
+    },
+    "loho_t4_tray": {
+      "groups": 6,
+      "policy_rankable": 2,
+      "cross_goal_disagreement": 3
+    },
+    "loho_t5_drawer_cabinet": {
+      "groups": 7,
+      "policy_rankable": 2,
+      "cross_goal_disagreement": 3
+    }
+  },
+  "history_contrast_rows": "NOT COLLECTED in tranches A/B \u2014 recorded gap; no matched pairs manufactured",
+  "goal_spec_manifest_sha256": "dd7f60704cc8cfb777be766c5761d96f148adfc3e7ff997002abd8263bc7fab3",
+  "manifest_sha256": "237a2c535a60a8771f822e874a92f4c6ebfdfec23bde3289eaaa8176a9634a84"
+}

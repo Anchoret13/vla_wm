@@ -165,3 +165,14 @@ continuations, not by these physical micro-differences.
 - e2e training smoke (2 epochs, tranche A): PASSED — all 12 registered
   loss families active, finite, and declining; no silent families.
   Offline numbers are mechanics only, per the queue.
+
+## Two-tranche manifest FROZEN; fixed V6.3 launched
+
+20/20 sources (15 train / 5 dev; all staged sources placed via region-site
+anchors). 30 accepted groups with paired continuations. Per-task support
+counts (descriptive, not gates): policy_rankable t1..t5 = 0/1/2/2/2;
+cross_goal_disagreement = 1/2/3/3/3. History-contrast rows: NOT collected
+in tranches A/B — recorded as a support gap (no matched pairs
+manufactured); the D_current grounding trains memory only through real
+sequential labels. The fixed seed-0 run restarts from scratch on this
+manifest with the registered budget.

@@ -30,6 +30,16 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t1_drawer_staged_s2003",
+      "task": "loho_t1_drawer",
+      "seed": 2003,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 11,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t1_drawer_stock_s2000",
       "task": "loho_t1_drawer",
       "seed": 2000,
@@ -47,6 +57,16 @@
       "split": "train",
       "slot": "slot2",
       "decision": 60,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 6,
       "effect_resolved": true
     },
     {
@@ -70,6 +90,26 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 5,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 24,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t2_basket3_stock_s2010",
       "task": "loho_t2_basket3",
       "seed": 2010,
@@ -77,6 +117,16 @@
       "split": "train",
       "slot": "slot1",
       "decision": 5,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 9,
       "effect_resolved": true
     },
     {
@@ -100,6 +150,16 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t3_tray_staged_s2023",
+      "task": "loho_t3_tray",
+      "seed": 2023,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 5,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t3_tray_stock_s2020",
       "task": "loho_t3_tray",
       "seed": 2020,
@@ -107,6 +167,16 @@
       "split": "train",
       "slot": "slot1",
       "decision": 5,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 12,
       "effect_resolved": true
     },
     {
@@ -130,6 +200,16 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t4_tray_staged_s2033",
+      "task": "loho_t4_tray",
+      "seed": 2033,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 4,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t4_tray_stock_s2030",
       "task": "loho_t4_tray",
       "seed": 2030,
@@ -147,6 +227,16 @@
       "split": "train",
       "slot": "slot2",
       "decision": 12,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 4,
       "effect_resolved": true
     },
     {
@@ -170,6 +260,26 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 3,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 22,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t5_drawer_cabinet_stock_s2040",
       "task": "loho_t5_drawer_cabinet",
       "seed": 2040,
@@ -187,6 +297,16 @@
       "split": "train",
       "slot": "slot2",
       "decision": 93,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 8,
       "effect_resolved": true
     }
   ],
@@ -252,6 +372,36 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t1_drawer_staged_s2003",
+      "task": "loho_t1_drawer",
+      "seed": 2003,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 23,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_staged_s2003",
+      "task": "loho_t1_drawer",
+      "seed": 2003,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 32,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_staged_s2003",
+      "task": "loho_t1_drawer",
+      "seed": 2003,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 33,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t1_drawer_stock_s2000",
       "task": "loho_t1_drawer",
       "seed": 2000,
@@ -312,6 +462,56 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 7,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 8,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 9,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 57,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t1_drawer_stock_s2002",
+      "task": "loho_t1_drawer",
+      "seed": 2002,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 58,
+      "effect_resolved": false
+    },
+    {
       "source_id": "loho_t2_basket3_staged_s2011",
       "task": "loho_t2_basket3",
       "seed": 2011,
@@ -369,6 +569,66 @@
       "split": "train",
       "slot": "slot2",
       "decision": 25,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 0,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 6,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 7,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 25,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 26,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_staged_s2013",
+      "task": "loho_t2_basket3",
+      "seed": 2013,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 27,
       "effect_resolved": true
     },
     {
@@ -442,6 +702,76 @@
       "effect_resolved": false
     },
     {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 0,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 10,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 11,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 17,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 18,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 28,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t2_basket3_stock_s2012",
+      "task": "loho_t2_basket3",
+      "seed": 2012,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 29,
+      "effect_resolved": false
+    },
+    {
       "source_id": "loho_t3_tray_staged_s2021",
       "task": "loho_t3_tray",
       "seed": 2021,
@@ -488,6 +818,36 @@
       "provenance": "staged",
       "split": "train",
       "slot": "slot2",
+      "decision": 11,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t3_tray_staged_s2023",
+      "task": "loho_t3_tray",
+      "seed": 2023,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 9,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t3_tray_staged_s2023",
+      "task": "loho_t3_tray",
+      "seed": 2023,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 10,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t3_tray_staged_s2023",
+      "task": "loho_t3_tray",
+      "seed": 2023,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
       "decision": 11,
       "effect_resolved": true
     },
@@ -562,6 +922,76 @@
       "effect_resolved": false
     },
     {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 0,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 13,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 14,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 43,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 44,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 55,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t3_tray_stock_s2022",
+      "task": "loho_t3_tray",
+      "seed": 2022,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 56,
+      "effect_resolved": false
+    },
+    {
       "source_id": "loho_t4_tray_staged_s2031",
       "task": "loho_t4_tray",
       "seed": 2031,
@@ -612,6 +1042,36 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t4_tray_staged_s2033",
+      "task": "loho_t4_tray",
+      "seed": 2033,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 0,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t4_tray_staged_s2033",
+      "task": "loho_t4_tray",
+      "seed": 2033,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 6,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t4_tray_staged_s2033",
+      "task": "loho_t4_tray",
+      "seed": 2033,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 7,
+      "effect_resolved": true
+    },
+    {
       "source_id": "loho_t4_tray_stock_s2030",
       "task": "loho_t4_tray",
       "seed": 2030,
@@ -649,6 +1109,56 @@
       "split": "train",
       "slot": "slot2",
       "decision": 13,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 5,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 6,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 7,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 16,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t4_tray_stock_s2032",
+      "task": "loho_t4_tray",
+      "seed": 2032,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 17,
       "effect_resolved": false
     },
     {
@@ -712,6 +1222,56 @@
       "effect_resolved": true
     },
     {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 20,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot1",
+      "decision": 21,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 23,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 24,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_staged_s2043",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2043,
+      "provenance": "staged",
+      "split": "dev",
+      "slot": "slot2",
+      "decision": 25,
+      "effect_resolved": false
+    },
+    {
       "source_id": "loho_t5_drawer_cabinet_stock_s2040",
       "task": "loho_t5_drawer_cabinet",
       "seed": 2040,
@@ -750,33 +1310,83 @@
       "slot": "slot2",
       "decision": 92,
       "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 9,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 10,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot1",
+      "decision": 11,
+      "effect_resolved": true
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 82,
+      "effect_resolved": false
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_stock_s2042",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2042,
+      "provenance": "stock",
+      "split": "train",
+      "slot": "slot2",
+      "decision": 83,
+      "effect_resolved": false
     }
   ],
   "per_task_counts": {
     "loho_t1_drawer": {
-      "audited": 16,
-      "effect_resolved": 14,
-      "accepted": 4
+      "audited": 26,
+      "effect_resolved": 22,
+      "accepted": 6
     },
     "loho_t2_basket3": {
-      "audited": 16,
-      "effect_resolved": 10,
-      "accepted": 3
+      "audited": 32,
+      "effect_resolved": 20,
+      "accepted": 6
     },
     "loho_t3_tray": {
-      "audited": 15,
-      "effect_resolved": 9,
-      "accepted": 3
+      "audited": 27,
+      "effect_resolved": 15,
+      "accepted": 5
     },
     "loho_t4_tray": {
-      "audited": 13,
-      "effect_resolved": 11,
-      "accepted": 4
+      "audited": 23,
+      "effect_resolved": 18,
+      "accepted": 6
     },
     "loho_t5_drawer_cabinet": {
-      "audited": 14,
-      "effect_resolved": 13,
-      "accepted": 4
+      "audited": 27,
+      "effect_resolved": 22,
+      "accepted": 7
     }
   },
   "rule": "chronologically first effect_resolved per slot per source; rejected groups keep first-ten/replay records, no continuations"
