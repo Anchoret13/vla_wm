@@ -64,6 +64,15 @@ def cont_seed(task_index: int, snap_decision: int, branch_index: int,
             + branch_index * 40 + repeat * 20 + cont_decision)
 
 
+def restore_clean(env, snapshot, restore_fn) -> None:
+    """restore() does not clear robosuite's terminal flag; a continuation
+    that reached terminal success would otherwise poison every later
+    restore (this path was never exercised before v0.6 — H7.2 had 0/160
+    terminal continuations)."""
+    restore_fn(env, snapshot)
+    env._env.env.done = False
+
+
 @torch.no_grad()
 def main() -> None:
     from lcwm.chassis import Pi05Runner
@@ -158,7 +167,7 @@ def main() -> None:
                                for b in audit["branches"]
                                if b["kind"] != "replay"]
                 for branch, branch_index in branch_list:
-                    restore(env, snaps[d])
+                    restore_clean(env, snaps[d], restore)
                     term_branch = False
                     for a_env in branch["actions_env"]:
                         _o, _r, tb, tr, _i = env.step(a_env)
@@ -170,7 +179,7 @@ def main() -> None:
                     for goal in goals:
                         gid = goal["goal_spec_id"]
                         for repeat in range(R):
-                            restore(env, branch_end)
+                            restore_clean(env, branch_end, restore)
                             auto = GoalAutomaton(
                                 goal["ordered_subgoals"])
                             base = automata[gid]
