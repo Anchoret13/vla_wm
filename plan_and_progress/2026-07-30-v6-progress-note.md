@@ -209,3 +209,43 @@ reduce to {stock vs gt_current vs gt_recurrent} with n(GT targets)=2.
 The pre-registered matrix still runs in full (no offline threshold may
 cancel it), but the WM-vs-random contrast is void this iteration by
 construction, not by behavioral evidence.
+
+## V6.5 + V6.6 COMPLETE — iteration-1 endpoint and registered routing
+
+Policy stage: all three W_z checkpoints selected at step 300 with
+identical dev objective 0.0877 and **bitwise-identical W_z**
+(sha e43accad…, |W_z|=0.497) — the pre-registered mechanical consequence
+of 0 emitted teachers held exactly.
+
+125-episode development matrix (seeds 1600–1640, n=25/arm):
+
+| arm | SR | Q_valid | P_valid |
+|---|---|---|---|
+| stock | 0.040 | 0.560 | 0.238 |
+| v06_gt_current | 0.040 | 0.511 | 0.224 |
+| v06_gt_recurrent | 0.000 | 0.528 | 0.176 |
+| v06_recurrent_random | 0.000 | 0.528 | 0.176 |
+| v06_recurrent_wm | 0.000 | 0.528 | 0.176 |
+
+The three recurrent arms produced episode-level identical results
+(verified) — one deployed policy, as predicted. Paired contrasts (25 CRN
+pairs): gt_current − stock dQ −0.049 / dSR 0; gt_recurrent − gt_current
+dQ +0.017 / dSR −0.04; WM-vs-random void by construction.
+
+**Promotion trigger NOT met. Registered routing:**
+1. Model-teacher channel: void this iteration — the δ-guard emitted
+   0/208 (dev ranking transfer 0/2 pairs). The measured bottleneck is
+   effect-bearing data support (7 policy_rankable groups, 2 dev non-tied
+   pairs), not the guard.
+2. Grounded-GT channel: gt_current does not improve stock with n(GT)=2;
+   saved action shift is NOT small (RMS 0.040/0.109 vs 0.1× thresholds
+   0.0053/0.0142) → per the registered branch, repair target
+   quality/support, NOT policy-coupling capacity (no PEFT).
+3. Dominant fact across every channel: the crossed/effect bank at
+   20 sources yields too few effect-resolved, rankable, GT-positive, and
+   dev-calibration rows to test the hypothesis. The next decision is a
+   data-support expansion design (more sources / snapshot slots per
+   source / longer effect windows / support-guided proposals), which
+   changes collection scope and is left for review.
+
+Sealed panels (1700s) untouched. No unregistered sweeps were run.

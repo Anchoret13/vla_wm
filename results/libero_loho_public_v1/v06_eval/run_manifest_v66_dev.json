@@ -1,0 +1,40 @@
+{
+  "schema": "v06_eval_v1",
+  "run_id": "v66_dev",
+  "noise_contract": "20e6 + public_task_index*2e6 + env_seed*1e3 + decision; shared across arms; all arms via sample_chunks_lc (stock bias=0)",
+  "arms": [
+    "stock",
+    "v06_gt_current",
+    "v06_gt_recurrent",
+    "v06_recurrent_random",
+    "v06_recurrent_wm"
+  ],
+  "wz_hashes": {
+    "v06_gt_current": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327",
+    "v06_gt_recurrent": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327",
+    "v06_recurrent_random": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327",
+    "v06_recurrent_wm": "d80fd37e6729be01cbdeb67325804bb3949c9fafef5f41e9fcc2b9884784a327"
+  },
+  "wm_checkpoint_sha256": "08b3ac2ae7bd6c6cf61d26bdcc869fc0f5115e1d4f9269a5b141910b39e71000",
+  "tasks": [
+    "loho_t1_drawer",
+    "loho_t2_basket3",
+    "loho_t3_tray",
+    "loho_t4_tray",
+    "loho_t5_drawer_cabinet"
+  ],
+  "seeds": [
+    1600,
+    1610,
+    1620,
+    1630,
+    1640
+  ],
+  "code_files": {
+    "scripts/eval_loho_v06.py": "65f0b980bb7d17f091e251591230bb1e70b9639ee7bcbe75b5b06af5d6ab6d46",
+    "lcwm/v06_model.py": "66b498b743950d7b333f64a7dbe1b181c82ac9b5a8cf74a2994db760ca1c930d",
+    "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+    "lcwm/loho_public.py": "098d51d7e17a41b712611a038b51efabee041e02c17905cb2194a702d63811f6"
+  },
+  "manifest_sha256": "64a09b8a623d54ab33e67ecdbaa64ffd8f3a1bef0dc27bcf681a5cac5e75cbdf"
+}
