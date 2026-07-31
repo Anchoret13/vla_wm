@@ -188,3 +188,24 @@ trainable support is thin (7 policy_rankable groups); current-grounding
 loss plateaus high. Artifacts: results/libero_loho_public_v1/v06_wm/.
 Next: V6.4 teachers → V6.5 three matched W_z jobs → V6.6 125-episode
 development matrix (seeds 1600–1640), per the pre-registered order.
+
+## V6.4 teacher result (registered δ-margin rule, frozen checkpoint)
+
+208 teacher states. Grounded calibration: train 16 non-tied pairs,
+accuracy 0.8125; DEV 2 non-tied pairs, accuracy 0.0 → δ = Q0.90 = 0.510.
+Since p−δ > 0.5 requires p > 1.01, **0/208 model teachers are emitted** —
+the registered guard fired exactly as designed: the WM's paired ranking
+does not transfer to source-disjoint dev at this bank size (2 dev pairs
+is itself the dominant fact — near-zero measurement power). Grounded GT:
+2 policy_gt targets, 0 support_gt.
+
+**Mechanical consequence recorded BEFORE the matrix opens:** with zero
+emitted teachers the generated loss is identically zero in the wm and
+random arms, so all three W_z checkpoints train on identical losses,
+schedules, and noise — they should be bitwise identical (will be
+hash-verified). Under CRN, v06_recurrent_wm and v06_recurrent_random will
+then produce identical episodes; the matrix's informative contrasts
+reduce to {stock vs gt_current vs gt_recurrent} with n(GT targets)=2.
+The pre-registered matrix still runs in full (no offline threshold may
+cancel it), but the WM-vs-random contrast is void this iteration by
+construction, not by behavioral evidence.

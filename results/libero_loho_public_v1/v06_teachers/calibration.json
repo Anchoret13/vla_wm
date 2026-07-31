@@ -1,0 +1,14 @@
+{
+  "delta_q90_dev": 0.510263979434967,
+  "n_dev_nontied_pairs": 2,
+  "dev_pair_accuracy": 0.0,
+  "n_train_nontied_pairs": 16,
+  "train_pair_accuracy": 0.8125,
+  "n_teacher_states": 208,
+  "n_model_teachers_emitted": 0,
+  "gt_counts": {
+    "policy_gt": 2,
+    "support_gt": 0
+  },
+  "note": "non-stock fraction is not evidence of learned selection (random argmax is non-stock w.p. 3/4)"
+}
