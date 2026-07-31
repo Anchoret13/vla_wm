@@ -1,0 +1,15 @@
+{
+  "status": "valid negative result for the implemented v0.5 teacher/readout/adapter contract; NOT a clean negative test of language-conditioned predictive dynamics",
+  "defects": [
+    "candidate-path readout bypass: v0 grounded heads decoded from pool(c,g) only; r1 added pool(w_prior) but task features remained a current-state bypass alongside the transition",
+    "next-observation training mismatch: branch supervision used one null-action update from init, not the deployed unroll",
+    "omitted within-sibling ranking loss (registered, not implemented in the fixed H7.3 run)",
+    "unpaired continuation noise across siblings; 100-action endpoint washed out first-ten effects (3/20 train, 4/20 dev groups with sibling continuation-Q variation)",
+    "policy targets generated from reset state for all arms",
+    "recurrent policy gate effectively shut (|tanh alpha| <= 0.0011; rec-vs-reset bias delta 0.05%)"
+  ],
+  "task_provenance": "five public tasks are a specification-based LIBERO-LoHo reimplementation; no author-protocol parity claim",
+  "h7_data_reuse_rule": "ordinary/null-effect calibration or rehearsal only; sibling-ranking use requires re-evaluation under the v0.6 common-noise, current-valid label contract",
+  "no_init_reuse": "v0.6 must not initialize from H7 model/adapters",
+  "headline_result": "150 dev episodes, seeds 1500-1540: stock SR 0.040 Q 0.516; no v0.5 arm above stock"
+}
