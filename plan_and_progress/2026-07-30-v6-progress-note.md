@@ -106,3 +106,43 @@ registered rule. 57/74 audited groups effect_resolved; 18 accepted
 (first per slot per source; t2/t3 have one slot each with no resolved
 group). policy_rankable is determined only by phase-B paired
 continuations, not by these physical micro-differences.
+
+## V6.3 training bindings (registered before the smoke and the fixed run)
+
+- Budget: seed 0, AdamW lr 3e-4 / wd 1e-4, grad-norm 1.0, TBPTT 16
+  decisions, 25 epochs, EMA decay 0.995, one optimizer step per source
+  visit (loss = mean over present families). No sweeps.
+- h features: per-(source, decision, prompt-sha) fp16 sidecars from
+  cache_v06_features.py; crossed rows share stored physical transitions,
+  never prompt-bound features.
+- Sequence pass (canonical prompt): executed-action physical prediction
+  through D_next(T(z_t,u_t)) with locked v0.4 scales (Huber δ=4);
+  D_current grounding (BCE valid+event bits, MSE ordered-prefix/n);
+  reward = valid-count delta (MSE); 1-step latent closure MSE to the EMA
+  posterior (EMA unrolled in parallel); 2-/3-block open-loop closure
+  (T applied repeatedly, no U) at every 8th decision.
+- Paraphrase pass: full unroll under each paraphrase h; same-goal state
+  consistency MSE (symmetric, every 4th decision) + identical
+  current-grounding labels.
+- Distinct-goal pass: full unroll under the distinct goal's h;
+  current grounding vs THAT goal's automaton labels; shared-physics:
+  identical physical targets supervised from the distinct-goal state.
+- Branch pass: absolute physical effects for every audited branch;
+  within-sibling centered effects over candidates 0..3; both use
+  D_next(predict(z_d, chunk)).
+- Continuation pass (accepted groups): success BCE, P_valid MSE, Q_valid
+  (4 horizons) MSE, τ/101 MSE, damage MSE — per goal, only from that
+  goal's own continuations; Bradley–Terry on s_i for non-tied A_ij
+  within (group, goal), ties masked. A_ij per the registered
+  lexicographic + both-repeats rule; outcome components are discrete
+  counters so the comparison tolerance is 0 (registered).
+- Standard-LIBERO representation support: seq_prefix_cache_v1 demo
+  episodes enter the sequence pass (their cached prefix hidden is h;
+  physical + closure families only — no public automaton labels).
+- Loss-source weighting is balanced by source episode, not by duplicated
+  language rows (each source visited once per epoch; its variant passes
+  averaged within the source's loss).
+- The e2e SMOKE runs this trainer for 2 epochs on tranche A only and
+  gates nothing but mechanics (finite losses, nonzero grads per family,
+  reload). The fixed run restarts from scratch on the frozen two-tranche
+  manifest.
