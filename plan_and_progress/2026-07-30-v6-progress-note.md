@@ -176,3 +176,15 @@ in tranches A/B — recorded as a support gap (no matched pairs
 manufactured); the D_current grounding trains memory only through real
 sequential labels. The fixed seed-0 run restarts from scratch on this
 manifest with the registered budget.
+
+## V6.3 fixed run COMPLETE (seed 0, 25 epochs, registered budget)
+
+Epoch 0→24 (train families): seq_phys 748→28.6, branch_abs 850→42.4,
+shared_phys 294→8.9, closure1 1.34→0.25, closure23 1.50→0.34, current
+1.21→1.15, distinct_current 0.64→0.54, reward 0.050→0.038, cont_heads
+1.23→0.81, ranking 0.693→0.577, para ≈0. No silent loss families.
+These are training diagnostics, not gates. Note honestly: ranking's
+trainable support is thin (7 policy_rankable groups); current-grounding
+loss plateaus high. Artifacts: results/libero_loho_public_v1/v06_wm/.
+Next: V6.4 teachers → V6.5 three matched W_z jobs → V6.6 125-episode
+development matrix (seeds 1600–1640), per the pre-registered order.
