@@ -117,6 +117,13 @@ def main() -> None:
         try:
             runner.reset()
             obs, _ = env.reset(seed=source["seed"])
+            # make_public_env's episode_length does NOT reach the
+            # robosuite horizon (fixed 1000; measured). Late snapshots +
+            # branch + 100-action continuations legitimately exceed it,
+            # and at the horizon robosuite sets done while returning
+            # term=False, so the next step raises. Horizon is a step
+            # budget, not dynamics: raise it directly.
+            env._env.env.horizon = EPISODE_LENGTH[task_name] + 300
             # goal automata unroll from episode reset along the real path
             automata = {}
             for goal in goals:
