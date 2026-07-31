@@ -93,3 +93,16 @@ feature cache.)
   branch-window flips live in the phase-A record.
 - Re-reach determinism asserted against phase-A object positions
   (atol 2e-3) at every pending snapshot decision.
+
+## Tranche A phase-A result
+
+10/10 sources (5 stock, 5 staged — t1/t5 re-collected once after the
+registered site-anchor staging repair; the two body-anchor failures are
+kept on record). 74 exact repeats; frozen 95th-pct tolerances:
+eef_pos 1.97e-3, eef_quat 7.8e-4, gripper 1.5e-4, obj_pos 0.0,
+valid_bits 0.0 — restore/replay is bit-exact on object positions, so any
+candidate-pair object difference qualifies as an effect under the
+registered rule. 57/74 audited groups effect_resolved; 18 accepted
+(first per slot per source; t2/t3 have one slot each with no resolved
+group). policy_rankable is determined only by phase-B paired
+continuations, not by these physical micro-differences.
