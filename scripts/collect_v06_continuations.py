@@ -111,7 +111,8 @@ def main() -> None:
                 automata[goal["goal_spec_id"]] = a
             if source["provenance"] == "staged":
                 canon = automata[spec["canonical"]["goal_spec_id"]]
-                stage_support(env, canon, task_name)
+                stage_support(env, canon, task_name,
+                              recorded=source["staging_info"])
             for a in automata.values():
                 a.evaluate(env, 0)
 

@@ -66,26 +66,39 @@ def obs_q(obs) -> torch.Tensor:
     ])).float()
 
 
-def stage_support(env, automaton, task_name: str) -> dict:
+def stage_support(env, automaton, task_name: str,
+                  recorded: dict | None = None) -> dict:
     """Privileged pose-set of the registered objects into the target
-    region; asserts staged predicates true. DATA-ONLY provenance."""
+    region; asserts staged predicates true. DATA-ONLY provenance.
+
+    `recorded`: a prior source's staging_info — reproduces the SAME
+    anchor mechanism bit-for-bit (phase-B deterministic re-staging).
+    Fresh staging prefers the region SITE (its xpos is the region
+    center); body anchor is the legacy fallback and stays recorded.
+    """
     from lcwm.seq_data import _problem_env
     spec = GOAL_SPECS["tasks"][task_name]["staging"]
     inner = _problem_env(env)
     sim = inner.sim
     fixture = spec["target"].rsplit("_", 2)[0]  # e.g. basket_1
-    if "cabinet" in spec["target"]:
-        candidates = [b for b in sim.model.body_names
-                      if fixture in b and "drawer" in b]
-        anchor_body = candidates[0] if candidates else fixture + "_base"
-        if anchor_body not in sim.model.body_names:
-            anchor_body = next(b for b in sim.model.body_names
-                               if fixture in b)
+    if recorded is not None:
+        if "anchor_site" in recorded:
+            anchor = sim.data.get_site_xpos(
+                recorded["anchor_site"]).copy()
+            info = {"anchor_site": recorded["anchor_site"]}
+        else:
+            anchor = sim.data.get_body_xpos(
+                recorded["anchor_body"]).copy()
+            info = {"anchor_body": recorded["anchor_body"]}
+    elif spec["target"] in sim.model.site_names:
+        anchor = sim.data.get_site_xpos(spec["target"]).copy()
+        info = {"anchor_site": spec["target"]}
     else:
         anchor_body = next(b for b in sim.model.body_names
                            if b == fixture or b.startswith(fixture))
-    anchor = sim.data.get_body_xpos(anchor_body).copy()
-    staged, info = [], {"anchor_body": anchor_body}
+        anchor = sim.data.get_body_xpos(anchor_body).copy()
+        info = {"anchor_body": anchor_body}
+    staged = []
     for k, obj in enumerate(spec["place_objects"]):
         joint = f"{obj}_joint0"
         placed = False
