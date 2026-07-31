@@ -146,3 +146,22 @@ continuations, not by these physical micro-differences.
   gates nothing but mechanics (finite losses, nonzero grads per family,
   reload). The fixed run restarts from scratch on the frozen two-tranche
   manifest.
+
+## Results log — phase B + e2e smoke
+
+- Phase B: 17/18 groups completed on the first pass (470 goal-conditioned
+  continuation records; 6/17 groups policy_rankable by the registered
+  paired-preference rule so far). The 18th group (t5_stock d=93, late
+  slot) exposed two real infrastructure defects, both measured and fixed:
+  (1) restore() does not clear robosuite's terminal flag — a terminal
+  continuation poisoned later restores (path never exercised before:
+  H7.2 had 0/160 terminal continuations); (2) the robosuite horizon is
+  fixed at 1000 regardless of make_public_env's episode_length, and AT
+  the horizon the env sets done while returning term=False, so the next
+  step raises — late snapshot + branch + 100-action continuation
+  legitimately crosses it. Fixes: done-clear on restore + direct horizon
+  override in phase B only. The 17 completed groups were verified
+  unaffected (any horizon crossing would have crashed, none did).
+- e2e training smoke (2 epochs, tranche A): PASSED — all 12 registered
+  loss families active, finite, and declining; no silent families.
+  Offline numbers are mechanics only, per the queue.
