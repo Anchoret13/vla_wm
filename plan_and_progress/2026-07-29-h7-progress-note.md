@@ -356,3 +356,229 @@ bank's 3 variance-bearing groups (would require a new collection design,
 outside current bounds), (b) shorter-horizon continuation grounding on
 existing snapshots, (c) optimization repair for the unstable arm — changes
 data-collection scope and is left for review, not chosen unilaterally.
+
+## 2026-07-30 audit correction — H7 is a pipeline negative, not an LCWM-hypothesis negative
+
+The 150-episode matrix itself is intact. A read-only audit reconstructed all
+six 25-episode arms from the raw records, found no duplicate
+`(task, seed, arm)` keys, verified both run-manifest hashes, and checked every
+saved trace against the registered noise formula. The SR/Q table above is
+therefore a real negative result for the pipeline that ran; it is not an
+evaluator, seed-routing, or result-packaging artifact.
+
+The execution-time H7.6 reading above is retained as a chronological record,
+but its mechanism attribution is superseded by the following audit.
+
+### What the collected labels actually identify
+
+The headline `70/160 dQ_public > 0` is not action-ranking support. It counts a
+branch as positive relative to the snapshot before the subsequent stock
+continuation. The relevant support for ranking is variation among sibling
+actions at the same snapshot:
+
+| grounded quantity | observed support |
+|---|---:|
+| 10-action subgoal/reward sibling variance | 0/40 groups |
+| 100-action continuation-Q sibling variance | 7/40 groups |
+| continuation-Q variance in the train split | 3/20 groups |
+| groups with any non-stock Q above candidate 0 | 3/40 |
+| non-stock branches above / below candidate 0 | 6 / 6 of 120 |
+| terminal-success branches | 0/160 |
+| negative `dQ_public` branches | 0/160 |
+
+Three additional facts explain this:
+
+1. Every one of the 20 `persistent_failure` snapshots is decision 4
+   (`t=40`). The selector called an unchanged first-unresolved subgoal over
+   five decisions a failure, although a normal first-object approach often
+   lasts that long. Overall 32/40 snapshots still have subgoal 0 as their
+   first unresolved phase. Train-split sibling object-outcome dispersion
+   exceeds 1 mm in only 5/20 groups.
+2. Continuation sampling uses a different random stream for each sibling
+   (`cand * 10_000`). With one rollout per candidate, the seven varying
+   continuation-Q groups mix the first-ten action effect with continuation
+   policy noise; they are not clean controlled effects.
+3. `SubgoalTracker.completed` is monotone. A placement or fixture state that
+   is later invalidated remains credited in Q, so all 160 `dQ_public` labels
+   are nonnegative and the collected records contain no actual damage label.
+   This omits the preservation behavior that matters for long-horizon SR.
+
+The policy-teacher manifest also does not extend the grounded support. Its 200
+decision states come from the same source rollouts, but their exact
+intersection with the 40 executed snapshot decisions is **0/200**. The frozen
+WM therefore extrapolates action scores at every teacher state.
+
+### Why the teacher statistic was misleading
+
+The `155/200 = 77.5%` non-stock selection rate is approximately the null
+expectation. With four exchangeable continuous π0.5 samples, an uninformative
+scorer chooses one of candidates 1–3 rather than candidate 0 with probability
+`3/4 = 75%`. The observed count is only five selections above that expectation
+(about 0.82 binomial standard deviations).
+
+On the 20 held-out grounded groups, the frozen r1 checkpoint has:
+
+- absolute continuation-value RMSE `0.1436 Q`;
+- within-sibling centered RMSE `0.0348`;
+- centered RMSE `0.0778` on the four variance-bearing dev groups;
+- median teacher advantage only `0.00234`.
+
+Thus the ranking-relevant error is approximately 15–33 times the median margin,
+yet H7.4 selects any non-stock candidate whose predicted score exceeds
+candidate 0 by an arbitrarily small positive amount. On the grounded groups,
+the frozen scorer's argmax gives one improvement, one regression, and 18 ties
+in train; dev has the same 1/1/18 count. The stable reset result
+`WM ≈ random` is the expected behavioral consequence.
+
+### The implementation did not instantiate the registered LC predictive state
+
+The repaired r1 model made task heads action-sensitive by concatenating a
+language-independent physical prior:
+
+\[
+w_{t+1}^{(i)} = T_w(w_t,a_i),
+\qquad
+\hat y_i = R(c_t^\ell,g_t^\ell,w_{t+1}^{(i)}).
+\]
+
+It never transitions the candidate-conditioned task state
+`g_t^\ell`. Candidate scoring is therefore a language-conditioned readout over
+a physical action prior, not
+
+\[
+z_t^\ell
+\;\xrightarrow{\,T_\ell(\cdot,a_i)\,}\;
+z_{t+1}^{\ell,i}
+\;\xrightarrow{\,R_\ell\,}\;
+\hat y_{t+1}^{\ell,i}.
+\]
+
+Other registered components were absent or explicitly scoped out:
+
+- the current-observation anchored `0.25 tanh` residual update was replaced by
+  an unconstrained CrossUpdate; policy gates do not bound recurrent state;
+- compatible-goal features were cached for T1↔T5, but no compatible-goal
+  labels or loss consumed them; atomic goal relabels were not collected;
+- paraphrases received state MSE only, not the registered task-head agreement;
+- no next-posterior closure, multi-step latent rollout, centered sibling loss,
+  damage head, success head, or within-sibling ranking loss was trained;
+- sequential demo task heads read posterior `c_{t+1},g_{t+1}` after observing
+  the next frame, whereas branch heads read current `c_t,g_t` plus a physical
+  prior; these paths do not share one predictive-state semantics;
+- `TBPTT=16` detaches once at `T-16`, producing two graph segments rather than
+  truncating every 16 transitions.
+
+The deployed policy interface also bypassed the intended memory mechanism.
+`W_c(c_t)` is ungated and dominates the bias. Across manifest states, using
+the same trained adapter with carried versus reset state changes the bias by
+only 0.015–0.046%; all learned memory gates remain approximately `1e-3`.
+Reset and recurrent arms, however, were optimized as separate adapters. They
+already produce different actions at decision 0, before any history exists.
+The `recurrent_wm Q=0.070` arm is therefore an independent-adapter optimization
+collapse, consistent with its rising epoch-3/4 losses, not evidence that
+history is harmful. The near-tied random arms show that history did not obtain
+meaningful policy coupling in this implementation; they do not establish that
+useful history is absent.
+
+### Correct result statement
+
+> H7 establishes that the implemented combination of a readout-style
+> action scorer, nearly non-identifying monotone continuation-Q labels,
+> zero-margin hard teacher selection, and independently optimized AdaRMS
+> adapters does not improve the specification-based public-LoHo development
+> panel. It does not test the registered anchored LC predictive transition,
+> crossed task-identifier supervision, multi-step outcome sufficiency, or a
+> clean same-policy reset-versus-carry history contrast.
+
+Do not spend more seeds on r1 and do not run its sealed confirmation. Preserve
+the artifacts and 150 episodes as the implementation-negative reference.
+
+## H7-r2 — direct training/finetuning action items
+
+This repair is another method iteration, not a return to a serial diagnostic
+program. No 360-continuation bank, latent-rank threshold, or completed offline
+assay is placed in front of the next policy job.
+
+### R2.1 — Correct and extend the training labels
+
+- [ ] Replay the existing 20 source trajectories and stored candidate chunks;
+  use one sibling-shared continuation-noise stream at each continuation
+  decision. If residual policy variance is material, use matched repeated
+  streams rather than one different stream per sibling.
+- [ ] Replace the decision-4 persistence rule with states localized to
+  contact, object motion, recovery, or an actually stalled predicate.
+- [ ] In parallel, add one provenance-labeled late-support source per task
+  that reaches a state with one of the final two subgoals unresolved; collect
+  a small branch set around those states. This is training data and does not
+  delay model implementation on the replayed sources.
+- [ ] Store multi-horizon targets at the executed branch boundary and after
+  bounded continuation, including current-valid predicate bits, ordered
+  prefix, invalidation/damage events, terminal conjunction, and signed
+  progress. Immediate Euclidean distance remains excluded as an advantage.
+- [ ] Relabel each physical branch under canonical, paraphrase, compatible
+  T1/T5, and per-object atomic goals. Verify at least one action×goal
+  interaction in the training batch; record the statistic, but do not turn a
+  fixed count into a launch gate.
+- [ ] Resolve the ambiguous local canonical wording for the front/back
+  butter and left-bowl tasks before r2 collection; preserve the old prompt
+  hashes with H7 and register the r2 prompt hashes separately.
+
+### R2.2 — Implement the model actually described by the formulation
+
+For every candidate and language condition, compute:
+
+\[
+\begin{aligned}
+w_{t+1}^{(i)} &= T_w(w_t,a_i),\\
+g_{t+1}^{\ell,i} &= T_g(g_t^\ell,w_{t+1}^{(i)},a_i),\\
+\hat y_{t+1}^{\ell,i} &= R_\ell(w_{t+1}^{(i)},g_{t+1}^{\ell,i}).
+\end{aligned}
+\]
+
+- [ ] Implement the registered observation-anchor plus zero-initialized,
+  `0.25 tanh`-bounded residual for both physical and task state.
+- [ ] Decode physical targets from `w_{t+1}^{(i)}` and task-relative
+  predicate/progress/reward/success targets from the transitioned
+  `g_{t+1}^{\ell,i}`; no current-state task bypass may answer the candidate
+  outcome alone.
+- [ ] Align transitioned states with the re-encoded branch-after posterior
+  under the same language. Add two-/multi-block rollout targets from replayed
+  sequential windows rather than replacing long-horizon prediction with one
+  scalar 100-step head.
+- [ ] Enforce paraphrase agreement and shared physical predictions across
+  instructions while supervising compatible different goals with their own
+  task-relative outcomes.
+- [ ] Correct TBPTT and report source-disjoint dev outcome/controlled-effect
+  losses. These are training readouts, not policy-launch gates.
+
+### R2.3 — Ground the teacher and finetune π0.5 conservatively
+
+- [ ] Train a centered within-snapshot pairwise objective on executed
+  siblings. Tied/noise-indistinguishable pairs provide no ranking update.
+- [ ] Select a non-stock teacher only when its calibrated lower-confidence
+  margin exceeds candidate 0; otherwise retain stock. Never use the
+  exchangeability-driven non-stock fraction as evidence of teacher quality.
+- [ ] Train a grounded/data-only flow adapter from actually superior executed
+  branches alongside the r2 model-selected adapter. This is the policy
+  interface/headroom arm, not a prerequisite assay.
+- [ ] Retain stock rehearsal plus an explicit action-shift/KL trust region;
+  pre-register checkpoint selection so a visibly diverging final epoch is not
+  deployed automatically.
+- [ ] Evaluate the **same adapter checkpoint** with reset and carried state
+  when measuring history. Separately trained reset/recurrent policies may be
+  performance variants, but are not a clean history contrast.
+
+### R2.4 — Return immediately to success-rate evaluation
+
+As soon as the first r2 checkpoints exist, run fresh development seeds for:
+
+1. stock π0.5;
+2. grounded/data-only branch flow finetuning;
+3. r2 LCWM-selected flow finetuning;
+4. matched score-blind finetuning if it can run concurrently.
+
+Report public-LoHo SR/Q, terminal predicate preservation, late-subgoal
+completion, and action shift. A development win freezes the checkpoint for a
+sealed confirmation and then LIBERO-10 retention. A miss routes the next
+repair from the grounded policy result; it does not reopen a broad diagnostic
+gate.

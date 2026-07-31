@@ -1,6 +1,6 @@
 # pi05-lcwm — Framework Design v0.4
 
-Working design record, updated 2026-07-25.
+Working design record, updated 2026-07-30.
 
 This version keeps the implemented LC-Flow backbone but changes the method
 center from one-step branch-effect regression to a recursively predictive world
@@ -202,13 +202,20 @@ z_t^\ell
 U_\theta(\bar z_t^\ell,h_t^\ell).
 \]
 
-`[LOCKED]`
+`[SUPERSEDED FOR v0.5]`
 
 - reuse the same real-prompt prefix forward and KV cache used by π0.5;
 - keep `T` free of a second explicit language input;
 - let language enter the transition through \(z_t^\ell\);
 - reset the recurrent state only at environment reset;
 - retain the current `E_a`, `T`, `U`, and LC-state token interface.
+
+H4 preserves the first three principles but invalidates free accumulated
+recurrence as the next implementation. v0.5 replaces the single free state
+with physical/task anchors corrected by a bounded recurrent residual. Its
+matched `reset` mode runs the same modules while nulling recurrent carry at
+every decision; `recurrent` carries the real prior state and action. The exact
+v0.5 equations are registered in H7.3 of `2026-07-29.md`.
 
 ### 2.2 Direct VLA integration
 
@@ -708,12 +715,14 @@ Latent distance alone is never a promotion metric.
 
 Primary:
 
-- chain3/4/5 full-composite-prompt `N = 1` success and Q;
+- public H-WM LIBERO-LoHo Task1–5 full-composite-prompt `N = 1` success and
+  subgoal Q-score;
 - per-atom completion times and failure localization;
 - standard LIBERO-10 retention.
 
 Secondary:
 
+- local Chain3/4/5 curriculum success and final-goal-atom Q;
 - oracle best-of-N headroom;
 - model reranking;
 - improved-policy rollout distribution and one bounded refresh.
@@ -723,12 +732,14 @@ Secondary:
 | Control | Question |
 |---|---|
 | stock π0.5 | original VLA baseline |
-| branch-FM without persistent state | are observed better actions sufficient? |
-| LC-Flow without world losses | is recurrence/extra capacity sufficient? |
+| reset-state + random teacher | does score-blind policy training explain the reset arm? |
+| recurrent-state + random teacher | does score-blind policy training explain the recurrent arm? |
+| reset-state + WM teacher | does WM selection help without carried history? |
+| recurrent state without world losses | does recurrence/extra capacity alone explain a win? |
 | LC-Flow without self-prediction | are effect heads alone sufficient? |
 | GT-branch FM only | does policy gain require model-generated targets? |
 | language-free/readout-only state | must task information enter the predictive state? |
-| full LC-Flow v0.4 | world-model-guided VLA learning |
+| full recurrent LC-Flow v0.5 | do predictive state and WM-generated targets improve the VLA? |
 
 The final claim requires all three:
 
@@ -740,51 +751,29 @@ The final claim requires all three:
 
 ## 9. Promotion logic
 
-### Gate A — recursive prediction
+The earlier Gate A/B/C order incorrectly let offline model diagnostics decide
+whether the project could attempt its main policy hypothesis. For v0.5,
+mechanical launch checks prevent invalid jobs, but grounded losses and latent
+metrics do not gate policy finetuning.
 
-Proceed when one-step prediction beats trivial baselines on held-out sequential
-data and does not collapse. Add \(k=2,3\) only after the one-step target is
-stable.
+The first route selector is the complete public-LoHo development factorial:
 
-If Gate A fails:
+- positive WM-selection effects in both state modes localize useful learned
+  candidate scoring;
+- positive recurrent-minus-reset effect under the same WM teacher localizes
+  useful carried visual-action history;
+- WM ≈ random localizes the failure to scoring/continuation supervision;
+- recurrent ≈ reset localizes it to state carry or policy coupling;
+- useful candidates with negligible first-ten action shift trigger matched
+  action-expert PEFT;
+- missing useful candidates for one unresolved public subgoal trigger one
+  bounded task-local support refresh.
 
-- first inspect target construction, EMA update, and sequence alignment;
-- then compare a smaller learned target projection;
-- do not collect more branches unless the failure is localized to action
-  coverage.
-
-### Gate B — decision relevance
-
-Proceed to model-guided distillation when the same checkpoint predicts grounded
-effects and ranks held-out branch candidates better than progress-only and
-action-marginal baselines.
-
-If self-prediction succeeds but ranking fails:
-
-- diagnose reward/value semantics and branch calibration;
-- distinguish missing value supervision from missing action-effect coverage.
-
-### Gate C — policy influence
-
-Proceed to multi-seed chain evaluation when model-guided FM changes the first-ten
-action distribution and improves paired development behavior without material
-LIBERO-10 regression.
-
-If the policy barely moves:
-
-- measure adapter-conditioned action shift;
-- only then escalate from the zero-init adapter to action-expert PEFT.
-
-If the policy moves but behavior does not improve:
-
-- investigate model score calibration, candidate support, and late-chain
-  coverage rather than adding policy capacity.
-
-### Gate D — targeted interaction
-
-Collect new late-chain branches only if a Gate-B or Gate-C failure is localized
-to states/actions not represented in the current data. Use uncertainty and
-ranking failures to select the source states.
+A development win freezes the method and opens a sealed public confirmation;
+it is not itself a promotion claim. Full LIBERO-10 retention follows a sealed
+confirmation win. Language-free/readout-only and no-world-loss controls are
+required before the strongest causal mechanism claim, but they are post-result
+ablations rather than serial preconditions for the first training run.
 
 ---
 
@@ -792,30 +781,39 @@ ranking failures to select the source states.
 
 ### Locked
 
-- retain LCState, `E_a`, `T`, `U`, and zero-init AdaRMS injection;
-- predict next latent state rather than reconstruct pixels;
-- retain reward/progress and add a separately defined value head;
+- retain π0.5 as initialization, representation source, flow-matching action
+  network, and final deployed policy;
+- use the real composite prompt; no oracle task-ID or active-atom bypass;
+- use a current-observation-anchored, action-conditioned predictive state;
+- compare reset and recurrent carry with identical modules and parameters;
+- keep physical prediction language-independent and task/progress state
+  language-conditioned;
+- ground candidate prediction in public subgoals, damage, success, and the
+  policy-provenance-preserving finite-horizon \(G^{\pi_0}_{100}\);
+- keep next-latent prediction auxiliary rather than using it as a policy gate;
 - train the final VLA policy on the learned internal state;
 - use ordinary trajectories for recursive dynamics;
 - use branches for alternative-action calibration and targeted coverage;
+- use the matched
+  `{reset, recurrent} × {WM-selected, random-selected}` attribution panel;
+- treat public H-WM LIBERO-LoHo Task1–5 as the primary long-horizon endpoint;
 - deploy a full-prompt `N = 1` VLA.
 
 ### Open
 
-- exact EMA target projection and latent distance;
-- \(k=2,3\) rollout weighting;
-- \(V^{\pi_0}\) target estimator and refresh strategy;
-- model-advantage baseline, temperature, margin, clipping, and uncertainty
-  penalty;
-- candidate count during model-guided distillation;
+- whether reset or recurrent state improves public behavior;
+- whether WM-selected training beats matched random selection;
 - whether the AdaRMS adapter alone has enough policy control;
-- whether explicit world/task factorization is needed;
-- final evaluation seed count and retention tolerance.
+- whether action-expert PEFT is needed after measured action shift;
+- longer recursive rollout weighting after the first public policy readout;
+- the exact no-world-loss and task-agnostic/readout-only post-win ablations.
 
 ### Retired as immediate priorities
 
 - further q-channel-only diagnostics;
 - treating one-step centered effect regression as the complete world model;
+- requiring the 360-continuation H6.1 bank before model/policy training;
+- using effective rank, EMA variance, or mean-next comparison as a launch gate;
 - collecting large crossed branch datasets before a method vertical slice;
 - making frozen-policy reranking the main system;
 - treating crossed-language data as the paper's central contribution;
@@ -825,40 +823,83 @@ ranking failures to select the source states.
 
 ## 11. Immediate implementation sequence
 
-1. Expose ordinary trajectory windows and consume
-   `next_prefix_hidden_full`.
-2. Add the EMA posterior target and one-step latent self-prediction.
-3. Mix sequential trajectories and existing branch groups; retain both
-   absolute and sibling-centered outcomes.
-4. separate reward, progress, terminal success, and \(V^{\pi_0}\) semantics.
-5. Train and evaluate the world-model vertical slice using existing data.
-6. Add two- and three-block rollout after one-step prediction is validated.
-7. Generate VLA-supported candidates and implement conservative
-   model-guided masked flow matching.
-8. Compare GT-branch teacher, no-world-loss, and full model-guided variants.
-9. Run paired chain3 `N = 1` readouts and LIBERO-10 retention from each
-   promising checkpoint.
-10. Collect `16–32` targeted late-chain branch sources only if the measured
-    failure satisfies Gate D.
+H0–H5 have completed the original v0.4 vertical slice and attribution panel.
+The active queue is now a direct public-LoHo training experiment:
 
-This sequence supersedes the v0.3 immediate order centered on collecting
-`128–256` branches and directly training branch-weighted flow matching.
+1. Implement and source-manifest the public H-WM LIBERO-LoHo Task1–5
+   protocol; run one valid stock episode per task.
+2. Collect the fixed public-task batch: 20 source episodes, 40 snapshot
+   groups, 160 executed sibling branches, and one policy-provenance-preserving
+   100-action continuation per branch.
+3. Train one observation-anchored language-conditioned predictive state.
+   `reset` and `recurrent` modes use identical modules; only recurrent carry
+   differs.
+4. Ground candidate prediction in physical effects, public subgoal bits,
+   damage, success, and finite-horizon
+   \(G^{\pi_0}_{100}=Q_{t+100}+\mathbb 1[\mathrm{success}]\). Keep latent
+   self-prediction auxiliary.
+5. Freeze approximately 200 source/phase-balanced train decisions and their
+   deterministic `N=4` full-prompt candidate pools as the policy-teacher
+   manifest.
+6. From the same stock π0.5 initialization, flow-finetune the full
+   `state interface × teacher` factorial:
+   `reset_wm`, `reset_random`, `recurrent_wm`, and `recurrent_random`.
+7. Run stock plus the two reset arms first for a 75-episode public readout;
+   complete the pre-registered recurrent arms regardless of that readout,
+   giving a 125-episode primary factorial.
+8. Run frozen v0.4 `cur_wm` as a separate 25-episode legacy reference. It is
+   not a matched control.
+9. Promote only through sealed public-LoHo confirmation, then run LIBERO-10
+   retention. A winning method still receives task-agnostic/readout-only and
+   no-world-loss ablations before the strongest causal claim.
+10. Use the public behavior contrasts to select at most one localized repair:
+    scoring, recurrent-state supervision, action-expert PEFT, or task-local
+    support.
+
+The exact budgets, artifacts, matching contract, and failure routing are
+registered in the H7 queue of `2026-07-29.md`. The former 360-continuation
+diagnostic bank is not a gate before this training/finetuning run.
 
 ---
 
 ## 12. Scope and current interpretation
 
-The current chain3/4/5 suite is a self-built LoHo-inspired domain, not the
-official LIBERO-LoHo benchmark. Early results are method-development evidence.
+The target long-horizon benchmark is the publicly specified LIBERO-LoHo
+variant introduced by H-WM (arXiv:2602.11291), not a custom benchmark created
+by this project. It defines five separate 5–7-step tasks.
 
-The current v3 checkpoint has shown partial held-out action-object prediction but
-has not shown recursive latent prediction, model-generated policy improvement,
-or better final Q/SR. It should therefore be described as an effect-conditioned
-policy adapter checkpoint, not yet as evidence for a decision-sufficient VLA
-world model.
+The current local chain3/4/5 files are a development curriculum derived from
+that construction, not a subset of the five published tasks: the local nested
+basket object sets do not exactly match any public task. Their results remain
+useful method-development evidence, but primary LIBERO-LoHo performance
+requires the exact public five-task protocol or an explicitly labeled,
+source-manifested specification-based reimplementation.
 
-LC-Flow v0.4 becomes the intended framework only when the following causal chain
-is instantiated:
+The persistent-recurrent v3/v0.4 path has shown partial held-out
+action-object prediction but has not shown recursive latent prediction or a
+promotable Chain3–5 policy improvement. The H4 factorial nevertheless provides
+the first positive policy-level development result: recurrent-WM-selected
+targets distilled through a current-only policy state (`cur_wm`) complete
+Chain4 in 2/5 episodes, versus 0/5 for each matched arm, while every arm
+remains 0/5 on Chain5. This is a promising selector/interface result, not yet
+evidence for decision-sufficient language-conditioned dynamics: the teacher
+still used recurrent WM scores, the gain is development-only, and the same
+model regresses on Chain5. Preserve `cur_wm` as the behavior reference and
+start the public-LoHo v0.5 model-training and π0.5-finetuning mainline now.
+The old same-state grounded counterfactual bank is no longer a serial route
+selector; any later diagnostic must repair a failure localized by the public
+policy result.
+
+The v0.5 attempt replaces free recurrent drift with a current-observation-
+anchored, bounded recurrent residual. Its primary development experiment is
+stock plus
+`{reset, recurrent} × {WM-selected, random-selected}`. This is the minimum
+complete panel that can separately measure learned selection and carried
+visual-action history. Frozen v0.4 `cur_wm` remains a secondary legacy
+reference, not a matched factorial arm.
+
+LC-Flow becomes the intended framework only when the following causal chain is
+instantiated:
 
 ```text
 ordinary trajectories + targeted branches
@@ -873,3 +914,125 @@ distillation into the pretrained VLA
                     ↓
 better full-prompt N=1 long-horizon behavior
 ```
+
+---
+
+## 13. H7 empirical correction and v0.5-r2 contract
+
+H7 completed the first direct public-LoHo world-model training, π0.5
+flow-finetuning, and closed-loop matrix. The behavior result is negative:
+none of the four v0.5 arms improves stock. The result is retained, but the
+implementation audit changes what it means.
+
+### 13.1 The H7 r1 implementation is not the candidate defined here
+
+The intended LC predictive process is:
+
+\[
+z_t^\ell=\phi_\ell(H_t),
+\qquad
+z_{t+1}^{\ell,i}=T_\ell(z_t^\ell,a_i),
+\qquad
+\hat y_{t+1}^{\ell,i}=R_\ell(z_{t+1}^{\ell,i}).
+\]
+
+H7 r1 instead transitions a language-independent physical token and combines
+it with unchanged current task tokens inside the outcome head:
+
+\[
+w_{t+1}^{(i)}=T_w(w_t,a_i),
+\qquad
+\hat y_i=R(c_t^\ell,g_t^\ell,w_{t+1}^{(i)}).
+\]
+
+That implementation is a useful readout-style baseline, but it does not test
+whether language-conditioned predictive dynamics produce a more useful task
+state. In addition, the registered bounded observation-anchor, crossed
+different-goal labels, next-posterior closure, multi-step rollout, damage and
+success targets, and sibling-ranking loss did not enter the run. H7 therefore
+cannot retire the framework's central candidate.
+
+### 13.2 Data contract correction
+
+The crossed dataset must identify controlled effects, not merely contain
+multiple action tensors. For r2:
+
+- sibling continuations use shared random streams or matched repeats;
+- snapshot selection targets contact, object motion, recovery, and late
+  unresolved subgoals rather than elapsed decisions with an unchanged
+  subgoal index;
+- task labels describe current-valid predicates, signed progress,
+  invalidation/damage, success, and preservation at multiple horizons;
+- a group is useful for ranking only when sibling outcomes differ beyond
+  replay/continuation noise;
+- canonical, paraphrase, compatible, and atomic instructions label the same
+  physical branch, with at least some action×instruction interaction;
+- these properties are measured and used for data selection, but no fixed
+  dataset count becomes a serial gate before training.
+
+The H7 statistic `dQ>0 relative to the snapshot` is retired as evidence of
+action support. Ranking support is a within-snapshot contrast.
+
+### 13.3 Locked r2 state and outcome interface
+
+For candidate \(i\) and instruction \(\ell\):
+
+\[
+\begin{aligned}
+w_{t+1}^{(i)}
+  &=T_w(w_t,a_i),\\
+g_{t+1}^{\ell,i}
+  &=T_g(g_t^\ell,w_{t+1}^{(i)},a_i),\\
+\hat W_{t+1}^{(i)}
+  &=R_w(w_{t+1}^{(i)}),\\
+\hat Y_{t+1}^{\ell,i}
+  &=R_g(w_{t+1}^{(i)},g_{t+1}^{\ell,i}).
+\end{aligned}
+\]
+
+The posterior update remains a zero-initialized bounded correction around
+the real current-observation anchor. Physical readouts must agree across
+instructions; task/progress readouts may differ across compatible goals and
+must agree across same-goal paraphrases. Transitioned states are aligned with
+re-encoded branch-after posteriors, and the same transition is rolled over
+ordinary sequential windows.
+
+A current-state policy path may remain as a safety anchor, but it cannot be
+the only path receiving effective gradient. Policy coupling is reported by
+the actual norm of each deployed residual and by same-checkpoint
+reset-versus-carry action differences, not by scalar gate values alone.
+
+### 13.4 Locked r2 policy-learning contract
+
+- Use centered pairwise branch ranking and a calibrated nonzero margin.
+- Treat ties as no preference; do not manufacture a teacher from max-of-noise.
+- Train one grounded/data-only adapter from executed superior branches and
+  one model-selected adapter from the same π0.5 initialization.
+- Retain stock rehearsal and an explicit action/KL trust region.
+- Pre-register checkpoint selection; an unstable final epoch is not deployed
+  merely because the update budget ended there.
+- Evaluate the same trained adapter in reset and carry modes for the clean
+  history contrast. Independently optimized state-mode policies may be
+  additional performance variants only.
+- Return to public-LoHo N=1 SR/Q immediately after the first r2 policy jobs.
+
+### 13.5 Current interpretation
+
+The causal chain remains the project target:
+
+```text
+crossed trajectories + effectful late branches
+                    ↓
+language-conditioned rolled predictive state
+                    ↓
+task-relative controlled effects and preservation
+                    ↓
+calibrated model-generated π0.5 targets
+                    ↓
+better full-prompt N=1 public-LoHo behavior
+```
+
+H7 r1 failed at the data-identification, predictive-transition, and
+policy-target stages before this chain was instantiated. It is the frozen
+implementation-negative reference. H7-r2 is the active framework attempt;
+another broad diagnostic phase or a 360-sample prerequisite is not.
