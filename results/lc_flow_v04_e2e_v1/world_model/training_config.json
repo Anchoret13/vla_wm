@@ -1,0 +1,36 @@
+{
+  "run": "p4_e2e_v1_wm",
+  "seed": 0,
+  "epochs": 30,
+  "spec": "2026-07-28 M1/M2 + 2026-07-29 A0/A1",
+  "sources": {
+    "sequential": [
+      "libero_10-task0-demo0",
+      "libero_10-task0-demo2",
+      "libero_10-task0-demo3",
+      "libero_10-task0-demo5",
+      "libero_10-task0-demo6",
+      "libero_10-task0-demo7",
+      "libero_10-task0-demo8",
+      "libero_10-task1-demo0",
+      "libero_10-task1-demo1",
+      "libero_10-task1-demo2",
+      "libero_10-task1-demo3",
+      "libero_10-task1-demo4",
+      "libero_10-task1-demo5",
+      "libero_10-task1-demo6",
+      "chain3_lr2-full-seed1000-src20000",
+      "chain3_lr2-full-seed1001-src21100",
+      "chain3_lr2-full-seed1010-src30000",
+      "chain3_lr2-full-seed1011-src31000",
+      "chain3_lr2-full-seed1012-src32000"
+    ],
+    "branch": [
+      "chain3_lr2-full-seed1000-src20000",
+      "chain3_lr2-full-seed1001-src21100",
+      "chain3_lr2-full-seed1010-src30000",
+      "chain3_lr2-full-seed1011-src31000",
+      "chain3_lr2-full-seed1012-src32000"
+    ]
+  }
+}

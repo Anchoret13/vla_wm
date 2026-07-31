@@ -1,8 +1,12 @@
-"""Chained long-horizon exam (self-built, LoHo-inspired).
+"""Local development curriculum derived from the public LIBERO-LoHo construction.
 
-Custom chained-goal BDDL tasks on scenes INSIDE pi05_libero_finetuned's
-training distribution (construction condition from the 2026-07-22 discussion:
-chains on known scenes/objects — frozen policy, zero finetuning).
+LIBERO-LoHo is the five-task LIBERO-derived benchmark introduced by H-WM
+(arXiv:2602.11291).  This module does not load the authors' five reference
+tasks.  It runs repository-local nested 3/4/5-object basket BDDL tasks on
+scenes INSIDE pi05_libero_finetuned's training distribution (the construction
+condition from the 2026-07-22 discussion: chains on known scenes/objects —
+frozen policy, zero finetuning).  Results from this module are development
+curriculum results, not direct LIBERO-LoHo benchmark numbers.
 
 Two conditions per task:
   full    the whole chained instruction as-is (paper's zero-shot floor analog)

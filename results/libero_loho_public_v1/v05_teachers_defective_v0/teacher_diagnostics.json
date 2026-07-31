@@ -1,0 +1,40 @@
+{
+  "n_teacher_states": 200,
+  "wm_checkpoint_sha256": "aa311c4762130110095ae7d52d512969bdcbfbbe184f21df99ede65301656802",
+  "positive_fraction": 0.0,
+  "positive_by_source": {
+    "loho_t1_drawer_cur_wm_s1420": 0.0,
+    "loho_t1_drawer_stock_s1400": 0.0,
+    "loho_t2_basket3_cur_wm_s1420": 0.0,
+    "loho_t2_basket3_stock_s1400": 0.0,
+    "loho_t3_tray_cur_wm_s1420": 0.0,
+    "loho_t3_tray_stock_s1400": 0.0,
+    "loho_t4_tray_cur_wm_s1420": 0.0,
+    "loho_t4_tray_stock_s1400": 0.0,
+    "loho_t5_drawer_cabinet_cur_wm_s1420": 0.0,
+    "loho_t5_drawer_cabinet_stock_s1400": 0.0
+  },
+  "positive_by_phase": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "5": 0.0
+  },
+  "advantage_quantiles": null,
+  "mean_candidate_diversity_l2": 0.23612800240516663,
+  "grounded_rank_agreement": {
+    "train": {
+      "n_groups": 0,
+      "n_skipped_zero_variance": 20,
+      "spearman_mean": null,
+      "argmax_hit_rate": null
+    },
+    "dev": {
+      "n_groups": 0,
+      "n_skipped_zero_variance": 20,
+      "spearman_mean": null,
+      "argmax_hit_rate": null
+    }
+  }
+}

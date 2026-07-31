@@ -1,0 +1,65 @@
+{
+  "data": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1",
+  "output": "/home/stargazer/Desktop/vla_wm/vla_wm/results/lc_flow_chain3_multigroup_pilot",
+  "epochs": 10,
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "outcome_scale": 1.0,
+  "flow_scale": 0.1,
+  "flow_microbatch": 1,
+  "truncate_bptt": 16,
+  "max_grad_norm": 1.0,
+  "max_groups": null,
+  "seed": 0,
+  "probe_seed": 12345,
+  "device": "cuda",
+  "dry_run": false,
+  "dataset_schema": "lcwm_chain_branch_v1_1",
+  "base_model_id": "lerobot/pi05_libero_finetuned",
+  "lc_flow_config": {
+    "d_h": 2048,
+    "d_z": 384,
+    "state_tokens": 4,
+    "heads": 6,
+    "transition_layers": 2,
+    "transition_dropout": 0.0,
+    "update_blocks": 2,
+    "expert_width": 1024,
+    "action_dim": 7,
+    "execution_horizon": 10,
+    "proprio_dim": 9,
+    "max_objects": 8,
+    "max_atoms": 5
+  },
+  "group_weighting": "one optimizer step per snapshot group",
+  "proposal_language_usage": "provenance only; full_instruction conditions training",
+  "selected_train_groups": 4,
+  "selected_positive_flow_targets": 5,
+  "fixed_probe_snapshot_id": "chain3_lr2-full-seed1000-src20000-pn20000-d44-r16-rkacc1f5b6-m238ad15d",
+  "dataset_manifest_sha256": "044502ff45dc09d61a99f25259572491292bc9a60d051bf5ae71b08f8af9f881",
+  "selected_train_artifacts": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1000-src20000-prop30000-ar16-r0c4-rpn50000-n13-f4p4a4-m238ad15d.pt",
+      "sha256": "25b3c79f0798180b46b457652ef1c450a49cd0543fe003f2a54e93bd5594e18c"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-src21000-prop31000-ar16-r0c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c44f9a6917c.pt",
+      "sha256": "13a7a40dcc2b5f842add53236b54d34f54a8a76b90b620c4b4bb23fca18d0916"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-srcbase21000-prop31000-ar24-r0c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c5a74fbcb09.pt",
+      "sha256": "b52a0e1c9f0ea99a5c4ad1d7b99b7c7bbd077e8b5280583e568a2c0980cee800"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1001-srcbase21000-prop31000-ar24-r1c4-rpn51000-sa4-n13-f4p4a4-m238ad15d-c55c7f4d98a.pt",
+      "sha256": "4107260a03ebcf9a19b1bd814acd1637d3cb1cb864fd697a7a8ed024b85fa9c6"
+    }
+  ],
+  "selected_dev_artifacts": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/chain_branches_v1_1/groups/chain3-seed1018-srcbase38000-prop48000-ar24-r1c4-rpn68000-sa4-n13-f4p4a4-m238ad15d-c7785b7ba42.pt",
+      "sha256": "7fa06aaee54227b8612884b9768967fd66a4587ec7697003ce2e122da23730ab"
+    }
+  ],
+  "training_source_sha256": "2b72acc73c00dbdda30b67586ecac2532cd36ae500745fd10f8bc73b51fa3267"
+}

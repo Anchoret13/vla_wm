@@ -1,0 +1,53 @@
+{
+  "snapshot_id": "chain3_lr2-full-seed1000-src20000-pn20000-d44-r16-rkacc1f5b6-m238ad15d",
+  "probe_seed": 12345,
+  "optimizer_steps": 20,
+  "before": {
+    "outcome_loss": 1.315077781677246,
+    "outcome_d_q": 0.06807912141084671,
+    "outcome_d_obj": 0.04879632219672203,
+    "outcome_next_bits": 0.618363082408905,
+    "outcome_d_prog": 0.02993650734424591,
+    "outcome_continuation_success": 0.5499026775360107,
+    "flow_loss": 0.1910296529531479,
+    "positive_branches": 1.0,
+    "bias_l2": 0.0,
+    "wz_out_l2": 0.0,
+    "action_shift_exec_mean_abs": 0.0,
+    "action_shift_exec_max_abs": 0.0,
+    "action_shift_full_mean_abs": 0.0,
+    "action_shift_full_max_abs": 0.0
+  },
+  "after": {
+    "outcome_loss": 0.010179943405091763,
+    "outcome_d_q": 0.0013275902019813657,
+    "outcome_d_obj": 0.00043544298387132585,
+    "outcome_next_bits": 0.0054941545240581036,
+    "outcome_d_prog": 0.0008768861298449337,
+    "outcome_continuation_success": 0.002045869827270508,
+    "flow_loss": 0.013314513489603996,
+    "positive_branches": 1.0,
+    "bias_l2": 3.6990089416503906,
+    "wz_out_l2": 0.5415639281272888,
+    "action_shift_exec_mean_abs": 0.14727410674095154,
+    "action_shift_exec_max_abs": 0.7767753601074219,
+    "action_shift_full_mean_abs": 0.06828593462705612,
+    "action_shift_full_max_abs": 0.7767753601074219
+  },
+  "delta": {
+    "outcome_loss": -1.3048978382721543,
+    "outcome_d_q": -0.06675153120886534,
+    "outcome_d_obj": -0.048360879212850705,
+    "outcome_next_bits": -0.6128689278848469,
+    "outcome_d_prog": -0.029059621214400977,
+    "outcome_continuation_success": -0.5478568077087402,
+    "flow_loss": -0.1777151394635439,
+    "positive_branches": 0.0,
+    "bias_l2": 3.6990089416503906,
+    "wz_out_l2": 0.5415639281272888,
+    "action_shift_exec_mean_abs": 0.14727410674095154,
+    "action_shift_exec_max_abs": 0.7767753601074219,
+    "action_shift_full_mean_abs": 0.06828593462705612,
+    "action_shift_full_max_abs": 0.7767753601074219
+  }
+}

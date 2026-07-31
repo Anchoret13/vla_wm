@@ -1,12 +1,13 @@
-# H7 progress note (written during a tool-platform outage)
+# H7 execution record — COMPLETE
 
-Status: the Bash execution classifier on my side has been unavailable for
-an extended period this session; file reads/writes work, but compilation,
-git, GPU jobs, and directory listing are blocked. Work completed within
-those limits, all UNCOMPILED and UNCOMMITTED until the platform recovers
-(to be verified before any is treated as done):
+**Final status.** The initial section was written during a temporary
+tool-platform outage; the work subsequently compiled and ran through H7.5.
+The chronology below is preserved as contemporaneous evidence, so statements
+such as `Next` describe that point in the run rather than current work. No
+v0.5 arm was promoted. The active replacement contract is
+`2026-07-30.md`.
 
-## Written (pending compile + run)
+## Initial outage snapshot (historical; subsequently compiled and run)
 
 1. `scripts/analyze_behavior_factorial.py` — H7.0(d): tracked
    deterministic analysis (per-task SR/Q/per-object/D/A_D, registered
@@ -29,7 +30,7 @@ those limits, all UNCOMPILED and UNCOMMITTED until the platform recovers
    `run_public_episode` with public Q, per-subgoal completion steps,
    first unresolved subgoal.
 
-## Queued for the moment execution recovers (in order)
+## Historical recovery queue (subsequently executed)
 
 1. compile checks on the four files above;
 2. H7.0(a) reconstruct + hash-verify the missing H4 manifest;
@@ -357,6 +358,43 @@ outside current bounds), (b) shorter-horizon continuation grounding on
 existing snapshots, (c) optimization repair for the unstable arm — changes
 data-collection scope and is left for review, not chosen unilaterally.
 
+## Post-H7 review and supersession
+
+The behavioral result above is valid: the H7 teacher/adapter implementation
+did not improve public-LoHo development performance and sometimes degraded it.
+It does not falsify the project's language-conditioned predictive-state
+hypothesis, because the executed data and model did not instantiate the
+registered test:
+
+1. all 20 persistent-failure snapshots were at decision 4 with zero completed
+   subgoals, and the implemented source mix omitted the registered
+   late-support source;
+2. all 40 groups tied on immediate subgoal reward, only `3/20` train and
+   `4/20` dev groups varied in continuation Q, and no branch reached terminal
+   success;
+3. sibling continuations used candidate-dependent policy-noise seeds, so
+   candidate effect and continuation randomness were not paired;
+4. the monotone completed-subgoal tracker did not provide current predicate
+   invalidation/damage labels;
+5. candidate actions transitioned only the physical prior; task/value heads
+   decoded the transitioned physical feature together with current task
+   features, which is a language-conditioned readout rather than
+   \(z_t^\ell\rightarrow T(z_t^\ell,a)\);
+6. crossed compatible-goal labels, EMA latent closure, and the registered
+   within-sibling ranking loss were absent;
+7. the same reset-state teachers trained both policy-state modes, while the
+   recurrent gate stayed effectively closed.
+
+The H7 data remain useful for rehearsal, null-effect calibration, and the few
+explicitly variance-bearing groups. They are not the primary ranking set for
+the next model. H7 checkpoints and adapters are frozen negative baselines, not
+v0.6 initializations.
+
+The authoritative next actions—effect-resolved crossed training data, a
+faithful task-conditioned latent transition, direct π0.5 flow-interface
+post-training, and an immediate `N=1` public-LoHo readout—are registered in
+`2026-07-30.md`.
+
 ## 2026-07-30 audit correction — H7 is a pipeline negative, not an LCWM-hypothesis negative
 
 The 150-episode matrix itself is intact. A read-only audit reconstructed all
@@ -493,7 +531,16 @@ useful history is absent.
 Do not spend more seeds on r1 and do not run its sealed confirmation. Preserve
 the artifacts and 150 episodes as the implementation-negative reference.
 
-## H7-r2 — direct training/finetuning action items
+## Superseded H7-r2 draft — historical, do not execute
+
+This was the first post-audit repair draft. It correctly identified paired
+continuations, current-valid task labels, crossed goals, candidate-conditioned
+task state, calibrated ranking, and an immediate policy readout. It is
+superseded because its factorized `w/g` implementation still leaves too much
+room to reproduce a physical-transition plus task-readout design. The binding
+v0.6 graph instead transitions one complete \(z_t^\ell\), prohibits every
+current-state candidate bypass, and sends that same state into π0.5. See
+`2026-07-30.md`.
 
 This repair is another method iteration, not a return to a serial diagnostic
 program. No 360-continuation bank, latent-rank threshold, or completed offline

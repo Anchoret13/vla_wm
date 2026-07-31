@@ -1,0 +1,2 @@
+{"epoch": 0, "global_step": 0, "snapshot_id": "chain3_lr2-full-seed1000-src20000-pn20000-d44-r16-rkacc1f5b6-m238ad15d", "outcome_loss": 246.33775329589844, "outcome_d_q": 145.130859375, "outcome_d_obj": 99.45683288574219, "outcome_next_bits": 0.017796888947486877, "outcome_d_prog": 1.7322213649749756, "outcome_continuation_success": 4.553794860839844e-05, "flow_loss": 0.12111233174800873, "positive_branches": 1.0, "flow_weight_sum": 1.0022175312042236, "preclip_grad_norm": 13110.263671875, "peak_gpu_gb": 9.78251838684082}
+{"epoch": 0, "global_step": 1, "event": "epoch_end"}

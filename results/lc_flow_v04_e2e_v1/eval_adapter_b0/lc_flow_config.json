@@ -1,0 +1,27 @@
+{
+  "schema": "lc_flow_adapter_v1",
+  "config": {
+    "d_h": 2048,
+    "d_z": 384,
+    "state_tokens": 4,
+    "heads": 6,
+    "transition_layers": 2,
+    "transition_dropout": 0.0,
+    "update_blocks": 2,
+    "expert_width": 1024,
+    "action_dim": 7,
+    "execution_horizon": 10,
+    "proprio_dim": 9,
+    "max_objects": 8,
+    "max_atoms": 5
+  },
+  "metadata": {
+    "run": "belief_bc_b0",
+    "adapter_config": {
+      "epochs": 5,
+      "lr": 0.0001,
+      "seed": 0,
+      "spec": "2026-07-28 M4 fast-pilot"
+    }
+  }
+}
