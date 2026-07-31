@@ -1,0 +1,311 @@
+{
+  "schema": "goal_spec_manifest_v1",
+  "invalidation_rules": {
+    "place": "revocable \u2014 re-evaluated every check; knocked-out placement invalidates and counts as damage if unrecovered",
+    "open": "revocable",
+    "close": "revocable",
+    "pick_up": "event milestone \u2014 sticky after correct release"
+  },
+  "note": "atomic/active-subgoal prompts are not distinct tasks; scene families all have >=1 registered scene-valid distinct composite GoalSpec",
+  "tasks": {
+    "loho_t1_drawer": {
+      "scene_family": "kitchen_cabinet",
+      "canonical": {
+        "goal_spec_id": "t1_canonical",
+        "language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+        "ordered_subgoals": [
+          "pick_up butter_1",
+          "place butter_1 wooden_cabinet_1_top_region",
+          "pick_up chocolate_pudding_1",
+          "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+          "close wooden_cabinet_1_top_region"
+        ]
+      },
+      "paraphrases": [
+        "place the front butter and the chocolate pudding into the top drawer of the cabinet and shut the drawer",
+        "put the butter closer to the front, along with the chocolate pudding, into the cabinet's top drawer and close the drawer"
+      ],
+      "paraphrase_hashes": [
+        "051b122d9c1fc440",
+        "4fe67a71ceb08ba0"
+      ],
+      "distinct_goals": [
+        {
+          "goal_spec_id": "t1_back_butter",
+          "language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it",
+          "ordered_subgoals": [
+            "pick_up butter_2",
+            "place butter_2 wooden_cabinet_1_top_region",
+            "pick_up chocolate_pudding_1",
+            "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+            "close wooden_cabinet_1_top_region"
+          ]
+        },
+        {
+          "goal_spec_id": "t5_canonical",
+          "language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+          "ordered_subgoals": [
+            "pick_up butter_2",
+            "place butter_2 wooden_cabinet_1_top_region",
+            "pick_up chocolate_pudding_1",
+            "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+            "close wooden_cabinet_1_top_region",
+            "pick_up akita_black_bowl_1",
+            "place akita_black_bowl_1 wooden_cabinet_1_top_side"
+          ],
+          "cross_reference": "loho_t5_drawer_cabinet"
+        }
+      ],
+      "wording_resolution": {
+        "the butter at the front": "butter_1",
+        "the butter at the back": "butter_2"
+      },
+      "staging": {
+        "place_objects": [
+          "butter_1"
+        ],
+        "target": "wooden_cabinet_1_top_region",
+        "provenance": "staged",
+        "recipe": "privileged pose-set of listed objects into target region center, 50 settle steps, staged predicates asserted true, then stock \u03c00.5 rollout under the canonical full prompt"
+      },
+      "language_conditioning_claim": true
+    },
+    "loho_t2_basket3": {
+      "scene_family": "basket",
+      "canonical": {
+        "goal_spec_id": "t2_canonical",
+        "language": "put the alphabet soup and the butter and the tomato sauce in the basket",
+        "ordered_subgoals": [
+          "pick_up alphabet_soup_1",
+          "place alphabet_soup_1 basket_1_contain_region",
+          "pick_up butter_1",
+          "place butter_1 basket_1_contain_region",
+          "pick_up tomato_sauce_1",
+          "place tomato_sauce_1 basket_1_contain_region"
+        ]
+      },
+      "paraphrases": [
+        "place the alphabet soup, the butter, and the tomato sauce into the basket",
+        "put the can of alphabet soup, the stick of butter, and the tomato sauce inside the basket"
+      ],
+      "paraphrase_hashes": [
+        "d64199331c693878",
+        "bbcc306e048a9ae2"
+      ],
+      "distinct_goals": [
+        {
+          "goal_spec_id": "t2_milk_ketchup_oj",
+          "language": "put the milk and the ketchup and the orange juice in the basket",
+          "ordered_subgoals": [
+            "pick_up milk_1",
+            "place milk_1 basket_1_contain_region",
+            "pick_up ketchup_1",
+            "place ketchup_1 basket_1_contain_region",
+            "pick_up orange_juice_1",
+            "place orange_juice_1 basket_1_contain_region"
+          ]
+        },
+        {
+          "goal_spec_id": "t2_cheese_butter_milk",
+          "language": "put the cream cheese and the butter and the milk in the basket",
+          "ordered_subgoals": [
+            "pick_up cream_cheese_1",
+            "place cream_cheese_1 basket_1_contain_region",
+            "pick_up butter_1",
+            "place butter_1 basket_1_contain_region",
+            "pick_up milk_1",
+            "place milk_1 basket_1_contain_region"
+          ]
+        }
+      ],
+      "wording_resolution": {},
+      "staging": {
+        "place_objects": [
+          "alphabet_soup_1",
+          "butter_1"
+        ],
+        "target": "basket_1_contain_region",
+        "provenance": "staged",
+        "recipe": "privileged pose-set of listed objects into target region center, 50 settle steps, staged predicates asserted true, then stock \u03c00.5 rollout under the canonical full prompt"
+      },
+      "language_conditioning_claim": true
+    },
+    "loho_t3_tray": {
+      "scene_family": "tray_scene3",
+      "canonical": {
+        "goal_spec_id": "t3_canonical",
+        "language": "put the alphabet soup and the cream cheese and the butter in the tray",
+        "ordered_subgoals": [
+          "pick_up alphabet_soup_1",
+          "place alphabet_soup_1 wooden_tray_1_contain_region",
+          "pick_up cream_cheese_1",
+          "place cream_cheese_1 wooden_tray_1_contain_region",
+          "pick_up butter_1",
+          "place butter_1 wooden_tray_1_contain_region"
+        ]
+      },
+      "paraphrases": [
+        "place the alphabet soup, the cream cheese, and the butter onto the tray",
+        "put the soup can, the cream cheese box, and the butter in the wooden tray"
+      ],
+      "paraphrase_hashes": [
+        "28fe2a14e3d72256",
+        "ecdfe66e3a1c6b5a"
+      ],
+      "distinct_goals": [
+        {
+          "goal_spec_id": "t3_sauce_ketchup_butter",
+          "language": "put the tomato sauce and the ketchup and the butter in the tray",
+          "ordered_subgoals": [
+            "pick_up tomato_sauce_1",
+            "place tomato_sauce_1 wooden_tray_1_contain_region",
+            "pick_up ketchup_1",
+            "place ketchup_1 wooden_tray_1_contain_region",
+            "pick_up butter_1",
+            "place butter_1 wooden_tray_1_contain_region"
+          ]
+        },
+        {
+          "goal_spec_id": "t3_soup_sauce_ketchup",
+          "language": "put the alphabet soup and the tomato sauce and the ketchup in the tray",
+          "ordered_subgoals": [
+            "pick_up alphabet_soup_1",
+            "place alphabet_soup_1 wooden_tray_1_contain_region",
+            "pick_up tomato_sauce_1",
+            "place tomato_sauce_1 wooden_tray_1_contain_region",
+            "pick_up ketchup_1",
+            "place ketchup_1 wooden_tray_1_contain_region"
+          ]
+        }
+      ],
+      "wording_resolution": {},
+      "staging": {
+        "place_objects": [
+          "alphabet_soup_1",
+          "cream_cheese_1"
+        ],
+        "target": "wooden_tray_1_contain_region",
+        "provenance": "staged",
+        "recipe": "privileged pose-set of listed objects into target region center, 50 settle steps, staged predicates asserted true, then stock \u03c00.5 rollout under the canonical full prompt"
+      },
+      "language_conditioning_claim": true
+    },
+    "loho_t4_tray": {
+      "scene_family": "tray_scene4",
+      "canonical": {
+        "goal_spec_id": "t4_canonical",
+        "language": "put the black bowl at the left and the salad dressing and the chocolate pudding in the tray",
+        "ordered_subgoals": [
+          "pick_up akita_black_bowl_1",
+          "place akita_black_bowl_1 wooden_tray_1_contain_region",
+          "pick_up new_salad_dressing_1",
+          "place new_salad_dressing_1 wooden_tray_1_contain_region",
+          "pick_up chocolate_pudding_1",
+          "place chocolate_pudding_1 wooden_tray_1_contain_region"
+        ]
+      },
+      "paraphrases": [
+        "place the left black bowl, the salad dressing, and the chocolate pudding into the tray",
+        "put the black bowl on the left side, the bottle of salad dressing, and the chocolate pudding in the wooden tray"
+      ],
+      "paraphrase_hashes": [
+        "74893f8eb45a6070",
+        "2672478e1a2329f0"
+      ],
+      "distinct_goals": [
+        {
+          "goal_spec_id": "t4_right_bowl",
+          "language": "put the black bowl at the right and the salad dressing and the chocolate pudding in the tray",
+          "ordered_subgoals": [
+            "pick_up akita_black_bowl_2",
+            "place akita_black_bowl_2 wooden_tray_1_contain_region",
+            "pick_up new_salad_dressing_1",
+            "place new_salad_dressing_1 wooden_tray_1_contain_region",
+            "pick_up chocolate_pudding_1",
+            "place chocolate_pudding_1 wooden_tray_1_contain_region"
+          ]
+        }
+      ],
+      "wording_resolution": {
+        "the black bowl at the left": "akita_black_bowl_1",
+        "the black bowl at the right": "akita_black_bowl_2"
+      },
+      "staging": {
+        "place_objects": [
+          "akita_black_bowl_1",
+          "new_salad_dressing_1"
+        ],
+        "target": "wooden_tray_1_contain_region",
+        "provenance": "staged",
+        "recipe": "privileged pose-set of listed objects into target region center, 50 settle steps, staged predicates asserted true, then stock \u03c00.5 rollout under the canonical full prompt"
+      },
+      "language_conditioning_claim": true
+    },
+    "loho_t5_drawer_cabinet": {
+      "scene_family": "kitchen_cabinet",
+      "canonical": {
+        "goal_spec_id": "t5_canonical",
+        "language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+        "ordered_subgoals": [
+          "pick_up butter_2",
+          "place butter_2 wooden_cabinet_1_top_region",
+          "pick_up chocolate_pudding_1",
+          "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+          "close wooden_cabinet_1_top_region",
+          "pick_up akita_black_bowl_1",
+          "place akita_black_bowl_1 wooden_cabinet_1_top_side"
+        ]
+      },
+      "paraphrases": [
+        "place the back butter and the chocolate pudding into the top drawer of the cabinet, close the drawer, and set the black bowl on top of the cabinet",
+        "put the butter closer to the back and the pudding in the cabinet's top drawer, shut it, then place the black bowl on the cabinet top"
+      ],
+      "paraphrase_hashes": [
+        "ea94607218524f38",
+        "10825bdbeb6b9363"
+      ],
+      "distinct_goals": [
+        {
+          "goal_spec_id": "t1_canonical",
+          "language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+          "ordered_subgoals": [
+            "pick_up butter_1",
+            "place butter_1 wooden_cabinet_1_top_region",
+            "pick_up chocolate_pudding_1",
+            "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+            "close wooden_cabinet_1_top_region"
+          ],
+          "cross_reference": "loho_t1_drawer"
+        },
+        {
+          "goal_spec_id": "t5_front_butter",
+          "language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+          "ordered_subgoals": [
+            "pick_up butter_1",
+            "place butter_1 wooden_cabinet_1_top_region",
+            "pick_up chocolate_pudding_1",
+            "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+            "close wooden_cabinet_1_top_region",
+            "pick_up akita_black_bowl_1",
+            "place akita_black_bowl_1 wooden_cabinet_1_top_side"
+          ]
+        }
+      ],
+      "wording_resolution": {
+        "the butter at the back": "butter_2",
+        "the butter at the front": "butter_1"
+      },
+      "staging": {
+        "place_objects": [
+          "butter_2",
+          "chocolate_pudding_1"
+        ],
+        "target": "wooden_cabinet_1_top_region",
+        "provenance": "staged",
+        "recipe": "privileged pose-set of listed objects into target region center, 50 settle steps, staged predicates asserted true, then stock \u03c00.5 rollout under the canonical full prompt"
+      },
+      "language_conditioning_claim": true
+    }
+  },
+  "manifest_sha256": "dd7f60704cc8cfb777be766c5761d96f148adfc3e7ff997002abd8263bc7fab3"
+}

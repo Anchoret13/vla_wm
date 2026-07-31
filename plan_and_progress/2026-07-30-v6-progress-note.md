@@ -64,3 +64,20 @@ feature cache.)
 ## Results log
 
 (appended as stages complete)
+
+## V6.2 snapshot-search eligibility criteria (registered before collection)
+
+- slot 1 (contact/grasp/commitment/object-moving): during the decision's
+  ten executed steps, any tracked object body moved ≥ 5 mm.
+- slot 2 (recovery/placement/damage-sensitive/final-two-unresolved): at
+  decision start ≥1 subgoal valid AND (unresolved ≤ 2, OR a 1→0 flip in
+  the previous 2 decisions, OR a 0→1 place flip in the previous 2
+  decisions). Slot-2 has priority when both match. Never selected by
+  elapsed-time percentile.
+- ≤4 eligible decisions per slot examined chronologically; branch order
+  fixed: u_support, cand0..cand3, u_replay (u_replay re-executes cand0's
+  exact actions to measure restore/execution noise).
+- Candidate seeds: collection contract noise_seed(d) + 100000·cand.
+- Tranche-A tolerances frozen from ALL tranche-A exact repeats
+  (per-component 95th percentile), then first effect_resolved group per
+  slot retained; every executed rejected group saved.
