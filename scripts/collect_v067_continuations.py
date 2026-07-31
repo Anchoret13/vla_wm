@@ -77,6 +77,27 @@ def load_inputs():
     return selection, goal_manifest, lineage
 
 
+GROSS_FACTOR = 10.0
+
+
+def qpos_joint_map(env) -> dict[str, int]:
+    """joint name -> qpos address (stored once per group file so the
+    full-qpos vectors are interpretable, incl. fixture drawer joints)."""
+    sim = env._env.env.sim
+    out = {}
+    try:
+        for j in range(sim.model.njnt):
+            out[sim.model.joint_id2name(j)] = int(
+                sim.model.jnt_qposadr[j])
+    except Exception:
+        pass
+    return out
+
+
+def full_qpos(env) -> np.ndarray:
+    return np.asarray(env._env.env.sim.data.qpos).copy()
+
+
 def grasp_state(env, bodies: dict) -> dict:
     """Grasp per tracked object + contact count, where available."""
     out = {"ncon": None, "grasped": {}}
@@ -248,7 +269,10 @@ def main() -> None:
                              if a["decision"] == d)
                 row = next(r_ for r_ in source["rows"]
                            if r_["decision"] == d)
-                obj_before = body_positions(env, list(bodies.values()))
+                # snapshot-time object pose comes from the phase-A record
+                # (the live env is NOT at snapshot d here; re-reach
+                # already asserted the record within atol 2e-3)
+                obj_before = np.asarray(row["obj_before"])
                 # branch_index is provenance labeling only — it NEVER
                 # enters the continuation seed.
                 branch_list = [(b, {"support": 4, "candidate":
@@ -275,6 +299,7 @@ def main() -> None:
                     obj_b_before = body_positions(
                         env, list(bodies.values()))
                     grasp_before = grasp_state(env, bodies)
+                    qpos_before = full_qpos(env)
                     term_branch = trunc_branch = False
                     steps_b = 0
                     for a_env in branch["actions_env"]:
@@ -293,6 +318,7 @@ def main() -> None:
                     obj_b_after = body_positions(
                         env, list(bodies.values()))
                     grasp_after = grasp_state(env, bodies)
+                    qpos_after = full_qpos(env)
                     branch_end = snap(env, t=row["t_start"] + steps_b,
                                       suite_name="loho_public", task_id=0)
 
@@ -328,26 +354,66 @@ def main() -> None:
                         "q_after": q_after,
                         "obj_before": obj_b_before,
                         "obj_after": obj_b_after,
+                        "qpos_before": qpos_before,
+                        "qpos_after": qpos_after,
                         "grasp_before": grasp_before,
                         "grasp_after": grasp_after,
                         "immediate": immediate,
                     })
                     if branch["kind"] == "candidate" and \
                             branch["candidate"] == 0:
-                        cand0_end = {"q": q_after, "obj": obj_b_after}
+                        cand0_end = {"q": q_after, "obj": obj_b_after,
+                                     "qpos": qpos_after,
+                                     "immediate": immediate}
+                    replay_endpoint = None
                     if branch["kind"] == "replay":
-                        # frozen tranche-A replay agreement (registered)
+                        # Replay agreement is MEASURED against candidate 0
+                        # and flagged per component vs the frozen
+                        # tranche-A 95th-pct tolerances (a percentile is
+                        # not a max bound: 6/30 accepted groups exceed
+                        # the gripper value in the phase-A records).
+                        # Only gross restore failure hard-stops:
+                        # 10x tolerance / re-reach atol (amended binding,
+                        # 2026-07-31 execution record).
                         dq = (q_after - cand0_end["q"]).abs()
-                        assert float(dq[:3].max()) <= tol["eef_pos"], \
-                            f"{source_id} d={d} replay eef_pos"
-                        assert float(dq[3:7].max()) <= tol["eef_quat"], \
-                            f"{source_id} d={d} replay eef_quat"
-                        assert float(dq[7:].max()) <= tol["gripper"], \
-                            f"{source_id} d={d} replay gripper"
-                        assert float(np.abs(
-                            obj_b_after - cand0_end["obj"]).max()) \
-                            <= tol["obj_pos"], \
-                            f"{source_id} d={d} replay obj_pos"
+                        deltas = {
+                            "eef_pos": float(dq[:3].max()),
+                            "eef_quat": float(dq[3:7].max()),
+                            "gripper": float(dq[7:].max()),
+                            "obj_pos": float(np.abs(
+                                obj_b_after - cand0_end["obj"]).max()),
+                            "qpos": float(np.abs(
+                                qpos_after - cand0_end["qpos"]).max()),
+                        }
+                        valid_mismatch = {
+                            gid_: int(sum(
+                                a != b for a, b in zip(
+                                    immediate[gid_]["valid_after"],
+                                    cand0_end["immediate"][gid_]
+                                    ["valid_after"])))
+                            for gid_ in goal_ids}
+                        exceeds = [k for k in ("eef_pos", "eef_quat",
+                                               "gripper", "obj_pos")
+                                   if deltas[k] > tol[k]]
+                        if any(valid_mismatch.values()):
+                            exceeds.append("valid_bits")
+                        replay_endpoint = {
+                            "deltas": deltas,
+                            "valid_bits_mismatch": valid_mismatch,
+                            "exceeds_tolerance": exceeds,
+                        }
+                        for k in ("eef_pos", "eef_quat", "gripper"):
+                            assert deltas[k] <= GROSS_FACTOR * tol[k], (
+                                f"{source_id} d={d} replay {k} gross "
+                                f"restore failure: {deltas[k]:.2e}")
+                        assert deltas["obj_pos"] <= REREACH_ATOL, (
+                            f"{source_id} d={d} replay obj_pos gross "
+                            f"restore failure: {deltas['obj_pos']:.2e}")
+                        branch_summaries[-1]["replay_endpoint"] = \
+                            replay_endpoint
+                        if exceeds:
+                            print(f"  [replay-flag] {source_id} d={d} "
+                                  f"exceeds={exceeds}", flush=True)
 
                     # ---- continuations under every compatible GoalSpec -
                     if branch["kind"] == "replay":
@@ -475,15 +541,28 @@ def main() -> None:
                           f"branch={branch['kind']}"
                           f"{branch.get('candidate')}", flush=True)
 
-                # sibling CRN audit across ALL branches of this group
-                for (gid, repeat, cd), entry_ in sorted(crn_log.items()):
-                    seeds = {r_["crn"][cd]["seed"] for r_ in records
-                             if r_["goal_spec_id"] == gid
-                             and r_["repeat"] == repeat
-                             and len(r_["crn"]) > cd}
-                    assert len(seeds) <= 1, (
-                        f"sibling seed divergence {source_id} d={d} "
-                        f"{(gid, repeat, cd)}")
+                # independent post-hoc CRN audit: every stored (seed,
+                # SHA) is recomputed from scratch from the pure contract
+                # function — catches a logged-vs-consumed decoupling the
+                # in-loop check cannot see
+                sha_cache: dict[int, str] = {}
+                for r_ in records:
+                    for e in r_["crn"]:
+                        seed = cont_seed_v067(
+                            args.run_id, source_id, d,
+                            r_["goal_spec_id"], r_["repeat"],
+                            e["cont_decision"])
+                        assert e["seed"] == seed, (
+                            f"CRN seed mismatch {source_id} d={d} "
+                            f"{r_['goal_spec_id']}/{r_['repeat']}"
+                            f"/{e['cont_decision']}")
+                        if seed not in sha_cache:
+                            sha_cache[seed] = noise_sha(flow_noise(
+                                seed, chunk_size, max_dim))
+                        assert e["noise_sha256"] == sha_cache[seed], (
+                            f"CRN noise-SHA mismatch {source_id} d={d}")
+                out_path = out_dir / f"{source_id}_d{d}.pt"
+                tmp_path = out_path.with_suffix(".tmp")
                 torch.save({
                     "schema": "v067_continuations_v1",
                     "run_schema": RUN_SCHEMA, "run_id": args.run_id,
@@ -499,12 +578,14 @@ def main() -> None:
                     "policy_id": POLICY_ID,
                     "obj_before_snapshot": obj_before,
                     "auto_states_snapshot": auto_states[d],
+                    "qpos_joint_map": qpos_joint_map(env),
                     "branch_summaries": branch_summaries,
                     "records": records,
                     "R": R, "horizons": list(HORIZONS),
                     "run_manifest_sha256":
                         run_manifest["manifest_sha256"],
-                }, out_dir / f"{source_id}_d{d}.pt")
+                }, tmp_path)
+                tmp_path.replace(out_path)
                 print(f"[group] {source_id} d={d}: "
                       f"{len(records)} continuation records", flush=True)
         finally:

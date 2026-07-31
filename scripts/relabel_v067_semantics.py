@@ -138,6 +138,7 @@ def main() -> None:
                             goal_specs[gid]["terminal_predicate_hash"],
                     }
                 per_decision.append(dec)
+            tmp_path = out_path.with_suffix(".tmp")
             torch.save({
                 "schema": "v067_semantic_labels_v1",
                 "run_schema": RUN_SCHEMA,
@@ -147,7 +148,8 @@ def main() -> None:
                 "canonical_goal_spec_id": canon_id,
                 "goal_manifest_sha256": goal_manifest["manifest_sha256"],
                 "per_decision": per_decision,
-            }, out_path)
+            }, tmp_path)
+            tmp_path.replace(out_path)
             print(f"[relabel] {source['source_id']}: "
                   f"{len(per_decision)} decisions x {len(goal_ids)} "
                   "goals (per-action)", flush=True)
