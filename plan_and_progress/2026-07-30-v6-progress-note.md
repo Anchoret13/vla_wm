@@ -81,3 +81,15 @@ feature cache.)
 - Tranche-A tolerances frozen from ALL tranche-A exact repeats
   (per-component 95th percentile), then first effect_resolved group per
   slot retained; every executed rejected group saved.
+
+## Phase-B continuation semantics (registered before phase B runs)
+
+- Goal automata unroll from episode reset along the replayed real path;
+  per-decision states stored for every registered GoalSpec (never
+  initialized at the snapshot).
+- Continuation flip window: at continuation start the restored automaton
+  keeps validity + achieved events but zeroes the flip log, so
+  damage/τ_next in the outcome tuple measure the continuation window;
+  branch-window flips live in the phase-A record.
+- Re-reach determinism asserted against phase-A object positions
+  (atol 2e-3) at every pending snapshot decision.
