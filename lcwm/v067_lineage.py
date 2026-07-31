@@ -35,7 +35,7 @@ ITER1_FORBIDDEN_SCHEMAS = {
 
 # Kinds that are regenerated under v067 and therefore guarded.
 GUARDED_KINDS = ("continuations", "semantic_labels", "teachers", "policy",
-                 "goal_manifest", "history_contrasts")
+                 "goal_manifest", "history_contrasts", "demo_rehearsal")
 
 
 class Iter1ArtifactError(RuntimeError):
