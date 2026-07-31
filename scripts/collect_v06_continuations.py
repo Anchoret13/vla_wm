@@ -159,8 +159,12 @@ def main() -> None:
                                if b["kind"] != "replay"]
                 for branch, branch_index in branch_list:
                     restore(env, snaps[d])
+                    term_branch = False
                     for a_env in branch["actions_env"]:
-                        env.step(a_env)
+                        _o, _r, tb, tr, _i = env.step(a_env)
+                        if tb or tr:
+                            term_branch = True
+                            break
                     branch_end = snap(env, t=row["t_start"] + 10,
                                       suite_name="loho_public", task_id=0)
                     for goal in goals:
@@ -184,7 +188,10 @@ def main() -> None:
                             auto.evaluate(env, 0)
                             q_at = {}
                             steps_c, cd = 0, 0
-                            done = False
+                            # branch reached terminal: continuation is
+                            # trivially 0 steps ("to 100 actions or
+                            # terminal")
+                            done = term_branch
                             while steps_c < 100 and not done:
                                 batch = runner._obs_to_policy_batch(
                                     obs_c, goal["language"])
