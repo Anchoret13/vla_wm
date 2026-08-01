@@ -1,0 +1,14 @@
+{
+  "bound_by_hash": {
+    "results/libero_loho_public_v1/goal_spec_manifest_v067.json": "4dcae484b9056a507260920d895dc06e2de321039fe27d2f53096b5377ec4379",
+    "results/libero_loho_public_v1/v067_backlog_selection.json": "eb27da612d6227b402a5062476433df2338918e2b21d3826de5a25d20d1429b5",
+    "results/libero_loho_public_v1/v067_lineage/iter1_freeze.json": "f416fb1498a262f19dbd27d6597859ce81a8d7bc0b1adbe46061d4957ed257a9",
+    "results/libero_loho_public_v1/v067_lineage/phase_b_manifest_v067_pb1.json": "b5f75d7e65f142d5440dc6420b584b693f52aec25c0a2f12a48793e1203a916a",
+    "results/libero_loho_public_v1/v067_lineage/phase_b_manifest_v067_pb2.json": "9b9a18143c008d694da74654fb2a3bdbe52ce0668b2effd8f341235855fe8375",
+    "results/libero_loho_public_v1/v067_support_report.json": "dcff5c169f5e95ff1c20bf7c542a579ddb5fbe14452113c91002585d3c61d98d",
+    "results/libero_loho_public_v1/v069_branch_index.json": "5fa3e2b9da78357c345315dd76d122ec7ee6db31430811b8fef307aa03f221d2"
+  },
+  "policy": "non-overwriting; v069 artifacts get new namespaces (v069_predictive/, v069_policy/, v069_eval/)",
+  "run_schema": "v067",
+  "schema": "v069_lineage_v1"
+}

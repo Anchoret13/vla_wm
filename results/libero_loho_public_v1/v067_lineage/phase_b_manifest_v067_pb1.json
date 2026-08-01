@@ -1,0 +1,31 @@
+{
+  "schema": "v067_phase_b_manifest",
+  "run_schema": "v067",
+  "run_id": "v067_pb1",
+  "policy_id": "lerobot/pi05_libero_finetuned",
+  "crn_contract": "seed = sha256(v067|run_id|source_id|snap_dec|goal_spec_id|repeat|cont_dec)[:8] & (2^63-1); branch identity structurally absent",
+  "goal_manifest_sha256": "971b1f3edb5d982ab62c0daeea099fc7da0a9d70875d02264d9745d22c56850b",
+  "tolerances_95pct": {
+    "eef_pos": 0.001965653896331787,
+    "eef_quat": 0.0007840547710657111,
+    "gripper": 0.0001548120751976959,
+    "obj_pos": 0.0,
+    "valid_bits": 0.0
+  },
+  "R": 2,
+  "horizons": [
+    10,
+    30,
+    60,
+    100
+  ],
+  "cont_max_actions": 100,
+  "code_files": {
+    "scripts/collect_v067_continuations.py": "e5793fbc16183e5e04536c1b0c1a40afba175d8f8c5a5bccaa989732c1052b6d",
+    "lcwm/v067_lineage.py": "e9708862efc5137471ec8a306ee280e2ff05ce012a5179aff7aef274f9a854e3",
+    "lcwm/goal_semantics.py": "680f3d39b0531b77b1f651cb9bf0c1a69b77e2cda181b2704d7db0ed88b26787",
+    "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+    "lcwm/snapshot.py": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525"
+  },
+  "manifest_sha256": "ff976bf9d0d33f21ff62ee15553092bc6eb23748589bd9f028d6cb25b670a469"
+}

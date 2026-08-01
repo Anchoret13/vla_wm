@@ -1,0 +1,1106 @@
+{
+  "schema": "v069_failure_inventory_v1",
+  "run_schema": "v067",
+  "input": "iteration-1 development stock-arm traces, seeds 1600-1640; stock diagnostics only",
+  "note": "held_windows: opens only when the grasp check first reports held; attempts never establishing a held state are NOT counted \u2014 not a count of all grasp attempts",
+  "episodes": [
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1600,
+      "n_actions": 900,
+      "first_unresolved": "place butter_1 basket_1_contain_region",
+      "last_stable_progress_step": 348,
+      "max_valid": 5,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "held_windows": {
+        "alphabet_soup_1": [
+          [
+            58,
+            132
+          ]
+        ],
+        "butter_1": [
+          [
+            343,
+            398
+          ]
+        ],
+        "tomato_sauce_1": [
+          [
+            203,
+            255
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1610,
+      "n_actions": 900,
+      "first_unresolved": "pick_up butter_1",
+      "last_stable_progress_step": 249,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "held_windows": {
+        "alphabet_soup_1": [
+          [
+            58,
+            141
+          ]
+        ],
+        "tomato_sauce_1": [
+          [
+            200,
+            247
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1620,
+      "n_actions": 900,
+      "first_unresolved": "pick_up butter_1",
+      "last_stable_progress_step": 263,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "held_windows": {
+        "alphabet_soup_1": [
+          [
+            69,
+            147
+          ]
+        ],
+        "tomato_sauce_1": [
+          [
+            213,
+            261
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1630,
+      "n_actions": 900,
+      "first_unresolved": "pick_up butter_1",
+      "last_stable_progress_step": 270,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "held_windows": {
+        "alphabet_soup_1": [
+          [
+            61,
+            140
+          ],
+          [
+            142,
+            158
+          ]
+        ],
+        "tomato_sauce_1": [
+          [
+            218,
+            267
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [
+        {
+          "step": 158,
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "recovered_by_end": true
+        }
+      ],
+      "recoveries": [
+        {
+          "step": 161,
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region"
+        }
+      ],
+      "n_invalidations": 1,
+      "n_recoveries": 1,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1640,
+      "n_actions": 601,
+      "first_unresolved": null,
+      "last_stable_progress_step": 601,
+      "max_valid": 6,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "alphabet_soup_1": [
+          [
+            68,
+            150
+          ]
+        ],
+        "butter_1": [
+          [
+            510,
+            560
+          ]
+        ],
+        "tomato_sauce_1": [
+          [
+            211,
+            270
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": 601
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1600,
+      "n_actions": 700,
+      "first_unresolved": "place butter_1 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 583,
+      "max_valid": 3,
+      "n_subgoals": 5,
+      "final_valid": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_1": [
+          [
+            574,
+            645
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            356,
+            361
+          ],
+          [
+            380,
+            476
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1610,
+      "n_actions": 700,
+      "first_unresolved": "pick_up butter_1",
+      "last_stable_progress_step": 655,
+      "max_valid": 2,
+      "n_subgoals": 5,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "held_windows": {
+        "chocolate_pudding_1": [
+          [
+            534,
+            535
+          ],
+          [
+            578,
+            648
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1620,
+      "n_actions": 700,
+      "first_unresolved": "pick_up butter_1",
+      "last_stable_progress_step": 543,
+      "max_valid": 1,
+      "n_subgoals": 5,
+      "final_valid": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "held_windows": {
+        "chocolate_pudding_1": [
+          [
+            538,
+            627
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1630,
+      "n_actions": 700,
+      "first_unresolved": "place butter_1 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 654,
+      "max_valid": 3,
+      "n_subgoals": 5,
+      "final_valid": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_1": [
+          [
+            648,
+            null
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            424,
+            530
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1640,
+      "n_actions": 700,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 486,
+      "max_valid": 4,
+      "n_subgoals": 5,
+      "final_valid": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_1": [
+          [
+            379,
+            470
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            185,
+            255
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1600,
+      "n_actions": 900,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "last_stable_progress_step": 262,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "cream_cheese_1": [
+          [
+            67,
+            140
+          ]
+        ],
+        "butter_1": [
+          [
+            202,
+            260
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1610,
+      "n_actions": 900,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "last_stable_progress_step": 363,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "cream_cheese_1": [
+          [
+            59,
+            181
+          ]
+        ],
+        "butter_1": [
+          [
+            303,
+            361
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1620,
+      "n_actions": 900,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "last_stable_progress_step": 272,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "cream_cheese_1": [
+          [
+            71,
+            152
+          ]
+        ],
+        "butter_1": [
+          [
+            203,
+            270
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1630,
+      "n_actions": 900,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "last_stable_progress_step": 264,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "cream_cheese_1": [
+          [
+            60,
+            150
+          ]
+        ],
+        "butter_1": [
+          [
+            203,
+            262
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1640,
+      "n_actions": 900,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "last_stable_progress_step": 421,
+      "max_valid": 4,
+      "n_subgoals": 6,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "held_windows": {
+        "cream_cheese_1": [
+          [
+            59,
+            210
+          ]
+        ],
+        "butter_1": [
+          [
+            311,
+            320
+          ],
+          [
+            366,
+            419
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": true,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1600,
+      "n_actions": 900,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "last_stable_progress_step": 117,
+      "max_valid": 2,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "held_windows": {},
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1610,
+      "n_actions": 900,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "last_stable_progress_step": 115,
+      "max_valid": 2,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "held_windows": {
+        "akita_black_bowl_1": [
+          [
+            69,
+            120
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1620,
+      "n_actions": 900,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "last_stable_progress_step": 114,
+      "max_valid": 2,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "held_windows": {
+        "akita_black_bowl_1": [
+          [
+            58,
+            70
+          ],
+          [
+            71,
+            121
+          ],
+          [
+            122,
+            126
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1630,
+      "n_actions": 900,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "last_stable_progress_step": 203,
+      "max_valid": 2,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "held_windows": {
+        "akita_black_bowl_1": [
+          [
+            139,
+            210
+          ],
+          [
+            211,
+            218
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1640,
+      "n_actions": 900,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "last_stable_progress_step": 114,
+      "max_valid": 2,
+      "n_subgoals": 6,
+      "final_valid": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "held_windows": {
+        "akita_black_bowl_1": [
+          [
+            55,
+            116
+          ],
+          [
+            117,
+            120
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1600,
+      "n_actions": 990,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 844,
+      "max_valid": 4,
+      "n_subgoals": 7,
+      "final_valid": [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_2": [
+          [
+            839,
+            910
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            422,
+            490
+          ]
+        ],
+        "akita_black_bowl_1": [
+          [
+            256,
+            267
+          ],
+          [
+            271,
+            272
+          ],
+          [
+            273,
+            274
+          ],
+          [
+            275,
+            277
+          ],
+          [
+            278,
+            300
+          ],
+          [
+            301,
+            304
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1610,
+      "n_actions": 990,
+      "first_unresolved": "pick_up butter_2",
+      "last_stable_progress_step": 798,
+      "max_valid": 3,
+      "n_subgoals": 7,
+      "final_valid": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "held_windows": {
+        "chocolate_pudding_1": [
+          [
+            708,
+            796
+          ]
+        ],
+        "akita_black_bowl_1": [
+          [
+            291,
+            299
+          ],
+          [
+            357,
+            376
+          ],
+          [
+            378,
+            379
+          ],
+          [
+            383,
+            384
+          ],
+          [
+            386,
+            404
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1620,
+      "n_actions": 990,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 954,
+      "max_valid": 3,
+      "n_subgoals": 7,
+      "final_valid": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_2": [
+          [
+            907,
+            910
+          ],
+          [
+            950,
+            null
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            316,
+            326
+          ],
+          [
+            416,
+            499
+          ]
+        ],
+        "akita_black_bowl_1": [
+          [
+            176,
+            218
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1630,
+      "n_actions": 990,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 930,
+      "max_valid": 4,
+      "n_subgoals": 7,
+      "final_valid": [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_2": [
+          [
+            923,
+            null
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            479,
+            546
+          ]
+        ],
+        "akita_black_bowl_1": [
+          [
+            299,
+            317
+          ],
+          [
+            319,
+            340
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1640,
+      "n_actions": 990,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "last_stable_progress_step": 911,
+      "max_valid": 4,
+      "n_subgoals": 7,
+      "final_valid": [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "held_windows": {
+        "butter_2": [
+          [
+            904,
+            965
+          ]
+        ],
+        "chocolate_pudding_1": [
+          [
+            431,
+            507
+          ]
+        ],
+        "akita_black_bowl_1": [
+          [
+            123,
+            131
+          ],
+          [
+            134,
+            135
+          ],
+          [
+            141,
+            161
+          ]
+        ]
+      },
+      "held_release_without_milestone": {},
+      "invalidations": [],
+      "recoveries": [],
+      "n_invalidations": 0,
+      "n_recoveries": 0,
+      "terminal_two_unresolved": false,
+      "terminal_step": null
+    }
+  ],
+  "by_task": {
+    "loho_t2_basket3": {
+      "n": 5,
+      "first_unresolved_counts": {
+        "place butter_1 basket_1_contain_region": 1,
+        "pick_up butter_1": 3,
+        "null": 1
+      },
+      "mean_max_valid": 4.6,
+      "episodes_with_invalidation": 1,
+      "episodes_with_recovery": 1,
+      "terminal_two_unresolved": 3,
+      "episodes_with_held_release_without_milestone": 0
+    },
+    "loho_t1_drawer": {
+      "n": 5,
+      "first_unresolved_counts": {
+        "place butter_1 wooden_cabinet_1_top_region": 2,
+        "pick_up butter_1": 2,
+        "close wooden_cabinet_1_top_region": 1
+      },
+      "mean_max_valid": 2.6,
+      "episodes_with_invalidation": 0,
+      "episodes_with_recovery": 0,
+      "terminal_two_unresolved": 2,
+      "episodes_with_held_release_without_milestone": 0
+    },
+    "loho_t3_tray": {
+      "n": 5,
+      "first_unresolved_counts": {
+        "pick_up alphabet_soup_1": 5
+      },
+      "mean_max_valid": 4.0,
+      "episodes_with_invalidation": 0,
+      "episodes_with_recovery": 0,
+      "terminal_two_unresolved": 5,
+      "episodes_with_held_release_without_milestone": 0
+    },
+    "loho_t4_tray": {
+      "n": 5,
+      "first_unresolved_counts": {
+        "pick_up new_salad_dressing_1": 5
+      },
+      "mean_max_valid": 2.0,
+      "episodes_with_invalidation": 0,
+      "episodes_with_recovery": 0,
+      "terminal_two_unresolved": 0,
+      "episodes_with_held_release_without_milestone": 0
+    },
+    "loho_t5_drawer_cabinet": {
+      "n": 5,
+      "first_unresolved_counts": {
+        "place butter_2 wooden_cabinet_1_top_region": 4,
+        "pick_up butter_2": 1
+      },
+      "mean_max_valid": 3.6,
+      "episodes_with_invalidation": 0,
+      "episodes_with_recovery": 0,
+      "terminal_two_unresolved": 0,
+      "episodes_with_held_release_without_milestone": 0
+    }
+  }
+}

@@ -8,12 +8,15 @@ deterministically; the canonical automaton and grasp state are
 evaluated after every action.
 
 Per episode: first unresolved subgoal, last stable progress step,
-grasp-attempt windows (per goal object) and whether they failed,
-invalidation (1→0) and recovery (1→0→1) events, terminal-two-unresolved
-flag, per-subgoal timeline summaries.
+HELD-object windows (per goal object; NOTE: a window opens only when
+the grasp check first reports the object as held — attempts that never
+establish a held state are NOT counted, so this is not a count of all
+grasp attempts), invalidation (1→0) and recovery events WITH predicate
+identity and action step, terminal-two-unresolved flag.
 
-Output: results/libero_loho_public_v1/v067_failure_inventory.json —
-the frozen input to the failure-anchored collection design decision.
+Output: results/libero_loho_public_v1/v069_failure_inventory.json —
+the frozen input to the failure-anchored collection design (V6.9.0
+amendment; the original v067 file is preserved unmodified).
 """
 
 from __future__ import annotations
@@ -108,11 +111,17 @@ def main() -> None:
                         grasp_windows[o].append((open_grasp[o], None))
                 n = len(subgoals)
                 valid = list(auto.prev_valid)
-                flips10 = [f for f in auto.flips if f[2] == -1]
-                recovered = [i for (_s, i, _d) in flips10
-                             if auto.prev_valid[i]]
+                invalidations = [
+                    {"step": int(s), "subgoal": subgoals[i],
+                     "recovered_by_end": bool(auto.prev_valid[i])}
+                    for (s, i, d) in auto.flips if d == -1]
+                recoveries = [
+                    {"step": int(s), "subgoal": subgoals[i]}
+                    for (s, i, d) in auto.flips if d == 1
+                    and any(f[1] == i and f[2] == -1 and f[0] < s
+                            for f in auto.flips)]
                 achieved_idx = {i for i in auto.events_achieved}
-                failed_grasps = {
+                held_release = {
                     o: len(grasp_windows[o]) for o in pick_objs
                     if grasp_windows[o]
                     and subgoals.index(f"pick_up {o}")
@@ -126,11 +135,13 @@ def main() -> None:
                     "last_stable_progress_step": int(last_progress),
                     "max_valid": int(progress_hi), "n_subgoals": n,
                     "final_valid": valid,
-                    "grasp_windows": {o: w for o, w in
-                                      grasp_windows.items() if w},
-                    "failed_grasp_objects": failed_grasps,
-                    "n_invalidations": len(flips10),
-                    "n_recoveries": len(recovered),
+                    "held_windows": {o: w for o, w in
+                                     grasp_windows.items() if w},
+                    "held_release_without_milestone": held_release,
+                    "invalidations": invalidations,
+                    "recoveries": recoveries,
+                    "n_invalidations": len(invalidations),
+                    "n_recoveries": len(recoveries),
                     "terminal_two_unresolved":
                         bool(sum(valid) == n - 2),
                     "terminal_step": terminal_step,
@@ -156,16 +167,21 @@ def main() -> None:
                 1 for e in eps if e["n_recoveries"]),
             "terminal_two_unresolved": sum(
                 1 for e in eps if e["terminal_two_unresolved"]),
-            "episodes_with_failed_grasp": sum(
-                1 for e in eps if e["failed_grasp_objects"]),
+            "episodes_with_held_release_without_milestone": sum(
+                1 for e in eps
+                if e["held_release_without_milestone"]),
         }
     out = {
-        "schema": "v067_failure_inventory_v1", "run_schema": "v067",
+        "schema": "v069_failure_inventory_v1", "run_schema": "v067",
         "input": ("iteration-1 development stock-arm traces, seeds "
                   "1600-1640; stock diagnostics only"),
+        "note": ("held_windows: opens only when the grasp check first "
+                 "reports held; attempts never establishing a held "
+                 "state are NOT counted — not a count of all grasp "
+                 "attempts"),
         "episodes": episodes, "by_task": by_task,
     }
-    path = RESULTS / "v067_failure_inventory.json"
+    path = RESULTS / "v069_failure_inventory.json"
     path.write_text(json.dumps(out, indent=2, default=str))
     print(json.dumps(by_task, indent=2, default=str), flush=True)
     print(f"-> {path}", flush=True)
