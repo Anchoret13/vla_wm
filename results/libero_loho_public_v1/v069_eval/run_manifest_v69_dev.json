@@ -1,0 +1,35 @@
+{
+  "schema": "v069_eval_v1",
+  "run_schema": "v069",
+  "run_id": "v69_dev",
+  "noise_contract": "20e6 + public_task_index*2e6 + env_seed*1e3 + decision; shared across arms; all arms via sample_chunks_lc (stock bias=0)",
+  "arms": [
+    "stock",
+    "v069_grounded_recurrent",
+    "v069_grounded_reset"
+  ],
+  "wz_sha256": "3786800904f0ef07d29185c4afa4365bbe8b009a18a3a92a57b91a79d4371d34",
+  "one_checkpoint_both_modes": true,
+  "wm_checkpoint_sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495",
+  "tasks": [
+    "loho_t1_drawer",
+    "loho_t2_basket3",
+    "loho_t3_tray",
+    "loho_t4_tray",
+    "loho_t5_drawer_cabinet"
+  ],
+  "seeds": [
+    1650,
+    1660,
+    1670,
+    1680,
+    1690
+  ],
+  "code_files": {
+    "scripts/eval_loho_v069.py": "b8e6294aa55ddc7fcd854f835127c21cfbd4982e803ada01f7c3d8df9175422b",
+    "lcwm/v06_model.py": "66b498b743950d7b333f64a7dbe1b181c82ac9b5a8cf74a2994db760ca1c930d",
+    "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+    "lcwm/loho_public.py": "098d51d7e17a41b712611a038b51efabee041e02c17905cb2194a702d63811f6"
+  },
+  "manifest_sha256": "d213806192fee1e8e844a515831e6ff62c9c1486f9b31e454eab8a5e89688143"
+}
