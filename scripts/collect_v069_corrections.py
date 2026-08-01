@@ -89,9 +89,19 @@ REGION_DISPLAY = {"wooden_cabinet_1_top_region":
                   "the top drawer of the cabinet",
                   "basket_1_contain_region": "the basket",
                   "wooden_tray_1_contain_region": "the tray"}
-PICK_NEAR, PICK_FAR = 0.03, 0.12
-PLACE_NEAR, PLACE_FAR = 0.05, 0.25
+# AMENDED (registered 2026-08-01, after the t3 zero-anchor diagnosis):
+# the stock stall mode is WRONG-OBJECT engagement (t3: arm hovers 5 mm
+# from cream_cheese while the soup sits 22 cm away), so a narrow
+# approach window around the anchor object never fires. The queue's
+# criterion is reachability — "a stable pre-contact state whose next
+# ten actions can cross the relevant outcome boundary" — and ten servo
+# actions cover ~25-30 cm. Window widened accordingly; a stall
+# condition (first-unresolved unchanged for >=3 consecutive decisions)
+# replaces proximity as the anchor-quality signal.
+PICK_NEAR, PICK_FAR = 0.03, 0.30
+PLACE_NEAR, PLACE_FAR = 0.05, 0.30
 STABLE_MM = 0.005
+STALL_DECS = 3
 
 
 def noise_seed(task_index: int, seed: int, decision: int) -> int:
@@ -238,84 +248,146 @@ def main() -> None:
                 bodies = automata[canon_id].bodies
                 instruction = env.task_description
 
-                # ---- fresh stock rollout with per-action eval ----------
+                def anchor_ok(first_unres, obj_positions, obj_prev,
+                              eef, stall_count):
+                    """AMENDED rule: reachability window + stall
+                    condition (>=3 consecutive decisions on the same
+                    first-unresolved anchor subgoal)."""
+                    if first_unres not in anchor_sgs:
+                        return None
+                    if stall_count < STALL_DECS:
+                        return None
+                    form, region = anchor_sgs[first_unres]
+                    gsp = grasp_state(env, bodies)["grasped"]
+                    opos = body_positions(
+                        env, [bodies[anchor_obj]])[0]
+                    moved = float(np.abs(
+                        obj_positions - obj_prev).max())
+                    if form == "pick_up":
+                        dist = float(np.linalg.norm(eef - opos))
+                        if (not gsp.get(anchor_obj)
+                                and PICK_NEAR <= dist <= PICK_FAR
+                                and moved < STABLE_MM):
+                            return {"form": form, "region": region,
+                                    "dist": dist}
+                    else:
+                        tgt = site_pos(env, region)
+                        dist = float(np.linalg.norm(opos - tgt))
+                        if (bool(gsp.get(anchor_obj))
+                                and PLACE_NEAR <= dist <= PLACE_FAR):
+                            return {"form": form, "region": region,
+                                    "dist": dist}
+                    return None
+
                 rows, snaps, auto_states = [], {}, {}
                 anchor_candidates = []
                 obj_prev = body_positions(env, list(bodies.values()))
-                t, decision = 0, 0
+                stall_count, prev_unres = 0, "___"
                 term = trunc = False
-                while t < env.episode_length:
-                    snaps[decision] = snap(env, t=t,
-                                           suite_name="loho_public",
-                                           task_id=0)
-                    auto_states[decision] = {
-                        gid: fork_env_state(a)
-                        for gid, a in automata.items()}
-                    obs_now = copy.deepcopy(obs)
-                    canon_auto = automata[canon_id]
-                    first_unres = next(
-                        (subgoals[i] for i, v in
-                         enumerate(canon_auto.prev_valid) if not v),
-                        None)
-                    obj_positions = body_positions(
-                        env, list(bodies.values()))
-                    # anchor predicate at the SNAPSHOT state
-                    if first_unres in anchor_sgs:
-                        form, region = anchor_sgs[first_unres]
-                        gsp = grasp_state(env, bodies)["grasped"]
-                        eef = np.asarray(
-                            obs_now["robot_state"]["eef"]["pos"])
-                        opos = body_positions(
-                            env, [bodies[anchor_obj]])[0]
-                        moved = float(np.abs(
-                            obj_positions - obj_prev).max())
-                        ok = False
-                        if form == "pick_up":
-                            dist = float(np.linalg.norm(eef - opos))
-                            ok = (not gsp.get(anchor_obj)
-                                  and PICK_NEAR <= dist <= PICK_FAR
-                                  and moved < STABLE_MM)
-                        else:
-                            tgt = site_pos(env, region)
-                            dist = float(np.linalg.norm(opos - tgt))
-                            ok = (bool(gsp.get(anchor_obj))
-                                  and PLACE_NEAR <= dist <= PLACE_FAR)
-                        if ok:
+                if src_path.exists():
+                    # ---- deterministic re-reach of a saved source ------
+                    saved = torch.load(src_path, weights_only=False)
+                    assert saved["schema"] == "v069_correction_source_v1"
+                    rows = saved["rows"]
+                    t = 0
+                    for row in rows:
+                        d = row["decision"]
+                        snaps[d] = snap(env, t=t,
+                                        suite_name="loho_public",
+                                        task_id=0)
+                        auto_states[d] = {
+                            gid: fork_env_state(a)
+                            for gid, a in automata.items()}
+                        first_unres = row["first_unresolved"]
+                        stall_count = (stall_count + 1
+                                       if first_unres == prev_unres
+                                       else 1)
+                        prev_unres = first_unres
+                        obj_positions = body_positions(
+                            env, list(bodies.values()))
+                        err = float(np.abs(
+                            obj_positions - row["obj_before"]).max())
+                        assert err < REREACH_ATOL, (
+                            f"{source_id} d={d}: re-reach diverges "
+                            f"{err:.2e}")
+                        hit = anchor_ok(
+                            first_unres, obj_positions, obj_prev,
+                            np.asarray(
+                                row["obs"]["robot_state"]["eef"]
+                                ["pos"]), stall_count)
+                        if hit:
                             anchor_candidates.append(
-                                {"decision": decision,
-                                 "form": form, "region": region,
-                                 "dist": dist})
-                    obj_prev = obj_positions
-                    batch = runner._obs_to_policy_batch(
-                        obs, instruction)
-                    prefix = prefix_forward(runner.policy, batch)
-                    chunk = sample_chunks(
-                        runner.policy, batch, n=1,
-                        seed=noise_seed(task_index, seed, decision),
-                        prefix=prefix)
-                    actions_env, executed = [], 0
-                    for a_env in runner.chunk_to_env(chunk[:, :10]):
-                        obs, _r, term, trunc, _i = env.step(a_env)
-                        actions_env.append(np.asarray(a_env))
-                        t += 1
-                        executed += 1
-                        for au in automata.values():
-                            au.evaluate(env, t)
+                                {"decision": d, **hit})
+                        obj_prev = obj_positions
+                        for a_env in row["actions_env"]:
+                            env.step(a_env)
+                            t += 1
+                            for au in automata.values():
+                                au.evaluate(env, t)
+                else:
+                    # ---- fresh stock rollout with per-action eval ------
+                    t, decision = 0, 0
+                    while t < EPISODE_LENGTH[task_name]:
+                        snaps[decision] = snap(env, t=t,
+                                               suite_name="loho_public",
+                                               task_id=0)
+                        auto_states[decision] = {
+                            gid: fork_env_state(a)
+                            for gid, a in automata.items()}
+                        obs_now = copy.deepcopy(obs)
+                        canon_auto = automata[canon_id]
+                        first_unres = next(
+                            (subgoals[i] for i, v in
+                             enumerate(canon_auto.prev_valid)
+                             if not v), None)
+                        stall_count = (stall_count + 1
+                                       if first_unres == prev_unres
+                                       else 1)
+                        prev_unres = first_unres
+                        obj_positions = body_positions(
+                            env, list(bodies.values()))
+                        hit = anchor_ok(
+                            first_unres, obj_positions, obj_prev,
+                            np.asarray(
+                                obs_now["robot_state"]["eef"]["pos"]),
+                            stall_count)
+                        if hit:
+                            anchor_candidates.append(
+                                {"decision": decision, **hit})
+                        obj_prev = obj_positions
+                        batch = runner._obs_to_policy_batch(
+                            obs, instruction)
+                        prefix = prefix_forward(runner.policy, batch)
+                        chunk = sample_chunks(
+                            runner.policy, batch, n=1,
+                            seed=noise_seed(task_index, seed,
+                                            decision),
+                            prefix=prefix)
+                        actions_env, executed = [], 0
+                        for a_env in runner.chunk_to_env(
+                                chunk[:, :10]):
+                            obs, _r, term, trunc, _i = env.step(a_env)
+                            actions_env.append(np.asarray(a_env))
+                            t += 1
+                            executed += 1
+                            for au in automata.values():
+                                au.evaluate(env, t)
+                            if term or trunc:
+                                break
+                        rows.append({
+                            "decision": decision,
+                            "t_start": t - executed,
+                            "obs": obs_now,
+                            "chunk_norm": chunk[0].float().cpu(),
+                            "actions_env": np.stack(actions_env),
+                            "executed_len": executed,
+                            "q": obs_q(obs_now),
+                            "obj_before": obj_positions,
+                            "first_unresolved": first_unres,
+                        })
+                        decision += 1
                         if term or trunc:
                             break
-                    rows.append({
-                        "decision": decision, "t_start": t - executed,
-                        "obs": obs_now,
-                        "chunk_norm": chunk[0].float().cpu(),
-                        "actions_env": np.stack(actions_env),
-                        "executed_len": executed,
-                        "q": obs_q(obs_now),
-                        "obj_before": obj_positions,
-                        "first_unresolved": first_unres,
-                    })
-                    decision += 1
-                    if term or trunc:
-                        break
                 if not src_path.exists():
                     tmp = src_path.with_suffix(".tmp")
                     torch.save({
