@@ -1,0 +1,85 @@
+{
+  "logs": [
+    {
+      "step": 50,
+      "dev_objective": 2.533963354428609,
+      "grounded": 1.3022913932800293,
+      "rehearsal": 3.184924602508545,
+      "trust": 1.2477126121520996
+    },
+    {
+      "step": 100,
+      "dev_objective": 2.6142572164535522,
+      "grounded": 1.5630912780761719,
+      "rehearsal": 1.7246302366256714,
+      "trust": 0.7454021573066711
+    },
+    {
+      "step": 150,
+      "dev_objective": 2.4402447819709776,
+      "grounded": 1.4776582717895508,
+      "rehearsal": 1.8713711500167847,
+      "trust": 0.5362728238105774
+    },
+    {
+      "step": 200,
+      "dev_objective": 0.7323244472344717,
+      "grounded": 1.1591246128082275,
+      "rehearsal": 0.6990063190460205,
+      "trust": 0.16180263459682465
+    },
+    {
+      "step": 250,
+      "dev_objective": 0.3877490213140845,
+      "grounded": 0.12036300450563431,
+      "rehearsal": 0.3153650760650635,
+      "trust": 0.11775283515453339
+    },
+    {
+      "step": 300,
+      "dev_objective": 0.327074802108109,
+      "grounded": 0.09943589568138123,
+      "rehearsal": 0.14704115688800812,
+      "trust": 0.029513610526919365
+    },
+    {
+      "step": 350,
+      "dev_objective": 0.35881686881184577,
+      "grounded": 0.09989422559738159,
+      "rehearsal": 0.09905678033828735,
+      "trust": 0.021641500294208527
+    },
+    {
+      "step": 400,
+      "dev_objective": 0.36347940284758806,
+      "grounded": 0.13305065035820007,
+      "rehearsal": 0.4032198488712311,
+      "trust": 0.5226626992225647
+    },
+    {
+      "step": 401,
+      "dev_objective": 0.3525998622799913,
+      "grounded": 0.4568420648574829,
+      "rehearsal": 0.3361128270626068,
+      "trust": 0.059500984847545624
+    }
+  ],
+  "bias_stats": {
+    "n_states": 119,
+    "total_rms": 0.3864779770374298,
+    "across_state_centered_rms": 0.017235923558473587,
+    "recurrent_minus_reset_rms": 0.04571017622947693,
+    "state_shuffle_delta_rms": 0.02531389705836773
+  },
+  "covered_by_task": {
+    "loho_t1_drawer": 3,
+    "loho_t2_basket3": 3,
+    "loho_t3_tray": 11,
+    "loho_t4_tray": 0,
+    "loho_t5_drawer_cabinet": 0
+  },
+  "uncovered_tasks": [
+    "loho_t4_tray",
+    "loho_t5_drawer_cabinet"
+  ]
+}
