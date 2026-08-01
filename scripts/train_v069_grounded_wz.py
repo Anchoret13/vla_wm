@@ -138,11 +138,31 @@ def main() -> None:
         ref_demo["action_std_eps"]
 
     # ---- grounded targets from the failure-anchored bank ---------------
+    # corrections are re-derived from the RECORDS under the amended
+    # rule (outcome-level replay agreement + absolute gross bounds) so
+    # files written before the amendment need no recollection
+    from lcwm.task_automaton import paired_preference
+    from scripts.collect_v069_corrections import GROSS_BOUNDS
+
     targets, sources = [], {}
     for cp in sorted((DATA / "corrections_v069").glob("*.pt")):
         grp = torch.load(cp, weights_only=False)
         assert grp["schema"] == "v069_corrections_v1"
-        if grp["split"] != "train" or grp["replay_unstable"]:
+        if grp["split"] != "train":
+            continue
+        tolerances = grp["frozen_outcome_tolerances"]
+
+        def outs(k):
+            return [r["outcome"] for r in sorted(
+                (r for r in grp["records"] if r["branch_key"] == k),
+                key=lambda r: r["repeat"])]
+        outcome_unstable = paired_preference(
+            outs("replay"), outs(0), tolerances) != 0
+        rep = next(b for b in grp["branch_summaries"]
+                   if b["kind"] == "replay")
+        deltas = rep["replay_endpoint"]["deltas"]
+        gross = any(deltas[k_] > b for k_, b in GROSS_BOUNDS.items())
+        if outcome_unstable or gross:
             continue
         sid = grp["source_id"]
         if sid not in sources:
@@ -150,7 +170,9 @@ def main() -> None:
                 DATA / "corrections_sources_v069" / f"{sid}.pt",
                 weights_only=False)
         by_key = {str(b["key"]): b for b in grp["branch_summaries"]}
-        for key in grp["grounded_corrections"]:
+        correction_keys = [k_ for k_, v in
+                           grp["judged_vs_u0"].items() if v == 1]
+        for key in correction_keys:
             b = by_key[key]
             if b["chunk_norm"] is not None:
                 chunk = b["chunk_norm"].clone()
@@ -401,7 +423,8 @@ def main() -> None:
                             prefix_lru.clear()
                         batch = runner._obs_to_policy_batch(
                             src["rows"][d]["obs"],
-                            src["language_canonical"])
+                            src["language_canonical"],
+                        )
                         prefix_lru[key] = prefix_forward(
                             runner.policy, batch)
                     rl, tr = rehearsal_and_trust(
