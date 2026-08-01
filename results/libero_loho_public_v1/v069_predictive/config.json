@@ -1,0 +1,37 @@
+{
+  "run_schema": "v069",
+  "seed": 0,
+  "lr": 0.0003,
+  "wd": 0.0001,
+  "epochs": 25,
+  "tbptt": 16,
+  "grad_norm": 1.0,
+  "families": [
+    "seq_phys",
+    "current",
+    "reward",
+    "closure1",
+    "closure23",
+    "para",
+    "para_pred",
+    "distinct_current",
+    "shared_phys",
+    "branch_abs",
+    "branch_centered",
+    "next_sem",
+    "cont_heads",
+    "ranking"
+  ],
+  "from_scratch": true,
+  "selection": {
+    "rule": "min dev objective (mean of enabled non-ranking family losses on 5 dev sources); tie -> earliest",
+    "selected": "checkpoint_epoch024.pt",
+    "per_checkpoint": {
+      "checkpoint_epoch004.pt": 11.677634529994064,
+      "checkpoint_epoch009.pt": 9.731367623664116,
+      "checkpoint_epoch014.pt": 8.962494515941469,
+      "checkpoint_epoch019.pt": 7.299950536358342,
+      "checkpoint_epoch024.pt": 5.956413281078227
+    }
+  }
+}

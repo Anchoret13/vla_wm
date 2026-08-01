@@ -1,0 +1,32 @@
+{
+  "gates": {
+    "predictive": "enabled",
+    "ranking": "unsupported"
+  },
+  "clean_rank_groups": [],
+  "silent_families": [],
+  "dnext_head_target_counts": {
+    "d_q": 27825,
+    "d_obj": 27825,
+    "valid_bits": 65950,
+    "event_bits": 65950,
+    "flips_01": 65950,
+    "flips_10": 65950,
+    "damage": 15000,
+    "reward": 65950,
+    "success": 15000,
+    "p_valid": 15000,
+    "q_valid": 15000,
+    "tau_next": 15000,
+    "score": 0
+  },
+  "enabled_heads_without_targets": [],
+  "enabled_heads_param_unchanged": [],
+  "explicitly_disabled_heads": [
+    "score"
+  ],
+  "crossed_branches_trained": 13500,
+  "crossed_semantic_disagreement_branches": 11775,
+  "replay_audit_rows_trained": 0,
+  "history_contrast": "unsupported (0 matched pairs)"
+}

@@ -1,0 +1,128 @@
+{
+  "run_schema": "v067",
+  "per_source": {
+    "loho_t1_drawer_staged_s2003": {
+      "groups": [
+        "loho_t1_drawer_staged_s2003_d11",
+        "loho_t1_drawer_staged_s2003_d32",
+        "loho_t1_drawer_staged_s2003_d33"
+      ]
+    },
+    "loho_t2_basket3_staged_s2013": {
+      "groups": [
+        "loho_t2_basket3_staged_s2013_d24",
+        "loho_t2_basket3_staged_s2013_d27",
+        "loho_t2_basket3_staged_s2013_d5",
+        "loho_t2_basket3_staged_s2013_d7"
+      ]
+    },
+    "loho_t3_tray_staged_s2023": {
+      "groups": [
+        "loho_t3_tray_staged_s2023_d11",
+        "loho_t3_tray_staged_s2023_d5",
+        "loho_t3_tray_staged_s2023_d9"
+      ]
+    },
+    "loho_t4_tray_staged_s2033": {
+      "groups": [
+        "loho_t4_tray_staged_s2033_d4",
+        "loho_t4_tray_staged_s2033_d6",
+        "loho_t4_tray_staged_s2033_d7"
+      ]
+    },
+    "loho_t5_drawer_cabinet_staged_s2043": {
+      "groups": [
+        "loho_t5_drawer_cabinet_staged_s2043_d21",
+        "loho_t5_drawer_cabinet_staged_s2043_d22",
+        "loho_t5_drawer_cabinet_staged_s2043_d23",
+        "loho_t5_drawer_cabinet_staged_s2043_d3"
+      ]
+    }
+  },
+  "pooled": {
+    "branch_abs_rmse_model": 0.011288563147504241,
+    "branch_abs_rmse_zero": 0.01127581865232769,
+    "branch_centered_rmse_model": 0.0006810463329527894,
+    "branch_centered_rmse_zero": 0.0006760615723395056,
+    "next_valid_auprc": 0.45364201895271783,
+    "flip10_auprc": null,
+    "flip01_auprc": 0.24426204284079742,
+    "current_valid_acc": 0.46697893259955237,
+    "ordered_prefix_mae": 0.2714923318095976,
+    "closure_mse": {
+      "1": 0.24918281972408296,
+      "2": 0.33847702145576475,
+      "3": 0.3586037245290033
+    },
+    "paraphrase_state_mse": 5.251249034500222e-05,
+    "paraphrase_pred_mse": 2.071087238229344e-06,
+    "cross_goal_phys_pred_dist": 1.8343167071829418e-05,
+    "cross_sem_disagree_detect_rate": 0.3111111111111111,
+    "n_cross_sem_disagree_rows": 180,
+    "ranking": {
+      "n_pairs": 8,
+      "n_groups": 2,
+      "accuracy": 0.75,
+      "bce": 0.6923884355441752,
+      "ece_5bin": 0.0001937207073867686,
+      "pairs": [
+        {
+          "group": "loho_t2_basket3_staged_s2013_d27",
+          "p": 0.5006111186679918,
+          "label": 1,
+          "task": "loho_t2_basket3"
+        },
+        {
+          "group": "loho_t2_basket3_staged_s2013_d27",
+          "p": 0.5006576921722916,
+          "label": 1,
+          "task": "loho_t2_basket3"
+        },
+        {
+          "group": "loho_t2_basket3_staged_s2013_d27",
+          "p": 0.4992004714270251,
+          "label": 0,
+          "task": "loho_t2_basket3"
+        },
+        {
+          "group": "loho_t2_basket3_staged_s2013_d27",
+          "p": 0.49915389797387333,
+          "label": 0,
+          "task": "loho_t2_basket3"
+        },
+        {
+          "group": "loho_t3_tray_staged_s2023_d11",
+          "p": 0.5004880426764278,
+          "label": 0,
+          "task": "loho_t3_tray"
+        },
+        {
+          "group": "loho_t3_tray_staged_s2023_d11",
+          "p": 0.5004134326231011,
+          "label": 0,
+          "task": "loho_t3_tray"
+        },
+        {
+          "group": "loho_t3_tray_staged_s2023_d11",
+          "p": 0.5004752500414142,
+          "label": 1,
+          "task": "loho_t3_tray"
+        },
+        {
+          "group": "loho_t3_tray_staged_s2023_d11",
+          "p": 0.5005498600769693,
+          "label": 1,
+          "task": "loho_t3_tray"
+        }
+      ]
+    },
+    "history_contrast": "unsupported (0 matched pairs)",
+    "latent_task_variation": {
+      "loho_t1_drawer": 0.08077860623598099,
+      "loho_t2_basket3": 0.1239641010761261,
+      "loho_t3_tray": 0.14081837236881256,
+      "loho_t4_tray": 0.07319142669439316,
+      "loho_t5_drawer_cabinet": 0.06937739253044128
+    }
+  }
+}
