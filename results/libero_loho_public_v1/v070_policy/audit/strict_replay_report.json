@@ -1,0 +1,109 @@
+{
+  "gate_version": "v070_strict_1",
+  "expected": {
+    "n_anchors": 26,
+    "task_counts": [
+      6,
+      4,
+      7,
+      3,
+      6
+    ],
+    "train_clean_anchors": 14,
+    "train_clean_sources": 8,
+    "dev_clean_anchors": 8,
+    "dev_clean_sources": 5,
+    "train_winning_chunks": 10,
+    "train_positive_anchors": 6,
+    "train_family_headroom": {
+      "canonical": 0,
+      "expanded": 2,
+      "servo": 6
+    },
+    "dev_family_headroom_expanded": 3,
+    "dev_family_headroom_servo": 3
+  },
+  "derived": {
+    "train_clean_anchors": 14,
+    "train_clean_sources": 8,
+    "dev_clean_anchors": 8,
+    "dev_clean_sources": 5,
+    "train_winning_chunks": 10,
+    "train_positive_anchors": 6,
+    "train_family_headroom": {
+      "canonical": 0,
+      "expanded": 2,
+      "servo": 6
+    },
+    "dev_family_headroom_expanded": 3,
+    "dev_family_headroom_servo": 3
+  },
+  "mismatches": {},
+  "teacher_construction_allowed": true,
+  "clean_anchor_lists": {
+    "train": [
+      "loho_t1_drawer_correction_s2100_d3",
+      "loho_t1_drawer_correction_s2100_d8",
+      "loho_t1_drawer_correction_s2101_d2",
+      "loho_t1_drawer_correction_s2101_d8",
+      "loho_t2_basket3_correction_s2110_d16",
+      "loho_t3_tray_correction_s2120_d19",
+      "loho_t3_tray_correction_s2120_d2",
+      "loho_t3_tray_correction_s2121_d7",
+      "loho_t4_tray_correction_s2130_d30",
+      "loho_t4_tray_correction_s2130_d35",
+      "loho_t5_drawer_cabinet_correction_s2140_d2",
+      "loho_t5_drawer_cabinet_correction_s2140_d7",
+      "loho_t5_drawer_cabinet_correction_s2141_d3",
+      "loho_t5_drawer_cabinet_correction_s2141_d8"
+    ],
+    "dev": [
+      "loho_t1_drawer_correction_s2102_d3",
+      "loho_t1_drawer_correction_s2102_d8",
+      "loho_t2_basket3_correction_s2112_d75",
+      "loho_t3_tray_correction_s2122_d19",
+      "loho_t3_tray_correction_s2122_d2",
+      "loho_t4_tray_correction_s2132_d29",
+      "loho_t5_drawer_cabinet_correction_s2142_d2",
+      "loho_t5_drawer_cabinet_correction_s2142_d7"
+    ]
+  },
+  "train_positive_anchor_list": [
+    "loho_t1_drawer_correction_s2100_d8",
+    "loho_t1_drawer_correction_s2101_d2",
+    "loho_t1_drawer_correction_s2101_d8",
+    "loho_t2_basket3_correction_s2110_d16",
+    "loho_t3_tray_correction_s2120_d2",
+    "loho_t3_tray_correction_s2121_d7"
+  ],
+  "headroom_anchor_lists": {
+    "train": {
+      "canonical": [],
+      "expanded": [
+        "loho_t2_basket3_correction_s2110_d16",
+        "loho_t3_tray_correction_s2121_d7"
+      ],
+      "servo": [
+        "loho_t1_drawer_correction_s2100_d8",
+        "loho_t1_drawer_correction_s2101_d2",
+        "loho_t1_drawer_correction_s2101_d8",
+        "loho_t2_basket3_correction_s2110_d16",
+        "loho_t3_tray_correction_s2120_d2",
+        "loho_t3_tray_correction_s2121_d7"
+      ]
+    },
+    "dev": {
+      "canonical": [],
+      "expanded": [
+        "loho_t2_basket3_correction_s2112_d75",
+        "loho_t3_tray_correction_s2122_d2",
+        "loho_t5_drawer_cabinet_correction_s2142_d2"
+      ],
+      "servo": [
+        "loho_t1_drawer_correction_s2102_d3",
+        "loho_t1_drawer_correction_s2102_d8",
+        "loho_t3_tray_correction_s2122_d2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "canonical": {
+    "aggregate_margin": 0.0,
+    "n_positive_sources": 0,
+    "bootstrap_mean": 0.0,
+    "bootstrap_lb95": 0.0,
+    "n_replicates": 10000,
+    "seed": 70001,
+    "pass": false
+  },
+  "expanded": {
+    "aggregate_margin": 0.3,
+    "n_positive_sources": 2,
+    "bootstrap_mean": 0.30002999999999996,
+    "bootstrap_lb95": 0.2,
+    "n_replicates": 10000,
+    "seed": 70001,
+    "pass": true,
+    "degeneracy_annotation": "computed pass per the frozen formula, but the bootstrap lower bound is a degenerate-stratum artifact: expanded has no -1 anchors and the t2 stratum contains exactly one clean source with one (+1) anchor, so equal-task weighting contributes a constant 1.0/5=0.2 to every replicate and lb95>=0.2 mechanically. Two positive anchors cannot support a population-level claim; promotion/prior language is deferred to review. Routing is unaffected: the run proceeds on the MECHANICAL gate as a labeled proposal-augmentation diagnostic, exactly the queue-expected path."
+  }
+}

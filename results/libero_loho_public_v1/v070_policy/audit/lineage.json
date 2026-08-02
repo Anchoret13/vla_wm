@@ -1,0 +1,40 @@
+{
+  "git_base_commit": "6d6573e",
+  "gate_version": "v070_strict_1",
+  "pi05": {
+    "repo": "lerobot/pi05_libero_finetuned",
+    "revision": "dbf8a3f794a9c4297b44f40b752712f50073d945",
+    "model_sha256": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae"
+  },
+  "artifacts": {
+    "predictive_checkpoint": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v069_predictive/checkpoint_selected.pt",
+      "sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495"
+    },
+    "wz_selected": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v069_policy/grounded_wz/wz_selected.pt",
+      "sha256": "3786800904f0ef07d29185c4afa4365bbe8b009a18a3a92a57b91a79d4371d34"
+    },
+    "behavior_records": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v069_eval/development/records.jsonl",
+      "sha256": "2db1ce82e7d620d818fb7b78f0db17aa65436fa656b9dee0460dc1f87e688273"
+    },
+    "behavior_manifest": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v069_eval/run_manifest_v69_dev.json",
+      "sha256": "dda9af12c84245c041fc03f7115da2041e7a079f563bf1f9007ccbb2a1db1363"
+    },
+    "rehearsal_manifest": {
+      "path": "/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1/demo_rehearsal_v067/manifest.json",
+      "sha256": "88aea3063398277cbaa82cc9ce2e70d331df338a3cb552791053759c7158e0d3"
+    },
+    "evaluator": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/eval_loho_v069.py",
+      "sha256": "b8e6294aa55ddc7fcd854f835127c21cfbd4982e803ada01f7c3d8df9175422b"
+    },
+    "strict_rule": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/lcwm/v070_replay.py",
+      "sha256": "cc96e99e4a00046bcb88a1390a846956fbdfda12204d3626e4136b76fb35924b"
+    }
+  },
+  "correction_bank_index_sha256": "d6f6faa9999dc2d6a8785b6c7c5bb2afe75cab0443aac88eb679acd8950a5fe6"
+}

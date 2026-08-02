@@ -1,0 +1,12 @@
+{
+  "wz_selected_sha256": "3786800904f0ef07d29185c4afa4365bbe8b009a18a3a92a57b91a79d4371d34",
+  "reproduces_run_manifest": true,
+  "selected_step": 300,
+  "historical_defects_recorded_not_rewritten": {
+    "bias_stats_computed_at_step": 401,
+    "behavior_used_selected_step": 300,
+    "dev_metrics_run_schema_field": "v067 (label bug; artifact is the v069 checkpoint)",
+    "v069_eval_q_resolution": "per-10-action chunk (superseded by corrected_v069_behavior)",
+    "v069_policy_state_mode": "correction loss averaged reset/recurrent; rehearsal/trust/selection recurrent-only"
+  }
+}

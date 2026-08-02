@@ -1,0 +1,1209 @@
+{
+  "loho_t1_drawer_correction_s2100_d3": {
+    "file": "loho_t1_drawer_correction_s2100_d3.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t1_drawer_correction_s2100_d8": {
+    "file": "loho_t1_drawer_correction_s2100_d8.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t1_drawer_correction_s2101_d2": {
+    "file": "loho_t1_drawer_correction_s2101_d2.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t1_drawer_correction_s2101_d8": {
+    "file": "loho_t1_drawer_correction_s2101_d8.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t1_drawer_correction_s2102_d3": {
+    "file": "loho_t1_drawer_correction_s2102_d3.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t1_drawer_correction_s2102_d8": {
+    "file": "loho_t1_drawer_correction_s2102_d8.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t2_basket3_correction_s2110_d16": {
+    "file": "loho_t2_basket3_correction_s2110_d16.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t2_basket3_correction_s2112_d75": {
+    "file": "loho_t2_basket3_correction_s2112_d75.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t3_tray_correction_s2120_d19": {
+    "file": "loho_t3_tray_correction_s2120_d19.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t3_tray_correction_s2120_d2": {
+    "file": "loho_t3_tray_correction_s2120_d2.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t3_tray_correction_s2121_d7": {
+    "file": "loho_t3_tray_correction_s2121_d7.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t3_tray_correction_s2122_d19": {
+    "file": "loho_t3_tray_correction_s2122_d19.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t3_tray_correction_s2122_d2": {
+    "file": "loho_t3_tray_correction_s2122_d2.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t4_tray_correction_s2130_d30": {
+    "file": "loho_t4_tray_correction_s2130_d30.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t4_tray_correction_s2130_d35": {
+    "file": "loho_t4_tray_correction_s2130_d35.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t4_tray_correction_s2132_d29": {
+    "file": "loho_t4_tray_correction_s2132_d29.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2140_d2": {
+    "file": "loho_t5_drawer_cabinet_correction_s2140_d2.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2140_d7": {
+    "file": "loho_t5_drawer_cabinet_correction_s2140_d7.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2141_d3": {
+    "file": "loho_t5_drawer_cabinet_correction_s2141_d3.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2141_d8": {
+    "file": "loho_t5_drawer_cabinet_correction_s2141_d8.pt",
+    "split": "train",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2142_d2": {
+    "file": "loho_t5_drawer_cabinet_correction_s2142_d2.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  },
+  "loho_t5_drawer_cabinet_correction_s2142_d7": {
+    "file": "loho_t5_drawer_cabinet_correction_s2142_d7.pt",
+    "split": "dev",
+    "pools": {
+      "canonical": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "expanded": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "sub0",
+        "sub1",
+        "sub2",
+        "sub3"
+      ],
+      "servo": [
+        "support"
+      ]
+    },
+    "alpha": {
+      "canonical": 0.3333333333333333,
+      "atomic": 0.3333333333333333,
+      "distinct": 0.3333333333333333
+    },
+    "gate_version": "v070_strict_1"
+  }
+}
