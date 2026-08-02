@@ -1,0 +1,20 @@
+{
+  "schema": "v070_anchor_eval_v1",
+  "run_schema": "v070",
+  "run_id": "v070_anchor_eval1",
+  "R": 2,
+  "cont_max": 100,
+  "horizons": [
+    10,
+    30,
+    60,
+    100
+  ],
+  "arm_checkpoints": {
+    "hard_affine": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v070_policy/hard_pilot/hard_affine_final.pt",
+    "hard_centered": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v070_policy/hard_pilot/hard_centered_final.pt",
+    "hard_random_affine": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v070_policy/hard_pilot/hard_random_affine_final.pt",
+    "hard_random_centered": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v070_policy/hard_pilot/hard_random_centered_final.pt"
+  },
+  "seed_contract": "SHA256 action/cont signatures; arm identity structurally absent"
+}

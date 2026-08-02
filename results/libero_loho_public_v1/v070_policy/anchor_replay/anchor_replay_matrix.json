@@ -1,0 +1,316 @@
+{
+  "n_records": 22,
+  "fresh_replay_excluded_anchors": [],
+  "dev_coverage_adequate": true,
+  "n_dev_positive_fresh_clean": 3,
+  "matrix": {
+    "hard_affine": {
+      "train_positive": {
+        "n_anchors": 2,
+        "n_sources": 2,
+        "M_vs_stock": 0.5,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 1.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 0.0
+        },
+        "M_vs_stored_oracle": -1.0,
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "train_null": {
+        "n_anchors": 12,
+        "n_sources": 6,
+        "M_vs_stock": 0.125,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2100": 0.5,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.5,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "M_vs_control": 0.0625,
+        "source_margins_vs_control": {
+          "loho_t1_drawer_correction_s2100": 0.5,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_positive": {
+        "n_anchors": 3,
+        "n_sources": 3,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_all": {
+        "n_anchors": 8,
+        "n_sources": 5,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      }
+    },
+    "hard_centered": {
+      "train_positive": {
+        "n_anchors": 2,
+        "n_sources": 2,
+        "M_vs_stock": 0.5,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 1.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 0.0
+        },
+        "M_vs_stored_oracle": -1.0,
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "train_null": {
+        "n_anchors": 12,
+        "n_sources": 6,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2100": 0.0,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t1_drawer_correction_s2100": 0.0,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_positive": {
+        "n_anchors": 3,
+        "n_sources": 3,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_all": {
+        "n_anchors": 8,
+        "n_sources": 5,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "M_vs_control": 0.0,
+        "source_margins_vs_control": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      }
+    },
+    "hard_random_affine": {
+      "train_positive": {
+        "n_anchors": 2,
+        "n_sources": 2,
+        "M_vs_stock": 0.5,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 1.0
+        },
+        "M_vs_stored_oracle": -1.0,
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "train_null": {
+        "n_anchors": 12,
+        "n_sources": 6,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2100": 0.0,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_positive": {
+        "n_anchors": 3,
+        "n_sources": 3,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_all": {
+        "n_anchors": 8,
+        "n_sources": 5,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      }
+    },
+    "hard_random_centered": {
+      "train_positive": {
+        "n_anchors": 2,
+        "n_sources": 2,
+        "M_vs_stock": 0.5,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2110": 0.0,
+          "loho_t3_tray_correction_s2121": 1.0
+        },
+        "M_vs_stored_oracle": -1.0,
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "train_null": {
+        "n_anchors": 12,
+        "n_sources": 6,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2100": 0.0,
+          "loho_t1_drawer_correction_s2101": 0.0,
+          "loho_t3_tray_correction_s2120": 0.0,
+          "loho_t4_tray_correction_s2130": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2140": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2141": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_positive": {
+        "n_anchors": 3,
+        "n_sources": 3,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "dev_all": {
+        "n_anchors": 8,
+        "n_sources": 5,
+        "M_vs_stock": 0.0,
+        "source_margins_vs_stock": {
+          "loho_t1_drawer_correction_s2102": 0.0,
+          "loho_t2_basket3_correction_s2112": 0.0,
+          "loho_t3_tray_correction_s2122": 0.0,
+          "loho_t4_tray_correction_s2132": 0.0,
+          "loho_t5_drawer_cabinet_correction_s2142": 0.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      }
+    },
+    "stored_oracle": {
+      "train_positive": {
+        "n_anchors": 2,
+        "n_sources": 2,
+        "M_vs_stock": 1.0,
+        "source_margins_vs_stock": {
+          "loho_t2_basket3_correction_s2110": 1.0,
+          "loho_t3_tray_correction_s2121": 1.0
+        },
+        "success_delta": 0.0,
+        "damage_delta": 0.0
+      },
+      "train_null": null,
+      "dev_positive": null,
+      "dev_all": null
+    }
+  },
+  "verdicts": {
+    "hard_affine": {
+      "train_pass": false,
+      "null_ok": true,
+      "dev_pass": false
+    },
+    "hard_centered": {
+      "train_pass": false,
+      "null_ok": true,
+      "dev_pass": false
+    }
+  },
+  "routing": {
+    "outcome": "interface_failure_matrix",
+    "next": "no arm beats stock+control on train positive anchors; localized interface failure; centered-vs-affine and stored-oracle rows localize it"
+  }
+}
