@@ -1,0 +1,36 @@
+{
+  "schema": "v071_0b_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "0b_smoke",
+  "run_date": "2026-08-02",
+  "anchor": "loho_t2_basket3_correction_s2110_d16",
+  "arms": {
+    "oracle_sub0": "sub0",
+    "nonwinner_sub1": "sub1"
+  },
+  "boundary": "N1",
+  "trainable_parameter_names": [
+    "policy.model.action_out_proj.weight",
+    "policy.model.action_out_proj.bias",
+    "lc_proj.lin.weight (zero-init)",
+    "lc_proj.lin.bias (zero-init)"
+  ],
+  "n_steps": 200,
+  "optimizer": {
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "grad_norm": 1.0
+  },
+  "flow_seed_bases": {
+    "anchor": 997000,
+    "demo": 997500000
+  },
+  "eval_crn": "v071_0b_r1|action / |cont| SHA signatures",
+  "video": {
+    "layout": "side_by_side_external_wrist",
+    "fps": 20
+  },
+  "pass_rule": "target-action reconstruction better than stock AND fresh re-execution pref vs fresh u_0 == +1 for the oracle arm",
+  "predictive_sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495"
+}

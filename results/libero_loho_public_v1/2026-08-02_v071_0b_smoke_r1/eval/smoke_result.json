@@ -1,0 +1,104 @@
+{
+  "verdict": {
+    "oracle_sub0": {
+      "recon_pass": true,
+      "recon_arm": 0.09244953095912933,
+      "recon_stock": 0.45178818702697754,
+      "fresh_pref_vs_u0": 1
+    },
+    "nonwinner_sub1": {
+      "recon_pass": true,
+      "recon_arm": 0.09817255288362503,
+      "recon_stock": 0.4342624247074127,
+      "fresh_pref_vs_u0": -1
+    }
+  },
+  "N1_pass": true,
+  "outcomes": {
+    "fresh_u0": [
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.3333333333333333,
+        "q_valid_mean": 0.4583333333333333,
+        "neg_tau_next": -37,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.5,
+          "100": 0.6666666666666666
+        }
+      },
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.3333333333333333,
+        "q_valid_mean": 0.4583333333333333,
+        "neg_tau_next": -37,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.5,
+          "100": 0.6666666666666666
+        }
+      }
+    ],
+    "oracle_sub0": [
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.6666666666666666,
+        "q_valid_mean": 0.4583333333333333,
+        "neg_tau_next": -46,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.5,
+          "100": 0.6666666666666666
+        }
+      },
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.6666666666666666,
+        "q_valid_mean": 0.4583333333333333,
+        "neg_tau_next": -46,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.5,
+          "100": 0.6666666666666666
+        }
+      }
+    ],
+    "nonwinner_sub1": [
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.3333333333333333,
+        "q_valid_mean": 0.375,
+        "neg_tau_next": -85,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.3333333333333333,
+          "100": 0.5
+        }
+      },
+      {
+        "success_by_100": false,
+        "neg_damage": 0,
+        "p_valid_100": 0.3333333333333333,
+        "q_valid_mean": 0.375,
+        "neg_tau_next": -84,
+        "q_at_horizons": {
+          "10": 0.3333333333333333,
+          "30": 0.3333333333333333,
+          "60": 0.3333333333333333,
+          "100": 0.5
+        }
+      }
+    ]
+  },
+  "next": "freeze N1 for all V7.1 policy experiments"
+}
