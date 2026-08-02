@@ -194,6 +194,7 @@ def main() -> None:
                     if i == d:
                         anchor_prefix, anchor_batch = prefix, batch
                         break_row = row
+                        break          # anchor is PRE-decision-d
                     for a_env in row["actions_env"]:
                         env.step(a_env)
                         t += 1
@@ -225,7 +226,6 @@ def main() -> None:
                 a_noise = flow_noise(a_seed, cfg.chunk_size,
                                      cfg.max_action_dim)
                 a_sha = noise_sha(a_noise)
-                zero_bias = torch.zeros(1, 1024, device=device)
                 chunk_u0 = sample_chunks(
                     runner.policy, anchor_batch, n=1,
                     noise=a_noise.to(device), prefix=anchor_prefix)
