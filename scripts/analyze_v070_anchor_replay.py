@@ -155,10 +155,16 @@ def main() -> None:
         e = matrix[arm]["dev_positive"]
         if not e or e["M_vs_stock"] is None:
             return False
+        # V7.1.0A fix: the dev gate must also require nonnegative
+        # source-level margins versus the matched CONTROL (previously
+        # only the vs-stock source margins were checked)
         return (e["M_vs_stock"] > 0
                 and e.get("M_vs_control", -1) > 0
                 and all(v >= 0 for v in
-                        e["source_margins_vs_stock"].values()))
+                        e["source_margins_vs_stock"].values())
+                and all(v >= 0 for v in
+                        e.get("source_margins_vs_control",
+                              {}).values()))
 
     verdicts = {}
     for arm in ORACLE_ARMS:

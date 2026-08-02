@@ -1,0 +1,61 @@
+{
+  "schema": "v071_0a_archival_v1",
+  "pi05": {
+    "repo": "lerobot/pi05_libero_finetuned",
+    "revision": "dbf8a3f794a9c4297b44f40b752712f50073d945",
+    "model_sha256": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae"
+  },
+  "artifacts": {
+    "hard_affine_final": {
+      "path": "results/libero_loho_public_v1/v070_policy/hard_pilot/hard_affine_final.pt",
+      "sha256": "3e63c6911b86cb3238ea30fecc17e51f8c967cf138c031c305f3acd6a095ab20"
+    },
+    "hard_centered_final": {
+      "path": "results/libero_loho_public_v1/v070_policy/hard_pilot/hard_centered_final.pt",
+      "sha256": "65679da0f9591a1edeba72d78eadc6663c4010a0d41a6080df0a388070cc3ae7"
+    },
+    "hard_random_affine_final": {
+      "path": "results/libero_loho_public_v1/v070_policy/hard_pilot/hard_random_affine_final.pt",
+      "sha256": "a938f62109e03c6005a04b9cdf0bd1b33d8be3ded2906fed9bd6ffb022100137"
+    },
+    "hard_random_centered_final": {
+      "path": "results/libero_loho_public_v1/v070_policy/hard_pilot/hard_random_centered_final.pt",
+      "sha256": "18f6405dcf91fc44d92077d045b37b58238ddb3397d2891369998f1622cbe94a"
+    },
+    "train_manifest": {
+      "path": "results/libero_loho_public_v1/v070_policy/hard_pilot/train_manifest.pt",
+      "sha256": "c9aceae3cde4fb0f9a6b75acbc16f7b3ecb6f67611baec176a37b5475e4184fc"
+    },
+    "predictive_checkpoint": {
+      "path": "results/libero_loho_public_v1/v069_predictive/checkpoint_selected.pt",
+      "sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495"
+    },
+    "correction_bank_index": {
+      "path": "results/libero_loho_public_v1/v070_policy/audit/correction_bank_index.json",
+      "sha256": "d6f6faa9999dc2d6a8785b6c7c5bb2afe75cab0443aac88eb679acd8950a5fe6"
+    },
+    "anchor_replay_records": {
+      "path": "results/libero_loho_public_v1/v070_policy/anchor_replay/records.jsonl",
+      "sha256": "926d19fb6dae5a7cd599d609c13361332a255df787c30a85c48af4864fb24471"
+    },
+    "evaluator_code": {
+      "path": "scripts/eval_v070_anchor_replay.py",
+      "sha256": "c5cee2f8170784fa3907b538eb3fd935b99f038019c591e34b5fedba163a2762"
+    },
+    "analyzer_code": {
+      "path": "scripts/analyze_v070_anchor_replay.py",
+      "sha256": "425736ff17df84e4a96ab0c60b9dd909d8dcd8edf47b518a5424a52d040930e5"
+    },
+    "pilot_code": {
+      "path": "scripts/train_v070_hard_pilot.py",
+      "sha256": "9a5180dbc127e95a6f42c13bad1a74c92bb1158f43e6a28da05ad6db20fde3b5"
+    }
+  },
+  "generated_action_chunks": "NOT persisted by the V7.0.4 evaluator; deterministically derivable from recorded action-noise seeds + the hash-bound checkpoints above; recorded as a gap, not reconstructed",
+  "amendments": [
+    "22/22 outcome-level replay ties (not full strict-clean)",
+    "dev rows = legacy-calibrated positive-headroom anchors",
+    "damage = continuation-relative",
+    "analyzer dev source-margin-vs-control check added"
+  ]
+}
