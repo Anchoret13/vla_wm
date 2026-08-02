@@ -573,7 +573,7 @@ def main() -> None:
     else:
         # ---- ACQUIRE: frozen budget, fresh train sources ----------------
         from scripts.collect_v069_corrections import (
-            OBJ_DISPLAY, REGION_DISPLAY, scripted_servo_action)
+            OBJ_DISPLAY, REGION_DISPLAY)
         (root / "acquire_sources").mkdir(exist_ok=True)
 
         def display_obj(task, obj):
@@ -752,21 +752,28 @@ def main() -> None:
             finally:
                 env.close()
 
-            # diversity-first anchor selection
-            chosen, last_d, seen_types = [], -10**9, set()
+            # diversity-first anchor selection.
+            # V7.1.1F fix: the second pass previously inherited last_d
+            # from the FIRST pass's final pick, so gap enforcement was
+            # against the wrong neighbor for earlier decisions. The gap
+            # rule must hold against every already-chosen anchor.
+            chosen, seen_types = [], set()
+
+            def gap_ok(c):
+                return all(abs(c["decision"] - x["decision"])
+                           >= ANCHOR_MIN_GAP for x in chosen)
+
             for want_new_type in (True, False):
                 for c in cands:
                     if len(chosen) >= MAX_ANCHORS_ACQ:
                         break
-                    if c in chosen or \
-                            c["decision"] - last_d < ANCHOR_MIN_GAP:
+                    if c in chosen or not gap_ok(c):
                         continue
                     if want_new_type and \
                             c["state_type"] in seen_types:
                         continue
                     chosen.append(c)
                     seen_types.add(c["state_type"])
-                    last_d = c["decision"]
 
             source = torch.load(src_path, weights_only=False)
             for c in chosen:

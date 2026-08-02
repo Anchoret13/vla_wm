@@ -1,0 +1,30 @@
+{
+  "n_ids": 724,
+  "train": 533,
+  "dev": 191,
+  "identical_across_runs": true,
+  "source_overlap": 0,
+  "exposure_levels": {
+    "tasks": {
+      "loho_t1_drawer": 134,
+      "loho_t2_basket3": 94,
+      "loho_t3_tray": 131,
+      "loho_t4_tray": 64,
+      "loho_t5_drawer_cabinet": 110
+    },
+    "sources": {
+      "loho_t1_drawer": 3,
+      "loho_t2_basket3": 3,
+      "loho_t3_tray": 3,
+      "loho_t4_tray": 2,
+      "loho_t5_drawer_cabinet": 3
+    },
+    "anchors": {
+      "loho_t1_drawer": 8,
+      "loho_t2_basket3": 6,
+      "loho_t3_tray": 7,
+      "loho_t4_tray": 4,
+      "loho_t5_drawer_cabinet": 6
+    }
+  }
+}
