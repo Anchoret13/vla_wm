@@ -50,8 +50,11 @@ ensure_project_libero_config()
 DATA = Path("/home/stargazer/Desktop/vla_wm/datasets/libero_loho_public_v1"
             "/v06_effect_crossed")
 RESULTS = REPO_ROOT / "results" / "libero_loho_public_v1"
-RUN_ID = "r1"
 STAGE = "replay"
+# bank ran as r1 (frozen); the acquire phase carries gen/servo code
+# additions = a new configuration = a new run_id per the registered
+# date-root contract
+PHASE_RUN_ID = {"bank": "r1", "acquire": "r2"}
 TASK_ORDER = ["loho_t1_drawer", "loho_t2_basket3", "loho_t3_tray",
               "loho_t4_tray", "loho_t5_drawer_cabinet"]
 EPISODE_LENGTH = {"loho_t1_drawer": 700, "loho_t2_basket3": 900,
@@ -98,6 +101,8 @@ def main() -> None:
     parser.add_argument("--phase", choices=("bank", "acquire"),
                         required=True)
     args = parser.parse_args()
+    global RUN_ID
+    RUN_ID = PHASE_RUN_ID[args.phase]
 
     from lcwm.chassis import Pi05Runner
     from lcwm.goal_semantics import SuccessTracker, env_eval_fn
@@ -113,6 +118,7 @@ def main() -> None:
     from scripts.collect_v067_continuations import (full_qpos,
                                                     grasp_state,
                                                     qpos_joint_map)
+    from scripts.collect_v069_corrections import scripted_servo_action
 
     goal_manifest = json.loads(
         (RESULTS / "goal_spec_manifest_v067.json").read_text())
@@ -197,12 +203,24 @@ def main() -> None:
         actions_env = []
         term_b = trunc_b = False
         if mode == "actions":
-            it = list(actions_or_chunk)
+            it = list(actions_or_chunk)[:10]
+        elif mode == "servo":
+            it = None                      # closed-loop scripted servo
         else:
-            it = list(runner.chunk_to_env(actions_or_chunk[:, :10]))
+            it = list(runner.chunk_to_env(
+                actions_or_chunk[:, :10]))[:10]
         flips0 = {gid: len(a.flips) for gid, a in autos.items()}
         steps = 0
-        for a_env in it[:10]:
+        any_bodies = next(iter(autos.values())).bodies
+        for k in range(10):
+            if it is None:
+                s_obj, s_region, s_form = actions_or_chunk
+                a_env = scripted_servo_action(
+                    env, s_obj, s_region, any_bodies, s_form)
+            elif k >= len(it):
+                break
+            else:
+                a_env = it[k]
             _o, _r, tb, tr, _i = env.step(a_env)
             steps += 1
             actions_env.append(np.asarray(a_env))
@@ -336,6 +354,18 @@ def main() -> None:
                         noise=spec["payload"].to("cuda"),
                         prefix=prefix)
                     spec["mode"] = "chunk"
+                elif spec["mode"] == "gen":
+                    _kind, lang, gseed = spec["gen"]
+                    batch = runner._obs_to_policy_batch(
+                        anchor_obs, lang)
+                    prefix = prefix_forward(runner.policy, batch)
+                    ch = sample_chunks(runner.policy, batch, n=1,
+                                       seed=gseed, prefix=prefix)
+                    spec["payload"] = ch
+                    spec["chunk_norm"] = ch[0].float().cpu()
+                    spec["mode"] = "chunk"
+                elif spec["mode"] == "servo":
+                    spec["payload"] = spec["servo"]
 
             transitions, fid_rows, rel_rows = [], [], []
             u0_endpoint = {}
@@ -541,8 +571,262 @@ def main() -> None:
                            specs, akey, grp["split"],
                            dev_oracle_keys=dev_keys)
     else:
-        raise SystemExit("acquire phase: launched separately after "
-                         "bank completes (same script, extended)")
+        # ---- ACQUIRE: frozen budget, fresh train sources ----------------
+        from scripts.collect_v069_corrections import (
+            OBJ_DISPLAY, REGION_DISPLAY, scripted_servo_action)
+        (root / "acquire_sources").mkdir(exist_ok=True)
+
+        def display_obj(task, obj):
+            return OBJ_DISPLAY.get((task, obj),
+                                   "the " + obj.rsplit("_", 1)[0]
+                                   .replace("_", " "))
+
+        for task_index, task_name in enumerate(TASK_ORDER):
+            seed = 2200 + 10 * task_index
+            source_id = f"{task_name}_acquire_s{seed}"
+            src_path = root / "acquire_sources" / f"{source_id}.pt"
+            entry = goal_manifest["tasks"][task_name]
+            canon_id = entry["canonical_goal_spec_id"]
+            goal_specs = entry["goal_specs"]
+            goal_ids = [canon_id] + [g for g in goal_specs
+                                     if g != canon_id]
+            subgoals = goal_specs[canon_id]["ordered_subgoals"]
+            distinct_langs = [goal_specs[g]["language"]
+                              for g in goal_ids if g != canon_id][:2]
+            env = make_public_env(task_name,
+                                  EPISODE_LENGTH[task_name] + 200)
+            try:
+                runner.reset()
+                obs, _ = env.reset(seed=seed)
+                env._env.env.horizon = EPISODE_LENGTH[task_name] + 300
+                automata = {}
+                for gid in goal_ids:
+                    a = GoalAutomaton(
+                        goal_specs[gid]["ordered_subgoals"])
+                    a.start(env)
+                    automata[gid] = a
+                for a in automata.values():
+                    a.evaluate(env, 0)
+                bodies = automata[canon_id].bodies
+                instruction = env.task_description
+                canon_auto = automata[canon_id]
+
+                if src_path.exists():
+                    saved = torch.load(src_path, weights_only=False)
+                    rows = saved["rows"]
+                    cands = saved["anchor_candidates"]
+                else:
+                    rows, cands = [], []
+                    obj_prev = body_positions(
+                        env, list(bodies.values()))
+                    stall, prev_unres = 0, "___"
+                    t, decision = 0, 0
+                    term = trunc = False
+                    while t < EPISODE_LENGTH[task_name]:
+                        obs_now = copy.deepcopy(obs)
+                        first_unres = next(
+                            (subgoals[i] for i, v in enumerate(
+                                canon_auto.prev_valid) if not v),
+                            None)
+                        stall = (stall + 1
+                                 if first_unres == prev_unres else 1)
+                        prev_unres = first_unres
+                        obj_positions = body_positions(
+                            env, list(bodies.values()))
+                        recent = [f for f in canon_auto.flips
+                                  if f[0] > t - 20]
+                        n_unres = sum(
+                            1 for v in canon_auto.prev_valid
+                            if not v)
+                        state_type = None
+                        if any(f[2] == -1 for f in recent):
+                            state_type = "recovery"
+                        elif n_unres <= 2 and n_unres > 0:
+                            state_type = "late_chain"
+                        elif any(f[2] == 1 for f in recent):
+                            state_type = "milestone_boundary"
+                        elif stall >= STALL_DECS:
+                            state_type = "stall"
+                        ok = None
+                        if state_type and first_unres:
+                            parts = first_unres.split()
+                            form = parts[0]
+                            obj = parts[1]
+                            gsp = grasp_state(
+                                env, bodies)["grasped"]
+                            eef = np.asarray(
+                                obs_now["robot_state"]["eef"]
+                                ["pos"])
+                            opos = body_positions(
+                                env, [bodies[obj]])[0] \
+                                if obj in bodies else None
+                            moved = float(np.abs(
+                                obj_positions - obj_prev).max())
+                            if form == "pick_up" and opos is not None:
+                                dist = float(np.linalg.norm(
+                                    eef - opos))
+                                if (not gsp.get(obj)
+                                        and PICK_NEAR <= dist
+                                        <= PICK_FAR
+                                        and moved < STABLE_MM):
+                                    ok = {"form": form, "obj": obj,
+                                          "region": None,
+                                          "dist": dist}
+                            elif form in ("place", "close", "open"):
+                                region = (parts[2] if form == "place"
+                                          else parts[1])
+                                try:
+                                    tgt = env._env.env.sim.data \
+                                        .get_site_xpos(region).copy()
+                                except Exception:
+                                    tgt = None
+                                ref = (opos if form == "place"
+                                       and opos is not None else eef)
+                                if tgt is not None:
+                                    dist = float(np.linalg.norm(
+                                        ref - tgt))
+                                    held_ok = (bool(gsp.get(obj))
+                                               if form == "place"
+                                               else True)
+                                    if held_ok and PLACE_NEAR <= \
+                                            dist <= PLACE_FAR:
+                                        ok = {"form": form,
+                                              "obj": obj,
+                                              "region": region,
+                                              "dist": dist}
+                        if ok:
+                            cands.append({"decision": decision,
+                                          "state_type": state_type,
+                                          **ok})
+                        obj_prev = obj_positions
+                        batch = runner._obs_to_policy_batch(
+                            obs, instruction)
+                        prefix = prefix_forward(runner.policy, batch)
+                        chunk = sample_chunks(
+                            runner.policy, batch, n=1,
+                            seed=NOISE_BASE
+                            + task_index * 2_000_000
+                            + seed * 1_000 + decision,
+                            prefix=prefix)
+                        actions_env, executed = [], 0
+                        for a_env in runner.chunk_to_env(
+                                chunk[:, :10]):
+                            obs, _r, term, trunc, _i = env.step(
+                                a_env)
+                            actions_env.append(np.asarray(a_env))
+                            t += 1
+                            executed += 1
+                            for au in automata.values():
+                                au.evaluate(env, t)
+                            if term or trunc:
+                                break
+                        rows.append({
+                            "decision": decision,
+                            "t_start": t - executed,
+                            "obs": obs_now,
+                            "chunk_norm": chunk[0].float().cpu(),
+                            "actions_env": np.stack(actions_env),
+                            "executed_len": executed,
+                            "q": obs_q(obs_now),
+                            "obj_before": obj_positions,
+                            "first_unresolved": first_unres,
+                        })
+                        decision += 1
+                        if term or trunc:
+                            break
+                    tmp = src_path.with_suffix(".tmp")
+                    torch.save({
+                        "schema": "v071_acquire_source_v1",
+                        "run_schema": "v071",
+                        "source_id": source_id, "task": task_name,
+                        "task_index": task_index, "seed": seed,
+                        "split": "train",
+                        "language_canonical": instruction,
+                        "rows": rows,
+                        "anchor_candidates": cands}, tmp)
+                    tmp.replace(src_path)
+                    print(f"[acq-source] {source_id}: {len(rows)} "
+                          f"decisions, {len(cands)} candidates "
+                          f"({[c['state_type'] for c in cands[:8]]})",
+                          flush=True)
+            finally:
+                env.close()
+
+            # diversity-first anchor selection
+            chosen, last_d, seen_types = [], -10**9, set()
+            for want_new_type in (True, False):
+                for c in cands:
+                    if len(chosen) >= MAX_ANCHORS_ACQ:
+                        break
+                    if c in chosen or \
+                            c["decision"] - last_d < ANCHOR_MIN_GAP:
+                        continue
+                    if want_new_type and \
+                            c["state_type"] in seen_types:
+                        continue
+                    chosen.append(c)
+                    seen_types.add(c["state_type"])
+                    last_d = c["decision"]
+
+            source = torch.load(src_path, weights_only=False)
+            for c in chosen:
+                d = c["decision"]
+                akey = f"{source_id}_d{d}"
+                if akey in done_shards:
+                    continue
+                row = source["rows"][d]
+                specs = [{"key": "u0", "family": "canonical",
+                          "provenance": "policy",
+                          "behavior_goal_id": canon_id,
+                          "chunk_norm": row["chunk_norm"],
+                          "payload": row["actions_env"],
+                          "mode": "actions", "continuations": True}]
+                for i in range(1, 1 + N_EXTRA_CANON):
+                    a_seed = (NOISE_BASE + task_index * 2_000_000
+                              + seed * 1_000 + d + 100_000 * i)
+                    specs.append({
+                        "key": f"c{i}", "family": "canonical",
+                        "provenance": "policy",
+                        "behavior_goal_id": canon_id,
+                        "gen": ("canonical", instruction, a_seed),
+                        "payload": None, "mode": "gen",
+                        "continuations": True})
+                obj_disp = display_obj(task_name, c["obj"])
+                atomic1 = f"pick up {obj_disp}"
+                atomic2 = (f"put {obj_disp} in "
+                           f"{REGION_DISPLAY.get(c['region'], 'place')}"
+                           if c["region"] else
+                           f"lift {obj_disp} off the table")
+                for j, lang in enumerate(
+                        [atomic1, atomic2] + distinct_langs):
+                    fam = "atomic" if j < 2 else "distinct"
+                    a_seed = (NOISE_BASE + task_index * 2_000_000
+                              + seed * 1_000 + d
+                              + 100_000 * (20 + j))
+                    specs.append({
+                        "key": f"sub{j}", "family": fam,
+                        "provenance": f"subgoal_{fam}",
+                        "behavior_goal_id": lang,
+                        "gen": ("prompt", lang, a_seed),
+                        "payload": None, "mode": "gen",
+                        "continuations": True})
+                specs.append({
+                    "key": "servo", "family": "servo",
+                    "provenance": "scripted_servo",
+                    "behavior_goal_id": "privileged_script",
+                    "servo": (c["obj"], c["region"],
+                              "pick_up" if c["form"] == "pick_up"
+                              else "place"),
+                    "payload": None, "mode": "servo",
+                    "continuations": False})
+                specs.append({
+                    "key": "u0_rep2", "family": "canonical",
+                    "provenance": "fidelity_repeat",
+                    "behavior_goal_id": canon_id,
+                    "payload": row["actions_env"],
+                    "mode": "actions", "continuations": False})
+                process_anchor(task_name, source, d, specs, akey,
+                               "train")
     print("v071 materialization phase complete", flush=True)
 
 
