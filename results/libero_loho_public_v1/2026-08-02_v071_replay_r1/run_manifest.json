@@ -1,0 +1,33 @@
+{
+  "schema": "v071_replay_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "replay",
+  "run_date": "2026-08-02",
+  "timezone": "America/Chicago",
+  "git_sha": "25929af",
+  "dirty_worktree": true,
+  "crn_contract": "v071_replay_r1|cont|src|dec|gid|r|c and |action| SHA signatures; arm/candidate identity structurally absent",
+  "acquisition_budget": {
+    "sources_per_task": 1,
+    "seed_rule": "2200+10*task",
+    "max_anchors_per_source": 4,
+    "proposals": "u0+7canon+2atomic+2distinct+servo+fidelity"
+  },
+  "goal_manifest_sha256": "971b1f3edb5d982ab62c0daeea099fc7da0a9d70875d02264d9745d22c56850b",
+  "frozen_outcome_tolerances": {
+    "neg_damage": 0.0,
+    "neg_tau_next": 7.1499999999999915,
+    "p_valid_100": 0.0,
+    "q_valid_mean": 0.04166666666666663,
+    "success_by_100": 0.0
+  },
+  "code_files": {
+    "scripts/materialize_v071_replay.py": "1a67469db69423a838299a0d9532d059152578eb1368b4f507879bd635e7e31b",
+    "scripts/collect_v069_corrections.py": "809c6b7913d94f8032cfb6805ca25bb503c0bd8ce1a3db215e47818a34454a64",
+    "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+    "lcwm/goal_semantics.py": "680f3d39b0531b77b1f651cb9bf0c1a69b77e2cda181b2704d7db0ed88b26787",
+    "lcwm/snapshot.py": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525"
+  },
+  "manifest_sha256": "3fe1269cfb28491e6a8656c718e1873b211677fad9b1e7292181027f1e10329b"
+}
