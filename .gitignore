@@ -22,3 +22,6 @@ results/**/*.safetensors
 
 # external source (installed editable into vf0s, lives at ../lerobot)
 /lerobot/
+results/**/checkpoint_epoch*.pt
+results/**/wz_step*.pt
+results/**/*.tmp
