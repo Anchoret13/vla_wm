@@ -791,12 +791,19 @@ def main() -> None:
                         "gen": ("canonical", instruction, a_seed),
                         "payload": None, "mode": "gen",
                         "continuations": True})
-                obj_disp = display_obj(task_name, c["obj"])
-                atomic1 = f"pick up {obj_disp}"
-                atomic2 = (f"put {obj_disp} in "
-                           f"{REGION_DISPLAY.get(c['region'], 'place')}"
-                           if c["region"] else
-                           f"lift {obj_disp} off the table")
+                if c["form"] in ("close", "open"):
+                    rdisp = REGION_DISPLAY.get(
+                        c["obj"], c["obj"].replace("_", " "))
+                    atomic1 = f"{c['form']} {rdisp}"
+                    atomic2 = f"{c['form']} the drawer"
+                else:
+                    obj_disp = display_obj(task_name, c["obj"])
+                    atomic1 = f"pick up {obj_disp}"
+                    atomic2 = (
+                        f"put {obj_disp} in "
+                        f"{REGION_DISPLAY.get(c['region'], 'place')}"
+                        if c["region"] else
+                        f"lift {obj_disp} off the table")
                 for j, lang in enumerate(
                         [atomic1, atomic2] + distinct_langs):
                     fam = "atomic" if j < 2 else "distinct"
@@ -810,15 +817,17 @@ def main() -> None:
                         "gen": ("prompt", lang, a_seed),
                         "payload": None, "mode": "gen",
                         "continuations": True})
-                specs.append({
-                    "key": "servo", "family": "servo",
-                    "provenance": "scripted_servo",
-                    "behavior_goal_id": "privileged_script",
-                    "servo": (c["obj"], c["region"],
-                              "pick_up" if c["form"] == "pick_up"
-                              else "place"),
-                    "payload": None, "mode": "servo",
-                    "continuations": False})
+                if c["form"] in ("pick_up", "place"):
+                    specs.append({
+                        "key": "servo", "family": "servo",
+                        "provenance": "scripted_servo",
+                        "behavior_goal_id": "privileged_script",
+                        "servo": (c["obj"], c["region"],
+                                  c["form"]),
+                        "payload": None, "mode": "servo",
+                        "continuations": False})
+                # close/open anchors: the servo primitive is not
+                # applicable (no graspable object) — recorded, skipped
                 specs.append({
                     "key": "u0_rep2", "family": "canonical",
                     "provenance": "fidelity_repeat",
