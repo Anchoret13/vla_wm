@@ -1,0 +1,131 @@
+{
+  "schema": "v071_n1attr_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "n1attr",
+  "run_date": "2026-08-02",
+  "anchor": "loho_t2_basket3_correction_s2110_d16",
+  "note": "bounded attribution measurement on existing smoke checkpoints; no training, no selection; env stepped only for deterministic re-reach \u2014 no evaluation rollout, tensor-only generation, no video required",
+  "crn": {
+    "noise_payload": "v071_n1attr_r1|action",
+    "shuffle_payload": "v071_n1attr_r1|shuffle_history",
+    "history_permutation": [
+      6,
+      2,
+      3,
+      11,
+      5,
+      8,
+      7,
+      15,
+      10,
+      4,
+      14,
+      12,
+      13,
+      0,
+      9,
+      1
+    ]
+  },
+  "checkpoints": {
+    "oracle_sub0": "a9795d4765c76ff3d69a01019a9b82f6635b189df1b053f6aec06dbc5148b9f6",
+    "nonwinner_sub1": "9a1ffd43a2acc0fea9c9ccbbddd55b2fa7500d6112bd256dcd08956d0c5ad68d"
+  },
+  "predictive_sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495",
+  "git_sha": "5705c27",
+  "conditions": {
+    "stock": {
+      "chunk_sha256_16": "cfffd5e800a1404c",
+      "l1_first10_vs_target_oracle": 0.4679245054721832,
+      "l1_first10_vs_target_nonwinner": 0.44871413707733154,
+      "l1_first10_vs_u0_stored": 0.0217422004789114
+    },
+    "oracle_sub0/full_lc": {
+      "chunk_sha256_16": "7e75542deb09c20b",
+      "l1_first10_vs_target_oracle": 0.09697291254997253,
+      "l1_first10_vs_target_nonwinner": 0.15274544060230255,
+      "l1_first10_vs_u0_stored": 0.3992975652217865
+    },
+    "oracle_sub0/lcproj_zero": {
+      "chunk_sha256_16": "f6c5377bdb94435b",
+      "l1_first10_vs_target_oracle": 0.4449249804019928,
+      "l1_first10_vs_target_nonwinner": 0.424889475107193,
+      "l1_first10_vs_u0_stored": 0.037566136568784714
+    },
+    "oracle_sub0/reset_state": {
+      "chunk_sha256_16": "df3e07f80434cb70",
+      "l1_first10_vs_target_oracle": 0.11674367636442184,
+      "l1_first10_vs_target_nonwinner": 0.13596422970294952,
+      "l1_first10_vs_u0_stored": 0.3736456334590912
+    },
+    "oracle_sub0/shuffled_state": {
+      "chunk_sha256_16": "be5658e5b7a563f6",
+      "l1_first10_vs_target_oracle": 0.09718211740255356,
+      "l1_first10_vs_target_nonwinner": 0.15299154818058014,
+      "l1_first10_vs_u0_stored": 0.3993406593799591
+    },
+    "nonwinner_sub1/full_lc": {
+      "chunk_sha256_16": "21ea452e9d3bc651",
+      "l1_first10_vs_target_oracle": 0.15477372705936432,
+      "l1_first10_vs_target_nonwinner": 0.09494033455848694,
+      "l1_first10_vs_u0_stored": 0.39477577805519104
+    },
+    "nonwinner_sub1/lcproj_zero": {
+      "chunk_sha256_16": "4b1d3b4daad78d9c",
+      "l1_first10_vs_target_oracle": 0.4453124403953552,
+      "l1_first10_vs_target_nonwinner": 0.4245220124721527,
+      "l1_first10_vs_u0_stored": 0.03550007566809654
+    },
+    "nonwinner_sub1/reset_state": {
+      "chunk_sha256_16": "fcb7528b443302ac",
+      "l1_first10_vs_target_oracle": 0.1683952808380127,
+      "l1_first10_vs_target_nonwinner": 0.10633394867181778,
+      "l1_first10_vs_u0_stored": 0.3694416880607605
+    },
+    "nonwinner_sub1/shuffled_state": {
+      "chunk_sha256_16": "6a6c14dd16ca469e",
+      "l1_first10_vs_target_oracle": 0.1547185182571411,
+      "l1_first10_vs_target_nonwinner": 0.09492255002260208,
+      "l1_first10_vs_u0_stored": 0.39490529894828796
+    }
+  },
+  "pairwise_l1_first10": {
+    "nonwinner_sub1/full_lc vs nonwinner_sub1/lcproj_zero": 0.3694323003292084,
+    "nonwinner_sub1/full_lc vs nonwinner_sub1/reset_state": 0.025850242003798485,
+    "nonwinner_sub1/full_lc vs nonwinner_sub1/shuffled_state": 0.0010293176164850593,
+    "nonwinner_sub1/full_lc vs oracle_sub0/full_lc": 0.1138048842549324,
+    "nonwinner_sub1/full_lc vs oracle_sub0/lcproj_zero": 0.370053768157959,
+    "nonwinner_sub1/full_lc vs oracle_sub0/reset_state": 0.10245684534311295,
+    "nonwinner_sub1/full_lc vs oracle_sub0/shuffled_state": 0.11388177424669266,
+    "nonwinner_sub1/full_lc vs stock": 0.39780500531196594,
+    "nonwinner_sub1/lcproj_zero vs nonwinner_sub1/reset_state": 0.3442796468734741,
+    "nonwinner_sub1/lcproj_zero vs nonwinner_sub1/shuffled_state": 0.3695664405822754,
+    "nonwinner_sub1/lcproj_zero vs oracle_sub0/full_lc": 0.3796388506889343,
+    "nonwinner_sub1/lcproj_zero vs oracle_sub0/lcproj_zero": 0.008796305395662785,
+    "nonwinner_sub1/lcproj_zero vs oracle_sub0/reset_state": 0.3526303172111511,
+    "nonwinner_sub1/lcproj_zero vs oracle_sub0/shuffled_state": 0.37956759333610535,
+    "nonwinner_sub1/lcproj_zero vs stock": 0.030362680554389954,
+    "nonwinner_sub1/reset_state vs nonwinner_sub1/shuffled_state": 0.026168137788772583,
+    "nonwinner_sub1/reset_state vs oracle_sub0/full_lc": 0.13037236034870148,
+    "nonwinner_sub1/reset_state vs oracle_sub0/lcproj_zero": 0.34465888142585754,
+    "nonwinner_sub1/reset_state vs oracle_sub0/reset_state": 0.10843335092067719,
+    "nonwinner_sub1/reset_state vs oracle_sub0/shuffled_state": 0.13043101131916046,
+    "nonwinner_sub1/reset_state vs stock": 0.37256765365600586,
+    "nonwinner_sub1/shuffled_state vs oracle_sub0/full_lc": 0.11362874507904053,
+    "nonwinner_sub1/shuffled_state vs oracle_sub0/lcproj_zero": 0.37029168009757996,
+    "nonwinner_sub1/shuffled_state vs oracle_sub0/reset_state": 0.10237453877925873,
+    "nonwinner_sub1/shuffled_state vs oracle_sub0/shuffled_state": 0.11370563507080078,
+    "nonwinner_sub1/shuffled_state vs stock": 0.39792725443840027,
+    "oracle_sub0/full_lc vs oracle_sub0/lcproj_zero": 0.3803499937057495,
+    "oracle_sub0/full_lc vs oracle_sub0/reset_state": 0.030231710523366928,
+    "oracle_sub0/full_lc vs oracle_sub0/shuffled_state": 0.0007416531443595886,
+    "oracle_sub0/full_lc vs stock": 0.4060090184211731,
+    "oracle_sub0/lcproj_zero vs oracle_sub0/reset_state": 0.3534936010837555,
+    "oracle_sub0/lcproj_zero vs oracle_sub0/shuffled_state": 0.3803621530532837,
+    "oracle_sub0/lcproj_zero vs stock": 0.030679434537887573,
+    "oracle_sub0/reset_state vs oracle_sub0/shuffled_state": 0.030294427648186684,
+    "oracle_sub0/reset_state vs stock": 0.37928757071495056,
+    "oracle_sub0/shuffled_state vs stock": 0.4060267210006714
+  }
+}
