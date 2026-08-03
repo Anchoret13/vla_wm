@@ -1,0 +1,40 @@
+{
+  "schema": "v071_lcwm_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r2",
+  "stage": "lcwm",
+  "run_date": "2026-08-02",
+  "git_sha": "0c0c353",
+  "init_checkpoint": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/v069_predictive/checkpoint_selected.pt",
+    "sha256": "0c3d7dbb5f8f044de17b2f92967f8918d162ad8dabae0a40722bbf54dfc84495"
+  },
+  "union_manifest_sha256": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959",
+  "optimizer": {
+    "lr": 0.0003,
+    "wd": 0.0001,
+    "epochs": 25,
+    "grad_norm": 1.0,
+    "tbptt": 16,
+    "ckpt_every": 5
+  },
+  "task_object_upweight": 4.0,
+  "semantic_heads": "DISABLED (all-negative labels not enabled or selected on)",
+  "selection": "min dev latent+eef+obj at ckpt epochs; task-object dev support ABSENT (0 rows)",
+  "variants": [
+    "lc_main (canonical prompts)",
+    "readout_baseline (constant prompt)"
+  ],
+  "video": "tensor-only run; no simulator rollouts",
+  "h_cache_lineage": {
+    "reused_from": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_lcwm_r1/train",
+    "note": "pure function of (obs, prompt, pi0.5 revision); bound by count+sample hashes at launch"
+  },
+  "preflight": [
+    "task/source/anchor exposure schedule",
+    "within-anchor normalized effect weights",
+    "cache lineage bound",
+    "resumable checkpoints",
+    "frozen dev reference report"
+  ]
+}
