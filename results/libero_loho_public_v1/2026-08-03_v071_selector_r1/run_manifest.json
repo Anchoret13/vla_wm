@@ -1,0 +1,36 @@
+{
+  "schema": "v071_selector_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "v071_selector_r1",
+  "git_sha": "80760af",
+  "seeds": "2300+10k; 2301+10k reserved untouched",
+  "bank": "u0(deployed)+7canon+2atomic+2distinct+u0_repeat(audit); no servo",
+  "proposal_seed": "SHA256('v071_selector_r1|proposal|src|dec|fam|i')",
+  "cont_seed": "SHA256('v071_selector_r1|cont|src|dec|goal|rep|cd')",
+  "order_seed": "SHA256('v071_selector_r1|order|src|dec')",
+  "perm_seed": "SHA256('v071_selector_r1|perm|j|src|dec')",
+  "selector": {
+    "masked": [
+      "neg_damage",
+      "success_by_100"
+    ],
+    "order": [
+      "p_valid_100",
+      "q_valid_mean",
+      "neg_tau_next"
+    ]
+  },
+  "frozen": {
+    "lc_full_selected": "14e3a499316d6c2af267f937ee63b071c5d4ed0b59568d0f7eab3d84e781f36c",
+    "scorer_ensembles": "419068f922f0f382794512d009afa271b8155f50e3df68403f9abb4221863a05",
+    "selector_code": "194e463703465bc90c1c2f08d5d4953414cb579af985b3aeb5c35b87521f7fc1",
+    "union_manifest": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959"
+  },
+  "tolerances": {
+    "neg_damage": 0.0,
+    "neg_tau_next": 7.1499999999999915,
+    "p_valid_100": 0.0,
+    "q_valid_mean": 0.04166666666666663,
+    "success_by_100": 0.0
+  }
+}

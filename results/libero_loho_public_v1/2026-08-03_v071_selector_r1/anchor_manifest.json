@@ -1,0 +1,204 @@
+{
+  "schema": "v071_selector_anchors_v1",
+  "note": "frozen from pre-action stock state ONLY, before any candidate scoring",
+  "anchors": [
+    {
+      "source_id": "loho_t1_drawer_prospect_s2300",
+      "task": "loho_t1_drawer",
+      "seed": 2300,
+      "decision": 3,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_1",
+      "region": null,
+      "dist": 0.27051421370478607
+    },
+    {
+      "source_id": "loho_t1_drawer_prospect_s2300",
+      "task": "loho_t1_drawer",
+      "seed": 2300,
+      "decision": 54,
+      "state_type": "late_chain",
+      "form": "place",
+      "obj": "butter_1",
+      "region": "wooden_cabinet_1_top_region",
+      "dist": 0.28497471061414215
+    },
+    {
+      "source_id": "loho_t1_drawer_prospect_s2300",
+      "task": "loho_t1_drawer",
+      "seed": 2300,
+      "decision": 8,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_1",
+      "region": null,
+      "dist": 0.20185433072545483
+    },
+    {
+      "source_id": "loho_t1_drawer_prospect_s2300",
+      "task": "loho_t1_drawer",
+      "seed": 2300,
+      "decision": 19,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_1",
+      "region": null,
+      "dist": 0.2803861458409559
+    },
+    {
+      "source_id": "loho_t2_basket3_prospect_s2310",
+      "task": "loho_t2_basket3",
+      "seed": 2310,
+      "decision": 2,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "alphabet_soup_1",
+      "region": null,
+      "dist": 0.21912946929927385
+    },
+    {
+      "source_id": "loho_t2_basket3_prospect_s2310",
+      "task": "loho_t2_basket3",
+      "seed": 2310,
+      "decision": 15,
+      "state_type": "milestone_boundary",
+      "form": "pick_up",
+      "obj": "butter_1",
+      "region": null,
+      "dist": 0.2912566490505309
+    },
+    {
+      "source_id": "loho_t2_basket3_prospect_s2310",
+      "task": "loho_t2_basket3",
+      "seed": 2310,
+      "decision": 10,
+      "state_type": "stall",
+      "form": "place",
+      "obj": "alphabet_soup_1",
+      "region": "basket_1_contain_region",
+      "dist": 0.2901701564514889
+    },
+    {
+      "source_id": "loho_t2_basket3_prospect_s2310",
+      "task": "loho_t2_basket3",
+      "seed": 2310,
+      "decision": 20,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_1",
+      "region": null,
+      "dist": 0.20883722343335853
+    },
+    {
+      "source_id": "loho_t3_tray_prospect_s2320",
+      "task": "loho_t3_tray",
+      "seed": 2320,
+      "decision": 2,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "alphabet_soup_1",
+      "region": null,
+      "dist": 0.20034629674699161
+    },
+    {
+      "source_id": "loho_t3_tray_prospect_s2320",
+      "task": "loho_t3_tray",
+      "seed": 2320,
+      "decision": 32,
+      "state_type": "late_chain",
+      "form": "pick_up",
+      "obj": "alphabet_soup_1",
+      "region": null,
+      "dist": 0.2527285661769415
+    },
+    {
+      "source_id": "loho_t3_tray_prospect_s2320",
+      "task": "loho_t3_tray",
+      "seed": 2320,
+      "decision": 18,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "alphabet_soup_1",
+      "region": null,
+      "dist": 0.2559766125591909
+    },
+    {
+      "source_id": "loho_t4_tray_prospect_s2330",
+      "task": "loho_t4_tray",
+      "seed": 2330,
+      "decision": 2,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "akita_black_bowl_1",
+      "region": null,
+      "dist": 0.24136960539504065
+    },
+    {
+      "source_id": "loho_t4_tray_prospect_s2330",
+      "task": "loho_t4_tray",
+      "seed": 2330,
+      "decision": 14,
+      "state_type": "stall",
+      "form": "place",
+      "obj": "akita_black_bowl_1",
+      "region": "wooden_tray_1_contain_region",
+      "dist": 0.22140579946199232
+    },
+    {
+      "source_id": "loho_t4_tray_prospect_s2330",
+      "task": "loho_t4_tray",
+      "seed": 2330,
+      "decision": 22,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "new_salad_dressing_1",
+      "region": null,
+      "dist": 0.28485902766129245
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_prospect_s2340",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2340,
+      "decision": 2,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_2",
+      "region": null,
+      "dist": 0.29183180102125394
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_prospect_s2340",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2340,
+      "decision": 7,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_2",
+      "region": null,
+      "dist": 0.2508616724245842
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_prospect_s2340",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2340,
+      "decision": 12,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_2",
+      "region": null,
+      "dist": 0.2484131537402419
+    },
+    {
+      "source_id": "loho_t5_drawer_cabinet_prospect_s2340",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2340,
+      "decision": 17,
+      "state_type": "stall",
+      "form": "pick_up",
+      "obj": "butter_2",
+      "region": null,
+      "dist": 0.20409214634874878
+    }
+  ]
+}
