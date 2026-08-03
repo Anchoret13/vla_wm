@@ -1,0 +1,258 @@
+{
+  "schema": "v071_text_variants_v1",
+  "verification": "mechanical field check: goal-object mention order == subgoal order; close verb required when goal closes drawer; distinguishing spatial token present, opposite absent",
+  "rows": [
+    {
+      "goal_id": "t1_canonical",
+      "text_variant_id": "t1_canonical_p1",
+      "language": "place the front butter and the chocolate pudding into the cabinet's top drawer, then close the drawer",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t1_canonical",
+      "text_variant_id": "t1_canonical_p2",
+      "language": "move the butter at the front and the chocolate pudding into the top drawer of the cabinet and shut it",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t1_canonical",
+      "text_variant_id": "t1_canonical_p0",
+      "language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t1_back_butter",
+      "text_variant_id": "t1_back_butter_p1",
+      "language": "place the back butter and the chocolate pudding into the cabinet's top drawer, then close the drawer",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t1_back_butter",
+      "text_variant_id": "t1_back_butter_p2",
+      "language": "move the butter at the back and the chocolate pudding into the top drawer of the cabinet and shut it",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t1_back_butter",
+      "text_variant_id": "t1_back_butter_p0",
+      "language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_canonical",
+      "text_variant_id": "t5_canonical_p1",
+      "language": "place the back butter and the chocolate pudding into the cabinet's top drawer, close the drawer, then set the black bowl on the cabinet top",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_canonical",
+      "text_variant_id": "t5_canonical_p2",
+      "language": "move the butter at the back and the chocolate pudding into the top drawer of the cabinet, shut it, and put the black bowl onto the top of the cabinet",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_canonical",
+      "text_variant_id": "t5_canonical_p0",
+      "language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "canonical_language": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_front_butter",
+      "text_variant_id": "t5_front_butter_p1",
+      "language": "place the front butter and the chocolate pudding into the cabinet's top drawer, close the drawer, then set the black bowl on the cabinet top",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_front_butter",
+      "text_variant_id": "t5_front_butter_p2",
+      "language": "move the butter at the front and the chocolate pudding into the top drawer of the cabinet, shut it, and put the black bowl onto the top of the cabinet",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t5_front_butter",
+      "text_variant_id": "t5_front_butter_p0",
+      "language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "canonical_language": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_canonical",
+      "text_variant_id": "t2_canonical_p1",
+      "language": "place the alphabet soup, the butter, and the tomato sauce into the basket",
+      "canonical_language": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_canonical",
+      "text_variant_id": "t2_canonical_p2",
+      "language": "move the alphabet soup and the butter and the tomato sauce into the basket",
+      "canonical_language": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_canonical",
+      "text_variant_id": "t2_canonical_p0",
+      "language": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "canonical_language": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_cheese_butter_milk",
+      "text_variant_id": "t2_cheese_butter_milk_p1",
+      "language": "place the cream cheese, the butter, and the milk into the basket",
+      "canonical_language": "put the cream cheese and the butter and the milk in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_cheese_butter_milk",
+      "text_variant_id": "t2_cheese_butter_milk_p2",
+      "language": "move the cream cheese and the butter and the milk into the basket",
+      "canonical_language": "put the cream cheese and the butter and the milk in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_cheese_butter_milk",
+      "text_variant_id": "t2_cheese_butter_milk_p0",
+      "language": "put the cream cheese and the butter and the milk in the basket",
+      "canonical_language": "put the cream cheese and the butter and the milk in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_milk_ketchup_oj",
+      "text_variant_id": "t2_milk_ketchup_oj_p1",
+      "language": "place the milk, the ketchup, and the orange juice into the basket",
+      "canonical_language": "put the milk and the ketchup and the orange juice in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_milk_ketchup_oj",
+      "text_variant_id": "t2_milk_ketchup_oj_p2",
+      "language": "move the milk and the ketchup and the orange juice into the basket",
+      "canonical_language": "put the milk and the ketchup and the orange juice in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t2_milk_ketchup_oj",
+      "text_variant_id": "t2_milk_ketchup_oj_p0",
+      "language": "put the milk and the ketchup and the orange juice in the basket",
+      "canonical_language": "put the milk and the ketchup and the orange juice in the basket",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_canonical",
+      "text_variant_id": "t3_canonical_p1",
+      "language": "place the alphabet soup, the cream cheese, and the butter into the tray",
+      "canonical_language": "put the alphabet soup and the cream cheese and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_canonical",
+      "text_variant_id": "t3_canonical_p2",
+      "language": "move the alphabet soup and the cream cheese and the butter into the tray",
+      "canonical_language": "put the alphabet soup and the cream cheese and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_canonical",
+      "text_variant_id": "t3_canonical_p0",
+      "language": "put the alphabet soup and the cream cheese and the butter in the tray",
+      "canonical_language": "put the alphabet soup and the cream cheese and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_sauce_ketchup_butter",
+      "text_variant_id": "t3_sauce_ketchup_butter_p1",
+      "language": "place the tomato sauce, the ketchup, and the butter into the tray",
+      "canonical_language": "put the tomato sauce and the ketchup and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_sauce_ketchup_butter",
+      "text_variant_id": "t3_sauce_ketchup_butter_p2",
+      "language": "move the tomato sauce and the ketchup and the butter into the tray",
+      "canonical_language": "put the tomato sauce and the ketchup and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_sauce_ketchup_butter",
+      "text_variant_id": "t3_sauce_ketchup_butter_p0",
+      "language": "put the tomato sauce and the ketchup and the butter in the tray",
+      "canonical_language": "put the tomato sauce and the ketchup and the butter in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_soup_sauce_ketchup",
+      "text_variant_id": "t3_soup_sauce_ketchup_p1",
+      "language": "place the alphabet soup, the tomato sauce, and the ketchup into the tray",
+      "canonical_language": "put the alphabet soup and the tomato sauce and the ketchup in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_soup_sauce_ketchup",
+      "text_variant_id": "t3_soup_sauce_ketchup_p2",
+      "language": "move the alphabet soup and the tomato sauce and the ketchup into the tray",
+      "canonical_language": "put the alphabet soup and the tomato sauce and the ketchup in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t3_soup_sauce_ketchup",
+      "text_variant_id": "t3_soup_sauce_ketchup_p0",
+      "language": "put the alphabet soup and the tomato sauce and the ketchup in the tray",
+      "canonical_language": "put the alphabet soup and the tomato sauce and the ketchup in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_canonical",
+      "text_variant_id": "t4_canonical_p1",
+      "language": "place the left black bowl, the salad dressing, and the chocolate pudding into the tray",
+      "canonical_language": "put the black bowl at the left and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_canonical",
+      "text_variant_id": "t4_canonical_p2",
+      "language": "move the black bowl at the left and the salad dressing and the chocolate pudding into the tray",
+      "canonical_language": "put the black bowl at the left and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_canonical",
+      "text_variant_id": "t4_canonical_p0",
+      "language": "put the black bowl at the left and the salad dressing and the chocolate pudding in the tray",
+      "canonical_language": "put the black bowl at the left and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_right_bowl",
+      "text_variant_id": "t4_right_bowl_p1",
+      "language": "place the right black bowl, the salad dressing, and the chocolate pudding into the tray",
+      "canonical_language": "put the black bowl at the right and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_right_bowl",
+      "text_variant_id": "t4_right_bowl_p2",
+      "language": "move the black bowl at the right and the salad dressing and the chocolate pudding into the tray",
+      "canonical_language": "put the black bowl at the right and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    },
+    {
+      "goal_id": "t4_right_bowl",
+      "text_variant_id": "t4_right_bowl_p0",
+      "language": "put the black bowl at the right and the salad dressing and the chocolate pudding in the tray",
+      "canonical_language": "put the black bowl at the right and the salad dressing and the chocolate pudding in the tray",
+      "verified": true
+    }
+  ]
+}

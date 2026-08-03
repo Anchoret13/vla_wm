@@ -1,0 +1,606 @@
+{
+  "schema": "v071_semwin_support_v1",
+  "rule": "positive iff nonzero per-goal delta AND a scene-compatible goal with a different signature; zero-delta rows negative; 724 union windows are bulk negatives (0 flips, verified offline)",
+  "absent_cells": [
+    [
+      "loho_t1_drawer",
+      "dev"
+    ]
+  ],
+  "cells": {
+    "loho_t1_drawer|train": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 2,
+      "independent_sources": 1,
+      "independent_anchors": 2
+    },
+    "loho_t2_basket3|dev": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 2,
+      "independent_sources": 1,
+      "independent_anchors": 2
+    },
+    "loho_t2_basket3|train": {
+      "windows": 8,
+      "crossed": 8,
+      "positive_any_goal": 8,
+      "non_servo_crossed": 8,
+      "independent_sources": 3,
+      "independent_anchors": 8
+    },
+    "loho_t3_tray|dev": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 1,
+      "independent_sources": 1,
+      "independent_anchors": 1
+    },
+    "loho_t3_tray|train": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 2,
+      "independent_sources": 1,
+      "independent_anchors": 1
+    },
+    "loho_t4_tray|dev": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 2,
+      "independent_sources": 1,
+      "independent_anchors": 2
+    },
+    "loho_t4_tray|train": {
+      "windows": 2,
+      "crossed": 2,
+      "positive_any_goal": 2,
+      "non_servo_crossed": 2,
+      "independent_sources": 1,
+      "independent_anchors": 2
+    },
+    "loho_t5_drawer_cabinet|dev": {
+      "windows": 1,
+      "crossed": 1,
+      "positive_any_goal": 1,
+      "non_servo_crossed": 1,
+      "independent_sources": 1,
+      "independent_anchors": 1
+    },
+    "loho_t5_drawer_cabinet|train": {
+      "windows": 1,
+      "crossed": 1,
+      "positive_any_goal": 1,
+      "non_servo_crossed": 1,
+      "independent_sources": 1,
+      "independent_anchors": 1
+    }
+  },
+  "windows": [
+    {
+      "window_id": "loho_t1_drawer_acquire_s2200_d37_semwin_stock",
+      "task": "loho_t1_drawer",
+      "split": "train",
+      "source_id": "loho_t1_drawer_acquire_s2200",
+      "decision": 37,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t1_canonical": "(((0, 1),), 1, 0.2)",
+        "t1_back_butter": "((), 0, 0.0)",
+        "t5_canonical": "((), 0, 0.0)"
+      },
+      "support": {
+        "t1_canonical": "positive",
+        "t1_back_butter": "negative",
+        "t5_canonical": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t1_drawer_acquire_s2200_d47_semwin_stock",
+      "task": "loho_t1_drawer",
+      "split": "train",
+      "source_id": "loho_t1_drawer_acquire_s2200",
+      "decision": 47,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t1_canonical": "(((1, 1),), 3, 0.2)",
+        "t1_back_butter": "((), 0, 0.0)",
+        "t5_canonical": "((), 0, 0.0)"
+      },
+      "support": {
+        "t1_canonical": "positive",
+        "t1_back_butter": "negative",
+        "t5_canonical": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_acquire_s2210_d14_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_acquire_s2210",
+      "decision": 14,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_acquire_s2210_d61_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_acquire_s2210",
+      "decision": 61,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, -1),), -1, -0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_acquire_s2210_d62_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_acquire_s2210",
+      "decision": 62,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, 1), (5, 1)), 1, 0.333333)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_acquire_s2210_d7_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_acquire_s2210",
+      "decision": 7,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((0, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2110_d13_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_correction_s2110",
+      "decision": 13,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2110_d6_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_correction_s2110",
+      "decision": 6,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((0, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2111_d14_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_correction_s2111",
+      "decision": 14,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2111_d6_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "train",
+      "source_id": "loho_t2_basket3_correction_s2111",
+      "decision": 6,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((0, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2112_d13_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "dev",
+      "source_id": "loho_t2_basket3_correction_s2112",
+      "decision": 13,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((1, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t2_basket3_correction_s2112_d6_semwin_stock",
+      "task": "loho_t2_basket3",
+      "split": "dev",
+      "source_id": "loho_t2_basket3_correction_s2112",
+      "decision": 6,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t2_canonical": "(((0, 1),), 1, 0.166667)",
+        "t2_cheese_butter_milk": "((), 0, 0.0)",
+        "t2_milk_ketchup_oj": "((), 0, 0.0)"
+      },
+      "support": {
+        "t2_canonical": "positive",
+        "t2_cheese_butter_milk": "negative",
+        "t2_milk_ketchup_oj": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t3_tray_acquire_s2220_d2_semwin_c1",
+      "task": "loho_t3_tray",
+      "split": "train",
+      "source_id": "loho_t3_tray_acquire_s2220",
+      "decision": 2,
+      "tranche": "B",
+      "branch": "c1",
+      "branch_family": "canonical",
+      "branch_provenance": "policy",
+      "steps": 50,
+      "crossed_canonical": true,
+      "crossing_reproduced": null,
+      "goal_signatures": {
+        "t3_canonical": "(((2, 1),), 0, 0.166667)",
+        "t3_sauce_ketchup_butter": "((), 0, 0.0)",
+        "t3_soup_sauce_ketchup": "((), 0, 0.0)"
+      },
+      "support": {
+        "t3_canonical": "positive",
+        "t3_sauce_ketchup_butter": "negative",
+        "t3_soup_sauce_ketchup": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t3_tray_acquire_s2220_d2_semwin_u0",
+      "task": "loho_t3_tray",
+      "split": "train",
+      "source_id": "loho_t3_tray_acquire_s2220",
+      "decision": 2,
+      "tranche": "B",
+      "branch": "u0",
+      "branch_family": "canonical",
+      "branch_provenance": "policy",
+      "steps": 50,
+      "crossed_canonical": true,
+      "crossing_reproduced": null,
+      "goal_signatures": {
+        "t3_canonical": "(((2, 1),), 0, 0.166667)",
+        "t3_sauce_ketchup_butter": "((), 0, 0.0)",
+        "t3_soup_sauce_ketchup": "((), 0, 0.0)"
+      },
+      "support": {
+        "t3_canonical": "positive",
+        "t3_sauce_ketchup_butter": "negative",
+        "t3_soup_sauce_ketchup": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t3_tray_correction_s2122_d2_semwin_stored_support",
+      "task": "loho_t3_tray",
+      "split": "dev",
+      "source_id": "loho_t3_tray_correction_s2122",
+      "decision": 2,
+      "tranche": "B",
+      "branch": "stored_support",
+      "branch_family": "servo",
+      "branch_provenance": "stored_dev_winner",
+      "steps": 40,
+      "crossed_canonical": true,
+      "crossing_reproduced": null,
+      "goal_signatures": {
+        "t3_canonical": "(((0, 1),), 1, 0.166667)",
+        "t3_sauce_ketchup_butter": "((), 0, 0.0)",
+        "t3_soup_sauce_ketchup": "(((0, 1),), 1, 0.166667)"
+      },
+      "support": {
+        "t3_canonical": "positive",
+        "t3_sauce_ketchup_butter": "negative",
+        "t3_soup_sauce_ketchup": "positive"
+      }
+    },
+    {
+      "window_id": "loho_t3_tray_correction_s2122_d2_semwin_u0_fresh",
+      "task": "loho_t3_tray",
+      "split": "dev",
+      "source_id": "loho_t3_tray_correction_s2122",
+      "decision": 2,
+      "tranche": "B",
+      "branch": "u0_fresh",
+      "branch_family": "canonical",
+      "branch_provenance": "fresh_u0",
+      "steps": 50,
+      "crossed_canonical": true,
+      "crossing_reproduced": null,
+      "goal_signatures": {
+        "t3_canonical": "(((2, 1),), 0, 0.166667)",
+        "t3_sauce_ketchup_butter": "((), 0, 0.0)",
+        "t3_soup_sauce_ketchup": "((), 0, 0.0)"
+      },
+      "support": {
+        "t3_canonical": "positive",
+        "t3_sauce_ketchup_butter": "negative",
+        "t3_soup_sauce_ketchup": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t4_tray_correction_s2130_d11_semwin_stock",
+      "task": "loho_t4_tray",
+      "split": "train",
+      "source_id": "loho_t4_tray_correction_s2130",
+      "decision": 11,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t4_canonical": "(((1, 1),), 1, 0.166667)",
+        "t4_right_bowl": "((), 0, 0.0)"
+      },
+      "support": {
+        "t4_canonical": "positive",
+        "t4_right_bowl": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t4_tray_correction_s2130_d5_semwin_stock",
+      "task": "loho_t4_tray",
+      "split": "train",
+      "source_id": "loho_t4_tray_correction_s2130",
+      "decision": 5,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t4_canonical": "(((0, 1),), 1, 0.166667)",
+        "t4_right_bowl": "((), 0, 0.0)"
+      },
+      "support": {
+        "t4_canonical": "positive",
+        "t4_right_bowl": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t4_tray_correction_s2132_d11_semwin_stock",
+      "task": "loho_t4_tray",
+      "split": "dev",
+      "source_id": "loho_t4_tray_correction_s2132",
+      "decision": 11,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t4_canonical": "(((1, 1),), 1, 0.166667)",
+        "t4_right_bowl": "((), 0, 0.0)"
+      },
+      "support": {
+        "t4_canonical": "positive",
+        "t4_right_bowl": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t4_tray_correction_s2132_d5_semwin_stock",
+      "task": "loho_t4_tray",
+      "split": "dev",
+      "source_id": "loho_t4_tray_correction_s2132",
+      "decision": 5,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t4_canonical": "(((0, 1),), 1, 0.166667)",
+        "t4_right_bowl": "((), 0, 0.0)"
+      },
+      "support": {
+        "t4_canonical": "positive",
+        "t4_right_bowl": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t5_drawer_cabinet_acquire_s2240_d93_semwin_stock",
+      "task": "loho_t5_drawer_cabinet",
+      "split": "train",
+      "source_id": "loho_t5_drawer_cabinet_acquire_s2240",
+      "decision": 93,
+      "tranche": "A",
+      "branch": "stock",
+      "branch_family": "stock_decision",
+      "branch_provenance": "stock_replay",
+      "steps": 10,
+      "crossed_canonical": true,
+      "crossing_reproduced": true,
+      "goal_signatures": {
+        "t5_canonical": "(((0, 1),), 1, 0.142857)",
+        "t1_canonical": "((), 0, 0.0)",
+        "t5_front_butter": "((), 0, 0.0)"
+      },
+      "support": {
+        "t5_canonical": "positive",
+        "t1_canonical": "negative",
+        "t5_front_butter": "negative"
+      }
+    },
+    {
+      "window_id": "loho_t5_drawer_cabinet_correction_s2142_d2_semwin_stored_sub0",
+      "task": "loho_t5_drawer_cabinet",
+      "split": "dev",
+      "source_id": "loho_t5_drawer_cabinet_correction_s2142",
+      "decision": 2,
+      "tranche": "B",
+      "branch": "stored_sub0",
+      "branch_family": "atomic",
+      "branch_provenance": "stored_dev_winner",
+      "steps": 50,
+      "crossed_canonical": true,
+      "crossing_reproduced": null,
+      "goal_signatures": {
+        "t5_canonical": "(((5, 1),), 0, 0.142857)",
+        "t1_canonical": "((), 0, 0.0)",
+        "t5_front_butter": "(((5, 1),), 0, 0.142857)"
+      },
+      "support": {
+        "t5_canonical": "positive",
+        "t1_canonical": "negative",
+        "t5_front_butter": "positive"
+      }
+    }
+  ]
+}

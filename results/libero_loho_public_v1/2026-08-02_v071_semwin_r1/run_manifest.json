@@ -1,0 +1,123 @@
+{
+  "schema": "v071_semwin_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "semwin",
+  "run_date": "2026-08-02",
+  "timezone": "America/Chicago",
+  "git_sha": "02208af",
+  "crn_contract": "v071_semwin_r1|cont|src|dec|gid|rep|cd; branch identity structurally absent",
+  "tranche_a": [
+    [
+      "loho_t1_drawer_acquire_s2200",
+      37
+    ],
+    [
+      "loho_t1_drawer_acquire_s2200",
+      47
+    ],
+    [
+      "loho_t2_basket3_correction_s2110",
+      6
+    ],
+    [
+      "loho_t2_basket3_correction_s2110",
+      13
+    ],
+    [
+      "loho_t2_basket3_correction_s2111",
+      6
+    ],
+    [
+      "loho_t2_basket3_correction_s2111",
+      14
+    ],
+    [
+      "loho_t2_basket3_acquire_s2210",
+      7
+    ],
+    [
+      "loho_t2_basket3_acquire_s2210",
+      14
+    ],
+    [
+      "loho_t2_basket3_acquire_s2210",
+      61
+    ],
+    [
+      "loho_t2_basket3_acquire_s2210",
+      62
+    ],
+    [
+      "loho_t2_basket3_correction_s2112",
+      6
+    ],
+    [
+      "loho_t2_basket3_correction_s2112",
+      13
+    ],
+    [
+      "loho_t4_tray_correction_s2130",
+      5
+    ],
+    [
+      "loho_t4_tray_correction_s2130",
+      11
+    ],
+    [
+      "loho_t4_tray_correction_s2132",
+      5
+    ],
+    [
+      "loho_t4_tray_correction_s2132",
+      11
+    ],
+    [
+      "loho_t5_drawer_cabinet_acquire_s2240",
+      93
+    ]
+  ],
+  "tranche_b": [
+    [
+      "loho_t3_tray_acquire_s2220",
+      2,
+      "loho_t3_tray_acquire_s2220_d2_u0"
+    ],
+    [
+      "loho_t3_tray_acquire_s2220",
+      2,
+      "loho_t3_tray_acquire_s2220_d2_c1"
+    ],
+    [
+      "loho_t3_tray_correction_s2122",
+      2,
+      "loho_t3_tray_correction_s2122_d2_u0_fresh"
+    ],
+    [
+      "loho_t3_tray_correction_s2122",
+      2,
+      "loho_t3_tray_correction_s2122_d2_stored_support"
+    ],
+    [
+      "loho_t5_drawer_cabinet_correction_s2142",
+      2,
+      "loho_t5_drawer_cabinet_correction_s2142_d2_stored_sub0"
+    ]
+  ],
+  "absent_cells": [
+    [
+      "loho_t1_drawer",
+      "dev"
+    ]
+  ],
+  "b_max_cont_decisions": 5,
+  "union_manifest_sha256": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959",
+  "goal_manifest_sha256": "971b1f3edb5d982ab62c0daeea099fc7da0a9d70875d02264d9745d22c56850b",
+  "code_files": {
+    "scripts/materialize_v071_semwin.py": "44b31a9329e00718cdf71a7faab6b7539657ce805eb36288e84a4d03a8a4dfa1",
+    "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+    "lcwm/snapshot.py": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525",
+    "lcwm/video_recorder.py": "eb4911854b0d8ad77fd146607ea823c4d41130488a08c80a3eb1bf7fb41d759c"
+  },
+  "manifest_sha256": "26213a9c5ec41624707a7909301ae7dd23cfd4171ff420bacada5d967351e43a"
+}
