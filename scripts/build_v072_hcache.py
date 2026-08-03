@@ -130,7 +130,17 @@ def main() -> None:
         return S.canonical_goal(task) + "_p0"
 
     semwin_shards = {}
+    # the para/shared-phys SECOND STREAM unrolls the same anchor under
+    # the canonical-p0 text whenever the visit text differs from it —
+    # its history+anchor keys must be enumerated too (no next-obs
+    # needed: the second stream has no closure target)
+    expanded = []
     for ak, g, tv in visits:
+        expanded.append((ak, g, tv, True))
+        cp0 = canon_p0(anchors[ak]["task"])
+        if tv != cp0:
+            expanded.append((ak, None, cp0, False))
+    for ak, g, tv, with_next in expanded:
         a = anchors[ak]
         sid, d = a["source_id"], a["decision"]
         for dd in range(d):
@@ -147,16 +157,18 @@ def main() -> None:
             cum = [0]
             for sg in s["segments"]:
                 cum.append(cum[-1] + sg["actions"])
-            for k in range(1, len(cum)):
-                needed[f"{tv}::swb::{wid}::b{cum[k]}"] = \
-                    ("swb", (rec0, cum[k]))
+            if with_next:
+                for k in range(1, len(cum)):
+                    needed[f"{tv}::swb::{wid}::b{cum[k]}"] = \
+                        ("swb", (rec0, cum[k]))
         else:
             needed[f"{tv}::src::{sid}::d{d}"] = ("srcdec", (sid, d))
-            for pt in a["rows"]:
-                rec = by_pt[pt]
-                if rec["kind"] == "audit":
-                    continue
-                needed[f"{tv}::next::{pt}"] = ("next", rec)
+            if with_next:
+                for pt in a["rows"]:
+                    rec = by_pt[pt]
+                    if rec["kind"] == "audit":
+                        continue
+                    needed[f"{tv}::next::{pt}"] = ("next", rec)
     print(f"[hcache] {len(needed)} unique (text, obs) keys",
           flush=True)
 
