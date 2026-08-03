@@ -57,7 +57,8 @@ from lcwm.v071_loader import V071Loader  # noqa: E402
 RESULTS = REPO_ROOT / "results" / "libero_loho_public_v1"
 UNION = RESULTS / "2026-08-02_v071_union_f1"
 PRED_CKPT = RESULTS / "v069_predictive" / "checkpoint_selected.pt"
-STAGE, RUN_ID = "lcwm", "r1"
+STAGE, RUN_ID = "lcwm", "r2"
+CACHE_RUN = RESULTS / "2026-08-02_v071_lcwm_r1" / "train"
 Q_SCALE = torch.tensor([7.344e-3] * 3 + [5.451e-3] * 4
                        + [2.598e-4] * 2)
 OBJ_SCALE = 1.175e-3
@@ -153,7 +154,7 @@ class HCache:
 
 
 def train_variant(variant, cache_dir, loader, device, out_root,
-                  goal_manifest, sources_rows):
+                  goal_manifest, sources_rows, resume=False):
     model = V06State().to(device)
     bundle = torch.load(PRED_CKPT, weights_only=False)
     assert bundle.get("run_schema") == "v069"
@@ -218,10 +219,14 @@ def train_variant(variant, cache_dir, loader, device, out_root,
         losses, cats = [], []
         anchor_row = sources_rows[sid][d]
         obj_before = np.asarray(anchor_row["obj_before"])
-        for tid in tids:
+        active = [t for t in tids
+                  if loader.load_transition(t)["steps"] > 0]
+        raw_w = {t: (TASK_OBJ_UPW if task_obj_flag.get(t) else 1.0)
+                 for t in active}
+        wsum = sum(raw_w.values()) or 1.0
+        norm_w = {t: raw_w[t] * len(active) / wsum for t in active}
+        for tid in active:
             tr = loader.load_transition(tid)
-            if tr["steps"] == 0:
-                continue
             ae = torch.from_numpy(tr["actions_env"]).float()
             from lcwm.seq_prefix_cache import normalize_actions
             a_norm = normalize_actions(
@@ -246,7 +251,7 @@ def train_variant(variant, cache_dir, loader, device, out_root,
                 np.asarray(tr["obj_after"])
                 - obj_before).float().to(device)
             n_obj = d_obj.shape[0]
-            w = TASK_OBJ_UPW if task_obj_flag.get(tid) else 1.0
+            w = norm_w[tid]
             l_obj = w * huber(
                 out["d_obj"][0, :n_obj].flatten(),
                 d_obj.flatten(), OBJ_SCALE)
@@ -262,13 +267,98 @@ def train_variant(variant, cache_dir, loader, device, out_root,
 
     groups_train = anchor_groups("train")
     groups_dev = anchor_groups("dev")
+
+    # PREFLIGHT: deterministic task->source->anchor round-robin epoch
+    # schedule (true hierarchical exposure; rotated by epoch index)
+    def rr_schedule(epoch):
+        by_task = defaultdict(lambda: defaultdict(list))
+        for anchor, tids in groups_train.items():
+            r0 = loader.by_id[tids[0]]
+            by_task[r0["task"]][r0["source_id"]].append(
+                (anchor, tids))
+        queues = []
+        for task in sorted(by_task):
+            srcs = sorted(by_task[task])
+            rot = srcs[epoch % len(srcs):] + srcs[:epoch % len(srcs)]
+            merged = []
+            i = 0
+            while any(i < len(by_task[task][s2]) for s2 in rot):
+                for s2 in rot:
+                    if i < len(by_task[task][s2]):
+                        merged.append(by_task[task][s2][i])
+                i += 1
+            queues.append(merged)
+        order, j = [], 0
+        while any(j < len(q) for q in queues):
+            for q in queues:
+                if j < len(q):
+                    order.append(q[j])
+            j += 1
+        return order
+
+    exposure = {"task": defaultdict(int),
+                "source": defaultdict(int),
+                "anchor": defaultdict(int)}
+
+    # PREFLIGHT: frozen dev reference report BEFORE training
+    with torch.no_grad():
+        ref = defaultdict(list)
+        for anchor, tids in groups_dev.items():
+            r0 = loader.by_id[tids[0]]
+            sid, dd0 = r0["source_id"], r0["decision"]
+            h_a, m_a = hc.get(f"{sid}__dec{dd0}", device)
+            z_a = model.initial_state(h_a, m_a)
+            anchor_row = sources_rows[sid][dd0]
+            obj_before = np.asarray(anchor_row["obj_before"])
+            for tid in tids:
+                tr = loader.load_transition(tid)
+                if tr["steps"] == 0:
+                    continue
+                h_p, m_p = hc.get(f"{tid}__post", device)
+                z_p = ema.initial_state(h_p, m_p)
+                ref["latent_identity"].append(float(
+                    torch.nn.functional.mse_loss(z_a, z_p)))
+                d_eef = (tr["eef_seq"][-1]
+                         - tr["eef_seq"][0]).to(device)
+                ref["eef_zero"].append(float(huber(
+                    torch.zeros_like(d_eef), d_eef, q_scale)))
+                d_obj = torch.from_numpy(np.asarray(
+                    tr["obj_after"]) - obj_before).float().to(device)
+                ref["obj_zero"].append(float(huber(
+                    torch.zeros_like(d_obj).flatten(),
+                    d_obj.flatten(), OBJ_SCALE)))
+        dev_reference = {k: float(np.mean(v)) for k, v in ref.items()}
+        (out_root / "analysis"
+         / f"dev_reference_{variant}.json").write_text(
+            json.dumps(dev_reference, indent=2))
+        print(f"[{variant}] frozen dev reference: {dev_reference}",
+              flush=True)
+
     logs, ckpt_devs = [], {}
-    rng = np.random.default_rng(0)
-    for epoch in range(EPOCHS):
-        order = list(groups_train.items())
-        rng.shuffle(order)
+    start_epoch = 0
+    if resume:
+        cks = sorted((out_root / "checkpoints").glob(
+            f"{variant}_epoch*.pt"))
+        if cks:
+            st = torch.load(cks[-1], weights_only=False)
+            model.load_state_dict(st["model"])
+            ema.load_state_dict(st["ema"])
+            if "optimizer" in st:
+                optimizer.load_state_dict(st["optimizer"])
+            start_epoch = st["epoch"] + 1
+            ckpt_devs = {c.name: torch.load(
+                c, weights_only=False)["dev_objective"]
+                for c in cks}
+            print(f"[{variant}] resumed at epoch {start_epoch}",
+                  flush=True)
+    for epoch in range(start_epoch, EPOCHS):
+        order = rr_schedule(epoch)
         agg = defaultdict(list)
         for anchor, tids in order:
+            r0 = loader.by_id[tids[0]]
+            exposure["task"][r0["task"]] += 1
+            exposure["source"][r0["source_id"]] += 1
+            exposure["anchor"][anchor] += 1
             optimizer.zero_grad(set_to_none=True)
             losses, cats = anchor_losses(anchor, tids, train=True)
             if not losses:
@@ -307,6 +397,7 @@ def train_variant(variant, cache_dir, loader, device, out_root,
             name = f"{variant}_epoch{epoch:03d}.pt"
             torch.save({"model": model.state_dict(),
                         "ema": ema.state_dict(),
+                        "optimizer": optimizer.state_dict(),
                         "run_schema": "v071", "variant": variant,
                         "epoch": epoch, "dev_objective": dev_obj},
                        out_root / "checkpoints" / name)
@@ -316,6 +407,10 @@ def train_variant(variant, cache_dir, loader, device, out_root,
                 k: float(np.mean(v)) for k, v in dv.items()}
             print(f"  [{variant} dev ep{epoch}] {dev_obj:.4f} "
                   f"({logs[-1]['dev_detail']})", flush=True)
+    (out_root / "analysis"
+     / f"exposure_{variant}.json").write_text(json.dumps(
+        {k: dict(sorted(v.items())) for k, v in exposure.items()},
+        indent=2))
     best = min(ckpt_devs, key=lambda k: (ckpt_devs[k], k))
     sel = torch.load(out_root / "checkpoints" / best,
                      weights_only=False)
@@ -332,6 +427,10 @@ REF_MEAN = REF_STD = None
 
 def main() -> None:
     global REF_MEAN, REF_STD
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--resume", action="store_true")
+    args = parser.parse_args()
     from lcwm.chassis import Pi05Runner
     from lcwm.probe_data import CONSTANT_PROMPT
 
@@ -386,26 +485,39 @@ def main() -> None:
         "variants": ["lc_main (canonical prompts)",
                      "readout_baseline (constant prompt)"],
         "video": "tensor-only run; no simulator rollouts",
+        "h_cache_lineage": {
+            "reused_from": str(CACHE_RUN),
+            "note": "pure function of (obs, prompt, pi0.5 revision); "
+                    "bound by count+sample hashes at launch"},
+        "preflight": ["task/source/anchor exposure schedule",
+                      "within-anchor normalized effect weights",
+                      "cache lineage bound", "resumable checkpoints",
+                      "frozen dev reference report"],
     }
     mp = root / "run_manifest.json"
     if not mp.exists():
         mp.write_text(json.dumps(manifest, indent=2))
 
-    runner = Pi05Runner(suite_name="libero_10")
-    build_h_cache(runner, loader, root / "train" / "h_canonical",
-                  "canonical", lambda lang: lang)
-    build_h_cache(runner, loader, root / "train" / "h_constant",
-                  "constant", lambda lang: CONSTANT_PROMPT)
-    del runner
-    torch.cuda.empty_cache()
+    cache_canon = CACHE_RUN / "h_canonical"
+    cache_const = CACHE_RUN / "h_constant"
+    if len(list(cache_canon.glob("*.pt"))) < 1269 or \
+            len(list(cache_const.glob("*.pt"))) < 1269:
+        runner = Pi05Runner(suite_name="libero_10")
+        build_h_cache(runner, loader, cache_canon, "canonical",
+                      lambda lang: lang)
+        build_h_cache(runner, loader, cache_const, "constant",
+                      lambda lang: CONSTANT_PROMPT)
+        del runner
+        torch.cuda.empty_cache()
 
     results = {}
     results["lc_main"] = train_variant(
-        "lc_main", root / "train" / "h_canonical", loader, device,
-        root, goal_manifest, sources_rows)
+        "lc_main", cache_canon, loader, device,
+        root, goal_manifest, sources_rows, resume=args.resume)
     results["readout_baseline"] = train_variant(
-        "readout_baseline", root / "train" / "h_constant", loader,
-        device, root, goal_manifest, sources_rows)
+        "readout_baseline", cache_const, loader,
+        device, root, goal_manifest, sources_rows,
+        resume=args.resume)
     (root / "analysis" / "train_results.json").write_text(
         json.dumps(results, indent=2))
     print(json.dumps({v: {"selected": r["selected"],
