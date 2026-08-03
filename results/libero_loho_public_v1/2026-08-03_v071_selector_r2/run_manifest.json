@@ -1,0 +1,37 @@
+{
+  "schema": "v071_selector_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "v071_selector_r2",
+  "git_sha": "174f412",
+  "seeds": "2301+10k",
+  "scorer_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-03_v071_outcome_refresh_r1/scorer_ensembles.pt",
+  "bank": "u0(deployed)+7canon+2atomic+2distinct+u0_repeat(audit); no servo",
+  "proposal_seed": "SHA256('v071_selector_r2|proposal|src|dec|fam|i')",
+  "cont_seed": "SHA256('v071_selector_r2|cont|src|dec|goal|rep|cd')",
+  "order_seed": "SHA256('v071_selector_r2|order|src|dec')",
+  "perm_seed": "SHA256('v071_selector_r2|perm|j|src|dec')",
+  "selector": {
+    "masked": [
+      "neg_damage",
+      "success_by_100"
+    ],
+    "order": [
+      "p_valid_100",
+      "q_valid_mean",
+      "neg_tau_next"
+    ]
+  },
+  "frozen": {
+    "lc_full_selected": "14e3a499316d6c2af267f937ee63b071c5d4ed0b59568d0f7eab3d84e781f36c",
+    "scorer_ensembles": "1b2661d9f649b796df14a995db490274cb5676d60560ee75f964f8da03df21f9",
+    "selector_code": "194e463703465bc90c1c2f08d5d4953414cb579af985b3aeb5c35b87521f7fc1",
+    "union_manifest": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959"
+  },
+  "tolerances": {
+    "neg_damage": 0.0,
+    "neg_tau_next": 7.1499999999999915,
+    "p_valid_100": 0.0,
+    "q_valid_mean": 0.04166666666666663,
+    "success_by_100": 0.0
+  }
+}

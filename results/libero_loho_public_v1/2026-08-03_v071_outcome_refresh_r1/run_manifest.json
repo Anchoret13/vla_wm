@@ -1,0 +1,24 @@
+{
+  "schema": "v071_outcome_refresh_manifest_v1",
+  "run_schema": "v071",
+  "git_sha": "174f412",
+  "refresh": "1 of 1 (pre-registered route; no second refresh)",
+  "lcwm_frozen": "14e3a499316d6c2af267f937ee63b071c5d4ed0b59568d0f7eab3d84e781f36c",
+  "config": {
+    "k_ens": 5,
+    "epochs": 300,
+    "lr": 0.001,
+    "wd": 0.0001,
+    "from_scratch": true,
+    "selection": "NONE"
+  },
+  "rows": {
+    "old_train_transitions": 166,
+    "new_bank_transitions": 213,
+    "label_rows": 758
+  },
+  "r1_bank_sha": {
+    "outcome_ledger": "e16bcbc260c43a92a132bb1b8bd527476f479d9c5ce162634b047ce96e514569",
+    "seal": "d642759f74ff25f011ae855082d2e1a1cb5ea3bc7be70787600ebc6a3550d9d3"
+  }
+}
