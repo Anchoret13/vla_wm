@@ -1,0 +1,693 @@
+{
+  "selector_anchors_recomputed": {
+    "loho_t1_drawer_prospect_s2300_d19": {
+      "eef_pos": 0.003508448600769043,
+      "eef_quat": 0.0011729598045349121,
+      "gripper": 3.5315752029418945e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t1_drawer_prospect_s2300_d3": {
+      "eef_pos": 0.0003170659765601158,
+      "eef_quat": 0.0019532255828380585,
+      "gripper": 4.928559064865112e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t1_drawer_prospect_s2300_d54": {
+      "eef_pos": 0.001524314284324646,
+      "eef_quat": 0.00044283270835876465,
+      "gripper": 2.6561319828033447e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t1_drawer_prospect_s2300_d8": {
+      "eef_pos": 0.00018155574798583984,
+      "eef_quat": 1.2636184692382812e-05,
+      "gripper": 0.00014109164476394653,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t2_basket3_prospect_s2310_d10": {
+      "eef_pos": 0.00041900575160980225,
+      "eef_quat": 4.449114203453064e-05,
+      "gripper": 2.4400651454925537e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t2_basket3_prospect_s2310_d15": {
+      "eef_pos": 0.0015299320220947266,
+      "eef_quat": 0.00024538394063711166,
+      "gripper": 4.0978193283081055e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t2_basket3_prospect_s2310_d2": {
+      "eef_pos": 0.0008176565170288086,
+      "eef_quat": 1.8831342458724976e-05,
+      "gripper": 2.596527338027954e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t2_basket3_prospect_s2310_d20": {
+      "eef_pos": 0.001958310604095459,
+      "eef_quat": 0.0004144906997680664,
+      "gripper": 6.4354389905929565e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t3_tray_prospect_s2320_d18": {
+      "eef_pos": 0.004686325788497925,
+      "eef_quat": 0.005086865276098251,
+      "gripper": 6.679445505142212e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t3_tray_prospect_s2320_d2": {
+      "eef_pos": 0.0010905861854553223,
+      "eef_quat": 0.0003376901149749756,
+      "gripper": 1.9408762454986572e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t3_tray_prospect_s2320_d32": {
+      "eef_pos": 0.0013428926467895508,
+      "eef_quat": 0.0010279975831508636,
+      "gripper": 8.195638656616211e-08,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t4_tray_prospect_s2330_d14": {
+      "eef_pos": 0.006886228919029236,
+      "eef_quat": 0.0002771541476249695,
+      "gripper": 2.668239176273346e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t4_tray_prospect_s2330_d2": {
+      "eef_pos": 0.0003420710563659668,
+      "eef_quat": 1.6940757632255554e-05,
+      "gripper": 6.631016731262207e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t4_tray_prospect_s2330_d22": {
+      "eef_pos": 0.0058591365814208984,
+      "eef_quat": 0.0004308701027184725,
+      "gripper": 1.0021030902862549e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d12": {
+      "eef_pos": 9.420886635780334e-05,
+      "eef_quat": 0.0006638169288635254,
+      "gripper": 6.370246410369873e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d17": {
+      "eef_pos": 0.00011491775512695312,
+      "eef_quat": 0.0002590566873550415,
+      "gripper": 0.0003086179494857788,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d2": {
+      "eef_pos": 3.4183263778686523e-05,
+      "eef_quat": 0.00019256770610809326,
+      "gripper": 5.662441253662109e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d7": {
+      "eef_pos": 7.596611976623535e-05,
+      "eef_quat": 0.00040519237518310547,
+      "gripper": 5.587935447692871e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t1_drawer_prospect_s2301_d22": {
+      "eef_pos": 0.003774404525756836,
+      "eef_quat": 0.001456528902053833,
+      "gripper": 3.810971975326538e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t1_drawer_prospect_s2301_d27": {
+      "eef_pos": 0.00019166991114616394,
+      "eef_quat": 0.002329692244529724,
+      "gripper": 2.240017056465149e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t1_drawer_prospect_s2301_d3": {
+      "eef_pos": 0.003949999809265137,
+      "eef_quat": 0.0028407052159309387,
+      "gripper": 4.6193599700927734e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t1_drawer_prospect_s2301_d8": {
+      "eef_pos": 0.004221677780151367,
+      "eef_quat": 0.0001768898218870163,
+      "gripper": 1.511577283963561e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t2_basket3_prospect_s2311_d10": {
+      "eef_pos": 0.0012641102075576782,
+      "eef_quat": 0.0002230461686849594,
+      "gripper": 6.128102540969849e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t2_basket3_prospect_s2311_d18": {
+      "eef_pos": 0.0010274052619934082,
+      "eef_quat": 0.00037100911140441895,
+      "gripper": 2.1904706954956055e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t2_basket3_prospect_s2311_d2": {
+      "eef_pos": 0.0027370452880859375,
+      "eef_quat": 0.0003447318449616432,
+      "gripper": 5.926936864852905e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t3_tray_prospect_s2321_d19": {
+      "eef_pos": 0.00035708025097846985,
+      "eef_quat": 0.0008558556437492371,
+      "gripper": 0.0007167495787143707,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t3_tray_prospect_s2321_d2": {
+      "eef_pos": 0.0012979507446289062,
+      "eef_quat": 0.0012383386492729187,
+      "gripper": 2.4102628231048584e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t4_tray_prospect_s2331_d2": {
+      "eef_pos": 0.005955636501312256,
+      "eef_quat": 0.000285441055893898,
+      "gripper": 1.0933727025985718e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t4_tray_prospect_s2331_d28": {
+      "eef_pos": 0.0010884106159210205,
+      "eef_quat": 0.0001715049147605896,
+      "gripper": 7.599592208862305e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t4_tray_prospect_s2331_d9": {
+      "eef_pos": 0.000775262713432312,
+      "eef_quat": 0.00014778971672058105,
+      "gripper": 1.1594966053962708e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": false
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d13": {
+      "eef_pos": 6.663799285888672e-05,
+      "eef_quat": 0.0005173087120056152,
+      "gripper": 8.374452590942383e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d18": {
+      "eef_pos": 0.001120448112487793,
+      "eef_quat": 0.00019672513008117676,
+      "gripper": 5.682813934981823e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d3": {
+      "eef_pos": 4.8041343688964844e-05,
+      "eef_quat": 0.001194782555103302,
+      "gripper": 2.723187208175659e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d8": {
+      "eef_pos": 6.997119635343552e-05,
+      "eef_quat": 0.00032052164897322655,
+      "gripper": 9.573996067047119e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0,
+      "grasp_equal": true
+    }
+  },
+  "gross_bound_flags": {
+    "loho_t1_drawer_prospect_s2300_d19": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2300_d3": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2300_d54": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2300_d8": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2310_d10": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2310_d15": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2310_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2310_d20": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t3_tray_prospect_s2320_d18": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t3_tray_prospect_s2320_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t3_tray_prospect_s2320_d32": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2330_d14": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2330_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2330_d22": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d12": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d17": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2340_d7": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2301_d22": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2301_d27": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2301_d3": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t1_drawer_prospect_s2301_d8": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2311_d10": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2311_d18": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t2_basket3_prospect_s2311_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t3_tray_prospect_s2321_d19": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t3_tray_prospect_s2321_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2331_d2": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2331_d28": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t4_tray_prospect_s2331_d9": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d13": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d18": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d3": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    },
+    "loho_t5_drawer_cabinet_prospect_s2341_d8": {
+      "eef_pos": true,
+      "eef_quat": true,
+      "gripper": true,
+      "obj_pos": true
+    }
+  },
+  "inherited_v711_rows": [
+    {
+      "anchor": "loho_t1_drawer_correction_s2100_d3",
+      "eef_pos": 0.00020409375429153442,
+      "eef_quat": 0.004651296883821487,
+      "gripper": 9.436160326004028e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t1_drawer_correction_s2100_d8",
+      "eef_pos": 0.0007763709872961044,
+      "eef_quat": 0.005197018384933472,
+      "gripper": 1.1920928955078125e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t1_drawer_correction_s2101_d2",
+      "eef_pos": 0.00811767578125,
+      "eef_quat": 0.004635930061340332,
+      "gripper": 1.2330710887908936e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t1_drawer_correction_s2101_d8",
+      "eef_pos": 0.0012917518615722656,
+      "eef_quat": 0.00045215594582259655,
+      "gripper": 0.003387363627552986,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t1_drawer_correction_s2102_d3",
+      "eef_pos": 0.008359432220458984,
+      "eef_quat": 0.006053037941455841,
+      "gripper": 9.384006261825562e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t1_drawer_correction_s2102_d8",
+      "eef_pos": 0.002433180809020996,
+      "eef_quat": 0.0010006427764892578,
+      "gripper": 0.00196833536028862,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t2_basket3_correction_s2110_d16",
+      "eef_pos": 0.005817718803882599,
+      "eef_quat": 0.0009519010782241821,
+      "gripper": 1.636892557144165e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t2_basket3_correction_s2111_d17",
+      "eef_pos": 0.005863487720489502,
+      "eef_quat": 0.004176756367087364,
+      "gripper": 1.4856457710266113e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t2_basket3_correction_s2112_d16",
+      "eef_pos": 0.0058860182762146,
+      "eef_quat": 0.004208508878946304,
+      "gripper": 1.4267861843109131e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t2_basket3_correction_s2112_d75",
+      "eef_pos": 0.00042128562927246094,
+      "eef_quat": 0.00028523802757263184,
+      "gripper": 1.5720725059509277e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2120_d19",
+      "eef_pos": 0.0009534657001495361,
+      "eef_quat": 0.0096893310546875,
+      "gripper": 0.0011845231056213379,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2120_d2",
+      "eef_pos": 0.006480276584625244,
+      "eef_quat": 0.005087997764348984,
+      "gripper": 1.4107674360275269e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2120_d5",
+      "eef_pos": 0.0020889639854431152,
+      "eef_quat": 0.0026621147990226746,
+      "gripper": 0.0006106141954660416,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2121_d2",
+      "eef_pos": 0.007007420063018799,
+      "eef_quat": 0.0014857575297355652,
+      "gripper": 1.3630837202072144e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2121_d7",
+      "eef_pos": 0.0011886805295944214,
+      "eef_quat": 0.001261305995285511,
+      "gripper": 0.003384869545698166,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2122_d19",
+      "eef_pos": 0.007081091403961182,
+      "eef_quat": 0.001517016440629959,
+      "gripper": 1.57281756401062e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t3_tray_correction_s2122_d2",
+      "eef_pos": 0.006020581349730492,
+      "eef_quat": 0.006290052086114883,
+      "gripper": 1.4249235391616821e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t4_tray_correction_s2130_d30",
+      "eef_pos": 0.00026404857635498047,
+      "eef_quat": 0.001092374324798584,
+      "gripper": 1.4491379261016846e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t4_tray_correction_s2130_d35",
+      "eef_pos": 0.00026522576808929443,
+      "eef_quat": 0.0012006759643554688,
+      "gripper": 1.341104507446289e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t4_tray_correction_s2132_d29",
+      "eef_pos": 0.004157274961471558,
+      "eef_quat": 0.00037679076194763184,
+      "gripper": 1.735985279083252e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2140_d2",
+      "eef_pos": 0.0005288273096084595,
+      "eef_quat": 0.0024077147245407104,
+      "gripper": 1.2706965208053589e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2140_d7",
+      "eef_pos": 0.00022865086793899536,
+      "eef_quat": 0.0021400004625320435,
+      "gripper": 1.043081283569336e-07,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2141_d3",
+      "eef_pos": 0.00015981681644916534,
+      "eef_quat": 0.0027144867926836014,
+      "gripper": 8.646398782730103e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2141_d8",
+      "eef_pos": 0.00028435420244932175,
+      "eef_quat": 0.0011127591133117676,
+      "gripper": 6.425753235816956e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2142_d2",
+      "eef_pos": 0.001721315085887909,
+      "eef_quat": 0.010229110717773438,
+      "gripper": 1.2412667274475098e-05,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_correction_s2142_d7",
+      "eef_pos": 0.0001227855682373047,
+      "eef_quat": 0.0008155889809131622,
+      "gripper": 1.650303602218628e-06,
+      "obj_pos": 0.0,
+      "qpos": 0.0
+    }
+  ],
+  "coverage": "34/34 selector anchors + 26 inherited"
+}

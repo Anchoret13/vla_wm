@@ -1,0 +1,32 @@
+{
+  "phys_abs": {
+    "train": 958,
+    "dev": 209
+  },
+  "flow_actions_pi05_norm": {
+    "train": 958,
+    "dev": 209
+  },
+  "continuation_outcomes": {
+    "dev": 3,
+    "train": 568
+  },
+  "semantic_supported_by_source": {
+    "relabel_table": 1093,
+    "shard_immediate": 770,
+    "semwin_valid_seq": 119,
+    "shard_canonical": 436
+  },
+  "tau_next": {
+    "weight": 0.0,
+    "reason": "no per-step continuation trace; time-axis relabel impossible"
+  },
+  "success_damage": {
+    "weight": 0.0,
+    "reason": "no valid variation in labels"
+  },
+  "closure_blocks": {
+    "note": "1-block: all branch rows; 2/3-block: semwin consecutive segments only",
+    "semwin_2block": 19
+  }
+}

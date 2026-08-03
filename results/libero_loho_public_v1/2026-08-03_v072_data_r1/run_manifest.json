@@ -1,0 +1,36 @@
+{
+  "schema": "v072_data_manifest_v1",
+  "run_schema": "v072",
+  "git_sha": "5dbca9e",
+  "dirty_patch_sha": "899019e9b81ed2f3",
+  "label_version": "v072_labels_1",
+  "raw_roots": {
+    "v071_replay_r1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_replay_r1"
+    },
+    "v071_replay_r2": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_replay_r2"
+    },
+    "v071_semwin_r1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_semwin_r1"
+    },
+    "v071_selr1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-03_v071_selector_r1"
+    },
+    "v071_selr2": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-03_v071_selector_r2"
+    }
+  },
+  "bound_manifests": {
+    "union_f1": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959",
+    "goal_manifest": "971b1f3edb5d982ab62c0daeea099fc7da0a9d70875d02264d9745d22c56850b",
+    "semwin": "656311dc6c26da9d0096a32dfeb2cb1b0a6e3ef6ce990403068404d46bed208c",
+    "selector_r1": "08c9b756121398bea608f8f61bdf0ba735152632bff81cfd2d1dc5756ea9a1de",
+    "selector_r2": "912406c77189e7768b5d7e2ec059c4e3e9520a9f1dc8869be88fed35275a5b5c"
+  },
+  "counts": {
+    "physical_transitions": 1247,
+    "goal_queries": 42,
+    "semantic_target_rows": 3576
+  }
+}
