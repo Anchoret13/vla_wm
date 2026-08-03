@@ -1,0 +1,40 @@
+{
+  "optimizer": {
+    "lr": 0.0003,
+    "wd": 0.0001,
+    "epochs": 25,
+    "grad_norm": 1.0,
+    "tbptt": 16,
+    "ema": 0.995,
+    "seed": 0
+  },
+  "alpha2": 0.5,
+  "alpha3": 0.25,
+  "huber_out": 0.1,
+  "gt_tuple": "p_valid_100 -> mean(q@10..100)",
+  "tolerances": {
+    "p_valid_100": 0.0,
+    "q_mean": 0.041666666666666664
+  },
+  "zero_weight": [
+    "success",
+    "damage",
+    "tau_next"
+  ],
+  "pair_mass": "half u0-pairs, half others; ties separate",
+  "arms": {
+    "w0_base": {
+      "out_state": false,
+      "rank_state": false
+    },
+    "w1_outcome_state": {
+      "out_state": true,
+      "rank_state": false
+    },
+    "w2_rank_state": {
+      "out_state": true,
+      "rank_state": true
+    }
+  },
+  "selection": "final step only"
+}

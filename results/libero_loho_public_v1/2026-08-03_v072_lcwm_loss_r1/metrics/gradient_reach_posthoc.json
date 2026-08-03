@@ -1,0 +1,39 @@
+{
+  "anchor": "v071_selr1::loho_t1_drawer_prospect_s2300_d19",
+  "text": "t1_canonical_p0",
+  "w0_base": {
+    "isolated_state_grad_norm": {
+      "closure": 0.005318663083016872,
+      "phys_abs": 61.44271469116211,
+      "out": 0.007789270021021366,
+      "bt": 0.18711405992507935
+    },
+    "head_local_bundles": [
+      "out",
+      "bt"
+    ],
+    "routing_restore_exact": true
+  },
+  "w1_outcome_state": {
+    "isolated_state_grad_norm": {
+      "closure": 0.005157520528882742,
+      "phys_abs": 48.110687255859375,
+      "out": 0.006582342088222504,
+      "bt": 0.2824445068836212
+    },
+    "head_local_bundles": [
+      "bt"
+    ],
+    "routing_restore_exact": true
+  },
+  "w2_rank_state": {
+    "isolated_state_grad_norm": {
+      "closure": 0.004234866704791784,
+      "phys_abs": 77.63944244384766,
+      "out": 0.008447475731372833,
+      "bt": 0.22587838768959045
+    },
+    "head_local_bundles": [],
+    "routing_restore_exact": true
+  }
+}

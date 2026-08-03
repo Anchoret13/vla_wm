@@ -1,0 +1,22 @@
+{
+  "schema": "v072_lcwm_loss_manifest_v1",
+  "run_schema": "v072",
+  "git_sha": "699ad99",
+  "init_from": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_lcwm2c_r1/checkpoints/lc_full_selected.pt",
+  "data_manifest": "bd498a6da44caa32d49d56534ebf8f5c9b08e1245ae1fc6f4ce78906428ad5c7",
+  "arms": {
+    "w0_base": {
+      "out_state": false,
+      "rank_state": false
+    },
+    "w1_outcome_state": {
+      "out_state": true,
+      "rank_state": false
+    },
+    "w2_rank_state": {
+      "out_state": true,
+      "rank_state": true
+    }
+  },
+  "video": "tensor-only run"
+}
