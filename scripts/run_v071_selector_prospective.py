@@ -70,7 +70,19 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--phase", choices=("AB", "C", "D", "ALL"),
                     default="ALL")
+    ap.add_argument("--run", choices=("r1", "r2"), default="r1")
     args = ap.parse_args()
+    global ROOT, RID
+    seed_base = 2300
+    scorer_path = OUTCOME / "scorer_ensembles.pt"
+    if args.run == "r2":
+        # the ONE final post-refresh prospective test on the reserved
+        # 2301+10k family (pre-registered route; consumes the reserve)
+        seed_base = 2301
+        RID = "v071_selector_r2"
+        ROOT = RESULTS / "2026-08-03_v071_selector_r2"
+        scorer_path = (RESULTS / "2026-08-03_v071_outcome_refresh_r1"
+                       / "scorer_ensembles.pt")
     from lcwm.chassis import Pi05Runner
     from lcwm.loho_public import make_public_env
     from lcwm.probe_data import body_positions
@@ -113,7 +125,8 @@ def main() -> None:
             "schema": "v071_selector_manifest_v1",
             "run_schema": "v071", "run_id": RID,
             "git_sha": git_sha,
-            "seeds": "2300+10k; 2301+10k reserved untouched",
+            "seeds": f"{seed_base}+10k",
+            "scorer_path": str(scorer_path),
             "bank": "u0(deployed)+7canon+2atomic+2distinct"
                     "+u0_repeat(audit); no servo",
             "proposal_seed": f"SHA256('{RID}|proposal|src|dec|fam|i')",
@@ -125,8 +138,7 @@ def main() -> None:
             "frozen": {
                 "lc_full_selected": sha256_file(
                     LCWM2C / "checkpoints" / "lc_full_selected.pt"),
-                "scorer_ensembles": sha256_file(
-                    OUTCOME / "scorer_ensembles.pt"),
+                "scorer_ensembles": sha256_file(scorer_path),
                 "selector_code": sha256_file(
                     REPO_ROOT / "lcwm" / "v071_selector.py"),
                 "union_manifest": sha256_file(
@@ -141,7 +153,7 @@ def main() -> None:
         weights_only=False)["model"])
     wm.eval()
     heads = []
-    for sd in torch.load(OUTCOME / "scorer_ensembles.pt",
+    for sd in torch.load(scorer_path,
                          weights_only=False)["lc_full"]:
         h = Head(768).to(device)
         h.load_state_dict(sd)
@@ -162,7 +174,7 @@ def main() -> None:
     if not anchor_path.exists():
         all_anchors = []
         for ti, task in enumerate(TASK_ORDER):
-            seed = 2300 + 10 * ti
+            seed = seed_base + 10 * ti
             sid = f"{task}_prospect_s{seed}"
             spath = ROOT / "prospective_sources" / f"{sid}.pt"
             entry = goal_manifest["tasks"][task]
