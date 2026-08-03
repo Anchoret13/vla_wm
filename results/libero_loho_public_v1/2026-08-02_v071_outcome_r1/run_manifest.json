@@ -1,0 +1,32 @@
+{
+  "schema": "v071_outcome_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "outcome",
+  "run_date": "2026-08-02",
+  "git_sha": "432c6fb",
+  "predictive_frozen": {
+    "lc_full": "14e3a499316d6c2af267f937ee63b071c5d4ed0b59568d0f7eab3d84e781f36c",
+    "readout_baseline": "acf0265e86398d1073de14d208235f65273ba3189b2a382e1d25090445164629",
+    "shuffled_lang": "b3b70b517957bb1cdc9ac74f03af6e920409013066ea28055b513400f5f9539e"
+  },
+  "union_manifest_sha256": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959",
+  "tolerances": {
+    "neg_damage": 0.0,
+    "neg_tau_next": 7.1499999999999915,
+    "p_valid_100": 0.0,
+    "q_valid_mean": 0.04166666666666663,
+    "success_by_100": 0.0
+  },
+  "config": {
+    "k_ens": 5,
+    "epochs": 300,
+    "lr": 0.001,
+    "wd": 0.0001,
+    "dmg_scale": 10.0,
+    "tau_scale": 100.0,
+    "selection": "NONE (final ensemble)"
+  },
+  "audit_rows_eval_only": true,
+  "video": "tensor-only run"
+}
