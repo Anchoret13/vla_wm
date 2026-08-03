@@ -1,0 +1,41 @@
+{
+  "schema": "v071_lcwm2c_manifest_v1",
+  "run_schema": "v071",
+  "run_id": "r1",
+  "stage": "lcwm2c",
+  "run_date": "2026-08-02",
+  "git_sha": "232dfb8",
+  "init_checkpoint": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-02_v071_lcwm_r2/checkpoints/lc_main_selected.pt",
+    "sha256": "51a0b6771d118db1e4875e46dfad5659ea454bbe5059c6c4274518fc66470123"
+  },
+  "union_manifest_sha256": "4cd5857ffb818fa5c4c0685669e77c140652606af0ab53dabc39e51f4098c959",
+  "semwin_manifest_sha256": "656311dc6c26da9d0096a32dfeb2cb1b0a6e3ef6ce990403068404d46bed208c",
+  "optimizer": {
+    "lr": 0.0003,
+    "wd": 0.0001,
+    "epochs": 25,
+    "grad_norm": 1.0,
+    "tbptt": 16,
+    "ckpt_every": 5
+  },
+  "semantic": {
+    "heads": "DNext.flips_01/flips_10/valid_bits (existing V0.6 params, enabled)",
+    "query_history_K": 8,
+    "sem_weight": 1.0,
+    "one_query_per_visit": true
+  },
+  "task_shuffle_perm": [
+    2,
+    3,
+    4,
+    1,
+    0
+  ],
+  "variants": [
+    "lc_full",
+    "readout_baseline",
+    "shuffled_lang"
+  ],
+  "video": "tensor-only run; no simulator rollouts"
+}
