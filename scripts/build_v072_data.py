@@ -303,18 +303,19 @@ def main() -> None:
                                   "continuation_offset":
                                       int(tr["steps"])},
                 })
-                sem_targets.append({
-                    "pt_id": pt_id, "goal_id": canon_of(s["task"]),
-                    "supported": True, "source": "shard_canonical",
-                    "continuation_outcomes":
-                        bool(tr["continuations"])})
+                # CORRECTION: selector shards store NO per-branch
+                # automaton state (only continuation outcome tuples)
+                # -> immediate-semantics targets are NOT exactly
+                # evaluable for ANY goal; masked. Continuation
+                # outcomes remain attached to the canonical goal.
                 for gid in compatible_goals(s["task"]):
-                    if gid != canon_of(s["task"]):
-                        sem_targets.append({
-                            "pt_id": pt_id, "goal_id": gid,
-                            "supported": False,
-                            "source": "masked_no_stored_state",
-                            "continuation_outcomes": False})
+                    sem_targets.append({
+                        "pt_id": pt_id, "goal_id": gid,
+                        "supported": False,
+                        "source": "masked_no_stored_state",
+                        "continuation_outcomes": (
+                            gid == canon_of(s["task"])
+                            and bool(tr["continuations"]))})
     del runner
     torch.cuda.empty_cache()
 
