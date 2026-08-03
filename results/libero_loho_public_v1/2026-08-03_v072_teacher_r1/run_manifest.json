@@ -1,0 +1,24 @@
+{
+  "schema": "v072_teacher_manifest_v1",
+  "run_schema": "v072",
+  "run_id": "v072_teacher_r1",
+  "git_sha": "d226880",
+  "seeds": "2302+10k (previously untouched)",
+  "bank": "u0(deployed)+7canon+2atomic+<=2distinct+u0_repeat(audit); no servo; M manifest-defined",
+  "teacher": {
+    "score": "rank head only: r_i = mean_j sigmoid(s_i - s_j)",
+    "pi_mix": "uniform 1/M over manifest-valid candidates",
+    "beta": {
+      "beta0": 0.25,
+      "hi": 1000.0,
+      "tol": 1e-06,
+      "ess_floor": 0.5,
+      "rule": "increase-only bisection; +inf keeps the prior"
+    }
+  },
+  "w2_checkpoint": "a4aae4db1642fbbf7ab4ed1dce458d9b003f5cda790b5c5994a85f50c83f8db6",
+  "proposal_seed": "SHA256('v072_teacher_r1|proposal|src|dec|fam|i')",
+  "cont_seed": "SHA256('v072_teacher_r1|cont|src|dec|goal|rep|cd')",
+  "order_seed": "SHA256('v072_teacher_r1|order|src|dec|branch')",
+  "perm_seed": "SHA256('v072_teacher_r1|perm|src|dec|family')"
+}

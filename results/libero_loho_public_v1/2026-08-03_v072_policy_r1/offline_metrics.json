@@ -1,0 +1,50 @@
+{
+  "bc_u0": {
+    "final": "bc_u0_final.pt",
+    "grad_checks": {
+      "soft": 0.7444461584091187,
+      "trust": 0.0,
+      "demo": 34.82164001464844
+    }
+  },
+  "p0_no_wm_soft": {
+    "final": "p0_no_wm_soft_final.pt",
+    "grad_checks": {
+      "soft": 9.985472679138184,
+      "trust": 0.0,
+      "demo": 34.12083053588867
+    }
+  },
+  "w0_soft": {
+    "final": "w0_soft_final.pt",
+    "grad_checks": {
+      "soft": 10.167576789855957,
+      "trust": 0.0,
+      "demo": 34.84086227416992
+    }
+  },
+  "w1_soft": {
+    "final": "w1_soft_final.pt",
+    "grad_checks": {
+      "soft": 10.203964233398438,
+      "trust": 0.0,
+      "demo": 34.85194396972656
+    }
+  },
+  "w2_soft": {
+    "final": "w2_soft_final.pt",
+    "grad_checks": {
+      "soft": 10.194104194641113,
+      "trust": 0.0,
+      "demo": 34.82164001464844
+    }
+  },
+  "w2_permutation": {
+    "final": "w2_permutation_final.pt",
+    "grad_checks": {
+      "soft": 10.194104194641113,
+      "trust": 0.0,
+      "demo": 34.82164001464844
+    }
+  }
+}

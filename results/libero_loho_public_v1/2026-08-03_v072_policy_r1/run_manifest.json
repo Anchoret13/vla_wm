@@ -1,0 +1,59 @@
+{
+  "schema": "v072_policy_manifest_v1",
+  "run_schema": "v072",
+  "run_id": "v072_policy_r1",
+  "git_sha": "d226880",
+  "trainable": "V06State.w_z weight ONLY (bias fixed 0); pi0.5 base + action expert frozen; WM frozen",
+  "optimizer": {
+    "steps": 300,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "clip": 1.0,
+    "ckpt_every": 50,
+    "selection": "final step"
+  },
+  "lambdas": {
+    "soft": 1.0,
+    "trust": 1.0,
+    "demo": 1.0
+  },
+  "teacher_seal": {
+    "sealed_before_any_branch_execution": true,
+    "teacher_ledger_sha256": "dbda5a8c47c5dad452fa5b225f138c56dff4b54b1cbc51792fc54a713f6d5cbd",
+    "permutation_ledger_sha256": "190e75712d429bb16d96217b25b0a7321df53c74a157c47f377e57282204bfa8",
+    "candidate_manifest_sha256": "cfa666e31afb45510bb95f14c0bcde6cbb45a51a20cb90f6e68182315b355b30",
+    "candidate_chunks_sha256": "5daefb80f0a40d0e922ab52f84d847f5edefc809617d005197b431ad5b79ae72"
+  },
+  "arms": {
+    "bc_u0": {
+      "state": "w2_rank_state",
+      "weights": "bc_u0"
+    },
+    "p0_no_wm_soft": {
+      "state": "shared_init",
+      "weights": "teacher"
+    },
+    "w0_soft": {
+      "state": "w0_base",
+      "weights": "teacher"
+    },
+    "w1_soft": {
+      "state": "w1_outcome_state",
+      "weights": "teacher"
+    },
+    "w2_soft": {
+      "state": "w2_rank_state",
+      "weights": "teacher"
+    },
+    "w2_permutation": {
+      "state": "w2_rank_state",
+      "weights": "permutation"
+    }
+  },
+  "wm_checkpoints": {
+    "w0_base": "6e36596d18024781da222282bf7cc3c5892966514d43c6a7ba77cf3a81590160",
+    "w1_outcome_state": "ec1ad40eccb719f16a9788812a1fe6a3eb6eb580f93fc70bf1ed3c4143d2b42c",
+    "w2_rank_state": "a4aae4db1642fbbf7ab4ed1dce458d9b003f5cda790b5c5994a85f50c83f8db6"
+  },
+  "video": "tensor-only run"
+}
