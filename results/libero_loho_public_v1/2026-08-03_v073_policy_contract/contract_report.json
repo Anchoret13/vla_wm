@@ -1,0 +1,37 @@
+{
+  "dot_product": {
+    "loss": 1.995047688484192,
+    "manual": 1.995047688484192
+  },
+  "one_hot": {
+    "candidate": 1,
+    "loss": 1.8778712749481201
+  },
+  "weight_swap": {
+    "loss_a": 1.995047688484192,
+    "loss_b": 1.9762417078018188
+  },
+  "uniform_perm": {
+    "l1": 1.9794882535934448,
+    "l2": 1.9794881343841553
+  },
+  "mass_split": {
+    "base": 1.995047688484192,
+    "split": 1.9922780990600586,
+    "cross_shape_rel": 0.0013882321912001986
+  },
+  "m_independence": {
+    "m": 6,
+    "loss": 1.999356746673584
+  },
+  "suffix_boundary": {
+    "suffix": 0.6088085174560547,
+    "head_window_separate": 0.5646752715110779
+  },
+  "stock_parity_lcproj0": 0.0,
+  "fixture": {
+    "anchor": "loho_t1_drawer_teacher_s2302_d3",
+    "M": 12
+  },
+  "git_sha": "094bb93"
+}
