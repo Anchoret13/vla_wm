@@ -1,0 +1,87 @@
+{
+  "schema": "v073_data_manifest_v1",
+  "run_schema": "v073",
+  "run_id": "v073_data_r1",
+  "git_sha": "8ecc65b9",
+  "seed_roles": [
+    [
+      "train",
+      2400,
+      2,
+      "acq"
+    ],
+    [
+      "train",
+      2401,
+      2,
+      "acq"
+    ],
+    [
+      "train",
+      2402,
+      2,
+      "acq"
+    ],
+    [
+      "dev",
+      2403,
+      1,
+      "acq"
+    ],
+    [
+      "dev",
+      2404,
+      1,
+      "acq"
+    ],
+    [
+      "teacher",
+      2405,
+      2,
+      "teach"
+    ]
+  ],
+  "blockers": {
+    "loho_t1_drawer": [
+      "pick_up butter_1",
+      "place butter_1"
+    ],
+    "loho_t2_basket3": [
+      "pick_up butter_1",
+      "place butter_1"
+    ],
+    "loho_t3_tray": [
+      "pick_up alphabet_soup_1",
+      "place alphabet_soup_1"
+    ],
+    "loho_t4_tray": [
+      "pick_up new_salad_dressing_1",
+      "place new_salad_dressing_1"
+    ],
+    "loho_t5_drawer_cabinet": [
+      "pick_up butter_2",
+      "place butter_2"
+    ]
+  },
+  "alt_goals": {
+    "loho_t1_drawer": "t1_back_butter",
+    "loho_t2_basket3": "t2_cheese_butter_milk",
+    "loho_t3_tray": "t3_sauce_ketchup_butter",
+    "loho_t4_tray": "t4_right_bowl",
+    "loho_t5_drawer_cabinet": "t5_front_butter"
+  },
+  "bank": "u0+c1..c3+rec_canon+rec_alt+m1+m2 (8 executed) + u0 audit replay; teacher banks generated unexecuted (u0+7canon+2atomic+<=2distinct)",
+  "recovery": {
+    "closed_loop_decisions": 3,
+    "max_actions": 30,
+    "order": "atomic pi0.5 first; privileged scripted servo fallback for pick/place, provenance-bound, acquisition instrument only"
+  },
+  "crossing": "2 GoalSpecs x 3 verified texts per anchor; physical rows stored once",
+  "proposal_seed": "SHA256('v073_data_r1|prop|src|dec|kind|i')",
+  "cont_seed": "SHA256('v073_data_r1|cont|src|dec|goal|rep|cd')",
+  "recovery_seed": "SHA256('v073_data_r1|rec|src|dec|goal|cd')",
+  "order_seed": "SHA256('v073_data_r1|order|src|dec|branch')",
+  "goal_manifest_sha256": "971b1f3edb5d982ab62c0daeea099fc7da0a9d70875d02264d9745d22c56850b",
+  "text_variants_sha256": "eb5deb0c8a2bd96c52f5733a93bb678b7a5f226804e0dc9ff4f91803ad2a575c",
+  "panels_excluded": "{1700..1740} sealed, {1750..1790} consumed, {1800..1840} reserved dev"
+}

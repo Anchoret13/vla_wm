@@ -1,0 +1,180 @@
+{
+  "cells": {
+    "loho_t1_drawer|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t1_drawer|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t2_basket3|train": {
+      "branches": 32,
+      "recovery_terminal": 7,
+      "milestone_positive": 8
+    },
+    "loho_t2_basket3|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t3_tray|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t3_tray|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t4_tray|train": {
+      "branches": 8,
+      "recovery_terminal": 2
+    },
+    "loho_t4_tray|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t5_drawer_cabinet|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t5_drawer_cabinet|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    }
+  },
+  "independent_sources": {
+    "loho_t1_drawer|train": {},
+    "loho_t1_drawer|dev": {},
+    "loho_t2_basket3|train": {
+      "milestone_pos_sources": [
+        "loho_t2_basket3_v073_s2411"
+      ]
+    },
+    "loho_t2_basket3|dev": {},
+    "loho_t3_tray|train": {},
+    "loho_t3_tray|dev": {},
+    "loho_t4_tray|train": {},
+    "loho_t4_tray|dev": {},
+    "loho_t5_drawer_cabinet|train": {},
+    "loho_t5_drawer_cabinet|dev": {}
+  },
+  "rank_reversal_anchors": {
+    "loho_t1_drawer|train": [],
+    "loho_t1_drawer|dev": [],
+    "loho_t2_basket3|train": [],
+    "loho_t2_basket3|dev": [],
+    "loho_t3_tray|train": [],
+    "loho_t3_tray|dev": [],
+    "loho_t4_tray|train": [],
+    "loho_t4_tray|dev": [],
+    "loho_t5_drawer_cabinet|train": [],
+    "loho_t5_drawer_cabinet|dev": []
+  },
+  "recterm_contrast_anchors": {
+    "loho_t1_drawer|train": [
+      "loho_t1_drawer_v073_s2400_d16",
+      "loho_t1_drawer_v073_s2400_d3",
+      "loho_t1_drawer_v073_s2401_d17",
+      "loho_t1_drawer_v073_s2401_d3",
+      "loho_t1_drawer_v073_s2402_d3",
+      "loho_t1_drawer_v073_s2402_d65"
+    ],
+    "loho_t1_drawer|dev": [
+      "loho_t1_drawer_v073_s2403_d3",
+      "loho_t1_drawer_v073_s2404_d3"
+    ],
+    "loho_t2_basket3|train": [
+      "loho_t2_basket3_v073_s2410_d16",
+      "loho_t2_basket3_v073_s2410_d28",
+      "loho_t2_basket3_v073_s2411_d16"
+    ],
+    "loho_t2_basket3|dev": [
+      "loho_t2_basket3_v073_s2413_d77",
+      "loho_t2_basket3_v073_s2414_d24"
+    ],
+    "loho_t3_tray|train": [
+      "loho_t3_tray_v073_s2420_d2",
+      "loho_t3_tray_v073_s2420_d37",
+      "loho_t3_tray_v073_s2421_d2",
+      "loho_t3_tray_v073_s2421_d55",
+      "loho_t3_tray_v073_s2422_d2",
+      "loho_t3_tray_v073_s2422_d32"
+    ],
+    "loho_t3_tray|dev": [
+      "loho_t3_tray_v073_s2423_d2",
+      "loho_t3_tray_v073_s2424_d2"
+    ],
+    "loho_t4_tray|train": [
+      "loho_t4_tray_v073_s2431_d46"
+    ],
+    "loho_t4_tray|dev": [
+      "loho_t4_tray_v073_s2433_d28",
+      "loho_t4_tray_v073_s2434_d24"
+    ],
+    "loho_t5_drawer_cabinet|train": [
+      "loho_t5_drawer_cabinet_v073_s2440_d3",
+      "loho_t5_drawer_cabinet_v073_s2440_d8",
+      "loho_t5_drawer_cabinet_v073_s2441_d3",
+      "loho_t5_drawer_cabinet_v073_s2441_d8",
+      "loho_t5_drawer_cabinet_v073_s2442_d3",
+      "loho_t5_drawer_cabinet_v073_s2442_d8"
+    ],
+    "loho_t5_drawer_cabinet|dev": [
+      "loho_t5_drawer_cabinet_v073_s2443_d3",
+      "loho_t5_drawer_cabinet_v073_s2444_d2"
+    ]
+  },
+  "registered_cell_checks": {
+    "loho_t1_drawer|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t1_drawer|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t2_basket3|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t2_basket3|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t3_tray|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t3_tray|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t4_tray|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t4_tray|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t5_drawer_cabinet|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    },
+    "loho_t5_drawer_cabinet|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true
+    }
+  },
+  "note": "masks only; ALL cells listed explicitly incl. empty ones; support-empty cells are recorded, never refilled by outcome (bounded fallback rule)"
+}
