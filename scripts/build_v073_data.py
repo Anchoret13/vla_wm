@@ -96,7 +96,9 @@ PICK_NEAR, PICK_FAR, PLACE_NEAR, PLACE_FAR = 0.03, 0.30, 0.05, 0.30
 STABLE_MM = 0.005
 HORIZONS, R, CONT_MAX = (10, 30, 60, 100), 2, 100
 REC_MAX_DEC, REC_MAX_ACT = 3, 30
-REC_TERM_MAX = 100
+# recovery-to-terminal must be able to run PAST the ordinary q@100
+# horizon (review finding: 100 made "terminal" unreachable)
+REC_TERM_MAX = 300
 REREACH_ATOL = 2e-3
 ROLES = [("train", 2400, 2, "acq"), ("train", 2401, 2, "acq"),
          ("train", 2402, 2, "acq"), ("dev", 2403, 1, "acq"),
@@ -391,14 +393,33 @@ def main() -> None:
                         "source_id": sid, "task": task,
                         "seed": seed, "role": role, "kind": kind,
                         **c})
+                if len(chosen) < n_anchor:
+                    # explicit shortfall record (review finding:
+                    # never silently under-fill the frozen budget)
+                    all_anchors.append({
+                        "source_id": sid, "task": task,
+                        "seed": seed, "role": role,
+                        "kind": "SHORTFALL",
+                        "scheduled": n_anchor,
+                        "found": len(chosen)})
+                    print(f"[anchors] SHORTFALL {sid}: "
+                          f"{len(chosen)}/{n_anchor}", flush=True)
         anchor_path.write_text(json.dumps({
             "schema": "v073_anchor_manifest_v1",
             "note": "blocker-targeted; frozen from pre-action stock "
-                    "state before any candidate generation",
+                    "state before any candidate generation; "
+                    "SHORTFALL rows record under-filled budgets "
+                    "explicitly",
             "anchors": all_anchors}, indent=2))
         by_role = defaultdict(int)
+        n_short = 0
         for a in all_anchors:
-            by_role[a["role"]] += 1
+            if a["kind"] == "SHORTFALL":
+                n_short += 1
+            else:
+                by_role[a["role"]] += 1
+        if n_short:
+            by_role["SHORTFALL_rows"] = n_short
         print(f"[anchors] frozen: {dict(by_role)}", flush=True)
     anchors = json.loads(anchor_path.read_text())["anchors"]
 
@@ -413,10 +434,18 @@ def main() -> None:
                     a.evaluate(env, t)
         return t
 
-    def cont_run(env, instr, ca, term_preds, crn_prefix, rep,
+    def cont_run(env, instr, autos_c, branch_steps, crn_prefix, rep,
                  max_steps=CONT_MAX):
+        """Deployed-pi0.5 continuation on the UNIFIED time axis:
+        branch actions occupy steps 1..branch_steps, continuation
+        actions branch_steps+1..branch_steps+H (V7.2A time-axis
+        repair). Tracks EVERY automaton in autos_c so crossed-goal
+        horizon labels exist (review finding). q@h keys stay
+        continuation-local (registered label_version note). Returns
+        {goal_id: outcome_tuple} and continuation steps."""
         obs_c = obs_frame(env)
-        q_at, sc, cd, stop = {}, 0, 0, False
+        q_at = {g: {} for g in autos_c}
+        sc, cd, stop = 0, 0, False
         while sc < max_steps and not stop:
             nz = flow_noise(sha_seed(f"{crn_prefix}|{rep}|{cd}"),
                             cfg.chunk_size, cfg.max_action_dim)
@@ -427,19 +456,24 @@ def main() -> None:
             for a_env in runner.chunk_to_env(ch[:, :10]):
                 _o, _r, tm, tr2, _i = env.step(a_env)
                 sc += 1
-                ca.evaluate(env, sc)
+                for g, ca in autos_c.items():
+                    ca.evaluate(env, branch_steps + sc)
                 obs_c = obs_frame(env)
                 if sc in HORIZONS:
-                    q_at[sc] = ca.q_valid()
+                    for g, ca in autos_c.items():
+                        q_at[g][sc] = ca.q_valid()
                 if tm or tr2:
                     stop = True
                     break
                 if sc >= max_steps:
                     break
             cd += 1
-        for hz in HORIZONS:
-            q_at.setdefault(hz, ca.q_valid())
-        return outcome_tuple(ca, env, 10, q_at), sc
+        out = {}
+        for g, ca in autos_c.items():
+            for hz in HORIZONS:
+                q_at[g].setdefault(hz, ca.q_valid())
+            out[g] = outcome_tuple(ca, env, branch_steps, q_at[g])
+        return out, sc
 
     # ---------------- Phase B: acquisition banks ---------------------
     done = {p.stem for p in (root / "shards").glob("*.pt")}
@@ -495,83 +529,100 @@ def main() -> None:
                     out[gid] = g
                 return out
 
+
+            def cont_automata(autos_branch):
+                """Continuation automata forked from the branch automata with
+                inherited flip TIMESTAMPS rebased to -1: prefix/branch flips
+                keep their (index, direction) — damage_unrecovered is
+                timestamp-independent — but can no longer shadow real
+                continuation milestones inside tau_next's post-branch window
+                (fix-verification seam defect: prefix flips carried absolute
+                episode steps)."""
+                out = {}
+                for gid in (canon_id, alt_id):
+                    ca = GoalAutomaton(gspecs[gid]["ordered_subgoals"])
+                    ca.bodies = autos0[gid].bodies
+                    ca.start_pos = autos0[gid].start_pos
+                    restore_env_state(ca, fork_env_state(autos_branch[gid]))
+                    ca.flips = [(-1, i_, d_) for (_s, i_, d_) in ca.flips]
+                    out[gid] = ca
+                return out
+
             # ---- recovery rollouts (closed-loop, <=3 decisions) ----
-            def run_recovery(goal_id, tag):
-                """Returns (record, first_chunk_actions or None)."""
-                first_u = None
-                g0 = fresh_autos()[goal_id]
-                sub = gspecs[goal_id]["ordered_subgoals"]
-                first_u = next((sub[i] for i, v in
-                                enumerate(g0.prev_valid)
-                                if not v), None)
-                if first_u is None:
-                    return None, None
-                prompt = atomic_prompt(task, first_u)
+            def _run_recovery_attempt(goal_id, tag, mode, prompt,
+                                      servo_target):
+                """One closed-loop recovery attempt from snap_a with
+                full per-action physical+semantic traces (both
+                goals), its own video, and its own ledger row —
+                failed attempts are retained, never discarded
+                (review finding)."""
                 restore(env, snap_a)
                 env._env.env.done = False
                 autos = fresh_autos()
                 ga = autos[goal_id]
                 flips0 = len(ga.flips)
-                vr = VideoRecorder(
-                    root / "videos" / f"{akey}_rec_{tag}.mp4")
+                vr = VideoRecorder(root / "videos"
+                                   / f"{akey}_rec_{tag}_{mode}.mp4")
                 frames = [obs_frame(env)]
                 vr.add(frames[0])
+                eefs = [obs_q(frames[0])]
+                vseq = {g: [list(x.prev_valid)]
+                        for g, x in autos.items()}
                 acts, steps = [], 0
-                mode = "atomic_pi05"
                 positive = False
-                for cd in range(REC_MAX_DEC):
-                    b = runner._obs_to_policy_batch(frames[-1],
-                                                    prompt)
-                    pfx = prefix_forward(runner.policy, b)
-                    nz = flow_noise(sha_seed(
-                        f"{RID}|rec|{sid}|{d}|{goal_id}|{cd}"),
-                        cfg.chunk_size, cfg.max_action_dim)
-                    ch = sample_chunks(runner.policy, b, n=1,
-                                       noise=nz.to(device),
-                                       prefix=pfx)
-                    for a_env in runner.chunk_to_env(ch[:, :10]):
-                        _o, _r, tb, tr2, _i = env.step(a_env)
-                        steps += 1
-                        acts.append(np.asarray(a_env))
-                        for g in autos.values():
-                            g.evaluate(env, steps)
-                        f = obs_frame(env)
-                        frames.append(f)
-                        vr.add(f)
-                        if tb:
-                            env._env.env.done = False
-                        if tr2 or steps >= REC_MAX_ACT:
+                if mode == "atomic_pi05":
+                    for cd in range(REC_MAX_DEC):
+                        b = runner._obs_to_policy_batch(
+                            frames[-1], prompt)
+                        pfx = prefix_forward(runner.policy, b)
+                        nz = flow_noise(sha_seed(
+                            f"{RID}|rec|{sid}|{d}|{goal_id}|{cd}"),
+                            cfg.chunk_size, cfg.max_action_dim)
+                        ch = sample_chunks(runner.policy, b, n=1,
+                                           noise=nz.to(device),
+                                           prefix=pfx)
+                        for a_env in runner.chunk_to_env(
+                                ch[:, :10]):
+                            _o, _r, tb, tr2, _i = env.step(a_env)
+                            steps += 1
+                            acts.append(np.asarray(a_env))
+                            for g in autos.values():
+                                g.evaluate(env, steps)
+                            for g, x in autos.items():
+                                vseq[g].append(
+                                    list(x.prev_valid))
+                            f = obs_frame(env)
+                            frames.append(f)
+                            vr.add(f)
+                            eefs.append(obs_q(f))
+                            if tb:
+                                env._env.env.done = False
+                            if tr2 or steps >= REC_MAX_ACT:
+                                break
+                        if len(ga.flips) > flips0 and any(
+                                fl[2] == 1
+                                for fl in ga.flips[flips0:]):
+                            positive = True
                             break
-                    if len(ga.flips) > flips0 and any(
-                            fl[2] == 1
-                            for fl in ga.flips[flips0:]):
-                        positive = True
-                        break
-                    if steps >= REC_MAX_ACT:
-                        break
-                if not positive and a["form"] in ("pick_up",
-                                                  "place"):
-                    # privileged scripted-servo fallback
-                    restore(env, snap_a)
-                    env._env.env.done = False
-                    autos = fresh_autos()
-                    ga = autos[goal_id]
-                    flips0 = len(ga.flips)
-                    mode = "privileged_servo"
-                    acts, steps = [], 0
-                    frames = [obs_frame(env)]
-                    for k in range(REC_MAX_ACT):
+                        if steps >= REC_MAX_ACT:
+                            break
+                else:   # privileged_servo toward THIS GOAL's target
+                    s_form, s_obj, s_region = servo_target
+                    for _k in range(REC_MAX_ACT):
                         a_env = scripted_servo_action(
-                            env, a["obj"], a["region"],
-                            autos[canon_id].bodies, a["form"])
+                            env, s_obj, s_region,
+                            autos[goal_id].bodies, s_form)
                         _o, _r, tb, tr2, _i = env.step(a_env)
                         steps += 1
                         acts.append(np.asarray(a_env))
                         for g in autos.values():
                             g.evaluate(env, steps)
+                        for g, x in autos.items():
+                            vseq[g].append(list(x.prev_valid))
                         f = obs_frame(env)
                         frames.append(f)
                         vr.add(f)
+                        eefs.append(obs_q(f))
                         if tb:
                             env._env.env.done = False
                         if len(ga.flips) > flips0 and any(
@@ -584,34 +635,75 @@ def main() -> None:
                 vm = vr.close(completed=True)
                 rec = {"anchor": akey, "goal_id": goal_id,
                        "tag": tag, "prompt": prompt, "mode": mode,
+                       "servo_target": (list(servo_target)
+                                        if servo_target else None),
                        "positive": bool(positive), "steps": steps,
+                       "actions_env": [x.tolist() for x in acts],
+                       "eef_seq": [np.asarray(e).tolist()
+                                   for e in eefs],
+                       "valid_seq": {g: v for g, v in vseq.items()},
                        "video": vm["video_path"],
                        "acquisition_instrument_only": True}
                 with rec_ledger.open("a") as f:
                     f.write(json.dumps(rec) + "\n")
                 write_index_row(
                     vindex, vm, run_id=RID,
-                    checkpoint_tag="recovery",
+                    checkpoint_tag=f"recovery_{mode}",
                     checkpoint_path=None, checkpoint_sha256=None,
                     manifest_sha256=manifest_sha, task=task,
-                    seed=src["seed"], arm=f"rec_{tag}",
+                    seed=src["seed"], arm=f"rec_{tag}_{mode}",
                     split=a["role"], steps=steps,
                     success=bool(positive),
                     ordered_progress=0, damage=0,
                     termination="recovery_end", root=root)
-                first = (np.stack(acts[:10])
-                         if len(acts) >= 1 else None)
+                return rec, acts
+
+            def run_recovery(goal_id, tag):
+                """Atomic pi0.5 first; privileged servo fallback
+                toward THIS goal's own first-unresolved target
+                (review critical: never the canonical anchor's).
+                Both attempts retained. Returns
+                (final_record, first_chunk_actions or None)."""
+                g0 = fresh_autos()[goal_id]
+                sub = gspecs[goal_id]["ordered_subgoals"]
+                first_u = next((sub[i] for i, v in
+                                enumerate(g0.prev_valid)
+                                if not v), None)
+                if first_u is None:
+                    return None, None
+                prompt = atomic_prompt(task, first_u)
+                rec, acts = _run_recovery_attempt(
+                    goal_id, tag, "atomic_pi05", prompt, None)
+                if not rec["positive"]:
+                    parts = first_u.split()
+                    g_form, g_obj = parts[0], parts[1]
+                    g_region = parts[2] if len(parts) > 2 else None
+                    if g_form in ("pick_up", "place") \
+                            and g_obj in g0.bodies:
+                        rec2, acts2 = _run_recovery_attempt(
+                            goal_id, tag, "privileged_servo",
+                            prompt, (g_form, g_obj, g_region))
+                        if rec2["positive"]:
+                            rec, acts = rec2, acts2
+                if not acts:
+                    return rec, None
+                first = np.stack(acts[:10])
                 return rec, first
 
             rec_c, rc_first = run_recovery(canon_id, "canon")
             rec_a2, ra_first = run_recovery(alt_id, "alt")
 
             # ---- bank definition -------------------------------------
+            # each spec: (key, provenance, env_actions, chunk_norm)
+            # chunk_norm stored ONCE at generation (exactly-once
+            # contract; review critical: 7/8 branches previously had
+            # no stored normalized chunk)
             specs = [("u0", "deployed",
-                      list(row["actions_env"])[:10])]
+                      list(row["actions_env"])[:10],
+                      row["chunk_norm"])]
+            b = runner._obs_to_policy_batch(anchor_obs, instr)
+            pfx = prefix_forward(runner.policy, b)
             for i in range(1, 6):
-                b = runner._obs_to_policy_batch(anchor_obs, instr)
-                pfx = prefix_forward(runner.policy, b)
                 nz = flow_noise(sha_seed(
                     f"{RID}|prop|{sid}|{d}|canonical|{i}"),
                     cfg.chunk_size, cfg.max_action_dim)
@@ -620,23 +712,37 @@ def main() -> None:
                 key = f"c{i}" if i <= 3 else f"m{i - 3}"
                 specs.append((key, "canonical_sample",
                               list(runner.chunk_to_env(
-                                  ch[:, :10]))[:10]))
+                                  ch[:, :10]))[:10],
+                              ch[0].float().cpu()))
             if rc_first is not None:
                 specs.append(("rec_canon",
                               f"recovery_{rec_c['mode']}",
-                              [x for x in rc_first]))
+                              [x for x in rc_first], None))
             if ra_first is not None:
                 specs.append(("rec_alt",
                               f"recovery_{rec_a2['mode']}",
-                              [x for x in ra_first]))
+                              [x for x in ra_first], None))
             specs.append(("u0_repeat", "fidelity_audit",
-                          list(row["actions_env"])[:10]))
+                          list(row["actions_env"])[:10], None))
+            bank_report = {
+                "registered": 8,
+                "executed_policy_branches":
+                    sum(1 for s in specs
+                        if s[0] != "u0_repeat"),
+                "missing": [k for k, present in
+                            (("rec_canon", rc_first is not None),
+                             ("rec_alt", ra_first is not None))
+                            if not present]}
+            if bank_report["missing"]:
+                print(f"  [{akey}] DEGRADED bank (recorded): "
+                      f"missing {bank_report['missing']}",
+                      flush=True)
             order = sorted(specs, key=lambda s: sha_seed(
                 f"{RID}|order|{sid}|{d}|{s[0]}"))
 
             transitions = []
-            end_u0 = {}
-            for key, prov, acts in order:
+            branch_ends = {}    # key -> (b_end snap, automata forks)
+            for key, prov, acts, chunk_norm in order:
                 restore(env, snap_a)
                 env._env.env.done = False
                 chk = float(np.abs(body_positions(
@@ -671,62 +777,24 @@ def main() -> None:
                 obj_after = body_positions(env,
                                            list(bodies.values()))
                 qpos_after = full_qpos(env)
-                if key == "u0":
-                    end_u0 = {"eef": np.asarray(eef_seq[-1]),
-                              "obj": obj_after, "qpos": qpos_after}
-                if key == "u0_repeat" and end_u0:
-                    dq = np.abs(np.asarray(eef_seq[-1])
-                                - end_u0["eef"])
-                    fids[akey] = {
-                        "eef_pos": float(dq[:3].max()),
-                        "eef_quat": float(dq[3:7].max()),
-                        "gripper": float(dq[7:].max()),
-                        "obj_pos": float(np.abs(
-                            obj_after - end_u0["obj"]).max()),
-                        "qpos": float(np.abs(
-                            qpos_after - end_u0["qpos"]).max())}
                 conts = []
-                rec_term = None
                 if key != "u0_repeat":
                     b_end = snap(env, t=t + steps,
                                  suite_name="loho_public",
                                  task_id=0)
+                    branch_ends[key] = (
+                        b_end, {g: fork_env_state(x)
+                                for g, x in autos.items()},
+                        steps)
                     for rep in range(R):
                         restore(env, b_end)
                         env._env.env.done = False
-                        ca = GoalAutomaton(
-                            gspecs[canon_id]["ordered_subgoals"])
-                        ca.bodies = autos0[canon_id].bodies
-                        ca.start_pos = autos0[canon_id].start_pos
-                        restore_env_state(
-                            ca, fork_env_state(autos[canon_id]))
-                        y, _sc = cont_run(
-                            env, instr, ca, None,
+                        autos_c = cont_automata(autos)
+                        ys, _sc = cont_run(
+                            env, instr, autos_c, steps,
                             f"{RID}|cont|{sid}|{d}|{canon_id}",
                             rep)
-                        conts.append(y)
-                    if key in ("rec_canon", "c1"):
-                        # recovery-to-terminal continuation for the
-                        # canonical correction and its matched
-                        # nonpositive sibling
-                        restore(env, b_end)
-                        env._env.env.done = False
-                        ca = GoalAutomaton(
-                            gspecs[canon_id]["ordered_subgoals"])
-                        ca.bodies = autos0[canon_id].bodies
-                        ca.start_pos = autos0[canon_id].start_pos
-                        restore_env_state(
-                            ca, fork_env_state(autos[canon_id]))
-                        y, sc2 = cont_run(
-                            env, instr, ca, None,
-                            f"{RID}|recterm|{sid}|{d}|{canon_id}",
-                            0, max_steps=REC_TERM_MAX)
-                        rec_term = {"outcome": {
-                            k2: (v2 if k2 != "q_at_horizons" else
-                                 {str(kk): vv
-                                  for kk, vv in v2.items()})
-                            for k2, v2 in y.items()},
-                            "steps": sc2}
+                        conts.append(ys)
                 vm = vr.close(completed=True)
                 write_index_row(
                     vindex, vm, run_id=RID,
@@ -736,7 +804,8 @@ def main() -> None:
                     seed=src["seed"], arm=key, split=a["role"],
                     steps=steps,
                     success=bool(conts and any(
-                        c["success_by_100"] for c in conts)),
+                        ys[canon_id]["success_by_100"]
+                        for ys in conts)),
                     ordered_progress=autos[
                         canon_id].ordered_prefix(),
                     damage=autos[canon_id].damage_unrecovered(),
@@ -751,14 +820,75 @@ def main() -> None:
                     "valid_seq": valid_seq,
                     "actions_env": (np.stack(a_env_l) if a_env_l
                                     else np.zeros((0, 7))),
+                    "chunk_norm": chunk_norm,
                     "steps": steps,
                     "obj_after": obj_after,
                     "qpos_after": qpos_after,
                     "grasp_after": grasp_state(env, bodies),
                     "continuations": conts,
-                    "recovery_terminal": rec_term})
+                    "recovery_terminal": None})
                 print(f"  [{akey}] {key} steps={steps} "
                       f"conts={len(conts)}", flush=True)
+
+            # ---- second pass (order-independent by construction) ----
+            trs_by = {tr["branch_key"]: tr for tr in transitions}
+
+            # (1) fidelity from STORED endpoints — never capture-order
+            if "u0" in trs_by and "u0_repeat" in trs_by:
+                ta_, tb_ = trs_by["u0"], trs_by["u0_repeat"]
+                dq = np.abs(np.asarray(ta_["eef_seq"][-1])
+                            - np.asarray(tb_["eef_seq"][-1]))
+                fids[akey] = {
+                    "eef_pos": float(dq[:3].max()),
+                    "eef_quat": float(dq[3:7].max()),
+                    "gripper": float(dq[7:].max()),
+                    "obj_pos": float(np.abs(
+                        np.asarray(ta_["obj_after"])
+                        - np.asarray(tb_["obj_after"])).max()),
+                    "qpos": float(np.abs(
+                        np.asarray(ta_["qpos_after"])
+                        - np.asarray(tb_["qpos_after"])).max())}
+            # (2) matched NONPOSITIVE sibling: first canonical sample
+            # with no positive canonical flip in its executed actions
+            # (measured, not assumed — review finding)
+            def branch_positive(tr):
+                vs = tr["valid_seq"][canon_id]
+                v0 = np.asarray(vs[0], dtype=bool)
+                v1 = np.asarray(vs[-1], dtype=bool)
+                return bool((v1 & ~v0).any())
+            sibling = next(
+                (k for k in ("c1", "c2", "c3", "m1", "m2")
+                 if k in trs_by
+                 and not branch_positive(trs_by[k])), None)
+            # (3) recovery-to-terminal for the canonical correction
+            # and the measured sibling, from their saved end states,
+            # allowed to run past q@100 (REC_TERM_MAX)
+            for rk in ([x for x in ("rec_canon",) if x in trs_by]
+                       + ([sibling] if sibling else [])):
+                if rk not in branch_ends:
+                    continue
+                b_end, forks, bsteps = branch_ends[rk]
+                restore(env, b_end)
+                env._env.env.done = False
+                _fa = {}
+                for gid in (canon_id, alt_id):
+                    ca = GoalAutomaton(
+                        gspecs[gid]["ordered_subgoals"])
+                    ca.bodies = autos0[gid].bodies
+                    ca.start_pos = autos0[gid].start_pos
+                    restore_env_state(ca, forks[gid])
+                    _fa[gid] = ca
+                autos_c = cont_automata(_fa)
+                ys, sc2 = cont_run(
+                    env, instr, autos_c, bsteps,
+                    f"{RID}|recterm|{sid}|{d}|{canon_id}", 0,
+                    max_steps=REC_TERM_MAX)
+                trs_by[rk]["recovery_terminal"] = {
+                    "outcomes": ys,
+                    "steps": sc2,
+                    "role": ("canonical_correction"
+                             if rk == "rec_canon"
+                             else "matched_nonpositive_sibling")}
             shard = {
                 "schema": "v073_shard_v1", "run_schema": "v073",
                 "anchor": akey, "task": task, "source_id": sid,
@@ -767,6 +897,8 @@ def main() -> None:
                 "first_unresolved": a["first_unresolved"],
                 "obj_before": obj_before,
                 "qpos_before": qpos_before,
+                "bank_report": bank_report,
+                "nonpositive_sibling": sibling,
                 "transitions": transitions}
             tmp = root / "shards" / f"{akey}.pt.tmp"
             torch.save(shard, tmp)
@@ -868,28 +1000,114 @@ def main() -> None:
                     for ti, t in enumerate(TASK_ORDER)
                     for r, b, _n, _k in ROLES}}, indent=2))
 
-    # outcome support (per registered cells; masks only)
-    sup = defaultdict(lambda: defaultdict(int))
-    for p in sorted((root / "shards").glob("*.pt")):
-        s = torch.load(p, weights_only=False)
-        canon = s["goal_ids"][0]
-        for tr in s["transitions"]:
-            if tr["branch_key"] == "u0_repeat":
-                continue
-            vs = tr["valid_seq"][canon]
-            flip_pos = any(
-                np.asarray(vs[-1], dtype=float).sum()
-                > np.asarray(vs[0], dtype=float).sum()
-                for _ in [0])
-            cell = f"{s['task']}|{s['role']}"
+    # ---- outcome support: registered cells, masks only --------------
+    def per_subgoal_flip(tr, gid):
+        vs = tr["valid_seq"][gid]
+        v0 = np.asarray(vs[0], dtype=bool)
+        v1 = np.asarray(vs[-1], dtype=bool)
+        return bool((v1 & ~v0).any())      # real milestone flip
+
+    def cont_pref(tr_a, tr_b, gid):
+        """Both-repeats-agree preference on the frozen tuple
+        p_valid_100 -> mean(q@h) under goal gid; 0 = tie/unstable."""
+        signs = []
+        for r_ in range(min(len(tr_a["continuations"]),
+                            len(tr_b["continuations"]))):
+            ya = tr_a["continuations"][r_][gid]
+            yb = tr_b["continuations"][r_][gid]
+            qa = np.mean(list(ya["q_at_horizons"].values()))
+            qb = np.mean(list(yb["q_at_horizons"].values()))
+            if ya["p_valid_100"] > yb["p_valid_100"]:
+                signs.append(1)
+            elif yb["p_valid_100"] > ya["p_valid_100"]:
+                signs.append(-1)
+            elif qa > qb + 0.0417:
+                signs.append(1)
+            elif qb > qa + 0.0417:
+                signs.append(-1)
+            else:
+                signs.append(0)
+        if signs and all(s_ == 1 for s_ in signs):
+            return 1
+        if signs and all(s_ == -1 for s_ in signs):
+            return -1
+        return 0
+
+    ALL_CELLS = [f"{tk}|{rl}" for tk in TASK_ORDER
+                 for rl in ("train", "dev")]
+    sup = {c: defaultdict(int) for c in ALL_CELLS}
+    sup_src = {c: defaultdict(set) for c in ALL_CELLS}
+    rev_anchors = {c: set() for c in ALL_CELLS}
+    recterm_contrast_anchors = {c: set() for c in ALL_CELLS}
+    for p_ in sorted((root / "shards").glob("*.pt")):
+        s = torch.load(p_, weights_only=False)
+        canon, alt = s["goal_ids"]
+        cell = f"{s['task']}|{s['role']}"
+        pos_branch, nonpos_branch = None, None
+
+        policy_trs = [tr for tr in s["transitions"]
+                      if tr["branch_key"] != "u0_repeat"]
+        n_recterm = 0
+        for tr in policy_trs:
             sup[cell]["branches"] += 1
-            if flip_pos:
+            if per_subgoal_flip(tr, canon):
                 sup[cell]["milestone_positive"] += 1
+                pos_branch = tr
+                sup_src[cell]["milestone_pos_sources"].add(
+                    s["source_id"])
+            else:
+                nonpos_branch = tr
             if tr["recovery_terminal"] is not None:
                 sup[cell]["recovery_terminal"] += 1
-    (root / "outcome_support.json").write_text(json.dumps(
-        {k: dict(v) for k, v in sorted(sup.items())}, indent=2))
-    print(json.dumps({k: dict(v) for k, v in sorted(sup.items())},
+                n_recterm += 1
+        if pos_branch is not None and nonpos_branch is not None:
+            sup[cell]["pos_plus_matched_nonpos_anchors"] += 1
+            sup_src[cell]["pos_nonpos_pair_sources"].add(
+                s["source_id"])
+        if n_recterm >= 2:
+            # a REAL per-anchor contrast: rec_canon AND the measured
+            # sibling both carried to terminal at this anchor
+            recterm_contrast_anchors[cell].add(s["anchor"])
+        # action x goal rank reversal, tracked PER ANCHOR (the
+        # registered cell counts anchors, not pairs)
+        found_rev = False
+        for i in range(len(policy_trs)):
+            for j in range(i + 1, len(policy_trs)):
+                pc = cont_pref(policy_trs[i], policy_trs[j], canon)
+                pa = cont_pref(policy_trs[i], policy_trs[j], alt)
+                if pc != 0 and pa != 0 and pc != pa:
+                    found_rev = True
+        if found_rev:
+            rev_anchors[cell].add(s["anchor"])
+    support = {
+        "cells": {c: dict(sup[c]) for c in ALL_CELLS},
+        "independent_sources": {
+            c: {kk: sorted(vv) for kk, vv in sup_src[c].items()}
+            for c in ALL_CELLS},
+        "rank_reversal_anchors": {
+            c: sorted(rev_anchors[c]) for c in ALL_CELLS},
+        "recterm_contrast_anchors": {
+            c: sorted(recterm_contrast_anchors[c])
+            for c in ALL_CELLS},
+        "registered_cell_checks": {
+            c: {"pos_nonpos_at_2train_sources_or_1dev":
+                    len(sup_src[c]["pos_nonpos_pair_sources"])
+                    >= (2 if c.endswith("train") else 1),
+                "rank_reversal_anchor_quota":
+                    len(rev_anchors[c])
+                    >= (2 if c.endswith("train") else 1),
+                "has_recovery_terminal_contrast":
+                    len(recterm_contrast_anchors[c]) >= 1}
+            for c in ALL_CELLS},
+        "note": "masks only; ALL cells listed explicitly incl. "
+                "empty ones; support-empty cells are recorded, "
+                "never refilled by outcome (bounded fallback rule)",
+    }
+    (root / "outcome_support.json").write_text(
+        json.dumps(support, indent=2))
+    print(json.dumps({"cells": support["cells"],
+                      "checks":
+                          support["registered_cell_checks"]},
                      indent=1), flush=True)
     print(f"-> {root}", flush=True)
 
