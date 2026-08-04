@@ -1,0 +1,38 @@
+{
+  "schema": "v072_loho_dev_manifest_v1",
+  "run_schema": "v072",
+  "run_id": "v072_loho_dev_r1",
+  "git_sha": "f88b165",
+  "arms": [
+    "stock",
+    "bc_u0",
+    "p0_no_wm_soft",
+    "w0_soft",
+    "w1_soft",
+    "w2_soft",
+    "w2_permutation"
+  ],
+  "seeds": [
+    1750,
+    1760,
+    1770,
+    1780,
+    1790
+  ],
+  "deployment": "recurrent full-prompt N=1; no scorer/best-of-N/GoalSpec/taskID/atomic/planner",
+  "noise_crn": "SHA256('v072_loho_dev_r1|act|task|seed|decision') \u2014 arm identity structurally absent",
+  "arm_order": "hash-sorted per (task, seed)",
+  "policy_checkpoints": {
+    "bc_u0": "6533c7befb876d4a334be01673cb7fce11dbe2d5b2604ae923bc2caeb688757d",
+    "p0_no_wm_soft": "257a8a9cb5816749a0fe1d14fa74e52db83003fbffcdfe1c4018a9d2e5041388",
+    "w0_soft": "f68725a830fe124906f5fad55f18e93ef7e87f2f4b94b34769e6e4cc0c22ea6f",
+    "w1_soft": "41bca9e2a3cc7f598c8cb55a125907a46c2389c0b3927ecb7201c53065efd039",
+    "w2_soft": "8b6702055aef952fe8885a0f752f13cc8ddd74a93059b7986e540f124e2a03b6",
+    "w2_permutation": "4a652d5d5cbe10355c48dbce0860ac8f85bcfafee6c62b3571330cc99d12d8b9"
+  },
+  "wm_checkpoints": {
+    "w0_base": "6e36596d18024781da222282bf7cc3c5892966514d43c6a7ba77cf3a81590160",
+    "w1_outcome_state": "ec1ad40eccb719f16a9788812a1fe6a3eb6eb580f93fc70bf1ed3c4143d2b42c",
+    "w2_rank_state": "a4aae4db1642fbbf7ab4ed1dce458d9b003f5cda790b5c5994a85f50c83f8db6"
+  }
+}
