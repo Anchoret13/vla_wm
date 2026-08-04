@@ -1,37 +1,38 @@
 {
   "dot_product": {
-    "loss": 1.995047688484192,
-    "manual": 1.995047688484192
+    "loss": 3.394176721572876,
+    "manual": 3.394176721572876
   },
   "one_hot": {
     "candidate": 1,
-    "loss": 1.8778712749481201
+    "loss": 3.3138153553009033
   },
   "weight_swap": {
-    "loss_a": 1.995047688484192,
-    "loss_b": 1.9762417078018188
+    "loss_a": 3.394176721572876,
+    "loss_b": 3.4352660179138184
   },
   "uniform_perm": {
-    "l1": 1.9794882535934448,
-    "l2": 1.9794881343841553
+    "l1": 3.43168306350708,
+    "l2": 3.43168306350708
   },
   "mass_split": {
-    "base": 1.995047688484192,
-    "split": 1.9922780990600586,
-    "cross_shape_rel": 0.0013882321912001986
+    "base": 3.394176721572876,
+    "split": 3.399688243865967,
+    "cross_shape_rel": 0.0016238171271579394
   },
   "m_independence": {
-    "m": 6,
-    "loss": 1.999356746673584
+    "full": 3.43168306350708,
+    "halves_mean": 3.435304880142212,
+    "rel": 0.001054292635296435
   },
   "suffix_boundary": {
-    "suffix": 0.6088085174560547,
-    "head_window_separate": 0.5646752715110779
+    "suffix_trust": 1.9914237260818481,
+    "credit_suffix_invariance_max_diff": 0.0
   },
   "stock_parity_lcproj0": 0.0,
   "fixture": {
     "anchor": "loho_t1_drawer_teacher_s2302_d3",
     "M": 12
   },
-  "git_sha": "094bb93"
+  "git_sha": "c239cd9"
 }

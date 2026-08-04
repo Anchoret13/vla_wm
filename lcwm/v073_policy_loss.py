@@ -24,7 +24,8 @@ from __future__ import annotations
 import torch
 from torch import Tensor
 
-from lcwm.lc_flow import (denoise_step_with_lc_bias,
+from lcwm.lc_flow import (credit_bounded_actions,
+                          denoise_step_with_lc_bias,
                           raw_flow_losses_from_prefix)
 from lcwm.sampler import _expand_cache
 
@@ -40,14 +41,23 @@ def per_candidate_losses(policy, prefix, candidates: Tensor,
     batched forward (delegated to the library's shared-noise path —
     no re-derived FM math in this module).
 
+    The suffix-credit contract (2026-07-24 audit correction 4) is
+    applied HERE: positions >= CREDIT_T are replaced by the
+    branch-independent constant via `credit_bounded_actions` BEFORE
+    the actions enter the bidirectional flow graph, so first-ten
+    losses and gradients are exactly invariant to unexecuted suffix
+    content (review finding #1).
+
     candidates: [M, T, 7] pi0.5-normalized chunks.
     bias: [1, expert_width] state bias (same for every candidate).
     noise: [1, T, max_action_dim] shared flow noise; time: [1].
     """
     m = candidates.shape[0]
     real_dim = candidates.shape[2]
+    bounded = credit_bounded_actions(candidates,
+                                     max_executed=CREDIT_T)
     raw = raw_flow_losses_from_prefix(
-        policy, candidates, bias.expand(m, -1), prefix,
+        policy, bounded, bias.expand(m, -1), prefix,
         noise=noise, time=time)
     return raw[:, :CREDIT_T, :real_dim].mean(dim=(1, 2))
 
@@ -73,22 +83,36 @@ def weighted_anchor_fm(policy, prefix, candidates: Tensor,
 
 
 def suffix_trust(policy, prefix, chunk: Tensor, bias: Tensor,
-                 noise: Tensor, time: Tensor,
+                 noise: Tensor, time: Tensor, stock_aop_state=None,
                  lo: int = CREDIT_T, hi: int = 50) -> Tensor:
-    """Same-noise stock-velocity matching restricted to [lo:hi] —
-    the uncredited suffix. Never overlaps first-ten credit."""
+    """Same-noise STOCK-velocity matching restricted to [lo:hi] over
+    the REAL action dims only.
+
+    Review fixes: (a) the trust target is computed under the frozen
+    STOCK `action_out_proj` snapshot (`stock_aop_state`), not the
+    drifting trained head; (b) the mean excludes the 25 padded action
+    channels so the per-element basis matches the teacher term."""
     from lerobot.utils.constants import ACTION
+    real_dim = chunk.shape[-1]
     actions = policy.prepare_action({ACTION: chunk[None]})
     x_t = time[:, None, None] * noise \
         + (1 - time[:, None, None]) * actions
     cache = _expand_cache(prefix.past_key_values, 1)
     v_b = denoise_step_with_lc_bias(
         policy.model, prefix.pad_masks, cache, x_t, time, bias)
+    aop = policy.model.action_out_proj
     with torch.no_grad():
+        if stock_aop_state is not None:
+            live = {k: v.detach().clone()
+                    for k, v in aop.state_dict().items()}
+            aop.load_state_dict(stock_aop_state)
         v_0 = denoise_step_with_lc_bias(
             policy.model, prefix.pad_masks, cache, x_t, time,
             torch.zeros_like(bias))
-    return ((v_b[:, lo:hi] - v_0[:, lo:hi]) ** 2).mean()
+        if stock_aop_state is not None:
+            aop.load_state_dict(live)
+    diff = v_b[:, lo:hi, :real_dim] - v_0[:, lo:hi, :real_dim]
+    return (diff ** 2).mean()
 
 
 def assert_policy_contract(policy, prefix, candidates: Tensor,
@@ -118,14 +142,20 @@ def assert_policy_contract(policy, prefix, candidates: Tensor,
                          if x is not None else None)
         return gs
 
-    # 1) manual dot-product equality
+    # 1) manual dot-product equality against an INDEPENDENT second
+    # forward of the same shape (deterministic), so the check binds
+    # the reduction to reproducible per-candidate values instead of
+    # comparing a sum against its own summands (review finding).
     w = torch.rand(m, device=dev)
     w = w / w.sum()
-    loss, per = weighted_anchor_fm(policy, prefix, candidates, w,
-                                   bias_fn(), noise, time)
-    manual = float((w * per.detach()).sum())
-    assert abs(float(loss.detach()) - manual) < 1e-5, \
-        "dot-product mismatch"
+    with torch.no_grad():
+        loss, _per = weighted_anchor_fm(policy, prefix, candidates,
+                                        w, bias_fn(), noise, time)
+        per_ind = per_candidate_losses(policy, prefix, candidates,
+                                       bias_fn(), noise, time)
+    manual = float((w * per_ind).sum())
+    assert abs(float(loss) - manual) < 1e-5, \
+        "dot-product mismatch vs independent forward"
     report["dot_product"] = {"loss": float(loss), "manual": manual}
 
     # 2) one-hot returns the selected candidate's loss and gradient.
@@ -136,10 +166,13 @@ def assert_policy_contract(policy, prefix, candidates: Tensor,
     k = 1 % m
     oh = torch.zeros(m, device=dev)
     oh[k] = 1.0
-    l_oh, per_oh = weighted_anchor_fm(policy, prefix, candidates, oh,
-                                      bias_fn(), noise, time)
-    assert abs(float(l_oh.detach()) - float(per_oh[k].detach())) \
-        < 1e-6, "one-hot loss != selected per-candidate loss"
+    with torch.no_grad():
+        l_oh_v, _ = weighted_anchor_fm(policy, prefix, candidates,
+                                       oh, bias_fn(), noise, time)
+    assert abs(float(l_oh_v) - float(per_ind[k])) < 1e-5, \
+        "one-hot loss != independently recomputed candidate loss"
+    l_oh, _ = weighted_anchor_fm(policy, prefix, candidates, oh,
+                                 bias_fn(), noise, time)
     g_oh = grads_of(l_oh)
     per2 = per_candidate_losses(policy, prefix, candidates,
                                 bias_fn(), noise, time)
@@ -174,11 +207,13 @@ def assert_policy_contract(policy, prefix, candidates: Tensor,
 
     # 4) uniform-weight permutation is identical
     u = torch.full((m,), 1.0 / m, device=dev)
-    l_u1, _ = weighted_anchor_fm(policy, prefix, candidates, u,
-                                 bias_fn(), noise, time)
-    perm = torch.randperm(m, device=dev)
-    l_u2, _ = weighted_anchor_fm(policy, prefix, candidates[perm],
-                                 u, bias_fn(), noise, time)
+    with torch.no_grad():
+        l_u1, _ = weighted_anchor_fm(policy, prefix, candidates, u,
+                                     bias_fn(), noise, time)
+        perm = torch.randperm(m, device=dev)
+        l_u2, _ = weighted_anchor_fm(policy, prefix,
+                                     candidates[perm], u, bias_fn(),
+                                     noise, time)
     assert abs(float(l_u1) - float(l_u2)) < 1e-5, \
         "uniform permutation changed loss"
     report["uniform_perm"] = {"l1": float(l_u1), "l2": float(l_u2)}
@@ -194,8 +229,10 @@ def assert_policy_contract(policy, prefix, candidates: Tensor,
     w_dup = torch.cat([w.clone(), torch.zeros(1, device=dev)])
     w_dup[-1] = w[k] / 2
     w_dup[k] = w[k] / 2
-    l_dup, per_dup = weighted_anchor_fm(policy, prefix, dup, w_dup,
-                                        bias_fn(), noise, time)
+    with torch.no_grad():
+        l_dup, per_dup = weighted_anchor_fm(policy, prefix, dup,
+                                            w_dup, bias_fn(), noise,
+                                            time)
     assert abs(float(per_dup[k].detach())
                - float(per_dup[-1].detach())) < 1e-6, \
         "duplicate row not reproduced within one forward"
@@ -210,25 +247,48 @@ def assert_policy_contract(policy, prefix, candidates: Tensor,
                             "split": float(l_dup),
                             "cross_shape_rel": rel_cross}
 
-    # 6) per-anchor scale independent of M: uniform loss over a
-    #    subset equals the mean of that subset's per-candidate losses
-    #    (never M times it)
-    sub = candidates[: max(2, m // 2)]
-    us = torch.full((sub.shape[0],), 1.0 / sub.shape[0], device=dev)
-    l_sub, per_sub = weighted_anchor_fm(policy, prefix, sub, us,
-                                        bias_fn(), noise, time)
-    assert abs(float(l_sub) - float(per_sub.detach().mean())) \
-        < 1e-5, "anchor scale depends on M"
-    report["m_independence"] = {"m": int(sub.shape[0]),
-                                "loss": float(l_sub)}
+    # 6) per-anchor scale independent of M: uniform full-bank loss
+    #    equals the candidate-count-weighted mean of the two
+    #    DISJOINT-half uniform losses within the measured bf16
+    #    cross-shape bound. A sum-shaped bug (the V7.2 failure:
+    #    scale ~ M) fails this by ~2x.
+    h = m // 2
+    ua = torch.full((h,), 1.0 / h, device=dev)
+    ub = torch.full((m - h,), 1.0 / (m - h), device=dev)
+    with torch.no_grad():
+        l_h1, _ = weighted_anchor_fm(policy, prefix, candidates[:h],
+                                     ua, bias_fn(), noise, time)
+        l_h2, _ = weighted_anchor_fm(policy, prefix, candidates[h:],
+                                     ub, bias_fn(), noise, time)
+        l_full, _ = weighted_anchor_fm(
+            policy, prefix, candidates,
+            torch.full((m,), 1.0 / m, device=dev), bias_fn(), noise,
+            time)
+    approx = (h * float(l_h1.detach())
+              + (m - h) * float(l_h2.detach())) / m
+    rel = abs(float(l_full.detach()) - approx) / max(abs(approx),
+                                                     1e-8)
+    assert rel < 0.02, f"anchor scale depends on M (rel {rel})"
+    report["m_independence"] = {"full": float(l_full),
+                                "halves_mean": approx, "rel": rel}
 
-    # 7) suffix trust receives zero credit from the first ten actions
+    # 7) REAL credit-boundary assertions (the earlier shape-only
+    #    check was vacuous — review finding): first-ten credit must
+    #    be EXACTLY invariant to unexecuted suffix content (the
+    #    credit_bounded_actions contract), verified on the live path.
+    mod = candidates.clone()
+    mod[:, CREDIT_T:, :] = torch.randn_like(mod[:, CREDIT_T:, :])
+    with torch.no_grad():
+        per_mod = per_candidate_losses(policy, prefix, mod,
+                                       bias_fn(), noise, time)
+    assert torch.allclose(per_mod, per_ind, atol=1e-6), \
+        "first-ten credit depends on unexecuted suffix"
     ch = candidates[0]
-    tr = suffix_trust(policy, prefix, ch, bias_fn(), noise, time)
-    tr_head = suffix_trust(policy, prefix, ch, bias_fn(), noise,
-                           time, lo=0, hi=CREDIT_T)
-    report["suffix_boundary"] = {"suffix": float(tr),
-                                 "head_window_separate":
-                                     float(tr_head)}
-    assert tr.shape == ()
+    with torch.no_grad():
+        tr = suffix_trust(policy, prefix, ch, bias_fn(), noise,
+                          time)
+    report["suffix_boundary"] = {
+        "suffix_trust": float(tr),
+        "credit_suffix_invariance_max_diff":
+            float((per_mod - per_ind).abs().max())}
     return report
