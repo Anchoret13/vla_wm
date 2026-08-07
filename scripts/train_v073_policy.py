@@ -248,9 +248,45 @@ def main() -> None:
                 z = wm.step(z, aa, h, m, action_mask=am)
         return z.mean(dim=1).detach()
 
+    @torch.no_grad()
+    def demo_pool(ep, ri, tag):
+        """Demo state at row ri, unrolled at the WM's OWN 10-action
+        decision stride over ep["obs_10"] (the dataset ships it for
+        exactly this; ep["rows"] is a 50-step stride and feeding its
+        first 10 actions would skip 40 of every 50 expert actions and
+        put the transition far out of its training distribution —
+        verification defect A)."""
+        target_t = 50 * ri
+        seq = [o for o in ep["obs_10"] if o["t"] <= target_t]
+        z = None
+        for j, o in enumerate(seq):
+            pfx, _b = prefix_of(f"{tag}|t{o['t']}", o["obs"],
+                                ep["language"])
+            h, m = pfx.hidden.float(), pfx.pad_masks.bool()
+            if z is None:
+                z = wm.initial_state(h, m)
+            else:
+                ae = np.asarray(seq[j - 1]["chunk10_env"])
+                aa = normalize_actions(
+                    torch.from_numpy(ae).float(),
+                    ref_mean, ref_std)[None].to(device)
+                n_a = aa.shape[1]
+                if n_a < 10:
+                    aa = torch.cat([aa, torch.zeros(
+                        1, 10 - n_a, 7, device=device)], dim=1)
+                am = (torch.arange(10, device=device)[None] < n_a)
+                z = wm.step(z, aa[:, :10], h, m, action_mask=am)
+        return z.mean(dim=1).detach()
+
+    STATE_SCHEMA = "v073_policy_states_v2"
+    SCHED_SCHEMA = "v073_policy_sched_v2"
     state_path = OUT / "anchor_states.pt"
-    if state_path.exists():
-        blob = torch.load(state_path, weights_only=False)
+    _blob = (torch.load(state_path, weights_only=False)
+             if state_path.exists() else None)
+    if _blob is not None and _blob.get("schema") != STATE_SCHEMA:
+        _blob = None            # stale pre-fix artifact: rebuild
+    if _blob is not None:
+        blob = _blob
         pools = {k: v.to(device) for k, v in blob["pools"].items()}
         demo_pools = {tuple(json.loads(k)): v.to(device)
                       for k, v in blob["demo_pools"].items()}
@@ -267,9 +303,8 @@ def main() -> None:
         for (tid, di) in demo_keys:
             ep = demo_eps[(tid, di)]
             for ri in range(len(ep["rows"])):
-                demo_pools[(tid, di, ri)] = recurrent_pool(
-                    ep["rows"], ri, ep["language"],
-                    f"demo{tid}_{di}")
+                demo_pools[(tid, di, ri)] = demo_pool(
+                    ep, ri, f"demo{tid}_{di}")
         # probe-anchor variants for the A/B/C + reset/shuffled
         # attribution readouts (registered V7.3A item)
         probe = sorted(anchors)[0]
@@ -281,14 +316,20 @@ def main() -> None:
             zr = wm.initial_state(pf.hidden.float(),
                                   pf.pad_masks.bool())
             pools["__reset__"] = zr.mean(dim=1).detach()
-            order_s = list(range(pe["decision"]))
+            # ORDER-only control: same length, same (obs, prev
+            # action) pairing convention, same final anchor
+            # observation as the real pool — only the order of the
+            # PRE-anchor history is permuted (verification defect B:
+            # the earlier variant also dropped the anchor obs and
+            # shifted the action pairing).
+            hist = list(range(pe["decision"]))
             gsh = torch.Generator().manual_seed(
                 sha_seed(f"{RID}|shuffle|{probe}"))
-            perm = torch.randperm(len(order_s),
-                                  generator=gsh).tolist() \
-                if order_s else []
+            perm = ([hist[i] for i in torch.randperm(
+                len(hist), generator=gsh).tolist()] if hist else [])
+            seq_s = perm + [pe["decision"]]
             zs = None
-            for j, dd in enumerate([order_s[i] for i in perm]):
+            for j, dd in enumerate(seq_s):
                 pfx_s, _ = prefix_of(f"{probe}|{dd}",
                                      pe["rows"][dd]["obs"],
                                      pe["instr"])
@@ -296,28 +337,31 @@ def main() -> None:
                 if zs is None:
                     zs = wm.initial_state(h, m)
                 else:
-                    prev = pe["rows"][dd]
+                    prev = pe["rows"][seq_s[j - 1]]
                     aa = prev["chunk_norm"][None, :10].float() \
                         .to(device)
                     am = (torch.arange(10, device=device)[None]
                           < int(prev.get("executed_len", 10)))
                     zs = wm.step(zs, aa, h, m, action_mask=am)
-            pools["__shuffled__"] = (zs.mean(dim=1).detach()
-                                     if zs is not None
-                                     else pools["__reset__"])
+            pools["__shuffled__"] = zs.mean(dim=1).detach()
         # frozen task-balanced global mean over TRAIN histories
         by_task = defaultdict(list)
         for ak, e in anchors.items():
             by_task[e["task"]].append(pools[ak])
         gmean = torch.stack([torch.stack(v).mean(0)
                              for v in by_task.values()]).mean(0)
-        torch.save({"pools": {k: v.cpu() for k, v in pools.items()},
+        torch.save({"schema": STATE_SCHEMA,
+                    "pools": {k: v.cpu() for k, v in pools.items()},
                     "demo_pools": {json.dumps(list(k)): v.cpu()
                                    for k, v in demo_pools.items()},
                     "global_mean": gmean.cpu()}, state_path)
 
     # ---------- matched schedule ------------------------------------
     sched_path = OUT / "matched_training_schedule.pt"
+    _s = (torch.load(sched_path, weights_only=False)
+          if sched_path.exists() else None)
+    if _s is not None and _s.get("schema") != SCHED_SCHEMA:
+        sched_path.unlink()
     if not sched_path.exists():
         gkeys = sorted(anchors)
         mkeys = sorted(model_anchors)
@@ -341,9 +385,9 @@ def main() -> None:
                    for k in range(STEPS)]
         r_order = [demo_rows[(k + len(demo_rows) // 2)
                              % len(demo_rows)] for k in range(STEPS)]
-        torch.save({"grounded": order, "model": m_order,
-                    "demo": d_order, "retention": r_order},
-                   sched_path)
+        torch.save({"schema": SCHED_SCHEMA, "grounded": order,
+                    "model": m_order, "demo": d_order,
+                    "retention": r_order}, sched_path)
     sched = torch.load(sched_path, weights_only=False)
 
     git_sha = subprocess.run(
@@ -501,10 +545,10 @@ def main() -> None:
                         break
                 q_after = au.q_valid()
                 live = runner.policy.model.action_out_proj
-                sc_ = 0
+                sc_, hit_term = 0, False
                 try:
                     runner.policy.model.action_out_proj = stock_head
-                    while sc_ < 60:
+                    while sc_ < 60 and not hit_term:
                         b2 = runner._obs_to_policy_batch(
                             obs_, e_["instr"])
                         p2 = prefix_forward(runner.policy, b2)
@@ -524,10 +568,11 @@ def main() -> None:
                                     env._env.env
                                     ._get_observations()))
                             vr.add(obs_)
-                            if tm or tr3 or sc_ >= 60:
+                            if tm or tr3:
+                                hit_term = bool(tm)
                                 break
-                        if sc_ >= 60:
-                            break
+                            if sc_ >= 60:
+                                break
                 finally:
                     runner.policy.model.action_out_proj = live
                 vm = vr.close(completed=True)
@@ -538,11 +583,13 @@ def main() -> None:
                     manifest_sha256="policy_training_eval",
                     task=task_, seed=src_["seed"], arm=arm_,
                     split="train_state", steps=st + sc_,
-                    success=False,
+                    success=bool(hit_term),
                     ordered_progress=au.ordered_prefix(),
                     damage=au.damage_unrecovered(),
-                    termination="eval_end", root=OUT)
+                    termination=("terminal" if hit_term
+                                 else "eval_end"), root=OUT)
                 return {"eval_anchor": ak_,
+                        "eval_terminal": bool(hit_term),
                         "eval_q_after10": float(q_after),
                         "eval_q_final": float(au.q_valid()),
                         "eval_prefix": int(au.ordered_prefix())}
