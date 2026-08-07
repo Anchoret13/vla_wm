@@ -1,0 +1,15 @@
+{
+  "margins": {
+    "p_valid": 0.01008541975170374,
+    "q_mean": 0.022146200140317207,
+    "milestone": 0.003201497020199895,
+    "success": 0.5785243213176727
+  },
+  "n_dev_rows": {
+    "p_valid": 80,
+    "q_mean": 80,
+    "milestone": 80,
+    "success": 80
+  },
+  "note": "median |error| per component on v073 dev anchors under the frozen final.pt; frozen BEFORE any teacher decoding"
+}
