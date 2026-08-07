@@ -121,6 +121,37 @@ def main() -> None:
                 if a["kind"] == "acq"}
     teach_sids = {a["source_id"] for a in teach_anchors}
     assert not (teach_sids & acq_sids), "teacher source overlap"
+    # extended registered disjointness: teacher candidate chunk
+    # hashes must not appear among ANY LCWM-training chunks, and
+    # teacher source IDs must be absent from every training universe
+    train_sids = set(acq_sids)
+    union72 = json.loads((RESULTS / "2026-08-02_v071_union_f1"
+                          / "union_manifest.json").read_text())
+    train_sids |= set(union72["source_histories"])
+    for p_ in (V72T / "teacher_sources").glob("*.pt"):
+        train_sids.add(p_.stem)
+    assert not (teach_sids & train_sids), \
+        f"teacher sources appear in training universes: " \
+        f"{teach_sids & train_sids}"
+    train_chunk_shas = set()
+    for p_ in sorted((V73 / "shards").glob("*.pt")):
+        sh_ = torch.load(p_, weights_only=False)
+        for tr_ in sh_["transitions"]:
+            if tr_.get("chunk_norm") is not None:
+                train_chunk_shas.add(hashlib.sha256(
+                    np.asarray(tr_["chunk_norm"]).tobytes())
+                    .hexdigest())
+    teach_chunk_shas = set()
+    for a_ in teach_anchors:
+        tb_ = torch.load(
+            V73 / "teacher_banks"
+            / f"{a_['source_id']}_d{a_['decision']}.pt",
+            weights_only=False)
+        for _cid, (_f, _l, ch_) in tb_["bank"].items():
+            teach_chunk_shas.add(hashlib.sha256(
+                np.asarray(ch_).tobytes()).hexdigest())
+    overlap = train_chunk_shas & teach_chunk_shas
+    assert not overlap, f"chunk-hash overlap: {len(overlap)}"
 
     runner = Pi05Runner(suite_name="libero_10")
     cfg = runner.policy.config
@@ -161,15 +192,21 @@ def main() -> None:
                 z = wm.step(z, aa, h, m, action_mask=am)
         return z
 
-    def decode(z, cn, am):
+    def n_sub_of(task):
+        entry = goal_manifest["tasks"][task]
+        cg = entry["canonical_goal_spec_id"]
+        return len(entry["goal_specs"][cg]["ordered_subgoals"])
+
+    def decode(z, cn, am, task):
         zt = wm.predict(z, cn, action_mask=am)
         o = wm.d_next(zt)
         q = torch.sigmoid(o["q_valid"][0]).cpu().numpy()
+        n = n_sub_of(task)
         return {
             "success": float(torch.sigmoid(
                 o["success_logit"]).reshape(-1)[0]),
             "milestone": float(torch.sigmoid(
-                o["flips_01"][0]).max()),
+                o["flips_01"][0, :n]).max()),
             "q_mean": float(q.mean()),
             "p_valid": float(torch.sigmoid(
                 o["p_valid"].reshape(-1)[0])),
@@ -220,7 +257,7 @@ def main() -> None:
                     tr["chunk_norm"] if tr["chunk_norm"] is not None
                     else tr["actions_env"],
                     tr["chunk_norm"] is not None)
-                pred = decode(z, cn, am)
+                pred = decode(z, cn, am, a["task"])
                 gs = []
                 for ys in tr["continuations"]:
                     c = ys[canon]
@@ -264,33 +301,36 @@ def main() -> None:
             fams = {}
             for cid, (fam, _lang, ch) in tb["bank"].items():
                 cn, am = norm_chunk(ch, True)
-                preds[cid] = decode(z, cn, am)
+                preds[cid] = decode(z, cn, am, a["task"])
                 fams[cid] = fam
                 chunk_store[f"{akey}_{cid}"] = ch
             m = margins
             u0p = preds["u0"]
 
             def dominates(ci):
+                """Registered chain with MASKED/UNSUPPORTED rungs
+                skipped: damage + tau masked (no labels), and
+                terminal SUCCESS is dropped from teacher eligibility
+                because its dev margin is one-sided against a
+                constant-0 ground truth (median raw prediction 0.58
+                on never-successful states — review critical: an
+                untrained head must not grant or veto eligibility).
+                Effective chain: milestone -> q_mean. Milestone's
+                margin is likewise one-sided (dev milestone GT all
+                zero); it is a FALSE-POSITIVE scale, recorded as
+                such."""
                 p = preds[ci]
                 pess = {k: p[k] - m.get(k, 0.0) for k in p}
                 opti = {k: u0p[k] + m.get(k, 0.0) for k in u0p}
-                # masked: damage, tau. Chain: success -> milestone
-                # -> q progress
-                if pess["success"] > opti["success"]:
-                    return ("success", pess["success"]
-                            - opti["success"])
-                if pess["success"] < opti["success"] - 2 * m.get(
-                        "success", 0.0):
-                    return None
                 if pess["milestone"] > opti["milestone"]:
-                    return ("milestone", pess["milestone"]
-                            - opti["milestone"])
+                    return ("milestone", 0,
+                            pess["milestone"] - opti["milestone"])
                 if pess["milestone"] < opti["milestone"] \
                         - 2 * m.get("milestone", 0.0):
                     return None
                 if pess["q_mean"] > opti["q_mean"]:
-                    return ("q_mean", pess["q_mean"]
-                            - opti["q_mean"])
+                    return ("q_mean", 1,
+                            pess["q_mean"] - opti["q_mean"])
                 return None
 
             elig = {}
@@ -301,10 +341,17 @@ def main() -> None:
                 if r_ is not None:
                     elig[cid] = r_
             if elig:
-                best_margin = max(v[1] for v in elig.values())
+                # lexicographic winner: earliest chain component
+                # first, then max margin WITHIN that component
+                # (review: cross-component margin magnitudes are
+                # not comparable)
+                best_rank = min(v[1] for v in elig.values())
+                pool_l = {c: v for c, v in elig.items()
+                          if v[1] == best_rank}
+                best_margin = max(v[2] for v in pool_l.values())
                 winners = sorted(
-                    c for c, v in elig.items()
-                    if abs(v[1] - best_margin) < 1e-9)
+                    c for c, v in pool_l.items()
+                    if abs(v[2] - best_margin) < 1e-9)
                 w = {c: (1.0 / len(winners) if c in winners
                          else 0.0) for c in preds}
                 mode = "model_teacher"
@@ -315,34 +362,41 @@ def main() -> None:
                 "anchor": akey, "task": a["task"],
                 "source_id": sid, "decision": d, "mode": mode,
                 "predictions": preds, "eligible": {
-                    c: {"component": v[0], "margin": v[1]}
+                    c: {"component": v[0], "margin": v[2]}
                     for c, v in elig.items()},
                 "weights": w, "families": fams})
             # matched-random: permute identity within eligible-mass
             # support, preserving family composition of the winners
+            unpermutable = False
             if elig:
                 winners = [c for c, ww in w.items() if ww > 0]
-                win_fams = sorted(fams[c] for c in winners)
+                win_fams = {fams[c] for c in winners}
                 pool = [c for c in preds if c != "u0"
-                        and sorted(fams[x] for x in [c])
-                        [0] in win_fams]
-                # deterministic hash-choice of same-family
-                # candidates, excluding the model's winners if
-                # possible
-                alt_pool = [c for c in pool if c not in winners] \
-                    or pool
-                rot = sha_seed(f"{RID}|rnd|{akey}") % len(alt_pool)
-                rnd_winners = []
-                for k in range(len(winners)):
-                    rnd_winners.append(
-                        alt_pool[(rot + k) % len(alt_pool)])
-                rw = {c: (1.0 / len(rnd_winners)
-                          if c in rnd_winners else 0.0)
-                      for c in preds}
+                        and fams[c] in win_fams]
+                alt_pool = [c for c in pool if c not in winners]
+                if not alt_pool:
+                    # no alternative identity exists in the winner
+                    # families: the anchor is UNPERMUTABLE — keep the
+                    # weights, mark the row, and exclude its mass
+                    # from the identity-control claim (registered
+                    # V7.2C precedent; review: never silently copy
+                    # the model's winner as its own control)
+                    unpermutable = True
+                    rw = dict(w)
+                else:
+                    rot = sha_seed(f"{RID}|rnd|{akey}") \
+                        % len(alt_pool)
+                    rnd_winners = [
+                        alt_pool[(rot + k) % len(alt_pool)]
+                        for k in range(len(winners))]
+                    rw = {c: (sum(1 for x in rnd_winners
+                                  if x == c) / len(rnd_winners))
+                          for c in preds}
             else:
                 rw = {c: 0.0 for c in preds}
             rnd_rows.append({"anchor": akey, "weights": rw,
-                             "mode": mode})
+                             "mode": mode,
+                             "unpermutable": unpermutable})
             print(f"[teach] {akey}: {mode} "
                   f"{[c for c, ww in w.items() if ww > 0]}",
                   flush=True)
@@ -379,30 +433,26 @@ def main() -> None:
             if "u0" not in trs:
                 continue
 
-            def tup(c):
-                q = {int(k): v for k, v in
-                     c["q_at_horizons"].items()}
-                return (c["success_by_100"], c["neg_damage"],
-                        c["p_valid_100"],
-                        np.mean([q[h_] for h_ in HORIZONS]))
+            def tolerances():
+                return json.loads((RESULTS
+                                   / "v067_support_report.json")
+                                  .read_text()
+                                  )["frozen_outcome_tolerances"]
+
+            _tol = tolerances()
+            from lcwm.task_automaton import paired_preference
             for cid, t_ in trs.items():
                 if cid == "u0" or len(t_["continuations"]) < 2:
                     continue
-                beats = []
-                for r_ in range(2):
-                    a_ = tup(t_["continuations"][r_])
-                    b_ = tup(trs["u0"]["continuations"][r_])
-                    if a_[0] > b_[0]:
-                        beats.append(True)
-                    elif a_[0] < b_[0]:
-                        beats.append(False)
-                    elif a_[2] > b_[2]:
-                        beats.append(True)
-                    elif a_[2] < b_[2]:
-                        beats.append(False)
-                    else:
-                        beats.append(a_[3] > b_[3] + TOL_QM)
-                if all(beats):
+                # the REGISTERED lexicographic comparator (success ->
+                # neg_damage -> p_valid -> q_valid_mean -> neg_tau)
+                # with frozen tolerances, both-repeats rule — the
+                # hand-rolled chain dropped neg_damage/neg_tau and
+                # lost real corrections (review critical)
+                verdict = paired_preference(
+                    t_["continuations"],
+                    trs["u0"]["continuations"], _tol)
+                if verdict == 1:
                     grounded.append({
                         "origin": "v072T_released",
                         "anchor": sh["anchor"], "task": sh["task"],
@@ -502,6 +552,12 @@ def main() -> None:
                 ba.bodies, ba.start_pos = auto0.bodies, \
                     auto0.start_pos
                 restore_env_state(ba, a_state)
+                alt_id = next(g for g in gspecs
+                              if g != canon_id)
+                b_alt = GoalAutomaton(
+                    gspecs[alt_id]["ordered_subgoals"])
+                b_alt.start(env)
+                b_alt.evaluate(env, 0)
                 ch = chunk_store[f"{akey}_{cid}"]
                 if cid == "u0":
                     acts = list(row["actions_env"])[:10]
@@ -515,13 +571,16 @@ def main() -> None:
                 vr.add(frames[0])
                 eef_seq = [obs_q(frames[0])]
                 valid_seq = [list(ba.prev_valid)]
+                valid_seq_alt = [list(b_alt.prev_valid)]
                 a_env_l, steps = [], 0
                 for a_env in acts:
                     _o, _r, tb, tr2, _i = env.step(a_env)
                     steps += 1
                     a_env_l.append(np.asarray(a_env))
                     ba.evaluate(env, steps)
+                    b_alt.evaluate(env, steps)
                     valid_seq.append(list(ba.prev_valid))
+                    valid_seq_alt.append(list(b_alt.prev_valid))
                     f = obs_frame(env)
                     frames.append(f)
                     vr.add(f)
@@ -594,6 +653,7 @@ def main() -> None:
                     "task": task, "frames": frames,
                     "eef_seq": eef_seq,
                     "valid_seq_canon": valid_seq,
+                    "valid_seq_alt": {alt_id: valid_seq_alt},
                     "actions_env": (np.stack(a_env_l) if a_env_l
                                     else np.zeros((0, 7))),
                     "steps": steps,
