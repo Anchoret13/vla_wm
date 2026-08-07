@@ -104,6 +104,7 @@ def main() -> None:
     device = torch.device("cuda")
     torch.manual_seed(0)
     (OUT / "checkpoints").mkdir(parents=True, exist_ok=True)
+    (OUT / "videos").mkdir(parents=True, exist_ok=True)
     ref = torch.load(Path("/home/stargazer/Desktop/vla_wm/datasets"
                           "/seq_prefix_cache_v1/task0_demo0.pt"),
                      weights_only=False)
@@ -117,6 +118,12 @@ def main() -> None:
     aop = runner.policy.model.action_out_proj
     stock_aop = {k: v.detach().clone()
                  for k, v in aop.state_dict().items()}
+    import copy as _copy
+    stock_head = _copy.deepcopy(aop).to(device)
+    stock_head.load_state_dict(stock_aop)
+    for p_ in stock_head.parameters():
+        p_.requires_grad_(False)
+    stock_head.eval()
 
     wm = V06State().to(device)
     wm.load_state_dict(torch.load(LCWM / "checkpoints" / "final.pt",
@@ -207,6 +214,8 @@ def main() -> None:
         if ep["split"] == "train":
             demo_eps[(e["task_id"], e["demo"])] = ep
     demo_keys = sorted(demo_eps)
+    demo_rows = [(tid, di, ri) for (tid, di) in demo_keys
+                 for ri in range(len(demo_eps[(tid, di)]["rows"]))]
 
     # ---------- frozen prefixes + states ----------------------------
     pfx_cache = {}
@@ -232,8 +241,10 @@ def main() -> None:
             else:
                 prev = rows[dd - 1]
                 aa = prev["chunk_norm"][None, :10].float().to(device)
+                # demo rehearsal rows carry no executed_len (all 50
+                # expert actions executed) -> full 10-action mask
                 am = (torch.arange(10, device=device)[None]
-                      < prev["executed_len"])
+                      < int(prev.get("executed_len", 10)))
                 z = wm.step(z, aa, h, m, action_mask=am)
         return z.mean(dim=1).detach()
 
@@ -259,6 +270,41 @@ def main() -> None:
                 demo_pools[(tid, di, ri)] = recurrent_pool(
                     ep["rows"], ri, ep["language"],
                     f"demo{tid}_{di}")
+        # probe-anchor variants for the A/B/C + reset/shuffled
+        # attribution readouts (registered V7.3A item)
+        probe = sorted(anchors)[0]
+        pe = anchors[probe]
+        with torch.no_grad():
+            pf, _pb = prefix_of(f"{probe}|{pe['decision']}",
+                                pe["rows"][pe["decision"]]["obs"],
+                                pe["instr"])
+            zr = wm.initial_state(pf.hidden.float(),
+                                  pf.pad_masks.bool())
+            pools["__reset__"] = zr.mean(dim=1).detach()
+            order_s = list(range(pe["decision"]))
+            gsh = torch.Generator().manual_seed(
+                sha_seed(f"{RID}|shuffle|{probe}"))
+            perm = torch.randperm(len(order_s),
+                                  generator=gsh).tolist() \
+                if order_s else []
+            zs = None
+            for j, dd in enumerate([order_s[i] for i in perm]):
+                pfx_s, _ = prefix_of(f"{probe}|{dd}",
+                                     pe["rows"][dd]["obs"],
+                                     pe["instr"])
+                h, m = pfx_s.hidden.float(), pfx_s.pad_masks.bool()
+                if zs is None:
+                    zs = wm.initial_state(h, m)
+                else:
+                    prev = pe["rows"][dd]
+                    aa = prev["chunk_norm"][None, :10].float() \
+                        .to(device)
+                    am = (torch.arange(10, device=device)[None]
+                          < int(prev.get("executed_len", 10)))
+                    zs = wm.step(zs, aa, h, m, action_mask=am)
+            pools["__shuffled__"] = (zs.mean(dim=1).detach()
+                                     if zs is not None
+                                     else pools["__reset__"])
         # frozen task-balanced global mean over TRAIN histories
         by_task = defaultdict(list)
         for ak, e in anchors.items():
@@ -289,10 +335,12 @@ def main() -> None:
             i += 1
         m_order = [mkeys[k % len(mkeys)] if mkeys else None
                    for k in range(STEPS)]
-        d_order = [demo_keys[k % len(demo_keys)]
+        # (task_id, demo, ROW) triples; retention uses a disjoint
+        # offset stream so the two components never share a row
+        d_order = [demo_rows[k % len(demo_rows)]
                    for k in range(STEPS)]
-        r_order = [demo_keys[(k + 3) % len(demo_keys)]
-                   for k in range(STEPS)]
+        r_order = [demo_rows[(k + len(demo_rows) // 2)
+                             % len(demo_rows)] for k in range(STEPS)]
         torch.save({"grounded": order, "model": m_order,
                     "demo": d_order, "retention": r_order},
                    sched_path)
@@ -333,6 +381,173 @@ def main() -> None:
         groups = {"lc_proj": list(lc.parameters()),
                   "action_out_proj": list(aop.parameters())}
         logs, grad_report = [], {}
+
+        probe = sorted(anchors)[0]
+        pe = anchors[probe]
+
+        @torch.no_grad()
+        def readouts(lc_, bias_fn_, arm_, step_):
+            """A/B/C LC attribution + reset/shuffled substitution +
+            grounded-target reproduction, same-noise (registered)."""
+            from lcwm.lc_flow import sample_chunks_lc
+            from lcwm.sampler import sample_chunks
+            from lcwm.v067_lineage import flow_noise
+            pf, pb = prefix_of(f"{probe}|{pe['decision']}",
+                               pe["rows"][pe["decision"]]["obs"],
+                               pe["instr"])
+            nz = flow_noise(sha_seed(f"{RID}|abc|{step_}"),
+                            cfg.chunk_size,
+                            cfg.max_action_dim).to(device)
+            zb = torch.zeros(1, 1024, device=device)
+            chA = sample_chunks_lc(runner.policy, pb,
+                                   bias_fn_(pools[probe]), n=1,
+                                   noise=nz, prefix=pf)[0]
+            chB = sample_chunks_lc(runner.policy, pb, zb, n=1,
+                                   noise=nz, prefix=pf)[0]
+            live = runner.policy.model.action_out_proj
+            try:
+                runner.policy.model.action_out_proj = stock_head
+                chC = sample_chunks(runner.policy, pb, n=1,
+                                    noise=nz, prefix=pf)[0]
+            finally:
+                runner.policy.model.action_out_proj = live
+            chR = sample_chunks_lc(runner.policy, pb,
+                                   lc_(pools["__reset__"]), n=1,
+                                   noise=nz, prefix=pf)[0]
+            chS = sample_chunks_lc(runner.policy, pb,
+                                   lc_(pools["__shuffled__"]), n=1,
+                                   noise=nz, prefix=pf)[0]
+            tgt = next(iter(pe["targets"].values()))[:10, :7]
+            d10 = lambda a, b: float(
+                (a[:10, :7] - b[:10, :7]).abs().mean())
+            return {"A_minus_B_state_shift": d10(chA, chB),
+                    "B_minus_C_head_drift": d10(chB, chC),
+                    "A_minus_reset": d10(chA, chR),
+                    "A_minus_shuffled": d10(chA, chS),
+                    "target_repro_A": float(
+                        (chA[:10, :7] - tgt).abs().mean()),
+                    "target_repro_C": float(
+                        (chC[:10, :7] - tgt).abs().mean())}
+
+        @torch.no_grad()
+        def env_eval(lc_, bias_fn_, arm_, step_):
+            """Registered SMALL training-state environment
+            evaluation: re-reach one probe anchor (rotating over the
+            v073B anchors), execute 10 actions from THIS arm's
+            policy, then 60 stock continuation steps. Video saved for
+            every rollout regardless of outcome. Diagnostic only —
+            cannot select an arm or checkpoint (final-step rule)."""
+            from lcwm.lc_flow import sample_chunks_lc
+            from lcwm.loho_public import make_public_env
+            from lcwm.sampler import sample_chunks
+            from lcwm.task_automaton import GoalAutomaton
+            from lcwm.v067_lineage import flow_noise
+            from lcwm.video_recorder import (VideoRecorder,
+                                             write_index_row)
+            eval_keys = [a for a in sorted(anchors)
+                         if a.startswith("v073B::")]
+            if not eval_keys:
+                return {}
+            ak_ = eval_keys[(step_ // CKPT_EVERY - 1)
+                            % len(eval_keys)]
+            e_ = anchors[ak_]
+            sid_ = e_["source_id"]
+            src_ = torch.load(V73 / "sources" / f"{sid_}.pt",
+                              weights_only=False)
+            task_ = e_["task"]
+            gm = json.loads((RESULTS
+                             / "goal_spec_manifest_v067.json")
+                            .read_text())["tasks"][task_]
+            sub = gm["goal_specs"][
+                gm["canonical_goal_spec_id"]]["ordered_subgoals"]
+            env = make_public_env(task_, 1400)
+            try:
+                runner.reset()
+                env.reset(seed=src_["seed"])
+                env._env.env.horizon = 1400
+                au = GoalAutomaton(list(sub))
+                au.start(env)
+                au.evaluate(env, 0)
+                st = 0
+                for i_ in range(e_["decision"]):
+                    for a_env in src_["rows"][i_]["actions_env"]:
+                        env.step(a_env)
+                        st += 1
+                        au.evaluate(env, st)
+                vr = VideoRecorder(
+                    OUT / "videos"
+                    / f"{arm_}_step{step_:03d}_{ak_[7:]}.mp4")
+                obs_ = copy.deepcopy(env._format_raw_obs(
+                    env._env.env._get_observations()))
+                vr.add(obs_)
+                b_ = runner._obs_to_policy_batch(obs_, e_["instr"])
+                pf_ = prefix_forward(runner.policy, b_)
+                nz = flow_noise(sha_seed(
+                    f"{RID}|eval|{arm_}|{step_}"), cfg.chunk_size,
+                    cfg.max_action_dim).to(device)
+                ch_ = sample_chunks_lc(runner.policy, b_,
+                                       bias_fn_(pools[ak_]), n=1,
+                                       noise=nz, prefix=pf_)
+                for a_env in runner.chunk_to_env(ch_[:, :10]):
+                    _o, _r, tb, tr2, _i = env.step(a_env)
+                    st += 1
+                    au.evaluate(env, st)
+                    obs_ = copy.deepcopy(env._format_raw_obs(
+                        env._env.env._get_observations()))
+                    vr.add(obs_)
+                    if tb:
+                        env._env.env.done = False
+                    if tr2:
+                        break
+                q_after = au.q_valid()
+                live = runner.policy.model.action_out_proj
+                sc_ = 0
+                try:
+                    runner.policy.model.action_out_proj = stock_head
+                    while sc_ < 60:
+                        b2 = runner._obs_to_policy_batch(
+                            obs_, e_["instr"])
+                        p2 = prefix_forward(runner.policy, b2)
+                        nz2 = flow_noise(sha_seed(
+                            f"{RID}|evalcont|{step_}|{sc_}"),
+                            cfg.chunk_size, cfg.max_action_dim)
+                        c2 = sample_chunks(runner.policy, b2, n=1,
+                                           noise=nz2.to(device),
+                                           prefix=p2)
+                        for a_env in runner.chunk_to_env(
+                                c2[:, :10]):
+                            _o, _r, tm, tr3, _i = env.step(a_env)
+                            sc_ += 1
+                            au.evaluate(env, st + sc_)
+                            obs_ = copy.deepcopy(
+                                env._format_raw_obs(
+                                    env._env.env
+                                    ._get_observations()))
+                            vr.add(obs_)
+                            if tm or tr3 or sc_ >= 60:
+                                break
+                        if sc_ >= 60:
+                            break
+                finally:
+                    runner.policy.model.action_out_proj = live
+                vm = vr.close(completed=True)
+                write_index_row(
+                    OUT / "video_index.jsonl", vm, run_id=RID,
+                    checkpoint_tag=f"{arm_}_step{step_}",
+                    checkpoint_path=None, checkpoint_sha256=None,
+                    manifest_sha256="policy_training_eval",
+                    task=task_, seed=src_["seed"], arm=arm_,
+                    split="train_state", steps=st + sc_,
+                    success=False,
+                    ordered_progress=au.ordered_prefix(),
+                    damage=au.damage_unrecovered(),
+                    termination="eval_end", root=OUT)
+                return {"eval_anchor": ak_,
+                        "eval_q_after10": float(q_after),
+                        "eval_q_final": float(au.q_valid()),
+                        "eval_prefix": int(au.ordered_prefix())}
+            finally:
+                env.close()
 
         def bias_for(pool):
             if cfg_a["state"] == "global_mean":
@@ -388,7 +603,7 @@ def main() -> None:
             comps["suffix_trust"] = suffix_trust(
                 runner.policy, pfx,
                 norm_once(u0, True)[:, :7], bias, noise, time,
-                stock_aop_state=stock_aop)
+                stock_head=stock_head)
             # (4) retention trust: full 0:50 on the retention stream
             rt = sched["retention"][k]
             rep = demo_eps[(rt[0], rt[1])]
@@ -399,7 +614,7 @@ def main() -> None:
             comps["retention_trust"] = suffix_trust(
                 runner.policy, rpfx,
                 rep["rows"][rt[2]]["chunk_norm"].to(device)[:, :7],
-                rbias, noise, time, stock_aop_state=stock_aop,
+                rbias, noise, time, stock_head=stock_head,
                 lo=0, hi=cfg.chunk_size)
             # (5) demo flow matching under the recurrent demo state
             dt = sched["demo"][k]
@@ -416,7 +631,8 @@ def main() -> None:
                                                               :, :7]
             comps["demo"], _ = weighted_anchor_fm(
                 runner.policy, dpfx, dch,
-                torch.ones(1, device=device), dbias, dn, dtm)
+                torch.ones(1, device=device), dbias, dn, dtm,
+                credit_t=None)      # full-50 demonstration FM
             if k == 0:
                 for name, term in comps.items():
                     opt.zero_grad(set_to_none=True)
@@ -439,6 +655,8 @@ def main() -> None:
             opt.step()
             if (k + 1) % CKPT_EVERY == 0:
                 row = {"step": k + 1,
+                       **readouts(lc, bias_for, arm, k + 1),
+                       **env_eval(lc, bias_for, arm, k + 1),
                        **{c: float(v) for c, v in comps.items()}}
                 with torch.no_grad():
                     row["lc_proj_norm"] = float(

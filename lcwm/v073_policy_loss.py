@@ -35,7 +35,8 @@ CREDIT_T = 10
 
 def per_candidate_losses(policy, prefix, candidates: Tensor,
                          bias: Tensor, noise: Tensor,
-                         time: Tensor) -> Tensor:
+                         time: Tensor,
+                         credit_t: int | None = CREDIT_T) -> Tensor:
     """[M] mean flow-matching loss over the credited first CREDIT_T
     actions and the REAL action dims for each candidate, from ONE
     batched forward (delegated to the library's shared-noise path —
@@ -54,17 +55,24 @@ def per_candidate_losses(policy, prefix, candidates: Tensor,
     """
     m = candidates.shape[0]
     real_dim = candidates.shape[2]
-    bounded = credit_bounded_actions(candidates,
-                                     max_executed=CREDIT_T)
+    if credit_t is None:            # full-chunk (demonstrations):
+        bounded = candidates        # no suffix bounding, no crop
+        end = candidates.shape[1]
+    else:
+        bounded = credit_bounded_actions(candidates,
+                                         max_executed=credit_t)
+        end = credit_t
     raw = raw_flow_losses_from_prefix(
         policy, bounded, bias.expand(m, -1), prefix,
         noise=noise, time=time)
-    return raw[:, :CREDIT_T, :real_dim].mean(dim=(1, 2))
+    return raw[:, :end, :real_dim].mean(dim=(1, 2))
 
 
 def weighted_anchor_fm(policy, prefix, candidates: Tensor,
                        weights: Tensor, bias: Tensor, noise: Tensor,
-                       time: Tensor) -> tuple[Tensor, Tensor]:
+                       time: Tensor,
+                       credit_t: int | None = CREDIT_T
+                       ) -> tuple[Tensor, Tensor]:
     """Registered teacher loss: sum_i w_i L_i with sum w_i == 1.
 
     Weights are asserted pre-normalized (the ledger owns the single
@@ -78,12 +86,12 @@ def weighted_anchor_fm(policy, prefix, candidates: Tensor,
     if abs(s - 1.0) > WEIGHT_ATOL:
         raise ValueError(f"weights must already sum to 1, got {s}")
     per = per_candidate_losses(policy, prefix, candidates, bias,
-                               noise, time)
+                               noise, time, credit_t=credit_t)
     return (weights.to(per) * per).sum(), per
 
 
 def suffix_trust(policy, prefix, chunk: Tensor, bias: Tensor,
-                 noise: Tensor, time: Tensor, stock_aop_state=None,
+                 noise: Tensor, time: Tensor, stock_head=None,
                  lo: int = CREDIT_T, hi: int = 50) -> Tensor:
     """Same-noise STOCK-velocity matching restricted to [lo:hi] over
     the REAL action dims only.
@@ -100,17 +108,20 @@ def suffix_trust(policy, prefix, chunk: Tensor, bias: Tensor,
     cache = _expand_cache(prefix.past_key_values, 1)
     v_b = denoise_step_with_lc_bias(
         policy.model, prefix.pad_masks, cache, x_t, time, bias)
-    aop = policy.model.action_out_proj
+    # stock target head is swapped by ATTRIBUTE REBIND, never by
+    # load_state_dict: an in-place copy_ bumps the trained weight's
+    # version counter and invalidates every already-built graph
+    # (review critical — reproduced as a backward RuntimeError).
+    live_head = policy.model.action_out_proj
     with torch.no_grad():
-        if stock_aop_state is not None:
-            live = {k: v.detach().clone()
-                    for k, v in aop.state_dict().items()}
-            aop.load_state_dict(stock_aop_state)
-        v_0 = denoise_step_with_lc_bias(
-            policy.model, prefix.pad_masks, cache, x_t, time,
-            torch.zeros_like(bias))
-        if stock_aop_state is not None:
-            aop.load_state_dict(live)
+        try:
+            if stock_head is not None:
+                policy.model.action_out_proj = stock_head
+            v_0 = denoise_step_with_lc_bias(
+                policy.model, prefix.pad_masks, cache, x_t, time,
+                torch.zeros_like(bias))
+        finally:
+            policy.model.action_out_proj = live_head
     diff = v_b[:, lo:hi, :real_dim] - v_0[:, lo:hi, :real_dim]
     return (diff ** 2).mean()
 
