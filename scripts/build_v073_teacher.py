@@ -518,10 +518,14 @@ def main() -> None:
             runner.reset()
             env.reset(seed=src["seed"])
             env._env.env.horizon = EPISODE_LENGTH[task] + 500
+            alt_id = next(g for g in gspecs if g != canon_id)
             auto0 = GoalAutomaton(
                 gspecs[canon_id]["ordered_subgoals"])
             auto0.start(env)
             auto0.evaluate(env, 0)
+            alt0 = GoalAutomaton(gspecs[alt_id]["ordered_subgoals"])
+            alt0.start(env)          # start_pos from EPISODE RESET
+            alt0.evaluate(env, 0)
             bodies = auto0.bodies
             t = 0
             for i in range(d):
@@ -529,6 +533,7 @@ def main() -> None:
                     env.step(a_env)
                     t += 1
                     auto0.evaluate(env, t)
+                    alt0.evaluate(env, t)
             row = src["rows"][d]
             err = float(np.abs(body_positions(
                 env, list(bodies.values()))
@@ -537,6 +542,7 @@ def main() -> None:
             snap_a = snap(env, t=t, suite_name="loho_public",
                           task_id=0)
             a_state = fork_env_state(auto0)
+            alt_state = fork_env_state(alt0)
             cids = sorted(c.rsplit("_", 1)[-1] if False else
                           c[len(akey) + 1:]
                           for c in chunk_store
@@ -552,12 +558,11 @@ def main() -> None:
                 ba.bodies, ba.start_pos = auto0.bodies, \
                     auto0.start_pos
                 restore_env_state(ba, a_state)
-                alt_id = next(g for g in gspecs
-                              if g != canon_id)
                 b_alt = GoalAutomaton(
                     gspecs[alt_id]["ordered_subgoals"])
-                b_alt.start(env)
-                b_alt.evaluate(env, 0)
+                b_alt.bodies, b_alt.start_pos = alt0.bodies, \
+                    alt0.start_pos
+                restore_env_state(b_alt, alt_state)
                 ch = chunk_store[f"{akey}_{cid}"]
                 if cid == "u0":
                     acts = list(row["actions_env"])[:10]
