@@ -1,0 +1,762 @@
+{
+  "lc_random": [
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1800,
+      "first_unresolved": "pick_up chocolate_pudding_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1830,
+      "first_unresolved": "pick_up chocolate_pudding_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up cream_cheese_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up cream_cheese_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1800,
+      "first_unresolved": "pick_up chocolate_pudding_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1810,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1820,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    }
+  ],
+  "lc_full": [
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1800,
+      "first_unresolved": "pick_up chocolate_pudding_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1810,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1820,
+      "first_unresolved": "pick_up chocolate_pudding_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1830,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1840,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1800,
+      "first_unresolved": "place alphabet_soup_1 wooden_tray_1_contain_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up cream_cheese_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1820,
+      "first_unresolved": "place akita_black_bowl_1 wooden_tray_1_contain_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1800,
+      "first_unresolved": "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+      "ordered_prefix": 3
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1830,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1840,
+      "first_unresolved": "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+      "ordered_prefix": 3
+    }
+  ],
+  "correction_bc": [
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1800,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1840,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    }
+  ],
+  "stock": [
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1800,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1820,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1830,
+      "first_unresolved": "close wooden_cabinet_1_top_region",
+      "ordered_prefix": 4
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1840,
+      "first_unresolved": "place butter_1 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1810,
+      "first_unresolved": "place butter_1 basket_1_contain_region",
+      "ordered_prefix": 3
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up new_salad_dressing_1",
+      "ordered_prefix": 2
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1800,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1810,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1840,
+      "first_unresolved": "place butter_2 wooden_cabinet_1_top_region",
+      "ordered_prefix": 1
+    }
+  ],
+  "lc_grounded": [
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t1_drawer",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1800,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t2_basket3",
+      "seed": 1840,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t3_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up alphabet_soup_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1800,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1810,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1820,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1830,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t4_tray",
+      "seed": 1840,
+      "first_unresolved": "pick_up akita_black_bowl_1",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1800,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1810,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1820,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1830,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    },
+    {
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 1840,
+      "first_unresolved": "pick_up butter_2",
+      "ordered_prefix": 0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "v073_loho_dev_manifest_v1",
+  "run_schema": "v073",
+  "run_id": "v073_loho_dev_r1",
+  "git_sha": "de39327d",
+  "arms": [
+    "stock",
+    "correction_bc",
+    "lc_grounded",
+    "lc_full",
+    "lc_random"
+  ],
+  "seeds": [
+    1800,
+    1810,
+    1820,
+    1830,
+    1840
+  ],
+  "deployment": "recurrent full-prompt N=1; no scorer/best-of-N/GoalSpec/taskID/atomic/planner",
+  "noise_crn": "SHA256('v073_loho_dev_r1|act|task|seed|decision') \u2014 arm identity structurally absent",
+  "arm_order": "hash-sorted per (task, seed)",
+  "policy_checkpoints": {
+    "correction_bc": "567520512761ebcfbb94a907ccdb98f3b2472e33844a7022c400f505e4861fa8",
+    "lc_grounded": "fda6a5a339b5887c5aafebeb67b711e95a4d6a9b3634c09c5ef052d7a89be3bb",
+    "lc_full": "1f5945505b2a3ee031e67edd8f63925aefeec6696fd3ba971cc50a0a6d9ad10c",
+    "lc_random": "f8d3638d4da1335c9b98bdb5e776afe24628175deaefbf446f2cbac8a5cbba0a"
+  },
+  "lcwm_final_sha": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8",
+  "global_mean_arms": [
+    "correction_bc"
+  ]
+}
