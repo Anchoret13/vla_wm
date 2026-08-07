@@ -214,6 +214,48 @@ def main() -> None:
                   if x["candidate_id"] == cid)
         return tr["frames"][-1]
 
+    def task_of_sid(sid):
+        for tk in S.TASKS:
+            if sid.startswith(tk):
+                return tk
+        raise KeyError(sid)
+
+    def alias_valid(key, path):
+        """Inherited aliases into the CANONICAL-namespace caches
+        (h_canonical / ext_lc_full / 2c ext dirs) are only valid when
+        the key's text IS the canonical p0 of the SOURCE'S OWN task.
+        The v072 builder aliased cross-task canonical texts (e.g.
+        t1_canonical_p0 at t5 sources) to wrong-prompt files — caught
+        by the V7.3C zero-inv-gradient assertion; those keys are
+        recomputed here."""
+        pth = str(path)
+        if "/h_canonical/" not in pth and "/ext_" not in pth:
+            return True
+        tvid = key.split("::", 1)[0]
+        parts = key.split("::")
+        if parts[1] == "src":
+            sid = parts[2]
+        elif parts[1] == "swb":
+            sid = parts[2]          # window id starts with task name
+        elif parts[1] == "next":
+            sid = parts[2] if parts[2] not in ("v073", "v072T") \
+                else parts[3]
+            if sid.startswith("u1::"):
+                sid = sid[4:]
+            if sid.startswith("sw::"):
+                sid = sid[4:]
+        else:
+            return True
+        task = task_of_sid(sid)
+        return tvid == S.canon_goal(task) + "_p0"
+
+    invalid = [k for k in list(index)
+               if k in needed and not alias_valid(k, index[k])]
+    for k in invalid:
+        del index[k]
+    print(f"[hc] invalidated cross-task canonical aliases: "
+          f"{len(invalid)}", flush=True)
+
     todo = []
     for key, (kind, ref) in sorted(needed.items()):
         if key in index:
