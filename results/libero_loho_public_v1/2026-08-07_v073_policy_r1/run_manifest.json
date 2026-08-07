@@ -1,0 +1,48 @@
+{
+  "schema": "v073_policy_manifest_v1",
+  "run_schema": "v073",
+  "run_id": "v073_policy_r1",
+  "git_sha": "4b054cf5",
+  "arms": {
+    "correction_bc": {
+      "state": "global_mean",
+      "model_mass": false
+    },
+    "lc_grounded": {
+      "state": "recurrent",
+      "model_mass": false
+    },
+    "lc_full": {
+      "state": "recurrent",
+      "model_mass": "model"
+    },
+    "lc_random": {
+      "state": "recurrent",
+      "model_mass": "random"
+    }
+  },
+  "trainable": "LCProj(bias-free, zero-init) + action_out_proj (stock init)",
+  "frozen": "PrefixVLM, LCWM, all other expert blocks",
+  "optimizer": {
+    "steps": 300,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "clip": 1.0,
+    "ckpt_every": 50,
+    "selection": "final step ONLY"
+  },
+  "grounded_rows": 23,
+  "grounded_anchors": 6,
+  "model_anchors": 1,
+  "teacher_seal": {
+    "git_sha": "271d6e97",
+    "lcwm_final_sha": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8",
+    "dev_margins_sha": "4b16da9baf999841dae6a3c64d5806038fe2a129085116de4f93172628152375",
+    "model_ledger_sha": "9b0ab87316dbe116c78fd34ab938761d917303bc4a722a5c3fd5c5a47e5d06a8",
+    "matched_random_sha": "e464c977650ce357ea93e0a8954d7579ed38a7e9a7ca11c8ae136c1779452361",
+    "grounded_sha": "807ce8a470e9ede819f73f802d30fe10cb7cd7922f64ffa85e044df8bfdcb9cd",
+    "chunks_sha": "f3e1f759fb3f768daecbd01cdcfcd0236110fba3924920110f881eb2c279db15",
+    "sealed_before_any_execution": true
+  },
+  "lcwm_final_sha": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8"
+}
