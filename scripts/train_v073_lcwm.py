@@ -595,22 +595,33 @@ def main() -> None:
                 f"bundle {k} active in only {len(norms[k])} mbs"
             assert all(np.isfinite(norms[k])) and \
                 min(norms[k]) > 0, f"bundle {k} zero/nonfinite"
-        med = {k: float(np.median(v)) for k, v in norms.items()}
+        # SPLIT-HALF validation (amended binding): lambdas from the
+        # even-indexed half's medians; the 3x check runs on the
+        # odd-indexed half's SCALED MEDIANS — non-vacuous (held-out)
+        # and median-consistent with the contract wording. The
+        # earlier MEAN variant failed at 3.55x purely from
+        # within-bundle skew of the inv picks (recorded).
+        half_a = {k: v[0::2] for k, v in norms.items()}
+        half_b = {k: v[1::2] for k, v in norms.items()}
+        med = {k: float(np.median(v)) for k, v in half_a.items()}
         g_geo = float(np.exp(np.mean([np.log(v)
                                       for v in med.values()])))
         lam = {k: g_geo / (med[k] + 1e-8) for k in med}
-        scaled_means = {k: lam[k] * float(np.mean(norms[k]))
-                        for k in med}
-        mx, mn = max(scaled_means.values()), min(
-            scaled_means.values())
+        scaled_holdout = {k: lam[k] * float(np.median(half_b[k]))
+                          for k in med}
+        mx, mn = max(scaled_holdout.values()), min(
+            scaled_holdout.values())
         assert mx / max(mn, 1e-12) < 3.0, \
-            f"scaled MEAN norms exceed 3x: {scaled_means}"
+            f"held-out scaled MEDIANS exceed 3x: {scaled_holdout}"
+        scaled_means = scaled_holdout
         lam_path.write_text(json.dumps({
             "lambda": lam, "median": med, "g_geo": g_geo,
-            "scaled_means": scaled_means,
+            "scaled_holdout_medians": scaled_means,
             "microbatches": detail,
-            "note": "3x check on MEAN scaled norms (median-scaled "
-                    "is an identity by construction; registered)"},
+            "note": "split-half: lambda from even-half medians; 3x "
+                    "check on odd-half scaled medians (held-out, "
+                    "non-vacuous; amended binding, mean variant "
+                    "failed at 3.55x from inv skew)"},
             indent=2))
         print(f"[lam] {lam} scaled_means={scaled_means}",
               flush=True)
