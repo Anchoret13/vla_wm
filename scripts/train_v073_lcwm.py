@@ -435,6 +435,7 @@ def main() -> None:
         canon = S.canon_goal(a["task"])
         L = defaultdict(list)
         zt_by = {}
+        cont_pairs = []
         for pt, row in pl.items():
             cn, am = a_norm_of(row)
             zt = model.predict(z, cn, action_mask=am)
@@ -468,7 +469,10 @@ def main() -> None:
                           torch.from_numpy(f01[:n]).to(device))
                     + bce(out["flips_10"][0, :n],
                           torch.from_numpy(f10[:n]).to(device)))
-            cg_t = row["cont"].get(g if g in row["cont"] else canon)
+            # outcome targets ONLY under the query goal itself —
+            # a canonical fallback would supervise the g-conditioned
+            # heads with wrong-goal targets (review finding)
+            cg_t = row["cont"].get(g)
             if cg_t is not None:
                 gbar = torch.from_numpy(
                     np.asarray(cg_t, dtype=np.float32)).to(device)
@@ -478,11 +482,20 @@ def main() -> None:
                 L["task"].append(
                     torch.nn.functional.huber_loss(
                         ghat, gbar, delta=HUB_OUT))
+                cont_pairs.append((ghat, gbar))
             if row["recterm_success"] is not None:
                 L["task"].append(bce(
                     out["success_logit"].reshape(1),
                     torch.tensor([row["recterm_success"]],
                                  device=device)))
+        # within-anchor CENTERED outcome targets (contract:
+        # absolute AND centered; review finding)
+        if len(cont_pairs) >= 2:
+            Ph = torch.stack([a_ for a_, _b in cont_pairs])
+            Tb = torch.stack([b_ for _a, b_ in cont_pairs])
+            L["task"].append(torch.nn.functional.huber_loss(
+                Ph - Ph.mean(0, keepdim=True),
+                Tb - Tb.mean(0, keepdim=True), delta=HUB_OUT))
         # centered phys within anchor
         if len(zt_by) >= 2:
             preds_, tgts_ = [], []
@@ -527,33 +540,36 @@ def main() -> None:
         lam = json.loads(lam_path.read_text())["lambda"]
     else:
         cal = []
+        visit_set = S.needed_visits(anchors, tq)
+        by_task_v = defaultdict(list)
+        for ak, g, tvv in visit_set:
+            if anchors[ak]["split"] == "train":
+                by_task_v[anchors[ak]["task"]].append((ak, g, tvv))
         for task in S.TASKS:
-            picks = []
-            for ak in sorted(anchors):
-                a = anchors[ak]
-                if a["task"] != task or a["split"] != "train":
-                    continue
-                pairs = S.queries_for(a, tq)
-                g, tvv = pairs[0]
-                if a["universe"] == "v073" and \
-                        sum(1 for p in picks
-                            if anchors[p[0]]["universe"]
-                            == "v073") < 2:
-                    picks.append((ak, g, tvv))
-                elif a["universe"] == "v072B" and \
-                        sum(1 for p in picks
-                            if anchors[p[0]]["universe"]
-                            == "v072B") < 1:
-                    q73 = S.queries_for(a, tq)
-                    picks.append((ak,) + q73[min(1, len(q73) - 1)])
-                elif a["universe"] == "v072T" and \
-                        sum(1 for p in picks
-                            if anchors[p[0]]["universe"]
-                            == "v072T") < 1:
-                    picks.append((ak, g, tvv))
-                if len(picks) >= 4:
+            vs = by_task_v[task]
+            cp0 = S.canon_goal(task) + "_p0"
+            inv_active = [v for v in vs if v[2] != cp0]
+            plain = [v for v in vs if v[2] == cp0]
+            picks, seen_ak = [], set()
+            for pool, want in ((inv_active, 2), (plain, 2)):
+                for v in pool:
+                    if len([p_ for p_ in picks
+                            if p_ in pool]) >= want:
+                        break
+                    if v[0] in seen_ak:
+                        continue
+                    picks.append(v)
+                    seen_ak.add(v[0])
+            while len(picks) < 4 and len(picks) < len(vs):
+                for v in vs:
+                    if v[0] not in seen_ak:
+                        picks.append(v)
+                        seen_ak.add(v[0])
+                        break
+                else:
                     break
             cal.extend(picks[:4])
+        assert len(cal) == 20, f"calibration set {len(cal)} != 20"
         norms = defaultdict(list)
         detail = []
         for ak, g, tvv in cal:

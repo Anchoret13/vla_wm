@@ -117,9 +117,24 @@ def rr_schedule(anchors, split, epoch):
     return order
 
 
+import hashlib
+
+
+def _ak_off(ak):
+    return int.from_bytes(hashlib.sha256(
+        ak.encode()).digest()[:4], "big")
+
+
 def visit_query(anchors, task_queries, ak, epoch, idx):
+    """Query choice is DELIBERATELY independent of the slot index:
+    (epoch + anchor_hash) mod len walks consecutive residues, so 25
+    epochs cover every pair list of length <= 25 with certainty —
+    the earlier (epoch+idx) and stride forms both aliased because
+    the slot index itself drifts with the epoch source rotation
+    (review finding + coverage validation)."""
+    del idx
     pairs = queries_for(anchors[ak], task_queries)
-    return pairs[(epoch + idx) % len(pairs)]
+    return pairs[(epoch + _ak_off(ak)) % len(pairs)]
 
 
 def needed_visits(anchors, task_queries):

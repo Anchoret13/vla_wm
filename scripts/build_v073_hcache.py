@@ -79,16 +79,60 @@ def main() -> None:
     expanded = []
     for ak, g, tvv in visits:
         a = anchors[ak]
-        if a["universe"] == "v072B":
-            continue    # fully covered by the old index
+        # v072B visits are enumerated TOO: the merged schedule
+        # rotates them onto (goal, text) pairs the v072-only
+        # enumeration never produced (review critical: 372 missing
+        # keys). Each key still resolves against the old index
+        # first; only genuinely new ones are computed.
         expanded.append((ak, tvv, True))
         cp0 = canon_p0(a["task"])
         if tvv != cp0:
             expanded.append((ak, cp0, False))
+    tr72 = {r["pt_id"]: r for r in S72.load_union()}
+
+    def v72_shard(root_name, shard_name):
+        key = ("v72raw", root_name, shard_name)
+        if key not in shard_lru:
+            if len(shard_lru) > 2:
+                shard_lru.clear()
+            raw_roots = {k: Path(v["path"]) for k, v in json.loads(
+                (V72DATA / "run_manifest.json").read_text())
+                ["raw_roots"].items()}
+            shard_lru[key] = torch.load(
+                raw_roots[root_name] / "shards" / shard_name,
+                weights_only=False)
+        return shard_lru[key]
+
     for ak, tvv, with_next in expanded:
         a = anchors[ak]
         sid, d = a["source_id"], a["decision"]
         u = a["universe"]
+        if u == "v072B":
+            for dd in range(d):
+                needed[f"{tvv}::src::{sid}::d{dd}"] = \
+                    ("srcdec72", (sid, dd))
+            if a["origin"] == "v071_semwin":
+                rec0 = tr72[a["rows"][0]]
+                wid = rec0["raw_key"].split("|")[0]
+                s = v72_shard(rec0["raw_root"], rec0["raw_shard"])
+                cum = [0]
+                for sg_ in s["segments"]:
+                    cum.append(cum[-1] + sg_["actions"])
+                for b in cum:
+                    needed[f"{tvv}::swb::{wid}::b{b}"] = \
+                        ("swb72", (rec0["raw_root"],
+                                   rec0["raw_shard"], b))
+            else:
+                needed[f"{tvv}::src::{sid}::d{d}"] = \
+                    ("srcdec72", (sid, d))
+                if with_next:
+                    for pt in a["rows"]:
+                        rec = tr72[pt]
+                        if rec["kind"] == "audit":
+                            continue
+                        needed[f"{tvv}::next::{pt}"] = \
+                            ("next72b", pt)
+            continue
         for dd in range(d + 1):
             needed[f"{tvv}::src::{sid}::d{dd}"] = \
                 ("srcdec", (u, sid, dd))
@@ -112,7 +156,49 @@ def main() -> None:
                         ("next72t", (sid, d, tr["candidate_id"]))
     print(f"[hc] {len(needed)} candidate new keys", flush=True)
 
+    union72 = json.loads((RESULTS / "2026-08-02_v071_union_f1"
+                          / "union_manifest.json").read_text())
+    src72_paths = {sid: b["path"] for sid, b in
+                   union72["source_histories"].items()}
+    for tag in ("selector_r1", "selector_r2"):
+        for pth in (RESULTS / f"2026-08-03_v071_{tag}"
+                    / "prospective_sources").glob("*.pt"):
+            src72_paths[pth.stem] = str(pth)
+
+    def src72(sid):
+        key = ("72src", sid)
+        if key not in src_lru:
+            if len(src_lru) > 6:
+                src_lru.clear()
+            src_lru[key] = torch.load(src72_paths[sid],
+                                      weights_only=False)
+        return src_lru[key]
+
     def obs_of(kind, ref):
+        if kind == "srcdec72":
+            sid, dd = ref
+            return src72(sid)["rows"][dd]["obs"]
+        if kind == "swb72":
+            root_name, shard_name, b = ref
+            return v72_shard(root_name, shard_name)["frames"][b]
+        if kind == "next72b":
+            rec = tr72[ref]
+            s = v72_shard(rec["raw_root"], rec["raw_shard"])
+            if rec["origin"] == "v071_semwin":
+                wid, seg = rec["raw_key"].split("|")
+                k = int(seg[3:])
+                cum = [0]
+                for sg_ in s["segments"]:
+                    cum.append(cum[-1] + sg_["actions"])
+                return s["frames"][cum[k + 1]]
+            for tr in s["transitions"]:
+                if rec["origin"].startswith("v071_sel"):
+                    if f"{s['anchor']}_{tr['candidate_id']}" \
+                            == rec["raw_key"]:
+                        return tr["frames"][-1]
+                elif tr["transition_id"] == rec["raw_key"]:
+                    return tr["frames"][-1]
+            raise KeyError(rec["raw_key"])
         if kind == "srcdec":
             u, sid, dd = ref
             return src(u, sid)["rows"][dd]["obs"]
