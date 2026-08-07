@@ -30,6 +30,7 @@ import json
 import subprocess
 import sys
 from collections import defaultdict
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -287,44 +288,84 @@ def main() -> None:
     for r in recs:
         table[(r["task"], r["seed"])][r["arm"]] = r
 
-    def per_task(arm, key="success"):
+    def per_task_counts(arm, key="success"):
+        """EXACT per-task tallies (numerator, denominator) — the
+        registered comparison is on task-balanced rates and must not
+        be decided by float summation order (review: np.mean over 5
+        per-task rates gives different floats for the SAME total, so
+        genuine ties were reported as wins)."""
         by = defaultdict(list)
         for (task, _s), row in table.items():
             if arm in row:
-                by[task].append(float(row[arm][key]))
-        return {t: float(np.mean(v)) for t, v in by.items()}
+                by[task].append(row[arm][key])
+        return {t_: (sum(Fraction(int(x) if isinstance(x, bool)
+                                  else x).limit_denominator(10**6)
+                         for x in v), len(v))
+                for t_, v in by.items()}
+
+    def balanced(arm, key="success"):
+        c = per_task_counts(arm, key)
+        if not c:
+            return Fraction(0)
+        return sum(Fraction(n, d) for n, d in c.values()) \
+            / len(c)
+
+    def per_task(arm, key="success"):
+        return {t_: float(Fraction(n, d))
+                for t_, (n, d) in per_task_counts(arm, key).items()}
 
     def gt(a, b):
-        sa, sb = per_task(a), per_task(b)
-        tasks = sorted(set(sa) & set(sb))
-        bal_a = float(np.mean([sa[t] for t in tasks]))
-        bal_b = float(np.mean([sb[t] for t in tasks]))
-        pos = [t for t in tasks if sa[t] > sb[t]]
-        reg = [t for t in tasks if sa[t] < sb[t]]
-        da = per_task(a, "damage")
-        db = per_task(b, "damage")
-        dmg_up = [t for t in tasks if da[t] > db[t]]
-        return {"a": a, "b": b, "bal_a": bal_a, "bal_b": bal_b,
-                "tasks_positive": pos, "task_regressions": reg,
-                "damage_increase_tasks": dmg_up,
-                "strictly_greater": bal_a > bal_b,
-                "exact_tie": bal_a == bal_b,
-                "phase1_win_vs_stock": bool(
-                    bal_a > bal_b and len(pos) >= 2 and not reg
-                    and not dmg_up)}
+        ca, cb = per_task_counts(a), per_task_counts(b)
+        tasks = sorted(set(ca) & set(cb))
+        bal_a, bal_b = balanced(a), balanced(b)
+        pos = [t_ for t_ in tasks
+               if Fraction(*ca[t_]) > Fraction(*cb[t_])]
+        reg = [t_ for t_ in tasks
+               if Fraction(*ca[t_]) < Fraction(*cb[t_])]
+        da, db = per_task_counts(a, "damage"), \
+            per_task_counts(b, "damage")
+        dmg_up = [t_ for t_ in tasks
+                  if Fraction(*da[t_]) > Fraction(*db[t_])]
+        out = {"a": a, "b": b, "bal_a": float(bal_a),
+               "bal_b": float(bal_b),
+               "bal_a_exact": str(bal_a), "bal_b_exact": str(bal_b),
+               "tasks_positive": pos, "task_regressions": reg,
+               "damage_increase_tasks": dmg_up,
+               "strictly_greater": bool(bal_a > bal_b),
+               "exact_tie": bool(bal_a == bal_b)}
+        if b == "stock":
+            # the >=2-positive / no-regression / no-damage-increase
+            # safety rule is registered RELATIVE TO STOCK only
+            out["phase1_win_vs_stock"] = bool(
+                bal_a > bal_b and len(pos) >= 2 and not reg
+                and not dmg_up)
+        return out
 
     pairs = [("lc_full", "stock"), ("lc_full", "correction_bc"),
              ("lc_full", "lc_grounded"), ("lc_full", "lc_random"),
              ("lc_grounded", "correction_bc"),
              ("lc_grounded", "stock"), ("correction_bc", "stock"),
              ("lc_random", "stock")]
+    verdicts = {f"{a}>{b}": gt(a, b) for a, b in pairs}
+    winner = bool(
+        verdicts["lc_full>stock"].get("phase1_win_vs_stock")
+        and verdicts["lc_full>correction_bc"]["strictly_greater"]
+        and verdicts["lc_full>lc_grounded"]["strictly_greater"]
+        and verdicts["lc_full>lc_random"]["strictly_greater"])
     report = {
+        "v73_development_winner": winner,
+        "winner_rule": "lc_full > stock under the stock-only safety "
+                       "rule AND strictly greater task-balanced "
+                       "success than correction_bc, lc_grounded, "
+                       "lc_random (exact-rational comparison)",
         "task_balanced_success": {a: per_task(a) for a in ARMS},
+        "task_balanced_overall": {a: str(balanced(a))
+                                  for a in ARMS},
         "task_balanced_q_auc": {a: per_task(a, "q_auc")
                                 for a in ARMS},
         "task_balanced_damage": {a: per_task(a, "damage")
                                  for a in ARMS},
-        "paired": [gt(a, b) for a, b in pairs],
+        "paired": list(verdicts.values()),
         "n_rollouts": len(recs),
     }
     (root / "paired_report.json").write_text(
