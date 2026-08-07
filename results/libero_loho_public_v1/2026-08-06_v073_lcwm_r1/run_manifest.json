@@ -1,0 +1,30 @@
+{
+  "schema": "v073_lcwm_manifest_v1",
+  "run_schema": "v073",
+  "git_sha": "4897216d",
+  "init": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-03_v072_lcwm_loss_r1/shared_initialization.pt",
+  "universe": {
+    "v072B": 96,
+    "v072T": 18,
+    "v073": 33
+  },
+  "optimizer": {
+    "lr": 0.0003,
+    "wd": 0.0001,
+    "epochs": 25,
+    "clip": 1.0,
+    "tbptt": 16,
+    "ema": 0.995,
+    "seed": 0,
+    "selection": "final step ONLY"
+  },
+  "masks": {
+    "tau_next": 0,
+    "damage": 0,
+    "terminal_success": [
+      "loho_t2_basket3"
+    ],
+    "rank_family": "REMOVED (no scalar rank head)"
+  },
+  "lambda_sha": "a7c11890c4600063"
+}

@@ -1,0 +1,204 @@
+{
+  "lambda": {
+    "cl": 1.5335646960545934,
+    "phys": 0.005807601751812734,
+    "task": 1.3321348213757447,
+    "inv": 84.28529061068157
+  },
+  "median": {
+    "cl": 0.22418276220560074,
+    "phys": 59.19806480407715,
+    "task": 0.2580810636281967,
+    "inv": 0.004078979138284922
+  },
+  "g_geo": 0.34379878491815824,
+  "scaled_holdout_medians": {
+    "cl": 0.3412365008851136,
+    "phys": 0.3063347976568378,
+    "task": 0.25114632322615854,
+    "inv": 0.24700815725082723
+  },
+  "microbatches": [
+    {
+      "anchor": "sw::loho_t1_drawer_acquire_s2200_d37_semwin_stock",
+      "goal": "t1_back_butter",
+      "text": "t1_back_butter_p0",
+      "cl": 0.23041373491287231,
+      "phys": 66.73481750488281,
+      "task": 0.3666491210460663,
+      "inv": 0.005709539633244276
+    },
+    {
+      "anchor": "sw::loho_t1_drawer_acquire_s2200_d47_semwin_stock",
+      "goal": "t1_back_butter",
+      "text": "t1_back_butter_p0",
+      "cl": 0.23232443630695343,
+      "phys": 53.22295379638672,
+      "task": 0.35310229659080505,
+      "inv": 0.012910271994769573
+    },
+    {
+      "anchor": "v071_selr1::loho_t1_drawer_prospect_s2300_d19",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 0.2224256992340088,
+      "phys": 49.80946731567383,
+      "task": 0.0066932798363268375,
+      "inv": null
+    },
+    {
+      "anchor": "v071_selr1::loho_t1_drawer_prospect_s2300_d3",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 0.22278709709644318,
+      "phys": 41.406028747558594,
+      "task": 0.00675238948315382,
+      "inv": null
+    },
+    {
+      "anchor": "sw::loho_t2_basket3_acquire_s2210_d14_semwin_stock",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p1",
+      "cl": 0.23142015933990479,
+      "phys": 56.10895538330078,
+      "task": 0.5117107033729553,
+      "inv": 0.0022949310950934887
+    },
+    {
+      "anchor": "sw::loho_t2_basket3_acquire_s2210_d61_semwin_stock",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p1",
+      "cl": 0.2220984697341919,
+      "phys": 42.306678771972656,
+      "task": 0.5446529984474182,
+      "inv": 0.0008861530222930014
+    },
+    {
+      "anchor": "sw::loho_t2_basket3_acquire_s2210_d62_semwin_stock",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p0",
+      "cl": 0.22205750644207,
+      "phys": 60.746437072753906,
+      "task": 1.1027063131332397,
+      "inv": null
+    },
+    {
+      "anchor": "sw::loho_t2_basket3_acquire_s2210_d7_semwin_stock",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p0",
+      "cl": 0.2308085709810257,
+      "phys": 80.22532653808594,
+      "task": 0.39508506655693054,
+      "inv": null
+    },
+    {
+      "anchor": "sw::loho_t3_tray_acquire_s2220_d2_semwin_c1",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p1",
+      "cl": 0.21798746287822723,
+      "phys": 32.28994369506836,
+      "task": 0.14951300621032715,
+      "inv": 0.0017374161398038268
+    },
+    {
+      "anchor": "sw::loho_t3_tray_acquire_s2220_d2_semwin_u0",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p1",
+      "cl": 0.21795853972434998,
+      "phys": 31.412424087524414,
+      "task": 0.14945492148399353,
+      "inv": 0.0014676955761387944
+    },
+    {
+      "anchor": "v071_selr1::loho_t3_tray_prospect_s2320_d18",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p0",
+      "cl": 0.2227419763803482,
+      "phys": 58.98624801635742,
+      "task": 0.005307214800268412,
+      "inv": null
+    },
+    {
+      "anchor": "v071_selr1::loho_t3_tray_prospect_s2320_d2",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p0",
+      "cl": 0.21998192369937897,
+      "phys": 44.45563507080078,
+      "task": 0.006707466207444668,
+      "inv": null
+    },
+    {
+      "anchor": "sw::loho_t4_tray_correction_s2130_d11_semwin_stock",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p1",
+      "cl": 0.22562354803085327,
+      "phys": 79.82547760009766,
+      "task": 0.5064771175384521,
+      "inv": 0.004078979138284922
+    },
+    {
+      "anchor": "sw::loho_t4_tray_correction_s2130_d5_semwin_stock",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p1",
+      "cl": 0.2483409345149994,
+      "phys": 92.06983184814453,
+      "task": 0.40470948815345764,
+      "inv": 0.0029306199867278337
+    },
+    {
+      "anchor": "v071_selr1::loho_t4_tray_prospect_s2330_d14",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p0",
+      "cl": 0.23296667635440826,
+      "phys": 82.39179229736328,
+      "task": 0.006882903631776571,
+      "inv": null
+    },
+    {
+      "anchor": "v071_selr1::loho_t4_tray_prospect_s2330_d2",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p0",
+      "cl": 0.21974536776542664,
+      "phys": 69.96591186523438,
+      "task": 0.006615536753088236,
+      "inv": null
+    },
+    {
+      "anchor": "sw::loho_t5_drawer_cabinet_acquire_s2240_d93_semwin_stock",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 0.2351282387971878,
+      "phys": 59.02943801879883,
+      "task": 0.5123595595359802,
+      "inv": 0.04760521650314331
+    },
+    {
+      "anchor": "v071_union::loho_t5_drawer_cabinet_correction_s2140_d2",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 0.22223684191703796,
+      "phys": 52.27146911621094,
+      "task": 0.2276034951210022,
+      "inv": 0.04526996985077858
+    },
+    {
+      "anchor": "v071_selr1::loho_t5_drawer_cabinet_prospect_s2340_d12",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p0",
+      "cl": 0.22032852470874786,
+      "phys": 59.36669158935547,
+      "task": 0.0066443150863051414,
+      "inv": null
+    },
+    {
+      "anchor": "v071_selr1::loho_t5_drawer_cabinet_prospect_s2340_d17",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p0",
+      "cl": 0.22281263768672943,
+      "phys": 72.6405258178711,
+      "task": 0.006669581867754459,
+      "inv": null
+    }
+  ],
+  "note": "split-half: lambda from even-half medians; 3x check on odd-half scaled medians (held-out, non-vacuous; amended binding, mean variant failed at 3.55x from inv skew)"
+}
