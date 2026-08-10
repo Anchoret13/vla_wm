@@ -20,6 +20,32 @@ results/**/epoch_*/
 results/**/optimizer_latest.pt
 results/**/*.safetensors
 
+# Large generated experiment trees. Keep compact configs, manifests, metrics,
+# summaries, and audit reports visible while excluding tensors/caches/rollouts.
+results/**/hcache/
+results/**/train/
+results/**/checkpoints/
+results/**/shards/
+results/**/sources/
+results/**/teacher_banks/
+results/**/teacher_sources/
+results/**/acquire_sources/
+results/**/prospective_sources/
+results/**/physical_transitions/
+results/**/traces/
+
+# Binary model/data artifacts are stored outside Git. Existing tracked files
+# remain tracked; these rules prevent newly generated artifacts from surfacing.
+results/**/*.pt
+results/**/*.pth
+results/**/*.ckpt
+results/**/*.npz
+results/**/*.npy
+
+# High-volume generated indexes/ledgers; retain their compact reports/manifests.
+results/**/hcache_index.json
+results/**/recovery_ledger.jsonl
+
 # external source (installed editable into vf0s, lives at ../lerobot)
 /lerobot/
 results/**/checkpoint_epoch*.pt

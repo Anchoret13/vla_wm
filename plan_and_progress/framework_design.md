@@ -1,16 +1,21 @@
-# pi05-lcwm — Framework Design v0.7
+# pi05-lcwm — Framework Design v0.8
 
-Working design record, updated 2026-08-03. v0.7 retains the central LC
-predictive-state graph and deployment contract and revises three implementation
-choices after the completed V7.2 vertical slice:
+Working design record, updated 2026-08-09. v0.8 retains the central LC
+predictive-state graph and deployment contract, and corrects the policy handoff
+after the completed V7.3 vertical slice:
 
-1. recovery-crossed data must contain blocker-relevant positive and negative
-   task consequences, rather than merely many physical branches;
-2. the policy teacher is constructed from the model's predicted task-outcome
-   tuple, not a detached standalone scalar rank head;
-3. the fixed π0.5 fine-tuning boundary is the bias-free LC projection plus the
-   stock-initialized action output projection, with a matched constant-state
-   control separating generic PEFT from recurrent-state value.
+1. recovery-crossed data must contain verified blocker-relevant positive and
+   negative task consequences across the public LoHo chain, rather than merely
+   many physical branches or a model-selected candidate identity;
+2. the state entering π0.5 must expose task/history-varying content at the
+   actual flow input; mean pooling with a large common nonzero mode is not a
+   valid state-conditioned interface even when the following projection is
+   bias-free;
+3. generated-target, grounded-only, and matched-random policy arms must share
+   the same task/source/anchor schedule, with abstention represented by exactly
+   zero model loss rather than by deleting the anchor;
+4. LCWM validation and π0.5 fine-tuning remain one bounded vertical slice that
+   terminates at recurrent full-prompt `N=1` public-LoHo behavior.
 
 H7/v0.5 remains a negative readout-conditioned implementation baseline. v0.6
 then instantiated one language-conditioned recurrent predictive state used by
@@ -21,7 +26,11 @@ candidate separately and normalized by that candidate's scalar weight, exactly
 cancelling the registered teacher weights and scaling soft FM with candidate
 count. V7.2 behavior is therefore implementation-confounded, while its data,
 model, teacher-assessment outcomes, videos, and failure localization remain
-reusable. `2026-08-03.md` owns the active V7.3 execution contract.
+reusable. V7.3 then executed the complete repaired path and a fresh 125-rollout
+matrix, but its deployed pooled state was nearly constant, its sole model target
+had no verified outcome advantage, and its scheduler concentrated the model
+term on that one anchor. V7.3 is therefore a real no-win behavior record but not
+a clean negative for language-conditioned predictive state learning.
 
 `[LOCKED]` denotes the current method commitment. `[DEC]` denotes an unresolved
 design choice. `[EST]` denotes a quantity that must be measured.
@@ -252,14 +261,21 @@ baseline. It is not an implementation of this locked graph.
 ### 2.2 Direct VLA integration
 
 The LC state changes the π0.5 flow field through the existing zero-initialized
-AdaRMS adapter:
+AdaRMS adapter. After the V7.3 common-mode failure, the primary v0.8 interface
+uses the centered, scale-controlled state residual rather than raw mean pool:
 
 \[
+c_t^\ell
+=
+\operatorname{Norm}\!\left(
+\operatorname{Pool}(z_t^\ell)-\mu_{\mathrm{train}}
+\right),
+\qquad
 c_{\mathrm{expert}}
 =
 c_{\mathrm{time}}
 +
-W_z\operatorname{Pool}(z_t^\ell),
+W_c c_t^\ell,
 \]
 
 \[
@@ -282,19 +298,26 @@ weighted-FM implementation cancelled candidate weights and applied full-chunk
 trust against first-ten corrections, so its terminal behavior cannot close the
 interface question.
 
-`[LOCKED FOR v0.7]` Freeze PrefixVLM, the LCWM, and all action-expert blocks;
+`[LOCKED FOR v0.8]` Freeze PrefixVLM, the LCWM, and all action-expert blocks;
 train exactly two π0.5 boundary modules from matched initialization:
 
-- the zero-initialized, bias-free state-to-AdaRMS projection;
+- the zero-initialized, bias-free centered-state-to-AdaRMS projection;
 - the stock-initialized `action_out_proj` weight and bias.
 
 This is the narrow N1 boundary that transmitted the known V7.1 executable
 correction. It remains the existing π0.5 generation flow, not a separate
 controller. Every treatment and control uses the same trainable names,
 optimizer, schedule, flow noise/time, demonstration rehearsal, and retention
-loss. A frozen global-mean-state arm and LC-off readouts distinguish generic
-action-head PEFT from task/history-varying LC-state use. No Wz/LoRA/layer/rank
-or final-block interface sweep follows.
+loss. A matched constant/zero-state arm and LC-off readouts distinguish generic
+action-head PEFT from task/history-varying LC-state use. The normalization
+statistics are training-only artifacts bound into every checkpoint and eval
+manifest.
+
+`[DEC, BOUNDED]` If the complete-anchor mechanical audit still finds that
+pooling removes task/history content, replace only the pool with one learned
+query over the LCWM tokens. The π0.5 boundary, trainable modules, loss, and
+deployment topology remain fixed. This is the single registered fallback, not
+an open Wz/LoRA/layer/rank interface sweep.
 
 ---
 
@@ -710,13 +733,14 @@ result's interpretation; it does not start outcome-selected recollection.
 Each accepted anchor is also crossed with paraphrases and one compatible goal
 whose active object/order differs. At least part of the bank must contain an
 action × goal rank reversal. Static task-bit differences are not sufficient.
-`2026-08-03.md` owns the exact V7.3 budget, support contract, and splits.
+`2026-08-03.md` remains the historical owner of the exact V7.3 budget, support
+contract, and splits.
 
 ---
 
 ## 7. Joint objectives
 
-The v0.7 world-model objective is
+The v0.8 world-model objective retains the v0.7 loss families:
 
 \[
 \begin{aligned}
@@ -917,18 +941,19 @@ ablations rather than serial preconditions for the first training run.
 - train absolute and same-anchor-centered milestone/outcome predictions on
   eligible clean branches; use pairwise comparisons only to constrain those
   outputs, not a detached policy-ranking head;
-- inject the same recurrent state into π0.5 through one zero-initialized,
-  bias-free projection without a learned scalar gate;
+- remove the training-set common mode, scale-control the resulting recurrent
+  state, and inject it into π0.5 through one zero-initialized, bias-free
+  projection without a learned scalar gate;
 - freeze the world model during policy fine-tuning and train only the
   registered LC projection plus stock-initialized `action_out_proj`;
-- use a frozen global-mean-state control and LC-off readouts to separate
+- use a matched constant/zero-state control and LC-off readouts to separate
   generic narrow PEFT from task/history-varying state use;
 - use ordinary trajectories for recursive dynamics;
 - use separately labeled physical-effect, semantic-effect, rankable, and
   reference-improving branches for their corresponding losses and controls;
 - run policy training after mechanical correctness and the registered
-  recovery-support contract without using an offline model score to choose an
-  architecture or checkpoint;
+  recovery-support contract; use frozen held-out predictive criteria for model
+  checkpointing but never treat an offline score as the Phase-1 endpoint;
 - treat public H-WM LIBERO-LoHo Task1–5 as the primary long-horizon endpoint;
 - deploy a full-prompt `N = 1` VLA.
 
@@ -999,6 +1024,24 @@ ablations rather than serial preconditions for the first training run.
   gradients is insufficient: their V7.2 magnitudes differed by up to four
   orders of magnitude.
 
+### Resolved by V7.3 and its audit
+
+- the repaired LCWM -> flow-fine-tuning -> recurrent public-LoHo path can run
+  at full five-arm scale with complete checkpoint and video artifacts;
+- all five arms observed `0/25` terminal success on the development panel, so
+  V7.3 produced no Phase-1 winner;
+- aggregate LCWM dev loss is insufficient evidence of useful action-effect or
+  sibling-preference learning;
+- eight of nine model-teacher anchors abstained, and the sole selected target
+  had no registered realized advantage over stock;
+- filtering abstentions before schedule construction can turn one eligible
+  anchor into the entire model-training exposure and invalidate the intended
+  grounded/model/random contrast;
+- a bias-free policy projection does not prevent constant adaptation when the
+  uncentered pooled state itself contains a dominant common nonzero mode;
+- equality between recurrent-state and constant-state arms at a zero behavior
+  floor cannot establish general state-content independence.
+
 ### Retired as immediate priorities
 
 - further q-channel-only diagnostics;
@@ -1016,30 +1059,74 @@ ablations rather than serial preconditions for the first training run.
 
 ## 11. Immediate implementation sequence
 
-H0–H7, v0.6 iterations, and V7.0–V7.2 are historical. V7.3 is the only active
-implementation sequence:
+H0–H7, v0.6 iterations, and V7.0–V7.3 are historical. V7.3 delivered the
+complete behavior matrix but not the intended causal test. The next registered
+mainline must instantiate the project's first principle:
 
-1. repair candidate-axis weighted FM, suffix trust, recurrent demo rehearsal,
-   checkpoint/video cadence, and lineage assertions;
-2. materialize the released V7.2 assessment outcomes and one source-disjoint
-   recovery-crossed tranche at the observed LoHo blockers;
-3. require same-state positive/negative milestone contrasts and action × goal
-   rank reversals rather than generic branch count;
-4. train one seed-0 LC predictive state with pre-frozen shared-state gradient
-   normalization and direct task-outcome heads;
-5. freeze grounded, outcome-derived, and matched-random target ledgers;
-6. fine-tune the fixed π0.5 boundary for constant-state correction,
-   recurrent-state correction, full model-guided, and matched-random arms;
-7. run stock plus all trained final-step checkpoints on the untouched
-   `{1800,1810,1820,1830,1840}` recurrent full-prompt `N=1` panel;
-8. freeze a behavioral winner for one training-seed repeat or record one valid
-   V7.3 bundle-level negative.
+> world-model learning must create a task/history-varying predictive state,
+> that state must alter the π0.5 flow through a content-sensitive interface,
+> model-derived supervision must change the training target, and the resulting
+> recurrent `N=1` policy must improve public LoHo behavior.
 
-V7.3 cannot terminate at a support report, offline loss, teacher ledger, or
-target-reconstruction table. It must produce one proposed LCWM checkpoint, all
-four trained policy checkpoints, and fresh public-LoHo behavior. The exact
-budget, artifacts, videos, routing, and sealed confirmation logic are owned by
-`2026-08-03.md`.
+The implementation sequence is one bounded train -> fine-tune -> evaluate
+vertical slice. The checks below are mechanical correctness conditions inside
+that slice, not a new open-ended diagnostic phase.
+
+1. **Freeze the V7.3 correction.** Preserve all original artifacts and record
+   the terminal status as no Phase-1 win plus interface, supervision, and
+   scheduler confounds. Do not run an exposure-only replay of the same D/E
+   bundle.
+2. **Replace the pooled common-mode handoff.** The first implementation is a
+   training-set-centered, scale-controlled residual
+   `c_t = Norm(Pool(z_t^ell) - mu_train)` injected through the existing π0.5
+   flow boundary. Save `mu_train` and normalization statistics in the lineage.
+   Keep a one-block learned-query/token-conditioning interface as the bounded
+   fallback if pooling still destroys task/history content; do not add a new
+   planner or deployment-time best-of-N path.
+3. **Assert content at the actual action interface.** Before full training,
+   measure the complete anchor distribution rather than one probe: pairwise
+   state variation, real-vs-reset, real-vs-shuffled-history, paraphrase, and
+   different-compatible-goal contrasts both before and after projection. Freeze
+   the non-collapse thresholds before behavior. Failure means the interface is
+   incorrectly instantiated and is repaired in place; it is not evidence
+   against the LCWM hypothesis.
+4. **Acquire decision-supporting data.** Combine ordinary expert transitions
+   with targeted same-snapshot branches at the stock policy's observed
+   first-pick, recovery, placement, and late-chain blockers across all five
+   public tasks. Every policy-target cell must contain a paired `u0` outcome and
+   a source-disjoint candidate outcome. Advantage is ordered milestone and
+   continuation improvement, not immediate object-to-goal distance; temporary
+   grasp/lift regressions remain valid when they enable later milestones.
+5. **Train one crossed LC predictive state.** Train physical consistency on the
+   unique `(s,a,s')` transition and task progress/value on every compatible goal
+   relabel. During the same run, report held-out action-effect discrimination,
+   same-goal paraphrase invariance, different-goal semantic separation,
+   action × goal reversals, and sibling preference against copy/no-action and
+   stock-action baselines. Aggregate bundle loss alone cannot select or certify
+   the checkpoint.
+6. **Freeze useful teacher ledgers.** A model-selected action becomes a
+   generated target only when it has nontrivial registered advantage over `u0`;
+   identity selection or an outcome tie is abstention. Report unique eligible
+   anchors by task, source, phase, and failure mode. The matched-random ledger
+   uses the same eligible cells and differs only in candidate identity.
+7. **Compile an exactly matched policy schedule.** Schedule
+   task -> source -> anchor before arm-specific losses. All arms see the same
+   anchor sequence; abstention anchors remain present with zero model loss.
+   Grounded, full-model, and matched-random terms have equal eligible exposure,
+   and a single eligible anchor cannot silently receive the complete 300-step
+   model budget. Keep recurrent demo rehearsal and stock-suffix trust.
+8. **Fine-tune the π0.5 flow and save online state evidence.** Train the
+   grounded-only, full-model, matched-random, and matched-capacity constant
+   controls from the same stock initialization and schedule. Save dated
+   checkpoints, training videos, recurrent token/pool traces, generated action
+   deltas, and complete hashes so state use can be audited on the actual LoHo
+   rollout distribution.
+9. **Return immediately to behavior.** Evaluate stock and every final-step arm
+   on a fresh common-random-number public-LoHo panel with full prompts,
+   recurrent `N=1` deployment, and one video per rollout. Primary selection is
+   task-balanced terminal success; ordered prefix, Q-AUC, damage, and failure
+   phase only localize behavior. Phase 1 still requires improvement over stock
+   π0.5 and cannot terminate at an offline model or teacher metric.
 
 ---
 
@@ -1084,10 +1171,30 @@ cancelled the registered candidate weights and multiplied soft-FM scale by
 candidate count. It is therefore implementation-confounded rather than a
 valid LCWM negative.
 
-V7.3 consumes the reusable physical/outcome evidence, adds recovery-crossed
-support at the observed public blockers, balances task-outcome gradients
-through the predictive state, corrects the policy reduction and rehearsal
-contract, and returns directly to fresh recurrent `N=1` behavior.
+V7.3 consumed the reusable physical/outcome evidence, added a recovery-crossed
+tranche, trained one gradient-balanced LCWM and four π0.5 arms, and returned to
+a fresh 125-rollout recurrent `N=1` matrix. All five arms, including stock,
+observed `0/25` success. The execution and artifacts are real, but three defects
+bound the interpretation:
+
+- only one of nine model-teacher anchors was eligible, and its selected action
+  was outcome-equivalent to stock under the registered tuple;
+- the model scheduler repeated that one anchor at every optimization step while
+  the grounded rows represented only six unique anchors, violating matched
+  exposure;
+- the policy-facing `Pool(z)` was dominated by a common nonzero mode: hundreds
+  of real states had cosine above 0.99999 to the global mean and their
+  state-specific projected variation was approximately `1e-4` of the common
+  component.
+
+The corrected V7.3 status is therefore **terminal behavior executed, no
+Phase-1 win, intended causal comparison implementation-confounded and
+supervision-coverage-deficient**. It falsifies the current
+data/teacher/pooling/scheduler bundle, not the central LCWM thesis. In
+particular, `lc_grounded = correction_bc` at a zero behavior floor only says
+that the deployed pooled interface supplied no useful varying state; it does
+not show that the internal predictive tokens or a content-preserving interface
+cannot help policy learning.
 
 LC-Flow becomes the intended framework only when the following causal chain is
 instantiated:
@@ -1168,12 +1275,15 @@ not evidence.
 
 ### 13.3 Execution ownership
 
-The detailed V7.3 execution contract in `2026-08-03.md` is the only active
-action queue. This design document owns the architectural invariants; the
-daily file owns budgets, artifacts, job order, and routing. Earlier daily
-files remain immutable historical preregistrations and execution evidence.
-Another broad diagnostic phase, exact low-signal V7.2 replay, or fixed
-360-sample prerequisite is not part of the mainline.
+The detailed V7.3 execution contract in `2026-08-03.md` is now a frozen
+historical preregistration. `2026-08-07.md` owns its terminal execution record
+and explicit post-run audit amendment. This design document owns the v0.8
+architectural invariants and immediate sequence; the next dated daily file
+will bind exact budgets, artifacts, seeds, and routing before execution.
+Historical evidence is not silently rewritten: later-discovered errors are
+marked as dated audit amendments in the same daily record. Another broad
+diagnostic phase, exposure-only V7.3 replay, or fixed large-sample prerequisite
+is not part of the mainline.
 
 ### 13.4 v0.7 correction
 
@@ -1190,3 +1300,46 @@ changes the supervision and policy handoff:
   constant-state, grounded, full-model, and matched-random controls;
 - every revision still terminates at recurrent full-prompt `N=1` public-LoHo
   behavior, never at an offline teacher or representation metric.
+
+### 13.5 v0.8 correction
+
+V7.3 shows that a formally recurrent state is not sufficient when the policy
+interface removes nearly all of its variation. v0.8 therefore separates the
+existence of a common adapter offset from the use of decision-relevant state
+content:
+
+\[
+c_t^\ell=
+\operatorname{Norm}\!\left(\operatorname{Pool}(z_t^\ell)-\mu_{\mathrm{train}}
+\right),
+\qquad
+v_\theta'=v_\theta+W_c c_t^\ell,
+\]
+
+where the normalization statistics and zero-initialized projection are frozen
+in the run contract and saved with the run. This centered interface is the first bounded candidate,
+not a claim that mean pooling is ultimately optimal. If complete-anchor
+measurements still show content collapse, one learned query attends directly
+to the LCWM tokens and supplies the same fixed flow boundary. The alternative
+changes information preservation, not deployment topology: both remain one
+recurrent `N=1` policy with no external scorer.
+
+The following are now implementation invariants:
+
+- genuine task/history changes survive through the projection and measurably
+  change the flow input; a constant offset cannot satisfy this condition;
+- same-goal paraphrases remain close while compatible different goals may
+  produce different semantic predictive states;
+- physical predictions for one realized `(s,a,s')` remain invariant to goal
+  relabeling while progress/value predictions follow the relabeled goal;
+- model-teacher eligibility requires a nontrivial paired advantage over stock,
+  not merely an argmax or a different candidate identity;
+- policy exposure is fixed before arm identity and includes abstentions as
+  zero-loss cells;
+- online recurrent states and action deltas are saved during LoHo evaluation,
+  so behavioral failure can be separated from another silent interface
+  collapse.
+
+These invariants support the main experiment; they do not replace it. The only
+Phase-1 success criterion remains a trained LCWM-conditioned π0.5 policy that
+beats stock π0.5 on public long-horizon behavior.
