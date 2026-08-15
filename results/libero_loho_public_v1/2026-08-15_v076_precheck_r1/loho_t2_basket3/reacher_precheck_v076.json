@@ -1,0 +1,511 @@
+{
+  "schema": "v076_reacher_precheck_v1",
+  "run_schema": "v076",
+  "run_id": "v076_precheck_r1",
+  "registered_by": "plan_and_progress/2026-08-15.md \u2014 V7.6B amendment, reacher feasibility pre-check",
+  "task": "loho_t2_basket3",
+  "subgoals": [
+    "pick_up alphabet_soup_1",
+    "place alphabet_soup_1 basket_1_contain_region",
+    "pick_up butter_1",
+    "place butter_1 basket_1_contain_region",
+    "pick_up tomato_sauce_1",
+    "place tomato_sauce_1 basket_1_contain_region"
+  ],
+  "registered": {
+    "families": {
+      "first_pick": 1,
+      "placement": 2,
+      "recovery": 3,
+      "late_chain": 4
+    },
+    "seeds": [
+      2600,
+      2601,
+      2602
+    ],
+    "phase_budget_actions": 80,
+    "pass_min": 8,
+    "n_attempts": 12,
+    "fidelity_tolerance": {
+      "eef_pos": 0.005,
+      "obj_pos": 0.005,
+      "qpos": 0.005
+    },
+    "fidelity_basis": "V7.4B replay_fidelity audit measured obj_pos 0.0, qpos 0.0, eef_pos <= 2.2e-3 over 33 anchors"
+  },
+  "instrument": {
+    "selected": "v076",
+    "v069": "scripts.collect_v069_corrections.scripted_servo_action \u2014 no lift phase; the pick_up target is defined relative to the object being held, so the controller converges to a fixed point",
+    "v076": "lcwm.v076_reacher.ScriptedReacher \u2014 explicit approach/descend/grasp/lift phase machine; the lift target is anchored to the object's episode-start z, the same reference PICK_LIFT uses",
+    "policy_forward": false,
+    "note": "every action here is an acquisition instrument; none is a policy target"
+  },
+  "attempts": [
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2600,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 47,
+      "n_actions": 47,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 47
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2601,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 50,
+      "n_actions": 50,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 50
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2602,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 51,
+      "n_actions": 51,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 51
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2600,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 101,
+      "n_actions": 101,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 47
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 54
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2601,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 109,
+      "n_actions": 109,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 50
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 59
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2602,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 112,
+      "n_actions": 112,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 51
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 61
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2600,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 163,
+      "n_actions": 163,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 47
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 54
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 62
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2601,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 168,
+      "n_actions": 168,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 50
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2602,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 172,
+      "n_actions": 172,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 51
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 61
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 60
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2600,
+      "reached_depth": 4,
+      "target_met": true,
+      "steps": 190,
+      "n_actions": 190,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 47
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 54
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 62
+        },
+        {
+          "subgoal": "place butter_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 27
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2601,
+      "reached_depth": 4,
+      "target_met": true,
+      "steps": 197,
+      "n_actions": 197,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 50
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "place butter_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 29
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2602,
+      "reached_depth": 4,
+      "target_met": true,
+      "steps": 201,
+      "n_actions": 201,
+      "phases": [
+        {
+          "subgoal": "pick_up alphabet_soup_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 51
+        },
+        {
+          "subgoal": "place alphabet_soup_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 61
+        },
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 60
+        },
+        {
+          "subgoal": "place butter_1 basket_1_contain_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 29
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    }
+  ],
+  "by_family": {
+    "first_pick": {
+      "target_depth": 1,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        1,
+        1,
+        1
+      ]
+    },
+    "placement": {
+      "target_depth": 2,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        2,
+        2,
+        2
+      ]
+    },
+    "recovery": {
+      "target_depth": 3,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        3,
+        3,
+        3
+      ]
+    },
+    "late_chain": {
+      "target_depth": 4,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        4,
+        4,
+        4
+      ]
+    }
+  },
+  "n_pass": 12,
+  "verdict": "PASS",
+  "routing": "PASS -> V7.6B proceeds at the registered 70-source budget"
+}

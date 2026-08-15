@@ -319,7 +319,7 @@ def main() -> None:
     for f, b in by_family.items():
         print(f"      {f:<11} d{b['target_depth']}  "
               f"{b['n_pass']}/{b['n']}  reached {b['reached']}")
-    print(f"[pre] wrote {dest.relative_to(REPO_ROOT)}", flush=True)
+    print(f"[pre] wrote {dest}", flush=True)
     sys.exit(0 if verdict == "PASS" else 1)
 
 
