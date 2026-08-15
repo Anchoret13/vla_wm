@@ -1,0 +1,103 @@
+{
+  "schema": "v076_yield_pilot_v1",
+  "run_schema": "v076",
+  "run_id": "v076_pilot_r1",
+  "registered_by": "plan_and_progress/2026-08-15.md \u2014 V7.6B YIELD PILOT, registered before execution",
+  "registered": {
+    "n_target": 40,
+    "pass_min": 8,
+    "rec_max_actions": 60,
+    "rec_max_decisions": 6,
+    "seeds": [
+      2610,
+      2611,
+      2612,
+      2613,
+      2614
+    ],
+    "derivation": "tranche quota needs >=25 positives over ~260 planned attempts = 9.6% operating yield; the exact one-sided 95% binomial lower bound at 8/40 is ~0.104, which clears it"
+  },
+  "isolated_variable": "snapshot origin only \u2014 policy, budget and positivity rule are the V7.4B protocol unchanged",
+  "baseline_v074": {
+    "positive": 4,
+    "n": 129,
+    "rate": 0.031007751937984496
+  },
+  "rows": [
+    {
+      "task": "loho_t1_drawer",
+      "family": "first_pick",
+      "seed": 2610,
+      "snapshot_built": true,
+      "snapshot_actions": 64,
+      "snapshot_depth": 1,
+      "target_subgoal": "place butter_1 wooden_cabinet_1_top_region",
+      "prompt": "put the butter at the front in the top drawer of the cabinet",
+      "recovery_actions": 60,
+      "recovery_decisions": 6,
+      "positive": false,
+      "excluded_from_yield": false,
+      "final_prefix": 1,
+      "acquisition_instrument_only": true
+    },
+    {
+      "task": "loho_t2_basket3",
+      "family": "first_pick",
+      "seed": 2610,
+      "snapshot_built": true,
+      "snapshot_actions": 51,
+      "snapshot_depth": 1,
+      "target_subgoal": "place alphabet_soup_1 basket_1_contain_region",
+      "prompt": "put the alphabet soup in the basket",
+      "recovery_actions": 60,
+      "recovery_decisions": 6,
+      "positive": false,
+      "excluded_from_yield": false,
+      "final_prefix": 1,
+      "acquisition_instrument_only": true
+    },
+    {
+      "task": "loho_t3_tray",
+      "family": "first_pick",
+      "seed": 2610,
+      "snapshot_built": true,
+      "snapshot_actions": 51,
+      "snapshot_depth": 1,
+      "target_subgoal": "place alphabet_soup_1 wooden_tray_1_contain_region",
+      "prompt": "put the alphabet soup in the tray",
+      "recovery_actions": 60,
+      "recovery_decisions": 6,
+      "positive": false,
+      "excluded_from_yield": false,
+      "final_prefix": 1,
+      "acquisition_instrument_only": true
+    }
+  ],
+  "n_scored": 3,
+  "n_positive": 0,
+  "rate": 0.0,
+  "wilson_lower_90": 0.0,
+  "n_snapshot_failures": 0,
+  "by_task": {
+    "loho_t1_drawer": {
+      "n": 1,
+      "pos": 0
+    },
+    "loho_t2_basket3": {
+      "n": 1,
+      "pos": 0
+    },
+    "loho_t3_tray": {
+      "n": 1,
+      "pos": 0
+    }
+  },
+  "by_family": {
+    "first_pick": {
+      "n": 3,
+      "pos": 0
+    }
+  },
+  "verdict": "FAIL",
+  "routing": "FAIL -> the thesis is refuted at the operating point; V7.6 halts at acquisition as a yield-bounded negative. Moving the snapshot is not sufficient to make grounded correction data collectible at this policy's competence, which locates the bottleneck in pi0.5's recovery capability rather than in the acquisition design."
+}
