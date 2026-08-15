@@ -1,0 +1,498 @@
+{
+  "schema": "v076_reacher_precheck_v1",
+  "run_schema": "v076",
+  "run_id": "v076_precheck_r1",
+  "registered_by": "plan_and_progress/2026-08-15.md \u2014 V7.6B amendment, reacher feasibility pre-check",
+  "task": "loho_t1_drawer",
+  "subgoals": [
+    "pick_up butter_1",
+    "place butter_1 wooden_cabinet_1_top_region",
+    "pick_up chocolate_pudding_1",
+    "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+    "close wooden_cabinet_1_top_region"
+  ],
+  "registered": {
+    "families": {
+      "first_pick": 1,
+      "placement": 2,
+      "recovery": 3,
+      "late_chain": 4
+    },
+    "seeds": [
+      2600,
+      2601,
+      2602
+    ],
+    "phase_budget_actions": 80,
+    "pass_min": 8,
+    "n_attempts": 12,
+    "fidelity_tolerance": {
+      "eef_pos": 0.005,
+      "obj_pos": 0.005,
+      "qpos": 0.005
+    },
+    "fidelity_basis": "V7.4B replay_fidelity audit measured obj_pos 0.0, qpos 0.0, eef_pos <= 2.2e-3 over 33 anchors"
+  },
+  "instrument": {
+    "selected": "v076",
+    "v069": "scripts.collect_v069_corrections.scripted_servo_action \u2014 no lift phase; the pick_up target is defined relative to the object being held, so the controller converges to a fixed point",
+    "v076": "lcwm.v076_reacher.ScriptedReacher \u2014 explicit approach/descend/grasp/lift phase machine; the lift target is anchored to the object's episode-start z, the same reference PICK_LIFT uses",
+    "policy_forward": false,
+    "note": "every action here is an acquisition instrument; none is a policy target"
+  },
+  "attempts": [
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2600,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 58,
+      "n_actions": 58,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 58
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2601,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 67,
+      "n_actions": 67,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 67
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "first_pick",
+      "target_depth": 1,
+      "seed": 2602,
+      "reached_depth": 1,
+      "target_met": true,
+      "steps": 59,
+      "n_actions": 59,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2600,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 111,
+      "n_actions": 111,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 58
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2601,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 120,
+      "n_actions": 120,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 67
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "placement",
+      "target_depth": 2,
+      "seed": 2602,
+      "reached_depth": 2,
+      "target_met": true,
+      "steps": 112,
+      "n_actions": 112,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2600,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 163,
+      "n_actions": 163,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 58
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 52
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2601,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 173,
+      "n_actions": 173,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 67
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 53
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "recovery",
+      "target_depth": 3,
+      "seed": 2602,
+      "reached_depth": 3,
+      "target_met": true,
+      "steps": 164,
+      "n_actions": 164,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 52
+        }
+      ],
+      "replay_fidelity": {
+        "eef_pos": 0.0,
+        "obj_pos": 0.0,
+        "qpos": 0.0
+      },
+      "replay_fidelity_ok": true,
+      "pass": true,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2600,
+      "reached_depth": 3,
+      "target_met": false,
+      "steps": 243,
+      "n_actions": 243,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 58
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 52
+        },
+        {
+          "subgoal": "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "budget_exhausted",
+          "used": 80
+        }
+      ],
+      "replay_fidelity": null,
+      "replay_fidelity_ok": null,
+      "pass": false,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2601,
+      "reached_depth": 3,
+      "target_met": false,
+      "steps": 253,
+      "n_actions": 253,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 67
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "budget_exhausted",
+          "used": 80
+        }
+      ],
+      "replay_fidelity": null,
+      "replay_fidelity_ok": null,
+      "pass": false,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    },
+    {
+      "family": "late_chain",
+      "target_depth": 4,
+      "seed": 2602,
+      "reached_depth": 3,
+      "target_met": false,
+      "steps": 244,
+      "n_actions": 244,
+      "phases": [
+        {
+          "subgoal": "pick_up butter_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 59
+        },
+        {
+          "subgoal": "place butter_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "reached",
+          "used": 53
+        },
+        {
+          "subgoal": "pick_up chocolate_pudding_1",
+          "mode": "pick_up",
+          "status": "reached",
+          "used": 52
+        },
+        {
+          "subgoal": "place chocolate_pudding_1 wooden_cabinet_1_top_region",
+          "mode": "place",
+          "status": "budget_exhausted",
+          "used": 80
+        }
+      ],
+      "replay_fidelity": null,
+      "replay_fidelity_ok": null,
+      "pass": false,
+      "acquisition_instrument_only": true,
+      "is_policy_target": false
+    }
+  ],
+  "by_family": {
+    "first_pick": {
+      "target_depth": 1,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        1,
+        1,
+        1
+      ]
+    },
+    "placement": {
+      "target_depth": 2,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        2,
+        2,
+        2
+      ]
+    },
+    "recovery": {
+      "target_depth": 3,
+      "n": 3,
+      "n_pass": 3,
+      "reached": [
+        3,
+        3,
+        3
+      ]
+    },
+    "late_chain": {
+      "target_depth": 4,
+      "n": 3,
+      "n_pass": 0,
+      "reached": [
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "n_pass": 9,
+  "verdict": "PASS",
+  "routing": "PASS -> V7.6B proceeds at the registered 70-source budget"
+}
