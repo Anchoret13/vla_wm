@@ -1,0 +1,137 @@
+{
+  "schema": "v075_lcwm_manifest_v1",
+  "run_schema": "v075",
+  "run_id": "v075_lcwm_r1",
+  "git_sha": "717a9da",
+  "init": {
+    "rule": "FRESH at seed 0 (the V7.2 shared initialization is deleted and the architecture changed); registered in plan_and_progress/2026-08-09.md V7.5",
+    "state_sha256": "2a1734430f2817363fd8f449f6c2834040941eb37e52794bca6e14b901168d60"
+  },
+  "architecture": {
+    "module": "lcwm.v075_state.V075State",
+    "repairs": [
+      "r_norm desaturates the history bound",
+      "hist_center re-injects history centered"
+    ],
+    "stage0_evidence": "2026-08-09_v075_recurrence_diag_r1/recurrence_gain.json",
+    "stage1b_evidence": "2026-08-09_v075_recurrence_diag_r1/repair_check.json"
+  },
+  "short_rollout": {
+    "spec": "framework_design.md 3.2",
+    "k": 3,
+    "starts_per_visit": 4,
+    "start_window": "final TBPTT window only (beyond it the trace is detached, so a rollout would apply no pressure to the recurrent state)",
+    "distance": "cosine on CENTERED states",
+    "caveat": "framework 3.3 -- predictive pressure is necessary but not sufficient for history integration; the Stage 3 gate decides"
+  },
+  "data_root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-09_v074_data_r1",
+  "input_sha256": {
+    "hcache_index.json": "ef9d4b157a71b900812eb4b8b04a0a9a29075f01e93523da03bb6c9b52add8b4",
+    "v074b_anchor_manifest.json": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926"
+  },
+  "universe": {
+    "trains_on": "v074",
+    "retired": [
+      "v072B",
+      "v072T",
+      "v073",
+      "v073T_released"
+    ],
+    "retired_reason": "tensors deliberately deleted; v073T_released additionally lacks the v073 sources the recurrent unroll needs",
+    "limitation_carried_into_every_result": "physical-head support is materially thinner than V7.3C's and the v071 semwin/replay transition diversity is gone"
+  },
+  "universe_census": {
+    "v074": {
+      "loho_t1_drawer": 8,
+      "loho_t2_basket3": 7,
+      "loho_t3_tray": 8,
+      "loho_t4_tray": 2,
+      "loho_t5_drawer_cabinet": 8
+    }
+  },
+  "balanced_epoch0_task_visits": {
+    "loho_t1_drawer": 6,
+    "loho_t2_basket3": 6,
+    "loho_t3_tray": 6,
+    "loho_t4_tray": 6,
+    "loho_t5_drawer_cabinet": 6
+  },
+  "exposure": {
+    "per_task_visits": {
+      "loho_t1_drawer": 150,
+      "loho_t2_basket3": 150,
+      "loho_t3_tray": 150,
+      "loho_t4_tray": 150,
+      "loho_t5_drawer_cabinet": 150
+    },
+    "per_anchor_visits_min": 25,
+    "per_anchor_visits_max": 150,
+    "per_anchor_visits": {
+      "v074::loho_t1_drawer_v074_s2500_d3": 25,
+      "v074::loho_t2_basket3_v074_s2510_d15": 34,
+      "v074::loho_t3_tray_v074_s2520_d18": 25,
+      "v074::loho_t4_tray_v074_s2531_d26": 150,
+      "v074::loho_t5_drawer_cabinet_v074_s2540_d15": 25,
+      "v074::loho_t1_drawer_v074_s2501_d16": 25,
+      "v074::loho_t2_basket3_v074_s2511_d16": 33,
+      "v074::loho_t3_tray_v074_s2521_d2": 25,
+      "v074::loho_t5_drawer_cabinet_v074_s2541_d3": 25,
+      "v074::loho_t1_drawer_v074_s2502_d4": 25,
+      "v074::loho_t2_basket3_v074_s2512_d17": 33,
+      "v074::loho_t3_tray_v074_s2522_d18": 25,
+      "v074::loho_t5_drawer_cabinet_v074_s2542_d3": 25,
+      "v074::loho_t1_drawer_v074_s2500_d8": 25,
+      "v074::loho_t2_basket3_v074_s2510_d48": 25,
+      "v074::loho_t3_tray_v074_s2520_d2": 25,
+      "v074::loho_t5_drawer_cabinet_v074_s2540_d2": 25,
+      "v074::loho_t1_drawer_v074_s2501_d3": 25,
+      "v074::loho_t2_basket3_v074_s2512_d22": 25,
+      "v074::loho_t3_tray_v074_s2521_d37": 25,
+      "v074::loho_t5_drawer_cabinet_v074_s2541_d8": 25,
+      "v074::loho_t1_drawer_v074_s2502_d65": 25,
+      "v074::loho_t3_tray_v074_s2522_d2": 25,
+      "v074::loho_t5_drawer_cabinet_v074_s2542_d8": 25
+    },
+    "note": "per-TASK mass is balanced by construction; per-ANCHOR mass is NOT (t4 has one train anchor against a longest queue of 6). Reported, never asserted away."
+  },
+  "history_gate": {
+    "quantity": "dev-split relative reset contrast ||z_real - z_reset|| / ||z_real||",
+    "threshold": 0.0001,
+    "binding_at": "Stage 3, not here",
+    "why_reset": "Stage 1b finding 1 -- a different-anchor contrast can pass on an open channel that carries nothing"
+  },
+  "sigma_floor": 2e-05,
+  "optimizer": {
+    "lr": 0.0003,
+    "wd": 0.0001,
+    "epochs": 25,
+    "clip": 1.0,
+    "tbptt": 16,
+    "ema": 0.995,
+    "seed": 0,
+    "selection": "final step ONLY"
+  },
+  "masks": {
+    "tau_next": 0,
+    "damage": 0,
+    "terminal_success": [
+      "loho_t2_basket3"
+    ],
+    "terminal_success_rule": "parent frozen SUCCESS_VARIANCE_TASKS; v074 registered_task_checks asserted consistent at startup",
+    "rank_family": "REMOVED (no scalar rank head)"
+  },
+  "online_readouts": "report-only, never checkpoint selection; support census recorded after first epoch",
+  "lambda_sha": "807e0564c324865b",
+  "online_readout_support": {
+    "action_effect_rows": 72,
+    "action_effect_excluded_semwin_multiseg_anchors": 0,
+    "stock_action_rows": 63,
+    "paraphrase_pairs": 18,
+    "goal_separation_pairs": 9,
+    "reversal_pairs": 0,
+    "sibling_pairs": 0,
+    "history_dependence_anchors": 9,
+    "rollout_terms": 48,
+    "dev_anchors": 9
+  }
+}

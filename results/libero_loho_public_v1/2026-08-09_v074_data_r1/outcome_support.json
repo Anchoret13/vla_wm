@@ -1,0 +1,208 @@
+{
+  "cells": {
+    "loho_t1_drawer|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t1_drawer|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t2_basket3|train": {
+      "branches": 40,
+      "recovery_terminal": 9,
+      "milestone_positive": 8,
+      "milestone_pos_recovery_terminal": 1
+    },
+    "loho_t2_basket3|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t3_tray|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t3_tray|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    },
+    "loho_t4_tray|train": {
+      "branches": 8,
+      "recovery_terminal": 2
+    },
+    "loho_t4_tray|dev": {
+      "branches": 8,
+      "recovery_terminal": 2
+    },
+    "loho_t5_drawer_cabinet|train": {
+      "branches": 48,
+      "recovery_terminal": 12
+    },
+    "loho_t5_drawer_cabinet|dev": {
+      "branches": 16,
+      "recovery_terminal": 4
+    }
+  },
+  "independent_sources": {
+    "loho_t1_drawer|train": {},
+    "loho_t1_drawer|dev": {},
+    "loho_t2_basket3|train": {
+      "milestone_pos_sources": [
+        "loho_t2_basket3_v074_s2512"
+      ]
+    },
+    "loho_t2_basket3|dev": {},
+    "loho_t3_tray|train": {},
+    "loho_t3_tray|dev": {},
+    "loho_t4_tray|train": {},
+    "loho_t4_tray|dev": {},
+    "loho_t5_drawer_cabinet|train": {},
+    "loho_t5_drawer_cabinet|dev": {}
+  },
+  "rank_reversal_anchors": {
+    "loho_t1_drawer|train": [],
+    "loho_t1_drawer|dev": [],
+    "loho_t2_basket3|train": [],
+    "loho_t2_basket3|dev": [],
+    "loho_t3_tray|train": [],
+    "loho_t3_tray|dev": [],
+    "loho_t4_tray|train": [],
+    "loho_t4_tray|dev": [],
+    "loho_t5_drawer_cabinet|train": [],
+    "loho_t5_drawer_cabinet|dev": []
+  },
+  "recterm_contrast_anchors": {
+    "loho_t1_drawer|train": [
+      "loho_t1_drawer_v074_s2500_d3",
+      "loho_t1_drawer_v074_s2500_d8",
+      "loho_t1_drawer_v074_s2501_d16",
+      "loho_t1_drawer_v074_s2501_d3",
+      "loho_t1_drawer_v074_s2502_d4",
+      "loho_t1_drawer_v074_s2502_d65"
+    ],
+    "loho_t1_drawer|dev": [
+      "loho_t1_drawer_v074_s2503_d3",
+      "loho_t1_drawer_v074_s2504_d3"
+    ],
+    "loho_t2_basket3|train": [
+      "loho_t2_basket3_v074_s2510_d15",
+      "loho_t2_basket3_v074_s2510_d48",
+      "loho_t2_basket3_v074_s2511_d16",
+      "loho_t2_basket3_v074_s2512_d17"
+    ],
+    "loho_t2_basket3|dev": [
+      "loho_t2_basket3_v074_s2513_d16",
+      "loho_t2_basket3_v074_s2514_d15"
+    ],
+    "loho_t3_tray|train": [
+      "loho_t3_tray_v074_s2520_d18",
+      "loho_t3_tray_v074_s2520_d2",
+      "loho_t3_tray_v074_s2521_d2",
+      "loho_t3_tray_v074_s2521_d37",
+      "loho_t3_tray_v074_s2522_d18",
+      "loho_t3_tray_v074_s2522_d2"
+    ],
+    "loho_t3_tray|dev": [
+      "loho_t3_tray_v074_s2523_d2",
+      "loho_t3_tray_v074_s2524_d2"
+    ],
+    "loho_t4_tray|train": [
+      "loho_t4_tray_v074_s2531_d26"
+    ],
+    "loho_t4_tray|dev": [
+      "loho_t4_tray_v074_s2533_d25"
+    ],
+    "loho_t5_drawer_cabinet|train": [
+      "loho_t5_drawer_cabinet_v074_s2540_d15",
+      "loho_t5_drawer_cabinet_v074_s2540_d2",
+      "loho_t5_drawer_cabinet_v074_s2541_d3",
+      "loho_t5_drawer_cabinet_v074_s2541_d8",
+      "loho_t5_drawer_cabinet_v074_s2542_d3",
+      "loho_t5_drawer_cabinet_v074_s2542_d8"
+    ],
+    "loho_t5_drawer_cabinet|dev": [
+      "loho_t5_drawer_cabinet_v074_s2543_d3",
+      "loho_t5_drawer_cabinet_v074_s2544_d3"
+    ]
+  },
+  "registered_cell_checks": {
+    "loho_t1_drawer|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t1_drawer|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t2_basket3|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": true
+    },
+    "loho_t2_basket3|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t3_tray|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t3_tray|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t4_tray|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t4_tray|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t5_drawer_cabinet|train": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    },
+    "loho_t5_drawer_cabinet|dev": {
+      "pos_nonpos_at_2train_sources_or_1dev": false,
+      "rank_reversal_anchor_quota": false,
+      "has_recovery_terminal_contrast": true,
+      "milestone_pos_recovery_terminal_present": false
+    }
+  },
+  "registered_task_checks": {
+    "loho_t1_drawer": {
+      "milestone_pos_recovery_terminal_train": false
+    },
+    "loho_t2_basket3": {
+      "milestone_pos_recovery_terminal_train": true
+    },
+    "loho_t3_tray": {
+      "milestone_pos_recovery_terminal_train": false
+    },
+    "loho_t4_tray": {
+      "milestone_pos_recovery_terminal_train": false
+    },
+    "loho_t5_drawer_cabinet": {
+      "milestone_pos_recovery_terminal_train": false
+    }
+  },
+  "note": "masks only; ALL cells listed explicitly incl. empty ones; support-empty cells are recorded, never refilled by outcome (bounded fallback rule)"
+}

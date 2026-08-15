@@ -1,0 +1,962 @@
+{
+  "schema": "v075_provenance_seal_v1",
+  "run_schema": "v075",
+  "run_id": "v075_seal_r1",
+  "sealed_on": "2026-08-15",
+  "registered_by": "plan_and_progress/2026-08-09.md \u2014 Next mainline action items, item 1; framework_design.md v0.9 \u00a711.1",
+  "purpose": "Bind the V7.5 evidence by content hash. The run manifests name a Git SHA that predates their own code, so file content is the only sound binding.",
+  "git": {
+    "recorded_git_sha": "717a9da",
+    "head_at_seal_time": "717a9da",
+    "worktree_dirty_at_seal_time": true,
+    "v075_files_present_in_recorded_sha": [],
+    "v075_files_absent_from_recorded_sha": [
+      "lcwm/v075_schedule.py",
+      "lcwm/v075_state.py",
+      "scripts/build_v075_hcache.py",
+      "scripts/diag_v075_recurrence.py",
+      "scripts/diag_v075_repair_check.py",
+      "scripts/gate_v075_binding.py",
+      "scripts/seal_v075_provenance.py",
+      "scripts/test_v075_contract.py",
+      "scripts/train_v075_lcwm.py"
+    ],
+    "code_files_absent_from_head": [
+      "lcwm/v075_schedule.py",
+      "lcwm/v075_state.py",
+      "scripts/build_v075_hcache.py",
+      "scripts/diag_v075_recurrence.py",
+      "scripts/diag_v075_repair_check.py",
+      "scripts/gate_v075_binding.py",
+      "scripts/seal_v075_provenance.py",
+      "scripts/test_v075_contract.py",
+      "scripts/train_v075_lcwm.py"
+    ],
+    "binding_rule": "This seal binds the V7.5 run by sha256 of file CONTENT. The git_sha recorded in the run manifests is known-wrong and is preserved verbatim rather than rewritten."
+  },
+  "lineage_defects": [
+    {
+      "defect": "manifest git_sha predates the code",
+      "detail": "V7.5 manifests record git_sha 717a9da, which contains V7.4 code and no v075_* implementation.",
+      "repaired": false,
+      "mitigation": "this seal binds sha256 of the exact source bytes; the V7.5 code is committed alongside it"
+    },
+    {
+      "defect": "training h-cache index overwritten",
+      "detail": "`--stage policy` rewrote hcache_index.json in place. The 3978-key training index (2394 unroll + 1584 next-obs) is gone; the present index has 5825 keys and cannot be filtered back (5825 - 1685 demo = 4140 != 3978).",
+      "repaired": false,
+      "mitigation": "scripts/build_v075_hcache.py now archives any differing prior index under index_archive/ and appends to index_lineage.jsonl before moving the pointer. That patch postdates the run, so the builder is marked run_exact: false."
+    }
+  ],
+  "code": {
+    "lcwm": {
+      "path": "lcwm/__init__.py",
+      "bytes": 251,
+      "sha256": "b03e5eed82942208dc63adf8d133bc82a4a1dd0a86d7db0ad24ab5c7961fc695",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.chassis": {
+      "path": "lcwm/chassis.py",
+      "bytes": 9744,
+      "sha256": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.lc_flow": {
+      "path": "lcwm/lc_flow.py",
+      "bytes": 36911,
+      "sha256": "9e088e93b3382d557f1bda8095e9206bfa67d5cbdb6e757dbdb0c60772a452c4",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.libero_paths": {
+      "path": "lcwm/libero_paths.py",
+      "bytes": 2393,
+      "sha256": "40d675f81ceec74fd9101b6d9a7ae6dae2c8761cd0ef6f53fd9e85cd6eacf154",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.probe_data": {
+      "path": "lcwm/probe_data.py",
+      "bytes": 7112,
+      "sha256": "3526093b9ecb08f5514ee5864c913880a7438b6b13c0077e8e4a63a1cdc5a16c",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.sampler": {
+      "path": "lcwm/sampler.py",
+      "bytes": 5368,
+      "sha256": "ecaffc1ae40d3d40a2f98c493b786d3004b05520768b1232c33805de508af406",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.self_predict": {
+      "path": "lcwm/self_predict.py",
+      "bytes": 8422,
+      "sha256": "cfbfe11ac24cf67a273c9e728e6c38de217e241e211c3dcead47dbc023845b0c",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.seq_data": {
+      "path": "lcwm/seq_data.py",
+      "bytes": 6442,
+      "sha256": "da494e5d4d00b98b64da3f9ec8aae32a94da169f428a5bbdcdb6b9881c6f4ab7",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.seq_prefix_cache": {
+      "path": "lcwm/seq_prefix_cache.py",
+      "bytes": 11431,
+      "sha256": "f5297601857cda3e3c3cdd155a54735e5470e3ce299c7487b37832e9a50d6b2e",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.snapshot": {
+      "path": "lcwm/snapshot.py",
+      "bytes": 10051,
+      "sha256": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.taps": {
+      "path": "lcwm/taps.py",
+      "bytes": 4515,
+      "sha256": "65b608f589d94622a19bf860f3fc10f5d238207ae093ad6cf3bb969f63dd3f07",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v067_lineage": {
+      "path": "lcwm/v067_lineage.py",
+      "bytes": 3953,
+      "sha256": "b208bb24bba8dd6707e89c107a1bfee88903c7d2d6409dad5ee1b1c53cf483b5",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v06_model": {
+      "path": "lcwm/v06_model.py",
+      "bytes": 10644,
+      "sha256": "66b498b743950d7b333f64a7dbe1b181c82ac9b5a8cf74a2994db760ca1c930d",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v072_schedule": {
+      "path": "lcwm/v072_schedule.py",
+      "bytes": 5613,
+      "sha256": "58f7e7cd87d22183404db505b3f02af25998cdde4e04005918223932bc7b7fb5",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v073_schedule": {
+      "path": "lcwm/v073_schedule.py",
+      "bytes": 5565,
+      "sha256": "a4fe7b36a345cde0eb9cba5103f211bd5b6d505cc738d654f0e08fc5e83f681e",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v074_interface": {
+      "path": "lcwm/v074_interface.py",
+      "bytes": 8328,
+      "sha256": "391b7622c5dd54efd4ec837f544001f2a2d6a49993d51c47efc0c99914c988d7",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v075_schedule": {
+      "path": "lcwm/v075_schedule.py",
+      "bytes": 9009,
+      "sha256": "175eb6a2b7ea78da0dc6c932b30feb6332e360be112249d2b3ec423fbe596058",
+      "role": "imported",
+      "run_exact": true
+    },
+    "lcwm.v075_state": {
+      "path": "lcwm/v075_state.py",
+      "bytes": 7891,
+      "sha256": "107d0f4e161a10343c02f2171984b68d88c6313d9fddd11699cf09e77185bebd",
+      "role": "imported",
+      "run_exact": true
+    },
+    "scripts/build_v075_hcache.py": {
+      "path": "scripts/build_v075_hcache.py",
+      "bytes": 14170,
+      "sha256": "2ff8a7051b290929ab260da0877373f5c84806a62124bd9c9fa9684d9056fce4",
+      "role": "entrypoint",
+      "run_exact": false,
+      "modified_after_run": "Patched 2026-08-15 while executing action item 1: `preserve_and_write` now archives any differing prior index before moving the pointer, so the in-place overwrite that destroyed the 3978-key training index cannot recur. The run-exact bytes were never committed and are NOT recoverable. What the builder produced is bound instead by hcache_manifest.json (enumeration rule, counts, input hashes) and by the surviving 5825-key index hashed here."
+    },
+    "scripts/diag_v075_recurrence.py": {
+      "path": "scripts/diag_v075_recurrence.py",
+      "bytes": 14970,
+      "sha256": "b9ee2249531c8f98e761e79baeef3e772df6fe6726f37edf1a56cf8ed40403a8",
+      "role": "entrypoint",
+      "run_exact": true
+    },
+    "scripts/diag_v075_repair_check.py": {
+      "path": "scripts/diag_v075_repair_check.py",
+      "bytes": 7788,
+      "sha256": "7631f3324b174078a8e7d1eb47aca8ca575d4f7df8246f1d624357a31cdf5a85",
+      "role": "entrypoint",
+      "run_exact": true
+    },
+    "scripts/gate_v075_binding.py": {
+      "path": "scripts/gate_v075_binding.py",
+      "bytes": 20370,
+      "sha256": "041c96e405b4e7b3d2ac02880bd6bb31b1d4cf5639754a7d5cf386dacb1afd9b",
+      "role": "entrypoint",
+      "run_exact": true
+    },
+    "scripts/test_v075_contract.py": {
+      "path": "scripts/test_v075_contract.py",
+      "bytes": 8887,
+      "sha256": "32499ba33dfcaaa3118649b3be9bf66207d253f409e5479b4e9608e880149a90",
+      "role": "entrypoint",
+      "run_exact": true
+    },
+    "scripts/train_v075_lcwm.py": {
+      "path": "scripts/train_v075_lcwm.py",
+      "bytes": 52151,
+      "sha256": "01af44fdcdcd30b4a5acfe8436f800b6e2d17d55eadcaf9a1a38d28199f3dd2a",
+      "role": "entrypoint",
+      "run_exact": true
+    },
+    "scripts/seal_v075_provenance.py": {
+      "path": "scripts/seal_v075_provenance.py",
+      "bytes": 22326,
+      "sha256": "c93fb0f6cc78b120fe644cfeb12b7250d5db72b0c7fda785d9bef97fff783176",
+      "role": "seal",
+      "run_exact": null
+    }
+  },
+  "code_fidelity": {
+    "n_files": 25,
+    "run_exact": [
+      "lcwm",
+      "lcwm.chassis",
+      "lcwm.lc_flow",
+      "lcwm.libero_paths",
+      "lcwm.probe_data",
+      "lcwm.sampler",
+      "lcwm.self_predict",
+      "lcwm.seq_data",
+      "lcwm.seq_prefix_cache",
+      "lcwm.snapshot",
+      "lcwm.taps",
+      "lcwm.v067_lineage",
+      "lcwm.v06_model",
+      "lcwm.v072_schedule",
+      "lcwm.v073_schedule",
+      "lcwm.v074_interface",
+      "lcwm.v075_schedule",
+      "lcwm.v075_state",
+      "scripts/diag_v075_recurrence.py",
+      "scripts/diag_v075_repair_check.py",
+      "scripts/gate_v075_binding.py",
+      "scripts/test_v075_contract.py",
+      "scripts/train_v075_lcwm.py"
+    ],
+    "not_run_exact": [
+      "scripts/build_v075_hcache.py"
+    ],
+    "rule": "`run_exact: false` means the bytes hashed here are NOT the bytes that produced the 2026-08-10 artifacts. Such a file's hash binds the current repository state only."
+  },
+  "inputs": {
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/anchor_manifest.json": {
+      "bytes": 22519,
+      "sha256": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/run_manifest.json": {
+      "bytes": 2600,
+      "sha256": "b32e4584355d499870ccf929bcd2cf7045835cf7b9f2497dad749b58ea3f7e38"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/source_split.json": {
+      "bytes": 1411,
+      "sha256": "e1f21012d0d330c5ba06b46769b596694a56f47c17eaee393523b005a722bb64"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/outcome_support.json": {
+      "bytes": 6424,
+      "sha256": "3bb32cf530e7190e88069033cd54df3fe84865518d9b4c04835fdd1bcffb68b4"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/physical_transition_index.jsonl": {
+      "bytes": 79536,
+      "sha256": "a8d22a32bca50209d6518b160d57bad88e91e8a2e2d7b1cde47445cced7ff2cd"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v074_data_r1/semantic_query_index.jsonl": {
+      "bytes": 48277,
+      "sha256": "39ffb4794717a8e9dd015bd01beeb72871c1d19534d02b99bb34511e3b6cca2c"
+    },
+    "results/libero_loho_public_v1/2026-08-02_v071_semwin_r1/text_variants.json": {
+      "bytes": 12929,
+      "sha256": "eb5deb0c8a2bd96c52f5733a93bb678b7a5f226804e0dc9ff4f91803ad2a575c"
+    }
+  },
+  "artifacts": {
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/final.pt": {
+      "bytes": 204570951,
+      "sha256": "2ce2cb03614253d577b323f93bf1aef7d237f8c99475aa82ba75de6fe5dc5a63"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/lcwm_epoch004.pt": {
+      "bytes": 204570951,
+      "sha256": "1135dd739d59dc31646fb41ef33f8c065ac87d1cebaedf14a0264cf0a8cce99b"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/lcwm_epoch009.pt": {
+      "bytes": 204570951,
+      "sha256": "3f36c0c3bcd89508eb07eece6777b6761a4912fbfd8c246d83c75d317ff8a9b6"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/lcwm_epoch014.pt": {
+      "bytes": 204570951,
+      "sha256": "f94418094693ebf559963e7f49d59e7a7a2d6d5490e7cbf5def3912a6c06cee0"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/lcwm_epoch019.pt": {
+      "bytes": 204570951,
+      "sha256": "719346f0b5cd0177077d04a4f1ad9d9c8fe688b24d370336ab40ac509f4800e9"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/checkpoints/lcwm_epoch024.pt": {
+      "bytes": 204570951,
+      "sha256": "2ce2cb03614253d577b323f93bf1aef7d237f8c99475aa82ba75de6fe5dc5a63"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/exposure_log.json": {
+      "bytes": 132,
+      "sha256": "af9acf43556384eb12be56c710f183a5dbe1b85372a1f07d48ec347e18a8fafe"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/gradient_balance.json": {
+      "bytes": 6905,
+      "sha256": "807e0564c324865b1dd37ece8faa1fb819a5a807d709320292145dc2afcc5376"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/hcache_index.json": {
+      "bytes": 1183656,
+      "sha256": "51bf1b9a8d7d0cdf81d59ed772ce260dc0c4d04132c91ec61cca88b62b5d50c2"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/hcache_manifest.json": {
+      "bytes": 806,
+      "sha256": "eddbef6c91147f7a91396029daab0a26cb2d484d5809643cdc575d28d0e4427d"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/metrics/loss_by_epoch.json": {
+      "bytes": 6042,
+      "sha256": "007ac04e6448303fada7b9d80b765c88c19c834f84aed98b62ff1140f36f1b75"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/metrics/online_readouts.jsonl": {
+      "bytes": 39748,
+      "sha256": "835d538fef941390130b2172235aef93781efaf83c3f19fe35def6563fa745d6"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_lcwm_r1/run_manifest.json": {
+      "bytes": 5208,
+      "sha256": "735f480935ce4df8d395ae2d8bbe05e577f1d38b98affa6a304e69cc8bdbc787"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_gate_r1/anchor_states_v075.pt": {
+      "bytes": 4476501,
+      "sha256": "7bb8a8432a804a9f4e7352356adb63c8c1314a5ea9cc1b32d1cec3cc08be17f3"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_gate_r1/centering_v075.pt": {
+      "bytes": 3613,
+      "sha256": "811f8e1754a672bd5633e682b43befdce1c9c15a403ef9f5b3b62bce176ff122"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_gate_r1/centering_v075_token_query.pt": {
+      "bytes": 3374,
+      "sha256": "e9f4fcf4aea6d9f465bbda2e73eaf736f98af47f628dc7b89d59f742713d5d4e"
+    },
+    "results/libero_loho_public_v1/2026-08-10_v075_gate_r1/gate_report.json": {
+      "bytes": 19921,
+      "sha256": "d35e85a9ba3a4590d05097aab20c5d32eea67f02035fe86ae9f12ce02ad730c3"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v075_recurrence_diag_r1/recurrence_gain.json": {
+      "bytes": 21983,
+      "sha256": "fb7f1398e8e4fc85d1144abb64565e329e114d6b5d6f46755c379912bf0a46a4"
+    },
+    "results/libero_loho_public_v1/2026-08-09_v075_recurrence_diag_r1/repair_check.json": {
+      "bytes": 12490,
+      "sha256": "2ce43b85ba0a23f24af33ebaa02fff793ccbb8cbed7e5f2a74ee31d67530e1a3"
+    }
+  },
+  "artifact_exclusions": {
+    "hcache/": "23 GB of regenerable prompt-prefix tensors; the index that names them is hashed instead"
+  },
+  "cross_checks": [
+    {
+      "check": "gate.lcwm_sha256 == sha256(checkpoints/final.pt)",
+      "recorded": "2ce2cb03614253d577b323f93bf1aef7d237f8c99475aa82ba75de6fe5dc5a63",
+      "actual": "2ce2cb03614253d577b323f93bf1aef7d237f8c99475aa82ba75de6fe5dc5a63",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "the gate ran on the checkpoint it names"
+    },
+    {
+      "check": "md5(final.pt) == md5(lcwm_epoch024.pt)",
+      "recorded": "8d54222168a51c372987e1afc450709a",
+      "actual": "8d54222168a51c372987e1afc450709a",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "daily V7.5 Stage 2 claim: selection was final step only"
+    },
+    {
+      "check": "gate.anchor_states.sha256 == sha256(anchor_states_v075.pt)",
+      "recorded": "7bb8a8432a804a9f4e7352356adb63c8c1314a5ea9cc1b32d1cec3cc08be17f3",
+      "actual": "7bb8a8432a804a9f4e7352356adb63c8c1314a5ea9cc1b32d1cec3cc08be17f3",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "Stage 3 policy-state set is the one on disk"
+    },
+    {
+      "check": "gate.centering.sha256 == sha256(centering_v075_token_query.pt)",
+      "recorded": "e9f4fcf4aea6d9f465bbda2e73eaf736f98af47f628dc7b89d59f742713d5d4e",
+      "actual": "e9f4fcf4aea6d9f465bbda2e73eaf736f98af47f628dc7b89d59f742713d5d4e",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "Stage 3 policy-state set is the one on disk"
+    },
+    {
+      "check": "run_manifest.input_sha256.v074b_anchor_manifest.json",
+      "recorded": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926",
+      "actual": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "the trained universe is the collected universe"
+    },
+    {
+      "check": "hcache_manifest.input_sha256.v074_anchor_manifest.json",
+      "recorded": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926",
+      "actual": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": ""
+    },
+    {
+      "check": "hcache_manifest.input_sha256.text_variants.json",
+      "recorded": "eb5deb0c8a2bd96c52f5733a93bb678b7a5f226804e0dc9ff4f91803ad2a575c",
+      "actual": "eb5deb0c8a2bd96c52f5733a93bb678b7a5f226804e0dc9ff4f91803ad2a575c",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "cached prompts are the prompts the data was collected under"
+    },
+    {
+      "check": "run_manifest.input_sha256.hcache_index.json",
+      "recorded": "ef9d4b157a71b900812eb4b8b04a0a9a29075f01e93523da03bb6c9b52add8b4",
+      "actual": "51bf1b9a8d7d0cdf81d59ed772ce260dc0c4d04132c91ec61cca88b62b5d50c2",
+      "status": "mismatch",
+      "kind": "known_broken",
+      "ok": true,
+      "note": "KNOWN BROKEN. The 3978-key training index was overwritten in place by the 5825-key policy-stage index. Recorded, not repaired; the exact training cache is unrecoverable."
+    },
+    {
+      "check": "run_manifest.init.state_sha256 (recomputed)",
+      "recorded": "2a1734430f2817363fd8f449f6c2834040941eb37e52794bca6e14b901168d60",
+      "actual": "2a1734430f2817363fd8f449f6c2834040941eb37e52794bca6e14b901168d60",
+      "status": "match",
+      "kind": "must_hold",
+      "ok": true,
+      "note": "torch.manual_seed(0) + V075State() on CPU \u2014 reproduced"
+    }
+  ],
+  "cross_check_summary": {
+    "n": 9,
+    "n_failed": 0,
+    "failed": []
+  },
+  "universe_integrity": {
+    "status": "loadable",
+    "anchors": {
+      "v074::loho_t1_drawer_v074_s2500_d3": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2500.pt",
+          "bytes": 85685419,
+          "sha256": "e177b37ede2ed4b9ac52d92c9990f26b8fcc9230e60846b8d9589f8bff1de364"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2500_d3.pt",
+          "bytes": 118460117,
+          "sha256": "361fa00390e24162f4b84a8e7538b1e6b780ebde3ea772692394d26c47b773a9"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2500_d8": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 8,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2500.pt",
+          "bytes": 85685419,
+          "sha256": "e177b37ede2ed4b9ac52d92c9990f26b8fcc9230e60846b8d9589f8bff1de364"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2500_d8.pt",
+          "bytes": 121191829,
+          "sha256": "469bc58738866835d9eeef0551f3553352310904986fbf5df1fd59722ab31616"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2501_d16": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 16,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2501.pt",
+          "bytes": 87841323,
+          "sha256": "b65ec503f8c42a55bc59dbbf40efda8984c9f222d8e2c38858fdcb8cd2e93c1a"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2501_d16.pt",
+          "bytes": 127588612,
+          "sha256": "1a8100f7cb12943bbb3b12bd7f96ebb78348f62093822b31886914833f7e6329"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2501_d3": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2501.pt",
+          "bytes": 87841323,
+          "sha256": "b65ec503f8c42a55bc59dbbf40efda8984c9f222d8e2c38858fdcb8cd2e93c1a"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2501_d3.pt",
+          "bytes": 121071445,
+          "sha256": "3e19ac7c2cd98d9d07b38868bf06ec2eb764257a1632d2c6092e5d2144b42858"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2502_d4": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 4,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2502.pt",
+          "bytes": 87547627,
+          "sha256": "e31f5f1fdfd6566833e9ad8774b999b1cbc8fcba8f1191594dab7f802f4ee846"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2502_d4.pt",
+          "bytes": 124442645,
+          "sha256": "993adbce9443c46fb6b46ab469094401e8cca30aa997cdce71f62d724befa395"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2502_d65": {
+        "task": "loho_t1_drawer",
+        "split": "train",
+        "decision": 65,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2502.pt",
+          "bytes": 87547627,
+          "sha256": "e31f5f1fdfd6566833e9ad8774b999b1cbc8fcba8f1191594dab7f802f4ee846"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2502_d65.pt",
+          "bytes": 126515204,
+          "sha256": "32c26a48b45f13abd2cb71c0d5e6ef331e6b1f60775b667f596fd66d90ddb864"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2503_d3": {
+        "task": "loho_t1_drawer",
+        "split": "dev",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2503.pt",
+          "bytes": 87374955,
+          "sha256": "88f6f6eae6ad55a04ad2d7e21c40a3ddcdd976f0fc803531aef1abf850101a0d"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2503_d3.pt",
+          "bytes": 116664661,
+          "sha256": "0bb07c54d0d37a3f9827e034fbdee90d47552235f260b17e7fdd75b42e30868b"
+        }
+      },
+      "v074::loho_t1_drawer_v074_s2504_d3": {
+        "task": "loho_t1_drawer",
+        "split": "dev",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t1_drawer_v074_s2504.pt",
+          "bytes": 87326251,
+          "sha256": "dae3f3bc308fac091bc06d3c69c636254de4adc6762bea45c592d6b15713cd87"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t1_drawer_v074_s2504_d3.pt",
+          "bytes": 124681301,
+          "sha256": "5406c883382388808bc3550071cdba609b082375ad9abcc83bc1642405d9a666"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2510_d15": {
+        "task": "loho_t2_basket3",
+        "split": "train",
+        "decision": 15,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2510.pt",
+          "bytes": 63507461,
+          "sha256": "07f6c8b832ad2956bbb80be2d777713dd9ddfb07b5bf656bf2f49ed01344da63"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2510_d15.pt",
+          "bytes": 85012403,
+          "sha256": "d0faae6c30b62cb59946c9fac6abd0762bd3c0155dc38b073dfcac35933cb2b9"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2510_d48": {
+        "task": "loho_t2_basket3",
+        "split": "train",
+        "decision": 48,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2510.pt",
+          "bytes": 63507461,
+          "sha256": "07f6c8b832ad2956bbb80be2d777713dd9ddfb07b5bf656bf2f49ed01344da63"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2510_d48.pt",
+          "bytes": 83647155,
+          "sha256": "adbe1d137774d73c40cd250f6e999e136129edfb904ad32ab06113535fd12b23"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2511_d16": {
+        "task": "loho_t2_basket3",
+        "split": "train",
+        "decision": 16,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2511.pt",
+          "bytes": 75577509,
+          "sha256": "74651e87d2da124f226aa52f0c5c887374a59f685440af659c6cbf71460684ae"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2511_d16.pt",
+          "bytes": 84176179,
+          "sha256": "8b35c3e5be73078d6195a6efbd319020cf8169c3624ae644011a9b4d1fe88741"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2512_d17": {
+        "task": "loho_t2_basket3",
+        "split": "train",
+        "decision": 17,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2512.pt",
+          "bytes": 75350053,
+          "sha256": "0b170dda3c92229d0758f78dedcf4cf8f278d4b509ccdb559ad61121b9484168"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2512_d17.pt",
+          "bytes": 83853939,
+          "sha256": "45ccbccdcc93d083c09c47f0030f8805006ff718ca1eefcd77bf54adfa1e9aad"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2512_d22": {
+        "task": "loho_t2_basket3",
+        "split": "train",
+        "decision": 22,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2512.pt",
+          "bytes": 75350053,
+          "sha256": "0b170dda3c92229d0758f78dedcf4cf8f278d4b509ccdb559ad61121b9484168"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2512_d22.pt",
+          "bytes": 81597171,
+          "sha256": "b7cf9f0cc1d44f4c39531feb3a29b46d80a09a88678b08cf6fcc52a4d2e586d9"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2513_d16": {
+        "task": "loho_t2_basket3",
+        "split": "dev",
+        "decision": 16,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2513.pt",
+          "bytes": 75964901,
+          "sha256": "02aa49f3fa18bc6711cfbf446ebf67316e72ebcd8b40150a7b1353600ae27623"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2513_d16.pt",
+          "bytes": 81875891,
+          "sha256": "4bbc6a8af1a154f46e7e8fac817cbf152f832535e8733553cd60b21150a148e3"
+        }
+      },
+      "v074::loho_t2_basket3_v074_s2514_d15": {
+        "task": "loho_t2_basket3",
+        "split": "dev",
+        "decision": 15,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t2_basket3_v074_s2514.pt",
+          "bytes": 76213221,
+          "sha256": "04de6d848534e10ae16628a38608842dca297fa2a6ef444ef66d8807105c839a"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t2_basket3_v074_s2514_d15.pt",
+          "bytes": 81406771,
+          "sha256": "19e0abd7ed486683714df5e9e245d965211cb7200e663cad972888cd683aa452"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2520_d18": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 18,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2520.pt",
+          "bytes": 75560567,
+          "sha256": "ceac9fdc63ec01ab57358e685cb683d1ad6be352cf7c7b779ec34371bf2d73a2"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2520_d18.pt",
+          "bytes": 81589414,
+          "sha256": "21cd4bab067c4ccea01525f8dfbe34f4ea6c3d51db8a65a0ee5c463eb3ad36c0"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2520_d2": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2520.pt",
+          "bytes": 75560567,
+          "sha256": "ceac9fdc63ec01ab57358e685cb683d1ad6be352cf7c7b779ec34371bf2d73a2"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2520_d2.pt",
+          "bytes": 81396087,
+          "sha256": "df1a86e1c8a061d9463b3af7424ed2589819138b4b8881dd3267e0160583a917"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2521_d2": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2521.pt",
+          "bytes": 75894455,
+          "sha256": "2139c7f9d4afd6cdde95aa0c476a819e36680cca55808d86281bab13c0cb8871"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2521_d2.pt",
+          "bytes": 81608439,
+          "sha256": "27beb1dfe90f1b2b2b0b804a0e7e9c9b76ce63dfb728eaf96a916bb5ee79c535"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2521_d37": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 37,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2521.pt",
+          "bytes": 75894455,
+          "sha256": "2139c7f9d4afd6cdde95aa0c476a819e36680cca55808d86281bab13c0cb8871"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2521_d37.pt",
+          "bytes": 80965926,
+          "sha256": "a249fa4a4c0cc297bb3ae9b5fa63c3f96aa0cf9472ceabca5df135dc50b93169"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2522_d18": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 18,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2522.pt",
+          "bytes": 76822647,
+          "sha256": "e27ead8b7d374b315f41a12d17a688400e21d7bc5f684964bb8e8fe01b439fd2"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2522_d18.pt",
+          "bytes": 82343718,
+          "sha256": "221947bd6208a9aca677b9fba660c25def8b4c1000b9c2d42c13909afbb24d5f"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2522_d2": {
+        "task": "loho_t3_tray",
+        "split": "train",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2522.pt",
+          "bytes": 76822647,
+          "sha256": "e27ead8b7d374b315f41a12d17a688400e21d7bc5f684964bb8e8fe01b439fd2"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2522_d2.pt",
+          "bytes": 81459063,
+          "sha256": "f4c631e6ab4aeeff4cb8def6d3dff2eff3aeb90f6ea90c5ab2905c7bcefd9e03"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2523_d2": {
+        "task": "loho_t3_tray",
+        "split": "dev",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2523.pt",
+          "bytes": 76946551,
+          "sha256": "a5fe58041b2f4c4c195c4f12f345c0972992e6b14e6304f5e51d770875adc492"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2523_d2.pt",
+          "bytes": 81396151,
+          "sha256": "40719fde33435788f3f1925aad4aa0fd22ea68fa4c01343a0a07cc460e1a2862"
+        }
+      },
+      "v074::loho_t3_tray_v074_s2524_d2": {
+        "task": "loho_t3_tray",
+        "split": "dev",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t3_tray_v074_s2524.pt",
+          "bytes": 77116663,
+          "sha256": "ec6505f1e1ccf11535ad6474651af147ec404a47d6c2c015c5cdfd99d39c6791"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t3_tray_v074_s2524_d2.pt",
+          "bytes": 81461047,
+          "sha256": "dbf56e2f3b263196966ac7693472b5a100a9bdeb7e967454a316c190f182ab76"
+        }
+      },
+      "v074::loho_t4_tray_v074_s2531_d26": {
+        "task": "loho_t4_tray",
+        "split": "train",
+        "decision": 26,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t4_tray_v074_s2531.pt",
+          "bytes": 76740599,
+          "sha256": "5cd1eb3834f091491730090758f71316f88db3db6dbefe0acc6da8fc467c6e1c"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t4_tray_v074_s2531_d26.pt",
+          "bytes": 84417190,
+          "sha256": "5092bd4afca8683e3188743938d8efe3fc210ebe9c0c2ce682a0b05094d91b01"
+        }
+      },
+      "v074::loho_t4_tray_v074_s2533_d25": {
+        "task": "loho_t4_tray",
+        "split": "dev",
+        "decision": 25,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t4_tray_v074_s2533.pt",
+          "bytes": 76612279,
+          "sha256": "1b37fa375ef402dc4e84a257efdeac36bb11e0db09bcac6de6ac793be9c9eb8c"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t4_tray_v074_s2533_d25.pt",
+          "bytes": 84694822,
+          "sha256": "e7c3b37e4f8ae0bed54562d964c261c558a216b01d0ef26ae20a8a5f271fbd90"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2540_d15": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 15,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2540.pt",
+          "bytes": 124940843,
+          "sha256": "2f5fe084eea9f638d45246b80d1d02bad9df863c65968042b6585029b7b69fa6"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2540_d15.pt",
+          "bytes": 128052412,
+          "sha256": "dbf6c74296c95f66f01f2c6a3909381d794534a3995705f54e2628d3c2022fe4"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2540_d2": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 2,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2540.pt",
+          "bytes": 124940843,
+          "sha256": "2f5fe084eea9f638d45246b80d1d02bad9df863c65968042b6585029b7b69fa6"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2540_d2.pt",
+          "bytes": 122244941,
+          "sha256": "6201accd3483e163a5ac425b640bc1d5917a98b65692f16ff1d74b54792d0a89"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2541_d3": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2541.pt",
+          "bytes": 123956139,
+          "sha256": "0722fb9dca1306a15d2d9e8a900c9f0e687688c6b567f661e2f1c10df855b9e6"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2541_d3.pt",
+          "bytes": 116381901,
+          "sha256": "4ed0ea86a7abe94ef33c2e714d555885b1ad295e6e291b8cf9a714400e751d1c"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2541_d8": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 8,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2541.pt",
+          "bytes": 123956139,
+          "sha256": "0722fb9dca1306a15d2d9e8a900c9f0e687688c6b567f661e2f1c10df855b9e6"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2541_d8.pt",
+          "bytes": 116012813,
+          "sha256": "e8bc4b1aa82ad6e6dee4a22f712fc616532c49b81f6afd718ee414f13259f3af"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2542_d3": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2542.pt",
+          "bytes": 122953835,
+          "sha256": "f239e828fef4a6af19304d5bf73fb85f9cd6f43ae020e4e0e1f544464c1afe2b"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2542_d3.pt",
+          "bytes": 118800333,
+          "sha256": "948b58cf6a6d6cc2e619856b64f74cfd492648f0753e9c569c54117a9e127c12"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2542_d8": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "train",
+        "decision": 8,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2542.pt",
+          "bytes": 122953835,
+          "sha256": "f239e828fef4a6af19304d5bf73fb85f9cd6f43ae020e4e0e1f544464c1afe2b"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2542_d8.pt",
+          "bytes": 118307341,
+          "sha256": "14eeef16582dddf9100f2f2a738596eadefed65332da4a412b3567c9fb0e61c1"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2543_d3": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "dev",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2543.pt",
+          "bytes": 124819563,
+          "sha256": "af2af0f9ad268b709583997c5b7100ad64f5d110cd46848e8cce55c1d92327ae"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2543_d3.pt",
+          "bytes": 118100877,
+          "sha256": "611ea940e698454a7bcbd706b78b08c050dc0f1378c85a566aa179998032f47a"
+        }
+      },
+      "v074::loho_t5_drawer_cabinet_v074_s2544_d3": {
+        "task": "loho_t5_drawer_cabinet",
+        "split": "dev",
+        "decision": 3,
+        "source": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/sources/loho_t5_drawer_cabinet_v074_s2544.pt",
+          "bytes": 121059499,
+          "sha256": "21b3d62140da7a56dc5b5c66a473163ce02d4ff6cdbe0c7b14079eb0210bf660"
+        },
+        "shard": {
+          "path": "results/libero_loho_public_v1/2026-08-09_v074_data_r1/shards/loho_t5_drawer_cabinet_v074_s2544_d3.pt",
+          "bytes": 114504269,
+          "sha256": "63b13358f5c6137fc1d4a553df0bd0466cbeacf755fc89ea39e48171f924d4c8"
+        }
+      }
+    },
+    "n_anchors": 33,
+    "hashed": true
+  }
+}

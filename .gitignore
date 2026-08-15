@@ -45,6 +45,11 @@ results/**/*.npy
 # High-volume generated indexes/ledgers; retain their compact reports/manifests.
 results/**/hcache_index.json
 results/**/recovery_ledger.jsonl
+# Preserved prior versions of those indexes (scripts/build_v075_hcache.py
+# `preserve_and_write`). They live on disk so a run that trained against an
+# index keeps an exact input identity; the compact append-only audit trail
+# `index_lineage.jsonl` is what gets committed.
+results/**/index_archive/
 
 # external source (installed editable into vf0s, lives at ../lerobot)
 /lerobot/

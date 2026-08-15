@@ -1,0 +1,443 @@
+{
+  "schema": "v074_probe_report_v1",
+  "run_id": "v074_probe",
+  "mode": "A_stage_diagnostic",
+  "universe": "v073",
+  "interface": "pooled",
+  "lcwm_sha256": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8",
+  "notes": [
+    "A-stage diagnostic: report-only instrument validation on the frozen V7.3C LCWM and V7.3 anchor set.",
+    "v072T-family anchors are canonical-only: no crossed texts exist for them; excluded from T4/T5 support.",
+    "T4/T5 crossing is admitted per anchor only where the V7.3B semantic_query_index verified that (goal, text) AT that anchor; teacher-source anchors have no index rows and are uncrossed by construction.",
+    "demo/retention schedule histograms omitted from sched_check (uniform interleave); counts live in the schedule artifact."
+  ],
+  "anchors": [
+    {
+      "anchor": "loho_t1_drawer_teacher_s2302_d27",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_teacher_s2302",
+      "decision": 27,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.002562940353527665,
+      "d_shuffled": 0.007222164422273636,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t1_drawer_v073_s2405_d16",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_v073_s2405",
+      "decision": 16,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0013095870381221175,
+      "d_shuffled": 0.005365476943552494,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t1_canonical_p0",
+        "t1_canonical_p1",
+        "t1_canonical_p2",
+        "t1_back_butter_p0",
+        "t1_back_butter_p1",
+        "t1_back_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t1_drawer_v073_s2405_d3",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_v073_s2405",
+      "decision": 3,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0016013877466320992,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t1_canonical_p0",
+        "t1_canonical_p1",
+        "t1_canonical_p2",
+        "t1_back_butter_p0",
+        "t1_back_butter_p1",
+        "t1_back_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2411_d21",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2411",
+      "decision": 21,
+      "family": "v073",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.013264301232993603,
+      "d_shuffled": 0.002321723848581314,
+      "in_history_support": true,
+      "n_text_pools": 6,
+      "crossed_pairs": {
+        "t2_canonical_p0": {
+          "goal": "t2_canonical",
+          "equals_real_pool": true
+        },
+        "t2_canonical_p1": {
+          "goal": "t2_canonical",
+          "equals_real_pool": false
+        },
+        "t2_canonical_p2": {
+          "goal": "t2_canonical",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p0": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p1": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p2": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        }
+      },
+      "unresolved_pairs": [],
+      "median_paraphrase": 6.125838041305542,
+      "median_alt_goal": 22.5761775970459
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2415_d13",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2415",
+      "decision": 13,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0008558437111787498,
+      "d_shuffled": 0.006614886689931154,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t2_canonical_p0",
+        "t2_canonical_p1",
+        "t2_canonical_p2",
+        "t2_cheese_butter_milk_p0",
+        "t2_cheese_butter_milk_p1",
+        "t2_cheese_butter_milk_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2415_d18",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2415",
+      "decision": 18,
+      "family": "v073",
+      "roles": [
+        "model_teacher"
+      ],
+      "d_reset": 0.002008256036788225,
+      "d_shuffled": 0.0021152242552489042,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t2_canonical_p0",
+        "t2_canonical_p1",
+        "t2_canonical_p2",
+        "t2_cheese_butter_milk_p0",
+        "t2_cheese_butter_milk_p1",
+        "t2_cheese_butter_milk_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t3_tray_teacher_s2322_d2",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_teacher_s2322",
+      "decision": 2,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0007014345610514283,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t3_tray_v073_s2425_d2",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_v073_s2425",
+      "decision": 2,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0005909113679081202,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t3_canonical_p0",
+        "t3_canonical_p1",
+        "t3_canonical_p2",
+        "t3_sauce_ketchup_butter_p0",
+        "t3_sauce_ketchup_butter_p1",
+        "t3_sauce_ketchup_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t3_tray_v073_s2425_d33",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_v073_s2425",
+      "decision": 33,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0038180500268936157,
+      "d_shuffled": 0.002608763985335827,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t3_canonical_p0",
+        "t3_canonical_p1",
+        "t3_canonical_p2",
+        "t3_sauce_ketchup_butter_p0",
+        "t3_sauce_ketchup_butter_p1",
+        "t3_sauce_ketchup_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t4_tray_teacher_s2332_d29",
+      "task": "loho_t4_tray",
+      "source_id": "loho_t4_tray_teacher_s2332",
+      "decision": 29,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0012467099586501718,
+      "d_shuffled": 0.003007570980116725,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t4_tray_v073_s2435_d16",
+      "task": "loho_t4_tray",
+      "source_id": "loho_t4_tray_v073_s2435",
+      "decision": 16,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.003031275700777769,
+      "d_shuffled": 0.0009797069942578673,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t4_canonical_p0",
+        "t4_canonical_p1",
+        "t4_canonical_p2",
+        "t4_right_bowl_p0",
+        "t4_right_bowl_p1",
+        "t4_right_bowl_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_teacher_s2342_d13",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_teacher_s2342",
+      "decision": 13,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0016416977159678936,
+      "d_shuffled": 0.0012226587859913707,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_teacher_s2342_d18",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_teacher_s2342",
+      "decision": 18,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0018866098253056407,
+      "d_shuffled": 0.0011257032165303826,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_v073_s2445_d2",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_v073_s2445",
+      "decision": 2,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0016434717690572143,
+      "d_shuffled": 0.0017819029744714499,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t5_canonical_p0",
+        "t5_canonical_p1",
+        "t5_canonical_p2",
+        "t5_front_butter_p0",
+        "t5_front_butter_p1",
+        "t5_front_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_v073_s2445_d98",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_v073_s2445",
+      "decision": 98,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.003023696830496192,
+      "d_shuffled": 0.005352492444217205,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t5_canonical_p0",
+        "t5_canonical_p1",
+        "t5_canonical_p2",
+        "t5_front_butter_p0",
+        "t5_front_butter_p1",
+        "t5_front_butter_p2"
+      ]
+    }
+  ],
+  "thresholds": {
+    "T1_identity": {
+      "median": 26.073122024536133,
+      "threshold": 0.3,
+      "n_anchors": 15,
+      "n_pairs": 105,
+      "pass": true
+    },
+    "T2_history": {
+      "rule": ">=0.05 for >=2/3 of anchors with d>=5",
+      "eps": 0.05,
+      "n_support": 11,
+      "n_pass": 0,
+      "pass": false
+    },
+    "T3_order": {
+      "rule": ">=0.05 for >=1/3 of anchors with d>=5",
+      "eps": 0.05,
+      "n_support": 11,
+      "n_pass": 0,
+      "pass": false
+    },
+    "T4_paraphrase": {
+      "median_paraphrase": 6.125838041305542,
+      "bound": 13.036561012268066,
+      "n_dists": 6,
+      "n_anchors": 1,
+      "pass": true
+    },
+    "T5_goal_separation": {
+      "median_alt_goal": 22.5761775970459,
+      "bound": 9.188757061958313,
+      "n_dists": 9,
+      "n_anchors": 1,
+      "pass": true
+    }
+  },
+  "a_stage_decision": {
+    "rule": "pooled failing T1 or T2 at A-stage commits V7.4 to the fallback interface (registered frozen decision rule, step 1)",
+    "pooled_t1_t2_ok": false,
+    "consequence": "commit_fallback_token_query"
+  },
+  "t4_t5_excluded_anchors": [
+    "loho_t1_drawer_teacher_s2302_d27",
+    "loho_t3_tray_teacher_s2322_d2",
+    "loho_t4_tray_teacher_s2332_d29",
+    "loho_t5_drawer_cabinet_teacher_s2342_d13",
+    "loho_t5_drawer_cabinet_teacher_s2342_d18"
+  ],
+  "unresolved_pairs_total": 54,
+  "trainer_pool_consistency_max_abs": {
+    "v072T_released::loho_t1_drawer_teacher_s2302_d27": 0.0,
+    "v073B::loho_t2_basket3_v073_s2411_d21": 0.0,
+    "model::loho_t2_basket3_v073_s2415_d18": 0.0,
+    "v072T_released::loho_t3_tray_teacher_s2322_d2": 0.0,
+    "v072T_released::loho_t4_tray_teacher_s2332_d29": 0.0,
+    "v072T_released::loho_t5_drawer_cabinet_teacher_s2342_d13": 0.0,
+    "v072T_released::loho_t5_drawer_cabinet_teacher_s2342_d18": 0.0
+  },
+  "sched_check": {
+    "schema": "v074_policy_sched_v1",
+    "steps": 300,
+    "grounded_hist": {
+      "loho_t1_drawer_teacher_s2302_d27": 60,
+      "loho_t2_basket3_v073_s2411_d21": 60,
+      "loho_t3_tray_teacher_s2322_d2": 60,
+      "loho_t4_tray_teacher_s2332_d29": 60,
+      "loho_t5_drawer_cabinet_teacher_s2342_d13": 30,
+      "loho_t5_drawer_cabinet_teacher_s2342_d18": 30
+    },
+    "model_hist": {
+      "loho_t1_drawer_v073_s2405_d16": 30,
+      "loho_t1_drawer_v073_s2405_d3": 30,
+      "loho_t2_basket3_v073_s2415_d13": 30,
+      "loho_t2_basket3_v073_s2415_d18": 30,
+      "loho_t3_tray_v073_s2425_d2": 30,
+      "loho_t3_tray_v073_s2425_d33": 30,
+      "loho_t4_tray_v073_s2435_d16": 60,
+      "loho_t5_drawer_cabinet_v073_s2445_d2": 30,
+      "loho_t5_drawer_cabinet_v073_s2445_d98": 30
+    },
+    "n_active_model_slots": 30,
+    "note": "diagnostic-only dry run of lcwm.v074_policy_schedule on the V7.3 ledgers; exposure caps asserted inside the builder"
+  },
+  "fit": {
+    "n_real": 15,
+    "n_demo": 401,
+    "sigma": 0.0017575843958184123,
+    "mu_norm": 20.470355987548828,
+    "mu_absmax": 3.6780190467834473,
+    "mixed_pooling": false
+  }
+}

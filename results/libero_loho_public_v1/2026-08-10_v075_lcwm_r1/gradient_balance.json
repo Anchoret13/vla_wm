@@ -1,0 +1,254 @@
+{
+  "lambda": {
+    "cl": 1.2941120034387557,
+    "roll": 7.581285194963464,
+    "phys": 0.0002353975290923078,
+    "task": 1.7646195043132842,
+    "inv": 245.3761303153764
+  },
+  "median": {
+    "cl": 71.87228775024414,
+    "roll": 12.268472671508789,
+    "phys": 395122.203125,
+    "task": 52.70869445800781,
+    "inv": 0.3790539354085922
+  },
+  "g_geo": 93.0107903051363,
+  "calibration_diversity": {
+    "loho_t1_drawer": {
+      "microbatches": 4,
+      "distinct_anchors": 4,
+      "inv_active": 2
+    },
+    "loho_t2_basket3": {
+      "microbatches": 4,
+      "distinct_anchors": 4,
+      "inv_active": 2
+    },
+    "loho_t3_tray": {
+      "microbatches": 4,
+      "distinct_anchors": 4,
+      "inv_active": 2
+    },
+    "loho_t4_tray": {
+      "microbatches": 4,
+      "distinct_anchors": 1,
+      "inv_active": 3
+    },
+    "loho_t5_drawer_cabinet": {
+      "microbatches": 4,
+      "distinct_anchors": 4,
+      "inv_active": 2
+    }
+  },
+  "scaled_holdout_medians": {
+    "cl": 94.14048731655936,
+    "roll": 94.35895737772914,
+    "phys": 104.62531910289397,
+    "task": 91.90940421938544,
+    "inv": 47.78632763800693
+  },
+  "microbatches": [
+    {
+      "anchor": "v074::loho_t1_drawer_v074_s2500_d3",
+      "goal": "t1_back_butter",
+      "text": "t1_back_butter_p0",
+      "cl": 71.11527252197266,
+      "roll": 11.46076774597168,
+      "phys": 455233.3125,
+      "task": 57.86140060424805,
+      "inv": 21060.103515625
+    },
+    {
+      "anchor": "v074::loho_t1_drawer_v074_s2500_d8",
+      "goal": "t1_back_butter",
+      "text": "t1_back_butter_p0",
+      "cl": 72.86949920654297,
+      "roll": 15.32508373260498,
+      "phys": 402751.03125,
+      "task": 58.06373596191406,
+      "inv": 22871.611328125
+    },
+    {
+      "anchor": "v074::loho_t1_drawer_v074_s2501_d16",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 70.14775085449219,
+      "roll": 14.498113632202148,
+      "phys": 389686.0625,
+      "task": 57.92272186279297,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t1_drawer_v074_s2501_d3",
+      "goal": "t1_canonical",
+      "text": "t1_canonical_p0",
+      "cl": 70.13037872314453,
+      "roll": 15.017868041992188,
+      "phys": 448441.8125,
+      "task": 56.6146354675293,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t2_basket3_v074_s2510_d15",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p1",
+      "cl": 72.2669448852539,
+      "roll": 13.5182466506958,
+      "phys": 388650.65625,
+      "task": 46.353538513183594,
+      "inv": 0.07653827965259552
+    },
+    {
+      "anchor": "v074::loho_t2_basket3_v074_s2510_d48",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p1",
+      "cl": 72.62097930908203,
+      "roll": 12.194008827209473,
+      "phys": 396437.6875,
+      "task": 49.56581497192383,
+      "inv": 0.05552835017442703
+    },
+    {
+      "anchor": "v074::loho_t2_basket3_v074_s2511_d16",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p0",
+      "cl": 72.3425064086914,
+      "roll": 12.067731857299805,
+      "phys": 390591.09375,
+      "task": 46.23762512207031,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t2_basket3_v074_s2512_d17",
+      "goal": "t2_canonical",
+      "text": "t2_canonical_p0",
+      "cl": 71.0400390625,
+      "roll": 11.728738784790039,
+      "phys": 372987.75,
+      "task": 50.67426300048828,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t3_tray_v074_s2520_d18",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p1",
+      "cl": 77.4677734375,
+      "roll": 11.341178894042969,
+      "phys": 399653.3125,
+      "task": 56.37562942504883,
+      "inv": 0.05626888573169708
+    },
+    {
+      "anchor": "v074::loho_t3_tray_v074_s2520_d2",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p1",
+      "cl": 71.31754302978516,
+      "roll": null,
+      "phys": 430622.0625,
+      "task": 51.04512023925781,
+      "inv": 0.09026618301868439
+    },
+    {
+      "anchor": "v074::loho_t3_tray_v074_s2521_d2",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p0",
+      "cl": 71.06175231933594,
+      "roll": null,
+      "phys": 386392.15625,
+      "task": 52.57717514038086,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t3_tray_v074_s2521_d37",
+      "goal": "t3_canonical",
+      "text": "t3_canonical_p0",
+      "cl": 74.39185333251953,
+      "roll": 12.5261869430542,
+      "phys": 458024.9375,
+      "task": 55.248043060302734,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t4_tray_v074_s2531_d26",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p1",
+      "cl": 76.71797943115234,
+      "roll": 12.329526901245117,
+      "phys": 450315.90625,
+      "task": 52.840213775634766,
+      "inv": 0.225484699010849
+    },
+    {
+      "anchor": "v074::loho_t4_tray_v074_s2531_d26",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p2",
+      "cl": 76.37032318115234,
+      "roll": 12.233112335205078,
+      "phys": 449042.875,
+      "task": 53.12397003173828,
+      "inv": 0.19474725425243378
+    },
+    {
+      "anchor": "v074::loho_t4_tray_v074_s2531_d26",
+      "goal": "t4_canonical",
+      "text": "t4_canonical_p0",
+      "cl": 75.83489227294922,
+      "roll": 12.268472671508789,
+      "phys": 447699.1875,
+      "task": 53.1232795715332,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t4_tray_v074_s2531_d26",
+      "goal": "t4_right_bowl",
+      "text": "t4_right_bowl_p0",
+      "cl": 76.5442123413086,
+      "roll": 12.366415023803711,
+      "phys": 445787.21875,
+      "task": 54.787384033203125,
+      "inv": 69843.3359375
+    },
+    {
+      "anchor": "v074::loho_t5_drawer_cabinet_v074_s2540_d15",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p1",
+      "cl": 70.04490661621094,
+      "roll": 12.189681053161621,
+      "phys": 457860.9375,
+      "task": 49.692474365234375,
+      "inv": 0.7536665797233582
+    },
+    {
+      "anchor": "v074::loho_t5_drawer_cabinet_v074_s2540_d2",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p1",
+      "cl": 71.09577178955078,
+      "roll": null,
+      "phys": 447519.1875,
+      "task": 48.54120635986328,
+      "inv": 0.5326231718063354
+    },
+    {
+      "anchor": "v074::loho_t5_drawer_cabinet_v074_s2541_d3",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p0",
+      "cl": 71.47763061523438,
+      "roll": 15.105039596557617,
+      "phys": 370924.3125,
+      "task": 47.13983917236328,
+      "inv": null
+    },
+    {
+      "anchor": "v074::loho_t5_drawer_cabinet_v074_s2541_d8",
+      "goal": "t5_canonical",
+      "text": "t5_canonical_p0",
+      "cl": 73.00776672363281,
+      "roll": 14.126582145690918,
+      "phys": 443137.3125,
+      "task": 48.526920318603516,
+      "inv": null
+    }
+  ],
+  "note": "split-half: lambda from even-half medians; 3x check on odd-half scaled medians (held-out, non-vacuous; V7.3C amended binding inherited)"
+}

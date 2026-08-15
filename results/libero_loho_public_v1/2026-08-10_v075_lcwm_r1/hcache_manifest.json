@@ -1,0 +1,22 @@
+{
+  "schema": "v075_hcache_manifest_v1",
+  "run_schema": "v075",
+  "run_id": "v075_lcwm_r1",
+  "git_sha": "717a9da",
+  "universe": "v074",
+  "stage": "policy",
+  "inheritance": "NONE \u2014 the V7.3C cache files are deleted; every key is computed fresh",
+  "enumeration": "every (anchor, text-variant) pair, a superset of the scheduled visits (the trainer's language second stream and dev readouts unroll at canonical p0 regardless of the visit query)",
+  "counts": {
+    "anchors": 33,
+    "keys": 5825,
+    "computed": 1847,
+    "srcdec": 2556,
+    "next": 1584,
+    "demo": 1685
+  },
+  "input_sha256": {
+    "text_variants.json": "eb5deb0c8a2bd96c52f5733a93bb678b7a5f226804e0dc9ff4f91803ad2a575c",
+    "v074_anchor_manifest.json": "dce798a67f24d9c7947dc49bfcebc956f6eabe0644364ada2514996288da4926"
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "schema": "v074_probe_report_v1",
+  "run_id": "v074_probe",
+  "mode": "A_stage_diagnostic",
+  "universe": "v073",
+  "interface": "token_query",
+  "lcwm_sha256": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8",
+  "notes": [
+    "A-stage diagnostic: report-only instrument validation on the frozen V7.3C LCWM and V7.3 anchor set.",
+    "v072T-family anchors are canonical-only: no crossed texts exist for them; excluded from T4/T5 support.",
+    "T4/T5 crossing is admitted per anchor only where the V7.3B semantic_query_index verified that (goal, text) AT that anchor; teacher-source anchors have no index rows and are uncrossed by construction.",
+    "demo/retention schedule histograms omitted from sched_check (uniform interleave); counts live in the schedule artifact.",
+    "token_query pools with a FRESH TokenQueryPool (torch.manual_seed(0)): an UNTRAINED query is a lower bound on the registered fallback, not the trained fallback.",
+    "demo pools remain the STORED mean-pooled artifacts (registration: never recomputed), so the centering fit mixes mean-pooled demo states with token-query real states in this mode."
+  ],
+  "anchors": [
+    {
+      "anchor": "loho_t1_drawer_teacher_s2302_d27",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_teacher_s2302",
+      "decision": 27,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0025913522113114595,
+      "d_shuffled": 0.00719492370262742,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t1_drawer_v073_s2405_d16",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_v073_s2405",
+      "decision": 16,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0013470739359036088,
+      "d_shuffled": 0.005365435965359211,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t1_canonical_p0",
+        "t1_canonical_p1",
+        "t1_canonical_p2",
+        "t1_back_butter_p0",
+        "t1_back_butter_p1",
+        "t1_back_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t1_drawer_v073_s2405_d3",
+      "task": "loho_t1_drawer",
+      "source_id": "loho_t1_drawer_v073_s2405",
+      "decision": 3,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0015897746197879314,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t1_canonical_p0",
+        "t1_canonical_p1",
+        "t1_canonical_p2",
+        "t1_back_butter_p0",
+        "t1_back_butter_p1",
+        "t1_back_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2411_d21",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2411",
+      "decision": 21,
+      "family": "v073",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.013230817392468452,
+      "d_shuffled": 0.0023162553552538157,
+      "in_history_support": true,
+      "n_text_pools": 6,
+      "crossed_pairs": {
+        "t2_canonical_p0": {
+          "goal": "t2_canonical",
+          "equals_real_pool": true
+        },
+        "t2_canonical_p1": {
+          "goal": "t2_canonical",
+          "equals_real_pool": false
+        },
+        "t2_canonical_p2": {
+          "goal": "t2_canonical",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p0": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p1": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        },
+        "t2_cheese_butter_milk_p2": {
+          "goal": "t2_cheese_butter_milk",
+          "equals_real_pool": false
+        }
+      },
+      "unresolved_pairs": [],
+      "median_paraphrase": 6.125808238983154,
+      "median_alt_goal": 22.575916290283203
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2415_d13",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2415",
+      "decision": 13,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0016493331640958786,
+      "d_shuffled": 0.006613691337406635,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t2_canonical_p0",
+        "t2_canonical_p1",
+        "t2_canonical_p2",
+        "t2_cheese_butter_milk_p0",
+        "t2_cheese_butter_milk_p1",
+        "t2_cheese_butter_milk_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t2_basket3_v073_s2415_d18",
+      "task": "loho_t2_basket3",
+      "source_id": "loho_t2_basket3_v073_s2415",
+      "decision": 18,
+      "family": "v073",
+      "roles": [
+        "model_teacher"
+      ],
+      "d_reset": 0.0020585181191563606,
+      "d_shuffled": 0.0021378304809331894,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t2_canonical_p0",
+        "t2_canonical_p1",
+        "t2_canonical_p2",
+        "t2_cheese_butter_milk_p0",
+        "t2_cheese_butter_milk_p1",
+        "t2_cheese_butter_milk_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t3_tray_teacher_s2322_d2",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_teacher_s2322",
+      "decision": 2,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0007321685552597046,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t3_tray_v073_s2425_d2",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_v073_s2425",
+      "decision": 2,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0005361607763916254,
+      "d_shuffled": 0.0,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t3_canonical_p0",
+        "t3_canonical_p1",
+        "t3_canonical_p2",
+        "t3_sauce_ketchup_butter_p0",
+        "t3_sauce_ketchup_butter_p1",
+        "t3_sauce_ketchup_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t3_tray_v073_s2425_d33",
+      "task": "loho_t3_tray",
+      "source_id": "loho_t3_tray_v073_s2425",
+      "decision": 33,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.003863983554765582,
+      "d_shuffled": 0.002647105371579528,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t3_canonical_p0",
+        "t3_canonical_p1",
+        "t3_canonical_p2",
+        "t3_sauce_ketchup_butter_p0",
+        "t3_sauce_ketchup_butter_p1",
+        "t3_sauce_ketchup_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t4_tray_teacher_s2332_d29",
+      "task": "loho_t4_tray",
+      "source_id": "loho_t4_tray_teacher_s2332",
+      "decision": 29,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0012220265343785286,
+      "d_shuffled": 0.00301378988660872,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t4_tray_v073_s2435_d16",
+      "task": "loho_t4_tray",
+      "source_id": "loho_t4_tray_v073_s2435",
+      "decision": 16,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.00305139715783298,
+      "d_shuffled": 0.0009760215762071311,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t4_canonical_p0",
+        "t4_canonical_p1",
+        "t4_canonical_p2",
+        "t4_right_bowl_p0",
+        "t4_right_bowl_p1",
+        "t4_right_bowl_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_teacher_s2342_d13",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_teacher_s2342",
+      "decision": 13,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.001665068557485938,
+      "d_shuffled": 0.0012620051857084036,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_teacher_s2342_d18",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_teacher_s2342",
+      "decision": 18,
+      "family": "v072T",
+      "roles": [
+        "grounded"
+      ],
+      "d_reset": 0.0019032394047826529,
+      "d_shuffled": 0.0012047396739944816,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [],
+      "crossed_texts": "excluded_canonical_only"
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_v073_s2445_d2",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_v073_s2445",
+      "decision": 2,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.001661696471273899,
+      "d_shuffled": 0.001896847621537745,
+      "in_history_support": false,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t5_canonical_p0",
+        "t5_canonical_p1",
+        "t5_canonical_p2",
+        "t5_front_butter_p0",
+        "t5_front_butter_p1",
+        "t5_front_butter_p2"
+      ]
+    },
+    {
+      "anchor": "loho_t5_drawer_cabinet_v073_s2445_d98",
+      "task": "loho_t5_drawer_cabinet",
+      "source_id": "loho_t5_drawer_cabinet_v073_s2445",
+      "decision": 98,
+      "family": "v073",
+      "roles": [
+        "abstain"
+      ],
+      "d_reset": 0.0033533961977809668,
+      "d_shuffled": 0.005324651952832937,
+      "in_history_support": true,
+      "n_text_pools": 0,
+      "crossed_pairs": {},
+      "unresolved_pairs": [
+        "t5_canonical_p0",
+        "t5_canonical_p1",
+        "t5_canonical_p2",
+        "t5_front_butter_p0",
+        "t5_front_butter_p1",
+        "t5_front_butter_p2"
+      ]
+    }
+  ],
+  "thresholds": {
+    "T1_identity": {
+      "median": 26.073251724243164,
+      "threshold": 0.3,
+      "n_anchors": 15,
+      "n_pairs": 105,
+      "pass": true
+    },
+    "T2_history": {
+      "rule": ">=0.05 for >=2/3 of anchors with d>=5",
+      "eps": 0.05,
+      "n_support": 11,
+      "n_pass": 0,
+      "pass": false
+    },
+    "T3_order": {
+      "rule": ">=0.05 for >=1/3 of anchors with d>=5",
+      "eps": 0.05,
+      "n_support": 11,
+      "n_pass": 0,
+      "pass": false
+    },
+    "T4_paraphrase": {
+      "median_paraphrase": 6.125808238983154,
+      "bound": 13.036625862121582,
+      "n_dists": 6,
+      "n_anchors": 1,
+      "pass": true
+    },
+    "T5_goal_separation": {
+      "median_alt_goal": 22.575916290283203,
+      "bound": 9.188712358474731,
+      "n_dists": 9,
+      "n_anchors": 1,
+      "pass": true
+    }
+  },
+  "a_stage_decision": {
+    "note": "token_query diagnostic run; the frozen decision rule reads the POOLED run"
+  },
+  "t4_t5_excluded_anchors": [
+    "loho_t1_drawer_teacher_s2302_d27",
+    "loho_t3_tray_teacher_s2322_d2",
+    "loho_t4_tray_teacher_s2332_d29",
+    "loho_t5_drawer_cabinet_teacher_s2342_d13",
+    "loho_t5_drawer_cabinet_teacher_s2342_d18"
+  ],
+  "unresolved_pairs_total": 54,
+  "trainer_pool_consistency_max_abs": {},
+  "sched_check": {
+    "schema": "v074_policy_sched_v1",
+    "steps": 300,
+    "grounded_hist": {
+      "loho_t1_drawer_teacher_s2302_d27": 60,
+      "loho_t2_basket3_v073_s2411_d21": 60,
+      "loho_t3_tray_teacher_s2322_d2": 60,
+      "loho_t4_tray_teacher_s2332_d29": 60,
+      "loho_t5_drawer_cabinet_teacher_s2342_d13": 30,
+      "loho_t5_drawer_cabinet_teacher_s2342_d18": 30
+    },
+    "model_hist": {
+      "loho_t1_drawer_v073_s2405_d16": 30,
+      "loho_t1_drawer_v073_s2405_d3": 30,
+      "loho_t2_basket3_v073_s2415_d13": 30,
+      "loho_t2_basket3_v073_s2415_d18": 30,
+      "loho_t3_tray_v073_s2425_d2": 30,
+      "loho_t3_tray_v073_s2425_d33": 30,
+      "loho_t4_tray_v073_s2435_d16": 60,
+      "loho_t5_drawer_cabinet_v073_s2445_d2": 30,
+      "loho_t5_drawer_cabinet_v073_s2445_d98": 30
+    },
+    "n_active_model_slots": 30,
+    "note": "diagnostic-only dry run of lcwm.v074_policy_schedule on the V7.3 ledgers; exposure caps asserted inside the builder"
+  },
+  "fit": {
+    "n_real": 15,
+    "n_demo": 401,
+    "sigma": 0.0017575840465724468,
+    "mu_norm": 20.470355987548828,
+    "mu_absmax": 3.6780190467834473,
+    "mixed_pooling": true
+  }
+}

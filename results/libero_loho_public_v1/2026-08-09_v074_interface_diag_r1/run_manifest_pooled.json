@@ -1,0 +1,31 @@
+{
+  "schema": "v074_probe_manifest_v1",
+  "run_id": "v074_probe",
+  "git_sha": "1a0e7b06",
+  "universe": "v073",
+  "interface": "pooled",
+  "lcwm_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/libero_loho_public_v1/2026-08-06_v073_lcwm_r1/checkpoints/final.pt",
+  "lcwm_sha256": "26381049d27724a621a7a09dd21f134e4218e9d93c9e5bddee781b2e9c58b7a8",
+  "anchor_counts": {
+    "grounded": 6,
+    "model": 9,
+    "real_total": 15
+  },
+  "fit": {
+    "n_real": 15,
+    "n_demo": 401,
+    "sigma": 0.0017575843958184123,
+    "mu_norm": 20.470355987548828,
+    "mu_absmax": 3.6780190467834473,
+    "mixed_pooling": false
+  },
+  "input_sha256": {
+    "grounded_ledger": "807ce8a470e9ede819f73f802d30fe10cb7cd7922f64ffa85e044df8bfdcb9cd",
+    "model_ledger": "9b0ab87316dbe116c78fd34ab938761d917303bc4a722a5c3fd5c5a47e5d06a8",
+    "semantic_query_index": "cd78da01e63b463eaf49c32a028aa3654fdda9677c275da27c7dc32c2ca4ebb7",
+    "anchor_states": "ad5de22db0b71bc399cfcbe8c88694e94a046f9e9dab66faa1edd0e099892e38"
+  },
+  "centering_sha": "455e2c7650471259d45fa72a85857c55ba10e022726c3f053c5f4eeecaaa81da",
+  "states_cache_sha": "b0164ab39521b51f164eb018f17f7b03694cbd66320c5735e4f30a38daf28e21",
+  "report_sha": "9c879a34f692a25871e07c59e300efb745d640f67019f3310a1e883dfc3219eb"
+}
