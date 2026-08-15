@@ -7,8 +7,8 @@
   "purpose": "Bind the V7.5 evidence by content hash. The run manifests name a Git SHA that predates their own code, so file content is the only sound binding.",
   "git": {
     "recorded_git_sha": "717a9da",
-    "head_at_seal_time": "717a9da",
-    "worktree_dirty_at_seal_time": true,
+    "head_at_seal_time": "1f28a54",
+    "worktree_dirty_at_seal_time": false,
     "v075_files_present_in_recorded_sha": [],
     "v075_files_absent_from_recorded_sha": [
       "lcwm/v075_schedule.py",
@@ -21,17 +21,7 @@
       "scripts/test_v075_contract.py",
       "scripts/train_v075_lcwm.py"
     ],
-    "code_files_absent_from_head": [
-      "lcwm/v075_schedule.py",
-      "lcwm/v075_state.py",
-      "scripts/build_v075_hcache.py",
-      "scripts/diag_v075_recurrence.py",
-      "scripts/diag_v075_repair_check.py",
-      "scripts/gate_v075_binding.py",
-      "scripts/seal_v075_provenance.py",
-      "scripts/test_v075_contract.py",
-      "scripts/train_v075_lcwm.py"
-    ],
+    "code_files_absent_from_head": [],
     "binding_rule": "This seal binds the V7.5 run by sha256 of file CONTENT. The git_sha recorded in the run manifests is known-wrong and is preserved verbatim rather than rewritten."
   },
   "lineage_defects": [
