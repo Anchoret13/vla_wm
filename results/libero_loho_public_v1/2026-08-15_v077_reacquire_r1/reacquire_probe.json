@@ -132,106 +132,1639 @@
         "lifted": true,
         "milestone": true
       }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t1_drawer",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the front",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t2_basket3",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the alphabet soup",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 20,
+        "contacted": 48,
+        "moved": 59,
+        "displaced": 64,
+        "lifted": 66,
+        "milestone": 66
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t2_basket3",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the alphabet soup",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 23,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t2_basket3",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the alphabet soup",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 23,
+        "contacted": 52,
+        "moved": 65,
+        "displaced": 68,
+        "lifted": 69,
+        "milestone": 69
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the back",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": 55,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the back",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the back",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 67,
+        "contacted": 86,
+        "moved": 48,
+        "displaced": 97,
+        "lifted": 103,
+        "milestone": 103
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t1_drawer",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t1_drawer",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t1_drawer",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t2_basket3",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 20,
+        "contacted": 49,
+        "moved": 60,
+        "displaced": 65,
+        "lifted": 68,
+        "milestone": 68
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t2_basket3",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 25,
+        "contacted": null,
+        "moved": 78,
+        "displaced": 82,
+        "lifted": 83,
+        "milestone": 83
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t2_basket3",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "alphabet_soup_1",
+      "target_subgoal": "pick_up alphabet_soup_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 25,
+        "contacted": 53,
+        "moved": 65,
+        "displaced": 68,
+        "lifted": 69,
+        "milestone": 69
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "B",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_2",
+      "target_subgoal": "pick_up butter_2",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t1_drawer",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 110,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 36,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t1_drawer",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 113,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t1_drawer",
+      "seed": 2622,
+      "state_built": false,
+      "excluded": true,
+      "note": "reacher failed to build the d2 state"
+    },
+    {
+      "cell": "C",
+      "task": "loho_t2_basket3",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 102,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 45,
+        "contacted": 51,
+        "moved": 62,
+        "displaced": 66,
+        "lifted": 68,
+        "milestone": 68
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t2_basket3",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 105,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 47,
+        "contacted": 52,
+        "moved": 61,
+        "displaced": 69,
+        "lifted": 70,
+        "milestone": 70
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t2_basket3",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 112,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 48,
+        "contacted": 54,
+        "moved": 65,
+        "displaced": 67,
+        "lifted": 68,
+        "milestone": 68
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 103,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 101,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "C",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 103,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t1_drawer",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 110,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 31,
+        "contacted": null,
+        "moved": 83,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": true,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t1_drawer",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 113,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the front and the chocolate pudding in the top drawer of the cabinet and close it",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 32,
+        "contacted": 90,
+        "moved": 81,
+        "displaced": 85,
+        "lifted": 97,
+        "milestone": 97
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t1_drawer",
+      "seed": 2622,
+      "state_built": false,
+      "excluded": true,
+      "note": "reacher failed to build the d2 state"
+    },
+    {
+      "cell": "D",
+      "task": "loho_t2_basket3",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 102,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t2_basket3",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 105,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t2_basket3",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 112,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "full",
+      "prompt": "put the alphabet soup and the butter and the tomato sauce in the basket",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 103,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 101,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "D",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 103,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "full",
+      "prompt": "put the butter at the back and the chocolate pudding in the top drawer of the cabinet and close it and put the black bowl on top of the cabinet",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t1_drawer",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 28,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t1_drawer",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t1_drawer",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t2_basket3",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t2_basket3",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 93,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t2_basket3",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 29,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
+    },
+    {
+      "cell": "E",
+      "task": "loho_t5_drawer_cabinet",
+      "seed": 2622,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "chocolate_pudding_1",
+      "target_subgoal": "pick_up chocolate_pudding_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the chocolate pudding",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": null,
+        "contacted": null,
+        "moved": null,
+        "displaced": null,
+        "lifted": null,
+        "milestone": null
+      },
+      "at_60": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": false,
+        "contacted": false,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      }
     }
   ],
   "summary_by_horizon": {
     "60": {
       "A": {
-        "approached": 2,
-        "contacted": 2,
-        "moved": 0,
+        "approached": 5,
+        "contacted": 4,
+        "moved": 3,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 2
+        "n": 9
       },
       "B": {
-        "approached": 0,
-        "contacted": 0,
-        "moved": 0,
+        "approached": 3,
+        "contacted": 2,
+        "moved": 1,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 0
+        "n": 9
       },
       "C": {
-        "approached": 0,
-        "contacted": 0,
+        "approached": 4,
+        "contacted": 3,
         "moved": 0,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 0
+        "n": 8
       },
       "D": {
-        "approached": 0,
+        "approached": 2,
         "contacted": 0,
         "moved": 0,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 0
+        "n": 8
       },
       "E": {
-        "approached": 0,
+        "approached": 2,
         "contacted": 0,
         "moved": 0,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 0
+        "n": 9
       }
     },
     "120": {
       "A": {
-        "approached": 2,
-        "contacted": 2,
-        "moved": 2,
-        "displaced": 2,
-        "lifted": 2,
-        "milestone": 2,
-        "n": 2
+        "approached": 6,
+        "contacted": 5,
+        "moved": 6,
+        "displaced": 5,
+        "lifted": 5,
+        "milestone": 5,
+        "n": 9
       },
       "B": {
-        "approached": 0,
-        "contacted": 0,
-        "moved": 0,
-        "displaced": 0,
-        "lifted": 0,
-        "milestone": 0,
-        "n": 0
+        "approached": 3,
+        "contacted": 2,
+        "moved": 3,
+        "displaced": 3,
+        "lifted": 3,
+        "milestone": 3,
+        "n": 9
       },
       "C": {
-        "approached": 0,
-        "contacted": 0,
-        "moved": 0,
-        "displaced": 0,
-        "lifted": 0,
-        "milestone": 0,
-        "n": 0
+        "approached": 4,
+        "contacted": 3,
+        "moved": 3,
+        "displaced": 3,
+        "lifted": 3,
+        "milestone": 3,
+        "n": 8
       },
       "D": {
-        "approached": 0,
-        "contacted": 0,
-        "moved": 0,
-        "displaced": 0,
-        "lifted": 0,
-        "milestone": 0,
-        "n": 0
+        "approached": 2,
+        "contacted": 1,
+        "moved": 2,
+        "displaced": 1,
+        "lifted": 1,
+        "milestone": 1,
+        "n": 8
       },
       "E": {
-        "approached": 0,
+        "approached": 3,
         "contacted": 0,
         "moved": 0,
         "displaced": 0,
         "lifted": 0,
         "milestone": 0,
-        "n": 0
+        "n": 9
       }
     }
   },
-  "n_state_failures": 0,
+  "n_state_failures": 2,
   "registered_readings": [
-    "no registered pattern matched; reported as measured with no forced reading"
+    "(c) OBJECT-SPECIFIC: the pilot's pick_up 0/14 is partly an artifact of always targeting object 2"
   ]
 }
