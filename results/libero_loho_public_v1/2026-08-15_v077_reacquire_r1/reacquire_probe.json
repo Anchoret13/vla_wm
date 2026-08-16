@@ -1,0 +1,237 @@
+{
+  "schema": "v077_reacquire_probe_v1",
+  "run_schema": "v077",
+  "run_id": "v077_reacquire_r1",
+  "registered_by": "plan_and_progress/2026-08-15.md \u2014 V7.7, registered before execution",
+  "question": "Is the V7.6 pilot's pick_up 0/14 a pi0.5 capability limit (a), a prompt artifact (b), an object effect (c), or specific to reacher-built states (d)?",
+  "registered": {
+    "cells": {
+      "A": {
+        "build_depth": 0,
+        "target_subgoal_index": 0,
+        "prompt": "atomic"
+      },
+      "B": {
+        "build_depth": 0,
+        "target_subgoal_index": 0,
+        "prompt": "full"
+      },
+      "C": {
+        "build_depth": 2,
+        "target_subgoal_index": 2,
+        "prompt": "atomic"
+      },
+      "D": {
+        "build_depth": 2,
+        "target_subgoal_index": 2,
+        "prompt": "full"
+      },
+      "E": {
+        "build_depth": 0,
+        "target_subgoal_index": 2,
+        "prompt": "atomic"
+      }
+    },
+    "tasks": [
+      "loho_t1_drawer",
+      "loho_t2_basket3",
+      "loho_t5_drawer_cabinet"
+    ],
+    "seeds": [
+      2620,
+      2621,
+      2622
+    ],
+    "max_actions": 120,
+    "max_decisions": 12,
+    "report_at": [
+      60,
+      120
+    ],
+    "supported_min": 3,
+    "level_thresholds": {
+      "approached": 0.05,
+      "contacted": 0.03,
+      "moved": 0.005,
+      "displaced": 0.02,
+      "lifted": 0.03
+    },
+    "note": "milestone uses the GoalAutomaton criterion, identical to the V7.6 pilot positivity rule, so cell C replicates the pilot"
+  },
+  "rows": [
+    {
+      "cell": "A",
+      "task": "loho_t1_drawer",
+      "seed": 2620,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the front",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 32,
+        "contacted": 57,
+        "moved": 62,
+        "displaced": 97,
+        "lifted": 101,
+        "milestone": 101
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    },
+    {
+      "cell": "A",
+      "task": "loho_t1_drawer",
+      "seed": 2621,
+      "state_built": true,
+      "excluded": false,
+      "build_actions": 0,
+      "target_object": "butter_1",
+      "target_subgoal": "pick_up butter_1",
+      "prompt_style": "atomic",
+      "prompt": "pick up the butter at the front",
+      "policy_actions": 120,
+      "first_step": {
+        "approached": 31,
+        "contacted": 60,
+        "moved": 62,
+        "displaced": 65,
+        "lifted": 106,
+        "milestone": 106
+      },
+      "at_60": {
+        "approached": true,
+        "contacted": true,
+        "moved": false,
+        "displaced": false,
+        "lifted": false,
+        "milestone": false
+      },
+      "at_120": {
+        "approached": true,
+        "contacted": true,
+        "moved": true,
+        "displaced": true,
+        "lifted": true,
+        "milestone": true
+      }
+    }
+  ],
+  "summary_by_horizon": {
+    "60": {
+      "A": {
+        "approached": 2,
+        "contacted": 2,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 2
+      },
+      "B": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "C": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "D": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "E": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      }
+    },
+    "120": {
+      "A": {
+        "approached": 2,
+        "contacted": 2,
+        "moved": 2,
+        "displaced": 2,
+        "lifted": 2,
+        "milestone": 2,
+        "n": 2
+      },
+      "B": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "C": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "D": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      },
+      "E": {
+        "approached": 0,
+        "contacted": 0,
+        "moved": 0,
+        "displaced": 0,
+        "lifted": 0,
+        "milestone": 0,
+        "n": 0
+      }
+    }
+  },
+  "n_state_failures": 0,
+  "registered_readings": [
+    "no registered pattern matched; reported as measured with no forced reading"
+  ]
+}
