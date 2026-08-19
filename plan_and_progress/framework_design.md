@@ -34,7 +34,7 @@ The V7.3–V7.7 line produced useful negative evidence and implementation infras
 5. **V7.6 halted at acquisition on its registered rule.** The V7.6A census relocated the yield question from the model to the snapshot: reacher-built mid-chain snapshots yielded 6/36 positives against V7.4B's 4/129 from stock-stall snapshots — a 5.4x effect, exact one-sided binomial `p = 7.8e-4` against the V7.4B rate. That still missed the pre-derived bar (≥ 8/40, equivalently ≥ 9.6% from the tranche's own quota arithmetic; Wilson 95% lower bound at 6/36 is `0.0887`). `V7.6C–G` were not run. The family breakdown was sharper than the aggregate: `recovery` 5/5, `first_pick` 1/16, **`placement` (a `pick_up` target) 0/14**; per task t1 2/9, t2 2/8, t5 2/9, t3 0/10.
 6. **V7.7 showed the acquisition budget had been the instrument.** In a fresh pre-registered probe (`2026-08-15_v077_reacquire_r1`, 43 scored rollouts), **no `pick_up` milestone in the entire probe occurred at or before step 60; the earliest of twelve successes was step 66** (success steps 66, 68, 68, 68, 69, 69, 70, 83, 97, 101, 103, 106). The easiest cell — fresh episode start, first object, atomic prompt — was `0/9 @60` and `5/9 @120`. Therefore V7.6's 60-action and V7.4B's 30-action recovery budgets could not register a `pick_up` success structurally, not statistically; `pick_up 0/14` is retired as a statement about π0.5, and the V7.6 aggregate 16.7% and V7.4B 3.1% are measurements of what completes inside a truncating budget. Two findings survive as genuine: the atomic prompt *beats* the full instruction at both states (5/9 vs 3/9 fresh; 3/8 vs 1/8 mid-chain), so prompt choice was not the confound; and **π0.5 does not redirect to a later object while an earlier one is still present** (cell E: approached 3/9, contacted 0/9, against 3/8 for the same object once object 1 is removed). The reacher is also seed-sensitive at depth 3 across two independent runs.
 
-`[LOCKED]` **Instrument rule inherited from V7.6/V7.7.** No yield, recovery, or success bar in `V8.x` may be evaluated at a budget that was not derived from a *measured* completion-step distribution for the milestone class being scored, and every such readout is reported at no fewer than two horizons. A bar evaluated at a single horizon chosen before that distribution is measured is treated as uninterpretable, not as a negative result.
+`[LOCKED]` **Instrument rule inherited from V7.6/V7.7, extended 2026-08-19 after a third instance.** No yield, recovery, or success bar in `V8.x` may be evaluated at *any* budget — recovery budget, continuation budget, **or episode horizon** — that was not derived from a *measured* completion-step distribution for the milestone class being scored, and every such readout is reported at no fewer than two horizons. The extension is forced: V7.4B used 30 actions, V7.6 used 60, and V8.0 then set its 250-steps-per-subgoal **episode horizon** from a rule of thumb extrapolated from V7.7's single-`pick_up` floor of 66 without ever measuring a full-task completion distribution. Stage 1R.1 showed that horizon cut `chain1b`'s distribution at its median, manufacturing the entire headroom the benchmark was selected for. The original rule was written about recovery budgets only, and that scope gap is what let the same failure recur. A bar evaluated at a single horizon chosen before that distribution is measured is treated as uninterpretable, not as a negative result.
 
 These results do not falsify language-conditioned latent dynamics. They show that (i) a fixed bank collected from a near-zero-success policy cannot be assumed to contain the interventions needed for policy improvement, (ii) architecture refinement cannot manufacture outcomes the acquisition never contained, and (iii) the acquisition instrument's own parameters can dominate the measurement they were meant to make.
 
@@ -972,6 +972,10 @@ and, on those tasks, at least two distinct failure phases observed across seeds,
 
 `[LOCKED]` **Reproducibility.** \(\pi0.5\) is a flow policy and samples its action chunk, so every calibration, acquisition, and evaluation episode seeds torch, numpy, and CUDA from the episode seed. Unseeded, the same seed gave terminal steps 138 and 134 on two runs of identical code. A panel that cannot be reproduced is not a calibration.
 
+`[VOIDED 2026-08-19 for `chain1b_lr2`]` Stage 1R.1 showed that task succeeds on **20/20** episodes by 500 steps: its 0.400 at `L=250` measured where the cut was placed, not the policy. A band PASS obtained on deadline-truncated failures is not a PASS, so `chain1b_lr2`'s gate is void. `chain2b_lr2`'s official rate also moved to 31/40 = 0.775 on the 1R.1 panels (51/70 = 0.729 pooled with the V8.0 confirmation), above the band ceiling it was granted under.
+
+`[LOCKED]` **Companion criterion (added 2026-08-19).** A task qualifies only if its success rate is in band **and** its failures are *terminal* rather than truncated — i.e. its late-conversion rate at the chosen deadline is non-material under the §14.2 Clopper–Pearson rule. The band test alone admitted a task with no capability headroom at all. Both conditions are now required, and the late-conversion screen is measured before a benchmark is frozen, not after.
+
 **HALT** if no task set clears the band. In that case change task difficulty — object count, distractor set, initial-state region — before building any world model. Do **not** compensate with privileged late-state reachers inside the primary mechanism benchmark; the reacher's seed sensitivity at depth 3 (§0.1) is a second reason to keep it out of the benchmark definition.
 
 ### 13.2 `V8.1` — bootstrap acquisition (Action 2)
@@ -995,7 +999,7 @@ The immediate priority is to resolve the benchmark and interaction-support decis
 
 ## 14. Action 1R / V8.0R — repairing the branch instrument
 
-Added 2026-08-19 after the V8.0 audit. §13.1's *behavioral* gate stands: `chain1b_lr2` 12/30 and `chain2b_lr2` 20/30 at the frozen 250/500-step deadlines, hash-bound. What the audit reopened is the *derived branch instrument* — the anchor rule, the budget derivation, and the value-estimator choice — because all three were computed under assumptions the data violates.
+Added 2026-08-19 after the V8.0 audit; **§14.5 below records the outcome, which voided part of what this section originally assumed.** As written, §13.1's *behavioral* gate was taken to stand — `chain1b_lr2` 12/30 and `chain2b_lr2` 20/30 at the frozen 250/500-step deadlines, hash-bound. Stage 1R.1 then showed `chain1b`'s share of that gate was a deadline artifact. What the audit reopened is the *derived branch instrument* — the anchor rule, the budget derivation, and the value-estimator choice — because all three were computed under assumptions the data violates.
 
 ### 14.1 What was wrong, stated once
 
@@ -1022,7 +1026,7 @@ Implemented in `lcwm/v08r_contract.py` and sealed by `scripts/register_v080r.py`
 
 ### 14.3 Ordering, and why 1R.1 comes first
 
-Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/16 admissible `chain1b` anchors** and 5/8 `chain2b` ones. `chain1b`'s stratum is therefore predicted to fail 1R.2 at the current deadline, which is exactly why the deadline-sensitivity panel runs before the feasibility panel: if `chain1b` is materially deadline-sensitive, the remedy is a registered deadline change — and a changed deadline requires a **fresh** success-band confirmation, because the V8.0 PASS was measured at 250 steps and does not transfer.
+Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/16 admissible `chain1b` anchors** and 5/8 `chain2b` ones. `chain1b`'s stratum is therefore predicted to fail 1R.2 at the current deadline, which is exactly why the deadline-sensitivity panel runs before the feasibility panel. **The prediction was confirmed, and the cause was worse than a mis-set deadline: those 16 anchors were not failures at all** (§14.5).
 
 `[LOCKED]` Action 1R produces a new content-addressed handoff artifact and **must not mutate** `BENCHMARK_FROZEN.json`. An immutable artifact is superseded by a successor that cites it, never edited.
 
@@ -1031,3 +1035,22 @@ Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/1
 **PASS** requires all of: both frozen tasks retain at least one admissible stratum; replay and provenance pass; unordered states are never cross-pooled; official outcomes respect the deadline; the anchor rule and estimator path are identified; and a new immutable V8.1 handoff manifest is sealed.
 
 **HALT** on any of: reserved-seed use, replay/provenance failure, state aliasing, post-deadline official stepping, source-cap underfill leaving either task without an admissible stratum, an unconfirmed horizon change, an unidentified anchor/value contract, or an unsealed interaction budget. On HALT, change exactly one registered component — task/deadline, anchor rule, or estimator path — before any new panel.
+
+### 14.5 Action 1R outcome — HALT (2026-08-19)
+
+Stage 1R.0 sealed (registration `673e8c23`, superseding `d77615a5`); Stage 1R.1 executed on 60 probe and 13 duplicate episodes; Stage 1R.2 not run, because it is moot until the benchmark decision is made. Interaction: 29,800 of the 113,030-step cap, all role `calibration`; reserved seeds `3200–3399` untouched.
+
+| task | pooled result | verdict |
+|---|---|---|
+| `chain1b_lr2` | 12/20 late conversions, CP lower 0.3936; success @250/@350/@500 = 0.40/0.95/**1.00** | `MATERIALLY_DEADLINE_SENSITIVE` |
+| `chain2b_lr2` | 3/40 late, CP [0.0208, 0.1826]; official 31/40 = 0.775; **6/40 never succeed at any horizon to 990** | `INDETERMINATE_TREAT_AS_SENSITIVE` |
+
+**HALT** under §14.4: it requires *both* frozen tasks to retain an admissible stratum, and `chain1b` retains none. Its 20 success steps run `228…250 │ 251…282 │ 352` against `L = 250` — every episode succeeds, so no deadline yields both non-degenerate success and genuine failure. This also resolves §14.3's prediction: the 16 rejected anchors were unfinished successes with 20–60 steps left, which is why every one failed `D ≥ 71`.
+
+`chain2b` retains genuine failure — 6/40 terminal, in two distinct strata — but sits above the band and is conservatively deadline-sensitive.
+
+`[LOCKED]` **Registered overrun, recorded not repaired.** `1R.1_duplicate_subset | chain2b_lr2` was charged 2,849 against a 2,500 cap, over by 349: the cap funded one duplicate subset while the runner scheduled one per panel. The cap was **not** raised; `CAP_LINE` now has no panel-2 duplicate entry so the unfunded activity cannot be scheduled again. Prefix identity matched 10/10 in panel 1 and 3/3 in panel 2 regardless.
+
+`[LOCKED]` **Cumulative spend is derived** by summing every `interaction_ledger.jsonl` on disk, never separately maintained. An aborted run wrote 2,687 ledgered steps that a clean-exit-only counter had lost.
+
+Under §6 of the 2026-08-19 daily, exactly one registered component may change before any new panel. The evidence bearing on that choice: the Chain ladder has no rung in band — `chain1`/`chain2` at ceiling, `chain1b` a stopwatch, `chain2b` at 0.73–0.78, `chain3` at 0 — and shortening a deadline to pull `chain2b` into band would rebuild the `chain1b` pathology by construction, which the §13.1 companion criterion now forbids.
