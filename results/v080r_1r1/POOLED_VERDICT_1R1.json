@@ -1,0 +1,66 @@
+{
+  "artifact": "1R.1 pooled verdict",
+  "stage": "1R.1",
+  "utc": "2026-08-19",
+  "why_separate": "panel 2 HALTed on a cap line during its DUPLICATE phase, after all 20 probes completed. Its directory stays marked HALTED with no summary.json - the registered marker of an incomplete run - so the pooled verdict is emitted here, citing both panels, rather than fabricated into that directory.",
+  "sources": {
+    "panel1": "results/v080r_1r1/2026-08-19T182344Z_panel1",
+    "panel2": "results/v080r_1r1/2026-08-19T183719Z_panel2",
+    "aborted": "results/v080r_1r1/ABORTED_2026-08-19T183327Z_panel2"
+  },
+  "chain1b_lr2": {
+    "n": 20,
+    "late": 12,
+    "official_at_L": 8,
+    "success_at": {
+      "250": 8,
+      "350": 19,
+      "500": 20
+    },
+    "verdict": "MATERIALLY_DEADLINE_SENSITIVE",
+    "reason": "12/20 late conversions; lower bound 0.3936",
+    "cp": [
+      0.39358488675696945,
+      0.7829314106299259
+    ],
+    "reading": "every one of 20 episodes succeeds by 500 steps; L=250 cuts the completion-time distribution near its median. No capability headroom exists, so no deadline yields both non-degenerate success and genuine failure."
+  },
+  "chain2b_lr2": {
+    "n": 40,
+    "late": 3,
+    "panel1_late": 1,
+    "panel2_late": 2,
+    "official_at_L": 31,
+    "official_rate": 0.775,
+    "true_failures_at_990": 6,
+    "verdict": "INDETERMINATE_TREAT_AS_SENSITIVE",
+    "reason": "pooled 3/40; [0.0208,0.1826] straddles 0.15; conservatively deadline-sensitive",
+    "cp": [
+      0.02075360147570139,
+      0.18258685001590064
+    ],
+    "band_note": "official 31/40 = 0.775 at L=500 exceeds the 0.70 PASS-band ceiling its V8.0 gate was granted under; pooled with the V8.0 confirm panel it is 51/70 = 0.729. This is a second challenge, independent of the deadline."
+  },
+  "registered_overrun": {
+    "cap_line": "1R.1_duplicate_subset",
+    "task": "chain2b_lr2",
+    "cap": 2500,
+    "charged": 2849,
+    "over_by": 349,
+    "cause": "the cap funded ONE duplicate subset (DUPLICATE_N x deadline) but the runner scheduled one per panel. The panel-2 subset was unfunded. Recorded as an overrun rather than repaired by raising the cap: caps are not raised after execution. CAP_LINE now maps DUPLICATE_CHECK for panel 2 to no line, so an unfunded subset cannot be scheduled again.",
+    "evidence_obtained_anyway": "3/3 panel-2 duplicate checks matched, as did 10/10 in panel 1"
+  },
+  "cumulative_spend": {
+    "1R.1_panel_1": {
+      "chain1b_lr2": 5167,
+      "chain2b_lr2": 7796
+    },
+    "1R.1_duplicate_subset": {
+      "chain1b_lr2": 1235,
+      "chain2b_lr2": 1398
+    },
+    "_total": 15596,
+    "_cap_total": 113030
+  },
+  "action_1R_consequence": "framework \u00a714.4 PASS requires BOTH frozen tasks to retain an admissible stratum. chain1b has none. Action 1R therefore HALTs, and \u00a76 permits changing exactly one registered component - task/deadline, anchor rule, or estimator path - before any new panel."
+}

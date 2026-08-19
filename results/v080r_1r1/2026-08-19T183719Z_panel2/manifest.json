@@ -1,0 +1,75 @@
+{
+  "stage": "1R.1",
+  "panel": 2,
+  "utc": "2026-08-19T183719Z",
+  "status": "HALTED",
+  "registration_sha256": "673e8c23a1a21fc97908735847c9e6d15322cffd8319b8f35bd7b1ac025de793",
+  "registration_verified": true,
+  "git_head": "0a0ef8d549ba4cd4d471fe1973d05b16f3f64d06",
+  "git_dirty": false,
+  "provenance_downgraded": false,
+  "runner_hashes": {
+    "scripts/run_v080r_1r1.py": "2dbfe5c8face4beddcaac9cdc8d91d28f300f74a8d7043d03ed29c444be9017e",
+    "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
+    "lcwm/v08r_contract.py": "63aa44219bcebf88ed4ef4bc4324f9040eaa052283c9f6e18d50e63b78245a64"
+  },
+  "tasks": [
+    "chain2b_lr2"
+  ],
+  "seeds": [
+    3420,
+    3421,
+    3422,
+    3423,
+    3424,
+    3425,
+    3426,
+    3427,
+    3428,
+    3429,
+    3430,
+    3431,
+    3432,
+    3433,
+    3434,
+    3435,
+    3436,
+    3437,
+    3438,
+    3439
+  ],
+  "checkpoints": {
+    "chain2b_lr2": [
+      500,
+      750,
+      990
+    ]
+  },
+  "duplicate_subset_n": 5,
+  "duplicate_tolerance": {
+    "milestone_step": 0,
+    "terminal_step": 0,
+    "success_flag": 0,
+    "note": "exact equality required on the duplicate-prefix subset; any mismatch is a provenance HALT, not a tolerance to widen"
+  },
+  "role": "calibration",
+  "cap_plan": {
+    "chain2b_lr2": {
+      "1R.1_panel_2_conditional": {
+        "worst_case": 19800,
+        "cap": 19800
+      },
+      "1R.1_duplicate_subset": {
+        "worst_case": 2500,
+        "cap": 2500
+      }
+    }
+  },
+  "extends_panel1": "results/v080r_1r1/2026-08-19T182344Z_panel1",
+  "data_use_restriction": "calibration-only; may validate schemas and feasibility, may never train an FQE or model",
+  "policy": {
+    "version": "0.6.1",
+    "path": "/home/stargazer/Desktop/vla_wm/lerobot/src/lerobot"
+  },
+  "model_id": "lerobot/pi05_libero_finetuned"
+}

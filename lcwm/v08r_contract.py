@@ -506,7 +506,11 @@ CAP_LINE = {
     ("1R.1", 1, Subrole.DEADLINE_PROBE.value): "1R.1_panel_1",
     ("1R.1", 2, Subrole.DEADLINE_PROBE.value): "1R.1_panel_2_conditional",
     ("1R.1", 1, Subrole.DUPLICATE_CHECK.value): "1R.1_duplicate_subset",
-    ("1R.1", 2, Subrole.DUPLICATE_CHECK.value): "1R.1_duplicate_subset",
+    # Panel 2 has NO duplicate line: the sealed cap funds one subset
+    # (DUPLICATE_N x deadline), and the 2026-08-19 panel-2 run overran it by
+    # 349 steps by scheduling a second.  Caps are not raised after execution,
+    # so the unfunded activity is removed instead.  Prefix identity was
+    # established in panel 1 (10/10) and reconfirmed 3/3 before the halt.
 }
 
 
