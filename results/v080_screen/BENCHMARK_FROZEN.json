@@ -1,0 +1,152 @@
+{
+  "stage": "V8.0",
+  "framework": "v1.0 \u00a713.1",
+  "verdict": "PASS",
+  "rule": "PASS iff >= 2 tasks with rate in (0.2, 0.7), Wilson LB >= 0.1, UB <= 0.85, and >= 2 distinct failure phases",
+  "frozen_utc": "2026-08-18",
+  "git_sha": "7f4ed4c9832f5c7c22b13f80a77ec5e629bab0b3",
+  "tasks": [
+    "chain1b_lr2",
+    "chain2b_lr2"
+  ],
+  "task_detail": {
+    "chain1b_lr2": {
+      "rate": 0.4,
+      "n": 30,
+      "successes": 12,
+      "wilson95": [
+        0.2459062811680185,
+        0.5767963974667752
+      ],
+      "distinct_failure_phases": [
+        0,
+        1
+      ],
+      "n_milestones": 2,
+      "episode_length": 250,
+      "subgoals": [
+        "pick_up tomato_sauce_1",
+        "place tomato_sauce_1 basket_1_contain_region"
+      ]
+    },
+    "chain2b_lr2": {
+      "rate": 0.6666666666666666,
+      "n": 30,
+      "successes": 20,
+      "wilson95": [
+        0.4878005164454384,
+        0.8076950191632386
+      ],
+      "distinct_failure_phases": [
+        0,
+        1,
+        2
+      ],
+      "n_milestones": 4,
+      "episode_length": 500,
+      "subgoals": [
+        "pick_up tomato_sauce_1",
+        "place tomato_sauce_1 basket_1_contain_region",
+        "pick_up cream_cheese_1",
+        "place cream_cheese_1 basket_1_contain_region"
+      ]
+    }
+  },
+  "policy": {
+    "model_id": "lerobot/pi05_libero_finetuned",
+    "description": "LIBERO-finetuned pi0.5 as published; not further tuned in this project. 'stock' below always means this checkpoint, unmodified by us.",
+    "hub_revision_sha": "8e174154ef5f6c60a8da12ae99c303d8963138c1",
+    "local_snapshot": "/home/stargazer/.cache/huggingface/hub/models--lerobot--pi05_libero_finetuned/snapshots/8e174154ef5f6c60a8da12ae99c303d8963138c1",
+    "weight_files": {
+      "model.safetensors": {
+        "sha256": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae",
+        "bytes": 7473096344
+      },
+      "policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+        "sha256": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9",
+        "bytes": 7668
+      },
+      "policy_preprocessor_step_2_normalizer_processor.safetensors": {
+        "sha256": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9",
+        "bytes": 7668
+      }
+    },
+    "config_sha256": "2f6d4b96b032593e1de65b391ee7252a70227bff398ef1b94658fea17818142f"
+  },
+  "policy_runtime": {
+    "n_action_steps": 10,
+    "device": "cuda",
+    "suite_name": "libero_10",
+    "no_finetuning_in_this_project": true
+  },
+  "seed_families": {
+    "screen": [
+      3000,
+      3009
+    ],
+    "confirm": [
+      3100,
+      3129
+    ],
+    "behavior_RESERVED": [
+      3200,
+      3259
+    ],
+    "acquisition_RESERVED": [
+      3300,
+      3399
+    ]
+  },
+  "horizon_rule": "min(990, 250 * n_subgoals)",
+  "derived_budgets": {
+    "W_stall_window": 345,
+    "H_max": 345,
+    "H_reporting_set": [
+      60,
+      172,
+      345
+    ],
+    "value_estimator": "MC",
+    "H_max_by_class": {
+      "chain1b_lr2|0|pick_up tomato_sauce_1": 320,
+      "chain1b_lr2|1|place tomato_sauce_1": 71,
+      "chain2b_lr2|0|pick_up tomato_sauce_1": 345,
+      "chain2b_lr2|1|place tomato_sauce_1": 112,
+      "chain2b_lr2|2|pick_up cream_cheese_1": 209,
+      "chain2b_lr2|3|place cream_cheese_1": 120
+    },
+    "derivation": "ceil(1.5 * q90(temporal interval)) per milestone class; frozen scalar = max over classes",
+    "scope": [
+      "chain1b_lr2",
+      "chain2b_lr2"
+    ]
+  },
+  "v77_crosscheck": {
+    "reference": {
+      "earliest": 66,
+      "latest": 106,
+      "n": 12,
+      "source": "2026-08-15 v077_reacquire_r1, cell A"
+    },
+    "measured_pick_up": {
+      "n": 76,
+      "q90": 215.0,
+      "median": 180.0,
+      "min": 60,
+      "max": 350,
+      "bound": 323
+    },
+    "reading": "consistent with the V7.7 floor"
+  },
+  "panels": {
+    "screen": {
+      "path": "results/v080_screen/2026-08-18T203259Z_screen",
+      "summary_sha256": "8d1d7732731be4cf764d8ff6b5813e5419fe3611a896d67a1ef9aa69a52d1232"
+    },
+    "confirm": {
+      "path": "results/v080_screen/2026-08-18T204229Z_confirm",
+      "summary_sha256": "fa84a22107773f8690efaae1e2ab1a46a06ba1dbcc937c3baa6370a49a1ef892"
+    }
+  },
+  "binding": "Action 2 (V8.1) consumes these tasks, seeds, horizons, W, H_max and H unchanged. Changing any of them requires a fresh registration and a new calibration panel, not an edit to this file."
+}

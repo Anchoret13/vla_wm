@@ -1,0 +1,290 @@
+{
+  "schema_version": "v08r.1",
+  "stage": "1R.0",
+  "action": "Action 1R / V8.0R - executable registration and provenance closure",
+  "framework": "v1.0 \u00a714",
+  "daily": "plan_and_progress/2026-08-19.md \u00a76",
+  "utc": "2026-08-19T063744Z",
+  "supersedes": {
+    "artifact": "results/v080_screen/BENCHMARK_FROZEN.json",
+    "not_mutated": true,
+    "what_survives": "the V8.0 behavioral gate: chain1b 12/30 and chain2b 20/30 at the frozen 250/500-step deadlines, hash-bound",
+    "what_is_reopened": "W, H_max, H, the per-class bounds, the 'MC fallback does not fire' conclusion, and the scalar-phase aggregation - all were complete-case and context-aliased"
+  },
+  "artifact_identity": {
+    "rule": "anchor_id + snapshot content hash",
+    "anchor_id": "sha256(task|source_episode_id|step)[:16]",
+    "content_hash": "sha256 over the concatenated sim_state, controller state, obs window, action history and task-monitor bits, in that fixed order",
+    "note": "two anchors with equal content hash are the same anchor even if reached by different episodes; two with equal id and different content hash are a provenance failure"
+  },
+  "stratum": {
+    "identity": "task + ever_achieved + current_valid + damaged (SETS)",
+    "key_format": "<task>|ever:0|valid:0|dmg:-",
+    "covariates_not_identity": [
+      "step",
+      "time_to_go"
+    ],
+    "time_to_go_bins": "[0,25) [25,50) [50,100) [100,200) [200,inf)",
+    "explicit_fields": [
+      "actionable_set",
+      "unresolved_set"
+    ],
+    "scalar_phase": "DISPLAY ONLY - never an aggregation or anchor key",
+    "why": "V8.0 chain2b phase=2 pooled 5 tomato-done/cream-unresolved with 2 cream-done/tomato-unresolved episodes: mutually exclusive remaining problems under one number",
+    "frontier_rule": "contraction of the unresolved SET, or success; never an ordered-prefix increase - all 20 chain2b successes ran cream->tomato, the reverse of the listed order"
+  },
+  "deadline_arithmetic": {
+    "c": 10,
+    "c_eff": "min(c, max(0, L - tau))",
+    "D": "max(0, L - tau - c_eff)",
+    "anchor_admissible": "c_eff == c AND D >= min_continuation(class); min_continuation is the achieved-state-conditioned class bound, NOT global H_max"
+  },
+  "officiality": {
+    "rule": "official iff step <= L; beyond L is quarantined diagnostic",
+    "prohibited_after_L": [
+      "success",
+      "correction",
+      "value label",
+      "official environment step"
+    ],
+    "quarantine_label": "quarantined_post_deadline"
+  },
+  "stall_rule": {
+    "observable": "W_used = min(W_derived, L - tau); observable iff L - tau >= W",
+    "prohibition": "a state may not be called a W-step stall_onset unless the window was observable; W=345 exceeds chain1b's entire 250-step episode",
+    "deadline_backoff": "anchors must satisfy anchor_admissible; applied to the V8.0 confirmation data this already rejects 16/16 chain1b last-progress anchors and 3/8 chain2b ones",
+    "fqe_caveat": "FQE may replace an unidentified value target, but does not make an unobservable stall window or an inadmissible late anchor valid"
+  },
+  "rng_procedure": {
+    "rule": "per episode: torch.manual_seed(seed), numpy.random.seed(seed), torch.cuda.manual_seed_all(seed) before runner.reset() and env.reset(seed=seed)",
+    "duplicate_run_tolerance": {
+      "milestone_step": 0,
+      "terminal_step": 0,
+      "success_flag": 0,
+      "note": "exact equality required on the duplicate-prefix subset; any mismatch is a provenance HALT, not a tolerance to widen"
+    }
+  },
+  "ledger": {
+    "roles": [
+      "calibration",
+      "bootstrap",
+      "model_train",
+      "model_calib",
+      "selector_assess",
+      "verified_correction",
+      "model_target_seal",
+      "behavior_eval"
+    ],
+    "subroles": [
+      "acq_rollout",
+      "anchor_search",
+      "ref_repeat",
+      "branch_exec",
+      "branch_cont",
+      "assess",
+      "deadline_probe",
+      "duplicate_check"
+    ],
+    "every_step_carries": [
+      "role",
+      "subrole",
+      "task",
+      "seed",
+      "anchor_id",
+      "policy_hash",
+      "n_steps",
+      "officiality"
+    ]
+  },
+  "interaction_cap": {
+    "by_stage_task": {
+      "1R.1_panel_1": {
+        "chain1b_lr2": 10000,
+        "chain2b_lr2": 19800
+      },
+      "1R.1_duplicate_subset": {
+        "chain1b_lr2": 1250,
+        "chain2b_lr2": 2500
+      },
+      "1R.1_panel_2_conditional": {
+        "chain1b_lr2": 10000,
+        "chain2b_lr2": 19800
+      },
+      "1R.2_source_rollouts": {
+        "chain1b_lr2": 10000,
+        "chain2b_lr2": 20000
+      },
+      "1R.2_reference_continuations": {
+        "chain1b_lr2": 1200,
+        "chain2b_lr2": 6000
+      }
+    },
+    "total_env_steps": 100550,
+    "rule": "hard cap; an overrun halts the stage. Unused budget is never reallocated."
+  },
+  "decision_rules": {
+    "materiality": 0.15,
+    "panels": [
+      20,
+      20
+    ],
+    "max_panels": 2,
+    "interval": "exact one-sided Clopper-Pearson at alpha = 0.05",
+    "worked_bounds": {
+      "0/20_upper": 0.1391,
+      "3/20_upper": 0.3437,
+      "4/20_lower": 0.0714,
+      "6/40_upper": 0.2747,
+      "6/40_lower": 0.0674
+    },
+    "underfill": {
+      "target_groups": 8,
+      "repeats_per_group": 3,
+      "source_seed_cap": 40,
+      "rule": "underfill at the cap is STRATUM_NOT_IDENTIFIED; substituting an easier state or raising the cap is prohibited"
+    },
+    "band_notation": "success band is CLOSED [0.20, 0.70]; the '(0.2, 0.7)' rendering in V8.0 generated text is a display bug, not a rule change - neither confirmation rate lies on a boundary"
+  },
+  "seeds": {
+    "1R.1_panel_1": [
+      3400,
+      3419
+    ],
+    "1R.1_panel_2_conditional": [
+      3420,
+      3439
+    ],
+    "1R.2_source": [
+      3440,
+      3479
+    ],
+    "RESERVED_never_touched": {
+      "behavior": [
+        3200,
+        3259
+      ],
+      "acquisition": [
+        3300,
+        3399
+      ]
+    },
+    "already_spent_calibration": {
+      "screen": [
+        3000,
+        3009
+      ],
+      "confirm": [
+        3100,
+        3129
+      ]
+    }
+  },
+  "handoff_schema_1R3": {
+    "file": "V081_HANDOFF.json",
+    "immutable": true,
+    "required_fields": [
+      "retained_tasks",
+      "admissible_strata_per_task",
+      "anchor_rule",
+      "deadline_rule",
+      "estimator_choice",
+      "v81_quotas",
+      "source_roles",
+      "seed_map",
+      "interaction_budget",
+      "pass_halt_denominators",
+      "queue_underfill_behavior",
+      "registration_sha256"
+    ]
+  },
+  "provenance": {
+    "git": {
+      "head": "7f4ed4c9832f5c7c22b13f80a77ec5e629bab0b3",
+      "branch": "vla_wm_explore",
+      "dirty": true,
+      "untracked_or_modified": [
+        "M plan_and_progress/framework_design.md",
+        "?? bddl/chains/chain1_lr2.bddl",
+        "?? bddl/chains/chain1b_lr2.bddl",
+        "?? bddl/chains/chain2_lr2.bddl",
+        "?? bddl/chains/chain2b_lr2.bddl",
+        "?? lcwm/v080_bench.py",
+        "?? lcwm/v08r_contract.py",
+        "?? plan_and_progress/2026-08-17.md",
+        "?? plan_and_progress/2026-08-18.md",
+        "?? plan_and_progress/2026-08-19.md",
+        "?? results/v080_screen/",
+        "?? scripts/register_v080r.py",
+        "?? scripts/screen_v080_benchmark.py"
+      ]
+    },
+    "sources": {
+      "bddl/chains/chain1_lr2.bddl": "80192127b4ae52ced907bc35d123afda6796b7c262b2891d4307f3d9e7e75457",
+      "bddl/chains/chain1b_lr2.bddl": "370239532e1ff71188e5494257e1c81bd1fbfb55b3c2163c94d7c4f398ad70d4",
+      "bddl/chains/chain2_lr2.bddl": "24eaf041f4c6a19a64199ac4d0b319331f26951911358ce93e6414c0bea01a78",
+      "bddl/chains/chain2b_lr2.bddl": "bc56001fb7373b000d9091c6a386afaf206b53377ae32273161ea7521e138531",
+      "bddl/chains/chain3_lr2.bddl": "312eaba15b045368b7fe48b22c44105d8276c1099f2e19e853cd62d47e748ca1",
+      "bddl/chains/chain4_lr2.bddl": "6b0b42950b8efa02da94cfbb2c4b2c72e4ed409a0717dd378a54f88e92f72933",
+      "bddl/chains/chain5_lr2.bddl": "4dc64da6e4d5a5036de17f5e06f24988fd98a7346763a05aaba128810150614d",
+      "lcwm/chassis.py": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705",
+      "lcwm/libero_paths.py": "40d675f81ceec74fd9101b6d9a7ae6dae2c8761cd0ef6f53fd9e85cd6eacf154",
+      "lcwm/loho.py": "2904a3579dc8f7cac7ad914cf83f51c79435b526b668b07bd37406424d928c54",
+      "lcwm/probe_data.py": "3526093b9ecb08f5514ee5864c913880a7438b6b13c0077e8e4a63a1cdc5a16c",
+      "lcwm/sampler.py": "ecaffc1ae40d3d40a2f98c493b786d3004b05520768b1232c33805de508af406",
+      "lcwm/seq_data.py": "da494e5d4d00b98b64da3f9ec8aae32a94da169f428a5bbdcdb6b9881c6f4ab7",
+      "lcwm/snapshot.py": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525",
+      "lcwm/taps.py": "65b608f589d94622a19bf860f3fc10f5d238207ae093ad6cf3bb969f63dd3f07",
+      "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+      "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
+      "lcwm/v08r_contract.py": "3768407adb29557bdc1fa824af9e2a596b347d47216ca04c1392be50e2602e66",
+      "scripts/register_v080r.py": "66962b42d47d9502e9b726fbcf8e244dcb9ca9110f71af8fbe405aba58c4461a",
+      "scripts/screen_v080_benchmark.py": "a460761d3267cb119cb492115a533158851e64919f79222e33a17d22ebf955b5"
+    },
+    "external": {
+      "lerobot": {
+        "version": "0.6.1",
+        "path": "/home/stargazer/Desktop/vla_wm/lerobot/src/lerobot"
+      },
+      "libero": {
+        "version": "unknown",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/libero"
+      },
+      "robosuite": {
+        "version": "1.4.0",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/robosuite"
+      },
+      "mujoco": {
+        "version": "3.8.1",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/mujoco"
+      },
+      "torch": {
+        "version": "2.11.0+cu128",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/torch"
+      },
+      "transformers": {
+        "version": "5.5.4",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/transformers"
+      },
+      "numpy": {
+        "version": "2.2.6",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/numpy"
+      },
+      "gymnasium": {
+        "version": "1.3.0",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/gymnasium"
+      },
+      "huggingface_hub": {
+        "version": "1.22.0",
+        "path": "/home/stargazer/miniconda3/envs/vf0s/lib/python3.12/site-packages/huggingface_hub"
+      }
+    },
+    "environment": {
+      "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:20:58) [GCC 14.3.0]",
+      "executable": "/home/stargazer/miniconda3/envs/vf0s/bin/python",
+      "pip_freeze_sha256": "23352962e5f59063fcc899daa1b551819d9f7e3fa384b92e4ca559c184615e33",
+      "pip_freeze_lines": 160,
+      "pip_freeze_file": "pip_freeze.txt"
+    }
+  },
+  "self_sha256": "63f0fe4095eb51cd2962c760c9d86e409a1d78d63f4130e2fa999a2f42e06b8a"
+}
