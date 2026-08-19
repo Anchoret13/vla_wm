@@ -84,13 +84,25 @@ def load_panel1(tasks: list[str], reg_sha: str) -> tuple[Path, dict, list[dict]]
 
 
 def cumulative_spend() -> dict:
-    f = OUT_ROOT / "SPEND.json"
-    return json.loads(f.read_text()) if f.exists() else {}
+    """Derived by summing every ledger on disk, never separately maintained.
 
-
-def write_spend(spend: dict) -> None:
-    OUT_ROOT.mkdir(parents=True, exist_ok=True)
-    (OUT_ROOT / "SPEND.json").write_text(json.dumps(spend, indent=2))
+    A run killed mid-panel writes its ledger rows (they are written before the
+    charge) but cannot write a summary, so a cumulative file updated only on
+    clean exit silently loses those steps.  One aborted panel-2 run spent 2,687
+    ledgered steps that way.  Deriving from the ledgers cannot miss them.
+    """
+    spend: dict = {}
+    for led in sorted(REPO.glob("results/v080r_*/**/interaction_ledger.jsonl")):
+        for line in led.read_text().splitlines():
+            if not line:
+                continue
+            r = json.loads(line)
+            spend.setdefault(r["cap_line"], {}).setdefault(r["task"], 0)
+            spend[r["cap_line"]][r["task"]] += r["n_steps"]
+    spend["_total"] = sum(v for ln, d in spend.items() if not ln.startswith("_")
+                          for v in d.values())
+    spend["_cap_total"] = C.INTERACTION_CAP_TOTAL
+    return spend
 
 
 def main() -> int:
@@ -195,8 +207,10 @@ def main() -> int:
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10",
                         n_action_steps=10)
 
+    prior = cumulative_spend()
     spent: dict[tuple[str, str], int] = {}
     episodes: list = []
+    print(f"prior ledgered spend {prior['_total']}/{prior['_cap_total']}", flush=True)
     halted: dict | None = None
 
     def record(ep):
@@ -217,11 +231,14 @@ def main() -> int:
         key = (line, ep.task)
         spent[key] = spent.get(key, 0) + ep.steps
         cap = C.cap_for(line, ep.task)
-        if spent[key] > cap:
-            halted = {"cap_line": line, "task": ep.task,
-                      "spent": spent[key], "cap": cap}
+        charged = spent[key] + prior.get(line, {}).get(ep.task, 0)
+        if charged > cap:
+            halted = {"cap_line": line, "task": ep.task, "this_run": spent[key],
+                      "prior_ledgered": prior.get(line, {}).get(ep.task, 0),
+                      "charged": charged, "cap": cap}
             raise SystemExit(f"HALT: {ep.task} {line} cap {cap} exceeded "
-                             f"({spent[key]})")
+                             f"(charged {charged} = {spent[key]} this run + "
+                             f"{prior.get(line, {}).get(ep.task, 0)} prior)")
 
     try:
         for task in tasks:
@@ -328,14 +345,10 @@ def main() -> int:
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2))
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
 
-    cum = cumulative_spend()
-    for (ln, t), sp in spent.items():
-        cum.setdefault(ln, {}).setdefault(t, 0)
-        cum[ln][t] += sp
-    cum["_total"] = sum(v for ln, d in cum.items() if ln != "_total"
-                        for v in d.values())
-    cum["_cap_total"] = C.INTERACTION_CAP_TOTAL
-    write_spend(cum)
+    cum = cumulative_spend()          # re-derived, now including this run
+    (OUT_ROOT / "SPEND.json").write_text(json.dumps(
+        {**cum, "_note": "DERIVED from all interaction_ledger.jsonl; do not "
+                         "hand-edit"}, indent=2))
 
     print("\n=== Stage 1R.1 ===")
     for t, sm in per_task.items():
