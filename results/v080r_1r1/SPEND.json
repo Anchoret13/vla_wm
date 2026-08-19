@@ -5,8 +5,12 @@
   },
   "1R.1_duplicate_subset": {
     "chain1b_lr2": 1235,
-    "chain2b_lr2": 1398
+    "chain2b_lr2": 2849
   },
-  "_total": 15596,
-  "_cap_total": 113030
+  "1R.1_panel_2_conditional": {
+    "chain2b_lr2": 12753
+  },
+  "_total": 29800,
+  "_cap_total": 113030,
+  "_note": "DERIVED from all interaction_ledger.jsonl; do not hand-edit"
 }
