@@ -4,7 +4,7 @@
   "action": "Action 1R / V8.0R - executable registration and provenance closure",
   "framework": "v1.0 \u00a714",
   "daily": "plan_and_progress/2026-08-19.md \u00a76",
-  "utc": "2026-08-19T063744Z",
+  "utc": "2026-08-19T065534Z",
   "supersedes": {
     "artifact": "results/v080_screen/BENCHMARK_FROZEN.json",
     "not_mutated": true,
@@ -26,9 +26,16 @@
     ],
     "time_to_go_bins": "[0,25) [25,50) [50,100) [100,200) [200,inf)",
     "explicit_fields": [
-      "actionable_set",
-      "unresolved_set"
+      "task",
+      "n_milestones",
+      "subgoals",
+      "ever_achieved",
+      "current_valid",
+      "damaged",
+      "unresolved",
+      "actionable"
     ],
+    "actionability_rule": "place-k is actionable iff pick-k is CURRENTLY valid; pick-k is actionable whenever unresolved",
     "scalar_phase": "DISPLAY ONLY - never an aggregation or anchor key",
     "why": "V8.0 chain2b phase=2 pooled 5 tomato-done/cream-unresolved with 2 cream-done/tomato-unresolved episodes: mutually exclusive remaining problems under one number",
     "frontier_rule": "contraction of the unresolved SET, or success; never an ordered-prefix increase - all 20 chain2b successes ran cream->tomato, the reverse of the listed order"
@@ -37,7 +44,15 @@
     "c": 10,
     "c_eff": "min(c, max(0, L - tau))",
     "D": "max(0, L - tau - c_eff)",
-    "anchor_admissible": "c_eff == c AND D >= min_continuation(class); min_continuation is the achieved-state-conditioned class bound, NOT global H_max"
+    "anchor_admissible": "c_eff == c AND D >= min_continuation(class); min_continuation is the achieved-state-conditioned class bound, NOT global H_max",
+    "diagnostic_readouts": [
+      60,
+      120,
+      240,
+      400
+    ],
+    "continuation_len": 400,
+    "readout_note": "readouts are steps FROM THE ANCHOR and the later ones land past L by construction; they are diagnostic and quarantined, and the 1R.2 cap is sized from CONTINUATION_LEN so the schedule and the budget cannot drift apart"
   },
   "officiality": {
     "rule": "official iff step <= L; beyond L is quarantined diagnostic",
@@ -115,11 +130,11 @@
         "chain2b_lr2": 20000
       },
       "1R.2_reference_continuations": {
-        "chain1b_lr2": 1200,
-        "chain2b_lr2": 6000
+        "chain1b_lr2": 9840,
+        "chain2b_lr2": 9840
       }
     },
-    "total_env_steps": 100550,
+    "total_env_steps": 113030,
     "rule": "hard cap; an overrun halts the stage. Unused budget is never reallocated."
   },
   "decision_rules": {
@@ -199,24 +214,10 @@
   },
   "provenance": {
     "git": {
-      "head": "7f4ed4c9832f5c7c22b13f80a77ec5e629bab0b3",
+      "head": "cddf1ae42f9a4c0c04342d25a9499c8957a14501",
       "branch": "vla_wm_explore",
-      "dirty": true,
-      "untracked_or_modified": [
-        "M plan_and_progress/framework_design.md",
-        "?? bddl/chains/chain1_lr2.bddl",
-        "?? bddl/chains/chain1b_lr2.bddl",
-        "?? bddl/chains/chain2_lr2.bddl",
-        "?? bddl/chains/chain2b_lr2.bddl",
-        "?? lcwm/v080_bench.py",
-        "?? lcwm/v08r_contract.py",
-        "?? plan_and_progress/2026-08-17.md",
-        "?? plan_and_progress/2026-08-18.md",
-        "?? plan_and_progress/2026-08-19.md",
-        "?? results/v080_screen/",
-        "?? scripts/register_v080r.py",
-        "?? scripts/screen_v080_benchmark.py"
-      ]
+      "dirty": false,
+      "untracked_or_modified": []
     },
     "sources": {
       "bddl/chains/chain1_lr2.bddl": "80192127b4ae52ced907bc35d123afda6796b7c262b2891d4307f3d9e7e75457",
@@ -236,8 +237,8 @@
       "lcwm/taps.py": "65b608f589d94622a19bf860f3fc10f5d238207ae093ad6cf3bb969f63dd3f07",
       "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
       "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
-      "lcwm/v08r_contract.py": "3768407adb29557bdc1fa824af9e2a596b347d47216ca04c1392be50e2602e66",
-      "scripts/register_v080r.py": "66962b42d47d9502e9b726fbcf8e244dcb9ca9110f71af8fbe405aba58c4461a",
+      "lcwm/v08r_contract.py": "63cb57db63005fe74dd2c103287e1300be484313839086b54c33ed0c83172e26",
+      "scripts/register_v080r.py": "195cb5f583101aed53e03fbd82790da5112a0ff1696e0cebae34797579ffcd8e",
       "scripts/screen_v080_benchmark.py": "a460761d3267cb119cb492115a533158851e64919f79222e33a17d22ebf955b5"
     },
     "external": {
@@ -286,5 +287,5 @@
       "pip_freeze_file": "pip_freeze.txt"
     }
   },
-  "self_sha256": "63f0fe4095eb51cd2962c760c9d86e409a1d78d63f4130e2fa999a2f42e06b8a"
+  "self_sha256": "d77615a528175c9e05cee2a5aff8ec1c837591f6cbc7c3b34abd39754702d2eb"
 }
