@@ -4,7 +4,7 @@
   "action": "Action 1R / V8.0R - executable registration and provenance closure",
   "framework": "v1.0 \u00a714",
   "daily": "plan_and_progress/2026-08-19.md \u00a76",
-  "utc": "2026-08-19T065534Z",
+  "utc": "2026-08-19T182304Z",
   "supersedes": {
     "artifact": "results/v080_screen/BENCHMARK_FROZEN.json",
     "not_mutated": true,
@@ -117,13 +117,13 @@
         "chain1b_lr2": 10000,
         "chain2b_lr2": 19800
       },
-      "1R.1_duplicate_subset": {
-        "chain1b_lr2": 1250,
-        "chain2b_lr2": 2500
-      },
       "1R.1_panel_2_conditional": {
         "chain1b_lr2": 10000,
         "chain2b_lr2": 19800
+      },
+      "1R.1_duplicate_subset": {
+        "chain1b_lr2": 1250,
+        "chain2b_lr2": 2500
       },
       "1R.2_source_rollouts": {
         "chain1b_lr2": 10000,
@@ -214,7 +214,7 @@
   },
   "provenance": {
     "git": {
-      "head": "cddf1ae42f9a4c0c04342d25a9499c8957a14501",
+      "head": "2e9d371b717244b84bd1ff40c4cba775f3c6c297",
       "branch": "vla_wm_explore",
       "dirty": false,
       "untracked_or_modified": []
@@ -237,8 +237,8 @@
       "lcwm/taps.py": "65b608f589d94622a19bf860f3fc10f5d238207ae093ad6cf3bb969f63dd3f07",
       "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
       "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
-      "lcwm/v08r_contract.py": "63cb57db63005fe74dd2c103287e1300be484313839086b54c33ed0c83172e26",
-      "scripts/register_v080r.py": "195cb5f583101aed53e03fbd82790da5112a0ff1696e0cebae34797579ffcd8e",
+      "lcwm/v08r_contract.py": "63aa44219bcebf88ed4ef4bc4324f9040eaa052283c9f6e18d50e63b78245a64",
+      "scripts/register_v080r.py": "2ac8689182cbf69806254d284eafb701a97d0b44dcde9e22fdb8940d1cef30ea",
       "scripts/screen_v080_benchmark.py": "a460761d3267cb119cb492115a533158851e64919f79222e33a17d22ebf955b5"
     },
     "external": {
@@ -287,5 +287,5 @@
       "pip_freeze_file": "pip_freeze.txt"
     }
   },
-  "self_sha256": "d77615a528175c9e05cee2a5aff8ec1c837591f6cbc7c3b34abd39754702d2eb"
+  "self_sha256": "673e8c23a1a21fc97908735847c9e6d15322cffd8319b8f35bd7b1ac025de793"
 }
