@@ -1,0 +1,320 @@
+{
+  "manifest": {
+    "stage": "1R.1",
+    "panel": 1,
+    "utc": "2026-08-19T182344Z",
+    "status": "COMPLETE",
+    "registration_sha256": "673e8c23a1a21fc97908735847c9e6d15322cffd8319b8f35bd7b1ac025de793",
+    "registration_verified": true,
+    "git_head": "6e51d3122ad50f7bf7d358ed695e2abe7308330d",
+    "git_dirty": false,
+    "provenance_downgraded": false,
+    "runner_hashes": {
+      "scripts/run_v080r_1r1.py": "31471a2383de67b362b9a4ee26bcabab1a388be232201b2d4ec5f23a5d5ff1da",
+      "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
+      "lcwm/v08r_contract.py": "63aa44219bcebf88ed4ef4bc4324f9040eaa052283c9f6e18d50e63b78245a64"
+    },
+    "tasks": [
+      "chain1b_lr2",
+      "chain2b_lr2"
+    ],
+    "seeds": [
+      3400,
+      3401,
+      3402,
+      3403,
+      3404,
+      3405,
+      3406,
+      3407,
+      3408,
+      3409,
+      3410,
+      3411,
+      3412,
+      3413,
+      3414,
+      3415,
+      3416,
+      3417,
+      3418,
+      3419
+    ],
+    "checkpoints": {
+      "chain1b_lr2": [
+        250,
+        350,
+        500
+      ],
+      "chain2b_lr2": [
+        500,
+        750,
+        990
+      ]
+    },
+    "duplicate_subset_n": 5,
+    "duplicate_tolerance": {
+      "milestone_step": 0,
+      "terminal_step": 0,
+      "success_flag": 0,
+      "note": "exact equality required on the duplicate-prefix subset; any mismatch is a provenance HALT, not a tolerance to widen"
+    },
+    "role": "calibration",
+    "cap_plan": {
+      "chain1b_lr2": {
+        "1R.1_panel_1": {
+          "worst_case": 10000,
+          "cap": 10000
+        },
+        "1R.1_duplicate_subset": {
+          "worst_case": 1250,
+          "cap": 1250
+        }
+      },
+      "chain2b_lr2": {
+        "1R.1_panel_1": {
+          "worst_case": 19800,
+          "cap": 19800
+        },
+        "1R.1_duplicate_subset": {
+          "worst_case": 2500,
+          "cap": 2500
+        }
+      }
+    },
+    "extends_panel1": null,
+    "data_use_restriction": "calibration-only; may validate schemas and feasibility, may never train an FQE or model",
+    "policy": {
+      "version": "0.6.1",
+      "path": "/home/stargazer/Desktop/vla_wm/lerobot/src/lerobot"
+    },
+    "model_id": "lerobot/pi05_libero_finetuned"
+  },
+  "per_task": {
+    "chain1b_lr2": {
+      "n": 20,
+      "official_success_at_L": 8,
+      "late_conversions": 12,
+      "verdict": "MATERIALLY_DEADLINE_SENSITIVE",
+      "reason": "12/20 late conversions; lower bound 0.3936",
+      "cp_upper": 0.7829314106299259,
+      "cp_lower": 0.39358488675696945,
+      "opens_second_panel": false,
+      "late_success_steps": [
+        251,
+        254,
+        255,
+        258,
+        259,
+        265,
+        265,
+        272,
+        273,
+        274,
+        282,
+        352
+      ],
+      "env_steps_by_cap_line": {
+        "1R.1_panel_1": 5167,
+        "1R.1_duplicate_subset": 1235
+      }
+    },
+    "chain2b_lr2": {
+      "n": 20,
+      "official_success_at_L": 17,
+      "late_conversions": 1,
+      "verdict": "OPEN_SECOND_PANEL",
+      "reason": "1/20 is in the 1-3 band; bounds [0.0026, 0.2161] straddle 0.15",
+      "cp_upper": 0.21610616420684725,
+      "cp_lower": 0.0025613787765302824,
+      "opens_second_panel": true,
+      "late_success_steps": [
+        515
+      ],
+      "env_steps_by_cap_line": {
+        "1R.1_panel_1": 7796,
+        "1R.1_duplicate_subset": 1398
+      }
+    }
+  },
+  "pooled_n40": null,
+  "duplicate_prefix": {
+    "all_match": true,
+    "detail": {
+      "chain1b_lr2|3400": {
+        "events_extended_truncated": {
+          "0": 210
+        },
+        "events_duplicate": {
+          "0": 210
+        },
+        "terminal_step_extended_truncated": 250,
+        "terminal_step_duplicate": 250,
+        "success_extended_truncated": false,
+        "success_duplicate": false,
+        "match": true
+      },
+      "chain1b_lr2|3401": {
+        "events_extended_truncated": {
+          "0": 230
+        },
+        "events_duplicate": {
+          "0": 230
+        },
+        "terminal_step_extended_truncated": 250,
+        "terminal_step_duplicate": 250,
+        "success_extended_truncated": false,
+        "success_duplicate": false,
+        "match": true
+      },
+      "chain1b_lr2|3402": {
+        "events_extended_truncated": {
+          "0": 220
+        },
+        "events_duplicate": {
+          "0": 220
+        },
+        "terminal_step_extended_truncated": 250,
+        "terminal_step_duplicate": 250,
+        "success_extended_truncated": false,
+        "success_duplicate": false,
+        "match": true
+      },
+      "chain1b_lr2|3403": {
+        "events_extended_truncated": {
+          "0": 200,
+          "1": 235
+        },
+        "events_duplicate": {
+          "0": 200,
+          "1": 235
+        },
+        "terminal_step_extended_truncated": 235,
+        "terminal_step_duplicate": 235,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      },
+      "chain1b_lr2|3404": {
+        "events_extended_truncated": {
+          "0": 230
+        },
+        "events_duplicate": {
+          "0": 230
+        },
+        "terminal_step_extended_truncated": 250,
+        "terminal_step_duplicate": 250,
+        "success_extended_truncated": false,
+        "success_duplicate": false,
+        "match": true
+      },
+      "chain2b_lr2|3400": {
+        "events_extended_truncated": {
+          "0": 210,
+          "1": 315,
+          "2": 70,
+          "3": 140
+        },
+        "events_duplicate": {
+          "0": 210,
+          "1": 315,
+          "2": 70,
+          "3": 140
+        },
+        "terminal_step_extended_truncated": 315,
+        "terminal_step_duplicate": 315,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      },
+      "chain2b_lr2|3401": {
+        "events_extended_truncated": {
+          "0": 210,
+          "1": 250,
+          "2": 80,
+          "3": 140
+        },
+        "events_duplicate": {
+          "0": 210,
+          "1": 250,
+          "2": 80,
+          "3": 140
+        },
+        "terminal_step_extended_truncated": 250,
+        "terminal_step_duplicate": 250,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      },
+      "chain2b_lr2|3402": {
+        "events_extended_truncated": {
+          "0": 210,
+          "1": 259,
+          "2": 70,
+          "3": 140
+        },
+        "events_duplicate": {
+          "0": 210,
+          "1": 259,
+          "2": 70,
+          "3": 140
+        },
+        "terminal_step_extended_truncated": 259,
+        "terminal_step_duplicate": 259,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      },
+      "chain2b_lr2|3403": {
+        "events_extended_truncated": {
+          "0": 270,
+          "1": 317,
+          "2": 130,
+          "3": 210
+        },
+        "events_duplicate": {
+          "0": 270,
+          "1": 317,
+          "2": 130,
+          "3": 210
+        },
+        "terminal_step_extended_truncated": 317,
+        "terminal_step_duplicate": 317,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      },
+      "chain2b_lr2|3404": {
+        "events_extended_truncated": {
+          "0": 220,
+          "1": 257,
+          "2": 80,
+          "3": 150
+        },
+        "events_duplicate": {
+          "0": 220,
+          "1": 257,
+          "2": 80,
+          "3": 150
+        },
+        "terminal_step_extended_truncated": 257,
+        "terminal_step_duplicate": 257,
+        "success_extended_truncated": true,
+        "success_duplicate": true,
+        "match": true
+      }
+    }
+  },
+  "provenance_verdict": "PASS",
+  "totals": {
+    "episodes": 50,
+    "env_steps": 15596,
+    "by_cap_line": {
+      "1R.1_panel_1|chain1b_lr2": 5167,
+      "1R.1_panel_1|chain2b_lr2": 7796,
+      "1R.1_duplicate_subset|chain1b_lr2": 1235,
+      "1R.1_duplicate_subset|chain2b_lr2": 1398
+    },
+    "wall_s": 367.0
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "stage": "1R.1",
+  "panel": 1,
+  "utc": "2026-08-19T182344Z",
+  "status": "COMPLETE",
+  "registration_sha256": "673e8c23a1a21fc97908735847c9e6d15322cffd8319b8f35bd7b1ac025de793",
+  "registration_verified": true,
+  "git_head": "6e51d3122ad50f7bf7d358ed695e2abe7308330d",
+  "git_dirty": false,
+  "provenance_downgraded": false,
+  "runner_hashes": {
+    "scripts/run_v080r_1r1.py": "31471a2383de67b362b9a4ee26bcabab1a388be232201b2d4ec5f23a5d5ff1da",
+    "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
+    "lcwm/v08r_contract.py": "63aa44219bcebf88ed4ef4bc4324f9040eaa052283c9f6e18d50e63b78245a64"
+  },
+  "tasks": [
+    "chain1b_lr2",
+    "chain2b_lr2"
+  ],
+  "seeds": [
+    3400,
+    3401,
+    3402,
+    3403,
+    3404,
+    3405,
+    3406,
+    3407,
+    3408,
+    3409,
+    3410,
+    3411,
+    3412,
+    3413,
+    3414,
+    3415,
+    3416,
+    3417,
+    3418,
+    3419
+  ],
+  "checkpoints": {
+    "chain1b_lr2": [
+      250,
+      350,
+      500
+    ],
+    "chain2b_lr2": [
+      500,
+      750,
+      990
+    ]
+  },
+  "duplicate_subset_n": 5,
+  "duplicate_tolerance": {
+    "milestone_step": 0,
+    "terminal_step": 0,
+    "success_flag": 0,
+    "note": "exact equality required on the duplicate-prefix subset; any mismatch is a provenance HALT, not a tolerance to widen"
+  },
+  "role": "calibration",
+  "cap_plan": {
+    "chain1b_lr2": {
+      "1R.1_panel_1": {
+        "worst_case": 10000,
+        "cap": 10000
+      },
+      "1R.1_duplicate_subset": {
+        "worst_case": 1250,
+        "cap": 1250
+      }
+    },
+    "chain2b_lr2": {
+      "1R.1_panel_1": {
+        "worst_case": 19800,
+        "cap": 19800
+      },
+      "1R.1_duplicate_subset": {
+        "worst_case": 2500,
+        "cap": 2500
+      }
+    }
+  },
+  "extends_panel1": null,
+  "data_use_restriction": "calibration-only; may validate schemas and feasibility, may never train an FQE or model",
+  "policy": {
+    "version": "0.6.1",
+    "path": "/home/stargazer/Desktop/vla_wm/lerobot/src/lerobot"
+  },
+  "model_id": "lerobot/pi05_libero_finetuned"
+}
