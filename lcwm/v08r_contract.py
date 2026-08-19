@@ -346,10 +346,28 @@ def clopper_pearson_lower(k: int, n: int, alpha: float = 0.05) -> float:
 # 1R.1 registered decision rule (daily 2026-08-19 §6, Stage 1R.1)
 # --------------------------------------------------------------------------
 
+#: (frozen deployment deadline L, mid checkpoint, extended horizon), daily §6.
+#: Held here rather than in the runner so the interaction cap is DERIVED from
+#: the horizons it funds and the two cannot drift apart.
+CHECKPOINTS: dict[str, tuple[int, int, int]] = {
+    "chain1b_lr2": (250, 350, 500),
+    "chain2b_lr2": (500, 750, 990),
+}
+
+
+def deadline(task: str) -> int:
+    return CHECKPOINTS[task][0]
+
+
+def extended_horizon(task: str) -> int:
+    return CHECKPOINTS[task][2]
+
+
 MATERIALITY = 0.15          # late-conversion effect size that counts
 PANEL_1 = 20                # seeds 3400-3419
 PANEL_2 = 20                # seeds 3420-3439, opened only on 1-3/20
 MAX_PANELS = 2              # "No third panel is allowed."
+DUPLICATE_N = 5             # seeds/task re-run at the original horizon
 
 
 @dataclass
@@ -464,22 +482,41 @@ def stratum_feasibility_verdict(groups_filled: int, seeds_consumed: int
 # --------------------------------------------------------------------------
 
 INTERACTION_CAP = {
-    "1R.1_panel_1": {"chain1b_lr2": 20 * 500, "chain2b_lr2": 20 * 990},
-    "1R.1_duplicate_subset": {"chain1b_lr2": 5 * 250, "chain2b_lr2": 5 * 500},
-    "1R.1_panel_2_conditional": {"chain1b_lr2": 20 * 500, "chain2b_lr2": 20 * 990},
-    "1R.2_source_rollouts": {"chain1b_lr2": 40 * 250, "chain2b_lr2": 40 * 500},
+    "1R.1_panel_1": {t: PANEL_1 * extended_horizon(t) for t in CHECKPOINTS},
+    "1R.1_panel_2_conditional": {t: PANEL_2 * extended_horizon(t) for t in CHECKPOINTS},
+    "1R.1_duplicate_subset": {t: DUPLICATE_N * deadline(t) for t in CHECKPOINTS},
+    "1R.2_source_rollouts": {t: SOURCE_SEED_CAP * deadline(t) for t in CHECKPOINTS},
     # Sized FROM the registered readout schedule, not guessed: every one of the
     # 8 x 3 reference continuations runs the full CONTINUATION_LEN so the
-    # [60, 120, 240, 400] columns are all populated.  The previous 50/250-step
-    # allotment would have truncated chain1b below the 71-step place floor that
-    # certified its own anchors admissible - the identical configuration
-    # framework §3.1.1 prohibits after V7.7, where the budget was the
-    # instrument.  A truncated H would also bias the 1R.3 MC-vs-FQE choice
-    # toward "MC not affordable" by arithmetic rather than by evidence.
+    # [60, 120, 240, 400] columns are all populated.  A 50/250-step allotment
+    # would have truncated chain1b below the 71-step place floor that certified
+    # its own anchors admissible - the configuration framework §3.1.1 prohibits
+    # after V7.7, where the budget was the instrument.
     "1R.2_reference_continuations": {
         t: TARGET_GROUPS * REPEATS_PER_GROUP * (10 + CONTINUATION_LEN)
-        for t in ("chain1b_lr2", "chain2b_lr2")},
+        for t in CHECKPOINTS},
 }
+
+#: Which cap line each (stage, subrole) charges.  A single pooled counter would
+#: let the duplicate subset eat the panel budget - and the panel lines have
+#: ZERO headroom by construction (PANEL_1 x extended_horizon exactly), so the
+#: abort would correlate with the result being measured: more deadline
+#: failures -> longer episodes -> more likely halt.
+CAP_LINE = {
+    ("1R.1", 1, Subrole.DEADLINE_PROBE.value): "1R.1_panel_1",
+    ("1R.1", 2, Subrole.DEADLINE_PROBE.value): "1R.1_panel_2_conditional",
+    ("1R.1", 1, Subrole.DUPLICATE_CHECK.value): "1R.1_duplicate_subset",
+    ("1R.1", 2, Subrole.DUPLICATE_CHECK.value): "1R.1_duplicate_subset",
+}
+
+
+def cap_line(stage: str, panel: int, subrole: str) -> str:
+    try:
+        return CAP_LINE[(stage, panel, subrole)]
+    except KeyError:
+        raise KeyError(f"no registered cap line for {stage=} {panel=} {subrole=}")
+
+
 INTERACTION_CAP_TOTAL = sum(v for stage in INTERACTION_CAP.values()
                             for v in stage.values())
 

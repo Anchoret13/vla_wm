@@ -308,6 +308,34 @@ def registration() -> dict:
     }
 
 
+def verify_sealed(strict_git: bool = True) -> dict:
+    """Preflight every stage must pass before spending an environment step.
+
+    Recomputes the registration's own hash rather than trusting the value it
+    reports about itself, re-hashes all sealed sources, and reports tree
+    cleanliness.  The registration's own identity rule - "two artifacts with
+    equal id and different content hash are a provenance failure" - is
+    unenforceable if the consumer copies the claimed hash instead of checking it.
+    """
+    path = OUT / "V080R_REGISTRATION.json"
+    if not path.exists():
+        return {"ok": False, "why": "no sealed registration"}
+    reg = json.loads(path.read_text())
+    claimed = reg.get("self_sha256")
+    body = {k: v for k, v in reg.items() if k != "self_sha256"}
+    recomputed = hashlib.sha256(json.dumps(body, sort_keys=True).encode()).hexdigest()
+    drift = {k: {"sealed": v, "now": sha256(REPO / k) if (REPO / k).exists() else None}
+             for k, v in reg["provenance"]["sources"].items()
+             if not (REPO / k).exists() or sha256(REPO / k) != v}
+    g = git_state()
+    ok = (claimed == recomputed) and not drift and (not strict_git or not g["dirty"])
+    return {"ok": ok, "registration_path": str(path.relative_to(REPO)),
+            "self_sha256_claimed": claimed, "self_sha256_recomputed": recomputed,
+            "self_sha256_match": claimed == recomputed,
+            "source_drift": drift, "git": g,
+            "sealed_source_count": len(reg["provenance"]["sources"])}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
