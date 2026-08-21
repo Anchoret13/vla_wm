@@ -113,8 +113,12 @@ def validate_bootstrap_group(group: dict) -> None:
     if actions_env.shape != actions_norm.shape:
         raise ValueError("actions_env shape must match actions_norm exactly")
     candidates = int(actions_norm.shape[0])
-    if candidates != 7:
-        raise ValueError(f"expected 7 sibling candidates, got {candidates}")
+    # The v082 bank used exactly 7 (reference + 3 diversity + 3 random); Action
+    # 2M.1 widens it to 17.  The invariant that matters is one reference plus at
+    # least one alternative, with every per-candidate tensor agreeing on C -
+    # checked below - not a specific C.
+    if candidates < 2:
+        raise ValueError(f"need reference + >=1 alternative, got {candidates}")
     if len(group["candidate_ids"]) != candidates:
         raise ValueError("candidate_ids length does not match actions")
     if is_reference.shape != (candidates,) or int(is_reference.bool().sum()) != 1:

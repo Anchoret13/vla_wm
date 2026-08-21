@@ -1,0 +1,38 @@
+{
+  "schema": "v082_bootstrap_manifest_v1",
+  "task": "chain1b_lr2",
+  "deadline": 250,
+  "tau": 160,
+  "c_prefix": 10,
+  "continuation_horizon": 80,
+  "queues": {
+    "train": [
+      3600
+    ],
+    "val": [
+      3670
+    ],
+    "test": [
+      3688
+    ]
+  },
+  "quotas": {
+    "train": 1,
+    "val": 1,
+    "test": 1
+  },
+  "repeats": {
+    "train": 1,
+    "val": 1,
+    "test": 3
+  },
+  "candidates_per_anchor": 17,
+  "source_cap": 750,
+  "branch_cap": 7650,
+  "total_cap": 8400,
+  "git_head": "acb08757ed8fb0fe24b89cccce949efc8acad013",
+  "git_dirty": false,
+  "rng_root": "096aff36b4082cf839af835ace0aa8e35bdec18473a3e0ba0217c0c0f628fd54",
+  "old_v081p_rows_used": false,
+  "status": "RUNNING"
+}

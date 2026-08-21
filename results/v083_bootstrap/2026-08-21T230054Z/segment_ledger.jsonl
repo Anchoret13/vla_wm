@@ -1,0 +1,40 @@
+{"phase": "open", "segment_id": "src-3600", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3600, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3600", "cap_line": "source", "n_steps": 250, "seed": 3600, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "src-3670", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3670, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3670", "cap_line": "source", "n_steps": 250, "seed": 3670, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "src-3688", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3688, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3688", "cap_line": "source", "n_steps": 250, "seed": 3688, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "a3600-reference-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "reference", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-reference-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "reference", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div0", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div0", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div1", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div1", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div2", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div2", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div3", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div3", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div4", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div4", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div5", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div5", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div6", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div6", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div7", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div7", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand0", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand0", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand1", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand1", "repeat": 0, "continuation_seed": 564294535, "termination": "success_or_done"}
+{"phase": "open", "segment_id": "a3600-rand2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand2", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand2", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand3", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand3", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand4", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand4", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand5", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand5", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand6", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand6", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand7", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand7", "repeat": 0, "continuation_seed": 564294535, "termination": "horizon"}
