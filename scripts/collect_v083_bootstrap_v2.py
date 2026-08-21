@@ -80,6 +80,10 @@ QUEUES = {
     "test": tuple(range(3688, 3706)),
 }
 QUOTAS = {"train": 32, "val": 8, "test": 8}
+import os as _os
+if _os.environ.get("V083_SMOKE"):
+    QUOTAS = {"train": 1, "val": 1, "test": 1}
+    QUEUES = {"train": (3600,), "val": (3670,), "test": (3688,)}
 REPEATS = dict(B.REPEATS)
 
 SOURCE_CAP = sum(len(q) for q in QUEUES.values()) * DEADLINE
@@ -87,7 +91,8 @@ N_BRANCHES = sum(QUOTAS[s] * CANDIDATES * REPEATS[s] for s in QUOTAS)
 BRANCH_CAP = N_BRANCHES * (C_PREFIX + H)
 CAPS = {"source": SOURCE_CAP, "branch": BRANCH_CAP}
 TOTAL_CAP = SOURCE_CAP + BRANCH_CAP
-assert N_BRANCHES == 32 * 17 + 8 * 17 + 8 * 17 * 3 == 1088
+if not _os.environ.get("V083_SMOKE"):
+    assert N_BRANCHES == 32 * 17 + 8 * 17 + 8 * 17 * 3 == 1088
 
 OUT_ROOT = REPO / "results" / "v083_bootstrap"
 OUTCOME_KEYS = ("dmg", "succ", "dp", "ttm", "G")
