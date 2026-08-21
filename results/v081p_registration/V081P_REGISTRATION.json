@@ -2,7 +2,7 @@
   "schema_version": "v081p.1",
   "action": "Action 2P / V8.1P",
   "daily": "plan_and_progress/2026-08-20.md \u00a74",
-  "utc": "2026-08-21T043759Z",
+  "utc": "2026-08-21T044459Z",
   "question": "At distinct, stratum-matched pre-failure histories from stock rollouts that miss L=250, do VLA-supported first-10-action siblings produce repeatable local action-effect/outcome variation, including both improvements and non-improving outcomes under the same continuation noise?",
   "non_claims": [
     "world-model prediction or model-guided acquisition",
@@ -70,14 +70,12 @@
   },
   "outcomes": {
     "components": [
-      "dmg",
       "succ",
       "dp",
       "ttm",
       "G"
     ],
     "lower_is_better": [
-      "dmg",
       "ttm"
     ],
     "gamma": 0.99,
@@ -152,7 +150,7 @@
   },
   "provenance": {
     "git": {
-      "head": "9b170506063c561838b27133d219899c2be26db1",
+      "head": "62e27c5a46ffb8ee361fc5a002012e92a3ff34bc",
       "dirty": false,
       "porcelain": []
     },
@@ -169,11 +167,11 @@
       "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
       "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
       "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
-      "lcwm/v081p_contract.py": "53a0c2aedf62ec26fab7ca0b2c407d6c1a1f9a1e01c0cd122575a6dd7e81502f",
-      "lcwm/v081p_exec.py": "124f1e1687a7f682c1e19a190cc960926c49ce0bf26e9f467a63507d18c14660",
+      "lcwm/v081p_contract.py": "f86056f14a617dac4dd60b1626bbe5f384fcca1a05ecd03b33f881241553fcdb",
+      "lcwm/v081p_exec.py": "bf4b7af2b76bd472822b0bf5c405a9e43fc623949e2fd293d910d0089a3fe99b",
       "lcwm/v08r_contract.py": "7e6d161ca1b406f771601efa3c4724e947b28338461d86836c6656f794e59113",
-      "scripts/register_v081p.py": "97aa87d72f74f4ebeae1bd9dc3df8be92d3be8c163196602b4314ee15ac01082",
-      "scripts/run_v081p.py": "90b6ac5646afa71591ed68cfbd5a79569581f859393e985373468f4289097245",
+      "scripts/register_v081p.py": "73c9f63de98b518872fcfce32c1552c38710350d50a1384de5d9768c16920b38",
+      "scripts/run_v081p.py": "4d432977a0abb724e8c003bb77965eb038425eac79ad4033344fdeac52cd56bb",
       "scripts/test_v081p_masks.py": "a62ad56bf025a06069a30c162462518cb9b55030a41764a5b6ea44fdb1b89281"
     },
     "model": {
@@ -189,30 +187,40 @@
     },
     "external": {
       "lerobot": {
-        "version": "0.6.1"
+        "version": "0.6.1",
+        "git_repo": "/home/stargazer/Desktop/vla_wm/lerobot",
+        "git_sha": "8a74e0ac6d01706d67fddfed682a09d694d9c8c0",
+        "git_dirty": false
       },
       "libero": {
-        "version": "unknown"
+        "version": "unknown",
+        "git": "not_a_checkout"
       },
       "robosuite": {
-        "version": "1.4.0"
+        "version": "1.4.0",
+        "git": "not_a_checkout"
       },
       "mujoco": {
-        "version": "3.8.1"
+        "version": "3.8.1",
+        "git": "not_a_checkout"
       },
       "torch": {
-        "version": "2.11.0+cu128"
+        "version": "2.11.0+cu128",
+        "git": "not_a_checkout"
       },
       "transformers": {
-        "version": "5.5.4"
+        "version": "5.5.4",
+        "git": "not_a_checkout"
       },
       "numpy": {
-        "version": "2.2.6"
+        "version": "2.2.6",
+        "git": "not_a_checkout"
       },
       "huggingface_hub": {
-        "version": "1.22.0"
+        "version": "1.22.0",
+        "git": "not_a_checkout"
       }
     }
   },
-  "self_sha256": "16ea5773cc5bb06015052d94ffe5cee52ad5aa5974df5a9f91b611efb82672e9"
+  "self_sha256": "0979c8393ff08051ccec0b6ef4174e343ade3b43c71140c11b705f55e62980ca"
 }
