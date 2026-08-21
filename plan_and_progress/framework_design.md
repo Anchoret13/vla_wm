@@ -1135,3 +1135,29 @@ Every gate is reported per anchor at the primary \(H=80\); \(H=20,40\) are repor
 An ADVANCE permits one source-disjoint second-setting replication and construction of the full two-task V8.1 registration. Only that later replicated collection can PASS §13.2 and authorize \(M_0\). A HALT permits one bounded, prospectively named change to the anchor or proposal/setting; it does not reopen indefinite benchmark shopping or allow post-outcome threshold/budget tuning.
 
 Before any Action 2P environment step, the registration must seal the actual runner and dependency closure, policy/HF snapshot and weight hashes, BDDL and automaton, source and branch RNG maps, snapshot schema, exact masks and tolerances, pool-selection code, segment-level official-step ledger, abort-safe cumulative accounting, and the 20,120-step cap from worst-case headroom. The stale 1R pooled spend field is corrected only through a hash-bound successor note citing the authoritative 29,800-step ledger sum; historical artifacts are never edited in place.
+
+### 15.6 Action 2P outcome — HALT (2026-08-21)
+
+Executed under registration `0979c839` with execution seal `de5dedc5` written before any outcome existed. 20 sources and 168 branch segments, **19,906 / 20,120** environment steps, reserved seeds untouched. Full record: `plan_and_progress/2026-08-21.md`; artifact `results/v081p/2026-08-21T044523Z`.
+
+**Provenance conditions 1–3 pass, and — unlike their first implementation — they could have failed.** Restore is verified by re-snapping the live environment after `restore` and hashing that, not by hashing the stored snapshot against itself: **168/168**. Replay tolerance is measured over achieved post-prefix body positions rather than commanded actions: **max pairwise L2 = 0.00e+00** on all eight anchors, against a sealed `1e-3`. Pools are **32/32** unique after first-\(c\) deduplication.
+
+**Decision conditions 4 and 6 fail.**
+
+| condition | required | observed |
+|---|---|---|
+| anchors with candidate-induced variation | ≥ 4/8 | **3/8** |
+| anchors with a paired-positive | ≥ 2/8 | 2/8 ✓ |
+| anchors with both a positive and a non-improving sibling | ≥ 2/8 | **0/8** |
+
+Three results carry forward:
+
+1. **A genuine conversion exists.** At anchor `a3493`, sibling `rand1` beat its matched reference on all three CRN keys and turned `failure@250` into `success@250` on 3/3 keys where the reference succeeded 0/3. At `a3494`, three of six siblings are paired-positive on progress and timing without reaching success.
+2. **The binding failure is the absence of non-improving siblings**, not of positives: exactly one exists across all eight anchors. The gate requires both directions because ranking signal must be two-sided; what the setting produced is one-sided.
+3. **Five of eight anchors are inert** — all 18 paired comparisons are exact ties at \(H=80\).
+
+`[LOCKED]` **The sealed floors decided this verdict, and that is the point.** Six of eight anchors differ in raw readouts while only three clear the quantization floors; reporting raw differences as variation would have passed condition 4 and produced an ADVANCE. The floors were derived from the task automaton's 10-step evaluation stride and sealed before execution, so that reading was not available after the outcomes existed. Any successor pilot inherits this rule: the discrimination threshold is derived from instrument quantization and sealed before execution, never fitted to the reference variability it must exclude.
+
+`[LOCKED]` **Eligibility and comparison must key on the same object.** `a3480`'s source was a genuine `failure@250` and passed the registered mask, but at that anchor the freshly drawn reference succeeds on 2 of 3 CRN keys — the source failed under *its own* continuation noise only. Anchor eligibility keyed on the source's outcome while the paired comparison keys on a fresh reference; those are different objects. A successor stratum must require the reference itself to fail on a registered majority of CRN keys before the anchor is admitted.
+
+Per §15.5, "stop the formulation" is **not** indicated: supported action diversity plainly exists (32/32 unique pools) and produces useful variation at 3/8 anchors including one full conversion. One bounded coverage-component revision is the indicated path; which component is a registered decision and is not taken here.
