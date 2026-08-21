@@ -2,7 +2,7 @@
   "schema_version": "v081p.1",
   "action": "Action 2P / V8.1P",
   "daily": "plan_and_progress/2026-08-20.md \u00a74",
-  "utc": "2026-08-21T042333Z",
+  "utc": "2026-08-21T043759Z",
   "question": "At distinct, stratum-matched pre-failure histories from stock rollouts that miss L=250, do VLA-supported first-10-action siblings produce repeatable local action-effect/outcome variation, including both improvements and non-improving outcomes under the same continuation noise?",
   "non_claims": [
     "world-model prediction or model-guided acquisition",
@@ -152,7 +152,7 @@
   },
   "provenance": {
     "git": {
-      "head": "8b56bef7eac231fb79790c428f68165f819e735b",
+      "head": "9b170506063c561838b27133d219899c2be26db1",
       "dirty": false,
       "porcelain": []
     },
@@ -169,11 +169,11 @@
       "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
       "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
       "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
-      "lcwm/v081p_contract.py": "06ed7e31452c9361fa10ee567708686197aa322d6d4bc6928b7439b9c1a9375b",
+      "lcwm/v081p_contract.py": "53a0c2aedf62ec26fab7ca0b2c407d6c1a1f9a1e01c0cd122575a6dd7e81502f",
       "lcwm/v081p_exec.py": "124f1e1687a7f682c1e19a190cc960926c49ce0bf26e9f467a63507d18c14660",
       "lcwm/v08r_contract.py": "7e6d161ca1b406f771601efa3c4724e947b28338461d86836c6656f794e59113",
       "scripts/register_v081p.py": "97aa87d72f74f4ebeae1bd9dc3df8be92d3be8c163196602b4314ee15ac01082",
-      "scripts/run_v081p.py": "e23813745e57cd35b8214399addbdb8b6ba8ba8612c705c74384b43e75504984",
+      "scripts/run_v081p.py": "90b6ac5646afa71591ed68cfbd5a79569581f859393e985373468f4289097245",
       "scripts/test_v081p_masks.py": "a62ad56bf025a06069a30c162462518cb9b55030a41764a5b6ea44fdb1b89281"
     },
     "model": {
@@ -214,5 +214,5 @@
       }
     }
   },
-  "self_sha256": "1331adf3b77a612952ed2f3e65afb3332fe8176f2773fc7fa985acf06f4e2aed"
+  "self_sha256": "16ea5773cc5bb06015052d94ffe5cee52ad5aa5974df5a9f91b611efb82672e9"
 }
