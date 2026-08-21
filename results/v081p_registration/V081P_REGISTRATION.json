@@ -1,0 +1,218 @@
+{
+  "schema_version": "v081p.1",
+  "action": "Action 2P / V8.1P",
+  "daily": "plan_and_progress/2026-08-20.md \u00a74",
+  "utc": "2026-08-21T042333Z",
+  "question": "At distinct, stratum-matched pre-failure histories from stock rollouts that miss L=250, do VLA-supported first-10-action siblings produce repeatable local action-effect/outcome variation, including both improvements and non-improving outcomes under the same continuation noise?",
+  "non_claims": [
+    "world-model prediction or model-guided acquisition",
+    "policy improvement",
+    "two-task or LoHo generalization",
+    "continual learning",
+    "unlimited-horizon competence or terminal-failure recovery"
+  ],
+  "data_use": "rows are permanently excluded from later training and behavior evaluation; no model or policy is updated",
+  "frozen": {
+    "task": "chain1b_lr2",
+    "policy": "stock pi0.5, full prompt, deployment N=1",
+    "deadline_L": 250,
+    "deadline_status": "post-calibration EXPERIMENTAL finite-horizon objective frozen before this pilot; not an intrinsic-capability horizon and not an external deployment requirement. Every allowed claim is conditional on it.",
+    "source_seeds": [
+      3480,
+      3481,
+      3482,
+      3483,
+      3484,
+      3485,
+      3486,
+      3487,
+      3488,
+      3489,
+      3490,
+      3491,
+      3492,
+      3493,
+      3494,
+      3495,
+      3496,
+      3497,
+      3498,
+      3499
+    ],
+    "source_rule": "run all 20; never early-stop at quota",
+    "tau": 160,
+    "anchor_kind": "retrospective_deadline_backoff",
+    "tau_arithmetic": "160 + 10 + 80 = 250",
+    "eligible_mask": {
+      "ever_achieved": [],
+      "current_valid": [],
+      "damaged": [],
+      "actionable": [
+        0
+      ],
+      "unresolved": [
+        0,
+        1
+      ]
+    },
+    "selection": "after the complete source panel closes, seal the first eight eligible failures in seed order; underfill HALTs; a failed replay is not replaced with the ninth source",
+    "source_suffix": "establishes failure@250 only; conditioned to fail, so it is never a reference outcome"
+  },
+  "candidates": {
+    "reference": "first draw from a registered hash-derived stock-pi0 RNG key, disjoint from the N=32 alternative keys, with no action-geometry or outcome selection",
+    "n_alt_draws": 32,
+    "dedup": "executed first c=10 actions",
+    "min_unique": 16,
+    "n_diversity": 3,
+    "n_random": 3,
+    "crn_keys": 3,
+    "blindness": "no proposal feature, pool selection, or tie-break may use the source trajectory after tau, its terminal mask/failure phase, or any branch outcome"
+  },
+  "outcomes": {
+    "components": [
+      "dmg",
+      "succ",
+      "dp",
+      "ttm",
+      "G"
+    ],
+    "lower_is_better": [
+      "dmg",
+      "ttm"
+    ],
+    "gamma": 0.99,
+    "readouts": [
+      20,
+      40,
+      80
+    ],
+    "primary": 80,
+    "pairing": "same-key pairing, NOT best-of-three: a paired-positive beats its matched reference on all three RNG keys at H=80; a paired-non-improving never beats reference and is strictly worse on at least one paired key beyond replay noise",
+    "excluded": "reference variability and prefix physical effect by themselves are not candidate-induced outcome variation",
+    "denominator": "eight anchors, not 168 branches; repeats are nested within an anchor"
+  },
+  "budget": {
+    "by_cap_line": {
+      "source": 5000,
+      "ref_prefix": 240,
+      "ref_cont": 1920,
+      "div_prefix": 720,
+      "div_cont": 5760,
+      "rand_prefix": 720,
+      "rand_cont": 5760
+    },
+    "total_env_steps": 20120,
+    "worst_case_segments": 356,
+    "rule": "every started or aborted segment is charged; no retries, substitute anchors, extra assessment branches, post-hoc quota increases, or reallocations",
+    "pre_segment_headroom_check": true
+  },
+  "advance_gate": {
+    "min_variation_anchors": 4,
+    "min_positive_anchors": 2,
+    "min_both_anchors": 2,
+    "all_six_required": true,
+    "halt_meaning": "this anchor/proposal/setting did not expose sufficient counterfactual support. It does not justify training or sweeping a world model. The next change is one bounded anchor or proposal/setting revision, not a lower bar, a larger post-outcome budget, or benchmark shopping.",
+    "allowed_statement": "On eight distinct chain1b@250, tau=160 anchors selected from one prospectively registered event-mask stratum, the six outcome-blind stock-VLA siblings per anchor produced repeatable candidate-induced finite-horizon outcome variation on at least 4/8 anchors, a paired-positive on at least 2/8, and both a positive and non-improving sibling on at least two anchors. It is not a WM, policy, benchmark-generalization, or terminal-recovery result."
+  },
+  "terminology": {
+    "allowed": [
+      "failure@L",
+      "right_censored@H",
+      "retrospective_deadline_backoff"
+    ],
+    "forbidden_without_evidence": [
+      "terminal",
+      "irreducible",
+      "stall_onset",
+      "earliest_unrecoverable"
+    ]
+  },
+  "seeds": {
+    "sources": [
+      3480,
+      3499
+    ],
+    "reserved_never_touched": [
+      3200,
+      3399
+    ],
+    "calibration_only_spent": [
+      3400,
+      3439
+    ],
+    "retired_not_reassigned": [
+      3440,
+      3479
+    ]
+  },
+  "predecessor": {
+    "action_1R_successor_note": "results/v080r_1r1/SUCCESSOR_NOTE_1R.json",
+    "authoritative_1R_spend": 29800,
+    "note": "Action 1R's unused budget and unexecuted seeds are NOT reused; Action 2P has its own independent cap."
+  },
+  "provenance": {
+    "git": {
+      "head": "8b56bef7eac231fb79790c428f68165f819e735b",
+      "dirty": false,
+      "porcelain": []
+    },
+    "sources": {
+      "bddl/chains/chain1b_lr2.bddl": "370239532e1ff71188e5494257e1c81bd1fbfb55b3c2163c94d7c4f398ad70d4",
+      "lcwm/chassis.py": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705",
+      "lcwm/libero_paths.py": "40d675f81ceec74fd9101b6d9a7ae6dae2c8761cd0ef6f53fd9e85cd6eacf154",
+      "lcwm/loho.py": "2904a3579dc8f7cac7ad914cf83f51c79435b526b668b07bd37406424d928c54",
+      "lcwm/probe_data.py": "3526093b9ecb08f5514ee5864c913880a7438b6b13c0077e8e4a63a1cdc5a16c",
+      "lcwm/sampler.py": "ecaffc1ae40d3d40a2f98c493b786d3004b05520768b1232c33805de508af406",
+      "lcwm/seq_data.py": "da494e5d4d00b98b64da3f9ec8aae32a94da169f428a5bbdcdb6b9881c6f4ab7",
+      "lcwm/snapshot.py": "fa616f54add7b56e87a6428626ac08bc6dbafa3c31ac0eb681838a9176a62525",
+      "lcwm/taps.py": "65b608f589d94622a19bf860f3fc10f5d238207ae093ad6cf3bb969f63dd3f07",
+      "lcwm/task_automaton.py": "fe06d269af133afa8448e6211a0d0ed071d161c40f6d668ba5248f64465c1697",
+      "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
+      "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c",
+      "lcwm/v081p_contract.py": "06ed7e31452c9361fa10ee567708686197aa322d6d4bc6928b7439b9c1a9375b",
+      "lcwm/v081p_exec.py": "124f1e1687a7f682c1e19a190cc960926c49ce0bf26e9f467a63507d18c14660",
+      "lcwm/v08r_contract.py": "7e6d161ca1b406f771601efa3c4724e947b28338461d86836c6656f794e59113",
+      "scripts/register_v081p.py": "97aa87d72f74f4ebeae1bd9dc3df8be92d3be8c163196602b4314ee15ac01082",
+      "scripts/run_v081p.py": "e23813745e57cd35b8214399addbdb8b6ba8ba8612c705c74384b43e75504984",
+      "scripts/test_v081p_masks.py": "a62ad56bf025a06069a30c162462518cb9b55030a41764a5b6ea44fdb1b89281"
+    },
+    "model": {
+      "model_id": "lerobot/pi05_libero_finetuned",
+      "description": "LIBERO-finetuned pi0.5 as published; not tuned here",
+      "hub_revision_sha": "8e174154ef5f6c60a8da12ae99c303d8963138c1",
+      "weight_files": {
+        "model.safetensors": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae",
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9",
+        "policy_preprocessor_step_2_normalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9"
+      },
+      "config_sha256": "2f6d4b96b032593e1de65b391ee7252a70227bff398ef1b94658fea17818142f"
+    },
+    "external": {
+      "lerobot": {
+        "version": "0.6.1"
+      },
+      "libero": {
+        "version": "unknown"
+      },
+      "robosuite": {
+        "version": "1.4.0"
+      },
+      "mujoco": {
+        "version": "3.8.1"
+      },
+      "torch": {
+        "version": "2.11.0+cu128"
+      },
+      "transformers": {
+        "version": "5.5.4"
+      },
+      "numpy": {
+        "version": "2.2.6"
+      },
+      "huggingface_hub": {
+        "version": "1.22.0"
+      }
+    }
+  },
+  "self_sha256": "1331adf3b77a612952ed2f3e65afb3332fe8176f2773fc7fa985acf06f4e2aed"
+}

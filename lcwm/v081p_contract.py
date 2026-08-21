@@ -186,6 +186,25 @@ class NoiseFloor:
         return float(getattr(self, comp))
 
 
+#: Automaton evaluation stride: milestone steps are only observed every 10
+#: environment steps, so `ttm` is quantized to 10 and `G` inherits that timing
+#: quantization.  Floors are DERIVED from that instrument property and sealed
+#: before execution - they are not fitted to reference replay, because fitting a
+#: floor to the very reference variability it must exclude would let the floor
+#: be chosen after the outcomes exist.
+EVAL_STRIDE = 10
+
+#: The largest change in G that one stride of timing quantization can produce,
+#: attained at the earliest possible milestone: GAMMA**0 - GAMMA**EVAL_STRIDE.
+#: Conservative in the safe direction - it makes a difference HARDER to declare.
+G_FLOOR = 1.0 - GAMMA ** EVAL_STRIDE
+
+#: dmg, succ and dp are exact integer counts with no quantization error, so
+#: their floors are zero: any difference in them is real.
+SEALED_FLOORS_KWARGS = {"dmg": 0.0, "succ": 0.0, "dp": 0.0,
+                        "ttm": float(EVAL_STRIDE), "G": G_FLOOR}
+
+
 def compare_paired(alt: dict, ref: dict, floors: NoiseFloor) -> int:
     """One paired comparison at a single CRN key.  +1 alt better, -1 worse, 0 tie.
 
@@ -298,6 +317,10 @@ def advance_gate(sources_closed: bool, selected_in_order: bool,
             "note": ("H=20/40 are secondary diagnostics reported alongside; "
                      "diversity-vs-random yield may be described but the pilot "
                      "is not powered as a selector-efficiency comparison")}
+
+
+def sealed_floors() -> "NoiseFloor":
+    return NoiseFloor(**SEALED_FLOORS_KWARGS)
 
 
 ALLOWED_ADVANCE_STATEMENT = (
