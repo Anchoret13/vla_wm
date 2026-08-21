@@ -18,10 +18,19 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+# The packaged robosuite enables Numba caching at import time.  Its source
+# location is not writable/discoverable under ``conda run`` unless the cache is
+# redirected before robosuite is imported.
+os.environ.setdefault("NUMBA_CACHE_DIR", "/tmp/v082_numba_cache")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/v082_matplotlib")
+Path(os.environ["NUMBA_CACHE_DIR"]).mkdir(parents=True, exist_ok=True)
+Path(os.environ["MPLCONFIGDIR"]).mkdir(parents=True, exist_ok=True)
 
 import numpy as np
 import torch
