@@ -1,6 +1,6 @@
 # pi05-lcwm — Framework Design v1.0
 
-Working design record, updated 2026-08-17. v1.0 opens a new method branch after the V7.3–V7.7 results. It preserves the accepted problem formulation—a pretrained VLA supplies the action prior, while a language- and action-conditioned latent world model learns decision-relevant dynamics, reward, and value—but changes the learning protocol from one fixed offline vertical slice to bounded deployment-time improvement through failure-anchored counterfactual interaction.
+Working design record, updated 2026-08-20. v1.0 opens a new method branch after the V7.3–V7.7 results. It preserves the accepted problem formulation—a pretrained VLA supplies the action prior, while a language- and action-conditioned latent world model learns decision-relevant dynamics, reward, and value—but changes the learning protocol from one fixed offline vertical slice to bounded deployment-time improvement through failure-anchored counterfactual interaction.
 
 The new branch is provisionally called **failure-driven model-based VLA improvement**. The name is descriptive rather than a paper title.
 
@@ -15,9 +15,9 @@ Two different designs were both labelled `v0.9`. That collision is closed here.
 | `v0.9` (pre-pivot) | one-shot LC-Flow design: one LCWM checkpoint, one π0.5 fine-tune, one public-LoHo behavior slice | frozen historical record; **not** superseded in its own evidential claims | git blob `a2e4af72026141742d2da4ce5f6735619c4b58dd`, commit `1f28a544` |
 | `v1.0` (this file) | failure-driven model-based VLA improvement: bounded rounds of failure-anchored counterfactual interaction | current mainline design | working tree |
 
-`[LOCKED]` Experiment series. The pre-pivot experiment line is `V7.x` and is closed. The new mainline experiment line is **`V8.x`**, indexed as: `V8.0` benchmark calibration (Action 1), `V8.1` bootstrap acquisition (Action 2), `V8.2` model `M_0` (Action 3), `V8.3` selector comparison (Action 4), `V8.4` first policy update (Action 5), `V8.5` round 2 and one-shot control (Action 6). New code lives under `lcwm/v08*_`, `scripts/*_v08*`; existing `v07*_` entry points are read-only history and are not edited into this orchestration.
+`[LOCKED]` Experiment series. The pre-pivot experiment line is `V7.x` and is closed. The new mainline experiment line is **`V8.x`**, indexed as: `V8.0` benchmark calibration (Action 1), `V8.1` bootstrap acquisition (Action 2), `V8.2` model `M_0` (Action 3), `V8.3` selector comparison (Action 4), `V8.4` first policy update (Action 5), `V8.5` round 2 and one-shot control (Action 6). `V8.1P` is the single-task Action 2P feasibility pilot of §15 and does not renumber or satisfy `V8.1`. New code lives under `lcwm/v08*_`, `scripts/*_v08*`; existing `v07*_` entry points are read-only history and are not edited into this orchestration.
 
-No `V8.x` GPU execution is authorized by this document alone. §13 states what each of `V8.0` and `V8.1` must produce, and what halts them.
+No `V8.x` GPU execution is authorized by this document alone. §§13–15 state the historical contracts, their dated outcomes, and the next prospective gate.
 
 ---
 
@@ -34,7 +34,7 @@ The V7.3–V7.7 line produced useful negative evidence and implementation infras
 5. **V7.6 halted at acquisition on its registered rule.** The V7.6A census relocated the yield question from the model to the snapshot: reacher-built mid-chain snapshots yielded 6/36 positives against V7.4B's 4/129 from stock-stall snapshots — a 5.4x effect, exact one-sided binomial `p = 7.8e-4` against the V7.4B rate. That still missed the pre-derived bar (≥ 8/40, equivalently ≥ 9.6% from the tranche's own quota arithmetic; Wilson 95% lower bound at 6/36 is `0.0887`). `V7.6C–G` were not run. The family breakdown was sharper than the aggregate: `recovery` 5/5, `first_pick` 1/16, **`placement` (a `pick_up` target) 0/14**; per task t1 2/9, t2 2/8, t5 2/9, t3 0/10.
 6. **V7.7 showed the acquisition budget had been the instrument.** In a fresh pre-registered probe (`2026-08-15_v077_reacquire_r1`, 43 scored rollouts), **no `pick_up` milestone in the entire probe occurred at or before step 60; the earliest of twelve successes was step 66** (success steps 66, 68, 68, 68, 69, 69, 70, 83, 97, 101, 103, 106). The easiest cell — fresh episode start, first object, atomic prompt — was `0/9 @60` and `5/9 @120`. Therefore V7.6's 60-action and V7.4B's 30-action recovery budgets could not register a `pick_up` success structurally, not statistically; `pick_up 0/14` is retired as a statement about π0.5, and the V7.6 aggregate 16.7% and V7.4B 3.1% are measurements of what completes inside a truncating budget. Two findings survive as genuine: the atomic prompt *beats* the full instruction at both states (5/9 vs 3/9 fresh; 3/8 vs 1/8 mid-chain), so prompt choice was not the confound; and **π0.5 does not redirect to a later object while an earlier one is still present** (cell E: approached 3/9, contacted 0/9, against 3/8 for the same object once object 1 is removed). The reacher is also seed-sensitive at depth 3 across two independent runs.
 
-`[LOCKED]` **Instrument rule inherited from V7.6/V7.7, extended 2026-08-19 after a third instance.** No yield, recovery, or success bar in `V8.x` may be evaluated at *any* budget — recovery budget, continuation budget, **or episode horizon** — that was not derived from a *measured* completion-step distribution for the milestone class being scored, and every such readout is reported at no fewer than two horizons. The extension is forced: V7.4B used 30 actions, V7.6 used 60, and V8.0 then set its 250-steps-per-subgoal **episode horizon** from a rule of thumb extrapolated from V7.7's single-`pick_up` floor of 66 without ever measuring a full-task completion distribution. Stage 1R.1 showed that horizon cut `chain1b`'s distribution at its median, manufacturing the entire headroom the benchmark was selected for. The original rule was written about recovery budgets only, and that scope gap is what let the same failure recur. A bar evaluated at a single horizon chosen before that distribution is measured is treated as uninterpretable, not as a negative result.
+`[AMENDED 2026-08-20; prospectively supersedes the 2026-08-19 extension; historical verdicts unchanged]` **Instrument and endpoint rule.** No yield or recovery bar in `V8.x` may be evaluated at an underived branch-continuation budget, and every such readout is reported at no fewer than two horizons. An episode deadline has a different role and must be named before execution: under a **prospectively registered experimental finite-horizon objective**, failure means non-completion by the frozen horizon and later completion is a diagnostic of speed and recoverability, not grounds to erase the fixed-horizon result; under a **capability/headroom claim**, the horizon and late-conversion tolerance must instead be established prospectively from a completion-time panel. Stage 1R.1 shows that `chain1b@250` is strongly deadline-sensitive, so it may support only claims explicitly conditional on that experimental horizon. It does not show that failure-driven counterfactual coverage is absent.
 
 These results do not falsify language-conditioned latent dynamics. They show that (i) a fixed bank collected from a near-zero-success policy cannot be assumed to contain the interventions needed for policy improvement, (ii) architecture refinement cannot manufacture outcomes the acquisition never contained, and (iii) the acquisition instrument's own parameters can dominate the measurement they were meant to make.
 
@@ -263,7 +263,7 @@ A useful branch group contains variation in at least one registered outcome: nex
 
 ### 3.3 Failure frontier
 
-For each task, record the earliest unresolved milestone or failure phase of every rollout. The distribution of these locations is the failure frontier of \(\pi_k\). Continual improvement requires more than repeatedly solving the same stored anchors: after updating to \(\pi_{k+1}\), the frontier should move later in the task or disappear on held-out evaluation rollouts.
+For each task, record the exact achieved, current-valid, damaged, actionable, and unresolved event sets of every rollout. Scalar phase and ordered-prefix summaries are display-only. The distribution of unresolved-set signatures is the failure frontier of \(\pi_k\). Continual improvement requires more than repeatedly solving the same stored anchors: after updating to \(\pi_{k+1}\), the unresolved sets should contract or disappear on held-out evaluation rollouts.
 
 ---
 
@@ -449,9 +449,9 @@ H_{\max}\;\ge\;1.5\cdot q_{90}\big(\text{steps-to-next-milestone}\mid\text{miles
 
 measured on the Action-1 calibration panel. Continuation outcomes are recorded at every horizon in a registered set \(\mathcal H\) with \(|\mathcal H|\ge 2\) and \(\max\mathcal H=H_{\max}\), and every yield or advantage readout is reported at all of them. This is the direct instrument fix for §0.1 item 6: at \(\mathcal H=\{60\}\) the pre-pivot protocol could not observe a `pick_up` recovery at all.
 
-`[REOPENED 2026-08-19]` **The V8.0 derivation was complete-case and context-aliased.** Class q90 was estimated only from trajectories in which that milestone was *achieved*; right-censored failures never entered the quantile. On `chain1b`, 28/30 episodes emitted the pick event but only 12/30 placed, so 16 placement times were censored at the cap. On `chain2b` the frozen 209-step cream-pick bound came from 22 cream achievements that were overwhelmingly cream-*first* states, not the modal tomato-done failure state whose 5 occurrences reached cream pick 0/5. Conditioning on \((\text{index},\text{kind},\text{object})\) is therefore insufficient: the conditioning set must be the **achieved-state stratum** of §3.1.1, and the estimator must be censoring-aware (Kaplan–Meier or an explicit lower bound), not complete-case. \(W\), \(H_{\max}\), \(\mathcal H\), the per-class bounds, and the "MC fallback does not fire" conclusion are all reopened until Action 1R reseals them.
+`[REOPENED 2026-08-19]` **The V8.0 derivation was complete-case and context-aliased.** Class q90 was estimated only from trajectories in which that milestone was *achieved*; right-censored failures never entered the quantile. On `chain1b`, 28/30 episodes emitted the pick event but only 12/30 placed, so 16 placement times were censored at the cap. On `chain2b` the frozen 209-step cream-pick bound came from 22 cream achievements that were overwhelmingly cream-*first* states, not the modal tomato-done failure state whose 5 occurrences reached cream pick 0/5. Conditioning on \((\text{index},\text{kind},\text{object})\) is therefore insufficient: the conditioning set must be the **achieved-state stratum** of §3.1.1, and the estimator must be censoring-aware (Kaplan–Meier or an explicit lower bound), not complete-case. \(W\), \(H_{\max}\), \(\mathcal H\), the per-class bounds, and the "MC fallback does not fire" conclusion remain reopened after Action 1R HALTed. Action 2P (§15) does not estimate value and therefore uses a bounded deadline-aligned outcome window rather than pretending to reseal these quantities.
 
-`[DEC]` **Registered fallback.** If the affordable \(H_{\max}\) falls below that bound for the selected benchmark, switch the value channel to FQE/TD(0) on stored continuation transitions with the bootstrap action resampled from \(\pi_k\). The switch is decided by the Action-1 measurement before phase B, is recorded once, and may not be revisited after outcomes are seen.
+`[DEC]` **Registered fallback.** If the affordable \(H_{\max}\) falls below that bound for the selected setting, switch the value channel to FQE/TD(0) on stored continuation transitions with the bootstrap action resampled from \(\pi_k\). The switch must be decided and sealed before any value-model fit; it is not a prerequisite for the value-free coverage pilot of §15 and may not be revisited after model outcomes are seen.
 
 ### 5.3 Training data roles
 
@@ -545,7 +545,7 @@ The confidence coefficient \(\beta\), the minimum improvement margin \(\delta\),
 |---|---|---|---|
 | 1 | `dmg` irreversible-damage indicator | non-inferiority required | safety head / monitor |
 | 2 | `succ` task success within \(H_{\max}\) | higher better | task automaton |
-| 3 | `Δp` ordered-milestone gain | higher better | task automaton |
+| 3 | `Δp` valid progress gain / unresolved-set contraction | higher better | task automaton |
 | 4 | `ttm` steps to next milestone | lower better, defined only when attained | task automaton |
 | 5 | `G^{(H_max)}` truncated continuation return | higher better | reward integration |
 
@@ -633,6 +633,8 @@ the next interaction and evaluation rollouts use the modified full-prompt `N=1` 
 The near-zero-success five-task LoHo suite is not the first mechanism-development benchmark. If the current policy cannot reach relevant late states and no supported alternative succeeds, additional failure interaction produces more negative data but no policy-improvement target.
 
 `[LOCKED]` Select a medium-horizon task set on a frozen calibration panel such that stock \(\pi0.5\) has nonzero competence and nontrivial headroom. The initial target range is `[EST]` 20–70% success. Freeze the selected tasks, instructions, acquisition seeds, evaluation seeds, and interaction budget before running any improvement arm.
+
+`[LOCKED 2026-08-20]` **Goal-drift guardrail.** The success band, task count, deadline, and anchor-admissibility rules qualify a measurement setting; they are not the research objective or a paper contribution. An instrument HALT supplies no positive or negative evidence about the coverage, acquisition, policy-improvement, or continual-improvement claims unless the corresponding intervention was actually executed. A small, explicitly scoped coverage pilot may precede the two-task confirmatory benchmark, but it cannot inherit the latter's claim scope.
 
 Existing Chain3/4/5 or controlled-length LoHo variants are preferred because the repository already provides composite instructions, snapshot restoration, task automata, and failure localization. The full five-task LoHo suite becomes a post-mechanism stress test.
 
@@ -810,8 +812,8 @@ No outcome authorizes an unconstrained scorer, pooling, layer, rank, seed, or la
 ## 10. Immediate implementation sequence
 
 1. **Archive the pre-pivot endpoint.** Preserve the committed `v0.9` framework, the V7.3–V7.7 records, code, and artifacts as the one-shot LC-Flow branch. Do not reinterpret its negative results as v1.0 evidence.
-2. **Select the mechanism benchmark (§13.1).** Measure stock behavior on Chain-family candidates and shortened LoHo variants using a calibration panel; choose and freeze tasks with nonzero success and meaningful headroom, and measure the milestone completion-step distribution that sets \(W\), \(\mathcal H\), and \(H_{\max}\).
-3. **Build the bootstrap acquisition object (§13.2).** From stock failures, save reproducible histories, reference replays, one diverse candidate pool, and matched branch outcomes. Verify that multiple tasks contain both better-than-reference and non-improving siblings before policy training.
+2. **Test the coverage mechanism directly (§15).** On a bounded, explicitly deadline-constrained setting, restore earlier histories from prospective failed source rollouts and execute outcome-blind VLA-supported sibling pools. Ask first whether matched branches create reproducible action-effect/outcome variation and verified improvements; do not train a model or policy in this pilot.
+3. **Build the replicated bootstrap acquisition object (§13.2).** After the pilot advances, register a source-disjoint second-setting replication and the full two-task handoff. Only a replicated collection with both better-than-reference and non-improving siblings becomes eligible to train \(M_0\).
 4. **Train the minimal counterfactual model.** Reuse the current latent model but evaluate it on source-disjoint sibling ranking, value calibration, and effect prediction. Do not begin with another representation/interface sweep.
 5. **Test acquisition before full policy learning.** Under equal branch budgets, compare model-guided selection with random and diversity-only selection by the rate and magnitude of verified improvements found.
 6. **Run the first policy update.** Compare direct correction, WM acquisition plus correction, and the full verified-plus-model-generated objective from matched initialization.
@@ -839,7 +841,7 @@ Closed by Action 0 on 2026-08-17, and now locked:
 - version lineage `v0.9` (pre-pivot) / `v1.0` (this branch), experiment series `V8.x` (header);
 - executed-action causal contract on \(u_{\mathrm{exec}}\) and \(c_{\mathrm{eff}}\) (§2.1, C1);
 - bootstrap phase \(\mathcal B_{\mathrm{boot}}\to M_0\), the \(\mathcal D_{k+1}\) recursion, and selector legality (§4.0, C2);
-- truncated current-policy Monte Carlo with policy-identity masking, plus the derived \(H_{\max}\) and multi-horizon reporting rule (§5.2.1, C3);
+- current-policy identity masking, truncated-return semantics, and the multi-horizon reporting rule (§5.2.1, C3); the numeric \(H_{\max}\) and MC-versus-FQE choice are reopened below;
 - two named anchor kinds, `stall_onset` and `earliest_unrecoverable`, and the ban on using the second name without a tier-2 execution (§3.1.1, C4);
 - one preference contract — lexicographic dominance with difference-first uncertainty — for both the executed and unexecuted channels (§5.5, C5);
 - the nine-arm matrix and the data-ownership/role-sealing table (§7.2, §7.2.1, C6);
@@ -849,11 +851,11 @@ Closed by Action 0 on 2026-08-17, and now locked:
 ### Open but bounded
 
 - `[DEC]` recurrent LCState versus one explicit short history window if the former remains inert;
-- `[DEC]` exact medium-horizon development tasks — resolved by the frozen `V8.0` calibration (§13.1);
+- `[REOPENED 2026-08-20]` exact two-task confirmatory development panel — the historical `V8.0` fixed-deadline PASS remains recorded, but it no longer supplies a valid V8.1 handoff (§13.1, §14.5);
 - `[DEC]` candidate-pool size \(N\), executed branch count per anchor, ensemble size \(E\) (default 5), reference repeats \(R\) (default 3), and the `wm` coverage/improvement split (default 0.5/0.5) — all fixed before phase B;
-- `[REOPENED 2026-08-19]` MC versus FQE for the value channel, together with \(W\), \(H_{\max}\), \(\mathcal H\) and the per-class bounds — the V8.0 derivation was complete-case and context-aliased (§5.2.1, §14.1). Action 1R reseals them or halts;
+- `[REOPENED 2026-08-19]` MC versus FQE for the value channel, together with \(W\), \(H_{\max}\), \(\mathcal H\) and the per-class bounds — the V8.0 derivation was complete-case and context-aliased, and Action 1R HALTed before a handoff was sealed (§5.2.1, §14);
 - `[DEC]` whether the first paper claim stops at model-guided active acquisition or also includes unexecuted model-generated targets;
-- `[EST]` \(W\), \(\mathcal H\), \(H_{\max}\), stock success range, and attainable positive-branch rate — all produced by `V8.0`/`V8.1`.
+- `[EST]` \(W\), value-model \(\mathcal H\), \(H_{\max}\), and the attainable positive-branch rate. Action 2P estimates only local branch support under its own deadline-aligned readouts; it does not settle the value estimator or the two-task stock-success range.
 
 ---
 
@@ -949,7 +951,7 @@ One JSON object per record; every record carries `schema_version` and the produc
 
 ## 13. Promotion and halt contract for the first two stages
 
-Written before any `V8.x` outcome is inspected.
+The original §13.1–13.2 contract below was written before any `V8.x` outcome was inspected. Paragraphs carrying explicit 2026-08-19/20 dates are retrospective status or prospective successor rules; they do not masquerade as part of the original preregistration.
 
 ### 13.1 `V8.0` — benchmark calibration (Action 1)
 
@@ -972,9 +974,9 @@ and, on those tasks, at least two distinct failure phases observed across seeds,
 
 `[LOCKED]` **Reproducibility.** \(\pi0.5\) is a flow policy and samples its action chunk, so every calibration, acquisition, and evaluation episode seeds torch, numpy, and CUDA from the episode seed. Unseeded, the same seed gave terminal steps 138 and 134 on two runs of identical code. A panel that cannot be reproduced is not a calibration.
 
-`[VOIDED 2026-08-19 for `chain1b_lr2`]` Stage 1R.1 showed that task succeeds on **20/20** episodes by 500 steps: its 0.400 at `L=250` measured where the cut was placed, not the policy. A band PASS obtained on deadline-truncated failures is not a PASS, so `chain1b_lr2`'s gate is void. `chain2b_lr2`'s official rate also moved to 31/40 = 0.775 on the 1R.1 panels (51/70 = 0.729 pooled with the V8.0 confirmation), above the band ceiling it was granted under.
+`[POST-HOC STATUS 2026-08-20; stored verdict unchanged]` V8.0 remains a historical PASS under its registered fixed-deadline rule. Stage 1R.1 showed that `chain1b_lr2` succeeds on 20/20 episodes by 500 steps while 8/20 finish by its registered `L=250`; that artifact therefore measures finite-deadline performance and cannot by itself support an intrinsic capability-headroom claim. `chain2b_lr2` produced 31/40 at `L=500` on the 1R.1 panels (51/70 when descriptively pooled with V8.0), above the original screen band. These observations withdraw the old artifact's eligibility as a complete V8.1 handoff; they do not rewrite its preregistered result or test any method claim.
 
-`[LOCKED]` **Companion criterion (added 2026-08-19).** A task qualifies only if its success rate is in band **and** its failures are *terminal* rather than truncated — i.e. its late-conversion rate at the chosen deadline is non-material under the §14.2 Clopper–Pearson rule. The band test alone admitted a task with no capability headroom at all. Both conditions are now required, and the late-conversion screen is measured before a benchmark is frozen, not after.
+`[PROSPECTIVE GUARDRAIL 2026-08-20]` Endpoint semantics are fixed before a new panel. A future **capability/headroom** benchmark must prospectively bound late conversion at its horizon; a **deadline-constrained** experiment may instead treat non-completion by a meaningful frozen deadline as failure and must report later conversions separately. “Terminal” and “irreducible” are never inferred from a finite right-censored rollout. Terminality is not the scientific endpoint: the coverage endpoint is same-anchor counterfactual action-effect/outcome variation, including both verified improvement and non-improving siblings.
 
 **HALT** if no task set clears the band. In that case change task difficulty — object count, distractor set, initial-state region — before building any world model. Do **not** compensate with privileged late-state reachers inside the primary mechanism benchmark; the reacher's seed sensitivity at depth 3 (§0.1) is a second reason to keep it out of the benchmark definition.
 
@@ -995,11 +997,13 @@ Runs only on a `V8.0` PASS, with every quota below frozen before collection.
 `[LOCKED]` Neither stage may report an aggregate rate without the per-task and per-milestone-class breakdown beside it. The V7.6 record shows an aggregate 16.7% that concealed `recovery` 5/5 against `pick_up` 0/14; that concealment is what the breakdown requirement exists to prevent.
 
 The immediate priority is to resolve the benchmark and interaction-support decisions through one small round-0 collection. Architecture refinements are subordinate until that collection demonstrates that the new branch can actually create the counterfactual outcome variation its claim requires.
+
+`[STATUS 2026-08-20; not part of the original preregistration]` The historical V8.0 artifact no longer supplies an accepted two-task handoff, so the §13.2 stage is paused. Action 2P in §15 is the immediate bounded interaction-support pilot. It has a different single-task estimand, cannot be reported as §13.2 PASS, and does not authorize model or policy training.
 ---
 
 ## 14. Action 1R / V8.0R — repairing the branch instrument
 
-Added 2026-08-19 after the V8.0 audit; **§14.5 below records the outcome, which voided part of what this section originally assumed.** As written, §13.1's *behavioral* gate was taken to stand — `chain1b_lr2` 12/30 and `chain2b_lr2` 20/30 at the frozen 250/500-step deadlines, hash-bound. Stage 1R.1 then showed `chain1b`'s share of that gate was a deadline artifact. What the audit reopened is the *derived branch instrument* — the anchor rule, the budget derivation, and the value-estimator choice — because all three were computed under assumptions the data violates.
+Added 2026-08-19 after the V8.0 audit. §§14.1–14.4 describe the historical sealed Action 1R contract; §14.5 records its outcome and dated interpretation. As written, §13.1's behavioral gate was taken to stand — `chain1b_lr2` 12/30 and `chain2b_lr2` 20/30 at the frozen 250/500-step deadlines, hash-bound. Stage 1R.1 later classified `chain1b` as materially deadline-sensitive and `chain2b` as indeterminate under the conservative rule, reopening the derived branch instrument — the anchor rule, budget derivation, and value-estimator choice. It executed no alternative-action coverage test, world model, or policy update.
 
 ### 14.1 What was wrong, stated once
 
@@ -1026,7 +1030,7 @@ Implemented in `lcwm/v08r_contract.py` and sealed by `scripts/register_v080r.py`
 
 ### 14.3 Ordering, and why 1R.1 comes first
 
-Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/16 admissible `chain1b` anchors** and 5/8 `chain2b` ones. `chain1b`'s stratum is therefore predicted to fail 1R.2 at the current deadline, which is exactly why the deadline-sensitivity panel runs before the feasibility panel. **The prediction was confirmed, and the cause was worse than a mis-set deadline: those 16 anchors were not failures at all** (§14.5).
+Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/16 admissible `chain1b` anchors** and 5/8 `chain2b` ones. `chain1b`'s stratum is therefore predicted to fail 1R.2 at the current deadline, which is exactly why the deadline-sensitivity panel runs before the feasibility panel.
 
 `[LOCKED]` Action 1R produces a new content-addressed handoff artifact and **must not mutate** `BENCHMARK_FROZEN.json`. An immutable artifact is superseded by a successor that cites it, never edited.
 
@@ -1038,19 +1042,96 @@ Applying §3.1.1's admissibility rule to already-collected V8.0 data gives **0/1
 
 ### 14.5 Action 1R outcome — HALT (2026-08-19)
 
-Stage 1R.0 sealed (registration `673e8c23`, superseding `d77615a5`); Stage 1R.1 executed on 60 probe and 13 duplicate episodes; Stage 1R.2 not run, because it is moot until the benchmark decision is made. Interaction: 29,800 of the 113,030-step cap, all role `calibration`; reserved seeds `3200–3399` untouched.
+Stage 1R.0 sealed (registration `673e8c23`, superseding `d77615a5`); Stage 1R.1 executed on 60 probe and 13 duplicate episodes. Stage 1R.2 was not run and is closed with Action 1R. Interaction: 29,800 of the 113,030-step cap, all role `calibration`; reserved seeds `3200–3399` untouched.
 
 | task | pooled result | verdict |
 |---|---|---|
 | `chain1b_lr2` | 12/20 late conversions, CP lower 0.3936; success @250/@350/@500 = 0.40/0.95/**1.00** | `MATERIALLY_DEADLINE_SENSITIVE` |
-| `chain2b_lr2` | 3/40 late, CP [0.0208, 0.1826]; official 31/40 = 0.775; **6/40 never succeed at any horizon to 990** | `INDETERMINATE_TREAT_AS_SENSITIVE` |
+| `chain2b_lr2` | 3/40 late, CP [0.0208, 0.1826]; official 31/40 = 0.775; **6/40 did not succeed by the registered maximum 990** | `INDETERMINATE_TREAT_AS_SENSITIVE` |
 
-**HALT** under §14.4: it requires *both* frozen tasks to retain an admissible stratum, and `chain1b` retains none. Its 20 success steps run `228…250 │ 251…282 │ 352` against `L = 250` — every episode succeeds, so no deadline yields both non-degenerate success and genuine failure. This also resolves §14.3's prediction: the 16 rejected anchors were unfinished successes with 20–60 steps left, which is why every one failed `D ≥ 71`.
+**Run status versus promotion status.** Stage 1R.1 mechanically HALTed when `1R.1_duplicate_subset | chain2b_lr2` exceeded its hard cap by 349 steps. Separately, Action 1R could not produce the §14.4 two-task handoff: the observed `chain1b` last-progress anchors leave too little official continuation under that registered rule, while Stage 1R.2 — the source-cap stratum test — never ran. Its 20 completion steps run `228…250 │ 251…282 │ 352` against `L=250`; this establishes a deadline-sensitive completion-time distribution, not that the policy “never fails” or that an earlier counterfactual anchor cannot improve deadline performance.
 
-`chain2b` retains genuine failure — 6/40 terminal, in two distinct strata — but sits above the band and is conservatively deadline-sensitive.
+`[POST-HOC CLARIFICATION 2026-08-20]` The 0/16 versus 5/8 calculation in §14.3 was a prediction about the registered last-progress extractor. Because 1R.2 did not execute, it is not an empirical global claim that earlier anchors or VLA-supported corrections do not exist.
+
+For `chain2b`, 6/40 remained unsuccessful at 990 and are right-censored in **three** exact masks: two zero-progress, three tomato-done/cream-unresolved, and one tomato-plus-cream-pick/cream-place-unresolved. They are not proven terminal or irreducible. The task also sits above the historical band and its late-conversion verdict is conservatively indeterminate.
 
 `[LOCKED]` **Registered overrun, recorded not repaired.** `1R.1_duplicate_subset | chain2b_lr2` was charged 2,849 against a 2,500 cap, over by 349: the cap funded one duplicate subset while the runner scheduled one per panel. The cap was **not** raised; `CAP_LINE` now has no panel-2 duplicate entry so the unfunded activity cannot be scheduled again. Prefix identity matched 10/10 in panel 1 and 3/3 in panel 2 regardless.
 
 `[LOCKED]` **Cumulative spend is derived** by summing every `interaction_ledger.jsonl` on disk, never separately maintained. An aborted run wrote 2,687 ledgered steps that a clean-exit-only counter had lost.
 
-Under §6 of the 2026-08-19 daily, exactly one registered component may change before any new panel. The evidence bearing on that choice: the Chain ladder has no rung in band — `chain1`/`chain2` at ceiling, `chain1b` a stopwatch, `chain2b` at 0.73–0.78, `chain3` at 0 — and shortening a deadline to pull `chain2b` into band would rebuild the `chain1b` pathology by construction, which the §13.1 companion criterion now forbids.
+The “change exactly one component” rule remains binding only for a panel presented as an Action 1R comparable rerun. Action 1R is closed. The independent Action 2P below registers a different, deliberately narrower estimand — finite-deadline sibling coverage — and does not reuse Action 1R data, budget, or PASS claim.
+
+---
+
+## 15. Action 2P / V8.1P — finite-deadline sibling-coverage pilot
+
+Added 2026-08-20 after rechecking the central question and claim ladder. **Status: prospective design; execution blocked until a clean, content-addressed registration is independently reviewed and sealed.** This is a subsidiary pilot inside the coverage stage, not an Action 1R rerun and not the two-task V8.1 PASS of §13.2.
+
+### 15.1 Question and claim boundary
+
+The pilot asks one question only:
+
+> At histories drawn prospectively from stock-policy rollouts that miss a prospectively registered experimental horizon, do VLA-supported first-\(c\) sibling actions create reproducible local action-effect/outcome variation, including both finite-horizon improvements and non-improving alternatives?
+
+This tests local feasibility required by the first rung of the claim ladder; it does not complete that rung. The pilot contains no world model, selector comparison, policy update, continual-learning round, or task-generalization claim. A late-converting source episode is still a valid finite-horizon failure; no row is called terminal, irreducible, or a capability failure.
+
+### 15.2 Frozen setting, source panel, and anchor
+
+- **Setting:** `chain1b_lr2`, stock \(\pi_0=\pi0.5\), full prompt, inference `N=1`, horizon \(L=250\). This is a post-calibration choice registered prospectively before Action 2P execution; the estimand is explicitly conditional success/progress under this experimental finite horizon, not an exogenous deployment requirement or unlimited-horizon competence.
+- **Sources:** all 20 fresh seeds `3480–3499`, in a presealed order. The old `3200–3399` families remain reserved, `3400–3439` remain spent calibration, and the unexecuted but old-registered `3440–3479` family is retired. All 20 sources run; collection does not stop when the anchor quota is filled.
+- **Failure:** a valid source reaches step 250 without task success. A technical-invalid source triggers `TECHNICAL_HALT`, remains charged, and is never replaced or silently counted as a non-failure. Report both unconditional deadline failures \(F/20\) and exact-mask-eligible failures \(E/20\).
+- **Anchor:** one fixed `retrospective_deadline_backoff` snapshot at
+  \[
+  \tau=L-c-H=250-10-80=160.
+  \]
+  This is a pre-failure history selected because its source later misses the deadline; it is not a stall onset or earliest-unrecoverable point.
+- **Primary stratum:** at \(\tau\), the exact event masks have no achieved, current-valid, or damaged event; `pick` is actionable; `pick` and `place` are unresolved. The executable registration binds the task-automaton event IDs. Scalar phase/count is display-only.
+- **Selection:** after all 20 sources close, seal the first eight eligible failures in source-seed order. If fewer than eight exist, HALT. A failed restore or replay is not replaced by the ninth failure.
+
+The original source suffix is used only to establish `failure@250`; because that suffix is selected to fail, it is never counted as a reference repeat.
+
+### 15.3 Outcome-blind pool and paired execution
+
+At each of the eight anchors:
+
+1. after all sources and eight anchors are sealed, define \(u^0\) as the **first draw** from the registered hash-derived stock-\(\pi_0\) reference RNG key, with no action-geometry or outcome selection; it is outside the \(N=32\) draws and is never the source's cached action. Draw exactly \(N=32\) raw stochastic \(\pi_0\) alternative chunks from separate presealed keys;
+2. deduplicate by the executed first \(c=10\) actions at the registered replay-noise tolerance; require at least 16 unique alternatives;
+3. select three farthest-point-diversity alternatives using the registered standardized first-\(c\) action feature, distance, starting point, and tie-break, then draw three matched-random alternatives from the remaining unique pool. The sets are mutually exclusive and exclude \(u^0\);
+4. execute \(u^0\) and each of the six alternatives under the same three presealed continuation-RNG keys. Every candidate therefore has three paired comparisons against reference, and repeats remain nested within the anchor rather than inflating \(n\);
+5. globally hash-seal all eight anchors' reference/alternative chunks, deduplication, diversity/random selections, execution order, and paired continuation keys before the first branch outcome is visible; then execute. Ignore the unused chunk suffix after the first ten actions and continue with stock \(\pi_0\). Record prefix physical effect at \(c\) and task outcomes after continuation horizons \(\mathcal H_{2P}=\{20,40,80\}\). Gate decisions use only \(H=80\), which ends at deadline 250; \(H=20,40\) and prefix effects are mechanism diagnostics, and prefix effect alone cannot satisfy an outcome-variation gate. No official branch may step past 250.
+
+No proposal feature, selection rule, or tie-break may consume the source trajectory after \(\tau\), its terminal mask, failure phase, or any branch outcome. Section 5.5 supplies the outcome components, priority order, safety rule, and replay-noise floors; its “candidate versus best reference repeat” aggregation does **not** apply here. Action 2P overrides only repeat aggregation with a predeclared same-key pairwise rule. A `paired-positive` candidate must dominate its matched reference on all three continuation keys at \(H=80\). A `paired-non-improving` candidate must never dominate reference and must be strictly worse on at least one paired key beyond the registered noise floor. Outcome variation is candidate-induced only when the preregistered deadline outcome vector and direction differ from same-key reference consistently; its components, tie rules, and noise floors are sealed before execution. Reference-repeat variability and prefix physical effect alone do not count.
+
+All pilot rows have permanent role `calibration`, subrole `coverage_pilot`. They may support this feasibility verdict but may never enter \(M_0\), a policy loss, model calibration, selector assessment, or behavior evaluation. A later V8.1 collection uses source-disjoint fresh data.
+
+### 15.4 Interaction cap and decision rule
+
+The hard environment-step cap is
+
+\[
+N_{\mathrm{env}}
+=20\times250
++8\times(3\text{ reference}+6\times3\text{ alternative repeats})\times(10+80)
+=\mathbf{20{,}120}.
+\]
+
+Snapshot restore and candidate generation do not step the environment. Every started source, prefix, continuation, abort, and invalid attempt is nevertheless charged; there is no retry, substitute source, quota extension, or budget reallocation. The segment ledger distinguishes `source`, `ref_prefix`, `ref_cont`, `div_prefix`, `div_cont`, `rand_prefix`, and `rand_cont`, binding source/anchor/candidate/CRN/policy hashes, actual official steps, termination, and cap line. The worst case is 356 ledger segments: 20 sources plus 168 prefixes and 168 continuations. A pre-segment headroom check prevents starting work that the relevant cap line cannot fund. Proposal count and GPU-seconds are reported separately.
+
+**ADVANCE** — explicitly not a §13.2 V8.1 PASS — requires all of:
+
+1. all 20 sources close; report every eligible failure and select exactly the first eight in the presealed order; reserved-seed use is zero and every ledger segment reconciles within 20,120 steps;
+2. the same anchor checkpoint and mask hash are restored on 168/168 branch starts, and all 24/24 reference prefixes satisfy the presealed numeric replay tolerance;
+3. every anchor retains at least 16 unique first-\(c\) alternatives and executes the sealed 3+18 paired branch schedule with zero post-deadline official steps;
+4. at \(H=80\), at least 4/8 independent anchors show candidate-induced registered deadline-outcome variation;
+5. at \(H=80\), at least 2/8 anchors contain a `paired-positive` sibling; and
+6. at \(H=80\), at least two anchors each contain both a `paired-positive` and a `paired-non-improving` sibling.
+
+Every gate is reported per anchor at the primary \(H=80\); \(H=20,40\) are reported alongside it as secondary diagnostics. The 168 branch executions are repeated measurements inside eight independent groups, not \(n=168\). A read-only demo/nominal census reports whether any baseline contains same-history multi-action outcomes; without that comparison the conclusion is restricted to newly observed local support, not “support absent from all prior data.”
+
+**HALT** if any ADVANCE condition is unmet, including source/stratum underfill, restore or provenance failure, pool underfill, cap overrun, any official post-deadline step, or failure of any evidence gate. Outcome underfill is interpreted at the first claim rung: the current anchor/proposal/setting did not expose adequate counterfactual support. It does not motivate a world-model architecture sweep and supplies no evidence against a model that was never trained.
+
+### 15.5 Handoff
+
+An ADVANCE permits one source-disjoint second-setting replication and construction of the full two-task V8.1 registration. Only that later replicated collection can PASS §13.2 and authorize \(M_0\). A HALT permits one bounded, prospectively named change to the anchor or proposal/setting; it does not reopen indefinite benchmark shopping or allow post-outcome threshold/budget tuning.
+
+Before any Action 2P environment step, the registration must seal the actual runner and dependency closure, policy/HF snapshot and weight hashes, BDDL and automaton, source and branch RNG maps, snapshot schema, exact masks and tolerances, pool-selection code, segment-level official-step ledger, abort-safe cumulative accounting, and the 20,120-step cap from worst-case headroom. The stale 1R pooled spend field is corrected only through a hash-bound successor note citing the authoritative 29,800-step ledger sum; historical artifacts are never edited in place.

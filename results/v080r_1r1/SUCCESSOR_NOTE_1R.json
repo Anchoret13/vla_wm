@@ -1,0 +1,120 @@
+{
+  "artifact": "Action 1R successor note",
+  "supersedes_interpretation_of": {
+    "path": "results/v080r_1r1/POOLED_VERDICT_1R1.json",
+    "sha256": "66f488915675689d201b1a05413c6d48686433ced23671fc4d3f2a9a913c6f2f",
+    "not_edited": true,
+    "stale_field": {
+      "field": "cumulative_spend._total",
+      "stale_value": 15596,
+      "authoritative_value": 29800,
+      "why": "that artifact embedded SPEND.json as it stood after panel 1 only; the file was later re-derived from all ledgers and includes panel 2 and the aborted run"
+    }
+  },
+  "utc": "2026-08-20",
+  "git_head": "d418c5d3c1ffef217bab533a680ebf94f051242f",
+  "authoritative_spend": {
+    "total_env_steps": 29800,
+    "by_line": {
+      "1R.1_panel_1": {
+        "chain1b_lr2": 5167,
+        "chain2b_lr2": 7796
+      },
+      "1R.1_duplicate_subset": {
+        "chain1b_lr2": 1235,
+        "chain2b_lr2": 2849
+      },
+      "1R.1_panel_2_conditional": {
+        "chain2b_lr2": 12753
+      }
+    },
+    "derivation": "summed over every interaction_ledger.jsonl on disk",
+    "ledger_sources": [
+      "results/v080r_1r1/2026-08-19T182344Z_panel1/episodes.jsonl",
+      "results/v080r_1r1/2026-08-19T183719Z_panel2/episodes.jsonl",
+      "results/v080r_1r1/ABORTED_2026-08-19T183327Z_panel2/episodes.jsonl"
+    ]
+  },
+  "run_HALT_vs_promotion_status": {
+    "run_level_HALT": "mechanical: the panel-2 duplicate subset spent 2,849 against a 2,500 hard cap, a 349-step overrun, so the run directory HALTed before writing summary.json. This is a budget-accounting event, not a scientific verdict.",
+    "no_V81_handoff": "separate: Action 1R never sealed a successor handoff. The registered last-progress anchor rule yielded no admissible chain1b anchors in the existing readout, and Stage 1R.2 - the prospective source-cap stratum test - WAS NEVER RUN.",
+    "must_not_be_conflated": "an unexecuted 1R.2 gate may not be cited as if it had empirically proved that no earlier useful anchor exists. It proved nothing; it did not run.",
+    "V80_status": "the historical V8.0 fixed-deadline PASS remains the result under its original registration. Later evidence narrows its interpretation and withdraws its promotion eligibility; it does not rewrite the stored verdict."
+  },
+  "chain2b_right_censored_at_990": {
+    "n_probes": 40,
+    "success_at_990": 34,
+    "right_censored": 6,
+    "distinct_masks": 3,
+    "masks": [
+      {
+        "key": "chain2b_lr2|ever:0,1|valid:0,1|dmg:-",
+        "count": 3,
+        "seeds": [
+          3414,
+          3421,
+          3435
+        ],
+        "actionable": [
+          2
+        ],
+        "ever_achieved": [
+          0,
+          1
+        ]
+      },
+      {
+        "key": "chain2b_lr2|ever:-|valid:-|dmg:-",
+        "count": 2,
+        "seeds": [
+          3420,
+          3439
+        ],
+        "actionable": [
+          0,
+          2
+        ],
+        "ever_achieved": []
+      },
+      {
+        "key": "chain2b_lr2|ever:0,1,2|valid:0,1,2|dmg:-",
+        "count": 1,
+        "seeds": [
+          3413
+        ],
+        "actionable": [
+          3
+        ],
+        "ever_achieved": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "correction": "the 2026-08-19 record said 'two distinct strata'. That counted the panel-1 subset (n=20) and generalized it to the pooled set. The pooled count is THREE masks, matching the 2026-08-20 daily."
+  },
+  "terminology_corrections": [
+    {
+      "withdrawn": "terminal / irreducible failure",
+      "correct": "right-censored@H - not completed by the largest observed horizon",
+      "why": "no evidence establishes that these rows cannot be completed at any horizon"
+    },
+    {
+      "withdrawn": "chain1b: 'the policy never fails' / 'a stopwatch' / 'no failure to find'",
+      "correct": "chain1b completion time is strongly deadline-sensitive; a 250-step miss is often recoverable at 350-500. failure@250 is a valid finite-deadline failure and its recoverability is a substrate for learning faster actions, not a disqualification",
+      "why": "the 2026-08-19 phrasing treated late conversion as proof of no useful failure. That does not follow: failure@L is defined against a prospectively frozen deadline, and the recoverable-in-time structure is what Action 2P uses"
+    },
+    {
+      "withdrawn": "stall_onset / earliest_unrecoverable for these anchors",
+      "correct": "retrospective_deadline_backoff",
+      "why": "neither of the former was ever established by a tier-2 retrospective test"
+    }
+  ],
+  "accounting_rule": "steps CHARGED and observations COUNTED are different sets. The ABORTED panel-2 run's 2,687 steps stay charged (\u00a77.6 counts every executed step) but its 4 episodes are superseded repeats of seeds later re-run, so they are excluded from every scientific count. An earlier draft of this note globbed recursively and reported n=44 with duplicated seeds 3420/3421.",
+  "observation_sources": [
+    "results/v080r_1r1/2026-08-19T182344Z_panel1",
+    "results/v080r_1r1/2026-08-19T183719Z_panel2"
+  ],
+  "self_sha256": "1e36c1cf0862c1dfd93d447e8012257da163d57923a64a772277cc91d0cc3687"
+}
