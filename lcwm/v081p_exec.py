@@ -46,18 +46,73 @@ from lcwm.v08r_contract import officiality, stratum_key  # noqa: E402
 # Abort-safe segment ledger with pre-segment headroom check
 # --------------------------------------------------------------------------
 
+class TechnicalHalt(SystemExit):
+    """A technically-invalid source (§4): charged, never replaced, never counted
+    as a normal non-failure."""
+
+
 class SegmentLedger:
-    def __init__(self, path: Path, caps: dict[str, int]):
+    """Cap accounting keyed to the ACTION, not the invocation.
+
+    Two properties this had to regain, both learned the hard way in Stage 1R.1:
+
+    * `spent` is derived by globbing every segment ledger under the action root,
+      so a second `--run` cannot silently receive a fresh 20,120-step cap. An
+      earlier version of this class re-derived only from its own file and did
+      exactly that.
+    * a segment writes an `open` row with its worst-case reservation BEFORE it
+      steps and a `close` row with actual steps after, and re-derivation charges
+      an unclosed `open` at its reservation. Charging only on completion loses
+      the steps of any segment killed mid-flight.
+    """
+
+    def __init__(self, path: Path, caps: dict[str, int], action_root: Path | None = None):
         self.path, self.caps = Path(path), dict(caps)
-        self.spent: dict[str, int] = {}
+        self.action_root = Path(action_root) if action_root else self.path.parent.parent
         self.path.parent.mkdir(parents=True, exist_ok=True)
         if not self.path.exists():
             self.path.write_text("")
-        else:                       # resume-safe: re-derive from the file
-            for line in self.path.read_text().splitlines():
-                if line:
-                    r = json.loads(line)
-                    self.spent[r["cap_line"]] = self.spent.get(r["cap_line"], 0) + r["n_steps"]
+        self.spent = self._derive()
+
+    def _derive(self) -> dict[str, int]:
+        spent: dict[str, int] = {}
+        opens: dict[str, dict] = {}
+        for led in sorted(self.action_root.glob("**/segment_ledger.jsonl")):
+            for line in led.read_text().splitlines():
+                if not line:
+                    continue
+                r = json.loads(line)
+                if r.get("phase") == "open":
+                    opens[r["segment_id"]] = r
+                elif r.get("phase") == "close":
+                    opens.pop(r["segment_id"], None)
+                    spent[r["cap_line"]] = spent.get(r["cap_line"], 0) + r["n_steps"]
+        for r in opens.values():        # killed mid-segment: charge the reservation
+            spent[r["cap_line"]] = spent.get(r["cap_line"], 0) + r["reservation"]
+        return spent
+
+    def _write(self, row: dict) -> None:
+        with self.path.open("a") as fh:
+            fh.write(json.dumps(row) + "\n")
+
+    def open_segment(self, segment_id: str, cap_line: str, reservation: int,
+                     **row) -> None:
+        ok, why = self.headroom_ok(cap_line, reservation)
+        if not ok:
+            raise SystemExit(f"HALT before segment: {why}")
+        self._write({"phase": "open", "segment_id": segment_id,
+                     "cap_line": cap_line, "reservation": int(reservation),
+                     "n_steps": 0, **row})
+        self.spent[cap_line] = self.spent.get(cap_line, 0) + int(reservation)
+
+    def close_segment(self, segment_id: str, cap_line: str, reservation: int,
+                      n_steps: int, **row) -> None:
+        self._write({"phase": "close", "segment_id": segment_id,
+                     "cap_line": cap_line, "n_steps": int(n_steps), **row})
+        self.spent[cap_line] = self.spent.get(cap_line, 0) - int(reservation) + int(n_steps)
+        if self.spent[cap_line] > self.caps[cap_line]:
+            raise SystemExit(f"HALT: {cap_line} cap {self.caps[cap_line]} "
+                             f"exceeded ({self.spent[cap_line]})")
 
     def headroom_ok(self, cap_line: str, worst_case: int) -> tuple[bool, str]:
         """Checked BEFORE a segment runs.  Stage 1R.1 executed a segment and
@@ -65,15 +120,6 @@ class SegmentLedger:
         have = self.caps[cap_line] - self.spent.get(cap_line, 0)
         return (worst_case <= have,
                 f"{cap_line}: worst case {worst_case} vs headroom {have}")
-
-    def charge(self, cap_line: str, n_steps: int, **row) -> None:
-        with self.path.open("a") as fh:
-            fh.write(json.dumps({"cap_line": cap_line, "n_steps": int(n_steps),
-                                 **row}) + "\n")
-        self.spent[cap_line] = self.spent.get(cap_line, 0) + int(n_steps)
-        if self.spent[cap_line] > self.caps[cap_line]:
-            raise SystemExit(f"HALT: {cap_line} cap {self.caps[cap_line]} "
-                             f"exceeded ({self.spent[cap_line]})")
 
     @property
     def total(self) -> int:
@@ -94,6 +140,11 @@ class Anchor:
     mask_ok: bool
     mask_why: list = field(default_factory=list)
     content_hash: str = ""
+    # The source automaton, forked for every branch.  Rebuilding a fresh
+    # GoalAutomaton at tau would re-base `pick_up` displacement to the tau pose,
+    # so a branch would measure milestones on a different instrument than the
+    # source did - the object has already moved by step 160.
+    source_automaton: object = None
 
 
 def _seed_all(seed: int) -> None:
@@ -115,10 +166,9 @@ def run_source(runner, env, seed: int, ledger: SegmentLedger) -> dict:
     """One stock rollout to L, snapshotting at `tau`.  Establishes `failure@L`
     only: its post-`tau` suffix is conditioned to fail and is never a reference.
     """
-    ok, why = ledger.headroom_ok(Subrole.SOURCE.value, DEADLINE)
-    if not ok:
-        raise SystemExit(f"HALT before segment: {why}")
-
+    seg = f"src-{seed}"
+    ledger.open_segment(seg, Subrole.SOURCE.value, DEADLINE, seed=seed,
+                        subrole=Subrole.SOURCE.value)
     _seed_all(seed)
     runner.reset()
     obs, _ = env.reset(seed=seed)
@@ -131,7 +181,8 @@ def run_source(runner, env, seed: int, ledger: SegmentLedger) -> dict:
 
     anchor = None
     success_step, t, done = None, 0, False
-    while not done and t < DEADLINE:
+    try:
+      while not done and t < DEADLINE:
         obs, _r, term, trunc, info = env.step(runner.select_action(obs, instr))
         t += 1
         done = bool(term or trunc)
@@ -147,11 +198,18 @@ def run_source(runner, env, seed: int, ledger: SegmentLedger) -> dict:
             good, why_bad = mask_check(sk)
             snapshot = snap(env, t, "libero_10", 0, seed=seed, tau=t)
             anchor = Anchor(f"a{seed}", seed, t, snapshot, sk.to_dict(),
-                            good, why_bad,
-                            content_hash=_hash_snapshot(snapshot))
-    ledger.charge(Subrole.SOURCE.value, t, seed=seed, subrole=Subrole.SOURCE.value,
-                  anchor_id=None, officiality=officiality(t, DEADLINE).value,
-                  termination="deadline" if not done else "terminated")
+                            good, why_bad, content_hash=_hash_snapshot(snapshot),
+                            source_automaton=au.fork())
+      if done and success_step is None and t < DEADLINE:
+        raise TechnicalHalt(
+            f"TECHNICAL_HALT: source {seed} terminated at {t} < {DEADLINE} "
+            f"without success; charged, not replaced, and not counted as a "
+            f"normal non-failure")
+    finally:
+      ledger.close_segment(seg, Subrole.SOURCE.value, DEADLINE, t, seed=seed,
+                           subrole=Subrole.SOURCE.value, anchor_id=None,
+                           officiality=officiality(t, DEADLINE).value,
+                           termination="deadline" if not done else "terminated")
     return {"seed": seed, "steps": t, "success_step": success_step,
             "failure_at_L": success_step is None,
             "anchor": anchor, "events": dict(au.events_achieved)}
@@ -164,6 +222,11 @@ def mask_check(sk):
 
 
 def _hash_snapshot(s) -> str:
+    """Covers physics AND the controller/robot bookkeeping that `restore` sets.
+
+    Omitting controller state would let controller drift pass a restore check
+    that exists to catch exactly that.
+    """
     import hashlib
     h = hashlib.sha256()
     h.update(np.asarray(s.state, dtype=np.float64).tobytes())
@@ -172,7 +235,42 @@ def _hash_snapshot(s) -> str:
         v = getattr(s, f, None)
         if v is not None:
             h.update(np.asarray(v, dtype=np.float64).tobytes())
+    for f in ("controller_state", "robot_state"):
+        v = getattr(s, f, None)
+        if v is not None:
+            h.update(json.dumps(v, sort_keys=True, default=_json_num).encode())
+    h.update(str(getattr(s, "env_timestep", None)).encode())
     return h.hexdigest()
+
+
+def _json_num(o):
+    if isinstance(o, np.ndarray):
+        return np.asarray(o, dtype=np.float64).round(12).tolist()
+    if isinstance(o, (np.floating, np.integer)):
+        return float(o)
+    return str(o)
+
+
+def verify_restore(env, anchor: "Anchor") -> tuple[bool, str]:
+    """Re-snap the LIVE environment after restore and hash THAT.
+
+    The previous check hashed `anchor.snapshot` — the stored object — and
+    compared it to `anchor.content_hash`, which is derived from the same object.
+    It compared a constant to itself and could never fail, making ADVANCE
+    condition 2 vacuous.
+    """
+    fresh = snap(env, anchor.tau, "libero_10", 0)
+    got = _hash_snapshot(fresh)
+    return got == anchor.content_hash, got
+
+
+def body_signature(env) -> np.ndarray:
+    """Achieved physical state used for the replay-tolerance test: tracked body
+    positions, not the commanded actions."""
+    from lcwm.probe_data import body_positions, discover_object_bodies
+    bodies = discover_object_bodies(env)
+    names = [bodies[k] for k in sorted(bodies)]
+    return body_positions(env, names).reshape(-1)
 
 
 # --------------------------------------------------------------------------
@@ -185,6 +283,7 @@ def build_pool(runner, env, anchor: Anchor, root: str) -> dict:
     from lcwm.sampler import sample_chunks
 
     restore(env, anchor.snapshot)
+    runner.reset()          # never sample a pool behind a stale action queue
     obs = env._format_raw_obs(env._env.env._get_observations())
     instr = env.task_description
     o = runner._obs_to_policy_batch(obs, instr)
@@ -248,39 +347,54 @@ def run_branch(runner, env, anchor: Anchor, prefix_actions: np.ndarray,
     """Restore, execute the sealed 10-action prefix, then replan with stock pi0
     to `H_PRIMARY`, reading outcomes at every registered horizon.  Never steps
     officially past the deadline."""
-    for line, worst in ((cap_prefix, C_PREFIX), (cap_cont, H_PRIMARY)):
-        ok, why = ledger.headroom_ok(line, worst)
-        if not ok:
-            raise SystemExit(f"HALT before segment: {why}")
+    segp, segc = f"{candidate_id}-{crn_key}-pre", f"{candidate_id}-{crn_key}-cont"
+    ledger.open_segment(segp, cap_prefix, C_PREFIX, anchor_id=anchor.anchor_id,
+                        candidate_id=candidate_id, crn_key=crn_key)
 
     restore(env, anchor.snapshot)
-    restored = _hash_snapshot(anchor.snapshot)
+    runner.reset()          # THE critical reset: pi0.5 refills its action queue
+                            # only when empty, so without this a branch executes
+                            # the previous branch's leftover chunk - and that
+                            # happens precisely when a sibling SUCCEEDS early,
+                            # which is the outcome the pilot is looking for.
+    restore_ok, restored = verify_restore(env, anchor)
     subgoals = V080_TASKS[env.task]["ordered_subgoals"]
-    au = GoalAutomaton(subgoals)
-    au.start(env)
+    au = (anchor.source_automaton.fork() if anchor.source_automaton is not None
+          else GoalAutomaton(subgoals))
+    if anchor.source_automaton is None:
+        au.start(env)
     atoms = goal_atoms(env)
     instr = env.task_description
     au.evaluate(env, anchor.tau)
 
     t = anchor.tau
     success_step, done = None, False
-    replay = []
     for i in range(C_PREFIX):
         obs, _r, term, trunc, info = env.step(prefix_actions[i])
         t += 1
-        replay.append(float(np.abs(prefix_actions[i]).sum()))
         done = bool(term or trunc)
         if success_step is None and bool(info.get("is_success", False)):
             success_step = t
         if done:
             break
     au.evaluate(env, t)
-    ledger.charge(cap_prefix, t - anchor.tau, anchor_id=anchor.anchor_id,
-                  candidate_id=candidate_id, crn_key=crn_key,
-                  subrole=cap_prefix, officiality=officiality(t, DEADLINE).value,
-                  termination="prefix_done" if not done else "terminated")
+    # ACHIEVED post-prefix physics: the replay-tolerance test compares this
+    # across the three reference repeats.  The previous signature summed the
+    # commanded actions, which are identical by construction and so could never
+    # detect a replay divergence.
+    post_prefix = body_signature(env).tolist()
+    ledger.close_segment(segp, cap_prefix, C_PREFIX, t - anchor.tau,
+                         anchor_id=anchor.anchor_id, candidate_id=candidate_id,
+                         crn_key=crn_key, subrole=cap_prefix,
+                         officiality=officiality(t, DEADLINE).value,
+                         termination="prefix_done" if not done else "terminated")
 
+    ledger.open_segment(segc, cap_cont, H_PRIMARY, anchor_id=anchor.anchor_id,
+                        candidate_id=candidate_id, crn_key=crn_key)
+    runner.reset()                  # continuation starts from an empty queue
     _seed_all(crn_key)              # paired CRN starts here, identical per key
+    q = getattr(getattr(runner.policy, "_action_queue", None), "__len__", lambda: 0)()
+    assert q == 0, f"policy action queue not empty at continuation start: {q}"
     reads, start = {}, t
     steps_cont = 0
     while not done and (t - anchor.tau - C_PREFIX) < H_PRIMARY and t < DEADLINE:
@@ -304,12 +418,14 @@ def run_branch(runner, env, anchor: Anchor, prefix_actions: np.ndarray,
             {int(k): int(v) for k, v in au.events_achieved.items()},
             anchor.tau, min(anchor.tau + C_PREFIX + h, t), au.damage_unrecovered(),
             success_step))
-    ledger.charge(cap_cont, steps_cont, anchor_id=anchor.anchor_id,
-                  candidate_id=candidate_id, crn_key=crn_key, subrole=cap_cont,
-                  officiality=officiality(t, DEADLINE).value,
-                  termination="horizon" if not done else "terminated")
+    ledger.close_segment(segc, cap_cont, H_PRIMARY, steps_cont,
+                         anchor_id=anchor.anchor_id, candidate_id=candidate_id,
+                         crn_key=crn_key, subrole=cap_cont,
+                         officiality=officiality(t, DEADLINE).value,
+                         termination="horizon" if not done else "terminated")
     assert t <= DEADLINE, f"stepped past the deadline: {t} > {DEADLINE}"
     return {"candidate_id": candidate_id, "crn_key": crn_key,
-            "restored_hash": restored, "terminal_step": t,
-            "success_step": success_step, "readouts": reads,
-            "prefix_signature": replay}
+            "restore_verified": bool(restore_ok), "restored_hash": restored,
+            "anchor_hash_expected": anchor.content_hash,
+            "terminal_step": t, "success_step": success_step, "readouts": reads,
+            "post_prefix_signature": post_prefix}

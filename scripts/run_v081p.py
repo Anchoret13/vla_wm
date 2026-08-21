@@ -21,8 +21,8 @@ ensure_project_libero_config()
 
 from lcwm import v081p_contract as P  # noqa: E402
 from lcwm.v080r_panel import make_env_at  # noqa: E402
-from lcwm.v081p_exec import (SegmentLedger, build_pool, run_branch,  # noqa: E402
-                             run_source, select_candidates)
+from lcwm.v081p_exec import (SegmentLedger, TechnicalHalt, build_pool,  # noqa: E402
+                             run_branch, run_source, select_candidates)
 import numpy as np  # noqa: E402
 from register_v081p import verify_sealed  # noqa: E402
 
@@ -70,7 +70,12 @@ def main() -> int:
 
     out.mkdir(parents=True, exist_ok=True)
     (out / "manifest.json").write_text(json.dumps({**plan, "status": "RUNNING"}, indent=2))
-    ledger = SegmentLedger(out / "segment_ledger.jsonl", P.INTERACTION_CAP)
+    # action-scoped, not invocation-scoped: a restart must NOT receive a fresh cap
+    ledger = SegmentLedger(out / "segment_ledger.jsonl", P.INTERACTION_CAP,
+                           action_root=OUT_ROOT)
+    if ledger.total:
+        print(f"prior ledgered spend across this action: {ledger.total}"
+              f"/{P.INTERACTION_CAP_TOTAL}", flush=True)
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=10)
@@ -79,7 +84,14 @@ def main() -> int:
     # ---- phase 1: ALL sources close before anything is selected ----------
     sources, anchors_by_seed = [], {}
     for seed in P.SOURCE_SEEDS:
-        s = run_source(runner, env, seed, ledger)
+        try:
+            s = run_source(runner, env, seed, ledger)
+        except TechnicalHalt as e:
+            (out / "HALT.json").write_text(json.dumps(
+                {"reason": "TECHNICAL_HALT", "seed": seed, "detail": str(e),
+                 "rule": ("charged, not replaced, and not counted as a normal "
+                          "non-failure")}, indent=2))
+            raise
         a_ = s["anchor"]
         if a_ is not None:
             anchors_by_seed[seed] = a_
@@ -193,18 +205,39 @@ def main() -> int:
             "alternatives": [{"id": x.candidate_id, "per_key": x.per_key,
                               "label": x.label} for x in av.alternatives]}
 
-    restore_ok = sum(1 for b in branches if b["restored_hash"] ==
-                     next(a_.content_hash for a_ in anchors
-                          if a_.anchor_id == b["anchor_id"]))
+    # restore verification now compares a RE-SNAPPED live env against the
+    # sealed anchor hash, so this can actually fail
+    restore_ok = sum(1 for b in branches if b["restore_verified"])
+
+    # replay tolerance over ACHIEVED post-prefix physics across the three
+    # reference repeats at each anchor
+    replay_ok = 0
+    replay_detail = {}
+    for a_ in anchors:
+        sigs = [np.asarray(b["post_prefix_signature"]) for b in branches
+                if b["anchor_id"] == a_.anchor_id and b["candidate_id"] == "reference"]
+        dev = max((float(np.linalg.norm(x - y)) for i, x in enumerate(sigs)
+                   for y in sigs[i + 1:]), default=0.0)
+        replay_detail[a_.anchor_id] = {"max_pairwise_l2": dev,
+                                       "tol": P.REPLAY_TOL_L2,
+                                       "pass": dev <= P.REPLAY_TOL_L2,
+                                       "n_repeats": len(sigs)}
+        replay_ok += P.N_CRN if dev <= P.REPLAY_TOL_L2 else 0
     gate = P.advance_gate(
         sources_closed=len(sources) == len(P.SOURCE_SEEDS), selected_in_order=True,
-        reserved_used=0, replay_ok=P.N_ANCHORS * P.N_CRN,
+        reserved_used=0, replay_ok=replay_ok,
         replay_total=P.N_ANCHORS * P.N_CRN, restore_ok=restore_ok,
         restore_total=len(branches), pools_ok=all(
             pools[a_.anchor_id]["n_unique"] >= P.MIN_UNIQUE_ALTS for a_ in anchors),
         within_cap=ledger.total <= P.INTERACTION_CAP_TOTAL, anchors=verdicts)
 
+    spend = {"by_cap_line": ledger.spent, "total": ledger.total,
+             "cap_total": P.INTERACTION_CAP_TOTAL,
+             "note": "DERIVED from every segment_ledger.jsonl under results/v081p"}
+    (OUT_ROOT / "SPEND.json").write_text(json.dumps(spend, indent=2))
     summary = {"manifest": {**plan, "status": "COMPLETE"}, "F": F, "E": E,
+               "restore_verified": f"{restore_ok}/{len(branches)}",
+               "replay": replay_detail, "spend": spend,
                "selected_seeds": [a_.seed for a_ in anchors],
                "execution_seal": seal["seal_sha256"], "per_anchor": per_anchor,
                "gate": gate, "env_steps": ledger.total,

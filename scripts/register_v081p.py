@@ -88,13 +88,28 @@ def seal_external() -> dict:
             m = __import__(n)
             e["version"] = getattr(m, "__version__", "unknown")
             f = getattr(m, "__file__", None)
-            if f and (Path(f).parent.parent / ".git").exists():
-                d = Path(f).parent.parent
-                e["git_sha"] = subprocess.run(["git", "-C", str(d), "rev-parse", "HEAD"],
+            # Walk upward for a .git rather than assuming one fixed depth: an
+            # editable install can sit at src/<pkg>/, so the old parent.parent
+            # probe silently recorded NO external commit state at all.
+            repo = None
+            if f:
+                cur = Path(f).parent
+                for _ in range(5):
+                    if (cur / ".git").exists():
+                        repo = cur
+                        break
+                    if cur.parent == cur:
+                        break
+                    cur = cur.parent
+            if repo is not None:
+                e["git_repo"] = str(repo)
+                e["git_sha"] = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
                                               capture_output=True, text=True).stdout.strip()
                 e["git_dirty"] = bool(subprocess.run(
-                    ["git", "-C", str(d), "status", "--porcelain"],
+                    ["git", "-C", str(repo), "status", "--porcelain"],
                     capture_output=True, text=True).stdout.strip())
+            else:
+                e["git"] = "not_a_checkout"
         except Exception as ex:
             e["error"] = f"{type(ex).__name__}"
         out[n] = e

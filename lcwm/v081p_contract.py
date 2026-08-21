@@ -146,8 +146,19 @@ def crn_keys(root: str, anchor_id: str) -> list[int]:
 
 #: Priority order inherited from framework §5.5.  `dmg` is non-inferiority;
 #: the rest are ordered gains.  `ttm` is lower-better.
-COMPONENTS = ("dmg", "succ", "dp", "ttm", "G")
-LOWER_IS_BETTER = frozenset({"dmg", "ttm"})
+#: `dmg` is a one-sided VETO, not a ranked component: framework §5.5 registers
+#: it as "non-inferiority required".  Ranking it lexicographically would let a
+#: candidate WIN purely by having less damage than the reference, which is not
+#: registered anywhere.  It can only ever lose.
+GATE_COMPONENT = "dmg"
+COMPONENTS = ("succ", "dp", "ttm", "G")
+LOWER_IS_BETTER = frozenset({"ttm"})
+
+#: Replay tolerance for the reference prefix, over the ACHIEVED post-prefix
+#: state rather than the commanded actions.  Max pairwise L2 deviation across
+#: the three reference repeats at one anchor, in metres over the tracked body
+#: positions.  Sealed before execution.
+REPLAY_TOL_L2 = 1e-3
 
 
 #: Continuation return: +1 at the step a milestone is first achieved,
@@ -210,9 +221,12 @@ def compare_paired(alt: dict, ref: dict, floors: NoiseFloor) -> int:
 
     Lexicographic over COMPONENTS with per-component noise floors; a difference
     inside its floor is a tie at that component and the comparison falls through.
-    `dmg` is a hard non-inferiority gate: worse damage loses outright regardless
-    of anything below it.
+    `dmg` is a one-sided non-inferiority gate applied before the ordering: worse
+    damage loses outright, and better damage never wins on its own.
     """
+    # safety veto first: worse damage loses outright and can never be offset
+    if float(alt[GATE_COMPONENT]) > float(ref[GATE_COMPONENT]) + floors.of(GATE_COMPONENT):
+        return -1
     for comp in COMPONENTS:
         a, r = float(alt[comp]), float(ref[comp])
         if comp in LOWER_IS_BETTER:
