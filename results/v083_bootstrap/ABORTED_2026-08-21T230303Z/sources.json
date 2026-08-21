@@ -1,0 +1,35 @@
+[
+  {
+    "split": "train",
+    "role": "model_train",
+    "seed": 3600,
+    "steps": 250,
+    "success_step": null,
+    "failure_at_L": true,
+    "eligible": true,
+    "anchor_id": "a3600",
+    "mask_why": []
+  },
+  {
+    "split": "val",
+    "role": "model_calib",
+    "seed": 3670,
+    "steps": 250,
+    "success_step": null,
+    "failure_at_L": true,
+    "eligible": true,
+    "anchor_id": "a3670",
+    "mask_why": []
+  },
+  {
+    "split": "test",
+    "role": "selector_assess",
+    "seed": 3688,
+    "steps": 250,
+    "success_step": null,
+    "failure_at_L": true,
+    "eligible": true,
+    "anchor_id": "a3688",
+    "mask_why": []
+  }
+]
