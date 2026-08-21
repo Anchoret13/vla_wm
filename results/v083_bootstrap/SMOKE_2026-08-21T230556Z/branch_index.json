@@ -1,0 +1,615 @@
+[
+  {
+    "anchor_id": "a3600",
+    "split": "train",
+    "branches": [
+      {
+        "candidate_id": "reference",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div0",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div1",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div2",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div3",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div4",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div5",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div6",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div7",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand0",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand1",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand2",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand3",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand4",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand5",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand6",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand7",
+        "repeat": 0,
+        "continuation_seed": 1736489863,
+        "steps": 90,
+        "success_step": null
+      }
+    ]
+  },
+  {
+    "anchor_id": "a3670",
+    "split": "val",
+    "branches": [
+      {
+        "candidate_id": "reference",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div0",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div1",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div2",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div3",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div4",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div5",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div6",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div7",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand0",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand1",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand2",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand3",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand4",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand5",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand6",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand7",
+        "repeat": 0,
+        "continuation_seed": 2049228364,
+        "steps": 90,
+        "success_step": null
+      }
+    ]
+  },
+  {
+    "anchor_id": "a3688",
+    "split": "test",
+    "branches": [
+      {
+        "candidate_id": "reference",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "reference",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "reference",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div0",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div0",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div0",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div1",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div1",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div1",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div2",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div2",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div2",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div3",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div3",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div3",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div4",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div4",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div4",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div5",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div5",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div5",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div6",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div6",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div6",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div7",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div7",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "div7",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand0",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand0",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand0",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand1",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand1",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand1",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand2",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand2",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand2",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand3",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand3",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand3",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand4",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand4",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand4",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand5",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand5",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand5",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand6",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand6",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand6",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand7",
+        "repeat": 0,
+        "continuation_seed": 558816461,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand7",
+        "repeat": 1,
+        "continuation_seed": 1509190309,
+        "steps": 90,
+        "success_step": null
+      },
+      {
+        "candidate_id": "rand7",
+        "repeat": 2,
+        "continuation_seed": 1693558891,
+        "steps": 90,
+        "success_step": null
+      }
+    ]
+  }
+]

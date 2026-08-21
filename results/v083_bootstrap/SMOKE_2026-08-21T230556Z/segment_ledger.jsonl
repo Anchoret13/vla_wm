@@ -1,0 +1,176 @@
+{"phase": "open", "segment_id": "src-3600", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3600, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3600", "cap_line": "source", "n_steps": 250, "seed": 3600, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "src-3670", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3670, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3670", "cap_line": "source", "n_steps": 250, "seed": 3670, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "src-3688", "cap_line": "source", "reservation": 250, "n_steps": 0, "seed": 3688, "subrole": "source"}
+{"phase": "close", "segment_id": "src-3688", "cap_line": "source", "n_steps": 250, "seed": 3688, "subrole": "source", "anchor_id": null, "officiality": "official", "termination": "deadline"}
+{"phase": "open", "segment_id": "a3600-reference-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "reference", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-reference-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "reference", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div0", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div0", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div1", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div1", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div2", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div2", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div3", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div3", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div4", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div4", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div5", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div5", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div6", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div6", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-div7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "div7", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-div7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "div7", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand0", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand0", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand1", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand1", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand2", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand2", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand3", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand3", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand4", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand4", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand5", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand5", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand6", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand6", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3600-rand7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3600", "candidate_id": "rand7", "repeat": 0}
+{"phase": "close", "segment_id": "a3600-rand7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3600", "candidate_id": "rand7", "repeat": 0, "continuation_seed": 1736489863, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-reference-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "reference", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-reference-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "reference", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div0", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div0", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div1", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div1", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div2", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div2", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div3", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div3", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div4", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div4", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div5", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div5", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div6", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div6", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-div7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "div7", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-div7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "div7", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand0", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand0", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand1", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand1", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand2", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand2", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand3", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand3", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand4", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand4", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand5", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand5", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand6", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand6", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3670-rand7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3670", "candidate_id": "rand7", "repeat": 0}
+{"phase": "close", "segment_id": "a3670-rand7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3670", "candidate_id": "rand7", "repeat": 0, "continuation_seed": 2049228364, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-reference-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-reference-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-reference-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-reference-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-reference-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-reference-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "reference", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div0-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div0-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div0-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div0-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div0", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div1-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div1-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div1-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div1-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div1", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div2-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div2-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div2-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div2-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div2", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div3-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div3-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div3-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div3-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div3", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div4-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div4-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div4-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div4-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div4", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div5-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div5-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div5-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div5-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div5", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div6-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div6-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div6-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div6-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div6", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-div7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div7-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-div7-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-div7-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-div7-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "div7", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand0-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand0-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand0-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand0-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand0-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand0-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand0", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand1-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand1-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand1-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand1-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand1-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand1-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand1", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand2-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand2-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand2-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand2-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand2-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand2-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand2", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand3-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand3-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand3-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand3-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand3-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand3-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand3", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand4-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand4-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand4-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand4-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand4-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand4-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand4", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand5-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand5-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand5-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand5-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand5-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand5-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand5", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand6-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand6-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand6-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand6-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand6-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand6-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand6", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand7-r0", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 0}
+{"phase": "close", "segment_id": "a3688-rand7-r0", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 0, "continuation_seed": 558816461, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand7-r1", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 1}
+{"phase": "close", "segment_id": "a3688-rand7-r1", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 1, "continuation_seed": 1509190309, "termination": "horizon"}
+{"phase": "open", "segment_id": "a3688-rand7-r2", "cap_line": "branch", "reservation": 90, "n_steps": 0, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 2}
+{"phase": "close", "segment_id": "a3688-rand7-r2", "cap_line": "branch", "n_steps": 90, "anchor_id": "a3688", "candidate_id": "rand7", "repeat": 2, "continuation_seed": 1693558891, "termination": "horizon"}

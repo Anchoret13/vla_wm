@@ -1,0 +1,50 @@
+{
+  "schema": "v082_bootstrap_manifest_v1",
+  "task": "chain1b_lr2",
+  "deadline": 250,
+  "tau": 160,
+  "c_prefix": 10,
+  "continuation_horizon": 80,
+  "queues": {
+    "train": [
+      3600
+    ],
+    "val": [
+      3670
+    ],
+    "test": [
+      3688
+    ]
+  },
+  "quotas": {
+    "train": 1,
+    "val": 1,
+    "test": 1
+  },
+  "repeats": {
+    "train": 1,
+    "val": 1,
+    "test": 3
+  },
+  "candidates_per_anchor": 17,
+  "source_cap": 750,
+  "branch_cap": 7650,
+  "total_cap": 8400,
+  "git_head": "159aefee82eef46ddf6c1e6c8bd8f78ef1bd9561",
+  "git_dirty": false,
+  "rng_root": "3301d3f56209b9cc65565e3be69ea35e2c61cda1d3c51313aced689ba4cb0406",
+  "old_v081p_rows_used": false,
+  "status": "COMPLETE",
+  "output": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v083_bootstrap/2026-08-21T230556Z",
+  "spend": {
+    "by_cap_line": {
+      "source": 750,
+      "branch": 7650
+    },
+    "actual_total": 8400,
+    "hard_cap": 8400,
+    "source_attempts": 3,
+    "groups": 3,
+    "branches": 85
+  }
+}
