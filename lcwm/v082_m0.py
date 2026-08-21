@@ -507,7 +507,8 @@ def decode_predictions(predictions: dict[str, Tensor], stats: TargetStats
 
 def group_loss(model: M0Predictor, group: M0Group, stats: TargetStats,
                weights: LossWeights = LossWeights(), *,
-               actions_override: Tensor | None = None
+               actions_override: Tensor | None = None,
+               balance_nontie: bool = False,
                ) -> tuple[Tensor, dict[str, Tensor], dict[str, Tensor]]:
     """Source-balanced loss: every returned component is one anchor mean."""
 
@@ -533,15 +534,24 @@ def group_loss(model: M0Predictor, group: M0Group, stats: TargetStats,
     outcome = binary + continuous
 
     scores = predictions["rank_score"].reshape(c, r)
-    pair_terms = []
+    tie_terms, nontie_terms = [], []
     for candidate, reference, repeat, label in pair_indices_and_labels(group):
         difference = scores[candidate, repeat] - scores[reference, repeat]
         if label == 0:
-            pair_terms.append(difference.square())
+            tie_terms.append(difference.square())
         else:
             target = difference.new_tensor(float(label))
-            pair_terms.append(F.softplus(0.2 - target * difference))
-    rank = torch.stack(pair_terms).mean() if pair_terms else scores.sum() * 0.0
+            nontie_terms.append(F.softplus(0.2 - target * difference))
+    if balance_nontie:
+        # Group-level, non-tie-balanced: ties and non-ties each contribute one
+        # mean, so rare informative pairs are not numerically erased.  The first
+        # M0 run had 139/144 held-out pairs tied; under a flat mean the five
+        # non-tie pairs carried ~3% of the ranking gradient.
+        halves = [torch.stack(t).mean() for t in (tie_terms, nontie_terms) if t]
+        rank = torch.stack(halves).mean() if halves else scores.sum() * 0.0
+    else:
+        pair_terms = tie_terms + nontie_terms
+        rank = torch.stack(pair_terms).mean() if pair_terms else scores.sum() * 0.0
     total = (weights.physical * physical + weights.outcome * outcome
              + weights.rank * rank)
     parts = {"loss_total": total, "loss_physical": physical,

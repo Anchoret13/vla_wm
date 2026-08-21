@@ -91,6 +91,8 @@ def train_epoch(
     stats,
     device: torch.device,
     epoch: int,
+    *,
+    balance_nontie: bool = False,
 ) -> None:
     # Both models see exactly the same source-group order.
     order = list(range(len(groups)))
@@ -102,7 +104,8 @@ def train_epoch(
         for name in ("action_conditioned", "state_only"):
             model, optimizer = models[name], optimizers[name]
             optimizer.zero_grad(set_to_none=True)
-            loss, _, _ = group_loss(model, group, stats, LOSS_WEIGHTS)
+            loss, _, _ = group_loss(model, group, stats, LOSS_WEIGHTS,
+                                    balance_nontie=balance_nontie)
             if not bool(torch.isfinite(loss)):
                 raise FloatingPointError(
                     f"non-finite {name} loss at epoch={epoch}, "
@@ -120,6 +123,10 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--device", default=None,
                         help="default: cuda for full run, cpu for --smoke")
+    parser.add_argument("--balance-nontie", action="store_true",
+                        help=("group-level non-tie-balanced ranking batches "
+                              "(Action 2M.1). Off by default so the v082 M0 "
+                              "result stays reproducible."))
     parser.add_argument("--smoke", action="store_true",
                         help="run generated source-disjoint CPU data for 3 epochs")
     args = parser.parse_args()
@@ -164,7 +171,8 @@ def main() -> int:
 
     with metrics_path.open("a") as metrics_file:
         for epoch in range(epochs):
-            train_epoch(models, optimizers, splits["train"], stats, device, epoch)
+            train_epoch(models, optimizers, splits["train"], stats, device,
+                        epoch, balance_nontie=args.balance_nontie)
             for name, model in models.items():
                 train_metrics = evaluate_model(
                     model, splits["train"], stats, LOSS_WEIGHTS
