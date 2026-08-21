@@ -1,0 +1,636 @@
+{
+  "manifest": {
+    "action": "2P",
+    "utc": "2026-08-21T044523Z",
+    "registration_sha256": "0979c8393ff08051ccec0b6ef4174e343ade3b43c71140c11b705f55e62980ca",
+    "git_head": "367152ae710587f15e17062dea158076efa65e12",
+    "git_dirty": false,
+    "task": "chain1b_lr2",
+    "L": 250,
+    "tau": 160,
+    "sources": 20,
+    "anchors": 8,
+    "per_anchor_segments": 21,
+    "worst_case_segments": 356,
+    "cap": {
+      "source": 5000,
+      "ref_prefix": 240,
+      "ref_cont": 1920,
+      "div_prefix": 720,
+      "div_cont": 5760,
+      "rand_prefix": 720,
+      "rand_cont": 5760
+    },
+    "cap_total": 20120,
+    "status": "COMPLETE"
+  },
+  "F": 11,
+  "E": 11,
+  "restore_verified": "168/168",
+  "replay": {
+    "a3480": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3481": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3484": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3485": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3486": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3489": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3493": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    },
+    "a3494": {
+      "max_pairwise_l2": 0.0,
+      "tol": 0.001,
+      "pass": true,
+      "n_repeats": 3
+    }
+  },
+  "spend": {
+    "by_cap_line": {
+      "source": 4898,
+      "ref_prefix": 240,
+      "ref_cont": 1906,
+      "div_prefix": 720,
+      "div_cont": 5714,
+      "rand_prefix": 720,
+      "rand_cont": 5708
+    },
+    "total": 19906,
+    "cap_total": 20120,
+    "note": "DERIVED from every segment_ledger.jsonl under results/v081p"
+  },
+  "selected_seeds": [
+    3480,
+    3481,
+    3484,
+    3485,
+    3486,
+    3489,
+    3493,
+    3494
+  ],
+  "execution_seal": "de5dedc57d443746d78c6701dda8917017422181859d9aaf2060b2f4c614a64b",
+  "per_anchor": {
+    "a3480": {
+      "seed": 3480,
+      "variation": true,
+      "n_positive": 0,
+      "n_non_improving": 1,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            1
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            -1,
+            0,
+            1
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            -1,
+            1
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            1
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            1
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            -1,
+            0
+          ],
+          "label": "paired_non_improving"
+        }
+      ]
+    },
+    "a3481": {
+      "seed": 3481,
+      "variation": false,
+      "n_positive": 0,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3484": {
+      "seed": 3484,
+      "variation": false,
+      "n_positive": 0,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3485": {
+      "seed": 3485,
+      "variation": false,
+      "n_positive": 0,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3486": {
+      "seed": 3486,
+      "variation": false,
+      "n_positive": 0,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3489": {
+      "seed": 3489,
+      "variation": false,
+      "n_positive": 0,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3493": {
+      "seed": 3493,
+      "variation": true,
+      "n_positive": 1,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            0,
+            1,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            0,
+            1,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            1,
+            1,
+            1
+          ],
+          "label": "paired_positive"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            0,
+            0,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    },
+    "a3494": {
+      "seed": 3494,
+      "variation": true,
+      "n_positive": 3,
+      "n_non_improving": 0,
+      "both": false,
+      "alternatives": [
+        {
+          "id": "div0",
+          "per_key": [
+            1,
+            -1,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div1",
+          "per_key": [
+            1,
+            1,
+            0
+          ],
+          "label": "mixed"
+        },
+        {
+          "id": "div2",
+          "per_key": [
+            1,
+            1,
+            1
+          ],
+          "label": "paired_positive"
+        },
+        {
+          "id": "rand0",
+          "per_key": [
+            1,
+            1,
+            1
+          ],
+          "label": "paired_positive"
+        },
+        {
+          "id": "rand1",
+          "per_key": [
+            1,
+            1,
+            1
+          ],
+          "label": "paired_positive"
+        },
+        {
+          "id": "rand2",
+          "per_key": [
+            1,
+            -1,
+            0
+          ],
+          "label": "mixed"
+        }
+      ]
+    }
+  },
+  "gate": {
+    "verdict": "HALT",
+    "conditions": {
+      "1_sources_and_selection": true,
+      "2_restore_and_replay": true,
+      "3_pools_and_cap": true,
+      "4_variation": false,
+      "5_positive": true,
+      "6_both": false
+    },
+    "counts": {
+      "anchors": 8,
+      "with_variation": 3,
+      "with_positive": 2,
+      "with_both": 0
+    },
+    "horizon": 80,
+    "note": "H=20/40 are secondary diagnostics reported alongside; diversity-vs-random yield may be described but the pilot is not powered as a selector-efficiency comparison"
+  },
+  "env_steps": 19906,
+  "cap_total": 20120,
+  "secondary_horizons": [
+    20,
+    40
+  ]
+}

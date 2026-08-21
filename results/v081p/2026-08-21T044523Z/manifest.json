@@ -1,0 +1,25 @@
+{
+  "action": "2P",
+  "utc": "2026-08-21T044523Z",
+  "registration_sha256": "0979c8393ff08051ccec0b6ef4174e343ade3b43c71140c11b705f55e62980ca",
+  "git_head": "367152ae710587f15e17062dea158076efa65e12",
+  "git_dirty": false,
+  "task": "chain1b_lr2",
+  "L": 250,
+  "tau": 160,
+  "sources": 20,
+  "anchors": 8,
+  "per_anchor_segments": 21,
+  "worst_case_segments": 356,
+  "cap": {
+    "source": 5000,
+    "ref_prefix": 240,
+    "ref_cont": 1920,
+    "div_prefix": 720,
+    "div_cont": 5760,
+    "rand_prefix": 720,
+    "rand_cont": 5760
+  },
+  "cap_total": 20120,
+  "status": "COMPLETE"
+}
