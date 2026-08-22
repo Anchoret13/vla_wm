@@ -1161,3 +1161,51 @@ Three results carry forward:
 `[LOCKED]` **Eligibility and comparison must key on the same object.** `a3480`'s source was a genuine `failure@250` and passed the registered mask, but at that anchor the freshly drawn reference succeeds on 2 of 3 CRN keys — the source failed under *its own* continuation noise only. Anchor eligibility keyed on the source's outcome while the paired comparison keys on a fresh reference; those are different objects. A successor stratum must require the reference itself to fail on a registered majority of CRN keys before the anchor is admitted.
 
 Per §15.5, "stop the formulation" is **not** indicated: supported action diversity plainly exists (32/32 unique pools) and produces useful variation at 3/8 anchors including one full conversion. One bounded coverage-component revision is the indicated path; which component is a registered decision and is not taken here.
+
+---
+
+## 16. Mainline reset — model training before further diagnostics (2026-08-21)
+
+The post-2P discussion corrected the work priority, and this section records that change in the binding design rather than leaving it only in a daily. The research object is the sequence
+
+\[
+\text{failure-driven counterfactual interaction}
+\rightarrow \text{action-conditioned WM}
+\rightarrow \text{model-guided acquisition}
+\rightarrow \text{policy improvement},
+\]
+
+not a benchmark or an anchor diagnostic. Action 2P established that supported siblings can produce real effects, including a 3/3 failure-to-success conversion; its conservative pilot gate stands as a historical verdict but no longer inserts another diagnostic stage before model training. Action 2P rows remain permanently calibration-only and enter no bank.
+
+`[LOCKED]` **A HALT on a pilot gate does not by itself authorize another diagnostic stage.** Where the evidence already shows the mechanism is present, the next step is to train the model the claim ladder actually requires. §14.5 and §15.6 remain valid as records of their own instruments; they are not standing blocks on model training.
+
+### 16.1 Two M0 results, both against a capacity-matched state-only baseline
+
+| | first M0 (v082) | M0.1 (v083, Action 2M.1) |
+|---|---|---|
+| bank | 28 groups, 7 candidates/anchor | **48 groups, 17 candidates/anchor**, 1,088 branches |
+| test ranking support | 144 pairs: 5 better, **0 worse** | 384 pairs: **29 better, 19 worse** |
+| matched prediction loss | 0.3257 vs **0.2989** state-only | 0.8168 vs **0.6965** state-only |
+| rank macro accuracy | 0.500 vs 0.500 | **0.3770** vs 0.3333 |
+| rank non-tie accuracy | 0 vs 0 | **0.0625** vs 0.0000 |
+| action-shuffle gap | +2.168e-4 | **+4.656e-4** |
+| verdict | negative | **2 of 3 registered conditions**; `prediction_loss_gain` fails |
+
+Both runs are single fixed 30-epoch schedules with no architecture or hyperparameter sweep, validation-selected before the test split was read.
+
+### 16.2 What is established, and what the numbers do not support
+
+Established: the action path is used — shuffling actions moves the action model's loss and leaves the baseline's unmoved, at roughly double the first run's magnitude — and widening the proposal from 7 to 17 siblings per anchor produced the first V8 bank with **two-sided** ranking signal on held-out data.
+
+Not established: useful sibling ranking. Non-tie accuracy of `0.0625` is **3 of 48 pairs**, far below the ~⅓ a three-way guess yields, and the baseline's `0.3333` macro is exactly what predicting "tie" everywhere produces. The action model also lost on every prediction metric — 17% higher matched prediction loss, roughly double the physical MSE, higher Brier. Adding the action path degraded prediction while barely helping ranking.
+
+`[LOCKED]` **Two structural properties of `B_boot-v2`, recorded before its test split was opened**, because they constrain what a second negative can mean:
+
+1. the **validation split contains zero non-tie pairs**, so checkpoint selection was blind to ranking and the rank head was chosen on physical/outcome loss alone. A weak ranking result therefore has two explanations this design cannot separate — the model did not learn it, or the selector could not pick the epoch that had;
+2. the **train split carried 21 non-tie pairs of 512**, skewed 4 better to 17 worse, so the non-tie-balanced objective concentrated half the ranking gradient on 21 pairs.
+
+Any successor must fix the validation split's ranking blindness, or state explicitly that checkpoint selection cannot see the head being evaluated.
+
+### 16.3 Registered consequence
+
+By Action 2M.1's completion rule this is a **second state-only result**: the indicated change is to the **candidate proposal family**. It does not authorize another benchmark screen, horizon audit, anchor diagnostic, or a sweep of this architecture. Training-side ranking signal is a live alternative diagnosis to proposal diversity, and a proposal-family change should say which of the two it targets.
