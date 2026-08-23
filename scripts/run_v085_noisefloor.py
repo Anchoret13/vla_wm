@@ -235,13 +235,17 @@ def main() -> int:
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
     (out / "manifest.json").write_text(json.dumps({**manifest, "status": "COMPLETE"}, indent=2))
 
+    # A degenerate component (e.g. no damage anywhere) yields ICC None by
+    # design; format defensively so the console never crashes AFTER the
+    # statistics are already on disk.
+    fmt = lambda v: "  n/a  " if v is None else f"{v:+.4f}"
     print("\n=== Action 2M.3 ===")
     for comp in N.ALL_COMPONENTS:
         r = per_component[comp]
         tag = "PRIMARY" if r["primary"] else "secondary"
-        print(f"{comp:5s} [{tag:9s}] D={r['D']['point']:+.4f} "
-              f"(lower {r['D']['lower']:+.4f})  ICC={r['ICC']['point']:+.4f} "
-              f"(lower {r['ICC']['lower']:+.4f})  sign-consistent "
+        print(f"{comp:5s} [{tag:9s}] D={fmt(r['D']['point'])} "
+              f"(lower {fmt(r['D']['lower'])})  ICC={fmt(r['ICC']['point'])} "
+              f"(lower {fmt(r['ICC']['lower'])})  sign-consistent "
               f"{r['sign_consistency']['consistent']}/{r['sign_consistency']['candidates']}")
     print(json.dumps(decision, indent=2))
     print(f"steps {ledger.total}/{N.INTERACTION_CAP_TOTAL} | {out}")

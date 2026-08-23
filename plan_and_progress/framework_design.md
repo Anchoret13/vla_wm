@@ -1277,3 +1277,27 @@ The interaction contract behaved as designed: the halt landed at the end of the 
 `[LOCKED]` **A source ceiling must be derived from the measured eligibility rate and stated with its fill probability.** Where a branch phase dominates the budget — as it does here, 81,000 of 88,500 — near-certain fill is nearly free: 30 → 38 sources raises the cap by 2,000 steps (2.3%) and the fill probability from 0.73 to 0.97. An underfilled registration wastes its source phase and answers nothing.
 
 `[LOCKED]` **"No quota or cap extension" binds an underfill exactly as it binds an overrun**, and a shortfall may not be repaired by lowering the anchor requirement after the fill is known. Analysing 2M.3's 13 anchors would have widened the one-sided cluster bound by only ~7%, which is precisely why taking it after the fact would be tempting and impermissible. The remedy is a fresh registration; the halted run's anchors are not carried into it, because reusing them would make the successor's fill partly outcome-dependent.
+
+### 17.5 Action 2M.3 completed — `NOT_IDENTIFIED` (2026-08-23)
+
+Re-registered at 38 sources (the ceiling derived from the §17.4 measured yield; that one number was the only change) and executed: **15/15 anchors from 36 sources, 900 branches, restore verified 900/900, 89,789 / 90,500 steps**, execution seal written before any outcome existed. Record: `plan_and_progress/2026-08-23.md`.
+
+| component | `D` | `D` lower | ICC | ICC lower | sign-consistent |
+|---|---:|---:|---:|---:|---:|
+| `dp` (primary) | +0.0172 | −0.0017 | +0.1265 | +0.0375 | 0/60 |
+| `ttm` (primary) | +0.0132 | −0.0064 | +0.1908 | +0.0317 | 0/60 |
+| `G` (primary) | +0.0174 | −0.0049 | **+0.4618** | **+0.2560** | 0/60 |
+| `succ` (secondary) | +0.0042 | −0.0025 | +0.0907 | +0.0346 | 0/60 |
+| `dmg` (secondary) | +0.0000 | +0.0000 | n/a | n/a | 0/60 |
+
+**`NOT_IDENTIFIED`**: the rule requires \(D_{\text{lower}}>0\) *and* \(\mathrm{ICC}_{\text{lower}}>0\) on the same primary component. ICC passes on all three; \(D\) fails on all three.
+
+`[ESTABLISHED]` **Candidate identity explains outcome variance but does not clear the discrimination floor.** On \(G\), ICC is 0.4618 (lower bound 0.2560) — a quarter to a half of continuation-return variance is candidate-attributable — while the per-candidate mean spread has median **0.0048** against a within-candidate seed range of median **0.0463**, roughly 10x larger, and against a registered tie floor of 0.0956. Only 3/15 anchors have candidate-mean spread above that floor. Sign consistency is 0/60 on every component across twelve shared seeds.
+
+`[ESTABLISHED]` **The registered outcome vector is too coarse to express an effect of this size.** \(G\) takes **10 distinct values across all 900 branches**, and only 3 of 15 anchors register any `success@250` among 60 branches. The floors are not arbitrary — they follow from the automaton's 10-step evaluation stride — so the quantization limiting the readout and the floor limiting the label have the same origin.
+
+`[LOCKED]` **The bounded-perturbation proposal family is not authorized.** §17.3 gated it on a positive noise-floor result and the result is negative. Running it now would produce more diverse actions against a readout that cannot resolve them.
+
+`[LOCKED]` **The next change is a formulation decision — the outcome readout or the anchor/setting — not another proposal family, model, benchmark, horizon, or architecture sweep.** The evidence points at the readout: the effect exists and is sub-quantum. A progress measure resolving milestone timing more finely than 10 steps, or one that does not collapse to ~10 discrete values, would let an effect of this magnitude register. That change is not taken here.
+
+`[LOCKED]` **An interaction cap belongs to a registration.** A superseded or aborted attempt's steps stay charged to it and stay in the project total, but must not consume its successor's budget. Attempt 2 of 2M.3 aborted because the cross-run cumulative derivation added after Stage 1R.1 did not distinguish registrations and deducted attempt 1's 7,336 superseded steps from attempt 2's 9,500-step source line. Quarantine prefixes (`ABORTED_`, `SMOKE_`, `SUPERSEDED_`, `HALTED_`) now scope the derivation. Adjusting budget accounting after a halt is permissible **only** when the halt was a tooling fault and no decision rule, threshold, quota, or seed changes — both conditions held here and both must be stated when invoked.

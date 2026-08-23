@@ -1,0 +1,339 @@
+{
+  "manifest": {
+    "schema": "v085_noisefloor_v1",
+    "action": "2M.3",
+    "utc": "2026-08-23T215359Z",
+    "daily": "plan_and_progress/2026-08-23.md (ACTION ITEM 2M.3)",
+    "objective": "does candidate identity move the registered H80 outcome above continuation-seed variability at chain1b_lr2@250, tau=160?",
+    "git": {
+      "head": "8059a568eba387573108ac2ab960d2c4d2b19d38",
+      "dirty": false
+    },
+    "source_hashes": {
+      "lcwm/v085_noisefloor.py": "6c8c7f7d95fde965d43e950ae9101abc7b318778299e6f1433128c5dc9eed5ad",
+      "scripts/run_v085_noisefloor.py": "ac05fcbb4f730f8add46accc32e1f3ae956947eaf7bfe0d006779961e9da6cc0",
+      "lcwm/v081p_exec.py": "adf1100f606914959bd7d228c9391ae5395254698381f1608f1697b9257ad340",
+      "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c"
+    },
+    "locked": {
+      "task": "chain1b_lr2",
+      "deadline": 250,
+      "tau": 160,
+      "c_prefix": 10,
+      "H": 80,
+      "anchors": 15,
+      "raw_draws": 64,
+      "alternatives": 4,
+      "candidates": 5,
+      "repeats": 12,
+      "max_sources": 38,
+      "source_seeds": [
+        3940,
+        3941,
+        3942,
+        3943,
+        3944,
+        3945,
+        3946,
+        3947,
+        3948,
+        3949,
+        3950,
+        3951,
+        3952,
+        3953,
+        3954,
+        3955,
+        3956,
+        3957,
+        3958,
+        3959,
+        3960,
+        3961,
+        3962,
+        3963,
+        3964,
+        3965,
+        3966,
+        3967,
+        3968,
+        3969,
+        3970,
+        3971,
+        3972,
+        3973,
+        3974,
+        3975,
+        3976,
+        3977
+      ],
+      "selection_rule": "standardize summed executed action over the 64-draw pool; seed the greedy set at the draw farthest from the reference; add farthest-point candidates; ties broken by index. Outcome-blind and deterministic.",
+      "continuation_keys": "12 per anchor, derived from the manifest root; every candidate AND the reference uses the same 12",
+      "floors": {
+        "dmg": 0.0,
+        "succ": 0.0,
+        "dp": 0.0,
+        "ttm": 10.0,
+        "G": 0.09561792499119559
+      },
+      "primary_continuous": [
+        "dp",
+        "G",
+        "ttm"
+      ],
+      "secondary": [
+        "dmg",
+        "succ"
+      ],
+      "statistic": "D = matched-seed candidate/reference non-tie rate - same-chunk cross-seed non-tie rate, per component",
+      "bootstrap": {
+        "B": 10000,
+        "alpha": 0.05,
+        "unit": "anchor (repeats and pairs nested, never resampled)",
+        "key_root": "v085_noisefloor_bootstrap"
+      },
+      "decision": "CANDIDATE_EFFECT_IDENTIFIED iff, for the SAME primary continuous component, D_lower > 0 AND ICC_lower > 0",
+      "role": "calibration",
+      "subrole": "noise_floor",
+      "data_use": "permanently calibration/noise_floor: no row may enter WM or policy training, calibration of a later model, selector assessment, or behavior evaluation",
+      "interaction_cap": {
+        "source": 9500,
+        "branch": 81000
+      },
+      "interaction_cap_total": 90500,
+      "no_extension": "no quota or cap extension; underfill HALTs"
+    },
+    "root": "0d4bade0c6cc22de4359e8872e4449dda9793e0df550f4dbb6a78b77e0c5e72a",
+    "status": "COMPLETE"
+  },
+  "anchors": [
+    "a3940",
+    "a3941",
+    "a3942",
+    "a3943",
+    "a3948",
+    "a3950",
+    "a3953",
+    "a3959",
+    "a3961",
+    "a3967",
+    "a3968",
+    "a3970",
+    "a3971",
+    "a3974",
+    "a3975"
+  ],
+  "sources_spent": 36,
+  "branches": 900,
+  "execution_seal": "072aa61824d73ffa2b91f67a76eba0efd1e5be34a85c0f6bebc5821019d69952",
+  "restore_verified": "900/900",
+  "per_component": {
+    "dmg": {
+      "D": {
+        "point": 0.0,
+        "lower": 0.0,
+        "b": 10000,
+        "n_anchors": 15,
+        "alpha": 0.05
+      },
+      "ICC": {
+        "point": null,
+        "lower": null,
+        "b": 10000
+      },
+      "per_anchor_D": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sign_consistency": {
+        "ever": 0,
+        "consistent": 0,
+        "candidates": 60
+      },
+      "primary": false
+    },
+    "succ": {
+      "D": {
+        "point": 0.004242424242424242,
+        "lower": -0.002525252525252526,
+        "b": 10000,
+        "n_anchors": 15,
+        "alpha": 0.05
+      },
+      "ICC": {
+        "point": 0.0907184352780208,
+        "lower": 0.034632034632034625,
+        "b": 10000,
+        "n_anchors": 3,
+        "alpha": 0.05
+      },
+      "per_anchor_D": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.018939393939393943,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07045454545454546,
+        0.012121212121212116,
+        0.0
+      ],
+      "sign_consistency": {
+        "ever": 9,
+        "consistent": 0,
+        "candidates": 60
+      },
+      "primary": false
+    },
+    "dp": {
+      "D": {
+        "point": 0.017171717171717175,
+        "lower": -0.001717171717171718,
+        "b": 10000,
+        "n_anchors": 15,
+        "alpha": 0.05
+      },
+      "ICC": {
+        "point": 0.12650686809603967,
+        "lower": 0.03754794428369568,
+        "b": 10000,
+        "n_anchors": 5,
+        "alpha": 0.05
+      },
+      "per_anchor_D": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.018939393939393943,
+        -0.0125,
+        0.0,
+        0.0,
+        0.20643939393939398,
+        0.07045454545454546,
+        0.012121212121212116,
+        0.0
+      ],
+      "sign_consistency": {
+        "ever": 14,
+        "consistent": 0,
+        "candidates": 60
+      },
+      "primary": true
+    },
+    "ttm": {
+      "D": {
+        "point": 0.013181818181818183,
+        "lower": -0.006363636363636364,
+        "b": 10000,
+        "n_anchors": 15,
+        "alpha": 0.05
+      },
+      "ICC": {
+        "point": 0.19082107472973495,
+        "lower": 0.03174101883779295,
+        "b": 10000,
+        "n_anchors": 6,
+        "alpha": 0.05
+      },
+      "per_anchor_D": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.04772727272727273,
+        0.0,
+        0.0,
+        0.24545454545454548,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sign_consistency": {
+        "ever": 8,
+        "consistent": 0,
+        "candidates": 60
+      },
+      "primary": true
+    },
+    "G": {
+      "D": {
+        "point": 0.017373737373737368,
+        "lower": -0.004898989898989901,
+        "b": 10000,
+        "n_anchors": 15,
+        "alpha": 0.05
+      },
+      "ICC": {
+        "point": 0.46176254076229856,
+        "lower": 0.25600025305350843,
+        "b": 10000,
+        "n_anchors": 13,
+        "alpha": 0.05
+      },
+      "per_anchor_D": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.018939393939393943,
+        -0.04772727272727273,
+        0.0,
+        0.0,
+        0.24469696969696964,
+        0.07045454545454546,
+        0.012121212121212116,
+        0.0
+      ],
+      "sign_consistency": {
+        "ever": 17,
+        "consistent": 0,
+        "candidates": 60
+      },
+      "primary": true
+    }
+  },
+  "decision": {
+    "verdict": "NOT_IDENTIFIED",
+    "components_meeting_both": [],
+    "rule": "same component must satisfy D_lower > 0 AND ICC_lower > 0; components are never pooled and never chosen after the run",
+    "handoff": "do NOT change the proposal family or train M0.2 at this setting; the next decision is whether to change the outcome readout or the anchor/setting - a formulation decision, not another model or proposal sweep"
+  },
+  "interaction": {
+    "by_line": {
+      "source": 8806,
+      "branch": 80983
+    },
+    "total": 89789,
+    "cap": 90500
+  }
+}
