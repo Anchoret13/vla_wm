@@ -39,14 +39,21 @@ N_RAW_DRAWS = 64                # outcome-blind pool per anchor
 N_ALTERNATIVES = 4              # + 1 reference = 5 executed candidates
 N_CANDIDATES = 1 + N_ALTERNATIVES
 N_REPEATS = 12                  # shared continuation seeds, same 12 for all
-MAX_SOURCES = 30                # hard ceiling; no extension on underfill
+#: RE-REGISTERED 2026-08-23 after the first attempt halted at 13/15 anchors.
+#: The ceiling is now DERIVED from the measured failure@250 yield of 0.538
+#: (77/143 pooled) rather than assumed: 38 sources give P(>=15 anchors) = 0.974
+#: against 0.728 at 30.  Because the branch phase dominates the budget, that
+#: costs 2,000 steps - 2.3% of the cap - to move fill from 0.73 to 0.97.
+MAX_SOURCES = 38                # hard ceiling; no extension on underfill
 
-SOURCE_SEEDS = tuple(range(3900, 3930))          # exactly MAX_SOURCES
+#: FRESH seeds.  The halted attempt spent 3900-3929 and its realized fill is
+#: known, so reusing them would make this run's fill partly outcome-dependent.
+SOURCE_SEEDS = tuple(range(3940, 3978))          # exactly MAX_SOURCES
 assert len(SOURCE_SEEDS) == MAX_SOURCES
 RESERVED = frozenset(range(3200, 3400))
 SPENT_BEFORE = frozenset(range(3400, 3440)) | frozenset(range(3480, 3500)) \
     | frozenset(range(3500, 3576)) | frozenset(range(3600, 3706)) \
-    | frozenset(range(3800, 3816))
+    | frozenset(range(3800, 3816)) | frozenset(range(3900, 3930))
 assert not (set(SOURCE_SEEDS) & (RESERVED | SPENT_BEFORE))
 
 ROLE = "calibration"
@@ -56,11 +63,11 @@ DATA_USE = ("permanently calibration/noise_floor: no row may enter WM or policy 
             "behavior evaluation")
 
 BRANCHES = N_ANCHORS * N_CANDIDATES * N_REPEATS                   # 900
-SOURCE_CAP = MAX_SOURCES * DEADLINE                               # 7,500
+SOURCE_CAP = MAX_SOURCES * DEADLINE                               # 9,500
 BRANCH_CAP = BRANCHES * (C_PREFIX + H)                            # 81,000
 INTERACTION_CAP = {"source": SOURCE_CAP, "branch": BRANCH_CAP}
-INTERACTION_CAP_TOTAL = SOURCE_CAP + BRANCH_CAP                   # 88,500
-assert BRANCHES == 900 and INTERACTION_CAP_TOTAL == 88_500
+INTERACTION_CAP_TOTAL = SOURCE_CAP + BRANCH_CAP                   # 90,500
+assert BRANCHES == 900 and INTERACTION_CAP_TOTAL == 90_500
 
 # --------------------------------------------------------------------------
 # Outcome components and the sealed tie floors (unchanged from v081p/v082)
