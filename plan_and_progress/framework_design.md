@@ -1209,3 +1209,50 @@ Any successor must fix the validation split's ranking blindness, or state explic
 ### 16.3 Registered consequence
 
 By Action 2M.1's completion rule this is a **second state-only result**: the indicated change is to the **candidate proposal family**. It does not authorize another benchmark screen, horizon audit, anchor diagnostic, or a sweep of this architecture. Training-side ranking signal is a live alternative diagnosis to proposal diversity, and a proposal-family change should say which of the two it targets.
+
+### 16.4 Retraction — `B_boot-v2`'s ranking support (2026-08-23)
+
+§16.1 credits `B_boot-v2` with "two-sided" held-out ranking support (29 better, 19 worse of 384 test pairs) and §16.2 calls that the first such bank in V8. **The pairs are real; the attribution to candidate identity is retracted.**
+
+The bank's three test repeats make the label decomposable, and the decomposition inverts the reading:
+
+| contrast | non-tie |
+|---|---:|
+| candidate vs reference, matched continuation seed | 48/384 = **12.50%** |
+| identical chunk, different continuation seed | 78/408 = **19.12%** |
+| reference against itself across repeats | 4/24 = **16.67%** |
+
+Re-running the *same* action under a different continuation seed flips the label more often than swapping to a *different* action under a matched seed. **0 of 128** test candidates hold a consistent non-tie sign across all three repeats; candidate ICC is `dp −0.011`, `G 0.002`, `ttm 0.227`. A repeat-count confound hid it: `R=1` pairs are 2.98% non-tie against `R=3` pairs at 16.27%, so the test split looked richer only because it was repeated.
+
+What survives is narrower and still useful: **at these anchors the registered outcome label is dominated by continuation noise.** M0.1's `3/48` non-tie accuracy is therefore the expected consequence of an unrankable target, not a near-miss by the model. §16.2's prediction-loss and action-shuffle conclusions are unaffected.
+
+`[LOCKED]` **A non-tie count is not evidence of a candidate effect unless it is separated from the continuation-noise floor.** Any bank claiming sibling ranking support must report the matched-seed contrast against the same-chunk-different-seed contrast, and must report per-candidate sign consistency across repeats. A single-repeat bank cannot support a ranking-support claim at all.
+
+---
+
+## 17. Proposal-family diagnosis and the Action 2M.2 halt (2026-08-23)
+
+Action 2M.2 (daily 2026-08-22) proposed effect-stratified selection over raw stock-PI0 draws as the registered repair for two state-only M0 results. It is **halted before its ~120,000-step collection** on a 1,976-step measurement, with four independent refutation attempts — one arguing explicitly to run it as written — returning zero refutations.
+
+### 17.1 Why selection cannot be the intervention
+
+`results/v084_probe/2026-08-23T185117Z`: 5 eligible anchors, 64 raw draws each, no selection. All 64 chunks byte-distinct at every anchor; median translation-magnitude CV **0.0121**; median within-anchor pairwise direction angle **3.05°** against a between-anchor **31.26°**; gripper saturated (`|a|>0.95`) in 100% of entries; **0/5 anchors contain both gripper classes**. In the collected bank, `post_prefix_delta` is bitwise identical across all 17 candidates at **43/48** anchors, and gripper-close timing — one of the three registered stratification axes — is unfillable at **46/48**.
+
+By §4.1's own criterion the pool is **one candidate family**, and a quota over one family is not a stratification.
+
+### 17.2 Scope
+
+The supported claim is bounded, and the over-general version is explicitly not made:
+
+> At the anchors a fixed \(\tau=160\) on `chain1b_lr2@250` admits, proposal spread is small, and where it is larger it does not move the registered outcome or ranking readout beyond continuation-seed noise.
+
+This bounds this collection, task, \(\tau\), and \(H\). It is **not** a claim that stock PI0 proposals are effect-degenerate in general.
+
+### 17.3 Ordering of the two successors
+
+`[LOCKED]` **Establish whether any candidate effect exists above the noise floor before changing the proposal family.** If the outcome label at an anchor is noise-dominated, a more diverse family yields more diverse actions and the same unrankable labels — so a family change run first cannot be interpreted either way.
+
+- **(a) Noise-floor experiment.** Raise repeats to 8–16 at ~15 anchors; far cheaper than 2M.2. Establishes whether candidate identity moves the registered outcome at all at this setting.
+- **(b) Bounded-perturbation family.** Permitted by §2 `[LOCKED]` ("a bounded perturbation of their supported chunks"). Matching pooled effect spread requires per-step deltas of ~20–37% of the observed action limit on translation, or a gripper sign flip — bounded, inside support, not unconstrained search.
+
+A negative from (a) relocates the binding constraint to the outcome readout or the anchor rather than the candidates, which is a different action item from either.
