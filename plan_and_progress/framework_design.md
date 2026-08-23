@@ -1256,3 +1256,24 @@ This bounds this collection, task, \(\tau\), and \(H\). It is **not** a claim th
 - **(b) Bounded-perturbation family.** Permitted by §2 `[LOCKED]` ("a bounded perturbation of their supported chunks"). Matching pooled effect spread requires per-step deltas of ~20–37% of the observed action limit on translation, or a gripper sign flip — bounded, inside support, not unconstrained search.
 
 A negative from (a) relocates the binding constraint to the outcome readout or the anchor rather than the candidates, which is a different action item from either.
+
+### 17.4 Action 2M.3 attempted — HALT on anchor underfill (2026-08-23)
+
+§17.3 `[LOCKED]` the noise-floor experiment as the successor that must precede any proposal-family change. It was registered (daily 2026-08-23) and executed. It **halted on anchor underfill** and did not answer its question.
+
+Registered: 15 anchors × (1 reference + 4 max-spread alternatives) × 12 shared continuation keys, ceiling 30 sources, cap 88,500 steps, no extension. Obtained: **13 of 15 anchors from all 30 sources**, spending **7,336 steps**. All 13 `failure@250` sources were exact-mask eligible, so the mask cost nothing and the shortfall is source yield alone. No branch executed; no \(D\), ICC, sign-consistency, or decision exists.
+
+The interaction contract behaved as designed: the halt landed at the end of the source phase, before the 81,000-step branch phase, so an underfilled experiment cost 8.3% of its budget.
+
+`[MEASURED]` **`failure@250` yield on `chain1b_lr2@250` is 77/143 = 0.538**, pooled over every occasion it has been observed (Action 2P 11/20, `B_boot-v2` 48/85, v084 probe 5/8, Action 2M.3 13/30). The 2M.3 run was not anomalous — \(P(\le 13 \mid 30,\,0.538)=0.166\). Any future source queue on this task must be sized from this rate rather than from a prior run's realized fill.
+
+| sources | \(P(\ge 15\text{ anchors})\) |
+|---:|---:|
+| 30 (as registered) | 0.728 |
+| 34 | 0.905 |
+| **38** | **0.974** |
+| 44 | 0.997 |
+
+`[LOCKED]` **A source ceiling must be derived from the measured eligibility rate and stated with its fill probability.** Where a branch phase dominates the budget — as it does here, 81,000 of 88,500 — near-certain fill is nearly free: 30 → 38 sources raises the cap by 2,000 steps (2.3%) and the fill probability from 0.73 to 0.97. An underfilled registration wastes its source phase and answers nothing.
+
+`[LOCKED]` **"No quota or cap extension" binds an underfill exactly as it binds an overrun**, and a shortfall may not be repaired by lowering the anchor requirement after the fill is known. Analysing 2M.3's 13 anchors would have widened the one-sided cluster bound by only ~7%, which is precisely why taking it after the fact would be tempting and impermissible. The remedy is a fresh registration; the halted run's anchors are not carried into it, because reusing them would make the successor's fill partly outcome-dependent.
