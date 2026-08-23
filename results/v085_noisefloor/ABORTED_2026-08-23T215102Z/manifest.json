@@ -1,0 +1,107 @@
+{
+  "schema": "v085_noisefloor_v1",
+  "action": "2M.3",
+  "utc": "2026-08-23T215102Z",
+  "daily": "plan_and_progress/2026-08-23.md (ACTION ITEM 2M.3)",
+  "objective": "does candidate identity move the registered H80 outcome above continuation-seed variability at chain1b_lr2@250, tau=160?",
+  "git": {
+    "head": "4adcc8e80d6042158f430bdececd2b67f4d86681",
+    "dirty": false
+  },
+  "source_hashes": {
+    "lcwm/v085_noisefloor.py": "6c8c7f7d95fde965d43e950ae9101abc7b318778299e6f1433128c5dc9eed5ad",
+    "scripts/run_v085_noisefloor.py": "ac05fcbb4f730f8add46accc32e1f3ae956947eaf7bfe0d006779961e9da6cc0",
+    "lcwm/v081p_exec.py": "bf4b7af2b76bd472822b0bf5c405a9e43fc623949e2fd293d910d0089a3fe99b",
+    "lcwm/v080r_panel.py": "507991c288aa6cfd9ddbf526e2fe200654a23767d3adfc100a76d6926ab75b7c"
+  },
+  "locked": {
+    "task": "chain1b_lr2",
+    "deadline": 250,
+    "tau": 160,
+    "c_prefix": 10,
+    "H": 80,
+    "anchors": 15,
+    "raw_draws": 64,
+    "alternatives": 4,
+    "candidates": 5,
+    "repeats": 12,
+    "max_sources": 38,
+    "source_seeds": [
+      3940,
+      3941,
+      3942,
+      3943,
+      3944,
+      3945,
+      3946,
+      3947,
+      3948,
+      3949,
+      3950,
+      3951,
+      3952,
+      3953,
+      3954,
+      3955,
+      3956,
+      3957,
+      3958,
+      3959,
+      3960,
+      3961,
+      3962,
+      3963,
+      3964,
+      3965,
+      3966,
+      3967,
+      3968,
+      3969,
+      3970,
+      3971,
+      3972,
+      3973,
+      3974,
+      3975,
+      3976,
+      3977
+    ],
+    "selection_rule": "standardize summed executed action over the 64-draw pool; seed the greedy set at the draw farthest from the reference; add farthest-point candidates; ties broken by index. Outcome-blind and deterministic.",
+    "continuation_keys": "12 per anchor, derived from the manifest root; every candidate AND the reference uses the same 12",
+    "floors": {
+      "dmg": 0.0,
+      "succ": 0.0,
+      "dp": 0.0,
+      "ttm": 10.0,
+      "G": 0.09561792499119559
+    },
+    "primary_continuous": [
+      "dp",
+      "G",
+      "ttm"
+    ],
+    "secondary": [
+      "dmg",
+      "succ"
+    ],
+    "statistic": "D = matched-seed candidate/reference non-tie rate - same-chunk cross-seed non-tie rate, per component",
+    "bootstrap": {
+      "B": 10000,
+      "alpha": 0.05,
+      "unit": "anchor (repeats and pairs nested, never resampled)",
+      "key_root": "v085_noisefloor_bootstrap"
+    },
+    "decision": "CANDIDATE_EFFECT_IDENTIFIED iff, for the SAME primary continuous component, D_lower > 0 AND ICC_lower > 0",
+    "role": "calibration",
+    "subrole": "noise_floor",
+    "data_use": "permanently calibration/noise_floor: no row may enter WM or policy training, calibration of a later model, selector assessment, or behavior evaluation",
+    "interaction_cap": {
+      "source": 9500,
+      "branch": 81000
+    },
+    "interaction_cap_total": 90500,
+    "no_extension": "no quota or cap extension; underfill HALTs"
+  },
+  "root": "a1a3ca6f2435327b420d110cf58f058d1eea6b27af7aab0c79bdaf5285d32911",
+  "status": "RUNNING"
+}

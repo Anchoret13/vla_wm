@@ -74,10 +74,20 @@ class SegmentLedger:
             self.path.write_text("")
         self.spent = self._derive()
 
+    #: Directory-name prefixes whose spend is charged to THEIR OWN registration
+    #: and must not consume a successor's cap.  A cap belongs to a registration;
+    #: a superseded or aborted registration's steps stay charged to it and stay
+    #: in the project total, but deducting them from the next registration would
+    #: conflate two experiments and silently shrink the successor's budget.
+    QUARANTINE_PREFIXES = ("ABORTED_", "SMOKE_", "SUPERSEDED_", "HALTED_")
+
     def _derive(self) -> dict[str, int]:
         spent: dict[str, int] = {}
         opens: dict[str, dict] = {}
         for led in sorted(self.action_root.glob("**/segment_ledger.jsonl")):
+            if any(part.startswith(self.QUARANTINE_PREFIXES)
+                   for part in led.relative_to(self.action_root).parts):
+                continue
             for line in led.read_text().splitlines():
                 if not line:
                     continue
