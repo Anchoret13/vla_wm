@@ -112,7 +112,14 @@ def run_source(runner, env, scene, seed, ledger):
     finally:
         ledger.close_segment(seg, SRC_LINE, B.DEADLINE, t, seed=seed,
                              subrole=SRC_LINE, termination="deadline" if not done else "term")
-    return {"seed": seed, "steps": t, "failure_at_L": succ is None, "anchor": anchor}
+    # An anchor is eligible only when the source ends in failure@250 AND matched
+    # the exact event mask at tau.  The snapshot is taken at tau because that is
+    # when the state exists, but the source's terminal outcome is only known at
+    # the deadline - so the anchor is released here, not at tau.  Dropping this
+    # condition filled a whole bank (DISCARDED_2026-08-24T074430Z) with anchors
+    # from episodes that later succeeded.
+    return {"seed": seed, "steps": t, "failure_at_L": succ is None,
+            "anchor": anchor if succ is None else None}
 
 
 def run_branch(runner, env, scene, anchor, prefix, crn_key, ledger, cid):
