@@ -60,6 +60,10 @@ class Scene:
     """Per-step Phi inputs, resolved once per env construction."""
 
     def __init__(self, env):
+        # LiberoEnv builds its inner robosuite env lazily; goal atoms and body
+        # names are unavailable until then.
+        if getattr(env, "_env", None) is None:
+            env._ensure_env()
         self.bodies = discover_object_bodies(env)
         self.names = sorted(self.bodies)
         self.rows = [self.bodies[n] for n in self.names]
