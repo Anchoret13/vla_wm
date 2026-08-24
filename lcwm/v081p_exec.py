@@ -21,6 +21,7 @@ Owns three things the pilot's validity depends on:
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -74,18 +75,28 @@ class SegmentLedger:
             self.path.write_text("")
         self.spent = self._derive()
 
-    #: Directory-name prefixes whose spend is charged to THEIR OWN registration
-    #: and must not consume a successor's cap.  A cap belongs to a registration;
-    #: a superseded or aborted registration's steps stay charged to it and stay
-    #: in the project total, but deducting them from the next registration would
-    #: conflate two experiments and silently shrink the successor's budget.
-    QUARANTINE_PREFIXES = ("ABORTED_", "SMOKE_", "SUPERSEDED_", "HALTED_")
+    #: A quarantined run's spend is charged to THEIR OWN registration and must
+    #: not consume a successor's cap.  A cap belongs to a registration; a
+    #: superseded, aborted, or discarded attempt's steps stay charged to it and
+    #: stay in the project total, but deducting them from the next registration
+    #: would conflate two experiments and silently shrink the successor's budget.
+    #:
+    #: The named list is documentation.  The rule that actually fires is the
+    #: REGEX below, which quarantines any ALL-CAPS label prefixed to a run
+    #: stamp.  A hardcoded list fails OPEN: inventing a new label - `DISCARDED_`
+    #: - silently charged a 138,723-step discarded bank against its successor
+    #: and halted it after three groups.  A new label must not be able to do
+    #: that again.
+    QUARANTINE_PREFIXES = ("ABORTED_", "SMOKE_", "SUPERSEDED_", "HALTED_",
+                           "DISCARDED_")
+    QUARANTINE_RE = re.compile(r"^[A-Z][A-Z_]*_\d{4}-\d{2}-\d{2}T")
 
     def _derive(self) -> dict[str, int]:
         spent: dict[str, int] = {}
         opens: dict[str, dict] = {}
         for led in sorted(self.action_root.glob("**/segment_ledger.jsonl")):
             if any(part.startswith(self.QUARANTINE_PREFIXES)
+                   or self.QUARANTINE_RE.match(part)
                    for part in led.relative_to(self.action_root).parts):
                 continue
             for line in led.read_text().splitlines():
