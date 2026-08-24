@@ -1317,3 +1317,47 @@ Re-registered at 38 sources (the ceiling derived from the §17.4 measured yield;
 `[LOCKED]` **Action 2M.4 is one uninterrupted bank-to-checkpoint action, not a new diagnostic ladder.** It collects a fresh source-disjoint bank, trains one fixed-schedule action-conditioned M0.2 and its capacity-matched state-only baseline, freezes checkpoints on validation, and opens held-out test once. Schema, restore, finite-loss, reload, and ledger smokes are implementation checks only. There is no label-count, non-tie, sign-consistency, or noise-floor gate between a passing mechanics smoke and full model training.
 
 The executable contract and exact collection sizes are in `plan_and_progress/2026-08-23.md`, Action 2M.4. Its mandatory deliverables are `B_boot-v3/groups.pt`, `M0.2/best.pt`, complete training curves, and one source-disjoint held-out comparison against state-only and simple prediction baselines. A useful M0.2 proceeds directly to matched-budget WM-guided acquisition; a negative M0.2 changes model/training of the observed continuous target rather than reopening proposal, anchor, horizon, or noise-floor diagnostics.
+
+---
+
+## 18. Action 2M.4 — continuous readout, `B_boot-v3`, and M0.2 (2026-08-24)
+
+§17.5 sent the next change to the **outcome readout**. Action 2M.4 took it: keep the anchor, setting, and stock-PI0 proposal family fixed, replace the deterministic label with a continuous action-consequence target, collect a fresh bank, and train one M0.2. Record: `plan_and_progress/2026-08-24.md`.
+
+### 18.1 The readout change succeeded
+
+`[ESTABLISHED]` **The registered outcome is no longer the binding constraint.** The continuous target \(Q_\Phi\) — the phase potential evaluated at *every* environment step, discounted, and averaged over shared-seed repeats — took **80 distinct values across 80 branch rows**, where the legacy \((\mathrm{dp},\mathrm{ttm},G)\) vector took 11 on those same rows and 10 across 900 rows in Action 2M.3.
+
+\[
+G_\Phi^{\mathrm{exec}}=\sum_{j=1}^{c}\gamma^{j-1}\big(\Phi_j-\Phi_{j-1}\big),\quad
+G_\Phi^{\mathrm{cont}}=\sum_{j=1}^{H}\gamma^{j-1}\big(\Phi_{c+j}-\Phi_{c+j-1}\big),\quad
+Q_\Phi=G_\Phi^{\mathrm{exec}}+\gamma^{c}G_\Phi^{\mathrm{cont}}.
+\]
+
+`[LOCKED]` **Φ is built on the source episode and forked, never rebased at the anchor.** `lcwm/v086_phase.py` extracts the per-atom memos (`ever_true`, `was_lifted`, `dxy_at_lift`) and the episode baselines into a forkable object; `scripts/test_v086_phase.py` proves it byte-identical to `episode_phase_potentials` and proves a forked continuation reproduces the unforked episode tail. Reinitializing approach, attachment, lift, or transport state at \(\tau\) is prohibited.
+
+`[LOCKED]` **The deterministic target for one `(state, candidate)` is the candidate mean across shared-seed repeats.** Repeats estimate that target and are retained for calibration; they are never converted into conflicting per-rollout labels for a single deterministic model output.
+
+### 18.2 M0.2 is a held-out negative
+
+| model | physical MSE | effect MAE | paired-effect err | top-1 regret | effect corr |
+|---|---:|---:|---:|---:|---:|
+| action-conditioned | 0.001791 | 0.063241 | 0.017362 | 0.016022 | **−0.2275** |
+| state-only | **0.001298** | **0.036246** | **0.014041** | **0.012647** | 0.0000 |
+| copy / no-change | 0.091660 | **0.014041** | — | — | — |
+
+`[ESTABLISHED]` The action-conditioned model loses to every registered baseline on every metric. The action path *is* used — shuffle gap 0.01838 against the baseline's exactly 0 — and conditioning on it makes the model worse. Its candidate ranking is **anti-correlated**, not merely uninformative. Neither model beats "assume every candidate equals the reference" on effect MAE.
+
+`[NOTE]` `state_only` and `stock_reference` tie exactly on paired effect and top-1 regret by construction: a model with no action input scores every candidate identically, so its predicted delta is zero, which *is* the stock-reference predictor. Those two registered baselines are one bar, and any future comparison must say so rather than counting them twice.
+
+The failure mode is localized: validation selected epoch **4** for the action model against **27** for state-only, and action validation loss rises to 0.90–0.96 while the baseline sits at 0.49–0.69. With 48 training anchors against a target whose signal-to-noise on the candidate mean is roughly 1.7×, it overfits the action input immediately.
+
+`[LOCKED]` **The next change concerns model and training of an observed continuous target** — capacity, regularization, or training-set size — and does **not** return to another proposal family, anchor, horizon, or noise-floor diagnostic. The matched-budget WM-guided-versus-random acquisition test remains locked; it required beating the state-only and stock-reference baselines.
+
+### 18.3 Two implementation defects and their cost
+
+`[LOCKED]` **Anchor eligibility is `failure@L` AND the exact event mask — both, always.** The first 2M.4 collection tested only the mask and put **33 of 64 anchors inside episodes that later succeeded**, discarding 138,723 steps. The method is failure-anchored (§3); training on that bank would have silently redefined the learned population and shown up in no training metric. The tell was arithmetic, not a test: 100% eligibility against a measured 0.538, on ceilings the action item had sized *from* 0.538.
+
+`[LOCKED]` **Quarantine must fail closed.** The re-collection halted because a newly invented `DISCARDED_` label was absent from `SegmentLedger`'s hardcoded prefix list — a regression of the fix made two actions earlier for the identical failure (§17.5). Quarantine is now a regex over any ALL-CAPS label prefixed to a run stamp. A cap-accounting mechanism that enumerates its exceptions will be defeated by the next exception.
+
+Cost: of Action 2M.4's **318,242** environment steps, **158,275 (49.7%)** bought nothing and are charged. Project total across all V8 ledgers: **611,655**.
