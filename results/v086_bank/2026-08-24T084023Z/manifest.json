@@ -1,0 +1,46 @@
+{
+  "action": "2M.4",
+  "bank": "B_boot-v3",
+  "utc": "2026-08-24T084023Z",
+  "git": "ae69b71686199e24024629ae892f0d27dbf2a70d",
+  "git_dirty": false,
+  "smoke": false,
+  "quotas": {
+    "train": 48,
+    "val": 8,
+    "test": 8
+  },
+  "repeats": {
+    "train": 4,
+    "val": 6,
+    "test": 6
+  },
+  "candidates": 5,
+  "branches": 1440,
+  "cap": {
+    "source": 38500,
+    "branch": 129600
+  },
+  "cap_total": 168100,
+  "queues": {
+    "train": [
+      4000,
+      4107,
+      108
+    ],
+    "val": [
+      4108,
+      4130,
+      23
+    ],
+    "test": [
+      4131,
+      4153,
+      23
+    ]
+  },
+  "primary_target": "QPhi",
+  "no_early_stop": "collection and training proceed regardless of how many candidate/reference differences appear; only a technical fault, source underfill, or the interaction cap may halt",
+  "root": "6cacaf410e10ef20dc73e0f778e2c15f94b2d70ca3f8d2b5690c9b35c3eaf686",
+  "status": "COMPLETE"
+}
