@@ -1,0 +1,74 @@
+{
+  "action": "2M.4",
+  "utc": "2026-08-24T09:38:16.338954+00:00",
+  "groups_path": "results/v086_bank/2026-08-24T084023Z/groups.pt",
+  "groups_sha256": "c7126c595bebecac36e86d160ce65f2afab78c70af08f65279fa31994b13a9a2",
+  "splits": {
+    "train": 48,
+    "val": 8,
+    "test": 8
+  },
+  "best_epoch": {
+    "action_conditioned": 4,
+    "state_only": 27
+  },
+  "primary_target": "QPhi",
+  "loss": {
+    "physical": 1.0,
+    "task": 1.0,
+    "paired": 0.25
+  },
+  "held_out": [
+    {
+      "model": "action_conditioned",
+      "anchors": 8,
+      "physical_mse": 0.0017910865135490894,
+      "effect_mae": 0.06324070750270039,
+      "effect_rmse": 0.09770978386950173,
+      "paired_effect_abs_err": 0.017361898528179154,
+      "top1_regret": 0.01602158509194851,
+      "effect_corr": -0.2274932563304901,
+      "dmg_cal_err": 0.0025583147289580666,
+      "succ_cal_err": 0.02550733450334519
+    },
+    {
+      "model": "state_only",
+      "anchors": 8,
+      "physical_mse": 0.0012978273643966531,
+      "effect_mae": 0.03624557096918579,
+      "effect_rmse": 0.05197897360801249,
+      "paired_effect_abs_err": 0.01404068422561977,
+      "top1_regret": 0.012646565213799477,
+      "effect_corr": 0.0,
+      "dmg_cal_err": 0.000436839672147471,
+      "succ_cal_err": 0.004746073456772137
+    },
+    {
+      "model": "stock_reference",
+      "anchors": 8,
+      "top1_regret": 0.012646565213799477,
+      "paired_effect_abs_err": 0.01404068422561977,
+      "note": "always executes the reference; delta prediction is 0"
+    },
+    {
+      "model": "train_empirical_mean",
+      "anchors": 8,
+      "paired_effect_abs_err": 0.014302845738711767,
+      "top1_regret": 0.012646565213799477,
+      "note": "constant predicted delta = -0.00304"
+    },
+    {
+      "model": "copy_no_change",
+      "anchors": 8,
+      "physical_mse": 0.09165957011282444,
+      "effect_mae": 0.01404068422561977,
+      "note": "predicts zero physical delta and the reference's consequence"
+    }
+  ],
+  "action_shuffle_gap": {
+    "action_conditioned": 0.018381266854703426,
+    "state_only": 0.0
+  },
+  "device": "cuda",
+  "epochs": 30
+}
