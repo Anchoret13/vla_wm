@@ -1,0 +1,20 @@
+[
+  {
+    "seed": 4000,
+    "split": "train",
+    "failure_at_L": true,
+    "eligible": true
+  },
+  {
+    "seed": 4108,
+    "split": "val",
+    "failure_at_L": false,
+    "eligible": true
+  },
+  {
+    "seed": 4131,
+    "split": "test",
+    "failure_at_L": true,
+    "eligible": true
+  }
+]
