@@ -1,0 +1,26 @@
+{
+  "action": "2M.5",
+  "bank": "fresh held-out test",
+  "utc": "2026-08-25T191610Z",
+  "git": "ee119f0abf301a96bad6dbb51218e5867c28aec5",
+  "git_dirty": false,
+  "seeds": [
+    4200,
+    4222,
+    23
+  ],
+  "groups": 8,
+  "candidates": 5,
+  "repeats": 6,
+  "branches": 240,
+  "cap": {
+    "source": 5750,
+    "branch": 21600
+  },
+  "cap_total": 27350,
+  "eligibility": "failure@250 AND the exact event mask at tau=160",
+  "sealed": "outcomes must not be read until the M0.3 validation checkpoint is fixed",
+  "root": "d186819029f1a1d02222380de7190de1324eba590f701b0eca2141b66a27188d",
+  "status": "COMPLETE",
+  "groups_sha256": "b0a3363373aaf3b9145675f93f968c89e6d28df48dcc3f9bfcf587f0f849fab0"
+}
