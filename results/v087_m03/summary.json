@@ -1,0 +1,52 @@
+{
+  "action": "2M.5",
+  "utc": "2026-08-25T19:28:07.509404+00:00",
+  "dev_groups": "results/v086_bank/2026-08-24T084023Z/groups.pt",
+  "dev_sha256": "c7126c595bebecac36e86d160ce65f2afab78c70af08f65279fa31994b13a9a2",
+  "test_groups": "results/v087_testbank/2026-08-25T191610Z/groups.pt",
+  "test_sha256": "b0a3363373aaf3b9145675f93f968c89e6d28df48dcc3f9bfcf587f0f849fab0",
+  "m02_checkpoint": "results/v086_m02/best.pt",
+  "best_epoch": 28,
+  "best_val": 0.39269953966140747,
+  "residual_hidden": 64,
+  "trainable_params": 32505,
+  "held_out": [
+    {
+      "model": "M0.3_residual",
+      "anchors": 8,
+      "effect_mae": 0.006632999051362276,
+      "effect_corr": 0.1642659306526184,
+      "top1_regret": 0.008556868880987167,
+      "physical_delta_err": 1.1030030236724997e-05
+    },
+    {
+      "model": "zero_delta_reference",
+      "anchors": 8,
+      "effect_mae": 0.0061945728957653046,
+      "effect_corr": 0.0,
+      "top1_regret": 0.0031246282160282135,
+      "physical_delta_err": 0.0
+    },
+    {
+      "model": "M0.2_absolute",
+      "anchors": 8,
+      "effect_mae": 0.0061127785593271255,
+      "effect_corr": 0.1718551367521286,
+      "top1_regret": 0.006649080663919449,
+      "physical_delta_err": 0.0006273802646319382
+    },
+    {
+      "model": "M0.2_rank_head",
+      "anchors": 8,
+      "effect_mae": 0.007334384135901928,
+      "effect_corr": 0.15246611833572388,
+      "top1_regret": 0.00532878190279007
+    }
+  ],
+  "action_shuffle_gap": 0.020616970723494887,
+  "loss": {
+    "q": 1.0,
+    "physical": 0.5,
+    "aux": 0.25
+  }
+}
