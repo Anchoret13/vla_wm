@@ -1361,3 +1361,38 @@ The failure mode is localized: validation selected epoch **4** for the action mo
 `[LOCKED]` **Quarantine must fail closed.** The re-collection halted because a newly invented `DISCARDED_` label was absent from `SegmentLedger`'s hardcoded prefix list — a regression of the fix made two actions earlier for the identical failure (§17.5). Quarantine is now a regex over any ALL-CAPS label prefixed to a run stamp. A cap-accounting mechanism that enumerates its exceptions will be defeated by the next exception.
 
 Cost: of Action 2M.4's **318,242** environment steps, **158,275 (49.7%)** bought nothing and are charged. Project total across all V8 ledgers: **611,655**.
+
+---
+
+## 19. Action 2M.5 — reference-centered residual WM (2026-08-25)
+
+§18.2 sent the next change to **model and training of an observed continuous target**. Action 2M.5 took it with a fixed factorization rather than a sweep:
+
+\[
+\hat Y(i)=b(s)+\hat\Delta(i),\qquad
+\hat\Delta(i)=h\big(z_s,u_0,u_i-u_0\big)-h\big(z_s,u_0,0\big),
+\]
+
+with \(b(s)\) and \(z_s\) frozen from M0.2's state-only checkpoint, one 64-unit residual head trained (32,505 parameters), and the independent rank head retired so the sibling score is the predicted consequence itself. Record: `plan_and_progress/2026-08-25.md`.
+
+### 19.1 What the factorization fixed, and what it did not
+
+`[ESTABLISHED]` \(\hat\Delta(\text{reference})=0\) by construction, verified before training, so the model cannot lose to the stock-reference predictor on the reference itself. Held-out effect correlation is **+0.1643**, against M0.2's **−0.2275** on the 2M.4 split.
+
+`[ESTABLISHED]` **M0.3 is not promoted.** Effect MAE 0.006633 against 0.006195 (zero-delta/reference) and 0.006113 (M0.2); top-1 regret 0.008557 against 0.003125 and 0.006649. The bar required beating both baselines on both quantities with positive correlation; correlation passed, the other two did not. The matched-budget WM-guided acquisition test remains locked.
+
+### 19.2 The held-out bar is underpowered — this supersedes how earlier results were read
+
+`[LOCKED]` **An 8-anchor held-out panel cannot rank sibling-selection methods, and top-1 regret over it is not a usable promotion statistic.** On the fresh test bank a zero-information rule — "always pick candidate 4" — achieves regret **0.000930**, better than every model and every registered baseline. The same rule is the **worst of five** on the 48 dev-train anchors (**0.023339**, argmax at 3/48 against candidate 0's 28/48). The test ordering is dominated by which candidate index happened to win eight times.
+
+`[LOCKED]` **A held-out effect correlation at this sample size is not identified in either direction.** The same M0.2 checkpoint scores **−0.2275** on one 8-anchor bank and **+0.1719** on a disjoint one, from 32 candidate points each. §18.2's statement that M0.2's ranking was "anti-correlated, not merely uninformative" is **withdrawn**: the sign does not replicate. Any future promotion claim must state the number of independent anchors behind its correlation and must not rest a directional claim on a single 8-anchor panel.
+
+`[ESTABLISHED]` **The physical channel is exactly degenerate at these anchors.** Maximum absolute true physical delta between any candidate and its reference is **0.000e+00** across all 8 test anchors — bitwise-identical `post_prefix_delta` for all five candidates — after 43/48 in `B_boot-v3`. `L_physical` at weight 0.5 is therefore regressing a constant zero, and a near-perfect score on that channel carries no information. Any objective retaining that term at this setting is spending a third of its weight on a constant.
+
+`[ESTABLISHED]` Effect sizes: true \(\Delta Q_\Phi\) over 32 test candidate points has mean \(|\Delta|=0.00619\), sd 0.00635; per-anchor \(S\) range 0.0047–0.0246; the reference is already the best candidate at 3/8 test and 28/48 dev anchors.
+
+### 19.3 Consequence
+
+The two model-side changes registered since §17.5 — a continuous readout (2M.4) and a reference-centered residual factorization (2M.5) — have each done what they were designed to do while leaving the promotion decision unresolved, because the decision is being made on a panel too small to resolve it. Before another model or training change is registered, the **evaluation panel** is the component that limits what any result can mean.
+
+Interaction: Action 2M.5 spent **25,490** steps with no discarded or aborted run. Project total across all V8 ledgers: **637,145**.
