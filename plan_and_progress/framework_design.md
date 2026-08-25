@@ -1393,6 +1393,8 @@ with \(b(s)\) and \(z_s\) frozen from M0.2's state-only checkpoint, one 64-unit 
 
 ### 19.3 Consequence
 
-The two model-side changes registered since §17.5 — a continuous readout (2M.4) and a reference-centered residual factorization (2M.5) — have each done what they were designed to do while leaving the promotion decision unresolved, because the decision is being made on a panel too small to resolve it. Before another model or training change is registered, the **evaluation panel** is the component that limits what any result can mean.
+The two model-side changes registered since §17.5 — a continuous readout (2M.4) and a reference-centered residual factorization (2M.5) — have each done what they were designed to do. The small held-out panel limits a final selector claim, but it does **not** become the next project. M0.3 was trained from only **48 independent anchors** with a 32,505-parameter residual head, while a third of its registered objective weight was spent on an effectively constant physical target.
+
+`[DECISION]` **Return directly to world-model training.** Action 2M.6 scales the residual model to **192 independent training anchors**, removes the degenerate physical term, and trains one M0.4 on the continuous consequence target. Its larger 32-anchor assessment is collected inside the same bank-to-checkpoint action; it is not an evaluation-only stage or a gate before training. No proposal, anchor, horizon, noise-floor, benchmark, or architecture-diagnostic branch intervenes. Executable contract: `plan_and_progress/2026-08-25.md` §"ACTION ITEM — Action 2M.6".
 
 Interaction: Action 2M.5 spent **25,490** steps with no discarded or aborted run. Project total across all V8 ledgers: **637,145**.
