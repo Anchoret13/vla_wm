@@ -26,9 +26,13 @@ from lcwm.task_automaton import GoalAutomaton  # noqa: E402
 from lcwm.v080_bench import V080_TASKS, episode_length, make_v080_env  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
 
-PANEL = tuple(range(3200, 3232))                    # 32, frozen and reserved
+#: chain1b's frozen panel is 3200-3231. chain2b needs more seeds for power: its
+#: failures are the tomato-first episodes, ~12.5% of seeds, so 32 seeds yield
+#: only ~4 convertible episodes and even a perfect fix gives McNemar p=0.125.
+#: The reserved block 3200-3399 was set aside for behavior evaluation exactly so
+#: a panel could be sized to the effect it must resolve (framework 19).
+PANEL_DEFAULT = tuple(range(3200, 3232))
 OUT_ROOT = REPO / "results" / "v088_behavior"
-assert len(PANEL) == 32
 
 
 def main() -> int:
@@ -36,6 +40,8 @@ def main() -> int:
     ap.add_argument("--policy", default="stock",
                     help="'stock' or a path to a fine-tuned VLA checkpoint")
     ap.add_argument("--tag", required=True, help="pi_0 | pi_1 | pi_2")
+    ap.add_argument("--panel", type=int, default=32,
+                    help="number of seeds from 3200; sized to the effect")
     ap.add_argument("--task", default=B.TASK,
                     help="ladder task; the panel seeds are shared across tasks")
     ap.add_argument("--head", default=None,
@@ -62,6 +68,7 @@ def main() -> int:
     subgoals = V080_TASKS[task]["ordered_subgoals"]
 
     rows, steps = [], 0
+    PANEL = tuple(range(3200, 3200 + a.panel))
     for seed in PANEL:
         torch.manual_seed(seed); np.random.seed(seed)
         if torch.cuda.is_available():
@@ -93,7 +100,7 @@ def main() -> int:
     k = sum(r["success"] for r in rows)
     lo, up = clopper_pearson_lower(k, len(rows)), clopper_pearson_upper(k, len(rows))
     summary = {"action": "2M.6", "tag": a.tag, "utc": stamp,
-               "policy": model_id, "head": head_note, "task": B.TASK, "deadline": B.DEADLINE,
+               "policy": model_id, "head": head_note, "task": task, "deadline": L,
                "panel_seeds": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [lo, up], "env_steps": steps,
