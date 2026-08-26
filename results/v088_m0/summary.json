@@ -1,0 +1,19 @@
+{
+  "action": "2M.6",
+  "artifact": "M_0",
+  "utc": "2026-08-26T06:43:15.173405+00:00",
+  "groups": 72,
+  "train": 64,
+  "calib": 8,
+  "dev_sha256": "c7126c595bebecac36e86d160ce65f2afab78c70af08f65279fa31994b13a9a2",
+  "extra_sha256": "b0a3363373aaf3b9145675f93f968c89e6d28df48dcc3f9bfcf587f0f849fab0",
+  "best_epoch": 1,
+  "best_calib_loss": 0.23322701454162598,
+  "epochs": 60,
+  "loss_weights": {
+    "q": 1.0,
+    "physical": 0.0,
+    "aux": 0.25
+  },
+  "note": "offline metrics are recorded but do not gate the interaction round"
+}
