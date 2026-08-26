@@ -186,7 +186,15 @@ def run_branch(runner, env, scene, anchor, prefix, crn_key, ledger, cid):
             "legacy": legacy, "terminal_step": t}
 
 
-def build_group(runner, env, scene, anchor, split, root, ledger):
+def build_pool(runner, env, anchor, root: str) -> dict:
+    """The five-candidate pool: reference + four max-spread alternatives.
+
+    Factored out of `build_group` so Action 2M.6's acquisition rounds construct
+    the pool with THIS implementation rather than a second copy of it. The 2M.4
+    bank was discarded because a reimplementation of a shared rule silently
+    diverged; the pool construction is not going to repeat that.
+    Executes nothing.
+    """
     restore(env, anchor["snapshot"]); runner.reset()
     obs = env._format_raw_obs(env._env.env._get_observations())
     po = runner._obs_to_policy_batch(obs, env.task_description)
@@ -202,8 +210,17 @@ def build_group(runner, env, scene, anchor, split, root, ledger):
     ref_env = runner.chunk_to_env(ref)
     raw_env = [runner.chunk_to_env(raw[i]) for i in range(B.N_RAW_DRAWS)]
     pick = select_max_spread(raw_env, ref_env)
-    chunks = [ref_env] + [raw_env[i] for i in pick]
-    ids = ["reference"] + [f"alt{i}" for i in range(B.N_ALTERNATIVES)]
+    return {"hidden": hidden, "hmask": hmask, "ref_norm": ref, "raw_norm": raw,
+            "chunks": [ref_env] + [raw_env[i] for i in pick], "selected": pick,
+            "ids": ["reference"] + [f"alt{i}" for i in range(B.N_ALTERNATIVES)],
+            "actions_norm": torch.stack([ref] + [raw[i] for i in pick])}
+
+
+def build_group(runner, env, scene, anchor, split, root, ledger):
+    pool = build_pool(runner, env, anchor, root)
+    hidden, hmask = pool["hidden"], pool["hmask"]
+    ref, raw, pick = pool["ref_norm"], pool["raw_norm"], pool["selected"]
+    chunks, ids = pool["chunks"], pool["ids"]
     R = B.REPEATS[split]
     keys = [_key(root, "crn", anchor["anchor_id"], j) for j in range(R)]
 
