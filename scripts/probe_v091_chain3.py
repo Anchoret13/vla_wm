@@ -30,8 +30,7 @@ ensure_project_libero_config()
 import numpy as np, torch  # noqa: E402
 from lcwm.seq_data import goal_atoms, predicate_bits  # noqa: E402
 from lcwm.task_automaton import GoalAutomaton  # noqa: E402
-from lcwm.v080_bench import V080_TASKS, episode_length  # noqa: E402
-from lcwm.v080r_panel import make_env_at  # noqa: E402
+from lcwm.v080_bench import V080_TASKS, episode_length, make_v080_env  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
 
 TASK = "chain3_lr2"
@@ -47,7 +46,9 @@ def main() -> int:
     out = OUT / stamp; out.mkdir(parents=True, exist_ok=True)
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=10)
-    env = make_env_at(TASK, L)
+    # v080r_panel.make_env_at is scoped to the two 1R tasks; the full
+    # five-rung ladder lives in v080_bench with the derived horizon.
+    env = make_v080_env(TASK)
     subgoals = V080_TASKS[TASK]["ordered_subgoals"]
     print(f"{TASK} L={L}, {len(subgoals)} milestones: {subgoals}")
 
