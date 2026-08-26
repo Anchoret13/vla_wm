@@ -23,8 +23,7 @@ import torch  # noqa: E402
 from lcwm import v086_bank as B  # noqa: E402
 from lcwm.seq_data import goal_atoms, predicate_bits  # noqa: E402
 from lcwm.task_automaton import GoalAutomaton  # noqa: E402
-from lcwm.v080_bench import V080_TASKS  # noqa: E402
-from lcwm.v080r_panel import make_env_at  # noqa: E402
+from lcwm.v080_bench import V080_TASKS, episode_length, make_v080_env  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
 
 PANEL = tuple(range(3200, 3232))                    # 32, frozen and reserved
@@ -37,6 +36,8 @@ def main() -> int:
     ap.add_argument("--policy", default="stock",
                     help="'stock' or a path to a fine-tuned VLA checkpoint")
     ap.add_argument("--tag", required=True, help="pi_0 | pi_1 | pi_2")
+    ap.add_argument("--task", default=B.TASK,
+                    help="ladder task; the panel seeds are shared across tasks")
     ap.add_argument("--head", default=None,
                     help="path to a checkpoint whose 'action_out_proj' state "
                          "dict replaces the stock head (narrow-boundary update)")
@@ -55,8 +56,10 @@ def main() -> int:
         runner.policy.eval()
         head_note = str(a.head)
         print(f"loaded narrow-boundary head from {a.head}")
-    env = make_env_at(B.TASK, B.DEADLINE)
-    subgoals = V080_TASKS[B.TASK]["ordered_subgoals"]
+    task = a.task
+    L = episode_length(task)
+    env = make_v080_env(task)
+    subgoals = V080_TASKS[task]["ordered_subgoals"]
 
     rows, steps = [], 0
     for seed in PANEL:
@@ -68,7 +71,7 @@ def main() -> int:
         au = GoalAutomaton(subgoals); au.start(env)
         atoms = goal_atoms(env); au.evaluate(env, 0)
         t, done, succ = 0, False, None
-        while not done and t < B.DEADLINE:
+        while not done and t < L:
             obs, _r, term, trunc, info = env.step(
                 runner.select_action(obs, env.task_description))
             t += 1
@@ -80,8 +83,10 @@ def main() -> int:
                 if succ is None and predicate_bits(env, atoms).all():
                     succ = t
         steps += t
+        ev = {int(k): int(v) for k, v in au.events_achieved.items()}
         rows.append({"seed": seed, "success": succ is not None, "success_step": succ,
-                     "steps": t, "milestones": len(au.events_achieved),
+                     "steps": t, "milestones": len(ev), "events": ev,
+                     "order": [i for i, _ in sorted(ev.items(), key=lambda kv: kv[1])],
                      "damage": au.damage_unrecovered()})
         print(f"{a.tag} seed={seed} success={succ is not None} @{succ} steps={t}", flush=True)
 
