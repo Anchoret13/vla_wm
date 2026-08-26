@@ -37,6 +37,9 @@ def main() -> int:
     ap.add_argument("--policy", default="stock",
                     help="'stock' or a path to a fine-tuned VLA checkpoint")
     ap.add_argument("--tag", required=True, help="pi_0 | pi_1 | pi_2")
+    ap.add_argument("--head", default=None,
+                    help="path to a checkpoint whose 'action_out_proj' state "
+                         "dict replaces the stock head (narrow-boundary update)")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT_ROOT / f"{a.tag}_{stamp}"
@@ -45,6 +48,13 @@ def main() -> int:
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     model_id = DEFAULT_MODEL if a.policy == "stock" else a.policy
     runner = Pi05Runner(model_id=model_id, suite_name="libero_10", n_action_steps=10)
+    head_note = "stock"
+    if a.head:
+        ck = torch.load(a.head, weights_only=False)
+        runner.policy.model.action_out_proj.load_state_dict(ck["action_out_proj"])
+        runner.policy.eval()
+        head_note = str(a.head)
+        print(f"loaded narrow-boundary head from {a.head}")
     env = make_env_at(B.TASK, B.DEADLINE)
     subgoals = V080_TASKS[B.TASK]["ordered_subgoals"]
 
@@ -78,7 +88,7 @@ def main() -> int:
     k = sum(r["success"] for r in rows)
     lo, up = clopper_pearson_lower(k, len(rows)), clopper_pearson_upper(k, len(rows))
     summary = {"action": "2M.6", "tag": a.tag, "utc": stamp,
-               "policy": model_id, "task": B.TASK, "deadline": B.DEADLINE,
+               "policy": model_id, "head": head_note, "task": B.TASK, "deadline": B.DEADLINE,
                "panel_seeds": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [lo, up], "env_steps": steps,
