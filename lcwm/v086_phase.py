@@ -159,5 +159,12 @@ def q_phi(phis: Sequence[float], c: int = 10, h: int = 80,
         out[f"GPhi_cont_{hh}"] = discounted_delta(phis, c, hh, gamma)
         out[f"dPhi_cont_{hh}"] = float(
             phis[min(c + hh, len(phis) - 1)] - phis[min(c, len(phis) - 1)])
+    # `h` is the anchor's actual continuation length, which is FIXED at 80 for
+    # the tau=160 banks but VARIABLE for a phase-aligned anchor whose tau moves
+    # with the pick event.  Compute it explicitly rather than assuming it is one
+    # of the precomputed reporting horizons.
+    out[f"GPhi_cont_{h}"] = discounted_delta(phis, c, h, gamma)
+    out[f"dPhi_cont_{h}"] = float(
+        phis[min(c + h, len(phis) - 1)] - phis[min(c, len(phis) - 1)])
     out["QPhi"] = g_exec + (gamma ** c) * out[f"GPhi_cont_{h}"]
     return out
