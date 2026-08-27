@@ -1,0 +1,2497 @@
+{
+  "task": "chain2b_lr2",
+  "tag": "wm_n8_w4",
+  "utc": "2026-08-27T072119Z",
+  "n_candidates": 8,
+  "window": 4,
+  "scorer": "results/v098_wm/2026-08-27T071847Z/scorer.pt",
+  "scorer_val_acc": 1.0,
+  "panel": [
+    3200,
+    3263,
+    64
+  ],
+  "successes": 48,
+  "n": 64,
+  "rate": 0.75,
+  "cp95": [
+    0.6453821479756074,
+    0.8364593639251343
+  ],
+  "first_object": {
+    "cream": 55,
+    "tomato": 8,
+    "none": 1
+  },
+  "env_steps": 22436,
+  "episodes": [
+    {
+      "seed": 3200,
+      "success": true,
+      "success_step": 268,
+      "steps": 268,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -0.41080042719841003,
+          "min": -0.7954916954040527
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": -0.2091306746006012,
+          "min": -0.6273046731948853
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 2.9834823608398438,
+          "min": 2.586275100708008
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 2.5216429233551025,
+          "min": 2.2576727867126465
+        }
+      ]
+    },
+    {
+      "seed": 3201,
+      "success": true,
+      "success_step": 276,
+      "steps": 276,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -0.13425853848457336,
+          "min": -1.0091263055801392
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 4.041889667510986,
+          "min": 3.818881034851074
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 3.563047170639038,
+          "min": 3.099236488342285
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 1.7627644538879395,
+          "min": 1.4119609594345093
+        }
+      ]
+    },
+    {
+      "seed": 3202,
+      "success": true,
+      "success_step": 253,
+      "steps": 253,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": -0.597186803817749,
+          "min": -1.2601693868637085
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.9387056827545166,
+          "min": 3.638676404953003
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 5.3483991622924805,
+          "min": 5.187163352966309
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 3.19264554977417,
+          "min": 2.927877187728882
+        }
+      ]
+    },
+    {
+      "seed": 3203,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -0.9348598718643188,
+          "min": -1.278977394104004
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.7697834968566895,
+          "min": 3.2877626419067383
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 3.8762319087982178,
+          "min": 3.582932472229004
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 0.1175796240568161,
+          "min": -0.4490636885166168
+        }
+      ]
+    },
+    {
+      "seed": 3204,
+      "success": true,
+      "success_step": 269,
+      "steps": 269,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.4549895226955414,
+          "min": -1.2459920644760132
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 3.5051300525665283,
+          "min": 3.0438990592956543
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 5.1637797355651855,
+          "min": 4.9641523361206055
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 2.125682830810547,
+          "min": 1.585250735282898
+        }
+      ]
+    },
+    {
+      "seed": 3205,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": 0.214395672082901,
+          "min": -0.3789924085140228
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 3.9634056091308594,
+          "min": 3.6641745567321777
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 3.455960988998413,
+          "min": 3.2279157638549805
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": 1.7940852642059326,
+          "min": 0.9989827871322632
+        }
+      ]
+    },
+    {
+      "seed": 3206,
+      "success": true,
+      "success_step": 356,
+      "steps": 356,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": -1.1047241687774658,
+          "min": -1.4533036947250366
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 5.681511402130127,
+          "min": 5.58280611038208
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 5.021888256072998,
+          "min": 4.820802688598633
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 2.8934106826782227,
+          "min": 2.5508029460906982
+        }
+      ]
+    },
+    {
+      "seed": 3207,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.6670479774475098,
+          "min": -1.3118174076080322
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 0.556867241859436,
+          "min": 0.23210787773132324
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 2.0213568210601807,
+          "min": 1.705161452293396
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 0.8825331926345825,
+          "min": 0.46206068992614746
+        }
+      ]
+    },
+    {
+      "seed": 3208,
+      "success": true,
+      "success_step": 451,
+      "steps": 451,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -0.999901533126831,
+          "min": -1.4045720100402832
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.693441867828369,
+          "min": 3.425466537475586
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 3.5371055603027344,
+          "min": 3.154207706451416
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 0.6158103942871094,
+          "min": 0.10990915447473526
+        }
+      ]
+    },
+    {
+      "seed": 3209,
+      "success": true,
+      "success_step": 325,
+      "steps": 325,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": 0.35446593165397644,
+          "min": -0.35370907187461853
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.8544487953186035,
+          "min": 3.481180191040039
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 5.817946434020996,
+          "min": 5.504619121551514
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 3.077833414077759,
+          "min": 2.0125436782836914
+        }
+      ]
+    },
+    {
+      "seed": 3210,
+      "success": true,
+      "success_step": 372,
+      "steps": 372,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": 0.036887094378471375,
+          "min": -0.5295852422714233
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 2.5084314346313477,
+          "min": 2.060497283935547
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 3.8671040534973145,
+          "min": 3.4344911575317383
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": 2.7571194171905518,
+          "min": 2.16195011138916
+        }
+      ]
+    },
+    {
+      "seed": 3211,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": 0.21805179119110107,
+          "min": -0.22473940253257751
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 4.541815280914307,
+          "min": 4.285225868225098
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 4.934547424316406,
+          "min": 4.726826190948486
+        },
+        {
+          "boundary": 3,
+          "chosen": 2,
+          "score": 1.6597464084625244,
+          "min": 1.41986083984375
+        }
+      ]
+    },
+    {
+      "seed": 3212,
+      "success": true,
+      "success_step": 262,
+      "steps": 262,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.15184283256530762,
+          "min": -0.7875252962112427
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 2.4752964973449707,
+          "min": 1.7593671083450317
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 4.778826713562012,
+          "min": 4.4838337898254395
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 1.3517988920211792,
+          "min": 0.4528621733188629
+        }
+      ]
+    },
+    {
+      "seed": 3213,
+      "success": true,
+      "success_step": 344,
+      "steps": 344,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -1.1406956911087036,
+          "min": -1.5483349561691284
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 2.2009592056274414,
+          "min": 1.4648240804672241
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 4.111819744110107,
+          "min": 3.6168484687805176
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 1.0651235580444336,
+          "min": 0.3249998688697815
+        }
+      ]
+    },
+    {
+      "seed": 3214,
+      "success": true,
+      "success_step": 291,
+      "steps": 291,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": -0.7683395147323608,
+          "min": -1.2390414476394653
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 0.5428498983383179,
+          "min": -0.22707584500312805
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 3.7516355514526367,
+          "min": 3.4509551525115967
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 2.7869341373443604,
+          "min": 2.4326212406158447
+        }
+      ]
+    },
+    {
+      "seed": 3215,
+      "success": true,
+      "success_step": 473,
+      "steps": 473,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": 0.034035757184028625,
+          "min": -0.8766902685165405
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.4559383392333984,
+          "min": 3.1737308502197266
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 1.2339829206466675,
+          "min": 0.8326332569122314
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 1.5477923154830933,
+          "min": 1.2049503326416016
+        }
+      ]
+    },
+    {
+      "seed": 3216,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": -0.8906363248825073,
+          "min": -1.2546879053115845
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 4.415250778198242,
+          "min": 4.048278331756592
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 5.658896446228027,
+          "min": 5.465925216674805
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": 3.3219997882843018,
+          "min": 2.912088632583618
+        }
+      ]
+    },
+    {
+      "seed": 3217,
+      "success": true,
+      "success_step": 292,
+      "steps": 292,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": 0.18558043241500854,
+          "min": -0.7312189340591431
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 5.640739440917969,
+          "min": 5.341344833374023
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 3.4417777061462402,
+          "min": 3.0559568405151367
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 2.9408113956451416,
+          "min": 2.481170654296875
+        }
+      ]
+    },
+    {
+      "seed": 3218,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -0.03928941488265991,
+          "min": -0.8421926498413086
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 4.307860374450684,
+          "min": 4.138056755065918
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 5.374162673950195,
+          "min": 5.054018974304199
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 1.292580008506775,
+          "min": 0.8698585033416748
+        }
+      ]
+    },
+    {
+      "seed": 3219,
+      "success": true,
+      "success_step": 327,
+      "steps": 327,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -0.9920438528060913,
+          "min": -1.6627322435379028
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.473649740219116,
+          "min": 3.0388574600219727
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 3.834146022796631,
+          "min": 3.489626407623291
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 2.851458787918091,
+          "min": 2.217510461807251
+        }
+      ]
+    },
+    {
+      "seed": 3220,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": 0.710234522819519,
+          "min": -0.3178684413433075
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": 3.1981282234191895,
+          "min": 2.9427387714385986
+        },
+        {
+          "boundary": 2,
+          "chosen": 7,
+          "score": 4.023683547973633,
+          "min": 3.680830478668213
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 3.355379581451416,
+          "min": 3.0515599250793457
+        }
+      ]
+    },
+    {
+      "seed": 3221,
+      "success": true,
+      "success_step": 278,
+      "steps": 278,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.4155283272266388,
+          "min": -1.4559648036956787
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 2.2924277782440186,
+          "min": 1.9120452404022217
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 3.830024480819702,
+          "min": 3.522736072540283
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": 4.122561454772949,
+          "min": 3.8256583213806152
+        }
+      ]
+    },
+    {
+      "seed": 3222,
+      "success": true,
+      "success_step": 270,
+      "steps": 270,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -0.9023594856262207,
+          "min": -1.4653650522232056
+        },
+        {
+          "boundary": 1,
+          "chosen": 1,
+          "score": 4.566720962524414,
+          "min": 4.136963844299316
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 5.009191036224365,
+          "min": 4.853146553039551
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 2.6726348400115967,
+          "min": 2.421998977661133
+        }
+      ]
+    },
+    {
+      "seed": 3223,
+      "success": true,
+      "success_step": 349,
+      "steps": 349,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": 0.10972265899181366,
+          "min": -0.7188057899475098
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 5.704505443572998,
+          "min": 5.403618812561035
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 4.582681655883789,
+          "min": 4.28702449798584
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 0.9938013553619385,
+          "min": 0.4893486201763153
+        }
+      ]
+    },
+    {
+      "seed": 3224,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.425669401884079,
+          "min": -0.8718749284744263
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 4.734859466552734,
+          "min": 4.388803958892822
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 3.0624585151672363,
+          "min": 2.877819538116455
+        },
+        {
+          "boundary": 3,
+          "chosen": 2,
+          "score": -0.7533813714981079,
+          "min": -1.4403119087219238
+        }
+      ]
+    },
+    {
+      "seed": 3225,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.5798888206481934,
+          "min": -1.3825498819351196
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 0.3382698893547058,
+          "min": -0.11542421579360962
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 1.9771612882614136,
+          "min": 1.4019434452056885
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": -1.4867767095565796,
+          "min": -2.056215286254883
+        }
+      ]
+    },
+    {
+      "seed": 3226,
+      "success": true,
+      "success_step": 251,
+      "steps": 251,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 6,
+          "score": -1.0052001476287842,
+          "min": -1.4276487827301025
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 4.2580060958862305,
+          "min": 3.739912509918213
+        },
+        {
+          "boundary": 2,
+          "chosen": 7,
+          "score": 3.075392246246338,
+          "min": 2.5889687538146973
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 1.277659296989441,
+          "min": 0.9183036088943481
+        }
+      ]
+    },
+    {
+      "seed": 3227,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -1.2305012941360474,
+          "min": -1.625629186630249
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 1.837119221687317,
+          "min": 1.1167443990707397
+        },
+        {
+          "boundary": 2,
+          "chosen": 7,
+          "score": 3.818458080291748,
+          "min": 3.5648891925811768
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 2.6269383430480957,
+          "min": 2.2601842880249023
+        }
+      ]
+    },
+    {
+      "seed": 3228,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": -0.6856567859649658,
+          "min": -1.1532756090164185
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 1.009335994720459,
+          "min": 0.38355234265327454
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 1.5410081148147583,
+          "min": 0.9770972728729248
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": -1.2819976806640625,
+          "min": -1.7514415979385376
+        }
+      ]
+    },
+    {
+      "seed": 3229,
+      "success": true,
+      "success_step": 255,
+      "steps": 255,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 6,
+          "score": -0.911522388458252,
+          "min": -1.5110677480697632
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 4.412489414215088,
+          "min": 3.999448537826538
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 5.544503211975098,
+          "min": 5.275007247924805
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 0.9478534460067749,
+          "min": 0.6341404914855957
+        }
+      ]
+    },
+    {
+      "seed": 3230,
+      "success": true,
+      "success_step": 259,
+      "steps": 259,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.7957603931427002,
+          "min": -1.3893259763717651
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 3.746335744857788,
+          "min": 3.246129035949707
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 4.2230730056762695,
+          "min": 3.9763870239257812
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 2.7582027912139893,
+          "min": 2.132693290710449
+        }
+      ]
+    },
+    {
+      "seed": 3231,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 2,
+          "score": -1.1657397747039795,
+          "min": -1.4870283603668213
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 2.7649316787719727,
+          "min": 2.375274181365967
+        },
+        {
+          "boundary": 2,
+          "chosen": 7,
+          "score": 0.4766788184642792,
+          "min": 0.14449426531791687
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": -2.0693373680114746,
+          "min": -2.5516037940979004
+        }
+      ]
+    },
+    {
+      "seed": 3232,
+      "success": true,
+      "success_step": 272,
+      "steps": 272,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -1.0108952522277832,
+          "min": -1.6300886869430542
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 5.0430779457092285,
+          "min": 4.790334701538086
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 5.112186431884766,
+          "min": 4.829766273498535
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 3.9833178520202637,
+          "min": 3.661170482635498
+        }
+      ]
+    },
+    {
+      "seed": 3233,
+      "success": true,
+      "success_step": 376,
+      "steps": 376,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": 0.2782539427280426,
+          "min": -0.5116982460021973
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 2.7576122283935547,
+          "min": 2.3550052642822266
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 4.372215270996094,
+          "min": 4.270868301391602
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 3.326930284500122,
+          "min": 3.185011863708496
+        }
+      ]
+    },
+    {
+      "seed": 3234,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 6,
+          "score": -0.6745681762695312,
+          "min": -1.258574366569519
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 0.5889352560043335,
+          "min": 0.18348875641822815
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 2.2376928329467773,
+          "min": 1.9057492017745972
+        },
+        {
+          "boundary": 3,
+          "chosen": 2,
+          "score": 0.8319091796875,
+          "min": 0.4592864215373993
+        }
+      ]
+    },
+    {
+      "seed": 3235,
+      "success": true,
+      "success_step": 253,
+      "steps": 253,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -0.776225209236145,
+          "min": -1.2327910661697388
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 3.993934154510498,
+          "min": 3.717771530151367
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 2.678591012954712,
+          "min": 2.4778308868408203
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 0.5835978984832764,
+          "min": 0.3575001060962677
+        }
+      ]
+    },
+    {
+      "seed": 3236,
+      "success": true,
+      "success_step": 464,
+      "steps": 464,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": -0.8330847024917603,
+          "min": -1.3763664960861206
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 2.8764777183532715,
+          "min": 2.387216806411743
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 3.2933125495910645,
+          "min": 2.8375437259674072
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 0.9340301752090454,
+          "min": 0.7154366970062256
+        }
+      ]
+    },
+    {
+      "seed": 3237,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": 0.48900359869003296,
+          "min": -0.2874837815761566
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 2.0568666458129883,
+          "min": 1.3744231462478638
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 3.8266496658325195,
+          "min": 3.631685733795166
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 2.246790647506714,
+          "min": 1.7728588581085205
+        }
+      ]
+    },
+    {
+      "seed": 3238,
+      "success": true,
+      "success_step": 444,
+      "steps": 444,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": 0.12431132793426514,
+          "min": -0.4444226920604706
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 5.424131870269775,
+          "min": 5.17075252532959
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 4.5788187980651855,
+          "min": 4.200491905212402
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 3.7543911933898926,
+          "min": 3.235574722290039
+        }
+      ]
+    },
+    {
+      "seed": 3239,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -0.4954431354999542,
+          "min": -1.2760733366012573
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": -0.8953157663345337,
+          "min": -1.5923198461532593
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 2.2362680435180664,
+          "min": 1.5723220109939575
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 0.584851861000061,
+          "min": 0.24331101775169373
+        }
+      ]
+    },
+    {
+      "seed": 3240,
+      "success": true,
+      "success_step": 268,
+      "steps": 268,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -0.4060666859149933,
+          "min": -0.9182778596878052
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 1.5841001272201538,
+          "min": 1.040412425994873
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 1.8567909002304077,
+          "min": 1.260470986366272
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": -0.004247188568115234,
+          "min": -0.665467381477356
+        }
+      ]
+    },
+    {
+      "seed": 3241,
+      "success": true,
+      "success_step": 260,
+      "steps": 260,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.9606773853302002,
+          "min": -1.4383946657180786
+        },
+        {
+          "boundary": 1,
+          "chosen": 1,
+          "score": 4.728662014007568,
+          "min": 4.401101589202881
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 5.766655921936035,
+          "min": 5.50535774230957
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": 3.505509376525879,
+          "min": 3.193199396133423
+        }
+      ]
+    },
+    {
+      "seed": 3242,
+      "success": true,
+      "success_step": 414,
+      "steps": 414,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.5534713268280029,
+          "min": -1.5149444341659546
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 1.027133584022522,
+          "min": 0.794817328453064
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 2.458806037902832,
+          "min": 1.9968091249465942
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 1.0327285528182983,
+          "min": 0.6215828657150269
+        }
+      ]
+    },
+    {
+      "seed": 3243,
+      "success": true,
+      "success_step": 314,
+      "steps": 314,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -0.6585050821304321,
+          "min": -0.8897577524185181
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 0.8488868474960327,
+          "min": 0.19665753841400146
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 2.982494831085205,
+          "min": 2.4812803268432617
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 1.684356689453125,
+          "min": 0.9939889907836914
+        }
+      ]
+    },
+    {
+      "seed": 3244,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": 0.14097002148628235,
+          "min": -0.4214959442615509
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 5.155628204345703,
+          "min": 4.940952301025391
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 4.65677547454834,
+          "min": 4.205772876739502
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 3.74649977684021,
+          "min": 3.284752130508423
+        }
+      ]
+    },
+    {
+      "seed": 3245,
+      "success": true,
+      "success_step": 294,
+      "steps": 294,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.7611149549484253,
+          "min": -1.0385674238204956
+        },
+        {
+          "boundary": 1,
+          "chosen": 2,
+          "score": 5.435061454772949,
+          "min": 4.845459938049316
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 4.511972427368164,
+          "min": 4.273014545440674
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 1.8981614112854004,
+          "min": 1.3402363061904907
+        }
+      ]
+    },
+    {
+      "seed": 3246,
+      "success": true,
+      "success_step": 433,
+      "steps": 433,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": 0.7845151424407959,
+          "min": -0.15959158539772034
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 2.0781784057617188,
+          "min": 1.5041674375534058
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 4.562302589416504,
+          "min": 4.164538383483887
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 2.4793875217437744,
+          "min": 2.1617796421051025
+        }
+      ]
+    },
+    {
+      "seed": 3247,
+      "success": true,
+      "success_step": 245,
+      "steps": 245,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": -0.4157252013683319,
+          "min": -0.9568217992782593
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 4.123946666717529,
+          "min": 3.8574185371398926
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 5.955418586730957,
+          "min": 5.743354797363281
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 3.952669382095337,
+          "min": 3.5481958389282227
+        }
+      ]
+    },
+    {
+      "seed": 3248,
+      "success": true,
+      "success_step": 287,
+      "steps": 287,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.511082649230957,
+          "min": -1.4083448648452759
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": 4.356244087219238,
+          "min": 4.035852432250977
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 3.969991445541382,
+          "min": 3.6716151237487793
+        },
+        {
+          "boundary": 3,
+          "chosen": 1,
+          "score": 2.0936708450317383,
+          "min": 1.5013808012008667
+        }
+      ]
+    },
+    {
+      "seed": 3249,
+      "success": true,
+      "success_step": 257,
+      "steps": 257,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -1.451836347579956,
+          "min": -1.9327324628829956
+        },
+        {
+          "boundary": 1,
+          "chosen": 7,
+          "score": 4.309950828552246,
+          "min": 3.8274807929992676
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 4.1429548263549805,
+          "min": 3.9178547859191895
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 2.4604268074035645,
+          "min": 2.0535600185394287
+        }
+      ]
+    },
+    {
+      "seed": 3250,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": 0.36174818873405457,
+          "min": -0.6022969484329224
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": 4.098772048950195,
+          "min": 3.8087685108184814
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 3.7939014434814453,
+          "min": 3.487708806991577
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 0.5387102365493774,
+          "min": -0.2531793415546417
+        }
+      ]
+    },
+    {
+      "seed": 3251,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -0.05148112773895264,
+          "min": -0.938507080078125
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": 3.45693302154541,
+          "min": 3.1111135482788086
+        },
+        {
+          "boundary": 2,
+          "chosen": 1,
+          "score": 3.3160808086395264,
+          "min": 3.014934539794922
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 1.6153490543365479,
+          "min": 1.3104662895202637
+        }
+      ]
+    },
+    {
+      "seed": 3252,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": -1.3131283521652222,
+          "min": -1.6497777700424194
+        },
+        {
+          "boundary": 1,
+          "chosen": 6,
+          "score": 0.23457524180412292,
+          "min": -0.27295464277267456
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 2.461804151535034,
+          "min": 2.2279067039489746
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 2.0395069122314453,
+          "min": 1.8743857145309448
+        }
+      ]
+    },
+    {
+      "seed": 3253,
+      "success": true,
+      "success_step": 261,
+      "steps": 261,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 1,
+          "score": -0.05887731909751892,
+          "min": -0.8488954305648804
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 2.90290904045105,
+          "min": 2.276604652404785
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 4.871731758117676,
+          "min": 4.570035457611084
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 3.3320651054382324,
+          "min": 2.777820110321045
+        }
+      ]
+    },
+    {
+      "seed": 3254,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 5,
+          "score": -0.25248944759368896,
+          "min": -0.6916154623031616
+        },
+        {
+          "boundary": 1,
+          "chosen": 5,
+          "score": 4.217544078826904,
+          "min": 4.014169692993164
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 4.344926834106445,
+          "min": 3.966142177581787
+        },
+        {
+          "boundary": 3,
+          "chosen": 3,
+          "score": -0.7713474035263062,
+          "min": -1.0476081371307373
+        }
+      ]
+    },
+    {
+      "seed": 3255,
+      "success": true,
+      "success_step": 278,
+      "steps": 278,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 0,
+          "score": -0.9480795860290527,
+          "min": -1.2985718250274658
+        },
+        {
+          "boundary": 1,
+          "chosen": 1,
+          "score": 4.182784080505371,
+          "min": 3.7132198810577393
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 5.647852420806885,
+          "min": 5.215553283691406
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": 2.7612662315368652,
+          "min": 2.238400459289551
+        }
+      ]
+    },
+    {
+      "seed": 3256,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.8688399791717529,
+          "min": -1.3748512268066406
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 4.178676605224609,
+          "min": 3.3711647987365723
+        },
+        {
+          "boundary": 2,
+          "chosen": 3,
+          "score": 3.9154083728790283,
+          "min": 3.6287693977355957
+        },
+        {
+          "boundary": 3,
+          "chosen": 7,
+          "score": 2.5376815795898438,
+          "min": 2.2132604122161865
+        }
+      ]
+    },
+    {
+      "seed": 3257,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -1.0144213438034058,
+          "min": -1.8093713521957397
+        },
+        {
+          "boundary": 1,
+          "chosen": 1,
+          "score": 0.8975275754928589,
+          "min": 0.3790895640850067
+        },
+        {
+          "boundary": 2,
+          "chosen": 0,
+          "score": 0.6655056476593018,
+          "min": 0.3169017434120178
+        },
+        {
+          "boundary": 3,
+          "chosen": 6,
+          "score": -1.3739798069000244,
+          "min": -1.8879419565200806
+        }
+      ]
+    },
+    {
+      "seed": 3258,
+      "success": true,
+      "success_step": 356,
+      "steps": 356,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": 0.007101014256477356,
+          "min": -0.45885196328163147
+        },
+        {
+          "boundary": 1,
+          "chosen": 0,
+          "score": 3.548839807510376,
+          "min": 3.222133159637451
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 2.7346553802490234,
+          "min": 2.494767665863037
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 1.4518773555755615,
+          "min": 1.027133822441101
+        }
+      ]
+    },
+    {
+      "seed": 3259,
+      "success": true,
+      "success_step": 232,
+      "steps": 232,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": 0.39919933676719666,
+          "min": -0.14429780840873718
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 4.280603408813477,
+          "min": 4.1371612548828125
+        },
+        {
+          "boundary": 2,
+          "chosen": 6,
+          "score": 4.706849098205566,
+          "min": 4.511572360992432
+        },
+        {
+          "boundary": 3,
+          "chosen": 5,
+          "score": 1.612027883529663,
+          "min": 1.3902291059494019
+        }
+      ]
+    },
+    {
+      "seed": 3260,
+      "success": true,
+      "success_step": 261,
+      "steps": 261,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -1.0863085985183716,
+          "min": -1.7132407426834106
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 3.9847466945648193,
+          "min": 3.272980213165283
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 5.342241287231445,
+          "min": 5.02042818069458
+        },
+        {
+          "boundary": 3,
+          "chosen": 0,
+          "score": 1.872563123703003,
+          "min": 1.4605633020401
+        }
+      ]
+    },
+    {
+      "seed": 3261,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "order": [],
+      "first": "none",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 7,
+          "score": 0.480254203081131,
+          "min": -0.6808325052261353
+        },
+        {
+          "boundary": 1,
+          "chosen": 1,
+          "score": 2.5221405029296875,
+          "min": 2.2326536178588867
+        },
+        {
+          "boundary": 2,
+          "chosen": 4,
+          "score": 0.8221726417541504,
+          "min": 0.2017117440700531
+        },
+        {
+          "boundary": 3,
+          "chosen": 2,
+          "score": -0.49962446093559265,
+          "min": -0.980228066444397
+        }
+      ]
+    },
+    {
+      "seed": 3262,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 3,
+          "score": -0.5449830293655396,
+          "min": -1.0001705884933472
+        },
+        {
+          "boundary": 1,
+          "chosen": 3,
+          "score": 4.514952659606934,
+          "min": 4.076531410217285
+        },
+        {
+          "boundary": 2,
+          "chosen": 2,
+          "score": 4.574985027313232,
+          "min": 4.388267517089844
+        },
+        {
+          "boundary": 3,
+          "chosen": 2,
+          "score": 1.9170863628387451,
+          "min": 1.647987723350525
+        }
+      ]
+    },
+    {
+      "seed": 3263,
+      "success": true,
+      "success_step": 289,
+      "steps": 289,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream",
+      "picks": [
+        {
+          "boundary": 0,
+          "chosen": 4,
+          "score": -0.027460187673568726,
+          "min": -0.7893754243850708
+        },
+        {
+          "boundary": 1,
+          "chosen": 4,
+          "score": 2.1698784828186035,
+          "min": 1.8664956092834473
+        },
+        {
+          "boundary": 2,
+          "chosen": 5,
+          "score": 4.949735641479492,
+          "min": 4.587097644805908
+        },
+        {
+          "boundary": 3,
+          "chosen": 4,
+          "score": 4.195076942443848,
+          "min": 3.8072874546051025
+        }
+      ]
+    }
+  ],
+  "git": "f82e46013f04f0d3c3299958d8899b447efa2233"
+}
