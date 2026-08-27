@@ -41,10 +41,10 @@ def main() -> int:
                     help="'stock' or a path to a fine-tuned VLA checkpoint")
     ap.add_argument("--tag", required=True, help="pi_0 | pi_1 | pi_2")
     ap.add_argument("--panel", type=int, default=32,
+                    help="number of seeds from the panel start; sized to the effect")
     ap.add_argument("--panel-start", type=int, default=3200,
                     help="first panel seed; 3200 is the selection panel, "
                          "so a confirmatory run must use a fresh range")
-                    help="number of seeds from 3200; sized to the effect")
     ap.add_argument("--task", default=B.TASK,
                     help="ladder task; the panel seeds are shared across tasks")
     ap.add_argument("--head", default=None,
