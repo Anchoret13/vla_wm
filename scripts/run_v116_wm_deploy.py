@@ -55,6 +55,8 @@ def main() -> int:
     ap.add_argument("--detect-at", type=int, default=20)
     ap.add_argument("--window", type=int, default=30)
     ap.add_argument("--panel", type=int, default=64)
+    ap.add_argument("--panel-start", type=int, default=3200,
+                    help="first panel seed; 3200 is the selection panel, so a\n                         confirmatory run must use a fresh range")
     ap.add_argument("--tag", default=None)
     a = ap.parse_args()
     L = episode_length(TASK)
@@ -76,7 +78,7 @@ def main() -> int:
     aop = runner.policy.model.action_out_proj
     dev = next(runner.policy.parameters()).device
     to_dev = lambda s_: {k: v.to(dev) for k, v in s_.items()}
-    PANEL = tuple(range(3200, 3200 + a.panel))
+    PANEL = tuple(range(a.panel_start, a.panel_start + a.panel))
 
     rows, steps, fired = [], 0, 0
     for seed in PANEL:
