@@ -58,6 +58,13 @@ def main() -> int:
     ap.add_argument("--dims", type=int, default=32)
     ap.add_argument("--alpha", type=float, default=0.01)
     ap.add_argument("--folds", type=int, default=5)
+    ap.add_argument("--fp-quantile", type=float, default=1.0,
+                    help="threshold = this quantile of held-out NEGATIVE scores. "
+                         "1.0 = zero false positives (maximum specificity). "
+                         "Lower it to buy recall: v116 measured that a false "
+                         "positive is cheap - 1 fired on a good state and cost "
+                         "nothing - while a missed error state costs a whole "
+                         "conversion, so the loss function is asymmetric.")
     a = ap.parse_args()
     d = torch.load(a.data, weights_only=False)
     X = d["X"][a.tap].numpy().astype(np.float64); Y = d["y"].numpy().astype(np.float64)
@@ -81,9 +88,11 @@ def main() -> int:
         B = Vt[:min(a.dims, Vt.shape[0])].T
         w, b = fit_logreg(Ztr @ B, Y[tr], a.alpha)
         oof[te] = 1 / (1 + np.exp(-((Zte @ B) @ w + b)))
-    neg_max = float(oof[Y == 0].max())
+    neg_max = float(np.quantile(oof[Y == 0], a.fp_quantile))
     rec = float((oof[Y > 0] > neg_max).mean())
-    print(f"out-of-fold: recall@0%FP = {rec:.3f}; threshold = {neg_max:.4f}")
+    fpr = float((oof[Y == 0] > neg_max).mean())
+    print(f"out-of-fold: recall = {rec:.3f} at FPR = {fpr:.3f}; "
+          f"threshold = {neg_max:.4f} (quantile {a.fp_quantile})")
 
     mu, sd = X.mean(0), X.std(0) + 1e-8
     Z = (X - mu) / sd
@@ -92,11 +101,13 @@ def main() -> int:
     w, b = fit_logreg(Z @ B, Y, a.alpha)
     torch.save({"mu": mu, "sd": sd, "B": B, "w": w, "b": b, "tap": a.tap,
                 "threshold": neg_max, "dims": a.dims, "alpha": a.alpha,
-                "oof_recall_at_0fp": rec, "task": d["task"]}, out / "gate_final.pt")
+                "oof_recall_at_0fp": rec, "oof_fpr": fpr,
+                "fp_quantile": a.fp_quantile, "task": d["task"]}, out / "gate_final.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "tap": a.tap, "dims": a.dims, "alpha": a.alpha,
          "n": len(Y), "n_positive": int(Y.sum()), "folds": a.folds,
-         "oof_recall_at_0fp": rec, "threshold": neg_max, "env_steps": 0,
+         "oof_recall": rec, "oof_fpr": fpr, "fp_quantile": a.fp_quantile,
+         "threshold": neg_max, "env_steps": 0,
          "data": str(a.data),
          "note": "fitted on acquisition seeds only; threshold chosen on held-out "
                  "folds for zero false positives",
