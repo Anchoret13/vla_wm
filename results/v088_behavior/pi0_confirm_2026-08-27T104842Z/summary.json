@@ -1,0 +1,1227 @@
+{
+  "action": "2M.6",
+  "tag": "pi0_confirm",
+  "utc": "2026-08-27T104842Z",
+  "policy": "lerobot/pi05_libero_finetuned",
+  "head": "stock",
+  "task": "chain2b_lr2",
+  "deadline": 500,
+  "panel_seeds": [
+    3300,
+    3363,
+    64
+  ],
+  "successes": 46,
+  "n": 64,
+  "rate": 0.71875,
+  "cp95": [
+    0.6119917677949469,
+    0.8096737810053412
+  ],
+  "env_steps": 22861,
+  "mean_milestones": 3.40625,
+  "damage_episodes": 0,
+  "episodes": [
+    {
+      "seed": 3300,
+      "success": true,
+      "success_step": 258,
+      "steps": 258,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 200,
+        "1": 258
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3301,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 0,
+      "events": {},
+      "order": [],
+      "damage": 0
+    },
+    {
+      "seed": 3302,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 200,
+        "3": 270,
+        "0": 440
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3303,
+      "success": true,
+      "success_step": 272,
+      "steps": 272,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 210,
+        "1": 272
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3304,
+      "success": true,
+      "success_step": 316,
+      "steps": 316,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 160,
+        "0": 220,
+        "1": 316
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3305,
+      "success": true,
+      "success_step": 269,
+      "steps": 269,
+      "milestones": 4,
+      "events": {
+        "2": 90,
+        "3": 170,
+        "0": 230,
+        "1": 269
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3306,
+      "success": true,
+      "success_step": 252,
+      "steps": 252,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 210,
+        "1": 252
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3307,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 239
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3308,
+      "success": true,
+      "success_step": 344,
+      "steps": 344,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 200,
+        "1": 344
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3309,
+      "success": true,
+      "success_step": 361,
+      "steps": 361,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 320,
+        "1": 361
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3310,
+      "success": true,
+      "success_step": 274,
+      "steps": 274,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 210,
+        "1": 274
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3311,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 200,
+        "1": 240
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3312,
+      "success": true,
+      "success_step": 302,
+      "steps": 302,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 302
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3313,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 220,
+        "1": 270
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3314,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 250,
+        "1": 300
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3315,
+      "success": true,
+      "success_step": 251,
+      "steps": 251,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 210,
+        "1": 251
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3316,
+      "success": true,
+      "success_step": 252,
+      "steps": 252,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 252
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3317,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 249
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3318,
+      "success": true,
+      "success_step": 264,
+      "steps": 264,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 210,
+        "1": 264
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3319,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 1,
+      "events": {
+        "0": 480
+      },
+      "order": [
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3320,
+      "success": true,
+      "success_step": 289,
+      "steps": 289,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 289
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3321,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 247
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3322,
+      "success": true,
+      "success_step": 498,
+      "steps": 498,
+      "milestones": 4,
+      "events": {
+        "2": 290,
+        "3": 370,
+        "0": 430,
+        "1": 498
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3323,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 0,
+      "events": {},
+      "order": [],
+      "damage": 0
+    },
+    {
+      "seed": 3324,
+      "success": true,
+      "success_step": 260,
+      "steps": 260,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 200,
+        "1": 260
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3325,
+      "success": true,
+      "success_step": 411,
+      "steps": 411,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370,
+        "1": 411
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3326,
+      "success": true,
+      "success_step": 279,
+      "steps": 279,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 210,
+        "1": 279
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3327,
+      "success": true,
+      "success_step": 252,
+      "steps": 252,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 252
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3328,
+      "success": true,
+      "success_step": 321,
+      "steps": 321,
+      "milestones": 4,
+      "events": {
+        "2": 130,
+        "3": 200,
+        "0": 260,
+        "1": 321
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3329,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 90,
+        "3": 150,
+        "0": 480
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3330,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 260,
+        "1": 320
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3331,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 239
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3332,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 130,
+        "3": 200,
+        "0": 480
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3333,
+      "success": true,
+      "success_step": 392,
+      "steps": 392,
+      "milestones": 4,
+      "events": {
+        "2": 100,
+        "3": 170,
+        "0": 350,
+        "1": 392
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3334,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3335,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 200,
+        "1": 250
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3336,
+      "success": true,
+      "success_step": 367,
+      "steps": 367,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 320,
+        "1": 367
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3337,
+      "success": true,
+      "success_step": 273,
+      "steps": 273,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 160,
+        "0": 230,
+        "1": 273
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3338,
+      "success": true,
+      "success_step": 255,
+      "steps": 255,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 210,
+        "1": 255
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3339,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 243
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3340,
+      "success": true,
+      "success_step": 395,
+      "steps": 395,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 395
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3341,
+      "success": true,
+      "success_step": 254,
+      "steps": 254,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 254
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3342,
+      "success": true,
+      "success_step": 270,
+      "steps": 270,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 210,
+        "1": 270
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3343,
+      "success": true,
+      "success_step": 303,
+      "steps": 303,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 303
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3344,
+      "success": true,
+      "success_step": 349,
+      "steps": 349,
+      "milestones": 4,
+      "events": {
+        "2": 160,
+        "3": 230,
+        "0": 290,
+        "1": 349
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3345,
+      "success": true,
+      "success_step": 255,
+      "steps": 255,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 210,
+        "1": 255
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3346,
+      "success": true,
+      "success_step": 443,
+      "steps": 443,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 443
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3347,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 310,
+        "1": 360
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3348,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 248
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3349,
+      "success": true,
+      "success_step": 253,
+      "steps": 253,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 253
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3350,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 1,
+      "events": {
+        "0": 450
+      },
+      "order": [
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3351,
+      "success": true,
+      "success_step": 254,
+      "steps": 254,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 160,
+        "0": 220,
+        "1": 254
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3352,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 210,
+        "1": 260
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3353,
+      "success": true,
+      "success_step": 367,
+      "steps": 367,
+      "milestones": 4,
+      "events": {
+        "2": 180,
+        "3": 250,
+        "0": 320,
+        "1": 367
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3354,
+      "success": true,
+      "success_step": 252,
+      "steps": 252,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 252
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3355,
+      "success": true,
+      "success_step": 391,
+      "steps": 391,
+      "milestones": 4,
+      "events": {
+        "2": 220,
+        "3": 290,
+        "0": 350,
+        "1": 391
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3356,
+      "success": true,
+      "success_step": 409,
+      "steps": 409,
+      "milestones": 4,
+      "events": {
+        "2": 120,
+        "3": 180,
+        "0": 350,
+        "1": 409
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3357,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 160,
+        "3": 230,
+        "0": 290
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3358,
+      "success": true,
+      "success_step": 258,
+      "steps": 258,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 210,
+        "1": 258
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3359,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 1,
+      "events": {
+        "2": 80
+      },
+      "order": [
+        2
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3360,
+      "success": true,
+      "success_step": 254,
+      "steps": 254,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 210,
+        "1": 254
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3361,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "0": 220,
+        "1": 270
+      },
+      "order": [
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3362,
+      "success": true,
+      "success_step": 394,
+      "steps": 394,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 350,
+        "1": 394
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3363,
+      "success": true,
+      "success_step": 283,
+      "steps": 283,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 283
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    }
+  ],
+  "git": "39346c6dfac68623bf096dbf15703c807ef54b25"
+}
