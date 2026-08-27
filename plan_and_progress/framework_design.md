@@ -1398,3 +1398,61 @@ The two model-side changes registered since §17.5 — a continuous readout (2M.
 `[DECISION]` **Close the improvement loop now.** Action 2M.6 trains the residual consequence model on the complete existing bootstrap bank, uses it to select executed branches at failures, appends those outcomes to the next WM, distills verified improvements into `pi_1`, and repeats once to produce `M_2` and `pi_2`. Its completion object is the full-prompt `N=1` behavior curve `pi_0 -> pi_1 -> pi_2`, not another offline promotion table. No standalone evaluation expansion, proposal diagnosis, noise-floor study, benchmark search, or architecture sweep intervenes. Executable contract: `plan_and_progress/2026-08-25.md` §"ACTION ITEM — Action 2M.6".
 
 Interaction: Action 2M.5 spent **25,490** steps with no discarded or aborted run. Project total across all V8 ledgers: **637,145**.
+
+## §20 — Action 2M.7 outcome: deployment-time correction works; the world model does not
+
+Registered 2026-08-27. Supersedes the WM-selection line of §14–§19 on `chain2b_lr2`.
+
+### Result
+
+| arm | fresh seeds 3300–3363 | vs `pi_0` |
+|---|---:|---|
+| `pi_0` | 46/64 = 0.719 | — |
+| corrective, gated by a learned outcome WM | 56/64 = 0.875 | +10 −0, p = 0.0020 |
+| **corrective, ungated** | **60/64 = 0.938** | **+16 −2, p = 0.0013** |
+
+A distilled `action_out_proj` head, applied from `t=10` for 40 steps and then
+handed back to the stock head, raises frozen π0.5 from 0.719 to 0.938 on seeds
+never used for tuning. Weights otherwise frozen; prompt unchanged; `N=1`
+throughout; the head cost 720 environment steps from 10 held-out error states.
+
+### Every world-model role tested was eliminated by measurement
+
+| role | verdict | evidence |
+|---|---|---|
+| select among candidate action chunks | refuted | `p_cream` = 0.016 over 352 rollouts, ODE + 4 SDE settings |
+| amplify a rare good mode | refuted | zero mass at the decisive states, not merely rare |
+| score progress (`QΦ`) | actively harmful | Φ's active atom is the first *incomplete* goal atom, and the BDDL lists tomato first, so `QΦ` rewards the move that fails 0/18 — the §3.1.1 ordered-prefix defect resurfacing in the reward |
+| predict failure and gate the correction | not beneficial | ungated leads on both panels (62/58, 60/56); the gate withholds a correction that helps nearly everywhere |
+
+The gate is accurate — AUC 0.999 at `t=20` on held-out acquisition states — and
+accuracy is precisely what makes it unhelpful: a better error-detector withholds
+the beneficial correction from more episodes. Across arms, success is monotone in
+how *little* the gate suppresses (7/8 TP → 54/64; 5/8 TP → 58/64; no gate → 62/64).
+
+### Two mechanism corrections
+
+1. **The corrective does not work by redirecting object choice.** Redirection is
+   5/8 in every deployed arm while success ranges 0.844–0.969. It improves
+   execution broadly over steps 10–50.
+2. **Timing dominates.** Whole episode 40/64; steps 0–40 56/64; steps 10–50
+   62/64. The same head is worse than baseline applied throughout and strongly
+   positive applied in a window.
+
+### Methodological findings to carry forward
+
+- **A held-out split does not catch a shortcut that is present in every state.**
+  The v098 scorer reached held-out 1.000 by learning *which prompt* produced a
+  chunk, and was inert online. Splits must be distribution-disjoint, not just
+  state-disjoint.
+- **Negative results can come from the instrument.** v101's "zero error states"
+  was a truncated horizon; v103's SDE null was a sigma that widened the candidate
+  pool by ×1.0–1.4. Both were caught by controls, and both would otherwise have
+  closed a live line of work.
+- **Tuning a threshold on the evaluation panel is leakage even when the panel is
+  never "trained on".** A parameter fitted to test outcomes and stored in the
+  shipped artifact moved the panel result from 54/64 (p = 0.25) to 58/64
+  (p = 0.0156). Bonferroni does not describe this.
+- **An ablation that removes the proposed mechanism is mandatory before claiming
+  it.** The gate looked essential for four arms; the first ungated run at the
+  deployed timing overturned the entire causal story.
