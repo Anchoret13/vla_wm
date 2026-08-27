@@ -83,9 +83,9 @@ def main() -> int:
         order = [j for j, _ in sorted(ev.items(), key=lambda kv: kv[1])]
         first = ("cream" if order and order[0] == 2 else
                  "tomato" if order and order[0] == 0 else "none")
-        if first != "none" and all(t in taps for t in TAPS):
-            for t in TAPS:
-                F[t].append(taps[t])
+        if first != "none" and all(tp in taps for tp in TAPS):
+            for tp in TAPS:            # do NOT rebind t: it is the episode length
+                F[tp].append(taps[tp])
             labels.append(1.0 if first == "tomato" else 0.0)
             kept.append({"seed": int(seed), "first": first, "steps": t})
         if i % 20 == 0:
