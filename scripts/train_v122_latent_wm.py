@@ -140,14 +140,51 @@ def main() -> int:
     print(f"{'shuffled':10s}: test MSE {smse:.5f}  ({smse/ident:.3f} x identity)  "
           f"delta-cosine {scos:+.3f}")
 
-    gain = results["no_action"]["mse"] - results["action"]["mse"]
-    sens = smse - results["action"]["mse"]
-    verdict = ("ACTION-CONDITIONED: beats both no-action and shuffled-action"
-               if gain > 0 and sens > 0 else
-               "NOT a world model: action conditioning does not help on held-out "
-               "episodes; this is temporal smoothing")
-    print(f"\naction gain over no-action: {gain:+.5f}")
-    print(f"counterfactual sensitivity (shuffled - true): {sens:+.5f}")
+    # A positive difference is not enough: test it per-triple, paired, with a
+    # bootstrap over EPISODES (triples within an episode are not independent).
+    def per_triple_se(model, idx, shuffle=False):
+        model.eval()
+        with torch.no_grad():
+            uu = U[idx]
+            if shuffle:
+                g = torch.Generator().manual_seed(1234)
+                uu = uu[torch.randperm(len(idx), generator=g)]
+            return ((model(Z[idx], uu) - ZN[idx]) ** 2).mean(-1)
+
+    se_a = per_triple_se(models["action"], te)
+    se_n = per_triple_se(models["no_action"], te)
+    se_s = per_triple_se(models["action"], te, shuffle=True)
+    te_ep_arr = ep[te]
+    uniq = sorted(set(te_ep_arr.tolist()))
+
+    def boot(diff, iters=10000):
+        g = np.random.default_rng(0)
+        by = {e: diff[(te_ep_arr == e)].mean().item() for e in uniq}
+        vals = np.array([by[e] for e in uniq])
+        idx = g.integers(0, len(vals), size=(iters, len(vals)))
+        bs = vals[idx].mean(1)
+        return float(vals.mean()), float(np.quantile(bs, 0.025)), float(np.quantile(bs, 0.975))
+
+    gain, glo, ghi = boot(se_n - se_a)          # >0 means action helps
+    sens, slo, shi = boot(se_s - se_a)          # >0 means the action is used
+    rel = gain / ident
+    results["paired"] = {"action_gain": gain, "action_gain_ci": [glo, ghi],
+                         "sensitivity": sens, "sensitivity_ci": [slo, shi],
+                         "n_test_episodes": len(uniq)}
+    action_helps = glo > 0
+    uses_action = slo > 0
+    verdict = ("ACTION-CONDITIONED: action conditioning improves held-out latent "
+               "prediction beyond an action-free model"
+               if action_helps else
+               ("USES the action but gains nothing over an action-free model - the "
+                "action is redundant given z_t, which is what on-policy data gives: "
+                "u is nearly a function of z. Not yet a usable world model."
+                if uses_action else
+                "NOT a world model: the action is ignored; this is temporal smoothing"))
+    print(f"\npaired bootstrap over {len(uniq)} held-out episodes:")
+    print(f"  action gain over no-action : {gain:+.5f}  95% CI [{glo:+.5f}, {ghi:+.5f}]"
+          f"   ({100*rel:+.2f}% of identity)")
+    print(f"  counterfactual sensitivity : {sens:+.5f}  95% CI [{slo:+.5f}, {shi:+.5f}]")
     print(verdict)
 
     torch.save({"state_dict": models["action"].state_dict(), "mu": mu, "sd": sd,
