@@ -52,10 +52,18 @@ def main() -> int:
     ap.add_argument("--panel", type=int, default=64)
     ap.add_argument("--gate", type=Path, default=None)
     ap.add_argument("--tau", type=float, default=0.5)
+    ap.add_argument("--oracle-seeds", type=int, nargs="*", default=None,
+                    help="UPPER BOUND ONLY: correct exactly these seeds. Reads "
+                         "panel labels, so it is train-on-test by construction "
+                         "and is not a deployable gate - it measures the ceiling "
+                         "a perfect outcome predictor could reach, to decide "
+                         "whether building a real gate is worth it.")
     ap.add_argument("--tag", default=None)
     a = ap.parse_args()
     L = episode_length(TASK)
-    tag = a.tag or (f"win{a.window}" + ("_gated" if a.gate else ""))
+    tag = a.tag or (f"win{a.window}"
+                    + ("_oracle" if a.oracle_seeds is not None
+                       else "_gated" if a.gate else ""))
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT / f"{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
@@ -87,7 +95,9 @@ def main() -> int:
         au.evaluate(env, 0)
 
         use = True
-        if gate is not None:
+        if a.oracle_seeds is not None:
+            use = seed in set(a.oracle_seeds)
+        elif gate is not None:
             po = runner._obs_to_policy_batch(obs, env.task_description)
             with torch.no_grad():
                 pf = prefix_forward(runner.policy, po)
@@ -128,6 +138,8 @@ def main() -> int:
     summary = {"task": TASK, "tag": tag, "utc": stamp, "window": a.window,
                "head": str(a.head), "gate": str(a.gate) if a.gate else None,
                "tau": a.tau, "n_corrected": fired,
+               "oracle_seeds": a.oracle_seeds,
+               "is_upper_bound": a.oracle_seeds is not None,
                "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [clopper_pearson_lower(k, len(rows)),
