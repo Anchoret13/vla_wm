@@ -95,6 +95,7 @@ def sample_chunks(
     num_steps: int | None = None,
     seed: int | None = None,
     prefix: PrefixCache | None = None,
+    sigma: float = 0.0,
 ) -> Tensor:
     """N candidate action chunks for ONE observation -> (n, chunk_size, action_dim).
 
@@ -102,6 +103,21 @@ def sample_chunks(
     dim — identical post-processing to `predict_action_chunk`. Run through the
     policy's postprocessor + env_postprocessor before executing in the env.
     `prefix` may be passed in to reuse a trunk pass (e.g. shared with the tap).
+
+    `sigma` > 0 switches the integrator from the deterministic flow ODE to an SDE
+    that re-injects noise at every denoise step.  With sigma = 0 (the default)
+    this is bit-for-bit the previous behaviour, so existing results stand.
+
+    The distinction matters and is not cosmetic.  Under the ODE, drawing N chunks
+    means integrating the same sharply-peaked velocity field from N initial noise
+    draws, which collapses toward one mode: v100 measured p_cream = 0/96 at the
+    decisive chain2b states that way, and v099's n=8 selector left the tomato
+    seed set bit-identical to the baseline.  Candidate diversity is a property of
+    the SAMPLER, not only of the policy, so "no good-mode mass" is a claim about
+    ODE sampling until it is re-measured under an SDE.
+
+    Noise is scaled by the current flow time so it vanishes as t -> 0 and the
+    returned chunk is still a clean sample rather than a perturbed one.
     """
     model = policy.model
     cfg = policy.config
@@ -126,6 +142,9 @@ def sample_chunks(
 
     dt = -1.0 / num_steps
     x_t = noise
+    gsde = None
+    if sigma > 0.0 and seed is not None:
+        gsde = torch.Generator(device="cpu").manual_seed(seed * 6364136223846793005 % (2**31))
     for step in range(num_steps):
         time = 1.0 + step * dt
         time_tensor = torch.tensor(time, dtype=torch.float32, device=device).expand(n)
@@ -136,6 +155,11 @@ def sample_chunks(
             timestep=time_tensor,
         )
         x_t = x_t + dt * v_t
+        if sigma > 0.0:
+            eps = (torch.randn(x_t.shape, generator=gsde, dtype=torch.float32).to(device)
+                   if gsde is not None else torch.randn_like(x_t))
+            # time-scaled so the injection decays to zero at the end of the flow
+            x_t = x_t + sigma * time * abs(dt) ** 0.5 * eps
 
     from lerobot.utils.constants import ACTION
     original_action_dim = cfg.output_features[ACTION].shape[0]

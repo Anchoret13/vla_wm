@@ -43,9 +43,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rollouts", type=int, default=12)
     ap.add_argument("--horizon", type=int, default=120)
+    ap.add_argument("--sigma", type=float, default=0.0,
+                    help="SDE noise injection; 0 = the original flow ODE")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    out = OUT / stamp; out.mkdir(parents=True, exist_ok=True)
+    out = OUT / f"sigma{a.sigma}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=10)
@@ -67,7 +69,8 @@ def main() -> int:
                         pf = prefix_forward(runner.policy, po)
                         ch = sample_chunks(runner.policy, po, 1,
                                            seed=seed * 7919 + r * 131 + b,
-                                           prefix=pf)[0, :C].detach().float().cpu()
+                                           prefix=pf, sigma=a.sigma
+                                           )[0, :C].detach().float().cpu()
                     del pf
                     ech = runner.chunk_to_env(ch)
                     for i in range(C):
@@ -89,12 +92,13 @@ def main() -> int:
             nc = sum(1 for f in firsts if f == "cream")
             rows.append({"seed": seed, "group": group, "rollouts": a.rollouts,
                          "p_cream": nc / a.rollouts, "firsts": firsts})
-            print(f"{group:6s} s{seed}: p_cream={nc}/{a.rollouts}={nc/a.rollouts:.2f} "
+            print(f"sig{a.sigma} {group:6s} s{seed}: p_cream={nc}/{a.rollouts}={nc/a.rollouts:.2f} "
                   f"({steps} steps)", flush=True)
 
     tom = [r for r in rows if r["group"] == "tomato"]
     dead = [r["seed"] for r in tom if r["p_cream"] == 0.0]
-    summary = {"utc": stamp, "task": TASK, "rollouts": a.rollouts,
+    summary = {"utc": stamp, "task": TASK, "sigma": a.sigma,
+               "rollouts": a.rollouts,
                "horizon": a.horizon, "window": WINDOW * C,
                "mean_p_cream_tomato_states": sum(r["p_cream"] for r in tom) / len(tom),
                "states_with_zero_cream_mass": dead,
