@@ -1,0 +1,495 @@
+{
+  "utc": "2026-08-27T074344Z",
+  "task": "chain2b_lr2",
+  "horizon": 120,
+  "acq_range": [
+    4900,
+    4989
+  ],
+  "n": 90,
+  "counts": {
+    "cream": 67,
+    "tomato": 0,
+    "none": 23
+  },
+  "tomato_states": [],
+  "none_states": [
+    4908,
+    4918,
+    4920,
+    4922,
+    4926,
+    4935,
+    4936,
+    4940,
+    4942,
+    4943,
+    4944,
+    4949,
+    4952,
+    4954,
+    4955,
+    4959,
+    4962,
+    4964,
+    4970,
+    4975,
+    4982,
+    4988,
+    4989
+  ],
+  "env_steps": 7950,
+  "rows": [
+    {
+      "seed": 4900,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4901,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4902,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4903,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4904,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4905,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4906,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4907,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4908,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4909,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4910,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4911,
+      "first": "cream",
+      "steps": 90
+    },
+    {
+      "seed": 4912,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4913,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4914,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4915,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4916,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4917,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4918,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4919,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4920,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4921,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4922,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4923,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4924,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4925,
+      "first": "cream",
+      "steps": 120
+    },
+    {
+      "seed": 4926,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4927,
+      "first": "cream",
+      "steps": 100
+    },
+    {
+      "seed": 4928,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4929,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4930,
+      "first": "cream",
+      "steps": 90
+    },
+    {
+      "seed": 4931,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4932,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4933,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4934,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4935,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4936,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4937,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4938,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4939,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4940,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4941,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4942,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4943,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4944,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4945,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4946,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4947,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4948,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4949,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4950,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4951,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4952,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4953,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4954,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4955,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4956,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4957,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4958,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4959,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4960,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4961,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4962,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4963,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4964,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4965,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4966,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4967,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4968,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4969,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4970,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4971,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4972,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4973,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4974,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4975,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4976,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4977,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4978,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4979,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4980,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4981,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4982,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4983,
+      "first": "cream",
+      "steps": 80
+    },
+    {
+      "seed": 4984,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4985,
+      "first": "cream",
+      "steps": 70
+    },
+    {
+      "seed": 4986,
+      "first": "cream",
+      "steps": 110
+    },
+    {
+      "seed": 4987,
+      "first": "cream",
+      "steps": 120
+    },
+    {
+      "seed": 4988,
+      "first": "none",
+      "steps": 120
+    },
+    {
+      "seed": 4989,
+      "first": "none",
+      "steps": 120
+    }
+  ],
+  "git": "4f82bb3aa2781df09ee2b1356dff0d55303d7aa4"
+}
