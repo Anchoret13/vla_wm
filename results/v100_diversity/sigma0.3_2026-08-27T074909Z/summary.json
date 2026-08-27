@@ -1,0 +1,217 @@
+{
+  "utc": "2026-08-27T074909Z",
+  "task": "chain2b_lr2",
+  "sigma": 0.3,
+  "rollouts": 8,
+  "horizon": 120,
+  "window": 40,
+  "mean_p_cream_tomato_states": 0.0,
+  "states_with_zero_cream_mass": [
+    3207,
+    3225,
+    3228,
+    3231,
+    3234,
+    3239,
+    3252,
+    3257
+  ],
+  "n_zero": 8,
+  "n_tomato_states": 8,
+  "env_steps": 11520,
+  "rows": [
+    {
+      "seed": 3207,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3225,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3228,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3231,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3234,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3239,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3252,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3257,
+      "group": "tomato",
+      "rollouts": 8,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3200,
+      "group": "cream",
+      "rollouts": 8,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3201,
+      "group": "cream",
+      "rollouts": 8,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3202,
+      "group": "cream",
+      "rollouts": 8,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3204,
+      "group": "cream",
+      "rollouts": 8,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    }
+  ],
+  "git": "7d25f6c2c8ade39a5796ebb6081bc4d3ad88bae7"
+}
