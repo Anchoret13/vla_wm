@@ -1,0 +1,578 @@
+{
+  "task": "chain2b_lr2",
+  "utc": "2026-08-27T065629Z",
+  "lengths": [
+    10,
+    40,
+    80,
+    150
+  ],
+  "targets": [
+    4918,
+    4920,
+    4936,
+    4922
+  ],
+  "controls": [
+    4900,
+    4901,
+    4903,
+    4904,
+    4905
+  ],
+  "env_steps": 11641,
+  "rows": [
+    {
+      "teacher_steps": 10,
+      "kind": "target",
+      "seed": 4918,
+      "success": false,
+      "steps": 500,
+      "handoff": 10,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "target",
+      "seed": 4920,
+      "success": false,
+      "steps": 500,
+      "handoff": 10,
+      "order": [
+        0,
+        1
+      ],
+      "first": "tomato"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "target",
+      "seed": 4936,
+      "success": false,
+      "steps": 500,
+      "handoff": 10,
+      "order": [
+        0
+      ],
+      "first": "tomato"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "target",
+      "seed": 4922,
+      "success": false,
+      "steps": 500,
+      "handoff": 10,
+      "order": [],
+      "first": "none"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "control",
+      "seed": 4900,
+      "success": true,
+      "steps": 254,
+      "handoff": 10,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "control",
+      "seed": 4901,
+      "success": true,
+      "steps": 269,
+      "handoff": 10,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "control",
+      "seed": 4903,
+      "success": false,
+      "steps": 500,
+      "handoff": 10,
+      "order": [
+        2,
+        3
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "control",
+      "seed": 4904,
+      "success": true,
+      "steps": 318,
+      "handoff": 10,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 10,
+      "kind": "control",
+      "seed": 4905,
+      "success": true,
+      "steps": 243,
+      "handoff": 10,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "target",
+      "seed": 4918,
+      "success": true,
+      "steps": 283,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "target",
+      "seed": 4920,
+      "success": true,
+      "steps": 282,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "target",
+      "seed": 4936,
+      "success": true,
+      "steps": 243,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "target",
+      "seed": 4922,
+      "success": true,
+      "steps": 284,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "control",
+      "seed": 4900,
+      "success": true,
+      "steps": 254,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "control",
+      "seed": 4901,
+      "success": true,
+      "steps": 252,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "control",
+      "seed": 4903,
+      "success": true,
+      "steps": 442,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "control",
+      "seed": 4904,
+      "success": false,
+      "steps": 500,
+      "handoff": 40,
+      "order": [
+        2,
+        3
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 40,
+      "kind": "control",
+      "seed": 4905,
+      "success": true,
+      "steps": 259,
+      "handoff": 40,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "target",
+      "seed": 4918,
+      "success": true,
+      "steps": 253,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "target",
+      "seed": 4920,
+      "success": true,
+      "steps": 254,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "target",
+      "seed": 4936,
+      "success": true,
+      "steps": 255,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "target",
+      "seed": 4922,
+      "success": true,
+      "steps": 274,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "control",
+      "seed": 4900,
+      "success": true,
+      "steps": 252,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "control",
+      "seed": 4901,
+      "success": true,
+      "steps": 260,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "control",
+      "seed": 4903,
+      "success": true,
+      "steps": 420,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "control",
+      "seed": 4904,
+      "success": true,
+      "steps": 408,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 80,
+      "kind": "control",
+      "seed": 4905,
+      "success": true,
+      "steps": 253,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "target",
+      "seed": 4918,
+      "success": true,
+      "steps": 253,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "target",
+      "seed": 4920,
+      "success": true,
+      "steps": 254,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "target",
+      "seed": 4936,
+      "success": true,
+      "steps": 255,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "target",
+      "seed": 4922,
+      "success": true,
+      "steps": 274,
+      "handoff": 80,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "control",
+      "seed": 4900,
+      "success": true,
+      "steps": 252,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "control",
+      "seed": 4901,
+      "success": true,
+      "steps": 260,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "control",
+      "seed": 4903,
+      "success": true,
+      "steps": 420,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "control",
+      "seed": 4904,
+      "success": true,
+      "steps": 408,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    },
+    {
+      "teacher_steps": 150,
+      "kind": "control",
+      "seed": 4905,
+      "success": true,
+      "steps": 253,
+      "handoff": 70,
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "first": "cream"
+    }
+  ],
+  "len_10": {
+    "targets_redirected": 0,
+    "n_targets": 4,
+    "targets_succeeded": 0,
+    "controls_preserved": 4,
+    "n_controls": 5
+  },
+  "len_40": {
+    "targets_redirected": 4,
+    "n_targets": 4,
+    "targets_succeeded": 4,
+    "controls_preserved": 4,
+    "n_controls": 5
+  },
+  "len_80": {
+    "targets_redirected": 4,
+    "n_targets": 4,
+    "targets_succeeded": 4,
+    "controls_preserved": 5,
+    "n_controls": 5
+  },
+  "len_150": {
+    "targets_redirected": 4,
+    "n_targets": 4,
+    "targets_succeeded": 4,
+    "controls_preserved": 5,
+    "n_controls": 5
+  }
+}
