@@ -1,0 +1,25 @@
+{
+  "utc": "2026-08-27T082923Z",
+  "task": "chain2b_lr2",
+  "error_states": [
+    4918,
+    4920,
+    4936,
+    4940,
+    4942,
+    4944,
+    4954,
+    4955,
+    4962,
+    4988
+  ],
+  "teacher_rollouts": 10,
+  "pairs": 72,
+  "epochs": 20,
+  "lr": 0.0003,
+  "head_delta": 0.14108286798000336,
+  "env_steps": 720,
+  "v101": "results/v101_acq_states/2026-08-27T080125Z/summary.json",
+  "note": "trained ONLY on states where pi_0 errs; atomic prompt is training-time only, deployment is full-prompt N=1",
+  "git": "efdfb3c997a0d4f88f0594797e36c438ea071c50"
+}
