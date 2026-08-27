@@ -1,5 +1,46 @@
 # CLAUDE.md
 
+## Goal anchor — read this before every experiment and every report
+
+**The project goal.** Deploy a frozen VLA on tasks it has a **low success rate**
+on, collect **real-world trajectories during deployment**, and use them to train a
+**latent-space world model that predicts future state** — action-conditioned,
+**no reconstruction** — in order to make the VLA better at deployment time.
+
+The predictive object is framework §5.2:
+
+```
+z̃_{t+c} = T_θ(z_t, E_a(u^i))          roll the LATENT forward under a candidate action
+D_θ(z̃_{t+c}) = (Δw, Δy, r, V_k, p_succ)   read heads off the PREDICTED latent
+```
+
+**Before starting any new attempt, check it against all four axes.** If an axis
+fails, the work is off-mission — say so and change it, do not proceed and
+rationalise afterwards.
+
+| axis | requirement | the failure mode to catch |
+|---|---|---|
+| task | low baseline success rate | drifting to an easier task because it is more tractable |
+| object | latent `T_θ` rolled forward under a candidate action | building a discriminative head on the *current* observation and calling it a world model |
+| target | future **latent**, no pixel/obs reconstruction | adding a reconstruction loss because it is easier to fit |
+| data | trajectories collected **during deployment** | pre-training offline on acquisition seeds and freezing at deploy |
+
+**Before reporting any result, restate the goal and say which axis the result
+speaks to.** A number that improves task success but touches none of the four
+axes is not progress toward this goal, however large it is.
+
+**Recorded failure, 2026-08-27** — the cost of skipping this. A full session
+produced a real, replicated deployment-time gain (0.719 → 0.938, p = 0.0013) that
+was **off-mission on three of four axes**: it ran on `chain2b_lr2` at 0.797 (the
+*highest*-success candidate, chosen after closing `chain3` at 0.031 and `chain1b`
+at 0.438), used a discriminative classifier on the current observation with no
+`T_θ` anywhere, and pre-trained everything offline. The conclusion drawn from it
+— "the world model does not help" — was unsupported, because no world model was
+ever built. A closure decision compounded it: two low-success testbeds were
+retired on the grounds that *selection* could not help them, which says nothing
+about latent state prediction. **Do not retire a testbed because one method
+failed on it.**
+
 ## Token discipline
 
 Measured from this project's own transcripts on 2026-08-09. Two sessions, two
