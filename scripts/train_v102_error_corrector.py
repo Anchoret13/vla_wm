@@ -55,17 +55,25 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--states", type=Path, required=True, help="v101 summary.json")
     ap.add_argument("--epochs", type=int, default=20)
+    ap.add_argument("--include-none", action="store_true",
+                    help="also train on states where no object was picked by the "
+                         "probe horizon; off by default because those are slow, "
+                         "not necessarily wrong, and mixing them back in "
+                         "reintroduces the non-informative data that flattened v097")
     ap.add_argument("--lr", type=float, default=3e-4)
     ap.add_argument("--output", type=Path, default=OUT)
     a = ap.parse_args()
     seed_all(SEED)
     v101 = json.loads(a.states.read_text())
-    err = list(v101["tomato_states"]) + list(v101.get("none_states", []))
+    err = list(v101["tomato_states"])
+    if a.include_none:
+        err += list(v101.get("none_states", []))
     assert err, "v101 found no error states"
     assert not (set(err) & PANEL), "error states must be disjoint from the panel"
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = a.output / stamp; out.mkdir(parents=True, exist_ok=True)
-    print(f"{len(err)} error states from v101: {err}")
+    print(f"{len(err)} error states from v101 "
+          f"(include_none={a.include_none}): {err}")
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=10)
