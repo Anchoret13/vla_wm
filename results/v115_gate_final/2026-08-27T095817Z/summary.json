@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-27T095817Z",
+  "tap": 20,
+  "dims": 32,
+  "alpha": 0.01,
+  "n": 174,
+  "n_positive": 27,
+  "folds": 5,
+  "oof_recall_at_0fp": 0.9629629629629629,
+  "threshold": 0.7540237682959329,
+  "env_steps": 0,
+  "data": "results/v114_timed/2026-08-27T094410Z/timed.pt",
+  "note": "fitted on acquisition seeds only; threshold chosen on held-out folds for zero false positives",
+  "git": "573f1125917960b6a4f6c9698e12e2e75f052e8f"
+}

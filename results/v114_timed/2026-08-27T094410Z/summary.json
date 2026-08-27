@@ -1,0 +1,890 @@
+{
+  "utc": "2026-08-27T094410Z",
+  "task": "chain2b_lr2",
+  "taps": [
+    0,
+    10,
+    20,
+    30
+  ],
+  "seed_range": [
+    5000,
+    5199
+  ],
+  "n_labelled": 174,
+  "n_positive": 27,
+  "env_steps": 24970,
+  "rows": [
+    {
+      "seed": 5002,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5003,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5004,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5005,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5008,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5009,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5010,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5011,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5012,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5013,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5014,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5015,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5016,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5018,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5019,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5020,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5021,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5022,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5023,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5024,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5025,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5026,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5027,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5028,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5029,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5030,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5032,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5033,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5034,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5035,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5036,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5037,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5038,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5039,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5040,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5041,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5042,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5043,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5044,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5045,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5046,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5047,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5048,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5049,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5050,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5051,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5052,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5053,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5054,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5055,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5056,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5057,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5058,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5059,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5060,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5061,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5062,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5063,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5064,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5065,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5067,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5068,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5069,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5070,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5071,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5072,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5073,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5074,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5075,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5076,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5077,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5079,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5080,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5081,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5082,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5084,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5085,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5086,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5087,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5089,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5090,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5091,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5092,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5094,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5095,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5096,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5100,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5101,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5103,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5104,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5105,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5106,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5107,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5109,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5110,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5111,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5112,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5113,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5114,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5115,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5116,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5117,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5118,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5121,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5122,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5123,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5124,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5125,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5126,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5127,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5128,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5129,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5130,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5131,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5132,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5133,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5134,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5135,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5136,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5137,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5138,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5139,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5140,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5141,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5142,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5143,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5144,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5145,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5146,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5147,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5148,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5149,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5150,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5151,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5152,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5153,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5154,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5155,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5156,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5157,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5158,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5159,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5160,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5161,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5162,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5163,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5164,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5165,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5166,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5168,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5170,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5171,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5172,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5173,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5174,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5175,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5176,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5177,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5178,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5179,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5180,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5181,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5183,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5184,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5185,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5187,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5190,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5191,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5192,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5194,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5195,
+      "first": "tomato",
+      "steps": 30
+    },
+    {
+      "seed": 5196,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5197,
+      "first": "cream",
+      "steps": 30
+    },
+    {
+      "seed": 5199,
+      "first": "cream",
+      "steps": 30
+    }
+  ],
+  "git": "573f1125917960b6a4f6c9698e12e2e75f052e8f"
+}
