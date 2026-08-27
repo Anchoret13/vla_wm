@@ -83,6 +83,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", type=int, default=30)
     ap.add_argument("--epochs", type=int, default=3)
+    ap.add_argument("--lr", type=float, default=LR)
     ap.add_argument("--output", type=Path, default=OUT)
     a = ap.parse_args()
     torch.manual_seed(SEED); random.seed(SEED); np.random.seed(SEED)
@@ -114,7 +115,7 @@ def main() -> int:
     for p in aop.parameters():
         p.requires_grad_(True)
     width = getattr(aop, "in_features", None)
-    opt = torch.optim.AdamW(aop.parameters(), lr=LR, weight_decay=WD)
+    opt = torch.optim.AdamW(aop.parameters(), lr=a.lr, weight_decay=WD)
     print(f"trainable: action_out_proj {sum(p.numel() for p in aop.parameters()):,}")
 
     print("pass 2: replay the teacher actions, distil at FULL-prompt boundaries")
@@ -163,7 +164,7 @@ def main() -> int:
              for k in stock) / len(stock)
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": TASK, "teacher_rollouts": len(demos),
-         "acq_seeds": [ACQ[0], ACQ[a.seeds - 1]], "epochs": a.epochs,
+         "acq_seeds": [ACQ[0], ACQ[a.seeds - 1]], "epochs": a.epochs, "lr": a.lr,
          "env_steps": steps, "mean_abs_head_delta": d_,
          "teacher_prompt": ATOMIC,
          "note": "atomic prompt is training-time only; deployment is full-prompt N=1"},
