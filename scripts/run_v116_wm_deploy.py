@@ -57,10 +57,16 @@ def main() -> int:
     ap.add_argument("--panel", type=int, default=64)
     ap.add_argument("--panel-start", type=int, default=3200,
                     help="first panel seed; 3200 is the selection panel, so a\n                         confirmatory run must use a fresh range")
+    ap.add_argument("--force-correct", action="store_true",
+                    help="ABLATION: correct every episode, ignoring the gate. This "
+                         "isolates the WM's contribution - if it scores as well as "
+                         "the gated arm, the gain is the timed corrective and the "
+                         "world model adds nothing.")
     ap.add_argument("--tag", default=None)
     a = ap.parse_args()
     L = episode_length(TASK)
-    tag = a.tag or f"wm_d{a.detect_at}_w{a.window}"
+    tag = a.tag or (f"nogate_d{a.detect_at}_w{a.window}" if a.force_correct
+                    else f"wm_d{a.detect_at}_w{a.window}")
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT / f"{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
@@ -103,7 +109,7 @@ def main() -> int:
                 del pf
                 z = ((ft - mu) / sd) @ B
                 score = float(1 / (1 + np.exp(-(z @ w + b))))
-                use = score > thr
+                use = True if a.force_correct else score > thr
                 fired += int(use)
                 if use:
                     aop.load_state_dict(to_dev(trained)); runner.reset()
@@ -138,6 +144,7 @@ def main() -> int:
                "gate_tap": g["tap"], "gate_threshold": float(thr),
                "gate_oof_recall_at_0fp": g["oof_recall_at_0fp"],
                "n_corrected": fired, "is_upper_bound": False,
+               "force_correct": a.force_correct,
                "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [clopper_pearson_lower(k, len(rows)),
