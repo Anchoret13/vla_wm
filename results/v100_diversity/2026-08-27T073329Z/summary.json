@@ -1,0 +1,264 @@
+{
+  "utc": "2026-08-27T073329Z",
+  "task": "chain2b_lr2",
+  "rollouts": 12,
+  "horizon": 120,
+  "window": 40,
+  "mean_p_cream_tomato_states": 0.0,
+  "states_with_zero_cream_mass": [
+    3207,
+    3225,
+    3228,
+    3231,
+    3234,
+    3239,
+    3252,
+    3257
+  ],
+  "n_zero": 8,
+  "n_tomato_states": 8,
+  "env_steps": 17280,
+  "rows": [
+    {
+      "seed": 3207,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3225,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3228,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3231,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3234,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3239,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3252,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3257,
+      "group": "tomato",
+      "rollouts": 12,
+      "p_cream": 0.0,
+      "firsts": [
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none",
+        "none"
+      ]
+    },
+    {
+      "seed": 3200,
+      "group": "cream",
+      "rollouts": 12,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3201,
+      "group": "cream",
+      "rollouts": 12,
+      "p_cream": 0.75,
+      "firsts": [
+        "cream",
+        "none",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "none",
+        "none",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3202,
+      "group": "cream",
+      "rollouts": 12,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    },
+    {
+      "seed": 3204,
+      "group": "cream",
+      "rollouts": 12,
+      "p_cream": 1.0,
+      "firsts": [
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream",
+        "cream"
+      ]
+    }
+  ],
+  "git": "45f3b83544e5ae1d0be241870f9b6e9372cdd65f"
+}
