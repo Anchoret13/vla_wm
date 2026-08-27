@@ -1,0 +1,14 @@
+{
+  "utc": "2026-08-27T070314Z",
+  "task": "chain2b_lr2",
+  "teacher_rollouts": 30,
+  "acq_seeds": [
+    4900,
+    4929
+  ],
+  "epochs": 3,
+  "env_steps": 8600,
+  "mean_abs_head_delta": 0.0008960114791989326,
+  "teacher_prompt": "pick up the cream cheese and place it in the basket",
+  "note": "atomic prompt is training-time only; deployment is full-prompt N=1"
+}
