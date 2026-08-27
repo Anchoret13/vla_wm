@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-27T071847Z",
+  "task": "chain2b_lr2",
+  "states": 40,
+  "chunks": 320,
+  "val_acc": 1.0,
+  "train_acc": 0.9791666865348816,
+  "best_epoch": 39,
+  "env_steps": 0,
+  "labels": {
+    "cream": "pick up the cream cheese and place it in the basket",
+    "tomato": "pick up the tomato sauce and place it in the basket"
+  },
+  "note": "labels from measured behaviour: cream-first 97/104, tomato-first 0/18"
+}
