@@ -1,0 +1,28 @@
+{
+  "utc": "2026-08-27T084844Z",
+  "task": "chain2b_lr2",
+  "n_states": 85,
+  "n_positive": 10,
+  "folds": 5,
+  "cv_auc": 0.5733333468437195,
+  "cv_acc": 0.8235294222831726,
+  "cv_recall": 0.1,
+  "per_fold_auc": [
+    0.6666666865348816,
+    0.800000011920929,
+    0.4000000059604645,
+    0.5333333611488342,
+    0.46666666865348816
+  ],
+  "per_fold_recall": [
+    0.5,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "env_steps": 0,
+  "v101": "results/v101_acq_states/2026-08-27T080125Z/summary.json",
+  "note": "gates the v102 corrector at deployment; labels are executed outcomes over held-out acquisition states",
+  "git": "f1d7a6939936c500752162c0b0f69ae9e26f01a4"
+}

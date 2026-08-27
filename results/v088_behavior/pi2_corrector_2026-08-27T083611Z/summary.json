@@ -1,0 +1,1239 @@
+{
+  "action": "2M.6",
+  "tag": "pi2_corrector",
+  "utc": "2026-08-27T083611Z",
+  "policy": "lerobot/pi05_libero_finetuned",
+  "head": "results/v102_corrector/2026-08-27T082923Z/pi_2.pt",
+  "task": "chain2b_lr2",
+  "deadline": 500,
+  "panel_seeds": [
+    3200,
+    3263,
+    64
+  ],
+  "successes": 40,
+  "n": 64,
+  "rate": 0.625,
+  "cp95": [
+    0.5147890556645716,
+    0.7262206649855287
+  ],
+  "env_steps": 29130,
+  "mean_milestones": 3.46875,
+  "damage_episodes": 0,
+  "episodes": [
+    {
+      "seed": 3200,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 80,
+        "3": 150
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3201,
+      "success": true,
+      "success_step": 491,
+      "steps": 491,
+      "milestones": 4,
+      "events": {
+        "2": 60,
+        "3": 130,
+        "0": 450,
+        "1": 491
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3202,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3203,
+      "success": true,
+      "success_step": 480,
+      "steps": 480,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 390,
+        "1": 480
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3204,
+      "success": true,
+      "success_step": 466,
+      "steps": 466,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 420,
+        "1": 466
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3205,
+      "success": true,
+      "success_step": 399,
+      "steps": 399,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 350,
+        "1": 399
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3206,
+      "success": true,
+      "success_step": 428,
+      "steps": 428,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370,
+        "1": 428
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3207,
+      "success": true,
+      "success_step": 471,
+      "steps": 471,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 420,
+        "1": 471
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3208,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 80,
+        "3": 140,
+        "0": 380
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3209,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 130,
+        "0": 460
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3210,
+      "success": true,
+      "success_step": 445,
+      "steps": 445,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 400,
+        "1": 445
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3211,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 470
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3212,
+      "success": true,
+      "success_step": 444,
+      "steps": 444,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 390,
+        "1": 444
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3213,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3214,
+      "success": true,
+      "success_step": 385,
+      "steps": 385,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 330,
+        "1": 385
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3215,
+      "success": true,
+      "success_step": 448,
+      "steps": 448,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 448
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3216,
+      "success": true,
+      "success_step": 423,
+      "steps": 423,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370,
+        "1": 423
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3217,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3218,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3219,
+      "success": true,
+      "success_step": 432,
+      "steps": 432,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 432
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3220,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3221,
+      "success": true,
+      "success_step": 450,
+      "steps": 450,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 400,
+        "1": 450
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3222,
+      "success": true,
+      "success_step": 467,
+      "steps": 467,
+      "milestones": 4,
+      "events": {
+        "2": 60,
+        "3": 130,
+        "0": 410,
+        "1": 467
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3223,
+      "success": true,
+      "success_step": 462,
+      "steps": 462,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370,
+        "1": 462
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3224,
+      "success": true,
+      "success_step": 373,
+      "steps": 373,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 330,
+        "1": 373
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3225,
+      "success": true,
+      "success_step": 463,
+      "steps": 463,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 420,
+        "1": 463
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3226,
+      "success": true,
+      "success_step": 419,
+      "steps": 419,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 310,
+        "1": 419
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3227,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 410
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3228,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 150
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3229,
+      "success": true,
+      "success_step": 373,
+      "steps": 373,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 330,
+        "1": 373
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3230,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 390
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3231,
+      "success": true,
+      "success_step": 426,
+      "steps": 426,
+      "milestones": 4,
+      "events": {
+        "2": 90,
+        "3": 160,
+        "0": 380,
+        "1": 426
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3232,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 490
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3233,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3234,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 80,
+        "3": 150
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3235,
+      "success": true,
+      "success_step": 457,
+      "steps": 457,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 400,
+        "1": 457
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3236,
+      "success": true,
+      "success_step": 275,
+      "steps": 275,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 200,
+        "1": 275
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3237,
+      "success": true,
+      "success_step": 388,
+      "steps": 388,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 330,
+        "1": 388
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3238,
+      "success": true,
+      "success_step": 451,
+      "steps": 451,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 390,
+        "1": 451
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3239,
+      "success": true,
+      "success_step": 432,
+      "steps": 432,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 432
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3240,
+      "success": true,
+      "success_step": 442,
+      "steps": 442,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370,
+        "1": 442
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3241,
+      "success": true,
+      "success_step": 423,
+      "steps": 423,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 370,
+        "1": 423
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3242,
+      "success": true,
+      "success_step": 382,
+      "steps": 382,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 150,
+        "0": 330,
+        "1": 382
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3243,
+      "success": true,
+      "success_step": 441,
+      "steps": 441,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 380,
+        "1": 441
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3244,
+      "success": true,
+      "success_step": 465,
+      "steps": 465,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 360,
+        "1": 465
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3245,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3246,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 350
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3247,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3248,
+      "success": true,
+      "success_step": 434,
+      "steps": 434,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 434
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3249,
+      "success": true,
+      "success_step": 473,
+      "steps": 473,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 430,
+        "1": 473
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3250,
+      "success": true,
+      "success_step": 440,
+      "steps": 440,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 330,
+        "1": 440
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3251,
+      "success": true,
+      "success_step": 414,
+      "steps": 414,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 360,
+        "1": 414
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3252,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 490
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3253,
+      "success": true,
+      "success_step": 444,
+      "steps": 444,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 400,
+        "1": 444
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3254,
+      "success": true,
+      "success_step": 391,
+      "steps": 391,
+      "milestones": 4,
+      "events": {
+        "2": 80,
+        "3": 150,
+        "0": 340,
+        "1": 391
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3255,
+      "success": true,
+      "success_step": 423,
+      "steps": 423,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 380,
+        "1": 423
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3256,
+      "success": true,
+      "success_step": 366,
+      "steps": 366,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 320,
+        "1": 366
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3257,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 440
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3258,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 370
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3259,
+      "success": true,
+      "success_step": 479,
+      "steps": 479,
+      "milestones": 4,
+      "events": {
+        "2": 60,
+        "3": 130,
+        "0": 400,
+        "1": 479
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3260,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 2,
+      "events": {
+        "2": 70,
+        "3": 140
+      },
+      "order": [
+        2,
+        3
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3261,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 180,
+        "3": 230,
+        "0": 470
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3262,
+      "success": true,
+      "success_step": 365,
+      "steps": 365,
+      "milestones": 4,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 320,
+        "1": 365
+      },
+      "order": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "seed": 3263,
+      "success": false,
+      "success_step": null,
+      "steps": 500,
+      "milestones": 3,
+      "events": {
+        "2": 70,
+        "3": 140,
+        "0": 390
+      },
+      "order": [
+        2,
+        3,
+        0
+      ],
+      "damage": 0
+    }
+  ],
+  "git": "f1d7a6939936c500752162c0b0f69ae9e26f01a4"
+}
