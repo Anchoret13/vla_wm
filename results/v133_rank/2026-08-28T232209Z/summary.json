@@ -1,0 +1,188 @@
+{
+  "utc": "2026-08-28T232209Z",
+  "wm": "results/v122_latent_wm/2026-08-28T215505Z/T_theta.pt",
+  "heads": [
+    "results/v125_psucc/2026-08-28T215623Z/p_succ.pt",
+    "results/v128_progress/2026-08-28T222415Z/delta_w.pt"
+  ],
+  "env_steps": 0,
+  "rows": [
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "p_succ",
+      "depth": 1,
+      "within_state_auc": 0.5,
+      "top1": 0.625,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "p_succ",
+      "depth": 2,
+      "within_state_auc": 0.4659090909090909,
+      "top1": 0.5625,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "p_succ",
+      "depth": 4,
+      "within_state_auc": 0.5340909090909091,
+      "top1": 0.5625,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "p_succ",
+      "depth": 8,
+      "within_state_auc": 0.4772727272727273,
+      "top1": 0.5,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "delta_w",
+      "depth": 1,
+      "within_state_auc": 0.5681818181818182,
+      "top1": 0.5625,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "delta_w",
+      "depth": 2,
+      "within_state_auc": 0.5681818181818182,
+      "top1": 0.5,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "delta_w",
+      "depth": 4,
+      "within_state_auc": 0.5795454545454546,
+      "top1": 0.5,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 0.0,
+      "head": "delta_w",
+      "depth": 8,
+      "within_state_auc": 0.48863636363636365,
+      "top1": 0.5625,
+      "n_mixed_states": 8,
+      "random": 0.46875,
+      "oracle": 0.6875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "p_succ",
+      "depth": 1,
+      "within_state_auc": 0.6319444444444444,
+      "top1": 0.625,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "p_succ",
+      "depth": 2,
+      "within_state_auc": 0.5833333333333334,
+      "top1": 0.6875,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "p_succ",
+      "depth": 4,
+      "within_state_auc": 0.4513888888888889,
+      "top1": 0.375,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "p_succ",
+      "depth": 8,
+      "within_state_auc": 0.5,
+      "top1": 0.5,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "delta_w",
+      "depth": 1,
+      "within_state_auc": 0.4027777777777778,
+      "top1": 0.4375,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "delta_w",
+      "depth": 2,
+      "within_state_auc": 0.4027777777777778,
+      "top1": 0.4375,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "delta_w",
+      "depth": 4,
+      "within_state_auc": 0.4791666666666667,
+      "top1": 0.4375,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    },
+    {
+      "task": "chain1b_lr2",
+      "sigma": 3.0,
+      "head": "delta_w",
+      "depth": 8,
+      "within_state_auc": 0.5069444444444444,
+      "top1": 0.375,
+      "n_mixed_states": 12,
+      "random": 0.5625,
+      "oracle": 0.875
+    }
+  ],
+  "note": "candidates regenerated deterministically from the v132 seeds; outcomes are v132's executed ground truth"
+}

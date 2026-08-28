@@ -75,6 +75,10 @@ def main() -> int:
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--hidden", type=int, default=512)
+    ap.add_argument("--proprio-dim", type=int, default=0,
+                    help="trailing dims of z that are proprioception; reported "
+                         "separately because the 2048-d pooled hidden would "
+                         "otherwise dominate the MSE and hide the action effect")
     a = ap.parse_args()
     d = torch.load(a.tape, weights_only=False)
     z, u, zn, ep = d["z"], d["u"], d["z_next"], d["episode"]
@@ -164,6 +168,24 @@ def main() -> int:
         idx = g.integers(0, len(vals), size=(iters, len(vals)))
         bs = vals[idx].mean(1)
         return float(vals.mean()), float(np.quantile(bs, 0.025)), float(np.quantile(bs, 0.975))
+
+    if a.proprio_dim > 0:
+        P = a.proprio_dim
+        def part_mse(model, idx, sl):
+            model.eval()
+            with torch.no_grad():
+                pred = model(Z[idx], U[idx])
+                return float(((pred[:, sl] - ZN[idx][:, sl]) ** 2).mean())
+        hid, pro = slice(0, Z.shape[-1] - P), slice(Z.shape[-1] - P, Z.shape[-1])
+        for nm, sl in (("pooled hidden", hid), ("proprioception", pro)):
+            ia = float(((Z[te][:, sl] - ZN[te][:, sl]) ** 2).mean())
+            ma = part_mse(models["action"], te, sl)
+            mn = part_mse(models["no_action"], te, sl)
+            results[f"part_{nm.split()[0]}"] = {"identity": ia, "action": ma,
+                                                "no_action": mn,
+                                                "action_gain_rel": (mn - ma) / max(ia, 1e-9)}
+            print(f"  [{nm:14s}] identity {ia:.5f}  action {ma:.5f} ({ma/ia:.3f}x)  "
+                  f"no-action {mn:.5f} ({mn/ia:.3f}x)  action gain {100*(mn-ma)/ia:+.2f}%")
 
     gain, glo, ghi = boot(se_n - se_a)          # >0 means action helps
     sens, slo, shi = boot(se_s - se_a)          # >0 means the action is used

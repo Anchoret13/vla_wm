@@ -43,6 +43,27 @@ from lcwm.v082_m0 import masked_prefix_mean  # noqa: E402
 C = 10
 OUT = REPO / "results" / "v121_deploy_latents"
 
+# LCState components (framework 5.1). The pooled prefix hidden is a
+# language-vision alignment representation; ten steps of action barely move it,
+# which is why v122 measured an action gain of only 0.81% of identity and v133
+# found within-state ranking AUC ~0.5. Proprioception is the part of the state
+# an action actually controls over c steps, and it was missing entirely.
+PROPRIO_KEYS = ("robot_state.eef.pos", "robot_state.eef.quat",
+                "robot_state.gripper.qpos", "robot_state.gripper.qvel",
+                "robot_state.joints.pos", "robot_state.joints.vel")
+
+
+def proprio(obs) -> torch.Tensor:
+    """25-d physical state: eef pose, gripper, joints. Not a reconstruction
+    target - a component of the latent, predicted in latent space like the rest."""
+    parts = []
+    for k in PROPRIO_KEYS:
+        cur = obs
+        for piece in k.split("."):
+            cur = cur[piece]
+        parts.append(torch.as_tensor(np.asarray(cur), dtype=torch.float32).flatten())
+    return torch.cat(parts)
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -86,7 +107,7 @@ def main() -> int:
                 z = masked_prefix_mean(pf.hidden[0].detach().float().cpu(),
                                        pf.pad_masks[0].detach().cpu())
             del pf
-            return z
+            return torch.cat([z, proprio(obs)])
 
         while not done and t < L:
             z_t = latent()
@@ -130,14 +151,16 @@ def main() -> int:
                 "episode": torch.tensor(EP), "t": torch.tensor(TT),
                 "sigma": torch.tensor(SG),
                 "success": torch.tensor([float(e["success"]) for e in episodes]),
-                "task": a.task, "c": C, "latent_dim": Zt.shape[-1]},
+                "task": a.task, "c": C, "latent_dim": Zt.shape[-1],
+                "proprio_dim": 25, "proprio_keys": list(PROPRIO_KEYS)},
                out / "tape.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "c": C, "episodes": len(seeds),
          "seed_range": [seeds[0], seeds[-1]], "sigmas": a.sigmas,
          "successes": nsucc,
          "rate": nsucc / len(seeds), "triples": len(Z),
-         "latent_dim": int(Zt.shape[-1]), "env_steps": steps,
+         "latent_dim": int(Zt.shape[-1]), "proprio_dim": 25,
+         "env_steps": steps,
          "episode_records": episodes,
          "note": "deployment trajectories; latent targets only, no reconstruction",
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
