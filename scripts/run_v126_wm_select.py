@@ -60,12 +60,18 @@ def main() -> int:
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--sigma", type=float, default=0.0,
                     help="candidate sampling noise; 0 = the policy's own ODE")
+    ap.add_argument("--depth", type=int, default=1,
+                    help="how many times T_theta is composed before scoring. v127: "
+                         "score range grows 0.0026 -> 0.0095 with depth at sigma=0, "
+                         "and 0.0145 -> 0.0415 at sigma=3")
+    ap.add_argument("--head-kind", choices=["p_succ", "delta_w"], default="p_succ")
     ap.add_argument("--panel", type=int, default=48)
     ap.add_argument("--panel-start", type=int, default=6500)
     a = ap.parse_args()
     L = episode_length(a.task)
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    tag = f"{a.arm}_n{a.n}" if a.arm != "base" else "base"
+    tag = ("base" if a.arm == "base" else
+           f"{a.arm}_n{a.n}_s{a.sigma}_d{a.depth}_{a.head_kind}")
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm, weights_only=False)
@@ -107,8 +113,10 @@ def main() -> int:
                                      prefix=pf, sigma=a.sigma)[:, :C].detach().float().cpu()
                 z = masked_prefix_mean(pf.hidden[0].detach().float().cpu(),
                                        pf.pad_masks[0].detach().cpu())
-                Zn = ((z - mu) / sd).unsqueeze(0).expand(a.n, -1)
-                sc = torch.sigmoid(head(T(Zn, cand)))     # p_succ on PREDICTED latent
+                zt = ((z - mu) / sd).unsqueeze(0).expand(a.n, -1)
+                for _ in range(a.depth):                  # roll the LATENT forward
+                    zt = T(zt, cand)
+                sc = torch.sigmoid(head(zt))              # head on the PREDICTED latent
             del pf
             k = int(rng.integers(a.n)) if a.arm == "random" else int(torch.argmax(sc))
             picks.append({"t": t, "k": k, "score": float(sc[k]),
@@ -129,7 +137,8 @@ def main() -> int:
 
     k = sum(r["success"] for r in rows)
     summary = {"task": a.task, "arm": a.arm, "tag": tag, "utc": stamp,
-               "n_candidates": a.n, "sigma": a.sigma, "wm": str(a.wm),
+               "n_candidates": a.n, "sigma": a.sigma, "depth": a.depth,
+               "head_kind": a.head_kind, "wm": str(a.wm),
                "head": str(a.head), "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [clopper_pearson_lower(k, len(rows)),

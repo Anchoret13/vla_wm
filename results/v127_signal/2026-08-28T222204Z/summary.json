@@ -1,0 +1,459 @@
+{
+  "utc": "2026-08-28T222204Z",
+  "task": "chain1b_lr2",
+  "seeds": [
+    6500,
+    6501,
+    6502,
+    6503
+  ],
+  "n": 8,
+  "sigmas": [
+    0.0,
+    1.5,
+    3.0
+  ],
+  "depths": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "at_step": 30,
+  "env_steps": 120,
+  "rows": [
+    {
+      "seed": 6500,
+      "sigma": 0.0,
+      "depth": 1,
+      "action_spread": 0.6320606470108032,
+      "latent_spread": 0.30548617243766785,
+      "score_spread": 0.0018652230501174927,
+      "score_sd": 0.0007332850364036858
+    },
+    {
+      "seed": 6500,
+      "sigma": 0.0,
+      "depth": 2,
+      "action_spread": 0.6320606470108032,
+      "latent_spread": 0.47572413086891174,
+      "score_spread": 0.0022104158997535706,
+      "score_sd": 0.0006952479016035795
+    },
+    {
+      "seed": 6500,
+      "sigma": 0.0,
+      "depth": 4,
+      "action_spread": 0.6320606470108032,
+      "latent_spread": 0.7762279510498047,
+      "score_spread": 0.004827216267585754,
+      "score_sd": 0.0015304854605346918
+    },
+    {
+      "seed": 6500,
+      "sigma": 0.0,
+      "depth": 8,
+      "action_spread": 0.6320606470108032,
+      "latent_spread": 0.9004802703857422,
+      "score_spread": 0.01486167311668396,
+      "score_sd": 0.004614832811057568
+    },
+    {
+      "seed": 6500,
+      "sigma": 1.5,
+      "depth": 1,
+      "action_spread": 1.5097627639770508,
+      "latent_spread": 0.6341808438301086,
+      "score_spread": 0.004694759845733643,
+      "score_sd": 0.001710992306470871
+    },
+    {
+      "seed": 6500,
+      "sigma": 1.5,
+      "depth": 2,
+      "action_spread": 1.5097627639770508,
+      "latent_spread": 1.0469944477081299,
+      "score_spread": 0.006969861686229706,
+      "score_sd": 0.0023312799166888
+    },
+    {
+      "seed": 6500,
+      "sigma": 1.5,
+      "depth": 4,
+      "action_spread": 1.5097627639770508,
+      "latent_spread": 1.7537726163864136,
+      "score_spread": 0.01006694883108139,
+      "score_sd": 0.0034108557738363743
+    },
+    {
+      "seed": 6500,
+      "sigma": 1.5,
+      "depth": 8,
+      "action_spread": 1.5097627639770508,
+      "latent_spread": 2.001713752746582,
+      "score_spread": 0.022195905447006226,
+      "score_sd": 0.00821945071220398
+    },
+    {
+      "seed": 6500,
+      "sigma": 3.0,
+      "depth": 1,
+      "action_spread": 3.4125027656555176,
+      "latent_spread": 1.4363294839859009,
+      "score_spread": 0.01210811734199524,
+      "score_sd": 0.004012604709714651
+    },
+    {
+      "seed": 6500,
+      "sigma": 3.0,
+      "depth": 2,
+      "action_spread": 3.4125027656555176,
+      "latent_spread": 2.4379661083221436,
+      "score_spread": 0.020324453711509705,
+      "score_sd": 0.0061825234442949295
+    },
+    {
+      "seed": 6500,
+      "sigma": 3.0,
+      "depth": 4,
+      "action_spread": 3.4125027656555176,
+      "latent_spread": 4.022943019866943,
+      "score_spread": 0.030144356191158295,
+      "score_sd": 0.008963842876255512
+    },
+    {
+      "seed": 6500,
+      "sigma": 3.0,
+      "depth": 8,
+      "action_spread": 3.4125027656555176,
+      "latent_spread": 4.4595136642456055,
+      "score_spread": 0.06255984306335449,
+      "score_sd": 0.01948210969567299
+    },
+    {
+      "seed": 6501,
+      "sigma": 0.0,
+      "depth": 1,
+      "action_spread": 0.32468608021736145,
+      "latent_spread": 0.1990683376789093,
+      "score_spread": 0.0018619000911712646,
+      "score_sd": 0.0006576006417162716
+    },
+    {
+      "seed": 6501,
+      "sigma": 0.0,
+      "depth": 2,
+      "action_spread": 0.32468608021736145,
+      "latent_spread": 0.41504865884780884,
+      "score_spread": 0.0060311853885650635,
+      "score_sd": 0.0018605139339342713
+    },
+    {
+      "seed": 6501,
+      "sigma": 0.0,
+      "depth": 4,
+      "action_spread": 0.32468608021736145,
+      "latent_spread": 0.5437839031219482,
+      "score_spread": 0.008483350276947021,
+      "score_sd": 0.0027997526340186596
+    },
+    {
+      "seed": 6501,
+      "sigma": 0.0,
+      "depth": 8,
+      "action_spread": 0.32468608021736145,
+      "latent_spread": 0.7661968469619751,
+      "score_spread": 0.008716821670532227,
+      "score_sd": 0.0026914109475910664
+    },
+    {
+      "seed": 6501,
+      "sigma": 1.5,
+      "depth": 1,
+      "action_spread": 1.0704090595245361,
+      "latent_spread": 0.5569325089454651,
+      "score_spread": 0.006518304347991943,
+      "score_sd": 0.002225490054115653
+    },
+    {
+      "seed": 6501,
+      "sigma": 1.5,
+      "depth": 2,
+      "action_spread": 1.0704090595245361,
+      "latent_spread": 1.0561143159866333,
+      "score_spread": 0.018985241651535034,
+      "score_sd": 0.006905337795615196
+    },
+    {
+      "seed": 6501,
+      "sigma": 1.5,
+      "depth": 4,
+      "action_spread": 1.0704090595245361,
+      "latent_spread": 1.4316424131393433,
+      "score_spread": 0.013792693614959717,
+      "score_sd": 0.004526081029325724
+    },
+    {
+      "seed": 6501,
+      "sigma": 1.5,
+      "depth": 8,
+      "action_spread": 1.0704090595245361,
+      "latent_spread": 2.147172689437866,
+      "score_spread": 0.013483047485351562,
+      "score_sd": 0.00464290427044034
+    },
+    {
+      "seed": 6501,
+      "sigma": 3.0,
+      "depth": 1,
+      "action_spread": 3.050187826156616,
+      "latent_spread": 1.3456889390945435,
+      "score_spread": 0.01784619688987732,
+      "score_sd": 0.0062887221574783325
+    },
+    {
+      "seed": 6501,
+      "sigma": 3.0,
+      "depth": 2,
+      "action_spread": 3.050187826156616,
+      "latent_spread": 2.5457050800323486,
+      "score_spread": 0.05577966570854187,
+      "score_sd": 0.019815295934677124
+    },
+    {
+      "seed": 6501,
+      "sigma": 3.0,
+      "depth": 4,
+      "action_spread": 3.050187826156616,
+      "latent_spread": 3.700841188430786,
+      "score_spread": 0.03329825401306152,
+      "score_sd": 0.012977729551494122
+    },
+    {
+      "seed": 6501,
+      "sigma": 3.0,
+      "depth": 8,
+      "action_spread": 3.050187826156616,
+      "latent_spread": 5.928375244140625,
+      "score_spread": 0.03280007839202881,
+      "score_sd": 0.013023537583649158
+    },
+    {
+      "seed": 6502,
+      "sigma": 0.0,
+      "depth": 1,
+      "action_spread": 0.3764262795448303,
+      "latent_spread": 0.2587229907512665,
+      "score_spread": 0.0027390718460083008,
+      "score_sd": 0.0009931182721629739
+    },
+    {
+      "seed": 6502,
+      "sigma": 0.0,
+      "depth": 2,
+      "action_spread": 0.3764262795448303,
+      "latent_spread": 0.4025407135486603,
+      "score_spread": 0.00280839204788208,
+      "score_sd": 0.0010193006601184607
+    },
+    {
+      "seed": 6502,
+      "sigma": 0.0,
+      "depth": 4,
+      "action_spread": 0.3764262795448303,
+      "latent_spread": 0.5736397504806519,
+      "score_spread": 0.003716409206390381,
+      "score_sd": 0.0011340475175529718
+    },
+    {
+      "seed": 6502,
+      "sigma": 0.0,
+      "depth": 8,
+      "action_spread": 0.3764262795448303,
+      "latent_spread": 0.7836970090866089,
+      "score_spread": 0.0023658275604248047,
+      "score_sd": 0.0009402998257428408
+    },
+    {
+      "seed": 6502,
+      "sigma": 1.5,
+      "depth": 1,
+      "action_spread": 1.076673150062561,
+      "latent_spread": 0.5657808184623718,
+      "score_spread": 0.006422579288482666,
+      "score_sd": 0.0026209664065390825
+    },
+    {
+      "seed": 6502,
+      "sigma": 1.5,
+      "depth": 2,
+      "action_spread": 1.076673150062561,
+      "latent_spread": 0.8480087518692017,
+      "score_spread": 0.008900940418243408,
+      "score_sd": 0.003030088497325778
+    },
+    {
+      "seed": 6502,
+      "sigma": 1.5,
+      "depth": 4,
+      "action_spread": 1.076673150062561,
+      "latent_spread": 1.4130182266235352,
+      "score_spread": 0.009821653366088867,
+      "score_sd": 0.003248113440349698
+    },
+    {
+      "seed": 6502,
+      "sigma": 1.5,
+      "depth": 8,
+      "action_spread": 1.076673150062561,
+      "latent_spread": 2.5429723262786865,
+      "score_spread": 0.008310079574584961,
+      "score_sd": 0.0027144434861838818
+    },
+    {
+      "seed": 6502,
+      "sigma": 3.0,
+      "depth": 1,
+      "action_spread": 2.913353681564331,
+      "latent_spread": 1.3063700199127197,
+      "score_spread": 0.020158112049102783,
+      "score_sd": 0.006854044273495674
+    },
+    {
+      "seed": 6502,
+      "sigma": 3.0,
+      "depth": 2,
+      "action_spread": 2.913353681564331,
+      "latent_spread": 1.8683223724365234,
+      "score_spread": 0.022108376026153564,
+      "score_sd": 0.007542693987488747
+    },
+    {
+      "seed": 6502,
+      "sigma": 3.0,
+      "depth": 4,
+      "action_spread": 2.913353681564331,
+      "latent_spread": 3.191258192062378,
+      "score_spread": 0.018393635749816895,
+      "score_sd": 0.006525888107717037
+    },
+    {
+      "seed": 6502,
+      "sigma": 3.0,
+      "depth": 8,
+      "action_spread": 2.913353681564331,
+      "latent_spread": 5.9162797927856445,
+      "score_spread": 0.015683531761169434,
+      "score_sd": 0.005629618652164936
+    },
+    {
+      "seed": 6503,
+      "sigma": 0.0,
+      "depth": 1,
+      "action_spread": 0.3249979317188263,
+      "latent_spread": 0.18502938747406006,
+      "score_spread": 0.0039039552211761475,
+      "score_sd": 0.0010858435416594148
+    },
+    {
+      "seed": 6503,
+      "sigma": 0.0,
+      "depth": 2,
+      "action_spread": 0.3249979317188263,
+      "latent_spread": 0.35997286438941956,
+      "score_spread": 0.0018347129225730896,
+      "score_sd": 0.0007098337518982589
+    },
+    {
+      "seed": 6503,
+      "sigma": 0.0,
+      "depth": 4,
+      "action_spread": 0.3249979317188263,
+      "latent_spread": 0.48051270842552185,
+      "score_spread": 0.004768297076225281,
+      "score_sd": 0.001679141423664987
+    },
+    {
+      "seed": 6503,
+      "sigma": 0.0,
+      "depth": 8,
+      "action_spread": 0.3249979317188263,
+      "latent_spread": 0.8309193849563599,
+      "score_spread": 0.011908695101737976,
+      "score_sd": 0.003618057584390044
+    },
+    {
+      "seed": 6503,
+      "sigma": 1.5,
+      "depth": 1,
+      "action_spread": 1.047125220298767,
+      "latent_spread": 0.5278446078300476,
+      "score_spread": 0.006498157978057861,
+      "score_sd": 0.0022425909992307425
+    },
+    {
+      "seed": 6503,
+      "sigma": 1.5,
+      "depth": 2,
+      "action_spread": 1.047125220298767,
+      "latent_spread": 1.0166438817977905,
+      "score_spread": 0.006978683173656464,
+      "score_sd": 0.0021089590154588223
+    },
+    {
+      "seed": 6503,
+      "sigma": 1.5,
+      "depth": 4,
+      "action_spread": 1.047125220298767,
+      "latent_spread": 1.3192144632339478,
+      "score_spread": 0.01298658549785614,
+      "score_sd": 0.004234351683408022
+    },
+    {
+      "seed": 6503,
+      "sigma": 1.5,
+      "depth": 8,
+      "action_spread": 1.047125220298767,
+      "latent_spread": 2.2895541191101074,
+      "score_spread": 0.018043100833892822,
+      "score_sd": 0.00711590563878417
+    },
+    {
+      "seed": 6503,
+      "sigma": 3.0,
+      "depth": 1,
+      "action_spread": 3.23303484916687,
+      "latent_spread": 1.3618613481521606,
+      "score_spread": 0.00801888108253479,
+      "score_sd": 0.0027737505733966827
+    },
+    {
+      "seed": 6503,
+      "sigma": 3.0,
+      "depth": 2,
+      "action_spread": 3.23303484916687,
+      "latent_spread": 2.6336896419525146,
+      "score_spread": 0.014287658035755157,
+      "score_sd": 0.004621145315468311
+    },
+    {
+      "seed": 6503,
+      "sigma": 3.0,
+      "depth": 4,
+      "action_spread": 3.23303484916687,
+      "latent_spread": 3.3193538188934326,
+      "score_spread": 0.04017075151205063,
+      "score_sd": 0.013919814489781857
+    },
+    {
+      "seed": 6503,
+      "sigma": 3.0,
+      "depth": 8,
+      "action_spread": 3.23303484916687,
+      "latent_spread": 5.40731143951416,
+      "score_spread": 0.054917752742767334,
+      "score_sd": 0.017115382477641106
+    }
+  ],
+  "note": "v126 wm arm tied random; p_succ spread across candidates was 0.0027. This locates where the signal collapses."
+}

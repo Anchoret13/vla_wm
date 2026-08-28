@@ -1,0 +1,28 @@
+{
+  "utc": "2026-08-28T222415Z",
+  "tape": "results/v121_deploy_latents/chain1b_lr2_2026-08-28T214204Z/tape.pt",
+  "wm": "results/v122_latent_wm/2026-08-28T215505Z/T_theta.pt",
+  "task": "chain1b_lr2",
+  "triples": 2334,
+  "positive_rate": 0.03727506473660469,
+  "delta_w_counts": {
+    "0": 2247,
+    "1": 87
+  },
+  "results": {
+    "current_latent": {
+      "test_auc": 0.9970396684428656
+    },
+    "predicted_latent": {
+      "test_auc": 0.9983083819673517
+    },
+    "action_score_spread": {
+      "per_state_sd": 0.01012885756790638,
+      "population_sd": 0.18723352253437042,
+      "ratio": 0.054097457713786413
+    }
+  },
+  "env_steps": 0,
+  "note": "Delta w over the next c steps, labels reconstructed exactly from stored goal-atom achievement times; no new rollouts",
+  "git": "dcf1ed633e3b11f85d3fd52dac21010c7e75ab63"
+}
