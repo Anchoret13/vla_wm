@@ -1,0 +1,362 @@
+{
+  "task": "chain1b_lr2",
+  "arm": "base",
+  "tag": "base",
+  "utc": "2026-08-28T215737Z",
+  "n_candidates": 8,
+  "sigma": 0.0,
+  "wm": "results/v122_latent_wm/2026-08-28T215505Z/T_theta.pt",
+  "head": "results/v125_psucc/2026-08-28T215623Z/p_succ.pt",
+  "panel": [
+    6500,
+    6547,
+    48
+  ],
+  "successes": 29,
+  "n": 48,
+  "rate": 0.6041666666666666,
+  "cp95": [
+    0.4752429795550315,
+    0.7230420359914276
+  ],
+  "env_steps": 11787,
+  "episodes": [
+    {
+      "seed": 6500,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6501,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6502,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6503,
+      "success": true,
+      "success_step": 245,
+      "steps": 245,
+      "picks": []
+    },
+    {
+      "seed": 6504,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "picks": []
+    },
+    {
+      "seed": 6505,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "picks": []
+    },
+    {
+      "seed": 6506,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6507,
+      "success": true,
+      "success_step": 229,
+      "steps": 229,
+      "picks": []
+    },
+    {
+      "seed": 6508,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6509,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6510,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6511,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6512,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 6513,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6514,
+      "success": true,
+      "success_step": 234,
+      "steps": 234,
+      "picks": []
+    },
+    {
+      "seed": 6515,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6516,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6517,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "picks": []
+    },
+    {
+      "seed": 6518,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6519,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6520,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6521,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6522,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6523,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6524,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6525,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6526,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6527,
+      "success": true,
+      "success_step": 222,
+      "steps": 222,
+      "picks": []
+    },
+    {
+      "seed": 6528,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6529,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 6530,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6531,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6532,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "picks": []
+    },
+    {
+      "seed": 6533,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "picks": []
+    },
+    {
+      "seed": 6534,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6535,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6536,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6537,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6538,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6539,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6540,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6541,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6542,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6543,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6544,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6545,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6546,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6547,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    }
+  ],
+  "git": "ee0784ff56180bd2724edb009480066c6312ca64"
+}
