@@ -1,0 +1,278 @@
+{
+  "utc": "2026-08-27T200212Z",
+  "task": "chain1b_lr2",
+  "seeds": 16,
+  "rollouts": 8,
+  "marginal_rate": 0.640625,
+  "within_state_var": 0.119140625,
+  "between_state_var": 0.111083984375,
+  "within_fraction": 0.5174973488865323,
+  "deterministic_states": [
+    6200,
+    6206,
+    6207,
+    6208,
+    6211
+  ],
+  "n_deterministic": 5,
+  "env_steps": 31265,
+  "rows": [
+    {
+      "seed": 6200,
+      "successes": 8,
+      "rollouts": 8,
+      "p": 1.0,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6201,
+      "successes": 4,
+      "rollouts": 8,
+      "p": 0.5,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "seed": 6202,
+      "successes": 6,
+      "rollouts": 8,
+      "p": 0.75,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6203,
+      "successes": 6,
+      "rollouts": 8,
+      "p": 0.75,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6204,
+      "successes": 2,
+      "rollouts": 8,
+      "p": 0.25,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "seed": 6205,
+      "successes": 7,
+      "rollouts": 8,
+      "p": 0.875,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "seed": 6206,
+      "successes": 8,
+      "rollouts": 8,
+      "p": 1.0,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6207,
+      "successes": 8,
+      "rollouts": 8,
+      "p": 1.0,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6208,
+      "successes": 0,
+      "rollouts": 8,
+      "p": 0.0,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "seed": 6209,
+      "successes": 6,
+      "rollouts": 8,
+      "p": 0.75,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "seed": 6210,
+      "successes": 7,
+      "rollouts": 8,
+      "p": 0.875,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6211,
+      "successes": 8,
+      "rollouts": 8,
+      "p": 1.0,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "seed": 6212,
+      "successes": 5,
+      "rollouts": 8,
+      "p": 0.625,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "seed": 6213,
+      "successes": 1,
+      "rollouts": 8,
+      "p": 0.125,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "seed": 6214,
+      "successes": 1,
+      "rollouts": 8,
+      "p": 0.125,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "seed": 6215,
+      "successes": 5,
+      "rollouts": 8,
+      "p": 0.625,
+      "outcomes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "git": "3e8636f3c3135cef050fdb5722ac307500495d22"
+}
