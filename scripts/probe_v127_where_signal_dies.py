@@ -100,25 +100,33 @@ def main() -> int:
                 for depth in range(1, max(a.depths) + 1):
                     zt = T(zt, cand)              # commit to the candidate
                     if depth in a.depths:
-                        sc = torch.sigmoid(head(zt))
+                        lg = head(zt)                     # rank on LOGITS
+                        sc = torch.sigmoid(lg)
                         rows.append({"seed": seed, "sigma": sg, "depth": depth,
                                      "action_spread": a_spread,
                                      "latent_spread": pairwise(zt),
                                      "score_spread": float(sc.max() - sc.min()),
-                                     "score_sd": float(sc.std())})
+                                     "score_sd": float(sc.std()),
+                                     "logit_spread": float(lg.max() - lg.min()),
+                                     "logit_sd": float(lg.std()),
+                                     "n_distinct_sigmoid": int(len(set(
+                                         [round(float(v), 12) for v in sc]))),
+                                     "n_distinct_logit": int(len(set(
+                                         [round(float(v), 12) for v in lg])))})
         del pf
 
     agg = {}
     for r in rows:
         k = (r["sigma"], r["depth"])
         agg.setdefault(k, []).append(r)
-    print(f"{'sigma':>6} {'depth':>6} {'action':>9} {'latent':>9} "
-          f"{'score sd':>9} {'score range':>12}")
+    print(f"{'sigma':>6} {'depth':>6} {'latent':>9} {'sigmoid sd':>11} "
+          f"{'logit sd':>10} {'#distinct sig':>14} {'#distinct logit':>16}")
     for (sg, dp) in sorted(agg):
         v = agg[(sg, dp)]
         m = lambda k: sum(x[k] for x in v) / len(v)
-        print(f"{sg:6.1f} {dp:6d} {m('action_spread'):9.4f} {m('latent_spread'):9.4f} "
-              f"{m('score_sd'):9.4f} {m('score_spread'):12.4f}")
+        print(f"{sg:6.1f} {dp:6d} {m('latent_spread'):9.4f} {m('score_sd'):11.6f} "
+              f"{m('logit_sd'):10.4f} {m('n_distinct_sigmoid'):14.1f} "
+              f"{m('n_distinct_logit'):16.1f}")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "seeds": a.seeds, "n": a.n,
          "sigmas": a.sigmas, "depths": a.depths, "at_step": a.at_step,

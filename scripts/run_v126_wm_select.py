@@ -71,7 +71,7 @@ def main() -> int:
     L = episode_length(a.task)
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     tag = ("base" if a.arm == "base" else
-           f"{a.arm}_n{a.n}_s{a.sigma}_d{a.depth}_{a.head_kind}")
+           f"{a.arm}_n{a.n}_s{a.sigma}_d{a.depth}_{a.head_kind}_logit")
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm, weights_only=False)
@@ -116,11 +116,17 @@ def main() -> int:
                 zt = ((z - mu) / sd).unsqueeze(0).expand(a.n, -1)
                 for _ in range(a.depth):                  # roll the LATENT forward
                     zt = T(zt, cand)
-                sc = torch.sigmoid(head(zt))              # head on the PREDICTED latent
+                # Rank on LOGITS. v130: after sigmoid the eight candidates collapse
+                # to a single float (#distinct 1.0 of 8) while the logits stay fully
+                # distinct (8.0 of 8, sd 0.078-0.760). Ranking on the probability
+                # destroyed the ordering numerically, which is what the v126/v129
+                # nulls actually measured.
+                sc = head(zt)                             # head on the PREDICTED latent
             del pf
             k = int(rng.integers(a.n)) if a.arm == "random" else int(torch.argmax(sc))
-            picks.append({"t": t, "k": k, "score": float(sc[k]),
-                          "min": float(sc.min()), "max": float(sc.max())})
+            picks.append({"t": t, "k": k, "logit": float(sc[k]),
+                          "min": float(sc.min()), "max": float(sc.max()),
+                          "n_distinct": int(len(set(round(float(v), 12) for v in sc)))})
             for act in runner.chunk_to_env(cand[k]):
                 obs, _r, tm, tr, inf = env.step(act); t += 1
                 done = bool(tm or tr)
