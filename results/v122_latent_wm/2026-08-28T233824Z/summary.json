@@ -1,0 +1,50 @@
+{
+  "utc": "2026-08-28T233824Z",
+  "tape": "results/v121_deploy_latents/chain1b_lr2_2026-08-28T232513Z/tape.pt",
+  "task": "chain1b_lr2",
+  "triples": 2334,
+  "episodes": 96,
+  "train": 1750,
+  "test": 584,
+  "latent_dim": 2048,
+  "epochs": 400,
+  "results": {
+    "identity": {
+      "mse": 0.6492932438850403,
+      "cos": 0.0
+    },
+    "action": {
+      "mse": 0.3584095239639282,
+      "cos": 0.6741275787353516,
+      "vs_identity": 0.5519994660954549
+    },
+    "no_action": {
+      "mse": 0.3636315166950226,
+      "cos": 0.6630488038063049,
+      "vs_identity": 0.5600420459009194
+    },
+    "shuffled_action": {
+      "mse": 0.3874012529850006,
+      "cos": 0.6407933235168457,
+      "vs_identity": 0.5966506761521014
+    },
+    "paired": {
+      "action_gain": 0.005233710242009693,
+      "action_gain_ci": [
+        0.0013594656584814402,
+        0.009405615139451129
+      ],
+      "sensitivity": 0.029025522943508502,
+      "sensitivity_ci": [
+        0.02354240741842659,
+        0.03483140388658891
+      ],
+      "n_test_episodes": 24
+    }
+  },
+  "action_gain": 0.005233710242009693,
+  "counterfactual_sensitivity": 0.029025522943508502,
+  "verdict": "ACTION-CONDITIONED: action conditioning improves held-out latent prediction beyond an action-free model",
+  "env_steps": 0,
+  "git": "73ecd7149ff0bf6d8c81e1a6e15f87116e82f12e"
+}
