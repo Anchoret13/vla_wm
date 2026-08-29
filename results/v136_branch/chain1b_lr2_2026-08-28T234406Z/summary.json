@@ -1,0 +1,4375 @@
+{
+  "utc": "2026-08-28T234406Z",
+  "task": "chain1b_lr2",
+  "seeds": 64,
+  "n": 8,
+  "sigmas": [
+    0.0,
+    3.0
+  ],
+  "branch_at": [
+    0,
+    40
+  ],
+  "groups": 256,
+  "labelled_candidates": 2048,
+  "mixed_groups": 158,
+  "mean_rate": 0.51611328125,
+  "env_steps": 506445,
+  "meta": [
+    {
+      "seed": 6700,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 0,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6700,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 1,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6700,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 2,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6700,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 3,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6701,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 4,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6701,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 5,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6701,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 6,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6701,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 7,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6702,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 8,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6702,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 9,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6702,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 10,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6702,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 11,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6703,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 12,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6703,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 13,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6703,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 14,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6703,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 15,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6704,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 16,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6704,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 17,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6704,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 18,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6704,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 19,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6705,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 20,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6705,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 21,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6705,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 22,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6705,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 23,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6706,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 24,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6706,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 25,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6706,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 26,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6706,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 27,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6707,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 28,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6707,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 29,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6707,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 30,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6707,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 31,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6708,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 32,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6708,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 33,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6708,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 34,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6708,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 35,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6709,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 36,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6709,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 37,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6709,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 38,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6709,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 39,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6710,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 40,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6710,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 41,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6710,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 42,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6710,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 43,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6711,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 44,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6711,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 45,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6711,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 46,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6711,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 47,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6712,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 48,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6712,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 49,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6712,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 50,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6712,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 51,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6713,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 52,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6713,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 53,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6713,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 54,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6713,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 55,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6714,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 56,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6714,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 57,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6714,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 58,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6714,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 59,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6715,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 60,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6715,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 61,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6715,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 62,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6715,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 63,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6716,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 64,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6716,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 65,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6716,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 66,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6716,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 67,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6717,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 68,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6717,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 69,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6717,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 70,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6717,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 71,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6718,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 72,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6718,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 73,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6718,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 74,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6718,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 75,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6719,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 76,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6719,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 77,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6719,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 78,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6719,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 79,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6720,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 80,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6720,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 81,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6720,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 82,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6720,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 83,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6721,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 84,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6721,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 85,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6721,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 86,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6721,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 87,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6722,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 88,
+      "outcomes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6722,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 89,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6722,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 90,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6722,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 91,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6723,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 92,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6723,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 93,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6723,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 94,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6723,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 95,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6724,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 96,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6724,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 97,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6724,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 98,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6724,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 99,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6725,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 100,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6725,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 101,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6725,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 102,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6725,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 103,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6726,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 104,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6726,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 105,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6726,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 106,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6726,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 107,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6727,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 108,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6727,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 109,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6727,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 110,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6727,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 111,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6728,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 112,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6728,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 113,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6728,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 114,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6728,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 115,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6729,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 116,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6729,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 117,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6729,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 118,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6729,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 119,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6730,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 120,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6730,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 121,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6730,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 122,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6730,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 123,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6731,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 124,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6731,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 125,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6731,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 126,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6731,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 127,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6732,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 128,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6732,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 129,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6732,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 130,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6732,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 131,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6733,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 132,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6733,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 133,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6733,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 134,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6733,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 135,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6734,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 136,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6734,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 137,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6734,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 138,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6734,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 139,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6735,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 140,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6735,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 141,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6735,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 142,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6735,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 143,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6736,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 144,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6736,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 145,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6736,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 146,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6736,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 147,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6737,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 148,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6737,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 149,
+      "outcomes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6737,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 150,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6737,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 151,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6738,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 152,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6738,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 153,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6738,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 154,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6738,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 155,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6739,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 156,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6739,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 157,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6739,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 158,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6739,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 159,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6740,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 160,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6740,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 161,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6740,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 162,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6740,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 163,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6741,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 164,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6741,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 165,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6741,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 166,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6741,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 167,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6742,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 168,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6742,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 169,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6742,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 170,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6742,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 171,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6743,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 172,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6743,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 173,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6743,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 174,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6743,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 175,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6744,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 176,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6744,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 177,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6744,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 178,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6744,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 179,
+      "outcomes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6745,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 180,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6745,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 181,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6745,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 182,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6745,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 183,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6746,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 184,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6746,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 185,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6746,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 186,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6746,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 187,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6747,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 188,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6747,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 189,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6747,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 190,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6747,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 191,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6748,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 192,
+      "outcomes": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6748,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 193,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6748,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 194,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6748,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 195,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6749,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 196,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6749,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 197,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6749,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 198,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6749,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 199,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6750,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 200,
+      "outcomes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6750,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 201,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6750,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 202,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6750,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 203,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6751,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 204,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6751,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 205,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6751,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 206,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6751,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 207,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6752,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 208,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6752,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 209,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6752,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 210,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6752,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 211,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6753,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 212,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6753,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 213,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6753,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 214,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6753,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 215,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6754,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 216,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6754,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 217,
+      "outcomes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6754,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 218,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6754,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 219,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6755,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 220,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6755,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 221,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6755,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 222,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6755,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 223,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6756,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 224,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6756,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 225,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6756,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 226,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6756,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 227,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6757,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 228,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6757,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 229,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6757,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 230,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6757,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 231,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6758,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 232,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6758,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 233,
+      "outcomes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 1
+    },
+    {
+      "seed": 6758,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 234,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 8
+    },
+    {
+      "seed": 6758,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 235,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6759,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 236,
+      "outcomes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6759,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 237,
+      "outcomes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6759,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 238,
+      "outcomes": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6759,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 239,
+      "outcomes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "successes": 3
+    },
+    {
+      "seed": 6760,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 240,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6760,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 241,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6760,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 242,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6760,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 243,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6761,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 244,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "successes": 4
+    },
+    {
+      "seed": 6761,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 245,
+      "outcomes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "successes": 2
+    },
+    {
+      "seed": 6761,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 246,
+      "outcomes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6761,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 247,
+      "outcomes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 5
+    },
+    {
+      "seed": 6762,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 248,
+      "outcomes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6762,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 249,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6762,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 250,
+      "outcomes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "successes": 7
+    },
+    {
+      "seed": 6762,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 251,
+      "outcomes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "successes": 6
+    },
+    {
+      "seed": 6763,
+      "branch": 0,
+      "sigma": 0.0,
+      "group": 252,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6763,
+      "branch": 0,
+      "sigma": 3.0,
+      "group": 253,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6763,
+      "branch": 40,
+      "sigma": 0.0,
+      "group": 254,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    },
+    {
+      "seed": 6763,
+      "branch": 40,
+      "sigma": 3.0,
+      "group": 255,
+      "outcomes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "successes": 0
+    }
+  ],
+  "note": "candidate-level outcome labels via deterministic replay; needed because episode-level labels give within-state ranking AUC ~0.5",
+  "git": "fa305490c27fc2b8457f441adbb405073575c036"
+}
