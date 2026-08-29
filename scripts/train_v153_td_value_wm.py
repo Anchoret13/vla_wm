@@ -214,6 +214,17 @@ def main() -> int:
           f"({int((d_>0).sum())}/{len(d_)} positive)")
     print("NOTE: episode success is the ONLY supervision; the Delta-w reward from "
           "BDDL predicates was dropped as privileged.")
+
+    # the model itself was never saved - downstream policy improvement needs the
+    # weights, not just the AUC numbers
+    bi = int(np.argmax(res["td_through_model"]))
+    torch.save({"state_dict": kept[bi], "zdim": a.zdim, "obs_dim": O.shape[-1],
+                "c": u.shape[1], "adim": u.shape[2], "mu_o": mu_o, "sd_o": sd_o,
+                "encoder": a.encoder, "gamma": a.gamma, "nstep": a.nstep,
+                "task": b["task"], "auc": res["td_through_model"][bi]},
+               out / "wm.pt")
+    print(f"saved best WM (restart {bi}, AUC {res['td_through_model'][bi]:.3f}) "
+          f"-> {out}/wm.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "zdim": a.zdim, "gamma": a.gamma, "transitions": len(z),
          "terminal": int(term.sum()), "candidates": len(by), "results": res,
