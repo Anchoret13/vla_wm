@@ -85,6 +85,9 @@ def main() -> int:
     ap.add_argument("--zdim", type=int, default=256)
     ap.add_argument("--gamma", type=float, default=0.95)
     ap.add_argument("--epochs", type=int, default=1500)
+    ap.add_argument("--batch", type=int, default=512,
+                    help="minibatch size. Full-batch was three encodes of "
+                         "4644x2073 per step, which does not finish on CPU.")
     ap.add_argument("--restarts", type=int, default=5)
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
@@ -127,25 +130,28 @@ def main() -> int:
         m = ValueWM(O.shape[-1], u.shape[1], u.shape[2], a.zdim)
         opt = torch.optim.AdamW(m.parameters(), lr=3e-4, weight_decay=1e-4)
         best = {"td_through_model": (0.0, None), "bandit_direct": (0.0, None)}
+        g = torch.Generator().manual_seed(1000 + s)
         for e in range(a.epochs):
             m.train(); opt.zero_grad()
-            zt = m.encode(O)
-            zpred = m.step(zt, u)
+            ti = torch.randint(0, len(z), (a.batch,), generator=g)
+            zt = m.encode(O[ti])
+            zpred = m.step(zt, u[ti])
             with torch.no_grad():
-                cons_t = m.encode(ON)                       # stop-grad target
+                cons_t = m.encode(ON[ti])                   # stop-grad target
             cons = ((zpred - cons_t) ** 2).mean()
             # SARSA on the executed actions; terminal value is episode success
             with torch.no_grad():
-                zt_d = m.encode(O)
-                qn = torch.zeros(len(z))
-                ok = ~term
-                qn[ok] = m.q_through_model(zt_d[nxt[ok]], u[nxt[ok]])
-                y = torch.where(term, suc, a.gamma * qn)
+                nb = nxt[ti]
+                ok = nb >= 0
+                qn = torch.zeros(len(ti))
+                if ok.any():
+                    qn[ok] = m.q_through_model(m.encode(O[nb[ok]]), u[nb[ok]])
+                y = torch.where(term[ti], suc[ti], a.gamma * qn)
             td = ((m.V(zpred).squeeze(-1) - y) ** 2).mean()
             # the refuting arm shares the encoder but never touches the transition
-            zb = m.encode(BO[btr])
+            bi = btr[torch.randint(0, len(btr), (a.batch,), generator=g)]
             bandit = nn.functional.binary_cross_entropy_with_logits(
-                m.q_direct(zb, bu[btr]), by[btr])
+                m.q_direct(m.encode(BO[bi]), bu[bi]), by[bi])
             (cons + td + bandit).backward(); opt.step()
             if e % 50 == 0 or e == a.epochs - 1:
                 m.eval()
