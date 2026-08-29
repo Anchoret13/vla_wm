@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-29T063030Z",
+  "branches": "results/v136_branch/chain1b_lr2_2026-08-28T234406Z/branches.pt",
+  "wm": "results/v122_latent_wm/2026-08-28T234059Z/T_theta.pt",
+  "pi_hat": "results/v146_latent_policy/2026-08-29T062905Z/pi_hat.pt",
+  "horizon": 2,
+  "restarts": 5,
+  "holdout_aucs": [
+    0.6572237960339944,
+    0.60546875,
+    0.6312056737588653,
+    0.67,
+    0.6844106463878327
+  ],
+  "mean_auc": 0.6496617732361385,
+  "env_steps": 0,
+  "git": "5c3a3c6eaefc8fa34a41bbe79c60ed8fa1cf0e50"
+}
