@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-29T214248Z",
+  "zdim": 256,
+  "gamma": 0.95,
+  "transitions": 4644,
+  "terminal": 576,
+  "candidates": 2048,
+  "results": {
+    "td_through_model": [
+      0.6260623229461756
+    ],
+    "bandit_direct": [
+      0.6005665722379604
+    ]
+  },
+  "diff": 0.025495750708215192,
+  "diff_ci": [
+    0.025495750708215192,
+    0.025495750708215192
+  ],
+  "env_steps": 0,
+  "encoder": "frozen",
+  "nstep": 3,
+  "note": "TD bootstraps through the learned transition; the refuting arm is the same encoder with a direct critic and no bootstrapping",
+  "git": "1a9c61d74465a45542731b0cb0fcc6b76803a18f"
+}
