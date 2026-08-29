@@ -25,6 +25,37 @@ rationalise afterwards.
 | target | future **latent**, no pixel/obs reconstruction | adding a reconstruction loss because it is easier to fit |
 | data | trajectories collected **during deployment** | pre-training offline on acquisition seeds and freezing at deploy |
 
+## Claim discipline — the failure mode this project actually has
+
+Measured on this project's own transcripts: **six conclusions announced and then
+withdrawn in a single session**, every one announced at the moment the first
+p < 0.05 appeared, before the ablation that could refute it had run.
+
+| announced | withdrawn because |
+|---|---|
+| "the mode is absent from the policy" | true only under ODE sampling |
+| "goal achieved", p = 0.0078 | the rollout ablation showed no contribution |
+| "T_θ's contribution is significant" | the control used a *random-init* encoder, not a no-rollout arm |
+| "branching helps on its own", p = 0.043 | 64-seed fluke; p = 0.771 at 128 seeds |
+| "this is a breakthrough" | one measurement |
+| "0.719 → 0.938 achieved" | the threshold had been fitted on the evaluation panel |
+
+### Rules
+
+1. **The refuting ablation runs BEFORE the claim is stated, not after.** If the arm
+   that could overturn a result has not been run, the result is "an effect under
+   condition X", never a verdict.
+2. **No verdict words on a single measurement.** Not "confirmed", "breakthrough",
+   "achieved", "decisive", "refuted". A single fit has flipped the sign of a
+   conclusion three times here — twice against the world model, once for it.
+3. **State the effect with its interval and its conditions**, not a headline.
+   "0.586 vs 0.430, +36 −16, p = 0.0078, on panel B, with the transition ablation
+   still unrun" is a result. "Goal achieved" is not.
+4. **Every claim carries what would overturn it.** If nothing would, it is not yet
+   an empirical claim.
+5. **Replication before escalation.** A second independent panel costs far less
+   than a withdrawal, and withdrawals are what actually cost this project time.
+
 **Search the literature before choosing an architecture, not just before choosing a
 task.** On 2026-08-28 a latent world model was written from first principles — a
 frozen alignment representation as the latent, MSE against the exact next latent,
