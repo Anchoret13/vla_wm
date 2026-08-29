@@ -1,0 +1,17 @@
+{
+  "utc": "2026-08-29T032006Z",
+  "branches": "results/v136_branch/chain1b_lr2_2026-08-28T234406Z/branches.pt",
+  "wm": "results/v122_latent_wm/2026-08-28T234059Z/T_theta.pt",
+  "depth": 4,
+  "restarts": 5,
+  "holdout_aucs": [
+    0.6515580736543909,
+    0.58203125,
+    0.5921985815602837,
+    0.7,
+    0.6577946768060836
+  ],
+  "mean_auc": 0.6367165164041516,
+  "env_steps": 0,
+  "git": "4e5895d13010858d713f745f8f7b59bca793e2ab"
+}
