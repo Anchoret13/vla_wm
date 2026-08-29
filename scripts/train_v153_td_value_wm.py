@@ -154,6 +154,7 @@ def main() -> int:
     ON = (zn - mu_o) / sd_o
     ng = int(bg.max()) + 1
     res = {"td_through_model": [], "bandit_direct": []}
+    kept = []
     for s in range(a.restarts):
         torch.manual_seed(s); np.random.seed(s)
         perm = torch.randperm(ng, generator=torch.Generator().manual_seed(7000 + s))
@@ -195,9 +196,11 @@ def main() -> int:
                     a_bd = within_group_auc(m.q_direct(zb, bu[bte]), by[bte], bg[bte])
                 for k, v in (("td_through_model", a_td), ("bandit_direct", a_bd)):
                     if not np.isnan(v) and v > best[k][0]:
-                        best[k] = (v, None)
+                        best[k] = (v, {kk: vv.detach().clone()
+                                       for kk, vv in m.state_dict().items()})
         res["td_through_model"].append(best["td_through_model"][0])
         res["bandit_direct"].append(best["bandit_direct"][0])
+        kept.append(best["td_through_model"][1])
         print(f"  restart {s}: TD-through-model {best['td_through_model'][0]:.3f}   "
               f"bandit-direct {best['bandit_direct'][0]:.3f}")
 
