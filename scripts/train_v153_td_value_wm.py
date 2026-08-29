@@ -141,7 +141,10 @@ def main() -> int:
 
     # next-index within the same episode; -1 marks the last step (terminal)
     pos = {(int(ep[i]), int(tt[i])): i for i in range(len(z))}
-    nxt = torch.tensor([pos.get((int(ep[i]), int(tt[i]) + 10), -1) for i in range(len(z))])
+    # index n chunks ahead; -1 means the episode ends within n, so the target is
+    # grounded in episode success rather than bootstrapped
+    nxt = torch.tensor([pos.get((int(ep[i]), int(tt[i]) + 10 * a.nstep), -1)
+                        for i in range(len(z))])
     term = nxt < 0
     print(f"{len(z)} transitions, {int(term.sum())} terminal, "
           f"episode success rate {float(suc.mean()):.3f}; {len(by)} branch candidates")
@@ -177,7 +180,7 @@ def main() -> int:
                 qn = torch.zeros(len(ti))
                 if ok.any():
                     qn[ok] = m.q_through_model(m.encode(O[nb[ok]]), u[nb[ok]])
-                y = torch.where(term[ti], suc[ti], a.gamma * qn)
+                y = torch.where(term[ti], suc[ti], (a.gamma ** a.nstep) * qn)
             td = ((m.V(zpred).squeeze(-1) - y) ** 2).mean()
             # the refuting arm shares the encoder but never touches the transition
             bi = btr[torch.randint(0, len(btr), (a.batch,), generator=g)]
