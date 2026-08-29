@@ -96,9 +96,16 @@ def main() -> int:
     out = OUT / f"{a.variant}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     Z, U, ZN, EP, DW = [], [], [], [], []
-    off = 0
+    off, dim0 = 0, None
     for tp in a.tapes:
         d = torch.load(tp, weights_only=False)
+        # tapes collected before proprio was added are 2048-d; concatenating them
+        # with 2073-d tapes silently mixes two different state definitions
+        if dim0 is None:
+            dim0 = int(d["z"].shape[-1])
+        assert int(d["z"].shape[-1]) == dim0, (
+            f"{tp} has latent dim {d['z'].shape[-1]}, expected {dim0} - tapes "
+            f"without proprioception cannot be pooled with tapes that have it")
         meta = json.loads((tp.parent / "summary.json").read_text())
         ev = {r["idx"]: {int(k): int(v) for k, v in r["events"].items()}
               for r in meta["episode_records"]}
