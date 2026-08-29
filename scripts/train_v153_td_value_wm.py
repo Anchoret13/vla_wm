@@ -55,10 +55,21 @@ OUT = REPO / "results" / "v153_td_value"
 
 
 class ValueWM(nn.Module):
-    def __init__(self, obs_dim, c, adim, zdim=256, hidden=512, v=8):
+    def __init__(self, obs_dim, c, adim, zdim=256, hidden=512, v=8, encoder="mlp"):
         super().__init__()
-        self.enc = nn.Sequential(nn.LayerNorm(obs_dim), mlp(obs_dim, hidden, zdim),
-                                 SimNorm(v))
+        self.encoder_kind = encoder
+        if encoder == "mlp":
+            self.enc = nn.Sequential(nn.LayerNorm(obs_dim), mlp(obs_dim, hidden, zdim),
+                                     SimNorm(v))
+        else:
+            # a FIXED random projection of the frozen features, so the latent starts
+            # as an information-preserving compression rather than being learned
+            proj = torch.empty(obs_dim, zdim)
+            nn.init.orthogonal_(proj)
+            self.register_buffer("proj", proj)
+            self.ln = nn.LayerNorm(obs_dim)
+            self.norm_in = SimNorm(v)
+            self.delta = mlp(obs_dim, hidden, zdim) if encoder == "residual" else None
         self.aenc = mlp(c * adim, hidden, 64)
         self.dyn = mlp(zdim + 64, hidden, zdim)
         self.norm = SimNorm(v)
@@ -66,7 +77,12 @@ class ValueWM(nn.Module):
         self.Qd = mlp(zdim + 64, hidden, 1)    # direct critic, for the refuting arm
 
     def encode(self, o):
-        return self.enc(o)
+        if self.encoder_kind == "mlp":
+            return self.enc(o)
+        z = self.ln(o) @ self.proj
+        if self.delta is not None:
+            z = z + self.delta(self.ln(o))
+        return self.norm_in(z)
 
     def step(self, z, u):
         return self.norm(self.dyn(torch.cat([z, self.aenc(u.flatten(1))], -1)))
@@ -89,6 +105,20 @@ def main() -> int:
                     help="minibatch size. Full-batch was three encodes of "
                          "4644x2073 per step, which does not finish on CPU.")
     ap.add_argument("--restarts", type=int, default=5)
+    ap.add_argument("--encoder", choices=["mlp", "residual", "frozen"], default="mlp",
+                    help="ALTERNATIVE EXPLANATION 1 for why the jointly trained "
+                         "version scores below the frozen-latent pipeline (0.608 vs "
+                         "0.637): 4644 transitions may be too few to learn a 256-d "
+                         "encoder from 2073-d input. 'residual' learns a small "
+                         "correction on a fixed linear projection of the frozen "
+                         "features; 'frozen' learns no encoder at all, isolating "
+                         "the transition and value from representation learning.")
+    ap.add_argument("--nstep", type=int, default=1,
+                    help="ALTERNATIVE EXPLANATION 2: only 192 of 4644 transitions "
+                         "are terminal, so value is anchored at few points and a "
+                         "1-step bootstrap chain may be too short to propagate it. "
+                         "n-step returns shorten the chain from any state to a "
+                         "grounded one.")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT / stamp; out.mkdir(parents=True, exist_ok=True)
@@ -127,7 +157,8 @@ def main() -> int:
         te_g = set(perm[int(ng * 0.85):].tolist())
         btr = torch.tensor([i for i in range(len(by)) if int(bg[i]) not in te_g])
         bte = torch.tensor([i for i in range(len(by)) if int(bg[i]) in te_g])
-        m = ValueWM(O.shape[-1], u.shape[1], u.shape[2], a.zdim)
+        m = ValueWM(O.shape[-1], u.shape[1], u.shape[2], a.zdim,
+                    encoder=a.encoder)
         opt = torch.optim.AdamW(m.parameters(), lr=3e-4, weight_decay=1e-4)
         best = {"td_through_model": (0.0, None), "bandit_direct": (0.0, None)}
         g = torch.Generator().manual_seed(1000 + s)
@@ -181,6 +212,7 @@ def main() -> int:
         {"utc": stamp, "zdim": a.zdim, "gamma": a.gamma, "transitions": len(z),
          "terminal": int(term.sum()), "candidates": len(by), "results": res,
          "diff": float(d_.mean()), "diff_ci": [lo, hi], "env_steps": 0,
+         "encoder": a.encoder, "nstep": a.nstep,
          "note": "TD bootstraps through the learned transition; the refuting arm is "
                  "the same encoder with a direct critic and no bootstrapping",
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
