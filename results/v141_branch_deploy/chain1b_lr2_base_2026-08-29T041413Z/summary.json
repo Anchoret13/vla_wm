@@ -1,0 +1,928 @@
+{
+  "task": "chain1b_lr2",
+  "arm": "base",
+  "tag": "base",
+  "utc": "2026-08-29T041413Z",
+  "n_candidates": 32,
+  "sigma": 3.0,
+  "branch_at": [
+    0,
+    40
+  ],
+  "depth": 4,
+  "ensemble": 5,
+  "wm": "results/v122_latent_wm/2026-08-28T234059Z/T_theta.pt",
+  "head": "results/v140_final_head/2026-08-29T032006Z/rank_ensemble.pt",
+  "panel": [
+    6900,
+    7027,
+    128
+  ],
+  "successes": 58,
+  "n": 128,
+  "rate": 0.453125,
+  "cp95": [
+    0.378257839893817,
+    0.5296475424271292
+  ],
+  "env_steps": 31451,
+  "episodes": [
+    {
+      "seed": 6900,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "picks": []
+    },
+    {
+      "seed": 6901,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6902,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6903,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "picks": []
+    },
+    {
+      "seed": 6904,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6905,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6906,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6907,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6908,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6909,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6910,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6911,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6912,
+      "success": true,
+      "success_step": 244,
+      "steps": 244,
+      "picks": []
+    },
+    {
+      "seed": 6913,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6914,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6915,
+      "success": true,
+      "success_step": 244,
+      "steps": 244,
+      "picks": []
+    },
+    {
+      "seed": 6916,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6917,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6918,
+      "success": true,
+      "success_step": 229,
+      "steps": 229,
+      "picks": []
+    },
+    {
+      "seed": 6919,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6920,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6921,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6922,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6923,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6924,
+      "success": true,
+      "success_step": 225,
+      "steps": 225,
+      "picks": []
+    },
+    {
+      "seed": 6925,
+      "success": true,
+      "success_step": 235,
+      "steps": 235,
+      "picks": []
+    },
+    {
+      "seed": 6926,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6927,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6928,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6929,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6930,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6931,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6932,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6933,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6934,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6935,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6936,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6937,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6938,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6939,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6940,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6941,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6942,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6943,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6944,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6945,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6946,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6947,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6948,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6949,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6950,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "picks": []
+    },
+    {
+      "seed": 6951,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6952,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6953,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6954,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 6955,
+      "success": true,
+      "success_step": 228,
+      "steps": 228,
+      "picks": []
+    },
+    {
+      "seed": 6956,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6957,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6958,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6959,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6960,
+      "success": true,
+      "success_step": 245,
+      "steps": 245,
+      "picks": []
+    },
+    {
+      "seed": 6961,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6962,
+      "success": true,
+      "success_step": 244,
+      "steps": 244,
+      "picks": []
+    },
+    {
+      "seed": 6963,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6964,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6965,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6966,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6967,
+      "success": true,
+      "success_step": 218,
+      "steps": 218,
+      "picks": []
+    },
+    {
+      "seed": 6968,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6969,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6970,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6971,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6972,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6973,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "picks": []
+    },
+    {
+      "seed": 6974,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6975,
+      "success": true,
+      "success_step": 229,
+      "steps": 229,
+      "picks": []
+    },
+    {
+      "seed": 6976,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6977,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 6978,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6979,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6980,
+      "success": true,
+      "success_step": 231,
+      "steps": 231,
+      "picks": []
+    },
+    {
+      "seed": 6981,
+      "success": true,
+      "success_step": 228,
+      "steps": 228,
+      "picks": []
+    },
+    {
+      "seed": 6982,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6983,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 6984,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6985,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6986,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6987,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6988,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6989,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6990,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6991,
+      "success": true,
+      "success_step": 229,
+      "steps": 229,
+      "picks": []
+    },
+    {
+      "seed": 6992,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6993,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 6994,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6995,
+      "success": true,
+      "success_step": 234,
+      "steps": 234,
+      "picks": []
+    },
+    {
+      "seed": 6996,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 6997,
+      "success": true,
+      "success_step": 235,
+      "steps": 235,
+      "picks": []
+    },
+    {
+      "seed": 6998,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6999,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7000,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7001,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7002,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 7003,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7004,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7005,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7006,
+      "success": true,
+      "success_step": 240,
+      "steps": 240,
+      "picks": []
+    },
+    {
+      "seed": 7007,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 7008,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7009,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "picks": []
+    },
+    {
+      "seed": 7010,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7011,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7012,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7013,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7014,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7015,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 7016,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 7017,
+      "success": true,
+      "success_step": 249,
+      "steps": 249,
+      "picks": []
+    },
+    {
+      "seed": 7018,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7019,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7020,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7021,
+      "success": true,
+      "success_step": 236,
+      "steps": 236,
+      "picks": []
+    },
+    {
+      "seed": 7022,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 7023,
+      "success": true,
+      "success_step": 237,
+      "steps": 237,
+      "picks": []
+    },
+    {
+      "seed": 7024,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 7025,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 7026,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 7027,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    }
+  ],
+  "git": "8701f0db592af99dd24f59c6ffa7b183ff3a30ac"
+}

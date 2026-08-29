@@ -57,6 +57,16 @@ def main() -> int:
     ap.add_argument("--wm-proprio", type=Path, required=True)
     ap.add_argument("--head", type=Path, required=True)
     ap.add_argument("--arm", choices=["base", "random", "wm"], required=True)
+    ap.add_argument("--score-mode", choices=["wm", "pre_enc", "displacement"],
+                    default="wm",
+                    help="ATTRIBUTION. 'wm' rolls the latent forward with T_theta. "
+                         "'pre_enc' uses T_theta's FROZEN pretrained action encoder "
+                         "but never applies the transition - the ablation that "
+                         "isolates the rollout, because v137's `direct` arm used a "
+                         "RANDOM-INIT encoder and so controlled for pretraining, not "
+                         "for rolling forward. 'displacement' is a zero-parameter "
+                         "score ||sum_t u_t||, which already reaches within-group "
+                         "AUC 0.585 offline.")
     ap.add_argument("--task", default="chain1b_lr2")
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--sigma", type=float, default=3.0)
@@ -70,7 +80,9 @@ def main() -> int:
         assert not (set(PANEL) & set(range(lo, hi))), \
             f"panel overlaps a range used for fitting: {lo}-{hi}"
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    tag = a.arm if a.arm == "base" else f"{a.arm}_n{a.n}_s{a.sigma}"
+    tag = (a.arm if a.arm == "base" else
+           f"{a.arm}_n{a.n}_s{a.sigma}" +
+           ("" if a.score_mode == "wm" else f"_{a.score_mode}"))
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm_proprio, weights_only=False)
@@ -109,12 +121,18 @@ def main() -> int:
                                          sigma=a.sigma)[:, :C].detach().float().cpu()
                     h = masked_prefix_mean(pf.hidden[0].detach().float().cpu(),
                                            pf.pad_masks[0].detach().cpu())
-                    zt = ((proprio(obs) - mu_p) / sd_p).unsqueeze(0).expand(a.n, -1)
-                    for _ in range(depth):
-                        zt = T(zt, cand)      # roll the LATENT forward
-                    X = torch.cat([((h - mu_h) / sd_h).unsqueeze(0).expand(a.n, -1),
-                                   zt], -1)
-                    sc = torch.stack([m(X) for m in ens]).mean(0)   # logits
+                    z0 = ((proprio(obs) - mu_p) / sd_p).unsqueeze(0).expand(a.n, -1)
+                    Hn = ((h - mu_h) / sd_h).unsqueeze(0).expand(a.n, -1)
+                    if a.score_mode == "displacement":
+                        sc = cand.sum(1).norm(dim=-1)      # zero-parameter baseline
+                    elif a.score_mode == "pre_enc":
+                        X = torch.cat([Hn, z0, T.enc(cand)], -1)   # frozen E_a, NO rollout
+                        sc = torch.stack([m(X) for m in ens]).mean(0)
+                    else:
+                        zt = z0
+                        for _ in range(depth):
+                            zt = T(zt, cand)  # roll the LATENT forward
+                        sc = torch.stack([m(torch.cat([Hn, zt], -1)) for m in ens]).mean(0)
                 del pf
                 k = int(rng.integers(a.n)) if a.arm == "random" else int(torch.argmax(sc))
                 picks.append({"t": t, "k": k, "logit": float(sc[k]),
@@ -144,7 +162,8 @@ def main() -> int:
     k = sum(r["success"] for r in rows)
     summary = {"task": a.task, "arm": a.arm, "tag": tag, "utc": stamp,
                "n_candidates": a.n, "sigma": a.sigma, "branch_at": a.branch_at,
-               "depth": depth, "ensemble": len(ens), "wm": str(a.wm_proprio),
+               "depth": depth, "score_mode": a.score_mode,
+               "ensemble": len(ens), "wm": str(a.wm_proprio),
                "head": str(a.head), "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [clopper_pearson_lower(k, len(rows)),

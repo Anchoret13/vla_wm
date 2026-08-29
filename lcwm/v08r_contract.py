@@ -326,7 +326,7 @@ def _beta_ppf(p: float, a: float, b: float) -> float:
     return 0.5 * (lo + hi)
 
 
-def clopper_pearson_upper(k: int, n: int, alpha: float = 0.05) -> float:
+def clopper_pearson_upper(k: int, n: int, alpha: float = 0.025) -> float:
     """Exact one-sided upper bound.  0/20 -> 0.1391."""
     if n <= 0:
         return 1.0
@@ -335,8 +335,11 @@ def clopper_pearson_upper(k: int, n: int, alpha: float = 0.05) -> float:
     return _beta_ppf(1.0 - alpha, k + 1, n - k)
 
 
-def clopper_pearson_lower(k: int, n: int, alpha: float = 0.05) -> float:
-    """Exact one-sided lower bound."""
+def clopper_pearson_lower(k: int, n: int, alpha: float = 0.025) -> float:
+    """Exact lower bound. alpha is PER SIDE: 0.025 gives a two-sided 95%
+    interval when paired with clopper_pearson_upper. It defaulted to 0.05,
+    so every field named cp95 in results written before 2026-08-29 is a
+    90% interval."""
     if n <= 0 or k <= 0:
         return 0.0
     return _beta_ppf(alpha, k, n - k + 1)
