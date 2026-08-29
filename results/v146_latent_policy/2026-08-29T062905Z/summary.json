@@ -1,0 +1,15 @@
+{
+  "utc": "2026-08-29T062905Z",
+  "tape": "results/v121_deploy_latents/chain1b_lr2_2026-08-28T232513Z/tape.pt",
+  "task": "chain1b_lr2",
+  "sigma0_triples": 584,
+  "train": 444,
+  "test": 140,
+  "test_mse": 0.0784369707107544,
+  "zero_baseline": 0.6036821007728577,
+  "mean_baseline": 0.5958614945411682,
+  "rel_to_mean": 0.1316362467273595,
+  "env_steps": 0,
+  "note": "trained on sigma=0 rows only; rollout advances proprio only, the pooled hidden is held at its branch value (action gain +0.81%)",
+  "git": "3574181de73ecda5ae342c6cef70e2dae00eb09d"
+}
