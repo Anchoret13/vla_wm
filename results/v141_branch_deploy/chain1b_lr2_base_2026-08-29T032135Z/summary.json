@@ -1,0 +1,480 @@
+{
+  "task": "chain1b_lr2",
+  "arm": "base",
+  "tag": "base",
+  "utc": "2026-08-29T032135Z",
+  "n_candidates": 8,
+  "sigma": 3.0,
+  "branch_at": [
+    0,
+    40
+  ],
+  "depth": 4,
+  "ensemble": 5,
+  "wm": "results/v122_latent_wm/2026-08-28T234059Z/T_theta.pt",
+  "head": "results/v140_final_head/2026-08-29T032006Z/rank_ensemble.pt",
+  "panel": [
+    6800,
+    6863,
+    64
+  ],
+  "successes": 25,
+  "n": 64,
+  "rate": 0.390625,
+  "cp95": [
+    0.2880888956027525,
+    0.5010224743373712
+  ],
+  "env_steps": 15784,
+  "episodes": [
+    {
+      "seed": 6800,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6801,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6802,
+      "success": true,
+      "success_step": 233,
+      "steps": 233,
+      "picks": []
+    },
+    {
+      "seed": 6803,
+      "success": true,
+      "success_step": 232,
+      "steps": 232,
+      "picks": []
+    },
+    {
+      "seed": 6804,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6805,
+      "success": true,
+      "success_step": 235,
+      "steps": 235,
+      "picks": []
+    },
+    {
+      "seed": 6806,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6807,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6808,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6809,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6810,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6811,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6812,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6813,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6814,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6815,
+      "success": true,
+      "success_step": 247,
+      "steps": 247,
+      "picks": []
+    },
+    {
+      "seed": 6816,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6817,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "picks": []
+    },
+    {
+      "seed": 6818,
+      "success": true,
+      "success_step": 246,
+      "steps": 246,
+      "picks": []
+    },
+    {
+      "seed": 6819,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6820,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6821,
+      "success": true,
+      "success_step": 235,
+      "steps": 235,
+      "picks": []
+    },
+    {
+      "seed": 6822,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6823,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6824,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6825,
+      "success": true,
+      "success_step": 246,
+      "steps": 246,
+      "picks": []
+    },
+    {
+      "seed": 6826,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6827,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6828,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6829,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6830,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6831,
+      "success": true,
+      "success_step": 246,
+      "steps": 246,
+      "picks": []
+    },
+    {
+      "seed": 6832,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6833,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6834,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6835,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6836,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6837,
+      "success": true,
+      "success_step": 244,
+      "steps": 244,
+      "picks": []
+    },
+    {
+      "seed": 6838,
+      "success": true,
+      "success_step": 250,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6839,
+      "success": true,
+      "success_step": 228,
+      "steps": 228,
+      "picks": []
+    },
+    {
+      "seed": 6840,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6841,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6842,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6843,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6844,
+      "success": true,
+      "success_step": 242,
+      "steps": 242,
+      "picks": []
+    },
+    {
+      "seed": 6845,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6846,
+      "success": true,
+      "success_step": 240,
+      "steps": 240,
+      "picks": []
+    },
+    {
+      "seed": 6847,
+      "success": true,
+      "success_step": 243,
+      "steps": 243,
+      "picks": []
+    },
+    {
+      "seed": 6848,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6849,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6850,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6851,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6852,
+      "success": true,
+      "success_step": 238,
+      "steps": 238,
+      "picks": []
+    },
+    {
+      "seed": 6853,
+      "success": true,
+      "success_step": 248,
+      "steps": 248,
+      "picks": []
+    },
+    {
+      "seed": 6854,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6855,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6856,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6857,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6858,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6859,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6860,
+      "success": true,
+      "success_step": 239,
+      "steps": 239,
+      "picks": []
+    },
+    {
+      "seed": 6861,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    },
+    {
+      "seed": 6862,
+      "success": true,
+      "success_step": 241,
+      "steps": 241,
+      "picks": []
+    },
+    {
+      "seed": 6863,
+      "success": false,
+      "success_step": null,
+      "steps": 250,
+      "picks": []
+    }
+  ],
+  "git": "ab5c82cb94bb0bc6612cba5a7eb5ffced9418ecb"
+}
