@@ -69,12 +69,20 @@ def main() -> int:
     ap.add_argument("--epochs", type=int, default=2000)
     ap.add_argument("--batch", type=int, default=512)
     ap.add_argument("--restarts", type=int, default=5)
+    ap.add_argument("--pessimism", type=float, default=0.0,
+                    help="optimise min-over-ensemble instead of the mean. v163: the "
+                         "residual scored +0.014 in imagination and -0.26 in the "
+                         "environment, saturating 96% of its bound at every scale, "
+                         "so the value is monotone along the residual direction. "
+                         "Ensemble disagreement is what makes leaving the data cost "
+                         "something.")
     ap.add_argument("--no-imagination", action="store_true",
                     help="REFUTING ARM: optimise Delta against V on REAL next states "
                          "only, never rolling T_theta forward.")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    tag = "no_imag" if a.no_imagination else "imag"
+    tag = ("no_imag" if a.no_imagination else "imag") + \
+          (f"_pess{a.pessimism}" if a.pessimism > 0 else "")
     out = OUT / f"{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm, weights_only=False)
@@ -122,7 +130,8 @@ def main() -> int:
                 for h in range(a.horizon):           # IMAGINED rollout
                     ua = u[ti] + actor(zc)
                     zc = wm.step(zc, ua)
-                    val = val + (0.95 ** h) * wm.V(zc).squeeze(-1)
+                    vred = "min" if a.pessimism > 0 else "mean"
+                    val = val + (0.95 ** h) * wm.V(zc, vred)
                 loss = -val.mean()
             loss.backward(); opt.step()
         actor.eval()
@@ -131,11 +140,14 @@ def main() -> int:
             zt = wm.encode(O)
             base = float(wm.V(wm.step(zt, u)).mean())
             withd = float(wm.V(wm.step(zt, u + actor(zt))).mean())
+            spread = float(wm.V(wm.step(zt, u + actor(zt)), "all").std(0).mean())
             dn = float(actor(zt).abs().mean())
         rows.append({"restart": s, "V_base": base, "V_residual": withd,
-                     "gain_in_imagination": withd - base, "mean_abs_delta": dn})
+                     "gain_in_imagination": withd - base, "mean_abs_delta": dn,
+                     "ensemble_spread_at_residual": spread})
         print(f"  restart {s}: V(base) {base:.4f} -> V(+Delta) {withd:.4f} "
-              f"(imagined gain {withd-base:+.4f}); mean|Delta| {dn:.4f}")
+              f"(imagined gain {withd-base:+.4f}); mean|Delta| {dn:.4f}; "
+              f"ensemble spread there {spread:.4f}")
         torch.save({"state_dict": actor.state_dict(), "zdim": ck["zdim"],
                     "c": u.shape[1], "adim": u.shape[2], "scale": a.scale,
                     "wm": str(a.wm), "arm": tag}, out / f"actor_{s}.pt")

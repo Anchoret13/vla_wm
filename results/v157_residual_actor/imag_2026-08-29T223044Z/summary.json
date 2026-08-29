@@ -1,0 +1,20 @@
+{
+  "utc": "2026-08-29T223044Z",
+  "arm": "imag",
+  "wm": "results/v153_td_value/2026-08-29T214353Z/wm.pt",
+  "horizon": 3,
+  "scale": 0.06,
+  "transitions": 4644,
+  "rows": [
+    {
+      "restart": 0,
+      "V_base": 0.2989714443683624,
+      "V_residual": 0.30446454882621765,
+      "gain_in_imagination": 0.005493104457855225,
+      "mean_abs_delta": 0.05704807862639427
+    }
+  ],
+  "mean_imagined_gain": 0.005493104457855225,
+  "env_steps": 0,
+  "git": "1c4887348248dc684f26d9f32ee20a9eef95d90f"
+}

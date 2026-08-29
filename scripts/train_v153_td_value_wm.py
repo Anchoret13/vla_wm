@@ -55,7 +55,8 @@ OUT = REPO / "results" / "v153_td_value"
 
 
 class ValueWM(nn.Module):
-    def __init__(self, obs_dim, c, adim, zdim=256, hidden=512, v=8, encoder="mlp"):
+    def __init__(self, obs_dim, c, adim, zdim=256, hidden=512, v=8,
+                 encoder="mlp", nv=5):
         super().__init__()
         self.encoder_kind = encoder
         if encoder == "mlp":
@@ -73,7 +74,14 @@ class ValueWM(nn.Module):
         self.aenc = mlp(c * adim, hidden, 64)
         self.dyn = mlp(zdim + 64, hidden, zdim)
         self.norm = SimNorm(v)
-        self.V = mlp(zdim, hidden, 1)          # value of a STATE
+        # an ensemble, so the actor can be optimised PESSIMISTICALLY. v164 showed
+        # the residual saturates its norm bound at every scale and the imagined gain
+        # grows linearly with it: V is monotone along the residual direction with no
+        # interior optimum, which is what an unconstrained extrapolating value looks
+        # like. Disagreement between heads is the only signal that says "you have
+        # left the data".
+        self.nV = nv
+        self.Vs = nn.ModuleList([mlp(zdim, hidden, 1) for _ in range(nv)])
         self.Qd = mlp(zdim + 64, hidden, 1)    # direct critic, for the refuting arm
 
     def encode(self, o):
@@ -87,8 +95,16 @@ class ValueWM(nn.Module):
     def step(self, z, u):
         return self.norm(self.dyn(torch.cat([z, self.aenc(u.flatten(1))], -1)))
 
-    def q_through_model(self, z, u):           # value of the PREDICTED next state
-        return self.V(self.step(z, u)).squeeze(-1)
+    def V(self, z, reduce="mean"):
+        vs = torch.stack([h(z).squeeze(-1) for h in self.Vs])
+        if reduce == "min":
+            return vs.min(0).values                 # pessimistic
+        if reduce == "all":
+            return vs
+        return vs.mean(0)
+
+    def q_through_model(self, z, u, reduce="mean"):  # value of the PREDICTED next state
+        return self.V(self.step(z, u), reduce)
 
     def q_direct(self, z, u):                  # no transition anywhere
         return self.Qd(torch.cat([z, self.aenc(u.flatten(1))], -1)).squeeze(-1)
@@ -182,7 +198,11 @@ def main() -> int:
                 if ok.any():
                     qn[ok] = m.q_through_model(m.encode(O[nb[ok]]), u[nb[ok]])
                 y = torch.where(term[ti], suc[ti], (a.gamma ** a.nstep) * qn)
-            td = ((m.V(zpred).squeeze(-1) - y) ** 2).mean()
+            # each head sees an independently bootstrapped batch so they disagree
+            # off-distribution rather than collapsing onto one function
+            vs = m.V(zpred, reduce="all")
+            bootw = torch.rand(vs.shape, generator=g) < 0.8
+            td = (((vs - y.unsqueeze(0)) ** 2) * bootw).sum() / bootw.sum().clamp(min=1)
             # the refuting arm shares the encoder but never touches the transition
             bi = btr[torch.randint(0, len(btr), (a.batch,), generator=g)]
             bandit = nn.functional.binary_cross_entropy_with_logits(
