@@ -1,0 +1,38 @@
+{
+  "utc": "2026-08-29T030637Z",
+  "branches": "results/v136_branch/chain1b_lr2_2026-08-28T234406Z/branches.pt",
+  "wm": "results/v122_latent_wm/2026-08-28T234059Z/T_theta.pt",
+  "depth": 1,
+  "candidates": 2048,
+  "groups": 256,
+  "results": {
+    "state_only": {
+      "within_group_auc": 0.5,
+      "ci": [
+        0.5,
+        0.5
+      ],
+      "top1": 0.484375
+    },
+    "direct": {
+      "within_group_auc": 0.6514806378132119,
+      "ci": [
+        0.5234539888823131,
+        0.7741967639038946
+      ],
+      "top1": 0.5625
+    },
+    "wm": {
+      "within_group_auc": 0.6013667425968109,
+      "ci": [
+        0.46199649947753396,
+        0.7331859030917145
+      ],
+      "top1": 0.546875
+    }
+  },
+  "wm_minus_direct": -0.05011389521640097,
+  "verdict": "T_theta adds nothing over a direct action-conditioned value: the world model is not doing the work",
+  "env_steps": 0,
+  "git": "4f60c845674c9839baf7efc7dd5d5e0dcb183ce8"
+}

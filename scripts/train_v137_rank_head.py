@@ -84,6 +84,16 @@ def main() -> int:
     ap.add_argument("--wm-proprio", type=Path, required=True)
     ap.add_argument("--epochs", type=int, default=800)
     ap.add_argument("--depth", type=int, default=1)
+    ap.add_argument("--label-fracs", type=float, nargs="+", default=[1.0],
+                    help="fraction of TRAINING groups used. The world model's "
+                         "value proposition is data efficiency: T_theta is fit on "
+                         "cheap on-policy dynamics (2334 triples) while `direct` "
+                         "needs candidate-level branch labels that cost ~500k env "
+                         "steps for 2048 of them. If wm degrades more slowly as "
+                         "labels shrink, the forward model is buying something.")
+    ap.add_argument("--seeds", type=int, default=5,
+                    help="training restarts; a single fit over 64 test groups is "
+                         "too noisy to compare arms")
     a = ap.parse_args()
     b = torch.load(a.branches, weights_only=False)
     ck = torch.load(a.wm_proprio, weights_only=False)
