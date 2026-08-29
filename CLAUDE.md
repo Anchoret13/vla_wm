@@ -25,6 +25,15 @@ rationalise afterwards.
 | target | future **latent**, no pixel/obs reconstruction | adding a reconstruction loss because it is easier to fit |
 | data | trajectories collected **during deployment** | pre-training offline on acquisition seeds and freezing at deploy |
 
+**Search the literature before choosing an architecture, not just before choosing a
+task.** On 2026-08-28 a latent world model was written from first principles — a
+frozen alignment representation as the latent, MSE against the exact next latent,
+three separate training stages — and every failure traced to that. The standard
+construction (TD-MPC / Dreamer: jointly trained encoder, a transition
+*distribution*, a latent required only to be sufficient for value, stop-grad
+targets in place of a decoder) was never consulted. Web search is available; use
+it on the method, not only on the application.
+
 **Before reporting any result, restate the goal and say which axis the result
 speaks to.** A number that improves task success but touches none of the four
 axes is not progress toward this goal, however large it is.
