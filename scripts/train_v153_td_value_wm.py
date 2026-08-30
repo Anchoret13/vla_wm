@@ -110,6 +110,26 @@ class ValueWM(nn.Module):
         return self.Qd(torch.cat([z, self.aenc(u.flatten(1))], -1)).squeeze(-1)
 
 
+def load_valuewm(ck, obs_dim, c, adim, zdim, encoder="mlp"):
+    """Load a checkpoint written before V became an ensemble.
+
+    The single-head format used keys 'V.*'; the ensemble uses 'Vs.k.*'. Old
+    checkpoints are broadcast across the heads, so a class edit does not silently
+    invalidate results that already cost environment steps.
+    """
+    sd = dict(ck["state_dict"])
+    nv = 1 + max([int(k.split(".")[1]) for k in sd if k.startswith("Vs.")], default=-1)
+    if any(k.startswith("V.") for k in sd):
+        nv = 5
+        for k in [k for k in sd if k.startswith("V.")]:
+            for j in range(nv):
+                sd[f"Vs.{j}.{k[2:]}"] = sd[k].clone()
+            del sd[k]
+    m = ValueWM(obs_dim, c, adim, zdim, encoder=encoder, nv=max(nv, 1))
+    m.load_state_dict(sd)
+    return m
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tapes", type=Path, nargs="+", required=True)
