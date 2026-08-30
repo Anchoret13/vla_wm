@@ -6,8 +6,9 @@
 phase-potential/`QΦ`, anchor-eligibility, branch-ledger, migration, registration and
 promotion-halt machinery, and the §14–§20 execution logs.
 
-**§4 is provisional** pending a literature survey on language-grounded value
-learning, launched before this was written.
+§4 and §6 were rewritten 2026-08-30 from a literature survey (VIP, LIV, QRL,
+quasimetric value learning, reward-hacking mitigations) and from the diagnostic in
+§7.1, which was run on the value we already had before any of this was designed.
 
 ---
 
@@ -67,7 +68,7 @@ predictable under actions. A *shuffled* action makes the proprioception predicti
 smoother cannot produce. The loss is weighted per component: unweighted, 25 dims
 carry ~1.2% of the gradient and the signal vanishes (+11.78% → +0.84%).
 
-## 4. Reward comes from language, not from labels  `[PROVISIONAL]`
+## 4. Reward comes from language, not from labels
 
 ### 4.1 Why the value function had to go
 
@@ -75,62 +76,98 @@ The previous design learned `V` from outcome labels. Three measured problems:
 
 1. **The labels are privileged.** `env.is_success` needs a detector or a human
    outside a simulator; BDDL goal predicates and milestone times do not exist at
-   all; candidate-level labels additionally required **deterministic replay**, which
-   a robot cannot do.
-2. **They are almost absent where the paradigm is aimed.** On the target task
-   success is ~3%, so 96 episodes buy ~3 terminal anchors.
+   all; candidate-level labels additionally required **deterministic replay**.
+2. **They are almost absent where the paradigm is aimed.** Measured on
+   `chain3_lr2`: **1/96 = 0.010**. Ninety-six episodes buy one terminal anchor.
 3. **The resulting value does not survive optimisation.** A residual trained
-   against it gained +0.014 in imagination and lost **0.26** in the environment,
-   saturating its norm bound at every scale (0.01–0.15) with the imagined gain
-   growing linearly — an unconstrained extrapolating value with no interior optimum.
+   against it gained +0.014 in imagination and lost **0.26** in the environment.
 
-### 4.2 The instruction is the reward
+### 4.2 The goal is an anchor in the metric, not an observed state
 
-The instruction already names the goal. Embed it into the latent space and let
-reward be a decreasing function of distance to it:
+Two constructions are ruled out before any objective is written.
 
-```
-g = G(ℓ)                     the language-specified goal, in latent space
-r̂(z) = −d(z, g)              dense, every step, and LABEL-FREE
-```
+**Not hindsight terminal states.** VIP/LIV define the goal as the last frame of the
+video. **97–99% of our last frames are failures.** Hindsight relabelling on this
+buffer teaches "the goal is wherever my policy usually stops" — dense, smooth,
+label-free, and it scores our modal failure as success. This is the most likely way
+to reproduce the +0.014/−0.26 result behind a better-looking loss curve.
 
-| | value from outcome labels | language-conditioned goal distance |
+**Not `G(ℓ)` compared against `h_t`.** `h_t` is a **joint** `(o_t, ℓ)` code, not a
+state code. Within one instruction the language contribution is a constant offset
+shared by every step of every episode, so it contributes nothing to ordering; across
+instructions it dominates. LIV needed CLIP initialisation on *both* towers to make
+text and images commensurate and still reported non-monotone rewards on unseen robot
+data. We have no such joint initialisation — and do not need one, because the
+instruction is already inside `h_t`.
+
+**Instead:** `g_ℓ = G_ψ(e_ℓ)`, a trainable projection of a frozen sentence embedding
+into the same space as `z`. `g_ℓ` is an **anchor in the metric space, never required
+to equal any observed state**; its location is fixed by the objective.
+
+`V(z; ℓ) := −d_ξ(z, g_ℓ)` with `d_ξ` an **asymmetric** quasimetric (IQE/MRN):
+`d ≥ 0`, `d(z,z) = 0`, triangle inequality, all by construction. Asymmetry is not a
+technicality: a block knocked off the table is one step from the pre-grasp state,
+the pre-grasp state is many steps from the fallen block. A symmetric `‖z − g‖` must
+average the two, flattening the value exactly around irreversible events — which is
+what our failures consist of — and its only interior optimum is at `g` itself, a
+plausible mechanism for the monotone-with-no-optimum pathology we measured.
+
+### 4.3 The objective, and what each term rules out
+
+**QRL, not VIP, as the skeleton.** VIP's TD term is anchored on the video's own last
+frame, so on a failed rollout every term is fitted as though the failure end-state
+were the goal. QRL's local constraint — one environment step costs at most 1 — is
+**true on failed rollouts as well as successful ones** and takes no goal argument.
+It is the only member of the family whose label-free terms are not actively
+mis-supervised by a 97%-failure buffer.
+
+| term | form | rules out |
 |---|---|---|
-| supervision | `env.is_success` | **the instruction, already present** |
-| density | terminal only | **every step** |
-| target task (3% success) | ~3 anchors per 96 episodes | full signal on every episode |
-| outside a simulator | needs a detector or a human | **available** |
+| (a) local cost | `relu(d(z_t, z_{t+1}) − 1)²` | **nothing alone** — `d ≡ 0` satisfies it. It sets the scale: one chunk = one unit |
+| (b) global spread | `−E[φ(d(z, g))]`, `φ(x)=x/(1+x)` | total collapse of `z`, `g_ℓ`, and `d` |
+| (c) instruction mismatch | `relu(m − d(z_t, g_{ℓ′}))²`, `ℓ′ ≠ ℓ` | **the goal-agnostic timer** — the label-free analogue of the pathology we measured |
+| (d) cross-trajectory | `relu(m′ − d(z_i, z_j))²`, different episodes | spuriously low cost between states no observed path connects |
 
-Combined with §3's consistency term, **the entire world model becomes label-free**
-and therefore deployable.
+Run (a)+(b) as a Lagrangian so `λ` is a **monitorable scalar**: a runaway `λ` means
+the terms are incompatible on this data, which is itself a result.
 
-### 4.3 What must prevent collapse
+**Structural precondition — a data requirement, not a detail.** Term (c) is vacuous
+unless the buffer contains **≥ 2 distinct instructions**. With one task, `ℓ` is
+constant, `g_ℓ` is a single free vector, "language-conditioned" degenerates to
+"task-specific", and the diagnostic in §7 cannot be run. **Deployment rollouts are
+collected under several chain instructions, not only the target.**
 
-The degenerate solution is to map every state to `g`. Distance alone cannot rule it
-out; the objective needs negatives, and two kinds are available without labels:
+### 4.4 Reward is a difference, not a level
 
-- **Cross-instruction.** The same observation encoded under a *different*
-  instruction should not be close to `G(ℓ)`. The VLA's `h` already varies with `ℓ`,
-  so these negatives are free.
-- **Temporal.** Within a trajectory, later states are closer to whatever that
-  trajectory reached than earlier ones — an ordering constraint, not an absolute
-  distance.
+```
+r̂(z_t, z_{t+1}; ℓ) = V(z_{t+1}; ℓ) − V(z_t; ℓ)
+```
 
-The exact objective is deferred to the survey. What is fixed: **any term that can be
-minimised by ignoring the observation is disqualified**, and the collapse check is
-run before the reward is used, not after.
+Potential-based shaping: it telescopes to a boundary term and is therefore
+**policy-invariant**. A policy cannot accumulate unbounded return by walking the
+latent toward `g`. Our measured pathology — value monotone along the residual
+direction, no interior optimum — is what optimising a *level* produces. VIP's own
+downstream use is the differenced form; we had used the level.
 
-### 4.4 The measurement that decides it
+### 4.5 Label budget — stated honestly
 
-A progress function that rises along **every** trajectory is worthless, and on a
-task that fails 97% of the time that failure mode is the default. So:
+**The metric is label-free. The anchor is not.** Nothing in §4.3 pins `g_ℓ` to the
+*actual* goal: (b) places it maximally far from the state distribution, which on a
+97%-failure buffer is an extrapolated corner no reachable state occupies. The
+geometry will be well-formed and pointed at the wrong place.
 
-> Train with **zero outcome labels**. Then use held-out labels **only for
-> evaluation** to test whether `d(z_t, G(ℓ))` falls along successful trajectories
-> and **does not** fall along failed ones.
+Minimum anchor budget, to be **measured as a curve, not asserted**:
 
-Labels touch nothing but the evaluation. If the separation is absent, the reward is
-not a reward and nothing downstream is worth running.
+| form | budget per instruction | what is asked of the labeller |
+|---|---|---|
+| absolute | ~5–10 successful terminal latents | one binary judgment per episode |
+| **relative (preferred)** | **~200 pairwise comparisons** | "which of these two got further" |
+
+The relative form is preferred because at 1% success the absolute form needs ~1000
+episodes per instruction to collect 10 anchors, while pairwise comparisons are
+abundant precisely because failure-vs-failure is the modal case. Either way: **do
+not call this route label-free.** The honest reduction is from per-step privileged
+state predicates to ~10 binary or ~200 pairwise **episode-level** judgments.
 
 ## 5. The world model
 
@@ -155,25 +192,29 @@ candidate shares `z`, so `T(z, u)` is a deterministic feature map of `(z, u)` an
 lies **inside the function class of a critic fed `(z, E_a(u))`**. It cannot beat one
 at any data scale. This explains five independent nulls measured before the argument
 was found: deployment ablation p = 0.728; offline ranking 0.637 vs 0.636; two
-joint-training variants below baseline; TD bootstrapping −0.0102 and −0.0055 with
-intervals spanning zero.
+joint-training variants below baseline; TD bootstrapping −0.0102 and −0.0055.
 
-**Use it where a critic cannot substitute.** A critic scores an action; it cannot
-generate a rollout.
+**Order of work, and the ceiling comes first.**
 
-```
-Δ_φ(z)  : a bounded residual on the VLA's chunk
-executed: chunk_to_env(u_VLA + Δ_φ(z))
-trained : argmax_φ E[Σ r̂(z_h)] over IMAGINED rollouts, ‖Δ‖ ≤ s
-```
+1. **Measure the ceiling before building.** Oracle best-of-`N`: sample `N` chunks
+   per step and select with privileged success (upper bound only). **If oracle
+   best-of-16 does not lift the target task appreciably, no re-ranking value —
+   perfect or otherwise — can help**, and this route is capped. Cheap and decisive.
+2. **Re-rank, do not descend.** Score `N` sampled chunks with the potential
+   difference of §4.4 and execute the argmax. The candidate set is drawn from the
+   VLA's own distribution, so **no direction exists to ride however wrong the value
+   is**; the worst case degrades to a bad ranking of plausible actions. This
+   structurally removes the failure we measured. `N` is swept, not maximised —
+   best-of-`N` reward gain turns over.
+3. **Only then imagination.** A bounded residual trained on imagined rollouts is the
+   use in which the transition is irreplaceable, but it is also the use that
+   produced −0.26. It is attempted after (1) and (2), not before.
 
-Consistent with §2: a bounded perturbation of a supported chunk, zero at
-initialisation, VLA still the controller. The prior is the **trust region**.
-
-**The bound is load-bearing.** On a fresh 96-seed panel against a base of
-44/96 = 0.458: scale 0.15 → 19/96 = 0.198; scale 0.01 → 47/96 = 0.490. Whether a
-language-grounded reward is less hackable than the label-trained value is **open and
-must be measured, not assumed** — a learned similarity is a classic hacking target.
+**Correction to an earlier reading.** That the residual "saturates its norm bound at
+every scale" is **not** evidence the value is wrong: against a monotone objective, a
+hard norm ball puts the KKT solution on the boundary at every radius. And shrinking
+the bound until the environment number stops dropping would be **fitting the bound
+on the evaluation panel** — the same class of leak already in the withdrawal table.
 
 ## 7. Falsification  `[LOCKED]`
 
@@ -181,7 +222,7 @@ must be measured, not assumed** — a learned similarity is a classic hacking ta
 
 | claim | required comparison |
 |---|---|
-| the reward is a reward | falls on successes, **does not fall on failures**, held-out labels used for evaluation only |
+| the reward is a reward | **§7.1 failure stratification**, held-out labels used for evaluation only |
 | the improvement helps | vs the frozen VLA alone, paired, fit-disjoint panel |
 | **the world model is what helped** | vs the same improvement trained **without imagination** — same reward, same anchor, real transitions only |
 | the model is a model | one-step error vs the identity floor, **shuffled-action control**, compounding over horizon |
@@ -191,7 +232,46 @@ dynamics, so ranking quality cannot select for it — measured anti-correlated h
 the best-ranking model (AUC 0.626) had a shuffled-action cost of 0.2%, while the
 worse-ranking one (0.584) predicted at 0.530× identity.
 
-### 7.1 Pre-registered readings
+### 7.1 The reward diagnostic  `[LOCKED]`
+
+Monotonicity within a trajectory is worthless as evidence: a clock scores perfectly
+on it. What a usable value must do is order **failures** by how far they got — a
+cross-trajectory property needing no successes at all, so on a 97%-failure task the
+whole buffer is the sample.
+
+```
+ρ = Spearman( V(z_T; ℓ), stage_reached )   over held-out FAILED episodes
+```
+
+`stage_reached` is privileged and used **for evaluation only, never for training**.
+
+| null | expected |
+|---|---|
+| shuffled instruction `g_{ℓ′}` | ρ → 0, or the value is not language-conditioned |
+| clock | ρ → 0 |
+| label-shuffled `stage_reached` | ρ → 0, CI covering 0 |
+
+**Pre-registered bar:** ρ ≥ 0.35, bootstrap 95% CI excluding 0.15, all nulls in
+[−0.1, 0.1]. The interval is the result, not the point estimate.
+
+**Measured on the value we already have** (chain1b, 188 failed episodes):
+
+| | value |
+|---|---|
+| ρ | **+0.247**, CI [+0.061, +0.412] |
+| clock null | nan — all failures run the full horizon, so it is constant |
+| label-shuffle null | −0.008 |
+| **bar** | **NOT MET** (CI lower 0.061 < 0.15) |
+
+So the current value carries **some** progress information and not enough. Run this
+on any new reward **before** training a policy against it.
+
+*Statistical note.* Ranking must use average ranks for ties. `argsort(argsort(x))`
+assigns arbitrary distinct ranks to tied values and manufactured a spurious clock
+null of +0.64 from a constant input; `stage_reached` is heavily tied (182 of 191
+`chain3` failures share one value).
+
+### 7.2 Pre-registered readings
 
 | observation | conclusion |
 |---|---|
@@ -202,7 +282,7 @@ worse-ranking one (0.584) predicted at 0.530× identity.
 | improves offline ranking but hurts behaviour | do not promote |
 | round 1 improves, round 2 does not | one-shot adaptation, not continual improvement |
 
-### 7.2 Data roles  `[LOCKED]`
+### 7.3 Data roles  `[LOCKED]`
 
 Episodes carry a role — `model_train`, `model_calib`, `policy_train`, `eval` —
 partitioned before collection. **No parameter or threshold may be chosen using
