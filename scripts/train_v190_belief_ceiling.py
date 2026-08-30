@@ -39,6 +39,7 @@ sys.path.insert(0, str(REPO / "scripts"))
 import numpy as np, torch  # noqa: E402
 from torch import nn  # noqa: E402
 from probe_v167_value_stratification import spearman  # noqa: E402
+from train_v152_tdmpc_wm import SimNorm  # noqa: E402
 
 OUT = REPO / "results" / "v190_belief"
 
@@ -46,11 +47,17 @@ OUT = REPO / "results" / "v190_belief"
 class Belief(nn.Module):
     def __init__(self, zdim, c, adim, bdim=256, hidden=512):
         super().__init__()
+        # BOUNDED, per this framework's own 3 constraint 3. Without it the encoder
+        # scale grew without limit and the prediction loss went 0.041 -> 112 -> 64:
+        # the detached targets inflate with the encoder that produces them. The same
+        # class of failure collapsed a Gaussian transition earlier to identity error
+        # 0.0004.
         self.enc = nn.Sequential(nn.LayerNorm(zdim), nn.Linear(zdim, hidden),
-                                 nn.GELU(), nn.Linear(hidden, 256))
+                                 nn.GELU(), nn.Linear(hidden, 256), SimNorm(8))
         self.aenc = nn.Sequential(nn.Linear(c * adim, 128), nn.GELU(),
                                   nn.Linear(128, 64))
         self.gru = nn.GRUCell(256 + 64, bdim)
+        self.bnorm = SimNorm(8)
         self.pred1 = nn.Sequential(nn.Linear(bdim, hidden), nn.GELU(),
                                    nn.Linear(hidden, 256))   # z_{t+1}
         self.pred5 = nn.Sequential(nn.Linear(bdim, hidden), nn.GELU(),
@@ -74,7 +81,7 @@ class Belief(nn.Module):
         b = torch.zeros(B, self.bdim, device=zs.device)
         out = []
         for t in range(T):
-            b = self.gru(torch.cat([e[:, t], a[:, t]], -1), b)
+            b = self.bnorm(self.gru(torch.cat([e[:, t], a[:, t]], -1), b))
             out.append(b)
         out = torch.stack(out, 1)
         return (out[0], e[0]) if single else (out, e)
