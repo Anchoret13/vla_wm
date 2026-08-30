@@ -32,12 +32,24 @@ reward**.
 Three findings constrain any instantiation, and none depends on which candidate is
 tried next.
 
-**The loop's middle stage is the questionable one.** The frozen VLA *is* improved by
-data collected during its own deployment — measured, 0.469 → 0.656 on a held-out
-panel (p = 0.0021). What that improvement did **not** need is the world model:
-routing the same reward through a learned transition scored significantly worse than
-not routing it (+6 −20, p = 0.0094). **Replication pending; this paragraph is
-provisional until a second panel reports.**
+**The loop's middle stage does not contribute.** Replicated on two independent
+held-out panels, 192 seeds:
+
+| arm | panel A | panel B | pooled vs base |
+|---|---:|---:|---|
+| base (frozen VLA) | 0.469 | 0.448 | — |
+| **residual, model-free (AWR)** | **0.656** | **0.573** | **+44 −14, p = 0.00010** |
+| residual via the world model | 0.510 | 0.406 | +25 −25, **p = 1.000** |
+| **AWR vs world model** | p = 0.0094 | p = 0.0113 | **+46 −16, p = 0.00018** |
+
+The frozen VLA **is** improved by data collected during its own deployment —
+0.458 → 0.615, replicated. The world model's contribution is **exactly zero**
+(+25 −25), and routing the same reward through it is **significantly worse than not**
+(p = 0.00018).
+
+So the loop that works is `deployment data → reward → policy`. The middle stage as
+§1 originally wrote it — a learned transition — is the one component measurement
+removes.
 
 **A compressed latent discards what its heads need.** The ordering signal lives in
 the VLA's raw features (ρ = 0.417, bar 0.349); the learned 256-d encoder retains
@@ -151,7 +163,7 @@ joint-training variants below baseline; TD bootstrapping −0.0102 and −0.0055
 |---|---|---|---|
 | U0 | oracle best-of-N ceiling | no | **run, and it capped U1.** chain3: random 0.0039 → oracle best-of-16 **0.0625**, with 15/16 states deterministic all-fail |
 | U1 | re-rank `N` sampled chunks | no | **dead on the target task.** σ = 3 proposals changed nothing (oracle 0.0625, 1/16 states disagreeing — identical to σ = 0), so changing the proposal mechanism was tried and failed |
-| **U2** | bounded residual trained in imagination | **yes** | **measured harmful.** Raw space, R7 reward: base 0.469, imagination 0.510 (p = 0.541), **model-free AWR 0.656 (p = 0.0021)**, and **imagination vs AWR +6 −20, p = 0.0094** |
+| **U2** | bounded residual trained in imagination | **yes** | **measured harmful, replicated on two panels.** Pooled over 192 seeds: model-free AWR beats base **+44 −14 (p = 0.00010)**; imagination ties base **+25 −25 (p = 1.000)**; **AWR beats imagination +46 −16 (p = 0.00018)** |
 | U3 | optimisation over action sequences | yes | untried; changes what is executed |
 | U4 | model uncertainty to gate intervention | yes | untried |
 
@@ -323,9 +335,9 @@ both were run only after the failures they would have explained.**
 |---|---|
 | §4 reward menu | R1 dead, R2/R3 dead by reading, R4 dead, R5 unavailable locally, **R7 passes the primary bar on raw features / fails the language null**, R6 untried |
 | §5 use menu | U0 run and capping U1; **U1 dead on the target task under both samplers**; U2 measured on one panel with replication in flight; U3, U4 untried |
-| §6.1 gate | operational; bar re-derived as 0.6 × the measured ceiling; three readings added to §6.2 |
+| §6.1 gate | **verified predictive.** The reward that passed its bar (R7, ρ = 0.417) produced a replicated +0.157 in deployment; the reward that failed it (TD value, ρ = 0.247) produced −0.26. Bar re-derived as 0.6 × the measured ceiling |
 | §6.3 roles | attested for the U2 cycle; one recorded violation — the residual scale was chosen on an earlier panel |
-| §1 paradigm | improvement of the frozen VLA from its own deployment data is **measured**; the world model's contribution is **provisional pending replication** |
+| §1 paradigm | improvement from deployment data **measured and replicated** (p = 0.00010); the world model's contribution **measured at exactly zero** (+25 −25, p = 1.000) and harmful relative to model-free use (p = 0.00018) |
 
 **What is not yet answered.** Whether any construction makes the transition
 contribute. Every isolation so far — five in the ranking setting, one in the
