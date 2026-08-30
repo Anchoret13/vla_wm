@@ -1,0 +1,49 @@
+{
+  "utc": "2026-08-30T100232Z",
+  "arm": "no_imag",
+  "task": "chain1b_lr2",
+  "wm": "results/v122_latent_wm/2026-08-30T095324Z/T_theta.pt",
+  "reward": "results/v181_plain_outcome/2026-08-30T093544Z/reward.pt",
+  "horizon": 3,
+  "scale": 0.03,
+  "transitions": 4644,
+  "rows": [
+    {
+      "restart": 0,
+      "R_base": -1.0430701971054077,
+      "R_residual": -1.03938889503479,
+      "imagined_gain": 0.0036813020706176758,
+      "mean_abs_delta": 0.029295556247234344
+    },
+    {
+      "restart": 1,
+      "R_base": -1.0430701971054077,
+      "R_residual": -1.0408973693847656,
+      "imagined_gain": 0.00217282772064209,
+      "mean_abs_delta": 0.02919791266322136
+    },
+    {
+      "restart": 2,
+      "R_base": -1.0430701971054077,
+      "R_residual": -1.0400784015655518,
+      "imagined_gain": 0.002991795539855957,
+      "mean_abs_delta": 0.029174765571951866
+    },
+    {
+      "restart": 3,
+      "R_base": -1.0430701971054077,
+      "R_residual": -1.0402308702468872,
+      "imagined_gain": 0.002839326858520508,
+      "mean_abs_delta": 0.029171867296099663
+    },
+    {
+      "restart": 4,
+      "R_base": -1.0430701971054077,
+      "R_residual": -1.040043592453003,
+      "imagined_gain": 0.003026604652404785,
+      "mean_abs_delta": 0.029166515916585922
+    }
+  ],
+  "env_steps": 0,
+  "git": "d327d4bbd41e93609b134fc05dbcbe94063f0101"
+}

@@ -71,16 +71,19 @@ def main() -> int:
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm, weights_only=False)
-    wm = load_valuewm(ck, ck["obs_dim"], ck["c"], ck["adim"], ck["zdim"],
-                 encoder=ck.get("encoder", "mlp"))
-    wm.eval()
+    raw_space = "slice" in ck or "obs_dim" not in ck   # a v122 raw-space transition
+    wm = None
+    if not raw_space:
+        wm = load_valuewm(ck, ck["obs_dim"], ck["c"], ck["adim"], ck["zdim"],
+                          encoder=ck.get("encoder", "mlp"))
+        wm.eval()
     actor = None
     if a.arm == "residual":
         akt = torch.load(a.actor, weights_only=False)
         actor = ResidualActor(akt["zdim"], akt["c"], akt["adim"], scale=akt["scale"])
         actor.load_state_dict(akt["state_dict"]); actor.eval()
         print(f"actor scale {akt['scale']} from {akt['arm']}")
-    mu_o, sd_o = ck["mu_o"], ck["sd_o"]
+    mu_o, sd_o = (ck["mu"], ck["sd"]) if raw_space else (ck["mu_o"], ck["sd_o"])
     print(f"arm={a.arm} tag={tag} panel {PANEL[0]}-{PANEL[-1]} window={a.window or 'all'}")
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
@@ -107,7 +110,12 @@ def main() -> int:
                 del pf
                 o = torch.cat([h, proprio(obs)])
                 with torch.no_grad():
-                    z = wm.encode(((o - mu_o) / sd_o).unsqueeze(0))
+                    if raw_space:
+                        # the actor was trained on RAW features, normalised by the
+                        # transition's own statistics - no encoder in the path
+                        z = ((o - mu_o) / sd_o).unsqueeze(0)
+                    else:
+                        z = wm.encode(((o - mu_o) / sd_o).unsqueeze(0))
                     d = actor(z)[0]
                 dmag.append(float(d.abs().mean()))
                 for act in runner.chunk_to_env(chunk + d):
