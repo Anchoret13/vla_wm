@@ -40,6 +40,14 @@ def main() -> int:
     ap.add_argument("--tapes", type=Path, nargs="+", required=True)
     ap.add_argument("--epochs", type=int, default=1500)
     ap.add_argument("--restarts", type=int, default=5)
+    ap.add_argument("--readout", choices=["terminal", "mean", "maxmin", "endpoints"],
+                    default="terminal",
+                    help="WHERE progress is read from. 'terminal' is the single last "
+                         "latent, which is what every reward candidate has used. If "
+                         "trajectory-level readouts score far higher, the latent "
+                         "carries progress and the terminal frame is simply the "
+                         "wrong place to read it - a different defect with a "
+                         "different fix.")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT / stamp; out.mkdir(parents=True, exist_ok=True)
@@ -53,14 +61,25 @@ def main() -> int:
         acc = per_task.setdefault(d["task"], {"z": [], "stage": [], "succ": []})
         for e in sorted(set(ep.tolist())):
             m_ = ep == e
-            last = int(torch.nonzero(m_).flatten()[torch.argmax(tt[m_])])
+            idx = torch.nonzero(m_).flatten()
+            order = idx[torch.argsort(tt[m_])]
             r = rec.get(int(e))
-            if r is None:
+            if r is None or len(order) < 2:
                 continue
-            acc["z"].append(z[last]); acc["stage"].append(len(r.get("events", {})))
+            zs = z[order]
+            if a.readout == "terminal":
+                feat = zs[-1]
+            elif a.readout == "mean":
+                feat = zs.mean(0)
+            elif a.readout == "maxmin":
+                feat = torch.cat([zs.max(0).values, zs.min(0).values])
+            else:
+                feat = torch.cat([zs[0], zs[-1], zs[-1] - zs[0]])
+            acc["z"].append(feat); acc["stage"].append(len(r.get("events", {})))
             acc["succ"].append(bool(r["success"]))
 
     rows = []
+    print(f"readout = {a.readout}")
     for task, acc in sorted(per_task.items()):
         Z = torch.stack(acc["z"]); st = np.array(acc["stage"], float)
         su = np.array(acc["succ"], bool)
@@ -110,7 +129,7 @@ def main() -> int:
           f"that,\nno reward construction can pass and the defect is in the latent, "
           f"not the objective.")
     (out / "summary.json").write_text(json.dumps(
-        {"utc": stamp, "rows": rows, "env_steps": 0,
+        {"utc": stamp, "readout": a.readout, "rows": rows, "env_steps": 0,
          "note": "privileged labels used as a TRAINING target - upper bound only",
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
                                capture_output=True, text=True).stdout.strip()},
