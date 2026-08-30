@@ -42,7 +42,7 @@ sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "scripts"))
 import numpy as np, torch  # noqa: E402
 from train_v152_tdmpc_wm import build_sequences  # noqa: E402
-from train_v153_td_value_wm import ValueWM  # noqa: E402
+from train_v153_td_value_wm import ValueWM, load_valuewm  # noqa: E402
 
 OUT = REPO / "results" / "v159_wm_quality"
 
@@ -69,9 +69,9 @@ def main() -> int:
     mu_o, sd_o = ck["mu_o"], ck["sd_o"]
     O, ON = (z - mu_o) / sd_o, (zn - mu_o) / sd_o
 
-    m = ValueWM(O.shape[-1], u.shape[1], u.shape[2], ck["zdim"],
+    m = load_valuewm(ck, O.shape[-1], u.shape[1], u.shape[2], ck["zdim"],
                 encoder=ck.get("encoder", "mlp"))
-    m.load_state_dict(ck["state_dict"]); m.eval()
+    m.eval()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     out = OUT / stamp; out.mkdir(parents=True, exist_ok=True)
     print(f"WM: encoder={ck.get('encoder')} zdim={ck['zdim']} "

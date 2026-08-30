@@ -40,7 +40,7 @@ from lcwm.seq_data import goal_atoms, predicate_bits  # noqa: E402
 from lcwm.v080_bench import episode_length, make_v080_env  # noqa: E402
 from lcwm.v082_m0 import masked_prefix_mean  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
-from train_v153_td_value_wm import ValueWM  # noqa: E402
+from train_v153_td_value_wm import ValueWM, load_valuewm  # noqa: E402
 from train_v157_residual_actor import ResidualActor  # noqa: E402
 from collect_v121_deploy_latents import proprio  # noqa: E402
 
@@ -71,9 +71,9 @@ def main() -> int:
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     ck = torch.load(a.wm, weights_only=False)
-    wm = ValueWM(ck["obs_dim"], ck["c"], ck["adim"], ck["zdim"],
+    wm = load_valuewm(ck, ck["obs_dim"], ck["c"], ck["adim"], ck["zdim"],
                  encoder=ck.get("encoder", "mlp"))
-    wm.load_state_dict(ck["state_dict"]); wm.eval()
+    wm.eval()
     actor = None
     if a.arm == "residual":
         akt = torch.load(a.actor, weights_only=False)

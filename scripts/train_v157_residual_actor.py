@@ -41,7 +41,7 @@ sys.path.insert(0, str(REPO / "scripts"))
 import numpy as np, torch  # noqa: E402
 from torch import nn  # noqa: E402
 from train_v152_tdmpc_wm import SimNorm, mlp  # noqa: E402
-from train_v153_td_value_wm import ValueWM  # noqa: E402
+from train_v153_td_value_wm import ValueWM, load_valuewm  # noqa: E402
 
 OUT = REPO / "results" / "v157_residual_actor"
 
@@ -98,9 +98,9 @@ def main() -> int:
     mu_o, sd_o = ck["mu_o"], ck["sd_o"]
     O, ON = (z - mu_o) / sd_o, (zn - mu_o) / sd_o
 
-    wm = ValueWM(O.shape[-1], u.shape[1], u.shape[2], ck["zdim"],
+    wm = load_valuewm(ck, O.shape[-1], u.shape[1], u.shape[2], ck["zdim"],
                  encoder=ck.get("encoder", "mlp"))
-    wm.load_state_dict(ck["state_dict"]); wm.eval()
+    wm.eval()
     for p in wm.parameters():
         p.requires_grad_(False)
     print(f"{len(z)} transitions; horizon {a.horizon}; scale {a.scale}; arm={tag}")
