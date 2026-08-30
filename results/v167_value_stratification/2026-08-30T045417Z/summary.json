@@ -1,0 +1,18 @@
+{
+  "utc": "2026-08-30T045417Z",
+  "wm": "results/v153_td_value/2026-08-29T214353Z/wm.pt",
+  "episodes": 192,
+  "successes": 92,
+  "failures": 100,
+  "rho": 0.06311431143114311,
+  "ci": [
+    -0.05992469246924692,
+    0.33800420042004203
+  ],
+  "rho_clock": 0.6945214521452145,
+  "rho_label_shuffled": -0.028352775277527754,
+  "passed": false,
+  "env_steps": 0,
+  "note": "stage_reached is privileged and used for EVALUATION ONLY",
+  "git": "59b3f6ab929f5feca113784a8b00b7dbf904a959"
+}

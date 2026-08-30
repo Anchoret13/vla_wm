@@ -44,12 +44,25 @@ from train_v153_td_value_wm import load_valuewm  # noqa: E402
 OUT = REPO / "results" / "v167_value_stratification"
 
 
+def _rank(x):
+    """Average ranks for ties. argsort(argsort(x)) assigns ARBITRARY distinct ranks
+    to tied values, which manufactured a spurious clock-null correlation of +0.64
+    from a constant input - stage_reached is heavily tied (182 of 191 chain3
+    failures share one value), so this is not a corner case here."""
+    x = np.asarray(x, float)
+    order = np.argsort(x, kind="mergesort")
+    r = np.empty(len(x), float)
+    r[order] = np.arange(len(x), dtype=float)
+    _, inv, cnt = np.unique(x, return_inverse=True, return_counts=True)
+    sums = np.zeros(len(cnt)); np.add.at(sums, inv, r)
+    return (sums / cnt)[inv]
+
+
 def spearman(a, b):
-    ra = np.argsort(np.argsort(a)).astype(float)
-    rb = np.argsort(np.argsort(b)).astype(float)
-    ra -= ra.mean(); rb -= rb.mean()
+    ra, rb = _rank(a), _rank(b)
+    ra = ra - ra.mean(); rb = rb - rb.mean()
     d = np.sqrt((ra ** 2).sum() * (rb ** 2).sum())
-    return float((ra * rb).sum() / d) if d > 0 else float("nan")
+    return float((ra * rb).sum() / d) if d > 1e-12 else float("nan")
 
 
 def main() -> int:
