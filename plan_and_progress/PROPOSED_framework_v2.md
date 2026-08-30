@@ -295,3 +295,40 @@ detector or a human outside a simulator; BDDL goal predicates and milestone time
 not exist; candidate-level labels additionally required **deterministic replay**,
 which a robot cannot do. Any result depending on the last three is a **simulator
 result** and is labelled as one.
+
+## 10. Diagnostics this framework depends on  `[LOCKED]`
+
+Each exists because its absence cost real work. Run them in this order; each one can
+stop the next.
+
+| # | question | script | cost |
+|---|---|---|---|
+| D1 | Is there outcome variation to act on at all? | `probe_v123_outcome_variance.py` | one panel |
+| D2 | What is the oracle ceiling for selection? | `probe_v132_selection_ceiling.py` | one panel |
+| D3 | **What is the supervised ceiling for the reward's target?** | `probe_v179_stage_ceiling.py` | **zero env steps** |
+| D4 | Does the signal survive the encoder? | inline in D3's harness — probe raw features vs the latent | zero |
+| D5 | Does the reward order held-out failures? (§6.1) | `probe_v173_reward_diagnostic.py` | zero |
+| D6 | Is the world model a predictor at all? | `probe_v159_wm_quality.py` | zero |
+
+**D3 and D4 are the ones this round proved indispensable.** D3 showed the §6.1 bar
+sat above the achievable ceiling on the target task, so four candidates were judged
+against a height nothing could reach. D4 showed the raw features pass the bar
+(0.417) while the learned latent does not (0.140), so five candidate failures were
+measuring a representation, not an objective. **Both cost zero environment steps and
+both were run only after the failures they would have explained.**
+
+## 11. Standing status
+
+| framework element | status |
+|---|---|
+| §4 reward menu | R1 dead, R2/R3 dead by reading, R4 dead, R5 unavailable locally, **R7 passes the primary bar on raw features / fails the language null**, R6 untried |
+| §5 use menu | U0 run and capping U1; **U1 dead on the target task under both samplers**; U2 measured on one panel with replication in flight; U3, U4 untried |
+| §6.1 gate | operational; bar re-derived as 0.6 × the measured ceiling; three readings added to §6.2 |
+| §6.3 roles | attested for the U2 cycle; one recorded violation — the residual scale was chosen on an earlier panel |
+| §1 paradigm | improvement of the frozen VLA from its own deployment data is **measured**; the world model's contribution is **provisional pending replication** |
+
+**What is not yet answered.** Whether any construction makes the transition
+contribute. Every isolation so far — five in the ranking setting, one in the
+policy-improvement setting — has returned nothing or worse than nothing, but U3
+(sequence optimisation) and U4 (uncertainty gating) are untried, and R6 sidesteps the
+label constraint that bounds the others.
