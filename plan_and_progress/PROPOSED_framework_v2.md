@@ -27,6 +27,33 @@ world model                        →  an improvement to π
 unchanged; latent space, no reconstruction; data from deployment rollouts; **no true
 reward**.
 
+### What execution has established about this loop  `[measured 2026-08-30]`
+
+Three findings constrain any instantiation, and none depends on which candidate is
+tried next.
+
+**The loop's middle stage is the questionable one.** The frozen VLA *is* improved by
+data collected during its own deployment — measured, 0.469 → 0.656 on a held-out
+panel (p = 0.0021). What that improvement did **not** need is the world model:
+routing the same reward through a learned transition scored significantly worse than
+not routing it (+6 −20, p = 0.0094). **Replication pending; this paragraph is
+provisional until a second panel reports.**
+
+**A compressed latent discards what its heads need.** The ordering signal lives in
+the VLA's raw features (ρ = 0.417, bar 0.349); the learned 256-d encoder retains
+**34%** of it (0.140), and shaping that encoder with the only deployable label drives
+it to **−0.223** while branch-ranking AUC climbs. §5's structure — encode, roll
+forward, read heads off the latent — assumes retention that does not hold under
+sparse supervision. **Any candidate that reads a compressed latent inherits this.**
+
+**The deployable label carries no progress information on the target task.** With
+the identical probe and splits, binary episode success recovers 58% of the ceiling
+on `chain1b` and **0%** on `chain3`, because success-vs-failure discrimination is
+orthogonal to progress — R4 reached preference accuracy 1.000 while ordering failures
+at −0.13. **Any candidate supervised only by episode outcome is bounded by this on
+the target task**, which is why R6 (no reward at all) is the better next try than R5,
+not merely the next entry in the menu.
+
 ## 2. Setting and retained VLA interface  `[LOCKED]`
 
 The VLA produces a `K = 50` chunk from visual-action history and instruction `ℓ`;
