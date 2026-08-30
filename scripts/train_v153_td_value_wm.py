@@ -149,6 +149,16 @@ def main() -> int:
                          "correction on a fixed linear projection of the frozen "
                          "features; 'frozen' learns no encoder at all, isolating "
                          "the transition and value from representation learning.")
+    ap.add_argument("--outcome-weight", type=float, default=0.0,
+                    help="Weight on a BCE term that labels EVERY state with its "
+                         "episode outcome, shaping the encoder to preserve "
+                         "outcome-relevant information. Measured need: the raw "
+                         "2073-d features order held-out failures at rho 0.417 "
+                         "(bar 0.349) while the WM's 256-d latent manages 0.140 - "
+                         "the encoder retains 34% of the signal, which is why every "
+                         "head read off it has failed 6.1. TD alone cannot shape it "
+                         "because terminal supervision is 1-3% of episodes; this "
+                         "term labels all states.")
     ap.add_argument("--nstep", type=int, default=1,
                     help="ALTERNATIVE EXPLANATION 2: only 192 of 4644 transitions "
                          "are terminal, so value is anchored at few points and a "
@@ -227,7 +237,11 @@ def main() -> int:
             bi = btr[torch.randint(0, len(btr), (a.batch,), generator=g)]
             bandit = nn.functional.binary_cross_entropy_with_logits(
                 m.q_direct(m.encode(BO[bi]), bu[bi]), by[bi])
-            (cons + td + bandit).backward(); opt.step()
+            outc = torch.zeros(())
+            if a.outcome_weight > 0:
+                outc = nn.functional.binary_cross_entropy_with_logits(
+                    m.V(zt).squeeze(-1) if m.V(zt).dim() > 1 else m.V(zt), suc[ti])
+            (cons + td + bandit + a.outcome_weight * outc).backward(); opt.step()
             if e % 50 == 0 or e == a.epochs - 1:
                 m.eval()
                 with torch.no_grad():
@@ -270,6 +284,7 @@ def main() -> int:
          "terminal": int(term.sum()), "candidates": len(by), "results": res,
          "diff": float(d_.mean()), "diff_ci": [lo, hi], "env_steps": 0,
          "encoder": a.encoder, "nstep": a.nstep,
+         "outcome_weight": a.outcome_weight,
          "note": "TD bootstraps through the learned transition; the refuting arm is "
                  "the same encoder with a direct critic and no bootstrapping",
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,

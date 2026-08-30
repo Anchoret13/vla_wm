@@ -1,0 +1,136 @@
+{
+  "utc": "2026-08-30T093544Z",
+  "tasks": [
+    "chain1_lr2",
+    "chain1b_lr2",
+    "chain2_lr2",
+    "chain2b_lr2",
+    "chain3_lr2"
+  ],
+  "states": 26509,
+  "episodes": 672,
+  "per_task": [
+    {
+      "task": "chain1b_lr2",
+      "rho": 0.35561647860690043,
+      "sd": 0.06911446602239406,
+      "null_instr": 0.3265328249701532,
+      "bar": 0.34859999999999997,
+      "ceiling": 0.581,
+      "passed": false
+    },
+    {
+      "task": "chain2b_lr2",
+      "rho": -0.20434686667868776,
+      "sd": 0.0,
+      "null_instr": -0.3085237006717442,
+      "bar": 0.24839999999999998,
+      "ceiling": 0.414,
+      "passed": false
+    },
+    {
+      "task": "chain3_lr2",
+      "rho": -0.12016031560529987,
+      "sd": 0.11415296810924588,
+      "null_instr": 0.031937111127606416,
+      "bar": 0.12719999999999998,
+      "ceiling": 0.212,
+      "passed": false
+    }
+  ],
+  "rows": [
+    {
+      "restart": 0,
+      "task": "chain1b_lr2",
+      "n": 33,
+      "rho": 0.3874565124237917,
+      "null_instr": 0.1217720467617631
+    },
+    {
+      "restart": 0,
+      "task": "chain3_lr2",
+      "n": 59,
+      "rho": -0.17501579143583298,
+      "null_instr": 0.1197617637947884
+    },
+    {
+      "restart": 1,
+      "task": "chain1b_lr2",
+      "n": 22,
+      "rho": 0.42798987094137975,
+      "null_instr": 0.5532551990217836
+    },
+    {
+      "restart": 1,
+      "task": "chain3_lr2",
+      "n": 54,
+      "rho": 0.08643457510060755,
+      "null_instr": 0.018521694664415903
+    },
+    {
+      "restart": 2,
+      "task": "chain1b_lr2",
+      "n": 29,
+      "rho": 0.2600485183786791,
+      "null_instr": 0.26967994498529685
+    },
+    {
+      "restart": 2,
+      "task": "chain2b_lr2",
+      "n": 17,
+      "rho": -0.20434686667868776,
+      "null_instr": -0.3085237006717442
+    },
+    {
+      "restart": 2,
+      "task": "chain3_lr2",
+      "n": 61,
+      "rho": -0.14313004957446687,
+      "null_instr": 0.09511288702051482
+    },
+    {
+      "restart": 3,
+      "task": "chain1b_lr2",
+      "n": 34,
+      "rho": 0.28310496817534986,
+      "null_instr": 0.2595128874940707
+    },
+    {
+      "restart": 3,
+      "task": "chain3_lr2",
+      "n": 62,
+      "rho": -0.2955779075803227,
+      "null_instr": -0.161157005552422
+    },
+    {
+      "restart": 4,
+      "task": "chain1b_lr2",
+      "n": 27,
+      "rho": 0.3328751429678413,
+      "null_instr": 0.28748307801768114
+    },
+    {
+      "restart": 4,
+      "task": "chain3_lr2",
+      "n": 60,
+      "rho": -0.08949215766181237,
+      "null_instr": 0.10201989975834605
+    },
+    {
+      "restart": 5,
+      "task": "chain1b_lr2",
+      "n": 28,
+      "rho": 0.4422238587543603,
+      "null_instr": 0.4674937935403238
+    },
+    {
+      "restart": 5,
+      "task": "chain3_lr2",
+      "n": 60,
+      "rho": -0.10418056247997177,
+      "null_instr": 0.017363427079995296
+    }
+  ],
+  "env_steps": 0,
+  "git": "f9abaf5c958020c36c1cdd23859f81b60149e4b9"
+}
