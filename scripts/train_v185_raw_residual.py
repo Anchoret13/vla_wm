@@ -54,19 +54,30 @@ def main() -> int:
     ap.add_argument("--batch", type=int, default=256)
     ap.add_argument("--restarts", type=int, default=5)
     ap.add_argument("--no-imagination", action="store_true")
+    ap.add_argument("--advantage", choices=["reward", "success"], default="reward",
+                    help="What weights the AWR regression. 'reward' uses R7's "
+                         "potential difference, which requires R7 to pass 6.1 on "
+                         "this task. On chain3 it does not (rho -0.120), so "
+                         "'success' falls back to the episode outcome itself - "
+                         "filtered behaviour cloning. At 1% success that is ~2 "
+                         "episodes to imitate out of 192, which is the label "
+                         "scarcity the paradigm runs into on its own target task.")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
     tag = "no_imag" if a.no_imagination else "imag"
     out = OUT / f"{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
-    Z, ZN, U = [], [], []
+    Z, ZN, U, SUC = [], [], [], []
     for tp in a.tapes:
         d = torch.load(tp, weights_only=False)
         if d["latent_dim"] != 2073 or d["task"] != a.task:
             continue
         Z.append(d["z"]); ZN.append(d["z_next"]); U.append(d["u"])
+        SUC.append(d["success"][d["episode"]])
     z, zn, u = torch.cat(Z), torch.cat(ZN), torch.cat(U)
-    print(f"{len(z)} transitions on {a.task}")
+    suc = torch.cat(SUC)
+    print(f"{len(z)} transitions on {a.task}; "
+          f"{int(suc.sum())} from successful episodes ({float(suc.mean()):.3f})")
 
     ck = torch.load(a.wm, weights_only=False)
     T = Transition(ck["zdim"], ck["c"], ck["adim"], ck["hidden"], use_action=True)
@@ -118,7 +129,10 @@ def main() -> int:
                 # observed reward. The buffer contains sigma-perturbed actions, so
                 # there is real variation to imitate.
                 with torch.no_grad():
-                    adv = reward(ZNn[i]) - reward(Zn_[i])
+                    if a.advantage == "success":
+                        adv = suc[i]
+                    else:
+                        adv = reward(ZNn[i]) - reward(Zn_[i])
                     w = torch.softmax(adv / (adv.std() + 1e-6), 0) * len(i)
                 # the residual should reproduce the advantage-weighted deviation
                 # of executed actions from the batch mean
