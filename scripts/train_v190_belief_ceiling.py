@@ -60,22 +60,32 @@ class Belief(nn.Module):
         self.bdim = bdim
 
     def roll(self, zs, us):
-        """zs (T,zdim), us (T,c,adim) -> beliefs (T,bdim) and encoded targets."""
+        """(T,zdim),(T,c,adim) -> (T,bdim); or batched (B,T,...) -> (B,T,bdim).
+
+        Batched because 300 single-episode iterations left the belief underfit -
+        it scored 0.181 against a single frame's 0.232, which is not a fair test of
+        the idea. RB-VLA trained on 40,000 trajectories."""
+        single = zs.dim() == 2
+        if single:
+            zs, us = zs.unsqueeze(0), us.unsqueeze(0)
+        B, T = zs.shape[0], zs.shape[1]
         e = self.enc(zs)
-        a = self.aenc(us.flatten(1))
-        b = torch.zeros(self.bdim)
+        a = self.aenc(us.flatten(2))
+        b = torch.zeros(B, self.bdim, device=zs.device)
         out = []
-        for t in range(len(zs)):
-            b = self.gru(torch.cat([e[t], a[t]]).unsqueeze(0), b.unsqueeze(0))[0]
+        for t in range(T):
+            b = self.gru(torch.cat([e[:, t], a[:, t]], -1), b)
             out.append(b)
-        return torch.stack(out), e
+        out = torch.stack(out, 1)
+        return (out[0], e[0]) if single else (out, e)
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--tapes", type=Path, nargs="+", required=True)
     ap.add_argument("--task", default="chain3_lr2")
-    ap.add_argument("--epochs", type=int, default=300)
+    ap.add_argument("--epochs", type=int, default=3000)
+    ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--restarts", type=int, default=4)
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
@@ -114,17 +124,22 @@ def main() -> int:
         order = torch.randperm(len(eps), generator=g)
         tr_e = order[:int(len(eps) * 0.7)].tolist()
         te_e = order[int(len(eps) * 0.7):].tolist()
+        Tmin = min(len(eps[k]["zn"]) for k in tr_e)
         for it in range(a.epochs):
-            j = tr_e[int(torch.randint(0, len(tr_e), (1,), generator=g))]
-            e = eps[j]
-            b, enc = m.roll(e["zn"], e["u"])
-            T = len(b)
-            l1 = ((m.pred1(b[:-1]) - enc[1:].detach()) ** 2).mean()
-            l5 = (((m.pred5(b[:-5]) - enc[5:].detach()) ** 2).mean()
-                  if T > 5 else torch.zeros(()))
-            linv = ((m.inv(torch.cat([b[:-1], b[1:]], -1))
-                     - e["u"][:-1].flatten(1)) ** 2).mean()
+            js = [tr_e[int(x)] for x in torch.randint(0, len(tr_e), (a.batch,),
+                                                      generator=g)]
+            zb = torch.stack([eps[k]["zn"][:Tmin] for k in js])
+            ub = torch.stack([eps[k]["u"][:Tmin] for k in js])
+            b, enc = m.roll(zb, ub)
+            l1 = ((m.pred1(b[:, :-1]) - enc[:, 1:].detach()) ** 2).mean()
+            l5 = (((m.pred5(b[:, :-5]) - enc[:, 5:].detach()) ** 2).mean()
+                  if Tmin > 5 else torch.zeros(()))
+            linv = ((m.inv(torch.cat([b[:, :-1], b[:, 1:]], -1))
+                     - ub[:, :-1].flatten(2)) ** 2).mean()
             opt.zero_grad(); (l1 + l5 + linv).backward(); opt.step()
+            if it % 500 == 0:
+                print(f"    it {it}: pred1 {float(l1):.4f} pred5 {float(l5):.4f} "
+                      f"inv {float(linv):.4f}", flush=True)
         m.eval()
         # ceiling probe on the TERMINAL BELIEF vs the terminal single-frame latent
         with torch.no_grad():
