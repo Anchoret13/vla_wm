@@ -246,6 +246,9 @@ a constant input; `stage_reached` is heavily tied.
 
 | observation | conclusion |
 |---|---|
+| **the supervised ceiling is below the bar** | the bar is unfalsifiable there — measure the ceiling and re-derive the bar **before** judging any candidate |
+| **a head fails §6.1 while the raw features pass it** | the defect is the representation, not the objective; **stop changing candidates** |
+| **shaping the encoder with the label makes ordering worse** | that label is orthogonal to the target; more of it will not help |
 | the signal fails §6.1 | it is a clock, not a reward — change the candidate, do not tune it |
 | no outcome variation in the proposal pool | the setting or proposal mechanism is wrong; say nothing about the model |
 | model-guided selection does not beat random | the score gives no benefit; the model may still be fine |
