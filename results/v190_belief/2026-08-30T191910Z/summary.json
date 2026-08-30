@@ -1,0 +1,32 @@
+{
+  "utc": "2026-08-30T191910Z",
+  "task": "chain1b_lr2",
+  "episodes": 192,
+  "rows": [
+    {
+      "restart": 0,
+      "belief_rho": 0.5889571468142349,
+      "frame_rho": 0.6157279262148819,
+      "frame_plus_belief_rho": 0.5889571468142349
+    },
+    {
+      "restart": 1,
+      "belief_rho": 0.5827486247053352,
+      "frame_rho": 0.5543218625245872,
+      "frame_plus_belief_rho": 0.5685352436149612
+    },
+    {
+      "restart": 2,
+      "belief_rho": 0.4618802153517006,
+      "frame_rho": 0.4618802153517006,
+      "frame_plus_belief_rho": 0.4618802153517006
+    }
+  ],
+  "belief_ceiling": 0.5445286622904236,
+  "frame_ceiling": 0.5439766680303898,
+  "frame_plus_belief_ceiling": 0.5397908685936322,
+  "history_adds": -0.004185799436757565,
+  "env_steps": 0,
+  "note": "belief trained self-supervised: 1-step and 5-step embedding prediction plus inverse dynamics. No outcome labels.",
+  "git": "8b516f1265f3565c42b4ee871fea42cb2eabb82a"
+}
