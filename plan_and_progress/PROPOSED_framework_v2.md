@@ -292,7 +292,7 @@ a new paper reopens it.
 
 | task | `π_0` | role |
 |---|---:|---|
-| `chain3_lr2` | **0.010** measured | **target** — the low-success regime the paradigm is for |
+| `chain3_lr2` | **0.010–0.021** measured | **target** — and where the paradigm **fails**: the same residual that gives +0.157 on `chain1b` gives +2 −1, p = 1.000 here. 0.5% of transitions come from successful episodes, so the advantage signal does not exist |
 | `chain1b_lr2` | 0.39–0.60 | mechanism testbed; **not** low-success, never reported as such |
 
 The success band qualifies a measurement setting; **it is not the research
@@ -338,6 +338,13 @@ both were run only after the failures they would have explained.**
 | §6.1 gate | **verified predictive.** The reward that passed its bar (R7, ρ = 0.417) produced a replicated +0.157 in deployment; the reward that failed it (TD value, ρ = 0.247) produced −0.26. Bar re-derived as 0.6 × the measured ceiling |
 | §6.3 roles | attested for the U2 cycle; one recorded violation — the residual scale was chosen on an earlier panel |
 | §1 paradigm | improvement from deployment data **measured and replicated** (p = 0.00010); the world model's contribution **measured at exactly zero** (+25 −25, p = 1.000) and harmful relative to model-free use (p = 0.00018) |
+
+**The binding constraint, measured.** Every ingredient of the improvement is derived
+from episode outcomes, and the low-success regime the paradigm targets supplies
+almost none: `chain1b` has outcome labels on ~50% of episodes and gains +0.157;
+`chain3` has 0.5% and gains nothing. **A denser deployable label — partial credit
+rather than a binary outcome — is the change most likely to move the target task**,
+and it attacks the constraint rather than working around it.
 
 **What is not yet answered.** Whether any construction makes the transition
 contribute. Every isolation so far — five in the ranking setting, one in the
