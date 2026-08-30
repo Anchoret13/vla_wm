@@ -84,9 +84,14 @@ def instruction_embeddings(tasks):
             return c
     from lcwm.libero_paths import ensure_project_libero_config
     ensure_project_libero_config()
+    from transformers import AutoTokenizer
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=10)
-    tok = runner.policy.language_tokenizer
+    # the tokenizer is not an attribute of the policy; it is named by the
+    # preprocessor's TokenizerProcessorStep and resolved from the hub cache
+    name = next(st.tokenizer_name for st in runner.preprocessor
+                if getattr(st, "tokenizer_name", None))
+    tok = AutoTokenizer.from_pretrained(name)
     emb = runner.policy.model.paligemma_with_expert.paligemma.get_input_embeddings()
     out = {}
     with torch.no_grad():
