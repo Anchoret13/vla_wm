@@ -1,0 +1,22 @@
+{
+  "utc": "2026-08-30T092655Z",
+  "readout": "mean",
+  "rows": [
+    {
+      "task": "chain3_lr2",
+      "n_failures": 94,
+      "stage_levels": 4,
+      "ceiling_rho": 0.2611887468836197,
+      "sd": 0.071662194839427,
+      "per_restart": [
+        0.31622776601683794,
+        0.31622776601683794,
+        0.2710523708715754,
+        0.1412470846292275
+      ]
+    }
+  ],
+  "env_steps": 0,
+  "note": "privileged labels used as a TRAINING target - upper bound only",
+  "git": "3a45b1cc7d6d8c44013c02599bb54622d5608f28"
+}

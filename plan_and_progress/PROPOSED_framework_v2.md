@@ -142,8 +142,26 @@ sample.
 | clock | ρ → 0 |
 | label-shuffled | ρ → 0, CI covering 0 |
 
-**Bar, pre-registered:** ρ ≥ 0.35, bootstrap 95% CI excluding 0.15, nulls in
-[−0.1, 0.1]. The interval is the result, not the point estimate.
+**Bar:** ρ ≥ **0.6 × the task's supervised ceiling**, bootstrap 95% CI excluding
+half the bar, nulls in [−0.1, 0.1]. The interval is the result, not the point
+estimate.
+
+The ceiling is measured by training a probe **directly on the target**, supervised
+and episode-disjoint — privileged labels as a training target, an upper bound only,
+the same status as the oracle in §5 U0. A fixed constant was tried first and had to
+be replaced: the achievable ceiling is task-dependent (chain1b 0.617, chain2b 0.414,
+chain3 0.298), so a constant 0.35 sat **above** what anything could reach on the
+target task, making the test unfalsifiable there. Measure the ceiling before
+judging any candidate against the bar.
+
+**Per task, never pooled.** Pooling chain1b (L = 250, stages 0–1) with chain3
+(L = 750, stages 0–5) gave ρ = 0.52 with a clock null of **+0.94** — the pooled
+statistic reads task identity, not progress.
+
+**The progress measure needs resolution.** 182 of 191 chain3 failures stop at the
+same stage, so stage alone is nearly constant among failures and any rank statistic
+is ≈0 by construction. Grading it by how early the last milestone landed raised the
+ceiling from 0.214 to 0.298.
 
 **Measured on the value we already have** (chain1b, 188 failed episodes): ρ =
 **+0.247**, CI [+0.061, +0.412]; clock null nan (all failures run the full horizon,
