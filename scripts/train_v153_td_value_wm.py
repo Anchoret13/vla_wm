@@ -275,6 +275,7 @@ def main() -> int:
     torch.save({"state_dict": kept[bi], "zdim": a.zdim, "obs_dim": O.shape[-1],
                 "c": u.shape[1], "adim": u.shape[2], "mu_o": mu_o, "sd_o": sd_o,
                 "encoder": a.encoder, "gamma": a.gamma, "nstep": a.nstep,
+                "outcome_weight": a.outcome_weight,
                 "task": b["task"], "auc": res["td_through_model"][bi]},
                out / "wm.pt")
     print(f"saved best WM (restart {bi}, AUC {res['td_through_model'][bi]:.3f}) "
