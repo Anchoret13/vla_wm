@@ -70,6 +70,18 @@ def main() -> int:
     ap.add_argument("--task", default="chain1b_lr2")
     ap.add_argument("--episodes", type=int, default=64)
     ap.add_argument("--seed-start", type=int, default=6000)
+    ap.add_argument("--rich-latent", action="store_true",
+                    help="Keep spatial structure. The default mean-pools all 567 "
+                         "valid prefix tokens into one vector, which destroys "
+                         "localised visual facts: measured, a probe trained DIRECTLY "
+                         "on stage_reached tops out at rho 0.201 on chain3 (bar is "
+                         "0.35) and no readout point rescues it - terminal 0.201, "
+                         "mean 0.185, endpoints 0.120. chain1b keeps 0.5-0.6 because "
+                         "its progress is visible in the arm state, while chain3's "
+                         "is 'how many objects are already in the basket', which is "
+                         "pure scene state. This pools each camera's 256 tokens "
+                         "separately with mean AND max, so presence-of-a-patch "
+                         "survives.")
     ap.add_argument("--sigmas", type=float, nargs="+", default=[0.0],
                     help="SDE noise levels, drawn per chunk. Default [0.0] is pure "
                          "on-policy. With on-policy data u is nearly a function of "
@@ -104,8 +116,20 @@ def main() -> int:
             po = runner._obs_to_policy_batch(obs, env.task_description)
             with torch.no_grad():
                 pf = prefix_forward(runner.policy, po)
-                z = masked_prefix_mean(pf.hidden[0].detach().float().cpu(),
-                                       pf.pad_masks[0].detach().cpu())
+                h = pf.hidden[0].detach().float().cpu()
+                msk = pf.pad_masks[0].detach().cpu().bool()
+                if a.rich_latent:
+                    # vision tokens are [0, 512): two cameras of 256 each; language
+                    # sits at [768, ...] and is constant within a task
+                    parts = []
+                    for lo, hi in ((0, 256), (256, 512)):
+                        blk = h[lo:hi][msk[lo:hi]]
+                        if len(blk) == 0:
+                            blk = h[lo:hi]
+                        parts += [blk.mean(0), blk.max(0).values]
+                    z = torch.cat(parts)
+                else:
+                    z = masked_prefix_mean(h, msk.float())
             del pf
             return torch.cat([z, proprio(obs)])
 
