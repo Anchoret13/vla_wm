@@ -1,0 +1,68 @@
+{
+  "utc": "2026-08-30T080833Z",
+  "reward": "results/v170_qrl_reward/2026-08-30T074920Z/reward_0.pt",
+  "tasks": [
+    "chain1_lr2",
+    "chain1b_lr2",
+    "chain2_lr2",
+    "chain2b_lr2",
+    "chain3_lr2"
+  ],
+  "rows": [
+    {
+      "group": "ALL",
+      "n_failures": 339,
+      "rho": -0.8227429333122401,
+      "ci": [
+        -0.8479736563014771,
+        -0.7889610055414884
+      ],
+      "null_shuffled_instruction": -0.8173802465615939,
+      "null_clock": 0.9416098801080445,
+      "null_label_shuffle": -0.002365763299204757,
+      "passed": false
+    },
+    {
+      "group": "chain1b_lr2",
+      "n_failures": 100,
+      "rho": 0.09484680386241791,
+      "ci": [
+        -0.10556946602300668,
+        0.2968148846202774
+      ],
+      "null_shuffled_instruction": -0.007987099272624667,
+      "null_clock": NaN,
+      "null_label_shuffle": -0.008720914018297058,
+      "passed": false
+    },
+    {
+      "group": "chain2b_lr2",
+      "n_failures": 40,
+      "rho": -0.10719680478638514,
+      "ci": [
+        -0.44991305014595473,
+        0.23497255728808397
+      ],
+      "null_shuffled_instruction": -0.03045010686685723,
+      "null_clock": NaN,
+      "null_label_shuffle": 0.008847620337079178,
+      "passed": false
+    },
+    {
+      "group": "chain3_lr2",
+      "n_failures": 191,
+      "rho": 0.04056033614972425,
+      "ci": [
+        -0.10671307188143714,
+        0.1813458307021906
+      ],
+      "null_shuffled_instruction": 0.03016458031953816,
+      "null_clock": NaN,
+      "null_label_shuffle": -0.0031539461249110268,
+      "passed": false
+    }
+  ],
+  "env_steps": 0,
+  "note": "stage_reached privileged, EVALUATION ONLY",
+  "git": "076cc7e6a8741c602816c04198aa8e31edbc7b45"
+}

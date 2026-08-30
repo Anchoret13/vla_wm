@@ -1,0 +1,52 @@
+{
+  "utc": "2026-08-30T074756Z",
+  "reward": "results/v170_qrl_reward/2026-08-30T072954Z/reward_0.pt",
+  "tasks": [
+    "chain1b_lr2",
+    "chain3_lr2"
+  ],
+  "rows": [
+    {
+      "group": "ALL",
+      "n_failures": 291,
+      "rho": 0.5168014570432898,
+      "ci": [
+        0.42785537643398425,
+        0.5941996782393761
+      ],
+      "null_shuffled_instruction": -0.7957395498266534,
+      "null_clock": 0.953788501563605,
+      "null_label_shuffle": 0.0028533498226812927,
+      "passed": false
+    },
+    {
+      "group": "chain1b_lr2",
+      "n_failures": 100,
+      "rho": 0.22863071667888107,
+      "ci": [
+        0.04414555059842911,
+        0.39704066299498636
+      ],
+      "null_shuffled_instruction": 0.017970973363405498,
+      "null_clock": NaN,
+      "null_label_shuffle": 0.010772600143952517,
+      "passed": false
+    },
+    {
+      "group": "chain3_lr2",
+      "n_failures": 191,
+      "rho": -0.048908372025092545,
+      "ci": [
+        -0.15634291277495474,
+        0.05650917617645025
+      ],
+      "null_shuffled_instruction": -0.06725810078401534,
+      "null_clock": NaN,
+      "null_label_shuffle": 0.0010083320208213896,
+      "passed": false
+    }
+  ],
+  "env_steps": 0,
+  "note": "stage_reached privileged, EVALUATION ONLY",
+  "git": "076cc7e6a8741c602816c04198aa8e31edbc7b45"
+}
