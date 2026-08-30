@@ -1,0 +1,27 @@
+{
+  "utc": "2026-08-30T190414Z",
+  "task": "chain3_lr2",
+  "episodes": 192,
+  "rows": [
+    {
+      "restart": 0,
+      "belief_rho": 0.16495114548527526,
+      "frame_rho": 0.298382963807759
+    },
+    {
+      "restart": 1,
+      "belief_rho": 0.20945283355308142,
+      "frame_rho": 0.24238566901740238
+    },
+    {
+      "restart": 2,
+      "belief_rho": 0.19384555459020322,
+      "frame_rho": 0.1780214276848805
+    }
+  ],
+  "belief_ceiling": 0.18941651120951997,
+  "frame_ceiling": 0.23959668683668064,
+  "env_steps": 0,
+  "note": "belief trained self-supervised: 1-step and 5-step embedding prediction plus inverse dynamics. No outcome labels.",
+  "git": "7597a1f3ae8189364524916d8e9d27d48631c139"
+}

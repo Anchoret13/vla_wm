@@ -181,19 +181,30 @@ def main() -> int:
                         best = max(best, r_)
             return best
 
+        # The belief compresses 2073 -> 256, and compression to 256 was already
+        # measured to lose 66% of the ordering signal. So "belief < frame" may be
+        # compression loss rather than history being uninformative. The decisive
+        # comparison is whether the belief adds anything ON TOP of the raw frame.
         rb = probe(B, tr_e, te_e)
         rz = probe(Zt, tr_e, te_e)
-        rows.append({"restart": s, "belief_rho": rb, "frame_rho": rz})
-        print(f"  restart {s}: belief {rb:+.3f}   single-frame {rz:+.3f}")
+        rc = probe(torch.cat([Zt, B], -1), tr_e, te_e)
+        rows.append({"restart": s, "belief_rho": rb, "frame_rho": rz,
+                     "frame_plus_belief_rho": rc})
+        print(f"  restart {s}: belief {rb:+.3f}   frame {rz:+.3f}   "
+              f"frame+belief {rc:+.3f}")
 
     bb = float(np.nanmean([r["belief_rho"] for r in rows]))
     zz = float(np.nanmean([r["frame_rho"] for r in rows]))
-    print(f"\nbelief ceiling {bb:+.3f}   single-frame ceiling {zz:+.3f}")
+    cc = float(np.nanmean([r["frame_plus_belief_rho"] for r in rows]))
+    print(f"\nbelief {bb:+.3f}   frame {zz:+.3f}   frame+belief {cc:+.3f}")
+    print(f"history adds {cc - zz:+.3f} on top of the raw frame "
+          f"({'informative' if cc - zz > 0.05 else 'no measurable addition'})")
     print(f"chain3 bar is 0.6 x ceiling; the single-frame ceiling measured 0.212 "
           f"earlier, giving 0.127")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "episodes": len(eps), "rows": rows,
-         "belief_ceiling": bb, "frame_ceiling": zz, "env_steps": 0,
+         "belief_ceiling": bb, "frame_ceiling": zz,
+         "frame_plus_belief_ceiling": cc, "history_adds": cc - zz, "env_steps": 0,
          "note": "belief trained self-supervised: 1-step and 5-step embedding "
                  "prediction plus inverse dynamics. No outcome labels.",
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
