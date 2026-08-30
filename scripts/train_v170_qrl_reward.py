@@ -149,6 +149,11 @@ def main() -> int:
     ap.add_argument("--batch", type=int, default=512)
     ap.add_argument("--margin", type=float, default=1.0)
     ap.add_argument("--eps", type=float, default=0.25, help="local-constraint budget")
+    ap.add_argument("--max-goal-d", type=float, default=30.0,
+                    help="tether: the goal may not sit further from the data than "
+                         "this. Without it the bounded spread term still drove "
+                         "d(z,g) to ~4000 while states sat within 3 of each other - "
+                         "an extrapolated corner no reachable state occupies.")
     ap.add_argument("--restarts", type=int, default=3)
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
@@ -193,18 +198,30 @@ def main() -> int:
             gl = m.g(E[tix[i]])
             # (a) local: one committed chunk costs at most 1 - true on failures too
             local = torch.relu(m.d(zt, zt1) - 1.0).pow(2).mean()
-            # (b) spread: push states away from goals as far as the local links allow
-            spread = -(m.d(zt, gl) / (1.0 + m.d(zt, gl))).mean()
-            # (c) mismatch: a state must NOT be close to another instruction's goal
+            # (b) spread: push states away from goals as far as the local links
+            # allow. phi is bounded so the goal cannot fly to infinity in principle,
+            # but it saturates - at d ~ 4000 every other term sees zero gradient, so
+            # the goal is additionally tethered to the data's own scale.
+            dg = m.d(zt, gl)
+            spread = -(dg / (1.0 + dg)).mean()
+            tether = torch.relu(dg - a.max_goal_d).pow(2).mean()
+            # (c) mismatch, RELATIVE. The absolute hinge relu(m - d(z, g_other))^2
+            # is vacuous once distances exceed m: measured d(other) = 3822 with
+            # m = 1, so it produced no gradient and separation came out at -524 -
+            # states were FARTHER from their own goal than from another's. It must
+            # compare the two distances, which is what rules out a goal-agnostic
+            # timer.
             other = (tix[i] + torch.randint(1, len(tasks), (len(i),), generator=g)) % len(tasks)
-            mism = torch.relu(a.margin - m.d(zt, m.g(E[other]))).pow(2).mean()
+            d_own, d_oth = m.d(zt, gl), m.d(zt, m.g(E[other]))
+            mism = torch.relu(a.margin + d_own - d_oth).pow(2).mean()
             # (d) cross-trajectory: states from different episodes are not adjacent
             j = i[torch.randperm(len(i), generator=g)]
             ok = ep[i] != ep[j]
             cross = (torch.relu(a.margin - m.d(zt[ok], m.encode(O[j[ok]]))).pow(2).mean()
                      if ok.any() else torch.zeros(()))
             lam = log_lam.exp()
-            loss = spread + lam.detach() * (local - a.eps ** 2) + mism + cross
+            loss = (spread + lam.detach() * (local - a.eps ** 2)
+                    + mism + cross + tether)
             opt.zero_grad(); loss.backward(); opt.step()
             # lambda ascends on constraint violation; a runaway lambda is a result
             opt_l.zero_grad()
@@ -212,7 +229,8 @@ def main() -> int:
             if e % 200 == 0 or e == a.epochs - 1:
                 hist.append({"epoch": e, "local": float(local), "spread": float(spread),
                              "mismatch": float(mism), "cross": float(cross),
-                             "lambda": float(lam)})
+                             "tether": float(tether), "lambda": float(lam),
+                             "d_own": float(d_own.mean()), "d_other": float(d_oth.mean())})
         with torch.no_grad():
             zt = m.encode(O)
             d_own = m.d(zt, m.g(E[tix])).mean()
