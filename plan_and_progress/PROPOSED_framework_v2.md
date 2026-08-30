@@ -68,14 +68,42 @@ Why the obvious choice is already dead: a value learned from outcome labels need
 (`chain3` measured **1/96 = 0.010**), and did not survive optimisation (+0.014
 imagined, **−0.26** real).
 
-| # | candidate | requires | dies if | status |
-|---|---|---|---|---|
-| R1 | **quasimetric to a language anchor** — `V(z;ℓ) = −d(z, G(ℓ))`, `d` asymmetric; local-cost + spread + instruction-mismatch + cross-trajectory terms (QRL-style) | ≥2 instructions in the buffer; an anchor budget (~10 binary or ~200 pairwise judgments per instruction) | fails §6.1, or the mismatch term is vacuous | **next to try** |
-| R2 | hindsight goal from terminal states (VIP/LIV-style) | nothing | — | **dead on arrival**: 97–99% of our terminal states are failures, so this teaches "the goal is where my policy stops" |
-| R3 | `G(ℓ)` compared directly against the VLA's `h_t` | a joint text-image initialisation | — | **rejected**: `h_t` is a joint `(o,ℓ)` code; within one instruction the language part is a constant offset and contributes nothing to ordering |
-| R4 | preference/ranking model from pairwise episode comparisons | ~200 comparisons per instruction | fails §6.1 | untried; cheapest labels, and failure-vs-failure comparisons are abundant here |
-| R5 | a VLM used as a reward model (frame-instruction similarity) | an external VLM | fails §6.1, or is hacked | untried |
-| R6 | uncertainty/novelty as an intrinsic signal, no reward at all | nothing | gives no task direction | untried; would sidestep the label problem entirely |
+| # | candidate | requires | status — **measured 2026-08-30** |
+|---|---|---|---|
+| R1 | quasimetric to a language anchor (QRL-style) | ≥2 instructions; an anchor budget | **dead.** Trained cleanly (separation +3.2, no collapse, stable λ) and failed §6.1 on every measurable task: chain1b +0.095, chain2b −0.107, chain3 +0.041 |
+| R2 | hindsight goal from terminal states (VIP/LIV) | nothing | **dead on arrival** — 97–99% of our terminal states are failures, so this teaches "the goal is where my policy stops" |
+| R3 | `G(ℓ)` compared against the VLA's `h_t` | joint text-image init | **rejected** — `h_t` is a joint `(o,ℓ)` code whose language part is a constant offset within an instruction |
+| R4 | preference model from episode outcomes | binary success labels | **dead.** Preference accuracy **1.000** and ordering of failures at −0.13 / −0.12 / −0.11: success-discrimination is **orthogonal** to progress |
+| R5 | a VLM as reward model | an external VLM | **unavailable locally** — PaliGemma ships no text tower, so image-text similarity needs a download |
+| R6 | uncertainty/novelty, no reward | nothing | untried |
+| **R7** | **plain outcome probe on RAW features** | binary success labels | **passes the primary bar on raw features (ρ = 0.417 > 0.349); fails the language null (0.327).** Usable as a *task-specific* reward, not a language-conditioned one |
+
+**The decisive cross-cutting result is about the label and the representation, not
+the objective.**
+
+*The label.* Same probe, same splits, only the training label changes:
+
+| trained on | chain1b | chain3 |
+|---|---:|---:|
+| **binary success** (the only deployable label) | +0.339 | **−0.008** |
+| graded progress (privileged) | +0.579 | +0.209 |
+
+A binary episode outcome recovers 58% of the ceiling on `chain1b` and **nothing** on
+the target task. No deployable label supports a progress reward there.
+
+*The representation.* The ordering signal is in the VLA's raw features and the
+world model's encoder throws most of it away:
+
+| representation | ρ on held-out failures | retained |
+|---|---:|---:|
+| raw 2073-d VLA features | **+0.417** | 100% |
+| WM latent (outcome weight 0 / 1 / 5) | +0.140 / +0.128 / **−0.223** | 34% / 31% / **−53%** |
+
+Every head that failed §6.1 was reading an already-degraded representation, and
+shaping the encoder with the deployable label makes it **worse** — branch AUC climbs
+(0.569 → 0.612) while failure ordering collapses. Swapping reward objectives could
+never recover discarded information; **this is what five candidate failures were
+actually measuring.**
 
 **Whatever is used, the reward enters as a difference, not a level:**
 `r̂ = V(z_{t+1}) − V(z_t)`. Potential-based shaping telescopes to a boundary term and
@@ -92,13 +120,28 @@ cannot beat one at any data scale. Five independent nulls confirmed this before 
 argument was found (deployment ablation p = 0.728; offline 0.637 vs 0.636; two
 joint-training variants below baseline; TD bootstrapping −0.0102 and −0.0055).
 
-| # | use | transition needed? | risk | status |
-|---|---|---|---|---|
-| U0 | **oracle best-of-N ceiling** (privileged, upper bound only) | no | none | **run first** — if oracle best-of-16 cannot lift the target task, every re-ranking use is capped and we learn that for the price of one panel |
-| U1 | re-rank `N` sampled chunks by the §4 signal | no | low: candidates come from the VLA's own distribution, so **there is no direction to ride** | try before U2 |
-| U2 | bounded residual trained in imagination | **yes** — a critic cannot generate a rollout | high: produced −0.26 | after U0/U1 |
-| U3 | optimisation over action sequences (MPPI-style, VLA as proposal) | yes | changes what is executed from a VLA sample to a model-refined chunk — a decision, not a default | untried |
-| U4 | model uncertainty to gate when to intervene | yes | untested | untried |
+| # | use | transition needed? | status — **measured 2026-08-30** |
+|---|---|---|---|
+| U0 | oracle best-of-N ceiling | no | **run, and it capped U1.** chain3: random 0.0039 → oracle best-of-16 **0.0625**, with 15/16 states deterministic all-fail |
+| U1 | re-rank `N` sampled chunks | no | **dead on the target task.** σ = 3 proposals changed nothing (oracle 0.0625, 1/16 states disagreeing — identical to σ = 0), so changing the proposal mechanism was tried and failed |
+| **U2** | bounded residual trained in imagination | **yes** | **measured harmful.** Raw space, R7 reward: base 0.469, imagination 0.510 (p = 0.541), **model-free AWR 0.656 (p = 0.0021)**, and **imagination vs AWR +6 −20, p = 0.0094** |
+| U3 | optimisation over action sequences | yes | untried; changes what is executed |
+| U4 | model uncertainty to gate intervention | yes | untried |
+
+**What U2 established, and it is the framework's central question.** A residual
+trained on R7's reward improves the frozen VLA **significantly** — 0.469 → 0.656 —
+and routing that same reward through the world model is **significantly worse than
+not routing it**. The transition does not merely fail to contribute; it costs.
+
+**§6.1 discriminates.** The reward that passed its primary bar (R7, ρ = 0.417) yielded
+a significant gain; the reward that failed it (the TD value, ρ = 0.247) yielded −0.26
+in deployment. The gate predicts. It simply does not require a world model.
+
+**A note on the refuting arm for a residual.** "The same objective without `T`" is
+undefinable here: a residual on the action has no offline effect without a
+transition, since only a model can say where a different action leads. The
+model-free counterpart is advantage-weighted regression on executed actions, which a
+σ-perturbed buffer supports.
 
 **Correction to record:** a residual "saturating its norm bound at every scale" is
 **not** evidence the value is wrong — against a monotone objective a hard norm ball
