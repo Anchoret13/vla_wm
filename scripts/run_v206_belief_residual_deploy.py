@@ -55,6 +55,11 @@ def main() -> int:
     ap.add_argument("--panel", type=int, default=96)
     ap.add_argument("--panel-start", type=int, default=7600)
     ap.add_argument("--tag", default=None)
+    ap.add_argument("--zero-residual", action="store_true",
+                    help="CODE-PATH CONTROL: Delta := 0, everything else identical. "
+                         "The frozen-pi0.5 number on record (45/96) came from the "
+                         "select_action path, not this chunk-sampling path, so it "
+                         "is not a valid base for a residual arm.")
     a = ap.parse_args()
     L = episode_length(a.task)
     PANEL = tuple(range(a.panel_start, a.panel_start + a.panel))
@@ -102,6 +107,8 @@ def main() -> int:
                 e = m.enc(((o - mu) / sd).unsqueeze(0))
                 b = m.step(b, e, u_prev)              # CAUSAL: uses u_{t-1}
                 d = actor(torch.cat([e, (b - bmu) / bsd], -1))
+                if a.zero_residual:
+                    d = torch.zeros_like(d)
             executed = chunk.unsqueeze(0) + d
             dmag.append(float(d.abs().mean()))
             u_prev = executed.detach()
@@ -124,6 +131,7 @@ def main() -> int:
     k = sum(r["success"] for r in rows)
     summary = {"task": a.task, "tag": tag, "utc": stamp, "actor": str(a.actor),
                "use_action": ck["use_action"], "scale": ck["scale"],
+               "zero_residual": a.zero_residual,
                "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
                "cp95": [clopper_pearson_lower(k, len(rows)),
