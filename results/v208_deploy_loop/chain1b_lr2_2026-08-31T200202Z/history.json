@@ -1,0 +1,45 @@
+{
+  "utc": "2026-08-31T200202Z",
+  "task": "chain1b_lr2",
+  "lam": 1.0,
+  "ensemble": 5,
+  "eval_panel": 7600,
+  "baseline_zero_residual": 0.46875,
+  "model_free_awr": 0.65625,
+  "history": [
+    {
+      "iter": 0,
+      "collect_panel": 7700,
+      "collect_rate": 0.4270833333333333,
+      "buffer_tapes": 5,
+      "actor": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v207_pessimistic_ensemble/lam1_k5_2026-08-31T201408Z/actor_0.pt",
+      "eval_dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain1b_lr2_loop0_eval_2026-08-31T202459Z",
+      "eval_successes": 48,
+      "eval_n": 96,
+      "eval_rate": 0.5
+    },
+    {
+      "iter": 1,
+      "collect_panel": 7796,
+      "collect_rate": 0.4583333333333333,
+      "buffer_tapes": 6,
+      "actor": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v207_pessimistic_ensemble/lam1_k5_2026-08-31T204900Z/actor_0.pt",
+      "eval_dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain1b_lr2_loop1_eval_2026-08-31T210001Z",
+      "eval_successes": 46,
+      "eval_n": 96,
+      "eval_rate": 0.4791666666666667
+    },
+    {
+      "iter": 2,
+      "collect_panel": 7892,
+      "collect_rate": 0.3645833333333333,
+      "buffer_tapes": 7,
+      "actor": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v207_pessimistic_ensemble/lam1_k5_2026-08-31T212407Z/actor_0.pt",
+      "eval_dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain1b_lr2_loop2_eval_2026-08-31T213440Z",
+      "eval_successes": 49,
+      "eval_n": 96,
+      "eval_rate": 0.5104166666666666
+    }
+  ],
+  "git": "86b42023116c3d05965212a590a4d16de76edb7d"
+}

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-08-31T212407Z",
+  "task": "chain1b_lr2",
+  "lam": 1.0,
+  "ensemble": 5,
+  "horizon": 3,
+  "scale": 0.03,
+  "episodes": 480,
+  "rows": [
+    {
+      "restart": 0,
+      "V_base": -0.4047194719314575,
+      "V_residual": -0.3582417070865631,
+      "imagined_gain": 0.04647776484489441,
+      "disagree_base": 0.49678996205329895,
+      "disagree_residual": 0.4936562776565552,
+      "mean_abs_delta": 0.02833264134824276,
+      "saturation": 0.9444213782747587
+    },
+    {
+      "restart": 1,
+      "V_base": -0.4047194719314575,
+      "V_residual": -0.3581179678440094,
+      "imagined_gain": 0.04660150408744812,
+      "disagree_base": 0.49678996205329895,
+      "disagree_residual": 0.49394410848617554,
+      "mean_abs_delta": 0.028435902670025826,
+      "saturation": 0.9478634223341942
+    }
+  ],
+  "env_steps": 0,
+  "git": "86b42023116c3d05965212a590a4d16de76edb7d"
+}
