@@ -55,6 +55,11 @@ def main() -> int:
     ap.add_argument("--panel", type=int, default=96)
     ap.add_argument("--panel-start", type=int, default=7600)
     ap.add_argument("--tag", default=None)
+    ap.add_argument("--collect-tape", action="store_true",
+                    help="also write a v121-format tape of THIS run. The recorded "
+                         "action is the one actually EXECUTED (chunk + Delta), so "
+                         "retraining on it covers the actor's own distribution - "
+                         "which a model frozen on pi0.5's tapes does not.")
     ap.add_argument("--zero-residual", action="store_true",
                     help="CODE-PATH CONTROL: Delta := 0, everything else identical. "
                          "The frozen-pi0.5 number on record (45/96) came from the "
@@ -84,7 +89,8 @@ def main() -> int:
     env = make_v080_env(a.task)
 
     rows, steps = [], 0
-    for seed in PANEL:
+    Z_, U_, ZN_, EP_, TT_ = [], [], [], [], []
+    for ei, seed in enumerate(PANEL):
         torch.manual_seed(seed); np.random.seed(seed)
         if torch.cuda.is_available():
             torch.cuda.manual_seed_all(seed)
@@ -93,6 +99,7 @@ def main() -> int:
         t, done, succ, dmag = 0, False, None, []
         b = torch.zeros(1, m.bdim)           # belief resets each episode
         u_prev = torch.zeros(1, c_, adim)    # no action precedes the first chunk
+        prev = None
         while not done and t < L:
             po = runner._obs_to_policy_batch(obs, env.task_description)
             with torch.no_grad():
@@ -111,6 +118,11 @@ def main() -> int:
                     d = torch.zeros_like(d)
             executed = chunk.unsqueeze(0) + d
             dmag.append(float(d.abs().mean()))
+            if a.collect_tape:
+                if prev is not None:
+                    Z_.append(prev[0]); U_.append(prev[1]); ZN_.append(o)
+                    EP_.append(ei); TT_.append(prev[2])
+                prev = (o, executed[0].detach(), t)
             u_prev = executed.detach()
             for act in runner.chunk_to_env(executed[0]):
                 if done:
@@ -128,6 +140,15 @@ def main() -> int:
         print(f"{tag} s{seed}: succ={succ is not None!s:5s} t={t} ({steps} steps)",
               flush=True)
 
+    if a.collect_tape and Z_:
+        Zt, Ut, Znt = torch.stack(Z_), torch.stack(U_), torch.stack(ZN_)
+        torch.save({"z": Zt, "u": Ut, "z_next": Znt,
+                    "episode": torch.tensor(EP_), "t": torch.tensor(TT_),
+                    "success": torch.tensor([float(r["success"]) for r in rows]),
+                    "task": a.task, "c": C, "latent_dim": Zt.shape[-1],
+                    "proprio_dim": 25}, out / "tape.pt")
+        print(f"tape: {len(Z_)} triples of the ACTOR's own distribution")
+
     k = sum(r["success"] for r in rows)
     summary = {"task": a.task, "tag": tag, "utc": stamp, "actor": str(a.actor),
                "use_action": ck["use_action"], "scale": ck["scale"],
@@ -137,6 +158,11 @@ def main() -> int:
                "cp95": [clopper_pearson_lower(k, len(rows)),
                         clopper_pearson_upper(k, len(rows))],
                "env_steps": steps, "episodes": rows,
+               "episode_records": [{"idx": i, "seed": r["seed"],
+                                    "success": r["success"],
+                                    "success_step": r["success_step"],
+                                    "steps": r["steps"]}
+                                   for i, r in enumerate(rows)],
                "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
                                      capture_output=True, text=True).stdout.strip()}
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
