@@ -42,6 +42,7 @@ from lcwm.v082_m0 import masked_prefix_mean  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
 from train_v153_td_value_wm import ValueWM, load_valuewm  # noqa: E402
 from train_v157_residual_actor import ResidualActor  # noqa: E402
+from train_v190_belief_ceiling import Belief  # noqa: E402
 from collect_v121_deploy_latents import proprio  # noqa: E402
 
 C = 10
@@ -77,12 +78,19 @@ def main() -> int:
         wm = load_valuewm(ck, ck["obs_dim"], ck["c"], ck["adim"], ck["zdim"],
                           encoder=ck.get("encoder", "mlp"))
         wm.eval()
-    actor = None
+    actor, belief, bstate = None, None, None
+    cond_mode, akt = "raw", None
     if a.arm == "residual":
         akt = torch.load(a.actor, weights_only=False)
         actor = ResidualActor(akt["zdim"], akt["c"], akt["adim"], scale=akt["scale"])
         actor.load_state_dict(akt["state_dict"]); actor.eval()
-        print(f"actor scale {akt['scale']} from {akt['arm']}")
+        cond_mode = akt.get("condition", "raw")
+        if akt.get("belief") is not None:
+            zd, c_, ad = akt["belief_dims"]
+            belief = Belief(zd, c_, ad)
+            belief.load_state_dict(akt["belief"]); belief.eval()
+        print(f"actor scale {akt['scale']}, conditioning '{cond_mode}', "
+              f"{akt['zdim']} dims")
     mu_o, sd_o = (ck["mu"], ck["sd"]) if raw_space else (ck["mu_o"], ck["sd_o"])
     print(f"arm={a.arm} tag={tag} panel {PANEL[0]}-{PANEL[-1]} window={a.window or 'all'}")
 
@@ -98,6 +106,7 @@ def main() -> int:
         runner.reset(); obs, _ = env.reset(seed=int(seed))
         atoms = goal_atoms(env)
         t, done, succ, dmag = 0, False, None, []
+        bstate = None                      # reset the belief at each episode
         while not done and t < L:
             if actor is not None and (a.window == 0 or t < a.window):
                 po = runner._obs_to_policy_batch(obs, env.task_description)
@@ -109,7 +118,22 @@ def main() -> int:
                                                 )[0, :C].detach().float().cpu()
                 del pf
                 o = torch.cat([h, proprio(obs)])
-                with torch.no_grad():
+                if belief is not None:
+                    # the belief is RECURRENT: it must be carried across the episode,
+                    # which is the substantive difference from the raw-conditioned arm
+                    zn_ = ((o - akt["mu"]) / akt["sd"]).unsqueeze(0)
+                    with torch.no_grad():
+                        e_ = belief.enc(zn_)
+                        a_ = belief.aenc(chunk.flatten().unsqueeze(0))
+                        bstate = belief.bnorm(belief.gru(
+                            torch.cat([e_, a_], -1),
+                            torch.zeros(1, belief.bdim) if bstate is None else bstate))
+                        cin = (bstate - akt["bmu"]) / akt["bsd"]
+                        if cond_mode == "both":
+                            cin = torch.cat([zn_, cin], -1)
+                        d = actor(cin)[0]
+                elif True:
+                  with torch.no_grad():
                     if raw_space:
                         # the actor was trained on RAW features, normalised by the
                         # transition's own statistics - no encoder in the path

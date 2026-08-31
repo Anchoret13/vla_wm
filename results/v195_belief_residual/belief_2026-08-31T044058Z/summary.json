@@ -1,0 +1,24 @@
+{
+  "utc": "2026-08-31T044058Z",
+  "task": "chain1b_lr2",
+  "condition": "belief",
+  "episodes": 192,
+  "cond_dims": 256,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.02880801074206829
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.028823750093579292
+    },
+    {
+      "restart": 2,
+      "mean_abs_delta": 0.028803547844290733
+    }
+  ],
+  "env_steps": 0,
+  "note": "belief is self-supervised (no outcome labels); only the residual uses episode success. Control is --condition raw, already deployed.",
+  "git": "dd437f52fc55b104261a566094ac557cd9d6e21f"
+}
