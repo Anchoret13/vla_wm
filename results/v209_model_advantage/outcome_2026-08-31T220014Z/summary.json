@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-31T220014Z",
+  "task": "chain1b_lr2",
+  "advantage": "outcome",
+  "lam": 1.0,
+  "ensemble": 5,
+  "alts": 16,
+  "scale": 0.03,
+  "chunks": 9600,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.028921863064169884,
+      "saturation": 0.9640621021389961,
+      "adv_corr_with_outcome": 1.0
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.028882771730422974,
+      "saturation": 0.9627590576807659,
+      "adv_corr_with_outcome": 1.0
+    }
+  ],
+  "env_steps": 0,
+  "git": "9bcfc0c1500613574c93776ed3fa731066845b06"
+}
