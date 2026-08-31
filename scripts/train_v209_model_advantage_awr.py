@@ -74,13 +74,21 @@ def main() -> int:
     ap.add_argument("--scale", type=float, default=0.03)
     ap.add_argument("--restarts", type=int, default=2)
     ap.add_argument("--advantage", choices=["model", "outcome"], default="model")
+    ap.add_argument("--condition", choices=["belief", "raw"], default="belief",
+                    help="what the ACTOR sees. The advantage comes from T_th either "
+                         "way; this only changes the conditioning input. U5 measured "
+                         "belief conditioning significantly worse than raw "
+                         "(p = 0.0309), and the best model-free arm (63/96) is "
+                         "raw-conditioned, so 'raw' pairs T_th's counterfactual with "
+                         "the conditioning that is known to work.")
     ap.add_argument("--shuffle-model", action="store_true",
                     help="REFUTING ABLATION: the ensemble's transition is trained "
                          "with actions from other episodes, so its counterfactual "
                          "is action-blind")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    out = OUT / f"{a.advantage}{'_shufmodel' if a.shuffle_model else ''}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
+    out = OUT / (f"{a.advantage}{'_shufmodel' if a.shuffle_model else ''}"
+                 f"{'_raw' if a.condition == 'raw' else ''}_{stamp}"); out.mkdir(parents=True, exist_ok=True)
 
     eps = load_episodes(a.tapes, a.task)
     allz = torch.cat([e["z"] for e in eps])
@@ -125,19 +133,26 @@ def main() -> int:
             vs, va = torch.stack(v_self), torch.stack(v_alt)
             return (vs.mean(0) - a.lam * vs.std(0)) - va.mean(0)
 
+    Zf = Z.reshape(-1, Z.shape[-1])
+    cdim = Z.shape[-1] if a.condition == "raw" else edim + bdim
+
+    def cond(idx):
+        if a.condition == "raw":
+            return Zf[idx]
+        return torch.cat([E_[0].reshape(-1, edim)[idx],
+                          (B_[0].reshape(-1, bdim)[idx] - bmu) / bsd], -1)
+
     rows = []
     for s in range(a.restarts):
         torch.manual_seed(s); np.random.seed(s)
-        actor = ResidualActor(edim + bdim, U.shape[2], U.shape[3], scale=a.scale)
+        actor = ResidualActor(cdim, U.shape[2], U.shape[3], scale=a.scale)
         opt = torch.optim.AdamW(actor.parameters(), lr=3e-4, weight_decay=1e-4)
         g = torch.Generator().manual_seed(960 + s)
         for it in range(a.actor_epochs):
             i = torch.randint(0, N, (a.batch * 8,), generator=g)
             adv = Sf[i] if a.advantage == "outcome" else model_adv(i, g)
             w = torch.softmax(adv / (adv.std() + 1e-6), 0) * len(i)
-            cin = torch.cat([E_[0].reshape(-1, edim)[i],
-                             (B_[0].reshape(-1, bdim)[i] - bmu) / bsd], -1)
-            d = actor(cin)
+            d = actor(cond(i))
             tgt = Uf[i] - Uf[i].mean(0, keepdim=True)
             loss = (w.unsqueeze(-1).unsqueeze(-1) * (d - tgt) ** 2).mean()
             loss.backward(); opt.step(); opt.zero_grad()
@@ -145,9 +160,7 @@ def main() -> int:
         with torch.no_grad():
             i = torch.arange(N)
             adv = Sf if a.advantage == "outcome" else model_adv(i, g)
-            cin = torch.cat([E_[0].reshape(-1, edim),
-                             (B_[0].reshape(-1, bdim) - bmu) / bsd], -1)
-            dn = float(actor(cin).abs().mean())
+            dn = float(actor(cond(i)).abs().mean())
             corr = float(np.corrcoef(adv.numpy(), Sf.numpy())[0, 1])
         rows.append({"restart": s, "mean_abs_delta": dn,
                      "saturation": dn / a.scale,
@@ -155,7 +168,8 @@ def main() -> int:
         print(f"  restart {s}: mean|Delta| {dn:.4f} ({100*dn/a.scale:.0f}% of bound); "
               f"advantage correlates {corr:+.3f} with the observed outcome",
               flush=True)
-        torch.save({"state_dict": actor.state_dict(), "zdim": edim + bdim,
+        torch.save({"state_dict": actor.state_dict(), "zdim": cdim,
+                    "condition": a.condition,
                     "c": U.shape[2], "adim": U.shape[3], "scale": a.scale,
                     "model": models[0].state_dict(), "use_action": True,
                     "dims": (Z.shape[-1], U.shape[2], U.shape[3]),
@@ -166,7 +180,7 @@ def main() -> int:
                    out / f"actor_{s}.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "advantage": a.advantage, "lam": a.lam,
-         "shuffle_model": a.shuffle_model,
+         "shuffle_model": a.shuffle_model, "condition": a.condition,
          "ensemble": a.ensemble, "alts": a.alts, "scale": a.scale,
          "chunks": N, "rows": rows, "env_steps": 0,
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,

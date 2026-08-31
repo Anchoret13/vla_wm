@@ -111,9 +111,13 @@ def main() -> int:
             del pf
             o = torch.cat([h, proprio(obs)])
             with torch.no_grad():
-                e = m.enc(((o - mu) / sd).unsqueeze(0))
+                zn = ((o - mu) / sd).unsqueeze(0)
+                e = m.enc(zn)
                 b = m.step(b, e, u_prev)              # CAUSAL: uses u_{t-1}
-                d = actor(torch.cat([e, (b - bmu) / bsd], -1))
+                # the advantage came from T_th either way; `condition` only says
+                # what the ACTOR reads at deployment
+                d = actor(zn if ck.get("condition") == "raw"
+                          else torch.cat([e, (b - bmu) / bsd], -1))
                 if a.zero_residual:
                     d = torch.zeros_like(d)
             executed = chunk.unsqueeze(0) + d
