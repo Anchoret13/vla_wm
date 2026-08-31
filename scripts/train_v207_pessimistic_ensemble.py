@@ -44,7 +44,7 @@ from train_v205_action_belief import ActionBelief, load_episodes, auc  # noqa: E
 OUT = REPO / "results" / "v207_pessimistic_ensemble"
 
 
-def train_model(seed, Z, U, S, L, iters, batch):
+def train_model(seed, Z, U, S, L, iters, batch, shuffle=False):
     torch.manual_seed(seed)
     m = ActionBelief(Z.shape[-1], U.shape[2], U.shape[3])
     opt = torch.optim.AdamW(m.parameters(), lr=1e-3, weight_decay=1e-4)
@@ -55,10 +55,13 @@ def train_model(seed, Z, U, S, L, iters, batch):
         i = torch.randint(0, len(Z), (batch,), generator=g)
         z, u, s = Z[i], U[i], S[i]
         b, e = m.roll(z, u)
-        l1 = ((m.predict(b[:, :-1], u[:, :-1]) - e[:, 1:].detach()) ** 2).mean()
+        # under `shuffle` the TRANSITION sees actions from a different episode, so
+        # it keeps an action input and a gradient path but no action information
+        ua = u[torch.randperm(len(i), generator=g)] if shuffle else u
+        l1 = ((m.predict(b[:, :-1], ua[:, :-1]) - e[:, 1:].detach()) ** 2).mean()
         bh, l5 = b[:, :-H], 0.0
         for h in range(H):
-            eh = m.predict(bh, u[:, h:L - H + h])
+            eh = m.predict(bh, ua[:, h:L - H + h])
             l5 = l5 + ((eh - e[:, h + 1:L - H + h + 1].detach()) ** 2).mean()
             bh = m.step(bh.flatten(0, 1), eh.flatten(0, 1),
                         u[:, h:L - H + h].flatten(0, 1)).view(*bh.shape)

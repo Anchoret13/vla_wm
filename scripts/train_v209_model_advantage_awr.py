@@ -35,8 +35,10 @@ placement inside the improvement loop.
 PRE-REGISTERED, before any deployment:
   --advantage outcome   reproduces the model-free arm's objective on this stack,
                         so the two arms differ ONLY in the advantage term.
-  --shuffled-model      the counterfactual is computed by an action-blind model,
-                        whose advantage therefore carries no action information.
+  --shuffle-model       the counterfactual is computed by an action-blind model
+                        (its transition is trained on actions from other episodes),
+                        so its advantage carries no action information. If this arm
+                        scores the same, the gain is not T_th's counterfactual.
   Beating 63/96 is the first evidence T_th contributes. Matching it says the
   counterfactual added nothing the outcome did not already carry. Falling below
   says the model's advantage is worse than the observed one. All get reported.
@@ -72,9 +74,13 @@ def main() -> int:
     ap.add_argument("--scale", type=float, default=0.03)
     ap.add_argument("--restarts", type=int, default=2)
     ap.add_argument("--advantage", choices=["model", "outcome"], default="model")
+    ap.add_argument("--shuffle-model", action="store_true",
+                    help="REFUTING ABLATION: the ensemble's transition is trained "
+                         "with actions from other episodes, so its counterfactual "
+                         "is action-blind")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    out = OUT / f"{a.advantage}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
+    out = OUT / f"{a.advantage}{'_shufmodel' if a.shuffle_model else ''}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     eps = load_episodes(a.tapes, a.task)
     allz = torch.cat([e["z"] for e in eps])
@@ -88,7 +94,8 @@ def main() -> int:
 
     models, B_, E_ = [], [], []
     for k in range(a.ensemble):
-        m = train_model(k, Z, U, S, L, a.wm_epochs, a.batch)
+        m = train_model(k, Z, U, S, L, a.wm_epochs, a.batch,
+                        shuffle=a.shuffle_model)
         with torch.no_grad():
             b, e = m.roll(Z, U)
         models.append(m); B_.append(b); E_.append(e)
@@ -153,10 +160,13 @@ def main() -> int:
                     "model": models[0].state_dict(), "use_action": True,
                     "dims": (Z.shape[-1], U.shape[2], U.shape[3]),
                     "mu": mu, "sd": sd, "bmu": bmu, "bsd": bsd,
-                    "task": a.task, "arm": f"advawr_{a.advantage}",
-                    "advantage": a.advantage}, out / f"actor_{s}.pt")
+                    "task": a.task, "advantage": a.advantage,
+                    "arm": f"advawr_{a.advantage}"
+                           f"{'_shufmodel' if a.shuffle_model else ''}"},
+                   out / f"actor_{s}.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "advantage": a.advantage, "lam": a.lam,
+         "shuffle_model": a.shuffle_model,
          "ensemble": a.ensemble, "alts": a.alts, "scale": a.scale,
          "chunks": N, "rows": rows, "env_steps": 0,
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
