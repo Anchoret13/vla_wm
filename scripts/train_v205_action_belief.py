@@ -23,8 +23,16 @@ T and D - Dreamer-style actor learning, which is the half RB-VLA does not have.
 
 PRE-REGISTERED CONTROLS, fixed before the deployment runs (CLAUDE.md: the refuting
 arm runs BEFORE the claim):
-  --no-action   T ignores E_a(u). If the residual trained through THIS improves
+  --shuffle-action  T is trained with actions drawn from a DIFFERENT episode, so
+                the action input exists and carries gradient but no true information
+                about the transition. If the residual trained through THIS improves
                 deployment as much, the gain is not coming from the dynamics.
+  --no-action   T ignores E_a(u) entirely. Measured to be DEGENERATE, not merely
+                weak: zeroing the action detaches the actor from the objective, so
+                the policy gradient is identically zero and no residual exists to
+                deploy. Kept as a recorded fact - a transition blind to actions
+                cannot do policy improvement at all - and replaced as the control
+                by --shuffle-action, which keeps the gradient path alive.
   AWR           the model-free arm on the same tapes, already at 63/96 = 0.656.
                 A world model that cannot beat it has not contributed.
 No claim is made from the imagined objective; only deployment counts.
@@ -140,10 +148,13 @@ def main() -> int:
     ap.add_argument("--scale", type=float, default=0.03)
     ap.add_argument("--restarts", type=int, default=3)
     ap.add_argument("--no-action", action="store_true",
-                    help="CONTROL: the transition ignores the candidate action")
+                    help="degenerate: zero action gives an identically zero policy "
+                         "gradient; trains the model, then stops before the actor")
+    ap.add_argument("--shuffle-action", action="store_true",
+                    help="CONTROL: T sees actions from a different episode")
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    tag = "noaction" if a.no_action else "action"
+    tag = "noaction" if a.no_action else ("shufact" if a.shuffle_action else "action")
     out = OUT / f"{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     eps = load_episodes(a.tapes, a.task)
@@ -155,7 +166,8 @@ def main() -> int:
     S = torch.tensor([float(e["succ"]) for e in eps])
     print(f"{len(eps)} episodes on {a.task}, L={L}, "
           f"{int(S.sum())} successful ({float(S.mean()):.3f})")
-    print(f"transition action-conditioned: {not a.no_action}")
+    print(f"transition action-conditioned: {not a.no_action}"
+          f"{'  (CONTROL: actions shuffled across episodes)' if a.shuffle_action else ''}")
 
     # ---- stage 1: belief + action-conditioned transition + success head -------
     torch.manual_seed(0)
@@ -167,13 +179,16 @@ def main() -> int:
         i = torch.randint(0, len(Z), (a.batch,), generator=g)
         z, u, s = Z[i], U[i], S[i]
         b, e = m.roll(z, u)
+        # the belief always sees the REAL u_{t-1}; only the TRANSITION's action
+        # input is scrambled under the control, which isolates action-conditioning
+        ua = u[torch.randperm(len(i), generator=g)] if a.shuffle_action else u
         # 1-step: the action that CAUSES the transition conditions the prediction
-        l1 = ((m.predict(b[:, :-1], u[:, :-1]) - e[:, 1:].detach()) ** 2).mean()
+        l1 = ((m.predict(b[:, :-1], ua[:, :-1]) - e[:, 1:].detach()) ** 2).mean()
         # multi-step: roll the LATENT forward, feeding predictions back in
         H = 5
         bh, eh, l5 = b[:, :-H], None, 0.0
         for h in range(H):
-            eh = m.predict(bh, u[:, h:L - H + h])
+            eh = m.predict(bh, ua[:, h:L - H + h])
             l5 = l5 + ((eh - e[:, h + 1:L - H + h + 1].detach()) ** 2).mean()
             bh = m.step(bh.flatten(0, 1), eh.flatten(0, 1),
                         u[:, h:L - H + h].flatten(0, 1)).view(*bh.shape)
@@ -214,6 +229,16 @@ def main() -> int:
           "   <- the objective the actor actually maximises")
 
     # ---- stage 2: residual trained by BACKPROP THROUGH the frozen model ------
+    if a.no_action:
+        print("\nno-action arm is DEGENERATE: zeroing E_a(u) detaches the actor "
+              "from the objective, so d/d_phi V == 0 and there is no residual to "
+              "deploy. Recorded as a structural fact, not a weak control.")
+        (out / "summary.json").write_text(json.dumps(
+            {"utc": stamp, "arm": tag, "task": a.task, "episodes": len(eps), "L": L,
+             "diagnostics": diag, "rows": [], "degenerate": True, "env_steps": 0},
+            indent=2))
+        print(f"-> {out}")
+        return 0
     for p in m.parameters():
         p.requires_grad_(False)
     with torch.no_grad():
