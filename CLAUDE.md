@@ -24,6 +24,33 @@ rationalise afterwards.
 | object | latent `T_θ` rolled forward under a candidate action | building a discriminative head on the *current* observation and calling it a world model |
 | target | future **latent**, no pixel/obs reconstruction | adding a reconstruction loss because it is easier to fit |
 | data | trajectories collected **during deployment** | pre-training offline on acquisition seeds and freezing at deploy |
+| **placement** | **where the model sits relative to the policy** | **testing only one family and calling the space exhausted** |
+
+### The placement axis, added 2026-08-30 because its absence cost the most
+
+A world model can sit **outside** the policy (scoring, ranking, imagining over its
+outputs) or **inside** it (a belief state the policy *conditions on*). Seven
+independent isolations were run here — five in ranking, one in policy improvement,
+one replication — and **every one of them placed the model outside**. That is one
+family measured seven times, not a model measured seven ways. The inside placement
+was never considered until a user supplied RB-VLA (arXiv 2602.20659).
+
+Note that §2's zero-initialised injection interface exists precisely to allow the
+inside placement. **The option was already in the framework and went unused.**
+
+### Three rules from that diagnosis
+
+1. **Zero-cost diagnostics run BEFORE candidates, not after them.** The supervised
+   ceiling for the target quantity, and whether the representation retains the signal
+   at all, each cost no environment steps and each would have explained four to five
+   candidate failures. Both were run only afterwards. `U0` already taught this for
+   selection; it was not generalised.
+2. **Search the literature for "how is this failure solved", not "how is my plan
+   improved".** Two surveys were run, both framed around the existing plan, and both
+   returned refinements of it. The paper that broke the frame came from outside.
+3. **Budget attempts at structurally different architectures, not only at variants.**
+   Five reward candidates and seven isolations were run before a single structurally
+   different placement was tried.
 
 ## Claim discipline — the failure mode this project actually has
 
