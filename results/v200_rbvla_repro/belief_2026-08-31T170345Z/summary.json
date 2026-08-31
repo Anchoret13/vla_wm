@@ -1,0 +1,26 @@
+{
+  "utc": "2026-08-31T170345Z",
+  "task": "chain1b_lr2",
+  "condition": "belief",
+  "episodes": 192,
+  "demonstrations": 92,
+  "chunks": 2144,
+  "cond_dims": 2329,
+  "rows": [
+    {
+      "restart": 0,
+      "train_mse": 0.0003698106447700411
+    },
+    {
+      "restart": 1,
+      "train_mse": 0.0011424155673012137
+    },
+    {
+      "restart": 2,
+      "train_mse": 0.00038343892083503306
+    }
+  ],
+  "env_steps": 0,
+  "note": "RB-VLA's core ablation at ~0.5% of its trajectory scale; demonstrations are pi-0.5's own successful rollouts",
+  "git": "c50f1b343fa828c1ba57f6d202c6ab9400b48bfe"
+}
