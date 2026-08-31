@@ -73,6 +73,7 @@ def main() -> int:
             zn = ((o - ck["mu"]) / ck["sd"]).unsqueeze(0)
             with torch.no_grad():
                 if bel is not None:
+                    # matches the causal training convention: the PREVIOUS action
                     prev = (torch.zeros(1, C, ck["adim"]) if bstate is None
                             else last_u.unsqueeze(0))
                     e_ = bel.enc(zn); a_ = bel.aenc(prev.flatten(1))

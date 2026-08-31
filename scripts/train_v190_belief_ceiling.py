@@ -72,12 +72,18 @@ class Belief(nn.Module):
         Batched because 300 single-episode iterations left the belief underfit -
         it scored 0.181 against a single frame's 0.232, which is not a fair test of
         the idea. RB-VLA trained on 40,000 trajectories."""
+        # CAUSAL: b_t may depend only on what is known BEFORE u_t is chosen, so the
+        # action stream is shifted by one. Training previously used u_t while
+        # deployment could only supply u_{t-1} - the belief cannot know the action
+        # it is about to produce. That mismatch made a belief-conditioned BC policy
+        # score 0/96 while its plain counterpart scored 46/96.
         single = zs.dim() == 2
         if single:
             zs, us = zs.unsqueeze(0), us.unsqueeze(0)
         B, T = zs.shape[0], zs.shape[1]
         e = self.enc(zs)
-        a = self.aenc(us.flatten(2))
+        us_prev = torch.cat([torch.zeros_like(us[:, :1]), us[:, :-1]], 1)
+        a = self.aenc(us_prev.flatten(2))
         b = torch.zeros(B, self.bdim, device=zs.device)
         out = []
         for t in range(T):
