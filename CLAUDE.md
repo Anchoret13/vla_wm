@@ -107,7 +107,15 @@ p < 0.05 appeared, before the ablation that could refute it had run.
    positive when underpowered. Pre-commit the seed count before reading anything;
    peeking at 96 and then deciding whether to extend is how that becomes a claim.
 
-9. **Replication before escalation.** A second independent panel costs far less
+9. **Cross-panel replication is not cross-seed replication.** They verify
+   different things: the same actor evaluated on new environment seeds, versus the
+   same configuration retrained from a new initialisation. On 2026-09-01 one actor
+   replicated at 0.750/0.760/0.719/0.771 across four panels while the same
+   configuration at a different init gave 0.510. Seed variance was ~0.24 at fixed
+   hyperparameters - larger than most between-arm differences chased that session.
+   Report both, or say which one was run.
+
+10. **Replication before escalation.** A second independent panel costs far less
    than a withdrawal, and withdrawals are what actually cost this project time.
 
 **Search the literature before choosing an architecture, not just before choosing a
