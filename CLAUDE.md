@@ -80,7 +80,34 @@ p < 0.05 appeared, before the ablation that could refute it had run.
    still unrun" is a result. "Goal achieved" is not.
 4. **Every claim carries what would overturn it.** If nothing would, it is not yet
    an empirical claim.
-5. **Replication before escalation.** A second independent panel costs far less
+5. **A reference number must come from the SAME pipeline.** On 2026-08-31 the
+   figure 0.656 was used for a full session as the bar to clear; its matched
+   control inside the pipeline being tested was 0.542, and 0.656 never reproduced
+   under six advantage definitions, two conditioning spaces and two buffers. Every
+   judgement made against it was void, and it caused the one real effect on hand to
+   be read as a failure for hours. A number from another script is a hypothesis,
+   not a baseline.
+
+6. **A design choice inherited from a paper needs its own justification here.** The
+   256-d SimNorm encoder was copied from TD-MPC, which needs an encoder because it
+   learns representations *from pixels*. The VLA already supplies a trained
+   representation; compressing it cost 16% of the rank correlation with progress
+   and confined every head read off a PREDICTED latent to that space, structurally
+   excluding the model from the best-performing advantage. It was never questioned
+   because it came from a paper. Borrowing the construction is not the same as
+   inheriting its premises.
+
+7. **"A beats base, B does not" is not "A beats B."** Run the direct comparison.
+   On 2026-08-31 T_th beat base at p = 0.0061 while its action-blind ablation did
+   not (p = 0.0748) - and the direct comparison between them was p = 0.2678.
+
+8. **Watch the p-value's trajectory as power rises, not its value at one n.** The
+   same attribution went 0.1338 (96 seeds) to 0.1038 (192) to 0.2678 (288). Moving
+   away from significance as n grows is the signature of a null effect that looked
+   positive when underpowered. Pre-commit the seed count before reading anything;
+   peeking at 96 and then deciding whether to extend is how that becomes a claim.
+
+9. **Replication before escalation.** A second independent panel costs far less
    than a withdrawal, and withdrawals are what actually cost this project time.
 
 **Search the literature before choosing an architecture, not just before choosing a
