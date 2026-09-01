@@ -163,7 +163,7 @@ def main() -> int:
 
     k = sum(r["success"] for r in rows)
     summary = {"task": a.task, "tag": tag, "utc": stamp, "actor": str(a.actor),
-               "use_action": ck["use_action"], "scale": ck["scale"],
+               "use_action": ck.get("use_action", True), "scale": ck["scale"],
                "zero_residual": a.zero_residual,
                "panel": [PANEL[0], PANEL[-1], len(PANEL)],
                "successes": k, "n": len(rows), "rate": k / len(rows),
