@@ -82,6 +82,14 @@ def main() -> int:
                          "pure scene state. This pools each camera's 256 tokens "
                          "separately with mean AND max, so presence-of-a-patch "
                          "survives.")
+    ap.add_argument("--commit", type=int, default=None,
+                    help="environment steps committed per chunk. The contract's "
+                         "c = 10 has been fixed for the whole project, so an "
+                         "action's effect must survive ten steps of dynamics "
+                         "before it reaches the next recorded latent. v226 "
+                         "measured the within-state action->outcome ceiling at "
+                         "chance under c = 10; this makes c a variable so that "
+                         "can be tested rather than assumed.")
     ap.add_argument("--sigmas", type=float, nargs="+", default=[0.0],
                     help="SDE noise levels, drawn per chunk. Default [0.0] is pure "
                          "on-policy. With on-policy data u is nearly a function of "
@@ -98,7 +106,11 @@ def main() -> int:
     print(f"task={a.task} L={L} episodes={len(seeds)} c={C}")
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
+    global C
+    if a.commit:
+        C = a.commit
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=C)
+    print(f"committing {C} env steps per chunk")
     env = make_v080_env(a.task); subgoals = V080_TASKS[a.task]["ordered_subgoals"]
 
     Z, U, Zn, EP, TT, SG = [], [], [], [], [], []
