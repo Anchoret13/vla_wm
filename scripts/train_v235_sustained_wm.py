@@ -60,6 +60,8 @@ def main() -> int:
     ap.add_argument("--holdout", type=int, nargs="+", default=[0, 1, 2, 4, 5, 6])
     ap.add_argument("--rates", type=float, nargs="+", required=True,
                     help="deployed rates for the held-out policies, in --holdout order")
+    ap.add_argument("--actor-dir", type=Path, default=None,
+                    help="where the held-out actors live; defaults to --run")
     ap.add_argument("--task", default="chain1b_lr2")
     ap.add_argument("--wm-epochs", type=int, default=6000)
     ap.add_argument("--horizon", type=int, default=10)
@@ -146,7 +148,7 @@ def main() -> int:
                     torch.zeros(len(z0), c, adim))
     vals = []
     for k in a.holdout:
-        ck = torch.load(a.run / f"actor_{k}.pt", weights_only=False)
+        ck = torch.load((a.actor_dir or a.run) / f"actor_{k}.pt", weights_only=False)
         act = ResidualActor(zdim, c, adim, scale=ck["scale"])
         act.load_state_dict(ck["state_dict"]); act.eval()
         with torch.no_grad():
@@ -164,6 +166,9 @@ def main() -> int:
     print(f"\nimagined spread {iv.max()-iv.min():.4f}, deployed spread {dr.max()-dr.min():.4f}")
     print(f"** rho over {len(a.holdout)} HELD-OUT policies = {rho:+.3f} **")
     print("   (same model family before sustained data: -0.778 to -0.814)")
+    torch.save({"rawwm": m.state_dict(), "prior": prior.state_dict(),
+                "phi": phi.state_dict(), "dims": (zdim, c, adim),
+                "mu": mu, "sd": sd, "task": a.task}, out / "model.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "episodes": len(eps), "base_episodes": n_base,
          "wm_x_identity": p1 / idn, "shuffled_ratio": sh / p1,
