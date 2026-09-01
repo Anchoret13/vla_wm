@@ -56,6 +56,14 @@ def main() -> int:
     ap.add_argument("--actor-epochs", type=int, default=1500)
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--k", type=int, default=8, help="candidate residual policies")
+    ap.add_argument("--fixed-scale", type=float, default=None,
+                    help="hold the trust region CONSTANT across the pool so the "
+                         "residual-norm heuristic carries no information at all. "
+                         "Two pools showed the world model's ranking is mostly "
+                         "-scale (+0.559, +0.499) and its unique part did not "
+                         "replicate (+0.618 -> +0.256). Fixing the scale removes "
+                         "the confound by design instead of by partial correlation; "
+                         "seed variance alone is ~0.24, so the rates still spread.")
     ap.add_argument("--seed-offset", type=int, default=0,
                     help="shifts every actor init, so a FRESH pool can be built "
                          "that the world model has never been scored against")
@@ -145,8 +153,8 @@ def main() -> int:
         # More policies is the only thing that resolves it, so the grid is larger
         # and spans past k3's 0.05, which was the best rate seen.
         SC = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08]
-        scale = SC[k % len(SC)]
-        mode = ["value", "outcome"][k // len(SC) % 2]
+        scale = a.fixed_scale if a.fixed_scale else SC[k % len(SC)]
+        mode = "value" if a.fixed_scale else ["value", "outcome"][k // len(SC) % 2]
         torch.manual_seed(100 + k + 1000 * (k // 16) + a.seed_offset)
         act = ResidualActor(zdim, U.shape[2], U.shape[3], scale=scale)
         o = torch.optim.AdamW(act.parameters(), lr=3e-4, weight_decay=1e-4)
