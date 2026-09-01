@@ -66,6 +66,7 @@ def proprio(obs) -> torch.Tensor:
 
 
 def main() -> int:
+    global C                      # --commit rebinds the committed chunk length
     ap = argparse.ArgumentParser()
     ap.add_argument("--task", default="chain1b_lr2")
     ap.add_argument("--episodes", type=int, default=64)
@@ -106,7 +107,6 @@ def main() -> int:
     print(f"task={a.task} L={L} episodes={len(seeds)} c={C}")
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
-    global C
     if a.commit:
         C = a.commit
     runner = Pi05Runner(model_id=DEFAULT_MODEL, suite_name="libero_10", n_action_steps=C)
