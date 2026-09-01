@@ -110,7 +110,14 @@ def main() -> int:
     ap.add_argument("--gamma", type=float, default=0.9)
     ap.add_argument("--alts", type=int, default=16)
     ap.add_argument("--scale", type=float, default=0.03)
-    ap.add_argument("--potential", choices=["predicted", "observed"], required=True)
+    ap.add_argument("--potential", choices=["predicted", "observed", "current"],
+                    required=True,
+                    help="'current' is the LAST rung: A = Phi(z_t), no next latent "
+                         "at all, so the weight depends only on the state the "
+                         "chunk was executed in and carries no action "
+                         "discrimination whatsoever. If it matches the other two, "
+                         "nothing about a transition - predicted OR observed - is "
+                         "doing the work.")
     ap.add_argument("--restarts", type=int, default=2)
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
@@ -224,6 +231,8 @@ def main() -> int:
 
     def advantage(idx, gen):
         with torch.no_grad():
+            if a.potential == "current":
+                return phi(Zf[idx]).squeeze(-1)
             if a.potential == "observed":
                 return phi(Zf[nxt[idx]]).squeeze(-1) - phi(Zf[idx]).squeeze(-1)
             alt = torch.randint(0, N, (a.alts,), generator=gen)
