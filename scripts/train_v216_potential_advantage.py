@@ -77,10 +77,17 @@ def main() -> int:
     ap.add_argument("--scale", type=float, default=0.03)
     ap.add_argument("--condition", choices=["belief", "raw"], default="belief")
     ap.add_argument("--potential", choices=["predicted", "observed"], required=True)
+    ap.add_argument("--phi-space", choices=["encoder", "raw"], default="encoder",
+                    help="which latent Phi reads. v185's 0.656 arm used a head on "
+                         "RAW features; every arm here has used the encoder's 256-d "
+                         "space, which retains only 84%% of raw's rank correlation "
+                         "with progress AND is the only space T_th can predict in. "
+                         "'raw' is testable for the observed arm alone - that "
+                         "asymmetry is the point.")
     ap.add_argument("--restarts", type=int, default=2)
     a = ap.parse_args()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    out = OUT / f"{a.potential}_{a.condition}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
+    out = OUT / f"{a.potential}_{a.condition}_{a.phi_space}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
 
     eps = load_episodes(a.tapes, a.task, keep_step=True)
     allz = torch.cat([e["z"] for e in eps])
@@ -113,10 +120,18 @@ def main() -> int:
     bmu = B_[0].reshape(-1, bdim).mean(0); bsd = B_[0].reshape(-1, bdim).std(0) + 1e-6
 
     # ---- one potential, shared by both arms --------------------------------
+    if a.phi_space == "raw" and a.potential == "predicted":
+        raise SystemExit("T_th predicts in the encoder's space, so a raw-space Phi "
+                         "cannot be read off a predicted latent. That exclusion is "
+                         "the finding, not a limitation to work around here.")
     torch.manual_seed(216)
-    phi = nn.Sequential(nn.Linear(edim, 256), nn.GELU(), nn.Linear(256, 1))
+    pdim = Z.shape[-1] if a.phi_space == "raw" else edim
+    phi = nn.Sequential(nn.LayerNorm(pdim), nn.Linear(pdim, 256), nn.GELU(),
+                        nn.Linear(256, 1))
     popt = torch.optim.AdamW(phi.parameters(), lr=1e-3, weight_decay=1e-4)
-    Ef0 = E_[0].reshape(-1, edim).detach(); PHIf = PHI.reshape(-1)
+    Ef0 = (Z.reshape(-1, Z.shape[-1]) if a.phi_space == "raw"
+           else E_[0].reshape(-1, edim)).detach()
+    PHIf = PHI.reshape(-1)
     g = torch.Generator().manual_seed(2160)
     for it in range(a.phi_epochs):
         i = torch.randint(0, len(Ef0), (512,), generator=g)
@@ -201,7 +216,8 @@ def main() -> int:
                     "potential": a.potential}, out / f"actor_{s}.pt")
     (out / "summary.json").write_text(json.dumps(
         {"utc": stamp, "task": a.task, "potential": a.potential,
-         "condition": a.condition, "gamma": a.gamma, "ensemble": a.ensemble,
+         "condition": a.condition, "phi_space": a.phi_space,
+         "gamma": a.gamma, "ensemble": a.ensemble,
          "phi_corr": r, "phi_auc": au, "rows": rows, "env_steps": 0,
          "git": subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO,
                                capture_output=True, text=True).stdout.strip()},

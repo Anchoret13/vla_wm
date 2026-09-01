@@ -1,0 +1,28 @@
+{
+  "utc": "2026-09-01T014754Z",
+  "task": "chain1b_lr2",
+  "advantage": "outcome",
+  "lam": 1.0,
+  "shuffle_model": false,
+  "condition": "raw",
+  "ensemble": 5,
+  "alts": 16,
+  "scale": 0.03,
+  "chunks": 3840,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.029424313455820084,
+      "saturation": 0.9808104485273361,
+      "adv_corr_with_outcome": 1.0
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.0294379573315382,
+      "saturation": 0.9812652443846067,
+      "adv_corr_with_outcome": 1.0
+    }
+  ],
+  "env_steps": 0,
+  "git": "83fb5c508320f09033bbe2e411685d0cfea6cdff"
+}
