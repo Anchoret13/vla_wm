@@ -56,6 +56,9 @@ def main() -> int:
     ap.add_argument("--actor-epochs", type=int, default=1500)
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--k", type=int, default=8, help="candidate residual policies")
+    ap.add_argument("--seed-offset", type=int, default=0,
+                    help="shifts every actor init, so a FRESH pool can be built "
+                         "that the world model has never been scored against")
     ap.add_argument("--horizon", type=int, default=10, help="chunks of SUSTAINED roll")
     ap.add_argument("--gamma", type=float, default=0.9)
     a = ap.parse_args()
@@ -144,10 +147,10 @@ def main() -> int:
         SC = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08]
         scale = SC[k % len(SC)]
         mode = ["value", "outcome"][k // len(SC) % 2]
-        torch.manual_seed(100 + k + 1000 * (k // 16))
+        torch.manual_seed(100 + k + 1000 * (k // 16) + a.seed_offset)
         act = ResidualActor(zdim, U.shape[2], U.shape[3], scale=scale)
         o = torch.optim.AdamW(act.parameters(), lr=3e-4, weight_decay=1e-4)
-        gg = torch.Generator().manual_seed(2400 + k)
+        gg = torch.Generator().manual_seed(2400 + k + a.seed_offset)
         for it in range(a.actor_epochs):
             i = torch.randint(0, N, (128,), generator=gg)
             with torch.no_grad():
