@@ -101,7 +101,7 @@ class ActionBelief(nn.Module):
         return self.trans(torch.cat([b, self.act(u)], -1))
 
 
-def load_episodes(tapes, task, zdim=2073):
+def load_episodes(tapes, task, zdim=2073, keep_step=False):
     eps = []
     for tp in tapes:
         d = torch.load(tp, weights_only=False)
@@ -117,7 +117,13 @@ def load_episodes(tapes, task, zdim=2073):
             idx = torch.nonzero(ep == e).flatten()[torch.argsort(tt[ep == e])]
             if len(idx) < 8:
                 continue
-            eps.append({"z": z[idx], "u": u[idx], "succ": bool(r["success"])})
+            rec_ = {"z": z[idx], "u": u[idx], "succ": bool(r["success"])}
+            if keep_step and r.get("success_step") is not None:
+                # which CHUNK the success landed in, for a time-to-success target
+                ts = tt[idx]
+                k_ = int((ts <= r["success_step"]).sum().item()) - 1
+                rec_["succ_chunk"] = max(k_, 0)
+            eps.append(rec_)
     return eps
 
 
