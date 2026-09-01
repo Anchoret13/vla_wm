@@ -1,0 +1,26 @@
+{
+  "utc": "2026-09-01T003552Z",
+  "task": "chain1b_lr2",
+  "potential": "predicted",
+  "condition": "belief",
+  "gamma": 0.9,
+  "ensemble": 5,
+  "phi_corr": 0.6983167552573109,
+  "phi_auc": 0.8023260613207547,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.028931764885783195,
+      "adv_corr_outcome": -0.016146474961206334,
+      "adv_corr_potential": 0.0372866622463115
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.02884650230407715,
+      "adv_corr_outcome": -0.04639081032956797,
+      "adv_corr_potential": 0.003057558437407032
+    }
+  ],
+  "env_steps": 0,
+  "git": "203f720ca6c86b7b129b46a180a38f73ee9b33f1"
+}

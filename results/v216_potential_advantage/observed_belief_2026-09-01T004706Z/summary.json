@@ -1,0 +1,26 @@
+{
+  "utc": "2026-09-01T004706Z",
+  "task": "chain1b_lr2",
+  "potential": "observed",
+  "condition": "belief",
+  "gamma": 0.9,
+  "ensemble": 5,
+  "phi_corr": 0.6983167552573109,
+  "phi_auc": 0.8023260613207547,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.02883784845471382,
+      "adv_corr_outcome": 0.056413095527857726,
+      "adv_corr_potential": 0.09833376985744562
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.028817249462008476,
+      "adv_corr_outcome": 0.056413095527857726,
+      "adv_corr_potential": 0.09833376985744562
+    }
+  ],
+  "env_steps": 0,
+  "git": "203f720ca6c86b7b129b46a180a38f73ee9b33f1"
+}
