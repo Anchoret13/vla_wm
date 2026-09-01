@@ -40,6 +40,7 @@ from lcwm.v082_m0 import masked_prefix_mean  # noqa: E402
 from lcwm.v08r_contract import clopper_pearson_lower, clopper_pearson_upper  # noqa: E402
 from train_v157_residual_actor import ResidualActor  # noqa: E402
 from train_v205_action_belief import ActionBelief  # noqa: E402
+from train_v220_raw_latent_wm import RawLatentWM  # noqa: E402
 from collect_v121_deploy_latents import proprio  # noqa: E402
 
 C = 10
@@ -76,12 +77,19 @@ def main() -> int:
     tag = a.tag or ck["arm"]
     out = OUT / f"{a.task}_{tag}_{stamp}"; out.mkdir(parents=True, exist_ok=True)
     zdim, c_, adim = ck["dims"]
-    m = ActionBelief(zdim, c_, adim, use_action=ck["use_action"])
-    m.load_state_dict(ck["model"]); m.eval()
+    if "rawwm" in ck:
+        # v220: T_th predicts in the VLA's own latent, and the actor reads that
+        # same space, so no belief is needed on the deployment path at all
+        m = RawLatentWM(zdim, c_, adim)
+        m.load_state_dict(ck["rawwm"])
+    else:
+        m = ActionBelief(zdim, c_, adim, use_action=ck["use_action"])
+        m.load_state_dict(ck["model"])
+    m.eval()
     actor = ResidualActor(ck["zdim"], c_, adim, scale=ck["scale"])
     actor.load_state_dict(ck["state_dict"]); actor.eval()
     mu, sd, bmu, bsd = ck["mu"], ck["sd"], ck["bmu"], ck["bsd"]
-    print(f"arm={ck['arm']} action-conditioned={ck['use_action']} "
+    print(f"arm={ck['arm']} action-conditioned={ck.get('use_action', True)} "
           f"scale={ck['scale']} panel {PANEL[0]}-{PANEL[-1]}")
 
     from lcwm.chassis import DEFAULT_MODEL, Pi05Runner
