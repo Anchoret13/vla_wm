@@ -1,0 +1,30 @@
+{
+  "utc": "2026-09-01T034253Z",
+  "task": "chain1b_lr2",
+  "potential": "predicted",
+  "gamma": 0.9,
+  "ensemble": 3,
+  "diagnostics": {
+    "pred1_learned": 0.06825820356607437,
+    "pred1_identity": 0.6676395535469055,
+    "pred1_mean": 0.9921278953552246,
+    "pred1_shuffled_action": 0.1606278121471405
+  },
+  "phi_heldout_corr": 0.5812358533609361,
+  "phi_insample_corr": 0.9964190485117168,
+  "phi_heldout_auc": 0.705574074074074,
+  "rows": [
+    {
+      "restart": 0,
+      "mean_abs_delta": 0.029229329898953438,
+      "adv_corr_outcome": 0.16399752405528428
+    },
+    {
+      "restart": 1,
+      "mean_abs_delta": 0.029244350269436836,
+      "adv_corr_outcome": 0.15716168180584691
+    }
+  ],
+  "env_steps": 0,
+  "git": "fc2c71a38e1fcb150aebe4f89d3f219bae025446"
+}
