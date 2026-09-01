@@ -137,9 +137,14 @@ def main() -> int:
     for k in range(a.k):
         # diversity by construction: scale, weighting target and seed all vary, so
         # the K policies really do differ rather than being restarts of one
-        scale = [0.01, 0.02, 0.03, 0.05][k % 4]
-        mode = ["value", "outcome"][k // 4 % 2]
-        torch.manual_seed(100 + k)
+        # widened after v235: rho over six held-out policies is underpowered
+        # (exact permutation p = 0.136 at n = 6, and n = 6 needs rho >= 0.725).
+        # More policies is the only thing that resolves it, so the grid is larger
+        # and spans past k3's 0.05, which was the best rate seen.
+        SC = [0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08]
+        scale = SC[k % len(SC)]
+        mode = ["value", "outcome"][k // len(SC) % 2]
+        torch.manual_seed(100 + k + 1000 * (k // 16))
         act = ResidualActor(zdim, U.shape[2], U.shape[3], scale=scale)
         o = torch.optim.AdamW(act.parameters(), lr=3e-4, weight_decay=1e-4)
         gg = torch.Generator().manual_seed(2400 + k)
