@@ -64,9 +64,30 @@ results/**/images/
 results/**/overlays/
 results/**/t0_overlays/
 
-# Per-frame teacher/probe label dumps. These are caches: regenerable from the
-# committed producer_source.py plus the manifest hashes. The compact
-# result.json / COMPLETE.json / episode_summaries stay tracked.
+# Per-frame teacher/probe label dumps. A dump may be ignored only where the
+# producer_source.py that regenerates it is committed beside it (18 such runs
+# under v244/v245/v247). The compact result.json / COMPLETE.json /
+# episode_summaries stay tracked.
 results/**/labels.jsonl
 results/**/labels_by_manifest/
 results/**/frames.jsonl
+
+# Exceptions: these 10 runs have NO producer_source.py on disk, so the
+# "regenerable" justification above is false for them and the dump is the only
+# copy of the evidence. Seven are hash-pinned by a committed certificate
+# (COMPLETE.json labels_sha256; for chain3_ep16_95_frozen_v1 also
+# results/v243_sam2_teacher_gate/chain3_ep16_95_frozen_v1/GATE.json
+# teacher_artifacts[0].labels_sha256 = 7885463b...b4ab4b7, the sealed STOP cited
+# at plan_and_progress/2026-09-01.md:299). The three v242 runs are pinned by
+# nothing and have no other tracked file, so ignoring them would erase the run.
+# No parent directory of these paths is excluded, so the negations take effect.
+!results/v242_qwen_progress/chain3_ep0_prompt2_2026-09-01T2348Z/labels.jsonl
+!results/v242_qwen_progress/chain3_ep0_prompt3_2026-09-01T2354Z/labels.jsonl
+!results/v242_qwen_progress/chain3_ep0_smoke_2026-09-01T2341Z/labels.jsonl
+!results/v243_sam2_teacher/chain3_ep0_calibration_v1/labels.jsonl
+!results/v243_sam2_teacher/chain3_ep16_95_frozen_v1/labels.jsonl
+!results/v243_sam2_teacher/chain3_ep16_frozen_v1/labels.jsonl
+!results/v244_t0_initializer/dinov2_points_nine_full_v1/labels.jsonl
+!results/v244_t0_initializer/fixed_points_ep16_95_full_v1/labels.jsonl
+!results/v244_t0_initializer/fixed_points_nine_full_v1/labels.jsonl
+!results/v244_t0_initializer/fixed_points_nine_t0_v1/labels.jsonl
