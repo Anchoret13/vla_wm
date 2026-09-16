@@ -1,0 +1,25 @@
+{
+  "utc": "2026-09-12T210949Z",
+  "task": "chain3_lr2",
+  "role": "base",
+  "tag": "smoke8704",
+  "successes": 0,
+  "n": 1,
+  "episodes": [
+    {
+      "idx": 0,
+      "seed": 8704,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    }
+  ]
+}

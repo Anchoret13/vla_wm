@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-12T235823Z",
+  "task": "chain3_lr2",
+  "scale": 0.8,
+  "init": 7,
+  "init_gain": 10.0,
+  "dims": [
+    8217,
+    10,
+    7
+  ],
+  "trained": false,
+  "wm_arm_embedded": "stale",
+  "model_pair": "results/v241_model_pair/evolve1_2026-09-12T235711Z/model_pair.pt",
+  "model_pair_sha256": "288d841d8bd224063c4c676ead28795bc9cb3245c5f6d30046db92cec551b880",
+  "coordinates": "mu/sd taken from the model pair, identical to every trained arm",
+  "probe_abs_mean_delta": 0.31131511926651,
+  "probe_abs_max_delta": 0.7947694659233093,
+  "actor_sha256": "b0fbce0c5f7dab0013d0105d7ddb43c534846dd1254d98a0e4e97a96ee3398f9",
+  "source_sha256": "1b09ac75cd98796d426cd49ca9b13fd4b1cf695c5875a924df881dea5fb32fdf",
+  "env_steps": 0,
+  "deployed_outcomes_read": false,
+  "git": "1b87f34be275fa32b5155a048e1ce233dbae93c9"
+}

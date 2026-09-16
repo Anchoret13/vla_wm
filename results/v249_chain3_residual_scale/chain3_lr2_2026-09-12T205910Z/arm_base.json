@@ -1,0 +1,51 @@
+{
+  "tag": "base",
+  "scale": null,
+  "init": null,
+  "n": 2,
+  "env_steps": 1500,
+  "success": 0,
+  "stage_hist": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 2,
+    "5": 0,
+    "6": 0
+  },
+  "mean_stage": 4.0,
+  "reach_m4": 0,
+  "reach_m3": 2,
+  "mean_abs_delta": 0.0,
+  "episodes": [
+    {
+      "seed": 9900,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 160,
+        "2": 230,
+        "3": 270
+      },
+      "stage": 4,
+      "mean_abs_delta": 0.0
+    },
+    {
+      "seed": 9901,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 120,
+        "1": 180,
+        "2": 250,
+        "3": 310
+      },
+      "stage": 4,
+      "mean_abs_delta": 0.0
+    }
+  ]
+}

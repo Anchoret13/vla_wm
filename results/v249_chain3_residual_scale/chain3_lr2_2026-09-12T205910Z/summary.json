@@ -1,0 +1,67 @@
+{
+  "utc": "2026-09-12T205910Z",
+  "task": "chain3_lr2",
+  "horizon": 750,
+  "c": 10,
+  "seed_start": 9900,
+  "seeds": 2,
+  "milestones": [
+    "pick_up alphabet_soup_1",
+    "place alphabet_soup_1 basket_1_contain_region",
+    "pick_up tomato_sauce_1",
+    "place tomato_sauce_1 basket_1_contain_region",
+    "pick_up cream_cheese_1",
+    "place cream_cheese_1 basket_1_contain_region"
+  ],
+  "latent": "rich8217",
+  "latent_dim": 8217,
+  "stats_source": "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/tape.pt",
+  "stats_sha256": "41d0df5eb43f097b942d8d486dd74046c1bc2c9f6d2f167aeec0ca0de59ea021",
+  "arms": {
+    "base": {
+      "tag": "base",
+      "scale": null,
+      "init": null,
+      "n": 2,
+      "env_steps": 1500,
+      "success": 0,
+      "stage_hist": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 2,
+        "5": 0,
+        "6": 0
+      },
+      "mean_stage": 4.0,
+      "reach_m4": 0,
+      "reach_m3": 2,
+      "mean_abs_delta": 0.0
+    },
+    "r020_i0": {
+      "tag": "r020_i0",
+      "scale": 0.2,
+      "init": 0,
+      "n": 2,
+      "env_steps": 1500,
+      "success": 0,
+      "stage_hist": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 0,
+        "6": 0
+      },
+      "mean_stage": 2.0,
+      "reach_m4": 0,
+      "reach_m3": 1,
+      "mean_abs_delta": 0.017295893592139087
+    }
+  },
+  "wallclock_s": 79.60116004943848,
+  "git": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+  "note": "zero-candidate diagnostic: random sustained residuals, nothing trained or selected; probe panel is not an evaluation panel"
+}

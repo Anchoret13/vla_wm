@@ -1,0 +1,46 @@
+{
+  "tag": "r020_i0",
+  "scale": 0.2,
+  "init": 0,
+  "n": 2,
+  "env_steps": 1500,
+  "success": 0,
+  "stage_hist": {
+    "0": 1,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 1,
+    "5": 0,
+    "6": 0
+  },
+  "mean_stage": 2.0,
+  "reach_m4": 0,
+  "reach_m3": 1,
+  "mean_abs_delta": 0.017295893592139087,
+  "episodes": [
+    {
+      "seed": 9900,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 160,
+        "2": 220,
+        "3": 270
+      },
+      "stage": 4,
+      "mean_abs_delta": 0.01696605292459329
+    },
+    {
+      "seed": 9901,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {},
+      "stage": 0,
+      "mean_abs_delta": 0.017625734259684882
+    }
+  ]
+}

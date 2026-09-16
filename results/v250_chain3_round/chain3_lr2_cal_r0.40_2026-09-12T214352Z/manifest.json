@@ -1,0 +1,37 @@
+{
+  "utc": "2026-09-12T214352Z",
+  "task": "chain3_lr2",
+  "role": "resid",
+  "tag": "cal_r0.40",
+  "horizon": 750,
+  "c": 10,
+  "chunks_per_episode": 75,
+  "seed_start": 9000,
+  "episodes": 24,
+  "seed_range": [
+    9000,
+    9023
+  ],
+  "sigmas": [
+    0.0
+  ],
+  "actor_scale": 0.4,
+  "actor_init": 0,
+  "actor_gain": 10.0,
+  "residual_start_chunk": 26,
+  "rows": 1800,
+  "latent_dim": 8217,
+  "label_boundaries": 1824,
+  "episodes_full_horizon": 24,
+  "rows_with_residual": 1176,
+  "mean_abs_delta_applied": 0.20619919896125793,
+  "mean_abs_u_base": 0.4004160761833191,
+  "env_steps": 18000,
+  "wallclock_s": 535.5325753688812,
+  "stats_sha256": "41d0df5eb43f097b942d8d486dd74046c1bc2c9f6d2f167aeec0ca0de59ea021",
+  "tape_sha256": "bbba1407e6b2570198cdc931a0b0720c74a41eb792c2480efaa4877f0c82067c",
+  "labels_sha256": "540dd0fab8c61e464f4f1b855b1374b916a16e633d868b452c01fea76e99baa8",
+  "source_sha256": "d7ecd59b189b6c8671cc1bbeb19dfb546f0ee549ed6b2fe62a1f5e3acebc964a",
+  "git": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+  "note": "fixed-horizon deployment collection; tape.pt carries no outcome field and every episode has the same row count"
+}

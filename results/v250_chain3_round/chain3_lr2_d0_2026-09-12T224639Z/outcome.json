@@ -1,0 +1,1455 @@
+{
+  "utc": "2026-09-12T224639Z",
+  "task": "chain3_lr2",
+  "role": "base",
+  "tag": "d0",
+  "successes": 3,
+  "n": 96,
+  "episodes": [
+    {
+      "idx": 0,
+      "seed": 8700,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 230
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 1,
+      "seed": 8701,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 2,
+      "seed": 8702,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 190,
+        "2": 260,
+        "3": 310
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 3,
+      "seed": 8703,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 4,
+      "seed": 8704,
+      "success": true,
+      "success_step": 594,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 250,
+        "4": 460,
+        "5": 600
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 5,
+      "seed": 8705,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 6,
+      "seed": 8706,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 130,
+        "1": 190,
+        "2": 270,
+        "3": 320
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 7,
+      "seed": 8707,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 8,
+      "seed": 8708,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 160,
+        "2": 230,
+        "3": 280
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 9,
+      "seed": 8709,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 10,
+      "seed": 8710,
+      "success": true,
+      "success_step": 727,
+      "steps": 750,
+      "events": {
+        "0": 100,
+        "1": 170,
+        "2": 250,
+        "3": 300,
+        "4": 610,
+        "5": 730
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 11,
+      "seed": 8711,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 12,
+      "seed": 8712,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "4": 400,
+        "5": 480,
+        "2": 610,
+        "3": 660
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 13,
+      "seed": 8713,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 14,
+      "seed": 8714,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 15,
+      "seed": 8715,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 16,
+      "seed": 8716,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 190,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 17,
+      "seed": 8717,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 250,
+        "3": 290
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 18,
+      "seed": 8718,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 19,
+      "seed": 8719,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 150,
+        "2": 220,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 20,
+      "seed": 8720,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 21,
+      "seed": 8721,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 120,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 22,
+      "seed": 8722,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 23,
+      "seed": 8723,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 280
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 24,
+      "seed": 8724,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 25,
+      "seed": 8725,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 26,
+      "seed": 8726,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 27,
+      "seed": 8727,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 28,
+      "seed": 8728,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 260,
+        "3": 310
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 29,
+      "seed": 8729,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 30,
+      "seed": 8730,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 31,
+      "seed": 8731,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 32,
+      "seed": 8732,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 33,
+      "seed": 8733,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 34,
+      "seed": 8734,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 35,
+      "seed": 8735,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 120,
+        "2": 190,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 36,
+      "seed": 8736,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 160,
+        "2": 230,
+        "3": 280
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 37,
+      "seed": 8737,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 38,
+      "seed": 8738,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 39,
+      "seed": 8739,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 150,
+        "2": 230,
+        "3": 280
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 40,
+      "seed": 8740,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 41,
+      "seed": 8741,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 42,
+      "seed": 8742,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 43,
+      "seed": 8743,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 44,
+      "seed": 8744,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 210,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 45,
+      "seed": 8745,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 46,
+      "seed": 8746,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 47,
+      "seed": 8747,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 48,
+      "seed": 8748,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 49,
+      "seed": 8749,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 50,
+      "seed": 8750,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 150,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 51,
+      "seed": 8751,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 52,
+      "seed": 8752,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 53,
+      "seed": 8753,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 54,
+      "seed": 8754,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 55,
+      "seed": 8755,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 56,
+      "seed": 8756,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 57,
+      "seed": 8757,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 58,
+      "seed": 8758,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 59,
+      "seed": 8759,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 60,
+      "seed": 8760,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 190,
+        "3": 230
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 61,
+      "seed": 8761,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 190,
+        "3": 220
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 62,
+      "seed": 8762,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 90,
+        "1": 150,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 63,
+      "seed": 8763,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 64,
+      "seed": 8764,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 65,
+      "seed": 8765,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 66,
+      "seed": 8766,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 67,
+      "seed": 8767,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "4": 440
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 68,
+      "seed": 8768,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 69,
+      "seed": 8769,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 70,
+      "seed": 8770,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 71,
+      "seed": 8771,
+      "success": true,
+      "success_step": 621,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 260,
+        "4": 570,
+        "5": 630
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 72,
+      "seed": 8772,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 110,
+        "1": 190,
+        "2": 260,
+        "3": 310
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 73,
+      "seed": 8773,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 210,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 74,
+      "seed": 8774,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 190,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 75,
+      "seed": 8775,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 76,
+      "seed": 8776,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 77,
+      "seed": 8777,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 210,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 78,
+      "seed": 8778,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 160,
+        "2": 230,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 79,
+      "seed": 8779,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 190,
+        "3": 220
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 80,
+      "seed": 8780,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 110,
+        "1": 170,
+        "2": 250,
+        "3": 300
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 81,
+      "seed": 8781,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 210,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 82,
+      "seed": 8782,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 120,
+        "2": 190,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 83,
+      "seed": 8783,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 150,
+        "2": 220,
+        "3": 260,
+        "4": 490
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 84,
+      "seed": 8784,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 130,
+        "2": 200,
+        "3": 240
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 85,
+      "seed": 8785,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 260
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 86,
+      "seed": 8786,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 230,
+        "3": 280
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 87,
+      "seed": 8787,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 88,
+      "seed": 8788,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 90,
+        "1": 150,
+        "2": 230,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 89,
+      "seed": 8789,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 130,
+        "2": 200,
+        "3": 250
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 90,
+      "seed": 8790,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 140,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 91,
+      "seed": 8791,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 70,
+        "1": 140,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 92,
+      "seed": 8792,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 170,
+        "2": 230,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 93,
+      "seed": 8793,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 280,
+        "4": 350,
+        "5": 420,
+        "2": 490,
+        "3": 540
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 94,
+      "seed": 8794,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 200,
+        "2": 250,
+        "3": 310
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    },
+    {
+      "idx": 95,
+      "seed": 8795,
+      "success": false,
+      "success_step": null,
+      "steps": 750,
+      "events": {
+        "0": 80,
+        "1": 150,
+        "2": 220,
+        "3": 270
+      },
+      "chunks_with_residual": 0,
+      "raw_done_early": false
+    }
+  ]
+}
