@@ -1,0 +1,145 @@
+{
+  "schema": "v242_chain3_sam2_registration_v1",
+  "frozen_utc": "2026-09-02T00:01:05Z",
+  "status": "frozen_before_any_episode_16_to_95_tracking_output",
+  "scientific_scope": "task-specific deployable RGB teacher for chain3_lr2 Gate 0; not a general open-world detector",
+  "target": {
+    "task": "chain3_lr2",
+    "camera": "agentview",
+    "image_width": 360,
+    "image_height": 360,
+    "orientation": "LeRobot policy orientation (source RGB rotated 180 degrees)",
+    "source_tape_sha256": "7dbff743ea89db5fd792d317111129d188d439122a46db7384f4549fd947f86c",
+    "chunk_steps": 10,
+    "horizon_steps": 750
+  },
+  "episode_partition": {
+    "tracker_and_initializer_calibration_episode_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "phi_fit_episode_ids": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63],
+    "phi_calibration_episode_ids": [64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+    "phi_test_episode_ids": [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95],
+    "environment_seed_rule": "env_seed = 8700 + episode_id",
+    "disjoint": true
+  },
+  "fixed_t0_initializer": {
+    "method": "four task-specific fixed xyxy box prompts; no per-episode detector, adaptation, manual correction, or later-frame prompt",
+    "coordinate_convention": "inclusive-looking calibration coordinates passed to the HF SAM2 box API as xyxy floats",
+    "objects": {
+      "basket_1": {
+        "sam_object_id": 1,
+        "xyxy": [0.0, 156.0, 83.0, 284.0]
+      },
+      "tomato_sauce_1": {
+        "sam_object_id": 2,
+        "calibration_alias": "left_cylindrical_can",
+        "xyxy": [123.0, 176.0, 165.0, 235.0]
+      },
+      "alphabet_soup_1": {
+        "sam_object_id": 3,
+        "calibration_alias": "right_cylindrical_can",
+        "xyxy": [224.0, 176.0, 268.0, 235.0]
+      },
+      "cream_cheese_1": {
+        "sam_object_id": 4,
+        "calibration_alias": "cream_cheese_box",
+        "xyxy": [283.0, 254.0, 321.0, 302.0]
+      }
+    },
+    "identity_mapping_note": "semantic names are frozen task calibration from stable initial regions/appearance; ep0 evaluation-only place times 130 and 230 independently matched the right-can and left-can visual transitions exactly"
+  },
+  "tracker": {
+    "family": "SAM2.1 Hiera Large via Transformers Sam2VideoModel",
+    "checkpoint_path": "/home/stargazer/.cache/sam2/checkpoints/sam2.1_hiera_large.pt",
+    "checkpoint_sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "checkpoint_tensor_count": 903,
+    "checkpoint_conversion": "Hugging Face official SAM2 Video key mapping; strict=True load is mandatory",
+    "inference_dtype": "bfloat16",
+    "no_prompt_after_frame_zero": true,
+    "probe_code_path": "scripts/probe_v242_sam2_tracking.py",
+    "probe_code_sha256": "9d02c46129a5b2e70616804ed2a7270bb2125d1fcc729aab8e9b98c84315144f"
+  },
+  "visual_label_rule": {
+    "basket_relation": "target-mask centroid lies inside the current tracked basket-mask bounding box",
+    "temporal_smoothing": "none",
+    "labels": ["inside", "outside", "uncertain"],
+    "uncertain_if": {
+      "object_score_logit_lte": 0.0,
+      "target_mask_area_px_lt": 64,
+      "target_mask_area_px_gt": 5000,
+      "basket_mask_area_px_lt": 3000,
+      "basket_mask_area_px_gt": 15000,
+      "nonfinite_output": true
+    },
+    "progress_target": "sum of the three certain target-object inside indicators; uncertain object labels are masked, never imputed",
+    "forbidden_runtime_inputs": [
+      "latent tape",
+      "source summary",
+      "simulator state",
+      "BDDL predicates",
+      "event or milestone times",
+      "episode success",
+      "normalized time",
+      "post-t0 human prompts"
+    ]
+  },
+  "tracker_promotion_gate_on_episodes_16_to_95": {
+    "frame_coverage_gte": 0.95,
+    "uncertain_fraction_lte": 0.05,
+    "evaluation_only_framewise_place_accuracy_gte": 0.95,
+    "evaluation_only_macro_f1_gte": 0.90,
+    "positive_place_transition_median_absolute_error_steps_lte": 20,
+    "never_placed_object_terminal_specificity_gte": 0.95,
+    "thresholds_may_not_be_changed_after_unsealing": true
+  },
+  "phi_gate": {
+    "primary_exact_time_cross_episode_pairwise_spearman_rho_gte": 0.157,
+    "primary_partial_spearman_controlling_normalized_time_gte": 0.157,
+    "episode_bootstrap_95pct_lower_bound_gt": 0.078,
+    "clock_only_abs_rho_lte": 0.10,
+    "proprio_only_abs_rho_lte": 0.10,
+    "label_shuffle_abs_rho_lte": 0.10,
+    "failure_action": "stop before D1 environment interaction"
+  },
+  "calibration_evidence": {
+    "reset_rgb_manifest": {
+      "path": "results/v242_reset_rgb/chain3_lr2_first16_v242/manifest.jsonl",
+      "sha256": "13a6972981154454518ec4701a5b1c0429767203f17cfa912f0ff1f41c38fd0f",
+      "episodes": 16,
+      "env_steps": 0,
+      "max_proprio_error": 0.0
+    },
+    "dense_ep0_rgb_manifest": {
+      "path": "results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+      "sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567",
+      "frames": 75
+    },
+    "sam2_ep0_probe": {
+      "path": "results/v242_sam2_probe/chain3_ep0_agentview_dense_calibration_v6/result.json",
+      "sha256": "cf0a8c4a0a6bd376e7d16a4ae52478dcb8e962b908162b0e6db967be65d110f7",
+      "all_four_masks_nonempty_all_frames": true,
+      "visual_relation_at_t700": {
+        "alphabet_soup_1": "inside",
+        "tomato_sauce_1": "inside",
+        "cream_cheese_1": "outside"
+      },
+      "visual_transition_times": {
+        "alphabet_soup_1": 130,
+        "tomato_sauce_1": 230,
+        "cream_cheese_1": null
+      },
+      "evaluation_only_place_event_times": {
+        "alphabet_soup_1": 130,
+        "tomato_sauce_1": 230,
+        "cream_cheese_1": null
+      },
+      "deterministic_repeat": true
+    },
+    "rejected_opencv_control": {
+      "path": "results/v242_opencv_tracking/chain3_ep0_dense_mil_dino_v1/report.json",
+      "sha256": "a195bf89f2f183b5f58adccd22738104c7b5a0ceccefa202a2e01998fa98fb2d",
+      "t700_inside_count_predicted": 0,
+      "t700_inside_count_visual_reference": 2,
+      "status": "rejected"
+    }
+  }
+}

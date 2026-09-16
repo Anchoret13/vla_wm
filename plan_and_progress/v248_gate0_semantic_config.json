@@ -1,0 +1,133 @@
+{
+  "schema": "v248_gate0_semantic_config_v1",
+  "status": "candidate_frozen_before_any_8000_8100_rgb",
+  "task": "chain3_lr2",
+  "observation_contract": {
+    "cameras": [
+      "agentview",
+      "eye_in_hand"
+    ],
+    "causal": true,
+    "forbidden_inputs": [
+      "done",
+      "episode_length",
+      "events",
+      "is_success",
+      "proprio",
+      "simulator_state",
+      "source_summary",
+      "success",
+      "terminal"
+    ],
+    "primary_tracking_camera": "agentview",
+    "cream_identity_camera": "eye_in_hand"
+  },
+  "sam3": {
+    "prompts": {
+      "basket": "white woven basket",
+      "can": "tomato sauce can",
+      "cream": "cream cheese box"
+    },
+    "detection_score_threshold": 0.1,
+    "new_track_score_threshold": 0.1,
+    "detector_nms_iou_threshold": 0.1,
+    "duplicate_mask_iou_gte": 0.5,
+    "duplicate_box_iou_gte": 0.7,
+    "max_can_instances": 2,
+    "mask_area_bounds_inclusive": {
+      "basket": [
+        3000,
+        15000
+      ],
+      "can": [
+        64,
+        5000
+      ],
+      "cream": [
+        64,
+        5000
+      ]
+    },
+    "device": "cuda",
+    "state_device": "cpu",
+    "dtype": "bfloat16",
+    "global_seed": 0
+  },
+  "sift": {
+    "upscale": 3,
+    "contrast_threshold": 0.01,
+    "lowe_ratio": 0.7,
+    "cluster_eps_px": 22.0,
+    "min_cluster_matches": 4,
+    "ransac_reprojection_threshold_px": 3.0,
+    "ransac_max_iters": 2000,
+    "ransac_confidence": 0.99,
+    "ransac_refine_iters": 10,
+    "ransac_min_inliers": 4,
+    "ransac_min_inlier_ratio": 0.5,
+    "scale_range_inclusive": [
+      0.5,
+      4.0
+    ],
+    "opencv_rng_seed": 0
+  },
+  "geometry": {
+    "cream_rim_margin_px": 8.0,
+    "cream_rim_max_depth_fraction": 0.3,
+    "cream_can_cross_class_box_ios_gte": 0.5
+  },
+  "can_state": {
+    "schema": "v247_causal_can_count_v1",
+    "rim_margin_px": 8.0,
+    "expected_instances": 2
+  },
+  "cream_state": {
+    "schema": "v247_causal_cream_state_v2",
+    "outside_frames_to_arm": 2,
+    "max_confirmation_frames": 4,
+    "scale_collapse_frames_required": 1,
+    "missing_sift_frames_required": 2,
+    "scale_collapse_ratio_lte": 0.4
+  },
+  "progress": {
+    "atoms": [
+      "can_ge1",
+      "can_ge2",
+      "cream"
+    ],
+    "scalar": "can_ge1+can_ge2+cream",
+    "sticky": true,
+    "can_identity_quotient": "anonymous_top_two",
+    "prefix_check_frames_per_episode": 8,
+    "prefix_float_round_decimals": 6
+  },
+  "schemas": {
+    "result": "v248_gate0_progress_result_v1",
+    "frame": "v248_gate0_progress_frame_v1",
+    "complete": "v248_gate0_progress_complete_v1",
+    "evaluation": "v248_gate0_progress_evaluation_v1"
+  },
+  "screen": {
+    "claim": "fail_fast_rgb_unseen_summary_stratified_screen",
+    "promotion_authorized": false,
+    "required_primary_chain3_episodes": 24
+  },
+  "promotion_gates": {
+    "required_primary_chain3_episodes": 192,
+    "minimum_evidence_coverage": 0.95,
+    "maximum_uncertainty_rate": 0.05,
+    "minimum_exact_scalar_accuracy": 0.95,
+    "minimum_macro_f1": 0.9,
+    "maximum_missing_transitions": 0,
+    "maximum_extra_transitions": 0,
+    "maximum_median_timing_error_steps": 20,
+    "maximum_p95_timing_error_steps": 20,
+    "maximum_timing_error_steps": 20,
+    "minimum_never_achieved_terminal_specificity": 0.95,
+    "minimum_held_cream_specificity": 0.95,
+    "minimum_chain3_cream_positive_transitions": 1,
+    "maximum_carry_created_transitions": 0,
+    "require_all_prefix_checks_exact": true,
+    "require_terminal_recovery_pass": true
+  }
+}
