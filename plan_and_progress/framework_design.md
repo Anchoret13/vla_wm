@@ -1,5 +1,14 @@
 # pi05-lcwm — Framework Design v1.0
 
+> **Superseded in part, 2026-09-16.** `PROPOSED_framework_v2.md` was adopted on
+> 2026-09-16 as the binding description of method and results and carries the
+> precedence rule between the two documents. This file remains binding for the
+> definitions and contracts that committed artifacts cite by number — §2, §5.2 and
+> §19.3 above all — and those numbers are retained on merge. Read the precedence rule
+> at the top of `PROPOSED_framework_v2.md` before resolving any disagreement between
+> the two.
+
+
 Working design record, updated 2026-08-20. v1.0 opens a new method branch after the V7.3–V7.7 results. It preserves the accepted problem formulation—a pretrained VLA supplies the action prior, while a language- and action-conditioned latent world model learns decision-relevant dynamics, reward, and value—but changes the learning protocol from one fixed offline vertical slice to bounded deployment-time improvement through failure-anchored counterfactual interaction.
 
 The new branch is provisionally called **failure-driven model-based VLA improvement**. The name is descriptive rather than a paper title.

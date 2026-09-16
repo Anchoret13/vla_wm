@@ -1,0 +1,21 @@
+{
+  "released_utc": "2026-09-16",
+  "status": "MOOT - the seal's condition was met and the bank was read on 2026-08-25",
+  "rule_released": "outcomes not to be read until the M0.3 validation checkpoint is fixed",
+  "condition_met": {
+    "when": "2026-08-25",
+    "what": "M0.3 validation checkpoint fixed at epoch 28",
+    "evidence": "results/v087_m03/summary.json best_epoch = 28, utc 2026-08-25T19:28:07Z, 12 minutes after sealed_utc 2026-08-25T191610Z"
+  },
+  "read_once": {
+    "artifact": "results/v087_m03/summary.json",
+    "test_groups": "results/v087_testbank/2026-08-25T191610Z/groups.pt",
+    "test_sha256": "b0a3363373aaf3b9145675f93f968c89e6d28df48dcc3f9bfcf587f0f849fab0",
+    "matches_sealed_groups_sha256": true,
+    "held_out_models_scored": ["M0.3_residual", "zero_delta_reference"]
+  },
+  "no_longer_held_out_because": "scripts/train_v088_m0.py:53 defaults its groups to the newest results/v087_testbank/2026-* bank, so this bank entered M_0's training set. It may not be read as held-out again.",
+  "outstanding_collection": "none - the branches exist and no GPU work is owed to this bank",
+  "why_this_file_exists": "A 2026-09-16 audit re-opened this bank as an unread sealed artifact because the directory recorded the seal and not its release. A seal needs a release record written beside it, not only into a daily log.",
+  "verified_by": "plan_and_progress/2026-09-16.md"
+}

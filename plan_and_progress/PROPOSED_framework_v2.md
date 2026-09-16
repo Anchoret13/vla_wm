@@ -1,6 +1,35 @@
 # Framework v2 — a latent world model that improves a frozen VLA during rollout
 
-**Status: proposed, replaces `framework_design.md` in full.**
+**Status: ADOPTED 2026-09-16 as the binding description of method and results.
+Not yet merged into `framework_design.md`; until it is, both files are live and the
+precedence rule below decides between them.**
+
+Decided on 2026-09-16 after this file had sat at "proposed" for 17 days while both it
+and v1.0 were cited by committed code, giving the project two live section-number
+spaces. The decision is to merge, with v2's §1-§11 and its numbering winning, and to
+freeze v1.0's text as `archive/framework_design_v1.0.md`. The merge itself is
+mechanical and is not done yet.
+
+**Precedence, in force from today:**
+
+1. **On facts, the later dated measurement wins.** Where v1.0 §20 and v2 §1/§5 describe
+   the same arm, v2's dated row stands.
+2. **On definitions and contracts an existing artifact cites by number, v1.0 wins and
+   the number is retained** — v1.0 §2 (the LCState equations), §5.2 (the predictive
+   target) and §19.3 (the interaction ledger) carry forward under their original
+   numbers. An artifact's contract may not change meaning because a document was
+   rewritten.
+3. **Nothing measured only under the OUTSIDE placement may be carried as
+   unconditional.** This file's "the world model's contribution is exactly zero" (§1)
+   and "ranking candidates is not a use of a world model" (§5) are true of the seven
+   isolations that were run, every one of which placed the model outside the policy.
+   They are to be read, and on merge rewritten, as "under the outside placement,
+   measured at ...". This file predates RB-VLA (arXiv 2602.20659) and the 2026-09-12
+   approval of the inside-placement loop; carrying its verdicts verbatim would import
+   the one-family-measured-seven-times error CLAUDE.md names.
+
+§21's two amendments to v1.0 §5.1/§5.2, written and reverted on 2026-08-29, are
+**adopted** — their content is already contained in this file.
 
 **What is binding and what is not.** §1–§3 (paradigm, interface, constraints) and §6
 (falsification) are binding. §4 and §5 are **menus of candidate methods**: each entry
