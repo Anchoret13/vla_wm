@@ -1,0 +1,3827 @@
+{
+  "schema": "v251_round_secondary.1",
+  "utc": "2026-09-16T210904Z",
+  "git": "75c5c97c05ecc8962aa1df2dec492a6c5036948d",
+  "produced_by": "scripts/report_v251_secondary.py",
+  "analysis_pipeline": "scripts/eval_v251_round.py - contrast, holm, exact_mcnemar, wilcoxon_signed_rank, paired_bootstrap, clopper_pearson imported, not re-derived",
+  "preregistration": "results/v251_round/chain3_lr2_2026-09-13T000155Z/preregistration.json",
+  "round_tag": "2026-09-13T000155Z",
+  "task": "chain3_lr2",
+  "panel": {
+    "declared": {
+      "start": 9100,
+      "count": 288,
+      "seeds": [
+        9100,
+        9387
+      ],
+      "committed_before_any_episode": true,
+      "rule": "CLAUDE.md rule 8 - the seed count is fixed here and is not revisited after reading any endpoint; no extension of this panel may be reported as the same test"
+    },
+    "paired_seeds_found": 288,
+    "first": 9100,
+    "last": 9387,
+    "matches_registered_panel": true,
+    "per_arm_episode_count": {
+      "base": 288,
+      "rand": 288,
+      "M0": 288,
+      "M0_cont": 288,
+      "M1": 288,
+      "M1_shuf": 288,
+      "Q": 288
+    }
+  },
+  "arms": {
+    "base": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_base_2026-09-13T000159Z",
+      "role": "frozen pi0.5, Delta := 0, identical code path",
+      "actor": "results/v251_interface/chain3_lr2_m1_2026-09-12T235743Z/actor_0.pt",
+      "sha256": "b6994f407b7adaeec76fcf23f22a1a8247dd4fdd36dfe98b6fd9f36a3700e4aa",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_base_2026-09-13T000159Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "rand": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_rand_2026-09-13T013844Z",
+      "role": "UNTRAINED random residual at the round's scale",
+      "actor": "results/v252_rand_actor/chain3_lr2_rand_2026-09-12T235823Z/actor_0.pt",
+      "sha256": "b0fbce0c5f7dab0013d0105d7ddb43c534846dd1254d98a0e4e97a96ee3398f9",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_rand_2026-09-13T013844Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "M0": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M0_2026-09-13T031742Z",
+      "role": "stale WM: transition trained on D0 only",
+      "actor": "results/v251_interface/chain3_lr2_m0_2026-09-12T235751Z/actor_0.pt",
+      "sha256": "a8612884367651418e50b90422ffab433bd4c973d660d5de8ffed7615c2e8d9c",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M0_2026-09-13T031742Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "M0_cont": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M0_cont_2026-09-13T045630Z",
+      "role": "stale WM + M1's extra optimiser budget, still D0 only",
+      "actor": "results/v251_interface/chain3_lr2_m0cont_2026-09-12T235800Z/actor_0.pt",
+      "sha256": "1af451714b4d01d128704f5ab265e0141e81a2370e0f11b6d84ca4090c9f2e1f",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M0_cont_2026-09-13T045630Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "M1": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M1_2026-09-13T063530Z",
+      "role": "updated WM: transition trained on D0 + D1",
+      "actor": "results/v251_interface/chain3_lr2_m1_2026-09-12T235743Z/actor_0.pt",
+      "sha256": "b6994f407b7adaeec76fcf23f22a1a8247dd4fdd36dfe98b6fd9f36a3700e4aa",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M1_2026-09-13T063530Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "M1_shuf": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M1_shuf_2026-09-13T081444Z",
+      "role": "updated WM with D1 action pairing broken",
+      "actor": "results/v251_interface/chain3_lr2_m1shuf_2026-09-12T235817Z/actor_0.pt",
+      "sha256": "8c6d71a902dacb8f5178b526d6af0e5c4a8f458beda8539e2ec68cfd5728805f",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_M1_shuf_2026-09-13T081444Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    },
+    "Q": {
+      "dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_Q_2026-09-13T095210Z",
+      "role": "same-data model-free / no-rollout control",
+      "actor": "results/v251_interface/chain3_lr2_q_2026-09-12T235808Z/actor_0.pt",
+      "sha256": "20d300896268ec2b539ff244acfb2a814f4db53d89df1dc445b400418bb1713b",
+      "source": [
+        "/home/stargazer/Desktop/vla_wm/vla_wm/results/v206_belief_residual/chain3_lr2_v251_2026-09-13T000155Z_Q_2026-09-13T095210Z/outcome.json"
+      ],
+      "unavailable_endpoints": [
+        "phi_basin_mean",
+        "d_min_final_atom"
+      ]
+    }
+  },
+  "endpoints_unavailable": {
+    "base": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "rand": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "M0": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "M0_cont": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "M1": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "M1_shuf": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "Q": [
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ]
+  },
+  "family_audit": {
+    "family_secondary_size": 15,
+    "family_secondary": [
+      "stage:M1-vs-M0_cont",
+      "stage:M1-vs-Q",
+      "stage:M1-vs-rand",
+      "stage:M1-vs-M1_shuf",
+      "stage:M1-vs-base",
+      "last_progress_step:M1-vs-M0_cont",
+      "last_progress_step:M1-vs-Q",
+      "last_progress_step:M1-vs-rand",
+      "last_progress_step:M1-vs-M1_shuf",
+      "last_progress_step:M1-vs-base",
+      "phi_basin_mean:M1-vs-M0_cont",
+      "phi_basin_mean:M1-vs-Q",
+      "phi_basin_mean:M1-vs-rand",
+      "phi_basin_mean:M1-vs-M1_shuf",
+      "phi_basin_mean:M1-vs-base"
+    ],
+    "endpoints_declared_secondary": [
+      "stage",
+      "last_progress_step",
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "endpoints_carrying_a_registered_secondary_test": [
+      "last_progress_step",
+      "phi_basin_mean",
+      "stage"
+    ],
+    "endpoints_secondary_but_NOT_in_the_holm_family": [
+      "d_min_final_atom"
+    ],
+    "resolution": "the preregistration's multiplicity.family_secondary lists 15 tests over last_progress_step, phi_basin_mean, stage; d_min_final_atom is named under endpoint_hierarchy.secondary but carries no test in that family. It is therefore reported here with an interval and an UNCORRECTED p, labelled estimation-only, and it is NOT added to the Holm family - adding it would enlarge a registered family after the numbers were seen, and dropping the endpoint entirely would hide a registered quantity.",
+    "holm_family_size_used": 15
+  },
+  "endpoint_tiers": {
+    "estimation": [
+      "success"
+    ],
+    "primary": [
+      "milestone4"
+    ],
+    "secondary_tested_in_holm_family": [
+      "last_progress_step",
+      "phi_basin_mean",
+      "stage"
+    ],
+    "secondary_estimation_only": [
+      "d_min_final_atom"
+    ],
+    "rule": "terminal success is reported for every arm with a Clopper-Pearson interval and is NOT a test at this n; the primary test is milestone-4 attainment; the secondary endpoints are supportive and are not confirmatory on their own",
+    "statement": "TESTS under this preregistration: milestone4 (primary family, 5 McNemar contrasts) and last_progress_step, phi_basin_mean, stage (secondary family, 15 Wilcoxon contrasts, Holm over that registered size). ESTIMATION-ONLY: success (the power block forbids reading it as a test at this n) and d_min_final_atom (a registered secondary endpoint with no test in the Holm family). The secondary family is supportive and is not confirmatory on its own."
+  },
+  "bootstrap": {
+    "per_arm_means": {
+      "method": "paired_index_bootstrap (this file)",
+      "seed": 20260729,
+      "resamples": 10000,
+      "pairing": "one shared (resamples, n) seed-index draw applied to every arm and endpoint",
+      "percentiles": "sorted means at int(0.025*B) and int(0.975*B), cluster_bootstrap's convention"
+    },
+    "contrast_differences": {
+      "method": "eval_v251_round.paired_bootstrap -> analyze_behavior_factorial.cluster_bootstrap",
+      "seed": 20260729,
+      "resamples": 10000
+    }
+  },
+  "per_arm_endpoint_summary": {
+    "success": {
+      "label": "terminal success",
+      "kind": "binary",
+      "tier": "estimation",
+      "direction": 1,
+      "direction_note": "larger is better",
+      "caveat": "an ESTIMATION endpoint at this n, not a test: see the power block. Reported as a Clopper-Pearson interval per arm and a discordant-pair table, never as a verdict.",
+      "n_all_arm_complete_seeds": 288,
+      "n_seeds_dropped_for_missingness": 0,
+      "missingness_note": "complete on every seed",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 288,
+          "mean": 0.003472222222222222,
+          "mean_ci95_paired_bootstrap": [
+            0.0,
+            0.010416666666666666
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.003472222222222222,
+          "count": 1,
+          "rate": 0.003472222222222222,
+          "cp95": [
+            8.790519161320598e-05,
+            0.01919313351672982
+          ]
+        },
+        "rand": {
+          "available": true,
+          "n": 288,
+          "mean": 0.11458333333333333,
+          "mean_ci95_paired_bootstrap": [
+            0.0798611111111111,
+            0.1527777777777778
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.11458333333333333,
+          "count": 33,
+          "rate": 0.11458333333333333,
+          "cp95": [
+            0.08020003401339387,
+            0.15714202584676418
+          ]
+        },
+        "M0": {
+          "available": true,
+          "n": 288,
+          "mean": 0.06944444444444445,
+          "mean_ci95_paired_bootstrap": [
+            0.041666666666666664,
+            0.10069444444444445
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.06944444444444445,
+          "count": 20,
+          "rate": 0.06944444444444445,
+          "cp95": [
+            0.042931490181205664,
+            0.10521579170996229
+          ]
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 288,
+          "mean": 0.0798611111111111,
+          "mean_ci95_paired_bootstrap": [
+            0.04861111111111111,
+            0.1111111111111111
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.0798611111111111,
+          "count": 23,
+          "rate": 0.0798611111111111,
+          "cp95": [
+            0.05129725391794114,
+            0.11742193030868264
+          ]
+        },
+        "M1": {
+          "available": true,
+          "n": 288,
+          "mean": 0.07291666666666667,
+          "mean_ci95_paired_bootstrap": [
+            0.04513888888888889,
+            0.10416666666666667
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.07291666666666667,
+          "count": 21,
+          "rate": 0.07291666666666667,
+          "cp95": [
+            0.045700621507869243,
+            0.10930285278317553
+          ]
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 288,
+          "mean": 0.08680555555555555,
+          "mean_ci95_paired_bootstrap": [
+            0.05555555555555555,
+            0.12152777777777778
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.08680555555555555,
+          "count": 25,
+          "rate": 0.08680555555555555,
+          "cp95": [
+            0.05696407783052375,
+            0.1254745267570408
+          ]
+        },
+        "Q": {
+          "available": true,
+          "n": 288,
+          "mean": 0.09722222222222222,
+          "mean_ci95_paired_bootstrap": [
+            0.06597222222222222,
+            0.13194444444444445
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.09722222222222222,
+          "count": 28,
+          "rate": 0.09722222222222222,
+          "cp95": [
+            0.06557968041197024,
+            0.13744358320337047
+          ]
+        }
+      }
+    },
+    "milestone4": {
+      "label": "milestone-4 attainment (pick_up cream_cheese_1)",
+      "kind": "binary",
+      "tier": "primary",
+      "direction": 1,
+      "direction_note": "larger is better",
+      "caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "n_all_arm_complete_seeds": 288,
+      "n_seeds_dropped_for_missingness": 0,
+      "missingness_note": "complete on every seed",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 288,
+          "mean": 0.041666666666666664,
+          "mean_ci95_paired_bootstrap": [
+            0.020833333333333332,
+            0.06597222222222222
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.041666666666666664,
+          "count": 12,
+          "rate": 0.041666666666666664,
+          "cp95": [
+            0.021712181473593932,
+            0.07165162010992979
+          ]
+        },
+        "rand": {
+          "available": true,
+          "n": 288,
+          "mean": 0.1597222222222222,
+          "mean_ci95_paired_bootstrap": [
+            0.11805555555555555,
+            0.2013888888888889
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.1597222222222222,
+          "count": 46,
+          "rate": 0.1597222222222222,
+          "cp95": [
+            0.11937195701532669,
+            0.2072383022972386
+          ]
+        },
+        "M0": {
+          "available": true,
+          "n": 288,
+          "mean": 0.13541666666666666,
+          "mean_ci95_paired_bootstrap": [
+            0.09722222222222222,
+            0.1736111111111111
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.13541666666666666,
+          "count": 39,
+          "rate": 0.13541666666666666,
+          "cp95": [
+            0.09809778830865251,
+            0.1804395524640261
+          ]
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 288,
+          "mean": 0.19444444444444445,
+          "mean_ci95_paired_bootstrap": [
+            0.14930555555555555,
+            0.23958333333333334
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.19444444444444445,
+          "count": 56,
+          "rate": 0.19444444444444445,
+          "cp95": [
+            0.15035352052918843,
+            0.24494662155883373
+          ]
+        },
+        "M1": {
+          "available": true,
+          "n": 288,
+          "mean": 0.13541666666666666,
+          "mean_ci95_paired_bootstrap": [
+            0.09722222222222222,
+            0.17708333333333334
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.13541666666666666,
+          "count": 39,
+          "rate": 0.13541666666666666,
+          "cp95": [
+            0.09809778830865251,
+            0.1804395524640261
+          ]
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 288,
+          "mean": 0.13541666666666666,
+          "mean_ci95_paired_bootstrap": [
+            0.09722222222222222,
+            0.17708333333333334
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.13541666666666666,
+          "count": 39,
+          "rate": 0.13541666666666666,
+          "cp95": [
+            0.09809778830865251,
+            0.1804395524640261
+          ]
+        },
+        "Q": {
+          "available": true,
+          "n": 288,
+          "mean": 0.1909722222222222,
+          "mean_ci95_paired_bootstrap": [
+            0.14930555555555555,
+            0.2361111111111111
+          ],
+          "median": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 0.1909722222222222,
+          "count": 55,
+          "rate": 0.1909722222222222,
+          "cp95": [
+            0.1472280436557002,
+            0.24120253818013765
+          ]
+        }
+      }
+    },
+    "stage": {
+      "label": "contiguous stage reached",
+      "kind": "ordinal",
+      "tier": "secondary",
+      "direction": 1,
+      "direction_note": "larger is better",
+      "caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "n_all_arm_complete_seeds": 288,
+      "n_seeds_dropped_for_missingness": 0,
+      "missingness_note": "complete on every seed",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 288,
+          "mean": 3.951388888888889,
+          "mean_ci95_paired_bootstrap": [
+            3.8854166666666665,
+            4.010416666666667
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 3.951388888888889
+        },
+        "rand": {
+          "available": true,
+          "n": 288,
+          "mean": 4.149305555555555,
+          "mean_ci95_paired_bootstrap": [
+            4.038194444444445,
+            4.256944444444445
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.149305555555555
+        },
+        "M0": {
+          "available": true,
+          "n": 288,
+          "mean": 4.111111111111111,
+          "mean_ci95_paired_bootstrap": [
+            4.024305555555555,
+            4.194444444444445
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.111111111111111
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 288,
+          "mean": 4.184027777777778,
+          "mean_ci95_paired_bootstrap": [
+            4.086805555555555,
+            4.274305555555555
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.184027777777778
+        },
+        "M1": {
+          "available": true,
+          "n": 288,
+          "mean": 4.072916666666667,
+          "mean_ci95_paired_bootstrap": [
+            3.96875,
+            4.170138888888889
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.072916666666667
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 288,
+          "mean": 4.09375,
+          "mean_ci95_paired_bootstrap": [
+            3.9930555555555554,
+            4.190972222222222
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.09375
+        },
+        "Q": {
+          "available": true,
+          "n": 288,
+          "mean": 4.1875,
+          "mean_ci95_paired_bootstrap": [
+            4.086805555555555,
+            4.28125
+          ],
+          "median": 4.0,
+          "min": 0.0,
+          "max": 6.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 4.1875
+        }
+      }
+    },
+    "last_progress_step": {
+      "label": "last-progress step",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": 1,
+      "direction_note": "larger is better",
+      "caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "n_all_arm_complete_seeds": 288,
+      "n_seeds_dropped_for_missingness": 0,
+      "missingness_note": "complete on every seed",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 288,
+          "mean": 286.31944444444446,
+          "mean_ci95_paired_bootstrap": [
+            275.1736111111111,
+            298.5763888888889
+          ],
+          "median": 260.0,
+          "min": 200.0,
+          "max": 750.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 286.31944444444446
+        },
+        "rand": {
+          "available": true,
+          "n": 288,
+          "mean": 311.49305555555554,
+          "mean_ci95_paired_bootstrap": [
+            296.9791666666667,
+            326.5625
+          ],
+          "median": 260.0,
+          "min": 0.0,
+          "max": 740.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 311.49305555555554
+        },
+        "M0": {
+          "available": true,
+          "n": 288,
+          "mean": 313.9236111111111,
+          "mean_ci95_paired_bootstrap": [
+            299.09722222222223,
+            329.6875
+          ],
+          "median": 260.0,
+          "min": 0.0,
+          "max": 740.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 313.9236111111111
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 288,
+          "mean": 329.93055555555554,
+          "mean_ci95_paired_bootstrap": [
+            312.43055555555554,
+            347.74305555555554
+          ],
+          "median": 260.0,
+          "min": 0.0,
+          "max": 750.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 329.93055555555554
+        },
+        "M1": {
+          "available": true,
+          "n": 288,
+          "mean": 308.15972222222223,
+          "mean_ci95_paired_bootstrap": [
+            293.125,
+            323.99305555555554
+          ],
+          "median": 260.0,
+          "min": 0.0,
+          "max": 750.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 308.15972222222223
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 288,
+          "mean": 313.81944444444446,
+          "mean_ci95_paired_bootstrap": [
+            298.78472222222223,
+            328.99305555555554
+          ],
+          "median": 260.0,
+          "min": 200.0,
+          "max": 730.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 313.81944444444446
+        },
+        "Q": {
+          "available": true,
+          "n": 288,
+          "mean": 330.65972222222223,
+          "mean_ci95_paired_bootstrap": [
+            314.65277777777777,
+            347.9513888888889
+          ],
+          "median": 260.0,
+          "min": 0.0,
+          "max": 720.0,
+          "n_available_this_arm": 288,
+          "n_missing_this_arm": 0,
+          "mean_over_this_arms_available_seeds": 330.65972222222223
+        }
+      }
+    },
+    "phi_basin_mean": {
+      "label": "mean Phi' over the stall basin",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": 1,
+      "direction_note": "larger is better",
+      "caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "n_all_arm_complete_seeds": 271,
+      "n_seeds_dropped_for_missingness": 17,
+      "missingness_note": "null whenever the episode has final_atom_boundaries == 0, i.e. no boundary at which the final goal atom was active; the per-arm table below conditions on the seeds where ALL arms carry a value, which is itself outcome-dependent, so the per-arm available count is reported with it. The registered contrasts are NOT restricted to this subset: each uses its own pair's complete seeds, and every contrast reports n_paired.",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 271,
+          "mean": 2.1194774525393725,
+          "mean_ci95_paired_bootstrap": [
+            2.1160594181593226,
+            2.1234462306362105
+          ],
+          "median": 2.11483668050766,
+          "min": 2.0,
+          "max": 2.3789064893708387,
+          "n_available_this_arm": 278,
+          "n_missing_this_arm": 10,
+          "mean_over_this_arms_available_seeds": 2.119464482528099
+        },
+        "rand": {
+          "available": true,
+          "n": 271,
+          "mean": 2.1734510734152006,
+          "mean_ci95_paired_bootstrap": [
+            2.161849710226886,
+            2.1860270604577936
+          ],
+          "median": 2.1387807033499895,
+          "min": 2.0,
+          "max": 2.6586220698777447,
+          "n_available_this_arm": 274,
+          "n_missing_this_arm": 14,
+          "mean_over_this_arms_available_seeds": 2.1730459439998673
+        },
+        "M0": {
+          "available": true,
+          "n": 271,
+          "mean": 2.1463529993129944,
+          "mean_ci95_paired_bootstrap": [
+            2.136775823958556,
+            2.157048913055656
+          ],
+          "median": 2.1203719987869265,
+          "min": 2.0042582805633544,
+          "max": 2.6455157683580124,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 2.145891433194425
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 271,
+          "mean": 2.1700086073400744,
+          "mean_ci95_paired_bootstrap": [
+            2.1567789633924637,
+            2.1839967993039853
+          ],
+          "median": 2.124667405366898,
+          "min": 2.0022847652435303,
+          "max": 2.611977335999282,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 2.171817035977686
+        },
+        "M1": {
+          "available": true,
+          "n": 271,
+          "mean": 2.156404058829734,
+          "mean_ci95_paired_bootstrap": [
+            2.145109916513036,
+            2.169096297100097
+          ],
+          "median": 2.124665789710151,
+          "min": 2.0047359794616697,
+          "max": 2.693440350066522,
+          "n_available_this_arm": 275,
+          "n_missing_this_arm": 13,
+          "mean_over_this_arms_available_seeds": 2.1560791197413884
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 271,
+          "mean": 2.1517824708057485,
+          "mean_ci95_paired_bootstrap": [
+            2.141135426911315,
+            2.163336996382736
+          ],
+          "median": 2.1236448465561377,
+          "min": 2.000492860031128,
+          "max": 2.647646279325374,
+          "n_available_this_arm": 276,
+          "n_missing_this_arm": 12,
+          "mean_over_this_arms_available_seeds": 2.1524871948738307
+        },
+        "Q": {
+          "available": true,
+          "n": 271,
+          "mean": 2.164046424892682,
+          "mean_ci95_paired_bootstrap": [
+            2.152000303047343,
+            2.1768999774899007
+          ],
+          "median": 2.124196399021149,
+          "min": 2.0,
+          "max": 2.6330031273145993,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 2.165301350751214
+        }
+      }
+    },
+    "d_min_final_atom": {
+      "label": "closest approach to the final goal object",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": -1,
+      "direction_note": "SMALLER is better (direction -1)",
+      "caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "n_all_arm_complete_seeds": 271,
+      "n_seeds_dropped_for_missingness": 17,
+      "missingness_note": "null whenever the episode has final_atom_boundaries == 0, i.e. no boundary at which the final goal atom was active; the per-arm table below conditions on the seeds where ALL arms carry a value, which is itself outcome-dependent, so the per-arm available count is reported with it. The registered contrasts are NOT restricted to this subset: each uses its own pair's complete seeds, and every contrast reports n_paired.",
+      "arms": {
+        "base": {
+          "available": true,
+          "n": 271,
+          "mean": 0.4394426827896318,
+          "mean_ci95_paired_bootstrap": [
+            0.4180899038919457,
+            0.46063841435872704
+          ],
+          "median": 0.49976515769958496,
+          "min": 0.002114341827109456,
+          "max": 1.3118680715560913,
+          "n_available_this_arm": 278,
+          "n_missing_this_arm": 10,
+          "mean_over_this_arms_available_seeds": 0.44000576333169616
+        },
+        "rand": {
+          "available": true,
+          "n": 271,
+          "mean": 0.2211555863397258,
+          "mean_ci95_paired_bootstrap": [
+            0.19835739737768346,
+            0.2456244578150297
+          ],
+          "median": 0.19948306679725647,
+          "min": 0.003474678611382842,
+          "max": 1.2553846836090088,
+          "n_available_this_arm": 274,
+          "n_missing_this_arm": 14,
+          "mean_over_this_arms_available_seeds": 0.22243629864342238
+        },
+        "M0": {
+          "available": true,
+          "n": 271,
+          "mean": 0.32948914909481014,
+          "mean_ci95_paired_bootstrap": [
+            0.3035241162517826,
+            0.35553682967504946
+          ],
+          "median": 0.3946044445037842,
+          "min": 0.00396717106923461,
+          "max": 1.1321558952331543,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 0.3266882215957007
+        },
+        "M0_cont": {
+          "available": true,
+          "n": 271,
+          "mean": 0.28098100279217303,
+          "mean_ci95_paired_bootstrap": [
+            0.2547104140009896,
+            0.30743644584135266
+          ],
+          "median": 0.25358444452285767,
+          "min": 0.0011636177077889442,
+          "max": 1.1227166652679443,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 0.28062026964844367
+        },
+        "M1": {
+          "available": true,
+          "n": 271,
+          "mean": 0.29251067134348946,
+          "mean_ci95_paired_bootstrap": [
+            0.26772021040890875,
+            0.3175014084431848
+          ],
+          "median": 0.2739908695220947,
+          "min": 0.0050511411391198635,
+          "max": 1.125691533088684,
+          "n_available_this_arm": 275,
+          "n_missing_this_arm": 13,
+          "mean_over_this_arms_available_seeds": 0.2915718488954008
+        },
+        "M1_shuf": {
+          "available": true,
+          "n": 271,
+          "mean": 0.3123394045837024,
+          "mean_ci95_paired_bootstrap": [
+            0.28613806246329665,
+            0.3387385407210125
+          ],
+          "median": 0.3374127745628357,
+          "min": 0.0012102749897167087,
+          "max": 1.2221280336380005,
+          "n_available_this_arm": 276,
+          "n_missing_this_arm": 12,
+          "mean_over_this_arms_available_seeds": 0.3121565201862182
+        },
+        "Q": {
+          "available": true,
+          "n": 271,
+          "mean": 0.2969532130763787,
+          "mean_ci95_paired_bootstrap": [
+            0.27067876765178,
+            0.3245566328471987
+          ],
+          "median": 0.2820926606655121,
+          "min": 0.0026310791727155447,
+          "max": 1.3109115362167358,
+          "n_available_this_arm": 279,
+          "n_missing_this_arm": 9,
+          "mean_over_this_arms_available_seeds": 0.29800539333072884
+        }
+      }
+    }
+  },
+  "secondary_family_tests": {
+    "stage:M1-vs-M0_cont": {
+      "contrast": "stage:M1-vs-M0_cont",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M0_cont",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 4.184027777777778,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.1111111111111111,
+      "ci95": [
+        -0.19791666666666666,
+        -0.027777777777777776
+      ],
+      "bootstrap": {
+        "mean": -0.1111111111111111,
+        "ci95": [
+          -0.19791666666666666,
+          -0.027777777777777776
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 64,
+        "t_plus": 705.0,
+        "p_two_sided": 0.020294281579468335,
+        "method": "normal approximation with tie correction, 64 non-zero pairs",
+        "n_zero_pairs": 224,
+        "scipy_p_two_sided": 0.020294281579468318,
+        "scipy_agrees": true
+      },
+      "p": 0.020294281579468335,
+      "n_better": 21,
+      "n_worse": 43,
+      "n_tied": 224,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.1111111111111111,
+      "registered_in_family": "family_secondary",
+      "favours": "M0_cont",
+      "holm": {
+        "p": 0.020294281579468335,
+        "rank": 6,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.005,
+        "p_adjusted": 0.20294281579468335,
+        "reject": false
+      }
+    },
+    "stage:M1-vs-Q": {
+      "contrast": "stage:M1-vs-Q",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "Q matching M1 once Q shares M1's trained encoder; a rollout-free arm that also lacks the representation cannot separate the two",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 4.1875,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.11458333333333333,
+      "ci95": [
+        -0.2013888888888889,
+        -0.03125
+      ],
+      "bootstrap": {
+        "mean": -0.11458333333333333,
+        "ci95": [
+          -0.2013888888888889,
+          -0.03125
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 58,
+        "t_plus": 537.5,
+        "p_two_sided": 0.011184324143435074,
+        "method": "normal approximation with tie correction, 58 non-zero pairs",
+        "n_zero_pairs": 230,
+        "scipy_p_two_sided": 0.011184324143435063,
+        "scipy_agrees": true
+      },
+      "p": 0.011184324143435074,
+      "n_better": 19,
+      "n_worse": 39,
+      "n_tied": 230,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.11458333333333333,
+      "registered_in_family": "family_secondary",
+      "favours": "Q",
+      "holm": {
+        "p": 0.011184324143435074,
+        "rank": 5,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.004545454545454546,
+        "p_adjusted": 0.12302756557778581,
+        "reject": false
+      }
+    },
+    "stage:M1-vs-rand": {
+      "contrast": "stage:M1-vs-rand",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "rand",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 4.149305555555555,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.0763888888888889,
+      "ci95": [
+        -0.1736111111111111,
+        0.017361111111111112
+      ],
+      "bootstrap": {
+        "mean": -0.0763888888888889,
+        "ci95": [
+          -0.1736111111111111,
+          0.017361111111111112
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 73,
+        "t_plus": 1064.5,
+        "p_two_sided": 0.10356924553689945,
+        "method": "normal approximation with tie correction, 73 non-zero pairs",
+        "n_zero_pairs": 215,
+        "scipy_p_two_sided": 0.10356924553689949,
+        "scipy_agrees": true
+      },
+      "p": 0.10356924553689945,
+      "n_better": 31,
+      "n_worse": 42,
+      "n_tied": 215,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.0763888888888889,
+      "registered_in_family": "family_secondary",
+      "favours": "rand",
+      "holm": {
+        "p": 0.10356924553689945,
+        "rank": 9,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.0071428571428571435,
+        "p_adjusted": 0.7249847187582961,
+        "reject": false
+      }
+    },
+    "stage:M1-vs-M1_shuf": {
+      "contrast": "stage:M1-vs-M1_shuf",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M1_shuf",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 4.09375,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.020833333333333332,
+      "ci95": [
+        -0.1111111111111111,
+        0.06944444444444445
+      ],
+      "bootstrap": {
+        "mean": -0.020833333333333332,
+        "ci95": [
+          -0.1111111111111111,
+          0.06944444444444445
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 53,
+        "t_plus": 664.0,
+        "p_two_sided": 0.6393983753773966,
+        "method": "normal approximation with tie correction, 53 non-zero pairs",
+        "n_zero_pairs": 235,
+        "scipy_p_two_sided": 0.6393983753773966,
+        "scipy_agrees": true
+      },
+      "p": 0.6393983753773966,
+      "n_better": 26,
+      "n_worse": 27,
+      "n_tied": 235,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.020833333333333332,
+      "registered_in_family": "family_secondary",
+      "favours": "M1_shuf",
+      "holm": {
+        "p": 0.6393983753773966,
+        "rank": 13,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.016666666666666666,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "stage:M1-vs-base": {
+      "contrast": "stage:M1-vs-base",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "the same gain appearing for Q vs base, which places it in the deployment data rather than in the roll",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 3.951388888888889,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": 0.12152777777777778,
+      "ci95": [
+        0.041666666666666664,
+        0.2013888888888889
+      ],
+      "bootstrap": {
+        "mean": 0.12152777777777778,
+        "ci95": [
+          0.041666666666666664,
+          0.2013888888888889
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 46,
+        "t_plus": 832.5,
+        "p_two_sided": 0.0010675899549014583,
+        "method": "normal approximation with tie correction",
+        "n_zero_pairs": 242,
+        "scipy_p_two_sided": 0.0010675899549014586,
+        "scipy_agrees": true
+      },
+      "p": 0.0010675899549014583,
+      "n_better": 35,
+      "n_worse": 11,
+      "n_tied": 242,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.12152777777777778,
+      "registered_in_family": "family_secondary",
+      "favours": "M1",
+      "holm": {
+        "p": 0.0010675899549014583,
+        "rank": 3,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.0038461538461538464,
+        "p_adjusted": 0.013878669413718958,
+        "reject": true
+      }
+    },
+    "last_progress_step:M1-vs-M0_cont": {
+      "contrast": "last_progress_step:M1-vs-M0_cont",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M0_cont",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 329.93055555555554,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -21.770833333333332,
+      "ci95": [
+        -41.111111111111114,
+        -2.4652777777777777
+      ],
+      "bootstrap": {
+        "mean": -21.770833333333332,
+        "ci95": [
+          -41.111111111111114,
+          -2.4652777777777777
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 93,
+        "t_plus": 1622.0,
+        "p_two_sided": 0.030795329664121553,
+        "method": "normal approximation with tie correction, 93 non-zero pairs",
+        "n_zero_pairs": 195,
+        "scipy_p_two_sided": 0.030795329664121563,
+        "scipy_agrees": true
+      },
+      "p": 0.030795329664121553,
+      "n_better": 36,
+      "n_worse": 57,
+      "n_tied": 195,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -21.770833333333332,
+      "registered_in_family": "family_secondary",
+      "favours": "M0_cont",
+      "holm": {
+        "p": 0.030795329664121553,
+        "rank": 7,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.005555555555555556,
+        "p_adjusted": 0.277157966977094,
+        "reject": false
+      }
+    },
+    "last_progress_step:M1-vs-Q": {
+      "contrast": "last_progress_step:M1-vs-Q",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "Q matching M1 once Q shares M1's trained encoder; a rollout-free arm that also lacks the representation cannot separate the two",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 330.65972222222223,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -22.5,
+      "ci95": [
+        -41.52777777777778,
+        -4.201388888888889
+      ],
+      "bootstrap": {
+        "mean": -22.5,
+        "ci95": [
+          -41.52777777777778,
+          -4.201388888888889
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 89,
+        "t_plus": 1497.5,
+        "p_two_sided": 0.038739610149001846,
+        "method": "normal approximation with tie correction, 89 non-zero pairs",
+        "n_zero_pairs": 199,
+        "scipy_p_two_sided": 0.03873961014900182,
+        "scipy_agrees": true
+      },
+      "p": 0.038739610149001846,
+      "n_better": 38,
+      "n_worse": 51,
+      "n_tied": 199,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -22.5,
+      "registered_in_family": "family_secondary",
+      "favours": "Q",
+      "holm": {
+        "p": 0.038739610149001846,
+        "rank": 8,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.00625,
+        "p_adjusted": 0.30991688119201477,
+        "reject": false
+      }
+    },
+    "last_progress_step:M1-vs-rand": {
+      "contrast": "last_progress_step:M1-vs-rand",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "rand",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 311.49305555555554,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -3.3333333333333335,
+      "ci95": [
+        -22.916666666666668,
+        16.21527777777778
+      ],
+      "bootstrap": {
+        "mean": -3.3333333333333335,
+        "ci95": [
+          -22.916666666666668,
+          16.21527777777778
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 96,
+        "t_plus": 2216.5,
+        "p_two_sided": 0.6836291468463174,
+        "method": "normal approximation with tie correction, 96 non-zero pairs",
+        "n_zero_pairs": 192,
+        "scipy_p_two_sided": 0.6836291468463174,
+        "scipy_agrees": true
+      },
+      "p": 0.6836291468463174,
+      "n_better": 50,
+      "n_worse": 46,
+      "n_tied": 192,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -3.3333333333333335,
+      "registered_in_family": "family_secondary",
+      "favours": "rand",
+      "holm": {
+        "p": 0.6836291468463174,
+        "rank": 14,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.025,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "last_progress_step:M1-vs-M1_shuf": {
+      "contrast": "last_progress_step:M1-vs-M1_shuf",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M1_shuf",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 313.81944444444446,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -5.659722222222222,
+      "ci95": [
+        -25.65972222222222,
+        14.340277777777779
+      ],
+      "bootstrap": {
+        "mean": -5.659722222222222,
+        "ci95": [
+          -25.65972222222222,
+          14.340277777777779
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 81,
+        "t_plus": 1580.0,
+        "p_two_sided": 0.7044354045819179,
+        "method": "normal approximation with tie correction, 81 non-zero pairs",
+        "n_zero_pairs": 207,
+        "scipy_p_two_sided": 0.7044354045819179,
+        "scipy_agrees": true
+      },
+      "p": 0.7044354045819179,
+      "n_better": 41,
+      "n_worse": 40,
+      "n_tied": 207,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -5.659722222222222,
+      "registered_in_family": "family_secondary",
+      "favours": "M1_shuf",
+      "holm": {
+        "p": 0.7044354045819179,
+        "rank": 15,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.05,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "last_progress_step:M1-vs-base": {
+      "contrast": "last_progress_step:M1-vs-base",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "the same gain appearing for Q vs base, which places it in the deployment data rather than in the roll",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 286.31944444444446,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": 21.84027777777778,
+      "ci95": [
+        3.4722222222222223,
+        40.625
+      ],
+      "bootstrap": {
+        "mean": 21.84027777777778,
+        "ci95": [
+          3.4722222222222223,
+          40.625
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 66,
+        "t_plus": 1548.5,
+        "p_two_sided": 0.00463121429105845,
+        "method": "normal approximation with tie correction, 66 non-zero pairs",
+        "n_zero_pairs": 222,
+        "scipy_p_two_sided": 0.004631214291058446,
+        "scipy_agrees": true
+      },
+      "p": 0.00463121429105845,
+      "n_better": 48,
+      "n_worse": 18,
+      "n_tied": 222,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 21.84027777777778,
+      "registered_in_family": "family_secondary",
+      "favours": "M1",
+      "holm": {
+        "p": 0.00463121429105845,
+        "rank": 4,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.004166666666666667,
+        "p_adjusted": 0.0555745714927014,
+        "reject": false
+      }
+    },
+    "phi_basin_mean:M1-vs-M0_cont": {
+      "contrast": "phi_basin_mean:M1-vs-M0_cont",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "M0_cont",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1561573550627426,
+      "b_mean": 2.1704476936287893,
+      "a_median": 2.1247289708137513,
+      "b_median": 2.124697689574957,
+      "mean_difference": -0.0142903385660462,
+      "ci95": [
+        -0.02845770316354211,
+        -6.943326394237235e-05
+      ],
+      "bootstrap": {
+        "mean": -0.0142903385660462,
+        "ci95": [
+          -0.02845770316354211,
+          -6.943326394237235e-05
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 274,
+        "t_plus": 17846.0,
+        "p_two_sided": 0.450120061279755,
+        "method": "normal approximation with tie correction, 274 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.4501200612797549,
+        "scipy_agrees": true
+      },
+      "p": 0.450120061279755,
+      "n_better": 139,
+      "n_worse": 135,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.0142903385660462,
+      "registered_in_family": "family_secondary",
+      "favours": "M0_cont",
+      "holm": {
+        "p": 0.450120061279755,
+        "rank": 12,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.0125,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "phi_basin_mean:M1-vs-Q": {
+      "contrast": "phi_basin_mean:M1-vs-Q",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 275,
+      "arm_a": "M1",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "Q matching M1 once Q shares M1's trained encoder; a rollout-free arm that also lacks the representation cannot separate the two",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1560791197413884,
+      "b_mean": 2.1658967400678852,
+      "a_median": 2.124775727272034,
+      "b_median": 2.124196399021149,
+      "mean_difference": -0.009817620326496797,
+      "ci95": [
+        -0.023051270186535956,
+        0.0030354929241792985
+      ],
+      "bootstrap": {
+        "mean": -0.009817620326496797,
+        "ci95": [
+          -0.023051270186535956,
+          0.0030354929241792985
+        ],
+        "n": 275,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 275,
+        "n_nonzero": 275,
+        "t_plus": 17724.0,
+        "p_two_sided": 0.34328735416029976,
+        "method": "normal approximation with tie correction, 275 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.3432873541602999,
+        "scipy_agrees": true
+      },
+      "p": 0.34328735416029976,
+      "n_better": 141,
+      "n_worse": 134,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.009817620326496797,
+      "registered_in_family": "family_secondary",
+      "favours": "Q",
+      "holm": {
+        "p": 0.34328735416029976,
+        "rank": 11,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.01,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "phi_basin_mean:M1-vs-rand": {
+      "contrast": "phi_basin_mean:M1-vs-rand",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 273,
+      "arm_a": "M1",
+      "arm_b": "rand",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.15620849198469,
+      "b_mean": 2.1731220271070817,
+      "a_median": 2.1246822143554684,
+      "b_median": 2.1384079589162552,
+      "mean_difference": -0.016913535122391955,
+      "ci95": [
+        -0.03232338369552628,
+        -0.0018883660509893046
+      ],
+      "bootstrap": {
+        "mean": -0.016913535122391955,
+        "ci95": [
+          -0.03232338369552628,
+          -0.0018883660509893046
+        ],
+        "n": 273,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 273,
+        "n_nonzero": 273,
+        "t_plus": 13650.0,
+        "p_two_sided": 0.00010971859190520335,
+        "method": "normal approximation with tie correction, 273 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.00010971859190520307,
+        "scipy_agrees": true
+      },
+      "p": 0.00010971859190520335,
+      "n_better": 102,
+      "n_worse": 171,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.016913535122391955,
+      "registered_in_family": "family_secondary",
+      "favours": "rand",
+      "holm": {
+        "p": 0.00010971859190520335,
+        "rank": 2,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.0035714285714285718,
+        "p_adjusted": 0.001536060286672847,
+        "reject": true
+      }
+    },
+    "phi_basin_mean:M1-vs-M1_shuf": {
+      "contrast": "phi_basin_mean:M1-vs-M1_shuf",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "M1_shuf",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.156178987240843,
+      "b_mean": 2.152619114252235,
+      "a_median": 2.1247289708137513,
+      "b_median": 2.123715803395485,
+      "mean_difference": 0.0035598729886079923,
+      "ci95": [
+        -0.009110228830648461,
+        0.016212236240159203
+      ],
+      "bootstrap": {
+        "mean": 0.0035598729886079923,
+        "ci95": [
+          -0.009110228830648461,
+          0.016212236240159203
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 274,
+        "t_plus": 20466.0,
+        "p_two_sided": 0.21482344158787836,
+        "method": "normal approximation with tie correction, 274 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.21482344158787836,
+        "scipy_agrees": true
+      },
+      "p": 0.21482344158787836,
+      "n_better": 154,
+      "n_worse": 120,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.0035598729886079923,
+      "registered_in_family": "family_secondary",
+      "favours": "M1",
+      "holm": {
+        "p": 0.21482344158787836,
+        "rank": 10,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.008333333333333333,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "phi_basin_mean:M1-vs-base": {
+      "contrast": "phi_basin_mean:M1-vs-base",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "the same gain appearing for Q vs base, which places it in the deployment data rather than in the roll",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.156193365699306,
+      "b_mean": 2.119440646848904,
+      "a_median": 2.124750994491577,
+      "b_median": 2.114851820377509,
+      "mean_difference": 0.03675271885040139,
+      "ci95": [
+        0.025956140603652846,
+        0.048397873203290656
+      ],
+      "bootstrap": {
+        "mean": 0.03675271885040139,
+        "ci95": [
+          0.025956140603652846,
+          0.048397873203290656
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 274,
+        "t_plus": 29625.0,
+        "p_two_sided": 2.0913995514709376e-16,
+        "method": "normal approximation with tie correction, 274 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 2.0913995514709095e-16,
+        "scipy_agrees": true
+      },
+      "p": 2.0913995514709376e-16,
+      "n_better": 192,
+      "n_worse": 82,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.03675271885040139,
+      "registered_in_family": "family_secondary",
+      "favours": "M1",
+      "holm": {
+        "p": 2.0913995514709376e-16,
+        "rank": 1,
+        "family_size": 15,
+        "n_tests_run": 15,
+        "alpha_adjusted": 0.0033333333333333335,
+        "p_adjusted": 3.1370993272064062e-15,
+        "reject": true
+      }
+    }
+  },
+  "secondary_family_rejections": {
+    "rule": "Holm over the registered family of 15, two-sided; `favours` names the arm the ORIENTED difference points to, so a rejection against M1 is visible as such",
+    "n_rejected": 3,
+    "rejected": {
+      "stage:M1-vs-base": {
+        "favours": "M1",
+        "mean_difference_oriented": 0.12152777777777778,
+        "ci95": [
+          0.041666666666666664,
+          0.2013888888888889
+        ],
+        "p": 0.0010675899549014583,
+        "p_adjusted": 0.013878669413718958
+      },
+      "phi_basin_mean:M1-vs-rand": {
+        "favours": "rand",
+        "mean_difference_oriented": -0.016913535122391955,
+        "ci95": [
+          -0.03232338369552628,
+          -0.0018883660509893046
+        ],
+        "p": 0.00010971859190520335,
+        "p_adjusted": 0.001536060286672847
+      },
+      "phi_basin_mean:M1-vs-base": {
+        "favours": "M1",
+        "mean_difference_oriented": 0.03675271885040139,
+        "ci95": [
+          0.025956140603652846,
+          0.048397873203290656
+        ],
+        "p": 2.0913995514709376e-16,
+        "p_adjusted": 3.1370993272064062e-15
+      }
+    }
+  },
+  "wilcoxon_vs_mean_interval_disagreements": {
+    "rule": "the registered test is the Wilcoxon signed-rank; the CI is a bootstrap of the MEAN difference. Rows where the interval excludes zero and the Wilcoxon does not reach 0.05, or the reverse, are listed so neither is quoted as the other.",
+    "contrasts": [
+      "phi_basin_mean:M1-vs-M0_cont"
+    ]
+  },
+  "secondary_estimation_only_contrasts": {
+    "d_min_final_atom:M1-vs-M0_cont": {
+      "contrast": "d_min_final_atom:M1-vs-M0_cont",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "M0_cont",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.29188079404794226,
+      "b_mean": 0.2800736007914559,
+      "a_median": 0.2724831700325012,
+      "b_median": 0.25305190682411194,
+      "mean_difference": -0.011807193256486343,
+      "ci95": [
+        -0.03715504480553043,
+        0.013638756081570674
+      ],
+      "bootstrap": {
+        "mean": -0.011807193256486343,
+        "ci95": [
+          -0.03715504480553043,
+          0.013638756081570674
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 265,
+        "t_plus": 17293.0,
+        "p_two_sided": 0.7918988168629205,
+        "method": "normal approximation with tie correction, 265 non-zero pairs",
+        "n_zero_pairs": 9,
+        "scipy_p_two_sided": 0.7918988168629205,
+        "scipy_agrees": true
+      },
+      "p": 0.7918988168629205,
+      "n_better": 135,
+      "n_worse": 130,
+      "n_tied": 9,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": 0.011807193256486343,
+      "registered_in_family": null,
+      "multiplicity": "NOT in multiplicity.family_secondary; p is UNCORRECTED and this endpoint is estimation-only under the preregistration"
+    },
+    "d_min_final_atom:M1-vs-Q": {
+      "contrast": "d_min_final_atom:M1-vs-Q",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 275,
+      "arm_a": "M1",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "Q matching M1 once Q shares M1's trained encoder; a rollout-free arm that also lacks the representation cannot separate the two",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.2915718488954008,
+      "b_mean": 0.29648358494212684,
+      "a_median": 0.2709754705429077,
+      "b_median": 0.2820926606655121,
+      "mean_difference": 0.0049117360467260535,
+      "ci95": [
+        -0.02134917704473165,
+        0.03163375878960571
+      ],
+      "bootstrap": {
+        "mean": 0.0049117360467260535,
+        "ci95": [
+          -0.02134917704473165,
+          0.03163375878960571
+        ],
+        "n": 275,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 275,
+        "n_nonzero": 268,
+        "t_plus": 18778.0,
+        "p_two_sided": 0.5522051697231689,
+        "method": "normal approximation with tie correction, 268 non-zero pairs",
+        "n_zero_pairs": 7,
+        "scipy_p_two_sided": 0.5522051697231689,
+        "scipy_agrees": true
+      },
+      "p": 0.5522051697231689,
+      "n_better": 141,
+      "n_worse": 127,
+      "n_tied": 7,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.0049117360467260535,
+      "registered_in_family": null,
+      "multiplicity": "NOT in multiplicity.family_secondary; p is UNCORRECTED and this endpoint is estimation-only under the preregistration"
+    },
+    "d_min_final_atom:M1-vs-rand": {
+      "contrast": "d_min_final_atom:M1-vs-rand",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 273,
+      "arm_a": "M1",
+      "arm_b": "rand",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.29274492858373474,
+      "b_mean": 0.2224328088413774,
+      "a_median": 0.2739908695220947,
+      "b_median": 0.20825256407260895,
+      "mean_difference": -0.07031211974235736,
+      "ci95": [
+        -0.0982676957121576,
+        -0.04297492651852196
+      ],
+      "bootstrap": {
+        "mean": -0.07031211974235736,
+        "ci95": [
+          -0.0982676957121576,
+          -0.04297492651852196
+        ],
+        "n": 273,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 273,
+        "n_nonzero": 273,
+        "t_plus": 12989.0,
+        "p_two_sided": 1.21839798820865e-05,
+        "method": "normal approximation with tie correction, 273 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 1.2183979882086457e-05,
+        "scipy_agrees": true
+      },
+      "p": 1.21839798820865e-05,
+      "n_better": 115,
+      "n_worse": 158,
+      "n_tied": 0,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": 0.07031211974235736,
+      "registered_in_family": null,
+      "multiplicity": "NOT in multiplicity.family_secondary; p is UNCORRECTED and this endpoint is estimation-only under the preregistration"
+    },
+    "d_min_final_atom:M1-vs-M1_shuf": {
+      "contrast": "d_min_final_atom:M1-vs-M1_shuf",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "M1_shuf",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.29185451693785286,
+      "b_mean": 0.31225796456807325,
+      "a_median": 0.2724831700325012,
+      "b_median": 0.33849360048770905,
+      "mean_difference": 0.020403447630220384,
+      "ci95": [
+        -0.004681618399425226,
+        0.046300207852321355
+      ],
+      "bootstrap": {
+        "mean": 0.020403447630220384,
+        "ci95": [
+          -0.004681618399425226,
+          0.046300207852321355
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 269,
+        "t_plus": 20761.0,
+        "p_two_sided": 0.04149991611201654,
+        "method": "normal approximation with tie correction, 269 non-zero pairs",
+        "n_zero_pairs": 5,
+        "scipy_p_two_sided": 0.041499916112016505,
+        "scipy_agrees": true
+      },
+      "p": 0.04149991611201654,
+      "n_better": 148,
+      "n_worse": 121,
+      "n_tied": 5,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.020403447630220384,
+      "registered_in_family": null,
+      "multiplicity": "NOT in multiplicity.family_secondary; p is UNCORRECTED and this endpoint is estimation-only under the preregistration"
+    },
+    "d_min_final_atom:M1-vs-base": {
+      "contrast": "d_min_final_atom:M1-vs-base",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 274,
+      "arm_a": "M1",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "the same gain appearing for Q vs base, which places it in the deployment data rather than in the roll",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.2910226487374463,
+      "b_mean": 0.44006611595616885,
+      "a_median": 0.27033697068691254,
+      "b_median": 0.4997420012950897,
+      "mean_difference": 0.14904346721872253,
+      "ci95": [
+        0.12634557693513504,
+        0.17157312922934273
+      ],
+      "bootstrap": {
+        "mean": 0.14904346721872253,
+        "ci95": [
+          0.12634557693513504,
+          0.17157312922934273
+        ],
+        "n": 274,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 274,
+        "n_nonzero": 268,
+        "t_plus": 31461.0,
+        "p_two_sided": 3.6667149233967964e-26,
+        "method": "normal approximation with tie correction, 268 non-zero pairs",
+        "n_zero_pairs": 6,
+        "scipy_p_two_sided": 3.666714923396745e-26,
+        "scipy_agrees": true
+      },
+      "p": 3.6667149233967964e-26,
+      "n_better": 208,
+      "n_worse": 60,
+      "n_tied": 6,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.14904346721872253,
+      "registered_in_family": null,
+      "multiplicity": "NOT in multiplicity.family_secondary; p is UNCORRECTED and this endpoint is estimation-only under the preregistration"
+    }
+  },
+  "context_contrasts_uncorrected": {
+    "last_progress_step:M1-vs-M0": {
+      "contrast": "last_progress_step:M1-vs-M0",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "the same configuration retrained from a second initialisation closing the gap (seed variance at fixed hyperparameters was ~0.24 on 2026-09-01, larger than most between-arm differences), or the difference not reproducing on a second environment panel",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 308.15972222222223,
+      "b_mean": 313.9236111111111,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -5.763888888888889,
+      "ci95": [
+        -23.29861111111111,
+        10.868055555555555
+      ],
+      "bootstrap": {
+        "mean": -5.763888888888889,
+        "ci95": [
+          -23.29861111111111,
+          10.868055555555555
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 78,
+        "t_plus": 1444.5,
+        "p_two_sided": 0.6321825498561837,
+        "method": "normal approximation with tie correction, 78 non-zero pairs",
+        "n_zero_pairs": 210,
+        "scipy_p_two_sided": 0.6321825498561837,
+        "scipy_agrees": true
+      },
+      "p": 0.6321825498561837,
+      "n_better": 38,
+      "n_worse": 40,
+      "n_tied": 210,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -5.763888888888889,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "last_progress_step:M0_cont-vs-M0": {
+      "contrast": "last_progress_step:M0_cont-vs-M0",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0_cont",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 329.93055555555554,
+      "b_mean": 313.9236111111111,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": 16.006944444444443,
+      "ci95": [
+        -3.6805555555555554,
+        35.729166666666664
+      ],
+      "bootstrap": {
+        "mean": 16.006944444444443,
+        "ci95": [
+          -3.6805555555555554,
+          35.729166666666664
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 97,
+        "t_plus": 2812.5,
+        "p_two_sided": 0.11656799546843646,
+        "method": "normal approximation with tie correction, 97 non-zero pairs",
+        "n_zero_pairs": 191,
+        "scipy_p_two_sided": 0.11656799546843641,
+        "scipy_agrees": true
+      },
+      "p": 0.11656799546843646,
+      "n_better": 57,
+      "n_worse": 40,
+      "n_tied": 191,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 16.006944444444443,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "last_progress_step:M0-vs-base": {
+      "contrast": "last_progress_step:M0-vs-base",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "M1 vs M0 being null, which would make this a data effect that the WM update does not carry",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 313.9236111111111,
+      "b_mean": 286.31944444444446,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": 27.604166666666668,
+      "ci95": [
+        10.555555555555555,
+        44.826388888888886
+      ],
+      "bootstrap": {
+        "mean": 27.604166666666668,
+        "ci95": [
+          10.555555555555555,
+          44.826388888888886
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 66,
+        "t_plus": 1650.5,
+        "p_two_sided": 0.0004921385602257091,
+        "method": "normal approximation with tie correction, 66 non-zero pairs",
+        "n_zero_pairs": 222,
+        "scipy_p_two_sided": 0.0004921385602257092,
+        "scipy_agrees": true
+      },
+      "p": 0.0004921385602257091,
+      "n_better": 50,
+      "n_worse": 16,
+      "n_tied": 222,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 27.604166666666668,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "last_progress_step:Q-vs-base": {
+      "contrast": "last_progress_step:Q-vs-base",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "Q",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "nothing about the world model: this contrast is the model-free reference and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 330.65972222222223,
+      "b_mean": 286.31944444444446,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": 44.34027777777778,
+      "ci95": [
+        26.28472222222222,
+        62.46527777777778
+      ],
+      "bootstrap": {
+        "mean": 44.34027777777778,
+        "ci95": [
+          26.28472222222222,
+          62.46527777777778
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 79,
+        "t_plus": 2574.5,
+        "p_two_sided": 1.1581915661293723e-06,
+        "method": "normal approximation with tie correction, 79 non-zero pairs",
+        "n_zero_pairs": 209,
+        "scipy_p_two_sided": 1.1581915661293685e-06,
+        "scipy_agrees": true
+      },
+      "p": 1.1581915661293723e-06,
+      "n_better": 64,
+      "n_worse": 15,
+      "n_tied": 209,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 44.34027777777778,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "last_progress_step:rand-vs-base": {
+      "contrast": "last_progress_step:rand-vs-base",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "rand",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 311.49305555555554,
+      "b_mean": 286.31944444444446,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": 25.17361111111111,
+      "ci95": [
+        6.458333333333333,
+        43.541666666666664
+      ],
+      "bootstrap": {
+        "mean": 25.17361111111111,
+        "ci95": [
+          6.458333333333333,
+          43.541666666666664
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 77,
+        "t_plus": 2097.5,
+        "p_two_sided": 0.0024679496744132385,
+        "method": "normal approximation with tie correction, 77 non-zero pairs",
+        "n_zero_pairs": 211,
+        "scipy_p_two_sided": 0.0024679496744132393,
+        "scipy_agrees": true
+      },
+      "p": 0.0024679496744132385,
+      "n_better": 50,
+      "n_worse": 27,
+      "n_tied": 211,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 25.17361111111111,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "last_progress_step:M0-vs-Q": {
+      "contrast": "last_progress_step:M0-vs-Q",
+      "endpoint": "last_progress_step",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`.",
+      "overturned_by": "nothing about the WM update; it prices the stale model against no model at all and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 313.9236111111111,
+      "b_mean": 330.65972222222223,
+      "a_median": 260.0,
+      "b_median": 260.0,
+      "mean_difference": -16.73611111111111,
+      "ci95": [
+        -35.451388888888886,
+        1.3541666666666667
+      ],
+      "bootstrap": {
+        "mean": -16.73611111111111,
+        "ci95": [
+          -35.451388888888886,
+          1.3541666666666667
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 84,
+        "t_plus": 1366.5,
+        "p_two_sided": 0.06188967442776217,
+        "method": "normal approximation with tie correction, 84 non-zero pairs",
+        "n_zero_pairs": 204,
+        "scipy_p_two_sided": 0.06188967442776213,
+        "scipy_agrees": true
+      },
+      "p": 0.06188967442776217,
+      "n_better": 33,
+      "n_worse": 51,
+      "n_tied": 204,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -16.73611111111111,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:M1-vs-M0": {
+      "contrast": "phi_basin_mean:M1-vs-M0",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 275,
+      "arm_a": "M1",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "the same configuration retrained from a second initialisation closing the gap (seed variance at fixed hyperparameters was ~0.24 on 2026-09-01, larger than most between-arm differences), or the difference not reproducing on a second environment panel",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1560791197413884,
+      "b_mean": 2.1461580304698877,
+      "a_median": 2.124775727272034,
+      "b_median": 2.1211475538253786,
+      "mean_difference": 0.009921089271500833,
+      "ci95": [
+        -0.0024106653508503438,
+        0.022399364326861515
+      ],
+      "bootstrap": {
+        "mean": 0.009921089271500833,
+        "ci95": [
+          -0.0024106653508503438,
+          0.022399364326861515
+        ],
+        "n": 275,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 275,
+        "n_nonzero": 275,
+        "t_plus": 21504.0,
+        "p_two_sided": 0.055386292276042,
+        "method": "normal approximation with tie correction, 275 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.055386292276041964,
+        "scipy_agrees": true
+      },
+      "p": 0.055386292276042,
+      "n_better": 153,
+      "n_worse": 122,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.009921089271500833,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:M0_cont-vs-M0": {
+      "contrast": "phi_basin_mean:M0_cont-vs-M0",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0_cont",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1698290944295437,
+      "b_mean": 2.1459599204941937,
+      "a_median": 2.1245251204105133,
+      "b_median": 2.1211475538253786,
+      "mean_difference": 0.02386917393535028,
+      "ci95": [
+        0.010337153161278676,
+        0.03794908798261972
+      ],
+      "bootstrap": {
+        "mean": 0.02386917393535028,
+        "ci95": [
+          0.010337153161278676,
+          0.03794908798261972
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 277,
+        "t_plus": 23034.0,
+        "p_two_sided": 0.004589809343016872,
+        "method": "normal approximation with tie correction, 277 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.004589809343016874,
+        "scipy_agrees": true
+      },
+      "p": 0.004589809343016872,
+      "n_better": 149,
+      "n_worse": 128,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.02386917393535028,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:M0-vs-base": {
+      "contrast": "phi_basin_mean:M0-vs-base",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "M1 vs M0 being null, which would make this a data effect that the WM update does not carry",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.146046344457551,
+      "b_mean": 2.119451683662476,
+      "a_median": 2.1211475538253786,
+      "b_median": 2.1148669602473578,
+      "mean_difference": 0.026594660795074478,
+      "ci95": [
+        0.017287352989327657,
+        0.036585015724090286
+      ],
+      "bootstrap": {
+        "mean": 0.026594660795074478,
+        "ci95": [
+          0.017287352989327657,
+          0.036585015724090286
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 277,
+        "t_plus": 26370.0,
+        "p_two_sided": 9.586256851704794e-08,
+        "method": "normal approximation with tie correction, 277 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 9.586256851704762e-08,
+        "scipy_agrees": true
+      },
+      "p": 9.586256851704794e-08,
+      "n_better": 182,
+      "n_worse": 95,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.026594660795074478,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:Q-vs-base": {
+      "contrast": "phi_basin_mean:Q-vs-base",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 276,
+      "arm_a": "Q",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "nothing about the world model: this contrast is the model-free reference and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1658512803797265,
+      "b_mean": 2.119496887750956,
+      "a_median": 2.1242481856107713,
+      "b_median": 2.114877016500632,
+      "mean_difference": 0.04635439262877017,
+      "ci95": [
+        0.03473986186533288,
+        0.05885472453905476
+      ],
+      "bootstrap": {
+        "mean": 0.04635439262877017,
+        "ci95": [
+          0.03473986186533288,
+          0.05885472453905476
+        ],
+        "n": 276,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 276,
+        "n_nonzero": 275,
+        "t_plus": 29232.0,
+        "p_two_sided": 7.83944961521439e-15,
+        "method": "normal approximation with tie correction, 275 non-zero pairs",
+        "n_zero_pairs": 1,
+        "scipy_p_two_sided": 7.83944961521432e-15,
+        "scipy_agrees": true
+      },
+      "p": 7.83944961521439e-15,
+      "n_better": 200,
+      "n_worse": 75,
+      "n_tied": 1,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.04635439262877017,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:rand-vs-base": {
+      "contrast": "phi_basin_mean:rand-vs-base",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 273,
+      "arm_a": "rand",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1731836658323522,
+      "b_mean": 2.1194784494866257,
+      "a_median": 2.1387807033499895,
+      "b_median": 2.1148669602473578,
+      "mean_difference": 0.05370521634572643,
+      "ci95": [
+        0.04231391650115169,
+        0.06585031762904993
+      ],
+      "bootstrap": {
+        "mean": 0.05370521634572643,
+        "ci95": [
+          0.04231391650115169,
+          0.06585031762904993
+        ],
+        "n": 273,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 273,
+        "n_nonzero": 272,
+        "t_plus": 33224.0,
+        "p_two_sided": 1.47838018715546e-29,
+        "method": "normal approximation with tie correction, 272 non-zero pairs",
+        "n_zero_pairs": 1,
+        "scipy_p_two_sided": 1.4783801871554394e-29,
+        "scipy_agrees": true
+      },
+      "p": 1.47838018715546e-29,
+      "n_better": 223,
+      "n_worse": 49,
+      "n_tied": 1,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.05370521634572643,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "phi_basin_mean:M0-vs-Q": {
+      "contrast": "phi_basin_mean:M0-vs-Q",
+      "endpoint": "phi_basin_mean",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'.",
+      "overturned_by": "nothing about the WM update; it prices the stale model against no model at all and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 2.1460696558374424,
+      "b_mean": 2.1655420248543296,
+      "a_median": 2.121267636340597,
+      "b_median": 2.124196399021149,
+      "mean_difference": -0.019472369016887023,
+      "ci95": [
+        -0.0319648930805661,
+        -0.007440151700239911
+      ],
+      "bootstrap": {
+        "mean": -0.019472369016887023,
+        "ci95": [
+          -0.0319648930805661,
+          -0.007440151700239911
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 277,
+        "t_plus": 16549.0,
+        "p_two_sided": 0.04284940168763441,
+        "method": "normal approximation with tie correction, 277 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 0.04284940168763436,
+        "scipy_agrees": true
+      },
+      "p": 0.04284940168763441,
+      "n_better": 127,
+      "n_worse": 150,
+      "n_tied": 0,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.019472369016887023,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:M1-vs-M0": {
+      "contrast": "stage:M1-vs-M0",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "the same configuration retrained from a second initialisation closing the gap (seed variance at fixed hyperparameters was ~0.24 on 2026-09-01, larger than most between-arm differences), or the difference not reproducing on a second environment panel",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.072916666666667,
+      "b_mean": 4.111111111111111,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.03819444444444445,
+      "ci95": [
+        -0.11805555555555555,
+        0.03819444444444445
+      ],
+      "bootstrap": {
+        "mean": -0.03819444444444445,
+        "ci95": [
+          -0.11805555555555555,
+          0.03819444444444445
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 46,
+        "t_plus": 483.0,
+        "p_two_sided": 0.5190129258384384,
+        "method": "normal approximation with tie correction",
+        "n_zero_pairs": 242,
+        "scipy_p_two_sided": 0.5190129258384384,
+        "scipy_agrees": true
+      },
+      "p": 0.5190129258384384,
+      "n_better": 21,
+      "n_worse": 25,
+      "n_tied": 242,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.03819444444444445,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:M0_cont-vs-M0": {
+      "contrast": "stage:M0_cont-vs-M0",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0_cont",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.184027777777778,
+      "b_mean": 4.111111111111111,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": 0.07291666666666667,
+      "ci95": [
+        -0.010416666666666666,
+        0.15625
+      ],
+      "bootstrap": {
+        "mean": 0.07291666666666667,
+        "ci95": [
+          -0.010416666666666666,
+          0.15625
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 66,
+        "t_plus": 1369.5,
+        "p_two_sided": 0.08028333075630006,
+        "method": "normal approximation with tie correction, 66 non-zero pairs",
+        "n_zero_pairs": 222,
+        "scipy_p_two_sided": 0.08028333075630005,
+        "scipy_agrees": true
+      },
+      "p": 0.08028333075630006,
+      "n_better": 42,
+      "n_worse": 24,
+      "n_tied": 222,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.07291666666666667,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:M0-vs-base": {
+      "contrast": "stage:M0-vs-base",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "M1 vs M0 being null, which would make this a data effect that the WM update does not carry",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.111111111111111,
+      "b_mean": 3.951388888888889,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": 0.1597222222222222,
+      "ci95": [
+        0.09027777777777778,
+        0.2326388888888889
+      ],
+      "bootstrap": {
+        "mean": 0.1597222222222222,
+        "ci95": [
+          0.09027777777777778,
+          0.2326388888888889
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 43,
+        "t_plus": 812.0,
+        "p_two_sided": 2.5063222508867387e-05,
+        "method": "normal approximation with tie correction",
+        "n_zero_pairs": 245,
+        "scipy_p_two_sided": 2.5063222508867326e-05,
+        "scipy_agrees": true
+      },
+      "p": 2.5063222508867387e-05,
+      "n_better": 35,
+      "n_worse": 8,
+      "n_tied": 245,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.1597222222222222,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:Q-vs-base": {
+      "contrast": "stage:Q-vs-base",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "Q",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "nothing about the world model: this contrast is the model-free reference and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.1875,
+      "b_mean": 3.951388888888889,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": 0.2361111111111111,
+      "ci95": [
+        0.1527777777777778,
+        0.3194444444444444
+      ],
+      "bootstrap": {
+        "mean": 0.2361111111111111,
+        "ci95": [
+          0.1527777777777778,
+          0.3194444444444444
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 56,
+        "t_plus": 1441.5,
+        "p_two_sided": 6.902051204974299e-08,
+        "method": "normal approximation with tie correction, 56 non-zero pairs",
+        "n_zero_pairs": 232,
+        "scipy_p_two_sided": 6.902051204974281e-08,
+        "scipy_agrees": true
+      },
+      "p": 6.902051204974299e-08,
+      "n_better": 51,
+      "n_worse": 5,
+      "n_tied": 232,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.2361111111111111,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:rand-vs-base": {
+      "contrast": "stage:rand-vs-base",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "rand",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.149305555555555,
+      "b_mean": 3.951388888888889,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": 0.19791666666666666,
+      "ci95": [
+        0.1111111111111111,
+        0.2847222222222222
+      ],
+      "bootstrap": {
+        "mean": 0.19791666666666666,
+        "ci95": [
+          0.1111111111111111,
+          0.2847222222222222
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 58,
+        "t_plus": 1399.5,
+        "p_two_sided": 1.4259245439466037e-05,
+        "method": "normal approximation with tie correction, 58 non-zero pairs",
+        "n_zero_pairs": 230,
+        "scipy_p_two_sided": 1.4259245439465993e-05,
+        "scipy_agrees": true
+      },
+      "p": 1.4259245439466037e-05,
+      "n_better": 47,
+      "n_worse": 11,
+      "n_tied": 230,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": 0.19791666666666666,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "stage:M0-vs-Q": {
+      "contrast": "stage:M0-vs-Q",
+      "endpoint": "stage",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M0",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs.",
+      "overturned_by": "nothing about the WM update; it prices the stale model against no model at all and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 4.111111111111111,
+      "b_mean": 4.1875,
+      "a_median": 4.0,
+      "b_median": 4.0,
+      "mean_difference": -0.0763888888888889,
+      "ci95": [
+        -0.15625,
+        0.003472222222222222
+      ],
+      "bootstrap": {
+        "mean": -0.0763888888888889,
+        "ci95": [
+          -0.15625,
+          0.003472222222222222
+        ],
+        "n": 288,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 288,
+        "n_nonzero": 61,
+        "t_plus": 678.0,
+        "p_two_sided": 0.04605895022566117,
+        "method": "normal approximation with tie correction, 61 non-zero pairs",
+        "n_zero_pairs": 227,
+        "scipy_p_two_sided": 0.04605895022566114,
+        "scipy_agrees": true
+      },
+      "p": 0.04605895022566117,
+      "n_better": 21,
+      "n_worse": 40,
+      "n_tied": 227,
+      "direction": 1,
+      "oriented": false,
+      "raw_mean_difference": -0.0763888888888889,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:M1-vs-M0": {
+      "contrast": "d_min_final_atom:M1-vs-M0",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 275,
+      "arm_a": "M1",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "the same configuration retrained from a second initialisation closing the gap (seed variance at fixed hyperparameters was ~0.24 on 2026-09-01, larger than most between-arm differences), or the difference not reproducing on a second environment panel",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.2915718488954008,
+      "b_mean": 0.32738461480560627,
+      "a_median": 0.2709754705429077,
+      "b_median": 0.3896804749965668,
+      "mean_difference": 0.03581276591020552,
+      "ci95": [
+        0.011661210376769305,
+        0.05964458916166967
+      ],
+      "bootstrap": {
+        "mean": 0.03581276591020552,
+        "ci95": [
+          0.011661210376769305,
+          0.05964458916166967
+        ],
+        "n": 275,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 275,
+        "n_nonzero": 265,
+        "t_plus": 21146.0,
+        "p_two_sided": 0.004781045668397209,
+        "method": "normal approximation with tie correction, 265 non-zero pairs",
+        "n_zero_pairs": 10,
+        "scipy_p_two_sided": 0.004781045668397206,
+        "scipy_agrees": true
+      },
+      "p": 0.004781045668397209,
+      "n_better": 152,
+      "n_worse": 113,
+      "n_tied": 10,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.03581276591020552,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:M0_cont-vs-M0": {
+      "contrast": "d_min_final_atom:M0_cont-vs-M0",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0_cont",
+      "arm_b": "M0",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.2823371846768467,
+      "b_mean": 0.3279324524635819,
+      "a_median": 0.25392648577690125,
+      "b_median": 0.39126524329185486,
+      "mean_difference": 0.04559526778673518,
+      "ci95": [
+        0.01931753528341382,
+        0.07157192311488388
+      ],
+      "bootstrap": {
+        "mean": 0.04559526778673518,
+        "ci95": [
+          0.01931753528341382,
+          0.07157192311488388
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 267,
+        "t_plus": 22204.0,
+        "p_two_sided": 0.0006342235950033156,
+        "method": "normal approximation with tie correction, 267 non-zero pairs",
+        "n_zero_pairs": 10,
+        "scipy_p_two_sided": 0.0006342235950033153,
+        "scipy_agrees": true
+      },
+      "p": 0.0006342235950033156,
+      "n_better": 156,
+      "n_worse": 111,
+      "n_tied": 10,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.04559526778673518,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:M0-vs-base": {
+      "contrast": "d_min_final_atom:M0-vs-base",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "M1 vs M0 being null, which would make this a data effect that the WM update does not carry",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.3268683025519286,
+      "b_mean": 0.44004806449690614,
+      "a_median": 0.3896804749965668,
+      "b_median": 0.49976515769958496,
+      "mean_difference": 0.11317976194497749,
+      "ci95": [
+        0.08831726117916944,
+        0.13784188025173755
+      ],
+      "bootstrap": {
+        "mean": 0.11317976194497749,
+        "ci95": [
+          0.08831726117916944,
+          0.13784188025173755
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 269,
+        "t_plus": 29230.0,
+        "p_two_sided": 4.336528535763802e-18,
+        "method": "normal approximation with tie correction, 269 non-zero pairs",
+        "n_zero_pairs": 8,
+        "scipy_p_two_sided": 4.336528535763747e-18,
+        "scipy_agrees": true
+      },
+      "p": 4.336528535763802e-18,
+      "n_better": 200,
+      "n_worse": 69,
+      "n_tied": 8,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.11317976194497749,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:Q-vs-base": {
+      "contrast": "d_min_final_atom:Q-vs-base",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 276,
+      "arm_a": "Q",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "nothing about the world model: this contrast is the model-free reference and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.29589017837112636,
+      "b_mean": 0.4394089950339707,
+      "a_median": 0.2800859957933426,
+      "b_median": 0.49960458278656006,
+      "mean_difference": 0.14351881666284433,
+      "ci95": [
+        0.11911643917277537,
+        0.16865865776122993
+      ],
+      "bootstrap": {
+        "mean": 0.14351881666284433,
+        "ci95": [
+          0.11911643917277537,
+          0.16865865776122993
+        ],
+        "n": 276,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 276,
+        "n_nonzero": 267,
+        "t_plus": 30292.0,
+        "p_two_sided": 9.19104451002561e-23,
+        "method": "normal approximation with tie correction, 267 non-zero pairs",
+        "n_zero_pairs": 9,
+        "scipy_p_two_sided": 9.19104451002549e-23,
+        "scipy_agrees": true
+      },
+      "p": 9.19104451002561e-23,
+      "n_better": 201,
+      "n_worse": 66,
+      "n_tied": 9,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.14351881666284433,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:rand-vs-base": {
+      "contrast": "d_min_final_atom:rand-vs-base",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 273,
+      "arm_a": "rand",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "not registered",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.22198320833126922,
+      "b_mean": 0.4395530788627054,
+      "a_median": 0.20825256407260895,
+      "b_median": 0.4997188448905945,
+      "mean_difference": 0.21756987053143617,
+      "ci95": [
+        0.1926889186588563,
+        0.2423354697545083
+      ],
+      "bootstrap": {
+        "mean": 0.21756987053143617,
+        "ci95": [
+          0.1926889186588563,
+          0.2423354697545083
+        ],
+        "n": 273,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 273,
+        "n_nonzero": 273,
+        "t_plus": 34556.0,
+        "p_two_sided": 6.229370272940202e-34,
+        "method": "normal approximation with tie correction, 273 non-zero pairs",
+        "n_zero_pairs": 0,
+        "scipy_p_two_sided": 6.22937027294017e-34,
+        "scipy_agrees": true
+      },
+      "p": 6.229370272940202e-34,
+      "n_better": 231,
+      "n_worse": 42,
+      "n_tied": 0,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": -0.21756987053143617,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    },
+    "d_min_final_atom:M0-vs-Q": {
+      "contrast": "d_min_final_atom:M0-vs-Q",
+      "endpoint": "d_min_final_atom",
+      "endpoint_tier": "secondary",
+      "available": true,
+      "n_paired": 277,
+      "arm_a": "M0",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it.",
+      "overturned_by": "nothing about the WM update; it prices the stale model against no model at all and is reported as context only",
+      "test": "Wilcoxon signed-rank (paired) + fixed-seed paired bootstrap CI of the mean difference",
+      "a_mean": 0.32683234206915224,
+      "b_mean": 0.2979889961534486,
+      "a_median": 0.3896804749965668,
+      "b_median": 0.28694844245910645,
+      "mean_difference": -0.028843345915703675,
+      "ci95": [
+        -0.05445209690218368,
+        -0.00334356288553387
+      ],
+      "bootstrap": {
+        "mean": -0.028843345915703675,
+        "ci95": [
+          -0.05445209690218368,
+          -0.00334356288553387
+        ],
+        "n": 277,
+        "resamples": 10000,
+        "seed": 20260729,
+        "source": "scripts/analyze_behavior_factorial.py:cluster_bootstrap"
+      },
+      "wilcoxon": {
+        "n_pairs": 277,
+        "n_nonzero": 264,
+        "t_plus": 14862.0,
+        "p_two_sided": 0.03431888103333934,
+        "method": "normal approximation with tie correction, 264 non-zero pairs",
+        "n_zero_pairs": 13,
+        "scipy_p_two_sided": 0.03431888103333934,
+        "scipy_agrees": true
+      },
+      "p": 0.03431888103333934,
+      "n_better": 119,
+      "n_worse": 145,
+      "n_tied": 13,
+      "direction": -1,
+      "oriented": true,
+      "raw_mean_difference": 0.028843345915703675,
+      "multiplicity": "registered under multiplicity.uncorrected: descriptive, reported with an interval and an uncorrected p-value"
+    }
+  },
+  "primary_family_reproduced": {
+    "milestone4:M1-vs-M0_cont": {
+      "contrast": "milestone4:M1-vs-M0_cont",
+      "endpoint": "milestone4",
+      "endpoint_tier": "primary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M0_cont",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "overturned_by": "not registered",
+      "test": "exact McNemar (paired, discordant pairs only)",
+      "a_count": 39,
+      "b_count": 56,
+      "a_rate": 0.13541666666666666,
+      "b_rate": 0.19444444444444445,
+      "a_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "b_cp95": [
+        0.15035352052918843,
+        0.24494662155883373
+      ],
+      "discordant": {
+        "b": 17,
+        "c": 34,
+        "n_discordant": 51,
+        "p_two_sided": 0.024092907698449295,
+        "p_one_sided_a_greater": 0.9945132185501397,
+        "method": "exact binomial",
+        "scipy_p_two_sided": 0.024092907698449295,
+        "scipy_agrees": true
+      },
+      "p": 0.024092907698449295,
+      "p_one_sided_a_greater": 0.9945132185501397,
+      "effect_rate_difference": -0.059027777777777776,
+      "holm": {
+        "p": 0.024092907698449295,
+        "rank": 2,
+        "family_size": 5,
+        "n_tests_run": 5,
+        "alpha_adjusted": 0.0125,
+        "p_adjusted": 0.09637163079379718,
+        "reject": false
+      }
+    },
+    "milestone4:M1-vs-Q": {
+      "contrast": "milestone4:M1-vs-Q",
+      "endpoint": "milestone4",
+      "endpoint_tier": "primary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "Q",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "overturned_by": "Q matching M1 once Q shares M1's trained encoder; a rollout-free arm that also lacks the representation cannot separate the two",
+      "test": "exact McNemar (paired, discordant pairs only)",
+      "a_count": 39,
+      "b_count": 55,
+      "a_rate": 0.13541666666666666,
+      "b_rate": 0.1909722222222222,
+      "a_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "b_cp95": [
+        0.1472280436557002,
+        0.24120253818013765
+      ],
+      "discordant": {
+        "b": 17,
+        "c": 33,
+        "n_discordant": 50,
+        "p_two_sided": 0.032839137564268484,
+        "p_one_sided_a_greater": 0.992326661083685,
+        "method": "exact binomial",
+        "scipy_p_two_sided": 0.032839137564268484,
+        "scipy_agrees": true
+      },
+      "p": 0.032839137564268484,
+      "p_one_sided_a_greater": 0.992326661083685,
+      "effect_rate_difference": -0.05555555555555555,
+      "holm": {
+        "p": 0.032839137564268484,
+        "rank": 3,
+        "family_size": 5,
+        "n_tests_run": 5,
+        "alpha_adjusted": 0.016666666666666666,
+        "p_adjusted": 0.09851741269280545,
+        "reject": false
+      }
+    },
+    "milestone4:M1-vs-rand": {
+      "contrast": "milestone4:M1-vs-rand",
+      "endpoint": "milestone4",
+      "endpoint_tier": "primary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "rand",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "overturned_by": "not registered",
+      "test": "exact McNemar (paired, discordant pairs only)",
+      "a_count": 39,
+      "b_count": 46,
+      "a_rate": 0.13541666666666666,
+      "b_rate": 0.1597222222222222,
+      "a_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "b_cp95": [
+        0.11937195701532669,
+        0.2072383022972386
+      ],
+      "discordant": {
+        "b": 30,
+        "c": 37,
+        "n_discordant": 67,
+        "p_two_sided": 0.4638176178968696,
+        "p_one_sided_a_greater": 0.835783968651405,
+        "method": "exact binomial",
+        "scipy_p_two_sided": 0.46381761789686937,
+        "scipy_agrees": true
+      },
+      "p": 0.4638176178968696,
+      "p_one_sided_a_greater": 0.835783968651405,
+      "effect_rate_difference": -0.024305555555555556,
+      "holm": {
+        "p": 0.4638176178968696,
+        "rank": 4,
+        "family_size": 5,
+        "n_tests_run": 5,
+        "alpha_adjusted": 0.025,
+        "p_adjusted": 0.9276352357937392,
+        "reject": false
+      }
+    },
+    "milestone4:M1-vs-M1_shuf": {
+      "contrast": "milestone4:M1-vs-M1_shuf",
+      "endpoint": "milestone4",
+      "endpoint_tier": "primary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "M1_shuf",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "overturned_by": "not registered",
+      "test": "exact McNemar (paired, discordant pairs only)",
+      "a_count": 39,
+      "b_count": 39,
+      "a_rate": 0.13541666666666666,
+      "b_rate": 0.13541666666666666,
+      "a_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "b_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "discordant": {
+        "b": 25,
+        "c": 25,
+        "n_discordant": 50,
+        "p_two_sided": 1.0,
+        "p_one_sided_a_greater": 0.5561375863296085,
+        "method": "exact binomial",
+        "scipy_p_two_sided": 1.0,
+        "scipy_agrees": true
+      },
+      "p": 1.0,
+      "p_one_sided_a_greater": 0.5561375863296085,
+      "effect_rate_difference": 0.0,
+      "holm": {
+        "p": 1.0,
+        "rank": 5,
+        "family_size": 5,
+        "n_tests_run": 5,
+        "alpha_adjusted": 0.05,
+        "p_adjusted": 1.0,
+        "reject": false
+      }
+    },
+    "milestone4:M1-vs-base": {
+      "contrast": "milestone4:M1-vs-base",
+      "endpoint": "milestone4",
+      "endpoint_tier": "primary",
+      "available": true,
+      "n_paired": 288,
+      "arm_a": "M1",
+      "arm_b": "base",
+      "panel": "9100-9387 (n=288)",
+      "endpoint_caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task.",
+      "overturned_by": "the same gain appearing for Q vs base, which places it in the deployment data rather than in the roll",
+      "test": "exact McNemar (paired, discordant pairs only)",
+      "a_count": 39,
+      "b_count": 12,
+      "a_rate": 0.13541666666666666,
+      "b_rate": 0.041666666666666664,
+      "a_cp95": [
+        0.09809778830865251,
+        0.1804395524640261
+      ],
+      "b_cp95": [
+        0.021712181473593932,
+        0.07165162010992979
+      ],
+      "discordant": {
+        "b": 34,
+        "c": 7,
+        "n_discordant": 41,
+        "p_two_sided": 2.532080361561384e-05,
+        "p_one_sided_a_greater": 1.266040180780692e-05,
+        "method": "exact binomial",
+        "scipy_p_two_sided": 2.532080361561384e-05,
+        "scipy_agrees": true
+      },
+      "p": 2.532080361561384e-05,
+      "p_one_sided_a_greater": 1.266040180780692e-05,
+      "effect_rate_difference": 0.09375,
+      "holm": {
+        "p": 2.532080361561384e-05,
+        "rank": 1,
+        "family_size": 5,
+        "n_tests_run": 5,
+        "alpha_adjusted": 0.01,
+        "p_adjusted": 0.0001266040180780692,
+        "reject": true
+      }
+    }
+  },
+  "correctness_check": {
+    "description": "the PRIMARY milestone-4 McNemar recomputed through the imported eval_v251_round.contrast and compared against the published 2026-09-13 table",
+    "published_source": "plan_and_progress/2026-09-13.md, the round's reported primary table; the two rows named in this task's brief are M1-vs-base and M1-vs-M1_shuf and all five are checked",
+    "cases": {
+      "milestone4:M1-vs-base": {
+        "published": {
+          "a_count": 39,
+          "b_count": 12,
+          "b_disc": 34,
+          "c_disc": 7,
+          "p": 3.05e-05
+        },
+        "recomputed": {
+          "a_count": 39,
+          "b_count": 12,
+          "b_disc": 34,
+          "c_disc": 7,
+          "p": 2.532080361561384e-05
+        },
+        "p_tolerance": 5e-08,
+        "counts_match": true,
+        "p_match": false,
+        "match": false,
+        "scipy_p": 2.532080361561384e-05,
+        "scipy_agrees_with_pipeline": true
+      },
+      "milestone4:M1-vs-M0_cont": {
+        "published": {
+          "a_count": 39,
+          "b_count": 56,
+          "b_disc": 17,
+          "c_disc": 34,
+          "p": 0.0241
+        },
+        "recomputed": {
+          "a_count": 39,
+          "b_count": 56,
+          "b_disc": 17,
+          "c_disc": 34,
+          "p": 0.024092907698449295
+        },
+        "p_tolerance": 5e-05,
+        "counts_match": true,
+        "p_match": true,
+        "match": true,
+        "scipy_p": 0.024092907698449295,
+        "scipy_agrees_with_pipeline": true
+      },
+      "milestone4:M1-vs-Q": {
+        "published": {
+          "a_count": 39,
+          "b_count": 55,
+          "b_disc": 17,
+          "c_disc": 33,
+          "p": 0.0328
+        },
+        "recomputed": {
+          "a_count": 39,
+          "b_count": 55,
+          "b_disc": 17,
+          "c_disc": 33,
+          "p": 0.032839137564268484
+        },
+        "p_tolerance": 5e-05,
+        "counts_match": true,
+        "p_match": true,
+        "match": true,
+        "scipy_p": 0.032839137564268484,
+        "scipy_agrees_with_pipeline": true
+      },
+      "milestone4:M1-vs-rand": {
+        "published": {
+          "a_count": 39,
+          "b_count": 46,
+          "b_disc": 30,
+          "c_disc": 37,
+          "p": 0.4638
+        },
+        "recomputed": {
+          "a_count": 39,
+          "b_count": 46,
+          "b_disc": 30,
+          "c_disc": 37,
+          "p": 0.4638176178968696
+        },
+        "p_tolerance": 5e-05,
+        "counts_match": true,
+        "p_match": true,
+        "match": true,
+        "scipy_p": 0.46381761789686937,
+        "scipy_agrees_with_pipeline": true
+      },
+      "milestone4:M1-vs-M1_shuf": {
+        "published": {
+          "a_count": 39,
+          "b_count": 39,
+          "b_disc": 25,
+          "c_disc": 25,
+          "p": 1.0
+        },
+        "recomputed": {
+          "a_count": 39,
+          "b_count": 39,
+          "b_disc": 25,
+          "c_disc": 25,
+          "p": 1.0
+        },
+        "p_tolerance": 5e-05,
+        "counts_match": true,
+        "p_match": true,
+        "match": true,
+        "scipy_p": 1.0,
+        "scipy_agrees_with_pipeline": true
+      }
+    },
+    "counts_passed": true,
+    "p_passed": false,
+    "passed": false,
+    "p_discrepancies": [
+      "milestone4:M1-vs-base"
+    ],
+    "discrepancy_note": "the discordant tables reproduce EXACTLY on all 5 published rows; 1 p-value(s) do not match the published digits: ['milestone4:M1-vs-base']. For M1-vs-base the pipeline's exact McNemar on b=34, c=7 is 2*P(X<=7 | Bin(41, 1/2)) = 2.5321e-05, which scipy.stats.binomtest reproduces to 1e-16, while the published figure 3.05e-05 is 2^-15 exactly. The recomputation is what eval_v251_round.exact_mcnemar returns from the surviving per-episode records; this report does not adjust it to the published digits, and the published figure is flagged rather than reconciled. The Holm-adjusted value changes with it: 5 x 2.5321e-05 = 1.266e-04 against the published 0.00015. Neither crosses any decision boundary, so no reported rejection changes."
+  }
+}

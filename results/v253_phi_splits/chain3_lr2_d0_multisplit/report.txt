@@ -1,0 +1,32 @@
+Phi' head multi-split diagnostic - chain3_lr2_d0_multisplit - 2026-09-16T210514Z
+head: LayerNorm -> Linear(8217,256) -> GELU -> Linear(256,1), 3000 steps, batch 256, lr 1e-3, wd 1e-2, holdout 0.2, region chunk >= 26
+
+D0 only: 96 episodes, 7296 boundaries, 4800 in region
+  seed  tr/ho eps    tr/ho bnd   region r  region rho  all-bnd r
+   251   76/20     3800/1000      -0.4246     -0.1062    -0.8355
+   252   78/18     3900/900       +0.0482     +0.0321    -0.5620
+   253   82/14     4100/700       -0.0085     +0.0338    -0.6428
+   254   76/20     3800/1000      -0.3990     -0.1060    -0.7363
+   255   69/27     3450/1350      +0.0813     -0.0150    -0.6717
+   256   78/18     3900/900       -0.0373     -0.0149    -0.6235
+   257   82/14     4100/700       +0.2899     +0.0197    -0.7536
+   258   81/15     4050/750       +0.1088     +0.0003    -0.8223
+  region_holdout_pearson: min -0.4246 median +0.0199 mean -0.0427 max +0.2899 sd 0.2322  positive 4/8
+  region_holdout_spearman: min -0.1062 median -0.0073 mean -0.0196 max +0.0338 sd 0.0530  positive 4/8
+  all_boundary_holdout_pearson: min -0.8355 median -0.7040 mean -0.7060 max -0.5620 sd 0.0910  positive 0/8
+  all_boundary_holdout_spearman: min -0.6036 median -0.4504 mean -0.4438 max -0.2626 sd 0.1187  positive 0/8
+  region_holdout_mse: min +0.0433 median +0.1523 mean +0.2822 max +1.0165 sd 0.3008  positive 8/8
+
+deployed bundle (D0 + four D1 runs), seed 251 = the deployed fit:
+  seed  tr/ho eps    tr/ho bnd   region r  region rho  all-bnd r
+   251  151/41     7550/2050      +0.3886     +0.1291    +0.8439
+   252  148/44     7400/2200      +0.0744     +0.1071    +0.7092
+   253  156/36     7800/1800      +0.2599     -0.0572    +0.7124
+   254  157/35     7850/1750      +0.3810     +0.2133    +0.7385
+   255  145/47     7250/2350      +0.2032     +0.0401    +0.6193
+  region_holdout_pearson: min +0.0744 median +0.2599 mean +0.2614 max +0.3886 sd 0.1173  positive 5/5
+  region_holdout_spearman: min -0.0572 median +0.1071 mean +0.0865 max +0.2133 sd 0.0907  positive 4/5
+  all_boundary_holdout_pearson: min +0.6193 median +0.7124 mean +0.7246 max +0.8439 sd 0.0720  positive 5/5
+  all_boundary_holdout_spearman: min +0.5248 median +0.6318 mean +0.6103 max +0.6773 sd 0.0583  positive 5/5
+  region_holdout_mse: min +0.0740 median +0.1121 mean +0.1046 max +0.1360 sd 0.0224  positive 5/5
+  reproduction of the deployed head: bitwise True, split identical True
