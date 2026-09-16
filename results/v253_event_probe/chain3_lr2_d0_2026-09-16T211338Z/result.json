@@ -1,0 +1,244 @@
+{
+ "utc": "2026-09-16T211338Z",
+ "task": "chain3_lr2",
+ "env_steps": 0,
+ "source": "results/v250_chain3_round/chain3_lr2_d0_2026-09-12T224639Z",
+ "tape_sha256": "f193ddc2c1efb1a41a09ace37268c12c81db4f4b1333a1ead873780f3e7f1ef3",
+ "labels_sha256": "f50b67af052ab675e9938068531c4a755ac9506f4a7efee73fa1b7687dcb6cce",
+ "n_boundaries": 7200,
+ "n_episodes": 96,
+ "folds": 5,
+ "lam": 1.0,
+ "seed": 253,
+ "split": "episode-disjoint",
+ "probe": "dual-form ridge, AUC",
+ "results": [
+  {
+   "bit": 0,
+   "atom": "['in', 'alphabet_soup_1', 'basket_1_contain_region']",
+   "base_rate": 0.784166693687439,
+   "per_fold": [
+    {
+     "fold": 0,
+     "n_train_ep": 5700,
+     "n_test_ep": 1500,
+     "pos_rate_test": 0.768666684627533,
+     "clock": 0.9117000882299277,
+     "latent": 0.9755755565608824,
+     "latent_clock": 0.9764778512888318
+    },
+    {
+     "fold": 1,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.7698245644569397,
+     "clock": 0.906563354603464,
+     "latent": 0.9449135113502457,
+     "latent_clock": 0.9243946906196501
+    },
+    {
+     "fold": 2,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.8028070330619812,
+     "clock": 0.9985721573799866,
+     "latent": 0.9981833113505711,
+     "latent_clock": 0.9978100191623324
+    },
+    {
+     "fold": 3,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.8042105436325073,
+     "clock": 0.9981484609081299,
+     "latent": 0.999371352436713,
+     "latent_clock": 0.9992556312434712
+    },
+    {
+     "fold": 4,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.7761403322219849,
+     "clock": 0.9033031569042045,
+     "latent": 0.9406656198450175,
+     "latent_clock": 0.9460905746370609
+    }
+   ],
+   "summary": {
+    "clock": {
+     "mean": 0.9436574436051426,
+     "min": 0.9033031569042045,
+     "max": 0.9985721573799866,
+     "sd": 0.05002651599969572
+    },
+    "latent": {
+     "mean": 0.971741870308686,
+     "min": 0.9406656198450175,
+     "max": 0.999371352436713,
+     "sd": 0.02811907459625189
+    },
+    "latent_clock": {
+     "mean": 0.9688057533902693,
+     "min": 0.9243946906196501,
+     "max": 0.9992556312434712,
+     "sd": 0.03284670996699137
+    },
+    "latent_minus_clock": {
+     "mean": 0.028084426703543407,
+     "min": -0.0003888460294154683,
+     "max": 0.0638754683309547,
+     "folds_latent_wins": 4,
+     "folds": 5
+    }
+   }
+  },
+  {
+   "bit": 1,
+   "atom": "['in', 'tomato_sauce_1', 'basket_1_contain_region']",
+   "base_rate": 0.6230555772781372,
+   "per_fold": [
+    {
+     "fold": 0,
+     "n_train_ep": 5700,
+     "n_test_ep": 1500,
+     "pos_rate_test": 0.625333309173584,
+     "clock": 0.9692519861293432,
+     "latent": 0.9949085280258595,
+     "latent_clock": 0.9940510968290222
+    },
+    {
+     "fold": 1,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.6196491122245789,
+     "clock": 0.9524850288140481,
+     "latent": 0.973436331192304,
+     "latent_clock": 0.9753900030506534
+    },
+    {
+     "fold": 2,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.648421049118042,
+     "clock": 0.9973840198391096,
+     "latent": 0.9939687724118862,
+     "latent_clock": 0.9949300533132869
+    },
+    {
+     "fold": 3,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.6168420910835266,
+     "clock": 0.9537248871719861,
+     "latent": 0.9635241512374618,
+     "latent_clock": 0.9529518642146628
+    },
+    {
+     "fold": 4,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.604912281036377,
+     "clock": 0.9399348040205561,
+     "latent": 0.94926499981455,
+     "latent_clock": 0.946456462520554
+    }
+   ],
+   "summary": {
+    "clock": {
+     "mean": 0.9625561451950088,
+     "min": 0.9399348040205561,
+     "max": 0.9973840198391096,
+     "sd": 0.02207350628016626
+    },
+    "latent": {
+     "mean": 0.9750205565364123,
+     "min": 0.94926499981455,
+     "max": 0.9949085280258595,
+     "sd": 0.01970147267097273
+    },
+    "latent_clock": {
+     "mean": 0.9727558959856358,
+     "min": 0.946456462520554,
+     "max": 0.9949300533132869,
+     "sd": 0.022560902171408888
+    },
+    "latent_minus_clock": {
+     "mean": 0.012464411341403702,
+     "min": -0.0034152474272234334,
+     "max": 0.02565654189651634,
+     "folds_latent_wins": 4,
+     "folds": 5
+    }
+   }
+  },
+  {
+   "bit": 2,
+   "atom": "['in', 'cream_cheese_1', 'basket_1_contain_region']",
+   "base_rate": 0.012361111119389534,
+   "per_fold": [
+    {
+     "fold": 0,
+     "n_train_ep": 5700,
+     "n_test_ep": 1500,
+     "pos_rate_test": 0.017999999225139618,
+     "clock": 0.8252495536949033,
+     "latent": 0.655100450076689,
+     "latent_clock": 0.7572603153051218
+    },
+    {
+     "fold": 1,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.011929824948310852,
+     "clock": 0.9156500668449198,
+     "latent": 0.875543114973262,
+     "latent_clock": 0.894802807486631
+    },
+    {
+     "fold": 2,
+     "note": "held-out fold is single-class"
+    },
+    {
+     "fold": 3,
+     "note": "held-out fold is single-class"
+    },
+    {
+     "fold": 4,
+     "n_train_ep": 5775,
+     "n_test_ep": 1425,
+     "pos_rate_test": 0.031578946858644485,
+     "clock": 0.8267149758454106,
+     "latent": 0.46264090177133654,
+     "latent_clock": 0.5537842190016103
+    }
+   ],
+   "summary": {
+    "clock": {
+     "mean": 0.8558715321284112,
+     "min": 0.8252495536949033,
+     "max": 0.9156500668449198,
+     "sd": 0.05177491453551047
+    },
+    "latent": {
+     "mean": 0.6644281556070958,
+     "min": 0.46264090177133654,
+     "max": 0.875543114973262,
+     "sd": 0.20660908495177202
+    },
+    "latent_clock": {
+     "mean": 0.7352824472644545,
+     "min": 0.5537842190016103,
+     "max": 0.894802807486631,
+     "sd": 0.1715683229380899
+    },
+    "latent_minus_clock": {
+     "mean": -0.19144337652131538,
+     "min": -0.3640740740740741,
+     "max": -0.0401069518716578,
+     "folds_latent_wins": 0,
+     "folds": 3
+    }
+   }
+  }
+ ]
+}
