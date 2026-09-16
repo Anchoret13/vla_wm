@@ -56,3 +56,17 @@ results/**/index_archive/
 results/**/checkpoint_epoch*.pt
 results/**/wz_step*.pt
 results/**/*.tmp
+
+# Per-frame RGB dumps from tape replays and perception probes (v242-v248).
+# The committed manifest.jsonl carries a sha256 per frame, so a dump is
+# reproducible from the replay script and verifiable against the manifest.
+results/**/images/
+results/**/overlays/
+results/**/t0_overlays/
+
+# Per-frame teacher/probe label dumps. These are caches: regenerable from the
+# committed producer_source.py plus the manifest hashes. The compact
+# result.json / COMPLETE.json / episode_summaries stay tracked.
+results/**/labels.jsonl
+results/**/labels_by_manifest/
+results/**/frames.jsonl
