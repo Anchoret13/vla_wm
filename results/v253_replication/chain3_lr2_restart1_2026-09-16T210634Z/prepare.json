@@ -1,0 +1,508 @@
+{
+ "utc": "2026-09-16T210634Z",
+ "task": "chain3_lr2",
+ "restart": 1,
+ "purpose": "cross-initialisation replication of the 2026-09-13 round",
+ "env_steps": 0,
+ "panel_opened": false,
+ "model_pair": "results/v241_model_pair/evolve1_2026-09-12T235711Z/model_pair.pt",
+ "model_pair_sha256": "288d841d8bd224063c4c676ead28795bc9cb3245c5f6d30046db92cec551b880",
+ "basin_sample": {
+  "seed": 253,
+  "requested": 600,
+  "pool_rows": 6912,
+  "sampled": 600,
+  "start_chunk": 26,
+  "tapes": [
+   {
+    "tape": "results/v250_chain3_round/chain3_lr2_d1_i0_2026-09-12T231912Z/tape.pt",
+    "rows_total": 1800,
+    "rows_in_region": 1728
+   },
+   {
+    "tape": "results/v250_chain3_round/chain3_lr2_d1_i1_2026-09-12T232801Z/tape.pt",
+    "rows_total": 1800,
+    "rows_in_region": 1728
+   },
+   {
+    "tape": "results/v250_chain3_round/chain3_lr2_d1_i2_2026-09-12T233655Z/tape.pt",
+    "rows_total": 1800,
+    "rows_in_region": 1728
+   },
+   {
+    "tape": "results/v250_chain3_round/chain3_lr2_d1_i3_2026-09-12T234542Z/tape.pt",
+    "rows_total": 1800,
+    "rows_in_region": 1728
+   }
+  ]
+ },
+ "predictor_calibration": [
+  {
+   "arm": "M1",
+   "restart": 0,
+   "predicted_on_basin": 0.3851366341114044,
+   "realised_panel": 0.22615140762525027,
+   "ratio": 1.7030034796405271
+  },
+  {
+   "arm": "M0",
+   "restart": 0,
+   "predicted_on_basin": 0.3858066201210022,
+   "realised_panel": 0.22621396547321368,
+   "ratio": 1.7054942620980051
+  },
+  {
+   "arm": "M0_cont",
+   "restart": 0,
+   "predicted_on_basin": 0.38371771574020386,
+   "realised_panel": 0.2285650056683355,
+   "ratio": 1.6788121813231822
+  },
+  {
+   "arm": "Q",
+   "restart": 0,
+   "predicted_on_basin": 0.35819730162620544,
+   "realised_panel": 0.21966954939584765,
+   "ratio": 1.630618820912355
+  },
+  {
+   "arm": "M1_shuf",
+   "restart": 0,
+   "predicted_on_basin": 0.38312020897865295,
+   "realised_panel": 0.22699706904521147,
+   "ratio": 1.6877760166248936
+  },
+  {
+   "arm": "rand",
+   "restart": 0,
+   "predicted_on_basin": 0.4700554311275482,
+   "realised_panel": 0.3129047645421492,
+   "ratio": 1.5022316193086613
+  }
+ ],
+ "predictor_calibration_summary": {
+  "n": 6,
+  "ratio_min": 1.5022316193086613,
+  "ratio_max": 1.7054942620980051,
+  "ratio_mean": 1.651322729984604,
+  "max_abs_pct_error": 70.54942620980052
+ },
+ "restart_arms": [
+  {
+   "arm": "M1",
+   "checkpoint": "results/v251_interface/chain3_lr2_m1_2026-09-12T235743Z/actor_1.pt",
+   "sha256": "0823175a465d8f5f5808e9dde451a1298b229fb429f84ba5223cb285f439f026",
+   "scale": 0.8,
+   "predicted_on_basin": 0.3860085606575012
+  },
+  {
+   "arm": "M0",
+   "checkpoint": "results/v251_interface/chain3_lr2_m0_2026-09-12T235751Z/actor_1.pt",
+   "sha256": "e367fe1be6134298b6befcce7ca5f4af4060a74352f6a7a98fe21bbb21948fa0",
+   "scale": 0.8,
+   "predicted_on_basin": 0.38241153955459595
+  },
+  {
+   "arm": "M0_cont",
+   "checkpoint": "results/v251_interface/chain3_lr2_m0cont_2026-09-12T235800Z/actor_1.pt",
+   "sha256": "f00396e3dafa5934ad885a5a2df7602438d9cf6984feeaaf26f2020983d8e774",
+   "scale": 0.8,
+   "predicted_on_basin": 0.38203486800193787
+  },
+  {
+   "arm": "Q",
+   "checkpoint": "results/v251_interface/chain3_lr2_q_2026-09-12T235808Z/actor_1.pt",
+   "sha256": "4b5561827caf3a016e82a8ec978527afc015a11a5b0869c2fc1e65a95008942b",
+   "scale": 0.8,
+   "predicted_on_basin": 0.35736405849456787
+  },
+  {
+   "arm": "M1_shuf",
+   "checkpoint": "results/v251_interface/chain3_lr2_m1shuf_2026-09-12T235817Z/actor_1.pt",
+   "sha256": "6488b9df88f296aa281fdde0b3699b20e6956610ba53fedb5732de913caae371",
+   "scale": 0.8,
+   "predicted_on_basin": 0.3857859671115875
+  }
+ ],
+ "target_mean_abs_delta_on_basin": 0.3787209987640381,
+ "target_spread_on_basin": [
+  0.35736405849456787,
+  0.3860085606575012
+ ],
+ "conversion_trained": 1.6811409521197926,
+ "conversion_trained_spread": [
+  1.630618820912355,
+  1.7054942620980051
+ ],
+ "conversion_untrained": 1.5022316193086613,
+ "conversion_untrained_n": 1,
+ "target_mean_abs_delta_realised": 0.22527617228436397,
+ "rand_init": 8,
+ "rand_mag_scale": 0.59,
+ "rand_mag_predicted_on_basin": 0.34410426020622253,
+ "rand_mag_realised_estimate": 0.22906205393585177,
+ "rand_mag_within_25pct": true,
+ "rand_mag_uncalibrated_scale": 0.66,
+ "rand_bound_scale": 0.8,
+ "rand_bound_predicted_on_basin": 0.4571005403995514,
+ "rand_bound_realised_estimate": 0.30428100069542713,
+ "rand_bound_deviation_from_target": 0.3507021075950105,
+ "scale_grid": [
+  {
+   "scale": 0.2,
+   "predicted_on_basin": 0.11515825241804123,
+   "realised_estimate": 0.07665812045085162
+  },
+  {
+   "scale": 0.21,
+   "predicted_on_basin": 0.12345810234546661,
+   "realised_estimate": 0.0821831339179793
+  },
+  {
+   "scale": 0.22,
+   "predicted_on_basin": 0.12623924016952515,
+   "realised_estimate": 0.08403447148025112
+  },
+  {
+   "scale": 0.23,
+   "predicted_on_basin": 0.13277125358581543,
+   "realised_estimate": 0.0883826780632655
+  },
+  {
+   "scale": 0.24,
+   "predicted_on_basin": 0.1361566185951233,
+   "realised_estimate": 0.09063623534817063
+  },
+  {
+   "scale": 0.25,
+   "predicted_on_basin": 0.14067773520946503,
+   "realised_estimate": 0.09364583556975456
+  },
+  {
+   "scale": 0.26,
+   "predicted_on_basin": 0.1470952332019806,
+   "realised_estimate": 0.09791781194811687
+  },
+  {
+   "scale": 0.27,
+   "predicted_on_basin": 0.15088655054569244,
+   "realised_estimate": 0.10044160208472486
+  },
+  {
+   "scale": 0.28,
+   "predicted_on_basin": 0.15977446734905243,
+   "realised_estimate": 0.10635807773942468
+  },
+  {
+   "scale": 0.29,
+   "predicted_on_basin": 0.16665038466453552,
+   "realised_estimate": 0.110935213000795
+  },
+  {
+   "scale": 0.3,
+   "predicted_on_basin": 0.17132903635501862,
+   "realised_estimate": 0.11404968059044422
+  },
+  {
+   "scale": 0.31,
+   "predicted_on_basin": 0.17718426883220673,
+   "realised_estimate": 0.11794737013573732
+  },
+  {
+   "scale": 0.32,
+   "predicted_on_basin": 0.1849992275238037,
+   "realised_estimate": 0.12314960299460465
+  },
+  {
+   "scale": 0.33,
+   "predicted_on_basin": 0.1891353279352188,
+   "realised_estimate": 0.12590290705121782
+  },
+  {
+   "scale": 0.34,
+   "predicted_on_basin": 0.18995289504528046,
+   "realised_estimate": 0.1264471421076187
+  },
+  {
+   "scale": 0.35,
+   "predicted_on_basin": 0.20264355838298798,
+   "realised_estimate": 0.13489501604036674
+  },
+  {
+   "scale": 0.36,
+   "predicted_on_basin": 0.21218404173851013,
+   "realised_estimate": 0.14124588978905855
+  },
+  {
+   "scale": 0.37,
+   "predicted_on_basin": 0.21390751004219055,
+   "realised_estimate": 0.14239316180858477
+  },
+  {
+   "scale": 0.38,
+   "predicted_on_basin": 0.2261020690202713,
+   "realised_estimate": 0.15051079082220706
+  },
+  {
+   "scale": 0.39,
+   "predicted_on_basin": 0.22574056684970856,
+   "realised_estimate": 0.15027014739151617
+  },
+  {
+   "scale": 0.4,
+   "predicted_on_basin": 0.23219817876815796,
+   "realised_estimate": 0.15456882666004418
+  },
+  {
+   "scale": 0.41,
+   "predicted_on_basin": 0.23404352366924286,
+   "realised_estimate": 0.15579722904311621
+  },
+  {
+   "scale": 0.42,
+   "predicted_on_basin": 0.2403603494167328,
+   "realised_estimate": 0.1600021902929646
+  },
+  {
+   "scale": 0.43,
+   "predicted_on_basin": 0.2446759194135666,
+   "realised_estimate": 0.1628749630008243
+  },
+  {
+   "scale": 0.44,
+   "predicted_on_basin": 0.2515225410461426,
+   "realised_estimate": 0.16743259682011966
+  },
+  {
+   "scale": 0.45,
+   "predicted_on_basin": 0.26216503977775574,
+   "realised_estimate": 0.17451705609711912
+  },
+  {
+   "scale": 0.46,
+   "predicted_on_basin": 0.2621840536594391,
+   "realised_estimate": 0.17452971318770286
+  },
+  {
+   "scale": 0.47,
+   "predicted_on_basin": 0.2716502547264099,
+   "realised_estimate": 0.1808311389767082
+  },
+  {
+   "scale": 0.48,
+   "predicted_on_basin": 0.27522116899490356,
+   "realised_estimate": 0.18320821200765464
+  },
+  {
+   "scale": 0.49,
+   "predicted_on_basin": 0.2893868684768677,
+   "realised_estimate": 0.19263798255694137
+  },
+  {
+   "scale": 0.5,
+   "predicted_on_basin": 0.2886815071105957,
+   "realised_estimate": 0.19216844020594454
+  },
+  {
+   "scale": 0.51,
+   "predicted_on_basin": 0.29714247584342957,
+   "realised_estimate": 0.19780070664480942
+  },
+  {
+   "scale": 0.52,
+   "predicted_on_basin": 0.3030921220779419,
+   "realised_estimate": 0.2017612451916218
+  },
+  {
+   "scale": 0.53,
+   "predicted_on_basin": 0.3042401075363159,
+   "realised_estimate": 0.20252543191464015
+  },
+  {
+   "scale": 0.54,
+   "predicted_on_basin": 0.31932011246681213,
+   "realised_estimate": 0.21256383394044503
+  },
+  {
+   "scale": 0.55,
+   "predicted_on_basin": 0.3177034258842468,
+   "realised_estimate": 0.2114876439829275
+  },
+  {
+   "scale": 0.56,
+   "predicted_on_basin": 0.3166619837284088,
+   "realised_estimate": 0.21079438061231803
+  },
+  {
+   "scale": 0.57,
+   "predicted_on_basin": 0.327423632144928,
+   "realised_estimate": 0.21795815501181562
+  },
+  {
+   "scale": 0.58,
+   "predicted_on_basin": 0.32618895173072815,
+   "realised_estimate": 0.2171362575105714
+  },
+  {
+   "scale": 0.59,
+   "predicted_on_basin": 0.34410426020622253,
+   "realised_estimate": 0.22906205393585177
+  },
+  {
+   "scale": 0.6,
+   "predicted_on_basin": 0.3488849103450775,
+   "realised_estimate": 0.23224441947616378
+  },
+  {
+   "scale": 0.61,
+   "predicted_on_basin": 0.3624163866043091,
+   "realised_estimate": 0.24125200265129282
+  },
+  {
+   "scale": 0.62,
+   "predicted_on_basin": 0.35811764001846313,
+   "realised_estimate": 0.23839042888956874
+  },
+  {
+   "scale": 0.63,
+   "predicted_on_basin": 0.3535890579223633,
+   "realised_estimate": 0.2353758590736412
+  },
+  {
+   "scale": 0.64,
+   "predicted_on_basin": 0.3588815927505493,
+   "realised_estimate": 0.23889897412471547
+  },
+  {
+   "scale": 0.65,
+   "predicted_on_basin": 0.3874899446964264,
+   "realised_estimate": 0.25794287626215207
+  },
+  {
+   "scale": 0.66,
+   "predicted_on_basin": 0.38384613394737244,
+   "realised_estimate": 0.255517277771068
+  },
+  {
+   "scale": 0.67,
+   "predicted_on_basin": 0.3870968520641327,
+   "realised_estimate": 0.2576812038094882
+  },
+  {
+   "scale": 0.68,
+   "predicted_on_basin": 0.39131948351860046,
+   "realised_estimate": 0.2604921095314774
+  },
+  {
+   "scale": 0.69,
+   "predicted_on_basin": 0.39327287673950195,
+   "realised_estimate": 0.261792437121307
+  },
+  {
+   "scale": 0.7,
+   "predicted_on_basin": 0.4076662063598633,
+   "realised_estimate": 0.2713737356609991
+  },
+  {
+   "scale": 0.71,
+   "predicted_on_basin": 0.40553393959999084,
+   "realised_estimate": 0.2699543361939224
+  },
+  {
+   "scale": 0.72,
+   "predicted_on_basin": 0.42062434554100037,
+   "realised_estimate": 0.2799996619260184
+  },
+  {
+   "scale": 0.73,
+   "predicted_on_basin": 0.4232632517814636,
+   "realised_estimate": 0.28175631929266187
+  },
+  {
+   "scale": 0.74,
+   "predicted_on_basin": 0.43034783005714417,
+   "realised_estimate": 0.28647235521190373
+  },
+  {
+   "scale": 0.75,
+   "predicted_on_basin": 0.42790982127189636,
+   "realised_estimate": 0.2848494305217885
+  },
+  {
+   "scale": 0.76,
+   "predicted_on_basin": 0.43799468874931335,
+   "realised_estimate": 0.2915626878835648
+  },
+  {
+   "scale": 0.77,
+   "predicted_on_basin": 0.4343160390853882,
+   "realised_estimate": 0.2891138979522105
+  },
+  {
+   "scale": 0.78,
+   "predicted_on_basin": 0.44759929180145264,
+   "realised_estimate": 0.2979562445952518
+  },
+  {
+   "scale": 0.79,
+   "predicted_on_basin": 0.4534739553928375,
+   "realised_estimate": 0.30186686897292825
+  },
+  {
+   "scale": 0.8,
+   "predicted_on_basin": 0.4571005403995514,
+   "realised_estimate": 0.30428100069542713
+  },
+  {
+   "scale": 0.81,
+   "predicted_on_basin": 0.4741275906562805,
+   "realised_estimate": 0.31561550466796706
+  },
+  {
+   "scale": 0.82,
+   "predicted_on_basin": 0.47331055998802185,
+   "realised_estimate": 0.31507162670816574
+  },
+  {
+   "scale": 0.83,
+   "predicted_on_basin": 0.48940691351890564,
+   "realised_estimate": 0.3257865879192015
+  },
+  {
+   "scale": 0.84,
+   "predicted_on_basin": 0.47448083758354187,
+   "realised_estimate": 0.315850652778765
+  },
+  {
+   "scale": 0.85,
+   "predicted_on_basin": 0.4999257028102875,
+   "realised_estimate": 0.33278869675260675
+  },
+  {
+   "scale": 0.86,
+   "predicted_on_basin": 0.4897005558013916,
+   "realised_estimate": 0.3259820586300504
+  },
+  {
+   "scale": 0.87,
+   "predicted_on_basin": 0.5000360608100891,
+   "realised_estimate": 0.33286215945861236
+  },
+  {
+   "scale": 0.88,
+   "predicted_on_basin": 0.517464280128479,
+   "realised_estimate": 0.3444637121715093
+  },
+  {
+   "scale": 0.89,
+   "predicted_on_basin": 0.5178213119506836,
+   "realised_estimate": 0.34470137979720394
+  },
+  {
+   "scale": 0.9,
+   "predicted_on_basin": 0.5077913999557495,
+   "realised_estimate": 0.33802470499818066
+  }
+ ],
+ "git": "75c5c97c05ecc8962aa1df2dec492a6c5036948d"
+}

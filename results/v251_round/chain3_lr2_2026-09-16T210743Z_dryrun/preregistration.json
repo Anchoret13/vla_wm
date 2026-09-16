@@ -1,0 +1,430 @@
+{
+  "schema": "v251_round_prereg.1",
+  "utc": "2026-09-16T210743Z",
+  "git": "75c5c97c05ecc8962aa1df2dec492a6c5036948d",
+  "source_sha256": "ce3042768c25c6c4d63d20eea6cefac4215f26118a7d0b9920d4e52cbd868766",
+  "task": "chain3_lr2",
+  "horizon": 750,
+  "chunk": 10,
+  "milestones": [
+    "pick_up alphabet_soup_1",
+    "place alphabet_soup_1",
+    "pick_up tomato_sauce_1",
+    "place tomato_sauce_1",
+    "pick_up cream_cheese_1",
+    "place cream_cheese_1"
+  ],
+  "panel": {
+    "start": 9100,
+    "count": 288,
+    "seeds": [
+      9100,
+      9387
+    ],
+    "committed_before_any_episode": true,
+    "rule": "CLAUDE.md rule 8 - the seed count is fixed here and is not revisited after reading any endpoint; no extension of this panel may be reported as the same test"
+  },
+  "arms": [
+    {
+      "name": "base",
+      "role": "frozen pi0.5, Delta := 0, identical code path",
+      "actor": "results/v251_interface/chain3_lr2_m1_2026-09-12T235743Z/actor_1.pt",
+      "sha256": "0823175a465d8f5f5808e9dde451a1298b229fb429f84ba5223cb285f439f026",
+      "status": "present",
+      "zero_residual": true
+    },
+    {
+      "name": "rand",
+      "role": "UNTRAINED random residual at the round's scale",
+      "actor": "results/v252_rand_actor/chain3_lr2_randbound_r1_2026-09-16T210653Z/actor_0.pt",
+      "sha256": "6d532f585941666ac58b9dccbdd1ab554ee9945186a431046137d7f7cebb2779",
+      "status": "present",
+      "zero_residual": false
+    },
+    {
+      "name": "M0",
+      "role": "stale WM: transition trained on D0 only",
+      "actor": "results/v251_interface/chain3_lr2_m0_2026-09-12T235751Z/actor_1.pt",
+      "sha256": "e367fe1be6134298b6befcce7ca5f4af4060a74352f6a7a98fe21bbb21948fa0",
+      "status": "present",
+      "zero_residual": false
+    },
+    {
+      "name": "M0_cont",
+      "role": "stale WM + M1's extra optimiser budget, still D0 only",
+      "actor": "results/v251_interface/chain3_lr2_m0cont_2026-09-12T235800Z/actor_1.pt",
+      "sha256": "f00396e3dafa5934ad885a5a2df7602438d9cf6984feeaaf26f2020983d8e774",
+      "status": "present",
+      "zero_residual": false
+    },
+    {
+      "name": "M1",
+      "role": "updated WM: transition trained on D0 + D1",
+      "actor": "results/v251_interface/chain3_lr2_m1_2026-09-12T235743Z/actor_1.pt",
+      "sha256": "0823175a465d8f5f5808e9dde451a1298b229fb429f84ba5223cb285f439f026",
+      "status": "present",
+      "zero_residual": false
+    },
+    {
+      "name": "M1_shuf",
+      "role": "updated WM with D1 action pairing broken",
+      "actor": "results/v251_interface/chain3_lr2_m1shuf_2026-09-12T235817Z/actor_1.pt",
+      "sha256": "6488b9df88f296aa281fdde0b3699b20e6956610ba53fedb5732de913caae371",
+      "status": "present",
+      "zero_residual": false
+    },
+    {
+      "name": "Q",
+      "role": "same-data model-free / no-rollout control",
+      "actor": "results/v251_interface/chain3_lr2_q_2026-09-12T235808Z/actor_1.pt",
+      "sha256": "4b5561827caf3a016e82a8ec978527afc015a11a5b0869c2fc1e65a95008942b",
+      "status": "present",
+      "zero_residual": false
+    }
+  ],
+  "arm_run_order": [
+    "base",
+    "rand",
+    "M0",
+    "M0_cont",
+    "M1",
+    "M1_shuf",
+    "Q"
+  ],
+  "executor": "scripts/run_v206_belief_residual_deploy.py",
+  "endpoints": [
+    {
+      "key": "success",
+      "label": "terminal success",
+      "kind": "binary",
+      "tier": "estimation",
+      "direction": 1,
+      "frozen_policy_prior": "2/96 frozen policy (D0)",
+      "caveat": "an ESTIMATION endpoint at this n, not a test: see the power block. Reported as a Clopper-Pearson interval per arm and a discordant-pair table, never as a verdict."
+    },
+    {
+      "key": "milestone4",
+      "label": "milestone-4 attainment (pick_up cream_cheese_1)",
+      "kind": "binary",
+      "tier": "primary",
+      "direction": 1,
+      "frozen_policy_prior": "5/96 frozen policy (D0)",
+      "caveat": "attaining the pick does not imply the place: milestone 5 was reached in 3/96. A milestone-4 gain that does not propagate is a gain in the approach, not in the task."
+    },
+    {
+      "key": "stage",
+      "label": "contiguous stage reached",
+      "kind": "ordinal",
+      "tier": "secondary",
+      "direction": 1,
+      "frozen_policy_prior": "{0:3, 3:2, 4:87, 5:2, 6:2} frozen policy (D0)",
+      "caveat": "87/96 episodes sit on one value, so this endpoint is nearly constant and its Wilcoxon runs on few non-zero pairs."
+    },
+    {
+      "key": "last_progress_step",
+      "label": "last-progress step",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": 1,
+      "frozen_policy_prior": "median 260 of 750 frozen policy (D0)",
+      "caveat": "confounded with pace: an arm that reaches the SAME milestones more slowly scores higher. Read it only together with `stage`."
+    },
+    {
+      "key": "phi_basin_mean",
+      "label": "mean Phi' over the stall basin",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": 1,
+      "frozen_policy_prior": "flat 2.0 under the registered A1 potential",
+      "caveat": "Phi' is a scripted privileged stand-in for human video annotation (lcwm/v250_progress.py). It is identical across arms so it cannot explain a difference, but any effect stated in it is scoped to 'under this supplied progress annotation'."
+    },
+    {
+      "key": "d_min_final_atom",
+      "label": "closest approach to the final goal object",
+      "kind": "continuous",
+      "tier": "secondary",
+      "direction": -1,
+      "frozen_policy_prior": "median 0.502 m frozen policy (24 seeds)",
+      "caveat": "SIGN IS NEGATIVE: smaller is better. Counted only over boundaries where the final atom is the ACTIVE one - unrestricted, the same 24 base episodes read 9/24 within 5 cm instead of 0/24, because the minimum was the gripper beside a CAN during that can's placement. It is deliberately SECONDARY and must never be read as the outcome: on the calibration ladder it moved OPPOSITE to the outcome, with scale 1.60 giving the best approach of any arm (median 0.243 m, 20/24 seeds closer than base) while picking the object up half as often as scale 0.80 and never placing it. An arm can win this endpoint by driving the gripper at the object without ever closing on it."
+    }
+  ],
+  "endpoint_hierarchy": {
+    "estimation": [
+      "success"
+    ],
+    "primary": [
+      "milestone4"
+    ],
+    "secondary": [
+      "stage",
+      "last_progress_step",
+      "phi_basin_mean",
+      "d_min_final_atom"
+    ],
+    "rule": "terminal success is reported for every arm with a Clopper-Pearson interval and is NOT a test at this n; the primary test is milestone-4 attainment; the secondary endpoints are supportive and are not confirmatory on their own"
+  },
+  "basin_rule": "boundaries with t > last_progress_step; if that set is empty the episode contributes its final boundary only",
+  "comparisons": {
+    "primary": [
+      [
+        "M1",
+        "M0_cont"
+      ],
+      [
+        "M1",
+        "Q"
+      ],
+      [
+        "M1",
+        "rand"
+      ],
+      [
+        "M1",
+        "M1_shuf"
+      ],
+      [
+        "M1",
+        "base"
+      ]
+    ],
+    "context": [
+      [
+        "M1",
+        "M0"
+      ],
+      [
+        "M0_cont",
+        "M0"
+      ],
+      [
+        "M0",
+        "base"
+      ],
+      [
+        "Q",
+        "base"
+      ],
+      [
+        "rand",
+        "base"
+      ],
+      [
+        "M0",
+        "Q"
+      ]
+    ],
+    "rule": "CLAUDE.md rule 7 - 'A beats base, B does not' is not 'A beats B'. M1-vs-M0 and M1-vs-Q are run directly and are not inferred from each arm's contrast against base"
+  },
+  "multiplicity": {
+    "method": "Holm step-down",
+    "alpha": 0.05,
+    "family_primary": [
+      "milestone4:M1-vs-M0_cont",
+      "milestone4:M1-vs-Q",
+      "milestone4:M1-vs-rand",
+      "milestone4:M1-vs-M1_shuf",
+      "milestone4:M1-vs-base"
+    ],
+    "family_secondary": [
+      "stage:M1-vs-M0_cont",
+      "stage:M1-vs-Q",
+      "stage:M1-vs-rand",
+      "stage:M1-vs-M1_shuf",
+      "stage:M1-vs-base",
+      "last_progress_step:M1-vs-M0_cont",
+      "last_progress_step:M1-vs-Q",
+      "last_progress_step:M1-vs-rand",
+      "last_progress_step:M1-vs-M1_shuf",
+      "last_progress_step:M1-vs-base",
+      "phi_basin_mean:M1-vs-M0_cont",
+      "phi_basin_mean:M1-vs-Q",
+      "phi_basin_mean:M1-vs-rand",
+      "phi_basin_mean:M1-vs-M1_shuf",
+      "phi_basin_mean:M1-vs-base"
+    ],
+    "uncorrected": [
+      "*:M1-vs-M0",
+      "*:M0_cont-vs-M0",
+      "*:M0-vs-base",
+      "*:Q-vs-base",
+      "*:rand-vs-base",
+      "*:M0-vs-Q"
+    ],
+    "note": "the context contrasts are descriptive and are reported with intervals and uncorrected p-values, labelled as such"
+  },
+  "tests": {
+    "binary": "exact McNemar on the discordant pairs via the binomial; the discordant table (b, c) is reported with every p-value",
+    "ordinal_continuous": "Wilcoxon signed-rank (exact when there are no ties and n <= 50, else the normal approximation with tie correction) plus a fixed-seed paired bootstrap 95% CI of the mean difference",
+    "intervals": "Clopper-Pearson at alpha=0.025 per side (a true 95% interval; CLAUDE.md records that earlier cp95 fields written before 2026-08-29 are 90%)",
+    "implementation": "computed in scripts/eval_v251_round.py with no dependency on scipy; scipy is recorded alongside as an independent cross-check when present",
+    "scipy_available": true
+  },
+  "power": {
+    "binary_endpoint": {
+      "base_rate_prior": {
+        "k": 2,
+        "n": 96,
+        "rate": 0.020833333333333332,
+        "source": "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z"
+      },
+      "expected_base_successes_at_n": 6,
+      "base_cp95_at_n": [
+        0.007682929846807893,
+        0.044791546421108996
+      ],
+      "min_discordant_one_sided": 5,
+      "min_discordant_two_sided": 6,
+      "min_treated_count_one_sided": 11,
+      "min_treated_count_two_sided": 12,
+      "min_treated_rate_two_sided": 0.041666666666666664,
+      "rate_multiple_two_sided": 2.0,
+      "min_treated_count_unpaired_fisher_one_sided": 15,
+      "is_estimation_endpoint_only": false,
+      "statement": "at n=288 and a base rate of 2/96=0.021, the smallest treated-arm result reaching two-sided exact McNemar p<0.05 is 12/288=0.042, a 2.0x rate increase (one-sided: 11/288). The binary terminal-success endpoint at this n CANNOT DETECT anything short of a very large effect and is registered as an ESTIMATION endpoint: it is reported with a Clopper-Pearson interval and a discordant-pair table, and no reading of this report may treat it as a test."
+    },
+    "ordinal_and_continuous_endpoints": {
+      "n": 288,
+      "alpha_two_sided": 0.05,
+      "power": 0.8,
+      "cohen_dz": 0.16508499214997271,
+      "wilcoxon_dz": 0.1689296598657645,
+      "note": "d_z is in units of the SD of the PAIRED difference; the Wilcoxon figure applies its 0.955 asymptotic relative efficiency versus the paired t under normal differences"
+    },
+    "ordinal_and_continuous_at_holm_first_step": {
+      "n": 288,
+      "alpha_two_sided": 0.01,
+      "power": 0.8,
+      "cohen_dz": 0.20137520409737025,
+      "wilcoxon_dz": 0.20606503529202416,
+      "note": "d_z is in units of the SD of the PAIRED difference; the Wilcoxon figure applies its 0.955 asymptotic relative efficiency versus the paired t under normal differences"
+    },
+    "milestone4_prior": {
+      "k": 5,
+      "n": 96,
+      "rate": 0.052083333333333336,
+      "note": "5/96 under the frozen policy, so there is discordance available for the paired test that terminal success does not offer"
+    }
+  },
+  "seed_guard": {
+    "panel": [
+      9100,
+      9387,
+      288
+    ],
+    "checked_families": [
+      {
+        "name": "v121_chain3_tape_a",
+        "role": "collection",
+        "range": [
+          8000,
+          8095
+        ],
+        "provenance": "results/v121_deploy_latents/chain3_lr2_2026-08-29T224421Z"
+      },
+      {
+        "name": "v121_chain3_tape_b",
+        "role": "collection",
+        "range": [
+          8100,
+          8195
+        ],
+        "provenance": "results/v121_deploy_latents/chain3_lr2_2026-08-29T232256Z"
+      },
+      {
+        "name": "d0_rich_tape",
+        "role": "collection",
+        "range": [
+          8700,
+          8795
+        ],
+        "provenance": "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z; the round's D0"
+      },
+      {
+        "name": "d1_residual_default",
+        "role": "collection",
+        "range": [
+          8800,
+          8847
+        ],
+        "provenance": "scripts/collect_v250_chain3_round.py usage example; pass the real D1 manifest with --collection-manifest to register the actual range"
+      },
+      {
+        "name": "historical_eval_panel",
+        "role": "prior_eval",
+        "range": [
+          8900,
+          8995
+        ],
+        "provenance": "chain3 evaluation panel used before 2026-09-12"
+      },
+      {
+        "name": "v249_residual_scale_probe",
+        "role": "probe",
+        "range": [
+          9000,
+          9047
+        ],
+        "provenance": "scripts/probe_v249_chain3_residual_scale.py, 7 arms x 48 seeds"
+      }
+    ],
+    "declared_reuse": [],
+    "clean": true
+  },
+  "matched_arms_check": {
+    "compared": [
+      "rand",
+      "M0",
+      "M0_cont",
+      "M1",
+      "M1_shuf",
+      "Q"
+    ],
+    "trained_compared": [
+      "M0",
+      "M0_cont",
+      "M1",
+      "M1_shuf",
+      "Q"
+    ],
+    "untrained_exempt": {
+      "rand": [
+        "horizon",
+        "actor_epochs",
+        "batch",
+        "advantage",
+        "phi_head_digest",
+        "model_pair_sha256",
+        "base_action",
+        "phi_readout",
+        "include_zero_delta",
+        "phi_region_from_chunk"
+      ]
+    },
+    "differences": [
+      {
+        "field": "advantage",
+        "values": {
+          "M0": "predicted",
+          "M0_cont": "predicted",
+          "M1": "predicted",
+          "M1_shuf": "predicted",
+          "Q": "observed"
+        },
+        "structural": false
+      }
+    ],
+    "hard_failures": [],
+    "m1_m0_transition_identical": false,
+    "m1_m0_transition_comparison": "differ",
+    "not_verifiable": [
+      "phi_region_from_chunk",
+      "use_action"
+    ],
+    "rule": "nothing may differ between M1 and M0 except the learned transition"
+  },
+  "declared_limits": [
+    "Phi' is a scripted privileged stand-in for per-boundary human video annotation; it is identical across arms and may not be used at deployment time. Every Phi' effect is scoped to 'under this supplied progress annotation'.",
+    "one environment panel and one training initialisation per arm: this round measures cross-seed environment variation, not cross-init training variation (CLAUDE.md rule 9). Seed variance at fixed hyperparameters was ~0.24 on 2026-09-01.",
+    "the 2/96 frozen-policy figure comes from the v121 collector, not from this executor; it is a prior for the power arithmetic, and the base arm run here through --zero-residual is the only baseline any contrast is taken against (CLAUDE.md rule 5)."
+  ]
+}

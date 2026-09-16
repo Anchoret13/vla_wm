@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-16T210653Z",
+  "task": "chain3_lr2",
+  "scale": 0.8,
+  "init": 8,
+  "init_gain": 10.0,
+  "dims": [
+    8217,
+    10,
+    7
+  ],
+  "trained": false,
+  "wm_arm_embedded": "stale",
+  "model_pair": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v241_model_pair/evolve1_2026-09-12T235711Z/model_pair.pt",
+  "model_pair_sha256": "288d841d8bd224063c4c676ead28795bc9cb3245c5f6d30046db92cec551b880",
+  "coordinates": "mu/sd taken from the model pair, identical to every trained arm",
+  "probe_abs_mean_delta": 0.3061206042766571,
+  "probe_abs_max_delta": 0.798928439617157,
+  "actor_sha256": "6d532f585941666ac58b9dccbdd1ab554ee9945186a431046137d7f7cebb2779",
+  "source_sha256": "1b09ac75cd98796d426cd49ca9b13fd4b1cf695c5875a924df881dea5fb32fdf",
+  "env_steps": 0,
+  "deployed_outcomes_read": false,
+  "git": "75c5c97c05ecc8962aa1df2dec492a6c5036948d"
+}
