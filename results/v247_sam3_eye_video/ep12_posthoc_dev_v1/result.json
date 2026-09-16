@@ -1,0 +1,99 @@
+{
+  "camera": "eye_in_hand",
+  "claim_scope": "post-hoc seed-8700 eye-in-hand diagnostic; not Gate-0 validation",
+  "created_utc": "2026-09-02T02:38:43.667705+00:00",
+  "episode_ids": [
+    12
+  ],
+  "episodes": {
+    "12": {
+      "carry_frame_counts": {
+        "can": 1,
+        "cream": 1
+      },
+      "episode_id": 12,
+      "flagged_duplicate_pairs": {
+        "basket": 1,
+        "can": 1,
+        "cream": 0
+      },
+      "frame_count": 76,
+      "progress_increase_frames": [
+        {
+          "frame_index": 72,
+          "t": 720,
+          "to": 2
+        }
+      ],
+      "selected_can_id_set_changes": 35,
+      "selected_can_ids_at_t0": [
+        1,
+        3
+      ],
+      "terminal_progress_scalar": 2,
+      "terminal_sticky_can_count": 1,
+      "terminal_sticky_cream_inside": true,
+      "unique_track_ids_seen": {
+        "basket": [
+          0,
+          13,
+          15,
+          16
+        ],
+        "can": [
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          9,
+          10,
+          17
+        ],
+        "cream": [
+          5,
+          6,
+          11,
+          12,
+          14
+        ]
+      }
+    }
+  },
+  "frames_jsonl": "frames.jsonl",
+  "inputs": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_cream_dev_rgb/chain3_8700_ep12_all_boundaries_posthoc_dev_v1/manifest.jsonl",
+      "selected_rows": 76,
+      "sha256": "6d228c5a2afdd6e1a74d84a622e575b5080dcd17b3b78b5b3bd3b32ab55b158f"
+    }
+  ],
+  "model": {
+    "checkpoint": "/home/stargazer/.cache/huggingface/hub/models--1038lab--sam3/blobs/6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "checkpoint_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "clip_tokenizer": "/home/stargazer/Desktop/UW_Madison/RoboOPE/rebuttal/ckpts/clip-vit-base-patch32",
+    "clip_tokenizer_tree_sha256": "996aa1fbf0da69265533f360c2d84abe66ba64d3bd428c05686a15f336ba04d3",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "state_device": "cpu"
+  },
+  "prefix_checks": {
+    "12": {
+      "exact_after_rounding_1e_6": true,
+      "frames": 8,
+      "fresh_session_sha256": "5d4c2a62618db738e13d1894f93886435ac02ea5fba7249fab7b29094fd5b05a",
+      "reference_sha256": "5d4c2a62618db738e13d1894f93886435ac02ea5fba7249fab7b29094fd5b05a"
+    }
+  },
+  "privileged_inputs_read": false,
+  "producer_source_sha256": "32b915543d53021b5af81361f6c4f0ea955b996fd3eb939332b057369b9f028e",
+  "prompts": {
+    "basket": "white woven basket",
+    "can": "tomato sauce can",
+    "cream": "cream cheese box"
+  },
+  "schema": "v247_sam3_eye_video_development_probe_v1",
+  "status": "development_probe_complete",
+  "streaming_dependency_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1"
+}

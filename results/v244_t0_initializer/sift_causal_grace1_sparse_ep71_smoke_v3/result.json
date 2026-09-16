@@ -1,0 +1,637 @@
+{
+  "automatic_t0_sanity_pass": true,
+  "causal_current_and_past_only": true,
+  "claim_scope": "development probe only; not a frozen V2 registration",
+  "code": {
+    "archived_path": "producer_source.py",
+    "archived_sha256": "f6539cda0b54a098cd458cdacd01f69b3af0ece30bf4a36bd85c71ab44c71653",
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/probe_v244_t0_initializer.py",
+    "sha256": "f6539cda0b54a098cd458cdacd01f69b3af0ece30bf4a36bd85c71ab44c71653"
+  },
+  "created_utc": "2026-09-02T01:36:45.331908+00:00",
+  "data_boundary": "v242 replay/reset manifest JSONL and referenced agentview JPEGs only; no tape/summary/task-definition/simulator/event/milestone/success/BDDL access",
+  "development_lineage": {
+    "adaptive_episode_ids": [
+      0,
+      28,
+      37,
+      40,
+      63,
+      66,
+      71,
+      74,
+      87,
+      90,
+      93
+    ],
+    "independent_panels_opened": false,
+    "panel": "chain3_lr2 seed rule 8700 + episode_id"
+  },
+  "dino": null,
+  "episode_ids": [
+    71
+  ],
+  "episodes": {
+    "71": {
+      "causal_reacquisition": {
+        "evidence_blocked_flips": {
+          "alphabet_soup_1": 2,
+          "cream_cheese_1": 41,
+          "tomato_sauce_1": 2
+        },
+        "evidence_confirmed_flips": {
+          "alphabet_soup_1": 1,
+          "cream_cheese_1": 0,
+          "tomato_sauce_1": 1
+        },
+        "evidence_gate_rule": "SAM-only may maintain the last evidence-backed state; a change in either direction requires current-frame SIFT+SAM agreement or at most one-frame-old collision-free SIFT+SAM identity evidence with a currently reliable basket, otherwise raw label is uncertain",
+        "evidence_grace_confirmed_flips": {
+          "alphabet_soup_1": 1,
+          "cream_cheese_1": 0,
+          "tomato_sauce_1": 1
+        },
+        "locator_invalid_frames": {
+          "alphabet_soup_1": 63,
+          "basket_1": 0,
+          "cream_cheese_1": 42,
+          "tomato_sauce_1": 49
+        },
+        "locator_valid_frames": {
+          "alphabet_soup_1": 12,
+          "basket_1": 75,
+          "cream_cheese_1": 33,
+          "tomato_sauce_1": 26
+        },
+        "post_t0_prompt_applications": 17,
+        "postmask_target_collisions": 0,
+        "preprompt_target_collisions": 0,
+        "prompt_applications_including_t0_per_object": {
+          "alphabet_soup_1": 6,
+          "basket_1": 6,
+          "cream_cheese_1": 2,
+          "tomato_sauce_1": 7
+        },
+        "relation_point_overrides": 71,
+        "reprompt_rule": "prompt at t0, after locator recovery, or when distance from that object's last prompt is >= 12.0px",
+        "streaming_session": true,
+        "strict_current_frame_rgb": true
+      },
+      "episode_id": 71,
+      "frame_count": 75,
+      "full_track": true,
+      "t0_identity_collision_pairs": {},
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "current_sift_sam_reliable": true,
+          "evidence_gate_decision": "sift_sam_maintain",
+          "evidence_gate_source": "current_sift_sam",
+          "evidence_state_after": "outside",
+          "evidence_state_before": "outside",
+          "finite_output": true,
+          "grace_available": false,
+          "label": "outside",
+          "last_sift_sam_age_frames": 0,
+          "last_sift_sam_reliable_frame_before": null,
+          "mask_area_px": 1622,
+          "mask_bbox_xyxy": [
+            247,
+            171,
+            284,
+            223
+          ],
+          "mask_centroid_xy": [
+            264.2268803945746,
+            195.76818742293466
+          ],
+          "object_score_logit": 18.125,
+          "relation_point_source": "sift_affine_projected_template_center",
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 8910,
+          "mask_bbox_xyxy": [
+            0,
+            160,
+            81,
+            276
+          ],
+          "mask_centroid_xy": [
+            38.30796857463524,
+            216.6314253647587
+          ],
+          "object_score_logit": 19.0,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "current_sift_sam_reliable": true,
+          "evidence_gate_decision": "sift_sam_maintain",
+          "evidence_gate_source": "current_sift_sam",
+          "evidence_state_after": "outside",
+          "evidence_state_before": "outside",
+          "finite_output": true,
+          "grace_available": false,
+          "label": "outside",
+          "last_sift_sam_age_frames": 0,
+          "last_sift_sam_reliable_frame_before": null,
+          "mask_area_px": 1137,
+          "mask_bbox_xyxy": [
+            102,
+            262,
+            136,
+            308
+          ],
+          "mask_centroid_xy": [
+            118.57255936675462,
+            284.97009674582233
+          ],
+          "object_score_logit": 18.125,
+          "relation_point_source": "sift_affine_projected_template_center",
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "current_sift_sam_reliable": true,
+          "evidence_gate_decision": "sift_sam_maintain",
+          "evidence_gate_source": "current_sift_sam",
+          "evidence_state_after": "outside",
+          "evidence_state_before": "outside",
+          "finite_output": true,
+          "grace_available": false,
+          "label": "outside",
+          "last_sift_sam_age_frames": 0,
+          "last_sift_sam_reliable_frame_before": null,
+          "mask_area_px": 1639,
+          "mask_bbox_xyxy": [
+            127,
+            176,
+            163,
+            229
+          ],
+          "mask_centroid_xy": [
+            145.705918242831,
+            201.33435021354484
+          ],
+          "object_score_logit": 18.375,
+          "relation_point_source": "sift_affine_projected_template_center",
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0071_t0000.jpg",
+      "t0_pairwise_mask_iou": {
+        "alphabet_soup_1::cream_cheese_1": 0.0,
+        "basket_1::alphabet_soup_1": 0.0,
+        "basket_1::cream_cheese_1": 0.0,
+        "basket_1::tomato_sauce_1": 0.0,
+        "tomato_sauce_1::alphabet_soup_1": 0.0,
+        "tomato_sauce_1::cream_cheese_1": 0.0
+      },
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": 120,
+          "first_certain_outside_to_inside_transition_t": 120,
+          "label_counts": {
+            "inside": 19,
+            "outside": 12,
+            "uncertain": 44
+          },
+          "terminal_label": "uncertain"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 33,
+            "uncertain": 42
+          },
+          "terminal_label": "uncertain"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": 230,
+          "first_certain_outside_to_inside_transition_t": 230,
+          "label_counts": {
+            "inside": 49,
+            "outside": 23,
+            "uncertain": 3
+          },
+          "terminal_label": "inside"
+        }
+      },
+      "uncertain_fraction": 0.39555555555555555
+    }
+  },
+  "full_track": true,
+  "initializer": {
+    "config_sha256": "c1b08a3d4e3cd319f182576bf8fa2b490d1829711875fa9525a83caf01e0b70d",
+    "configuration": {
+      "causal_reacquisition": {
+        "evidence_grace_frames": 1,
+        "evidence_state_gate": "state starts outside; SAM-only may maintain but cannot change state; a bidirectional change requires current-frame SIFT+SAM agreement or collision-free SIFT+SAM evidence from the immediately previous sampled frame with a currently reliable basket; otherwise emit uncertain",
+        "later_locator_failure": "omit object prompt; SAM2 uses past memory",
+        "ransac_confidence": 0.99,
+        "ransac_max_iters": 2000,
+        "ransac_min_inlier_ratio": 0.5,
+        "ransac_min_inliers": 4,
+        "ransac_refine_iters": 10,
+        "ransac_reprojection_threshold_px": 3.0,
+        "ransac_scale_range": [
+          0.5,
+          2.0
+        ],
+        "reprompt_after_locator_recovery": true,
+        "reprompt_min_displacement_px": 12.0,
+        "streaming_current_frame_only": true,
+        "target_mask_collision_iou_gte": 0.5,
+        "target_prompt_collision_distance_px_lte": 4.0
+      },
+      "dino_cluster_softmax_temperature": null,
+      "dino_cluster_top_k": null,
+      "dino_input_size": null,
+      "dino_normalization_mean": null,
+      "dino_normalization_std": null,
+      "dino_prototype_anchor_points_xy": null,
+      "dino_prototype_calibration_episode_ids": null,
+      "dino_search_xyxy": null,
+      "fixed_points_xy": null,
+      "identity_collision_mask_iou_gte": 0.5,
+      "mode": "sift_causal_reacquire",
+      "sift_cluster_eps_px": 22.0,
+      "sift_contrast_threshold": 0.01,
+      "sift_lowe_ratio": 0.7,
+      "sift_min_cluster_matches": 4,
+      "sift_target_keypoint_deduplication": "lowest descriptor distance per trainIdx",
+      "sift_template_xyxy": {
+        "alphabet_soup_1": [
+          228,
+          177,
+          265,
+          231
+        ],
+        "basket_1": [
+          0,
+          161,
+          81,
+          277
+        ],
+        "cream_cheese_1": [
+          282,
+          257,
+          319,
+          299
+        ],
+        "tomato_sauce_1": [
+          125,
+          179,
+          162,
+          233
+        ]
+      },
+      "sift_upscale": 3,
+      "thresholds": {
+        "basket_mask_area_px_gt": 15000,
+        "basket_mask_area_px_lt": 3000,
+        "nonfinite_output": true,
+        "object_score_logit_lte": 0.0,
+        "target_mask_area_px_gt": 5000,
+        "target_mask_area_px_lt": 64
+      }
+    },
+    "per_episode_locator_diagnostics": {
+      "71": {
+        "alphabet_soup_1": {
+          "affine_matrix": [
+            [
+              0.9799663009679668,
+              -0.0031946362358556283,
+              247.55342911858278
+            ],
+            [
+              0.0031946362358556283,
+              0.9799663009679668,
+              170.21401374680636
+            ]
+          ],
+          "affine_scale": 0.9799715081233327,
+          "connected_components": 1,
+          "invalid_reasons": [],
+          "projected_template_center_xy": [
+            265.59655050812205,
+            196.73220464330478
+          ],
+          "prompt_point_xy": [
+            262.13092557592495,
+            205.88028878427403
+          ],
+          "ransac_inlier_ratio": 1.0,
+          "ransac_inliers": 34,
+          "ratio_test_matches_before_target_dedup": 34,
+          "selected_cluster_matches": 34,
+          "unique_target_ratio_test_matches": 34,
+          "valid": true
+        },
+        "basket_1": {
+          "affine_matrix": [
+            [
+              0.9981335193426095,
+              -0.00041544897868138117,
+              1.1114799142446854
+            ],
+            [
+              0.00041544897868138117,
+              0.9981335193426095,
+              160.6404830549014
+            ]
+          ],
+          "affine_scale": 0.9981336058029092,
+          "connected_components": 2,
+          "invalid_reasons": [],
+          "projected_template_center_xy": [
+            41.51179140685685,
+            218.54905286040935
+          ],
+          "prompt_point_xy": [
+            51.349485895347556,
+            221.38282652755612
+          ],
+          "ransac_inlier_ratio": 0.9865771812080537,
+          "ransac_inliers": 147,
+          "ratio_test_matches_before_target_dedup": 151,
+          "selected_cluster_matches": 149,
+          "unique_target_ratio_test_matches": 150,
+          "valid": true
+        },
+        "cream_cheese_1": {
+          "affine_matrix": [
+            [
+              0.9928931003572816,
+              -0.014049327810451638,
+              100.10345635328991
+            ],
+            [
+              0.014049327810451638,
+              0.9928931003572816,
+              264.11187738938816
+            ]
+          ],
+          "affine_scale": 0.9929924936015481,
+          "connected_components": 1,
+          "invalid_reasons": [],
+          "projected_template_center_xy": [
+            118.17694282588013,
+            285.22254506138444
+          ],
+          "prompt_point_xy": [
+            119.14679763332575,
+            284.2349437136249
+          ],
+          "ransac_inlier_ratio": 0.9090909090909091,
+          "ransac_inliers": 20,
+          "ratio_test_matches_before_target_dedup": 22,
+          "selected_cluster_matches": 22,
+          "unique_target_ratio_test_matches": 22,
+          "valid": true
+        },
+        "tomato_sauce_1": {
+          "affine_matrix": [
+            [
+              0.9877384209430934,
+              -0.0024567000961080248,
+              127.07102279087334
+            ],
+            [
+              0.0024567000961080248,
+              0.9877384209430934,
+              175.53904505808424
+            ]
+          ],
+          "affine_scale": 0.987741476086996,
+          "connected_components": 1,
+          "invalid_reasons": [],
+          "projected_template_center_xy": [
+            145.27785267572565,
+            202.25343137532576
+          ],
+          "prompt_point_xy": [
+            141.87494780189155,
+            201.30096878128523
+          ],
+          "ransac_inlier_ratio": 1.0,
+          "ransac_inliers": 33,
+          "ratio_test_matches_before_target_dedup": 33,
+          "selected_cluster_matches": 33,
+          "unique_target_ratio_test_matches": 33,
+          "valid": true
+        }
+      }
+    },
+    "per_episode_points_xy": {
+      "71": {
+        "alphabet_soup_1": [
+          262.13092557592495,
+          205.88028878427403
+        ],
+        "basket_1": [
+          51.349485895347556,
+          221.38282652755612
+        ],
+        "cream_cheese_1": [
+          119.14679763332575,
+          284.2349437136249
+        ],
+        "tomato_sauce_1": [
+          141.87494780189155,
+          201.30096878128523
+        ]
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep56_75_stride1_v242_frozen/manifest.jsonl",
+      "selected_rows": 75,
+      "sha256": "38b7ce2897d86deef79d7c963a80709aa13f9fbe22a94dfe9d1652289a12f5a5"
+    }
+  ],
+  "mode": "sift_causal_reacquire",
+  "outputs": {
+    "label_rows": 75,
+    "labels": "labels.jsonl",
+    "labels_sha256": "7fbfbcc1dd8d65a4b24672d418cd456e4e063320d56aa4f3aeaf48921f5a013b",
+    "t0_overlay_dir": "t0_overlays"
+  },
+  "privileged_inputs_read": false,
+  "runtime": {
+    "argv": [
+      "scripts/probe_v244_t0_initializer.py",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep56_75_stride1_v242_frozen/manifest.jsonl",
+      "--episode-id",
+      "71",
+      "--mode",
+      "sift_causal_reacquire",
+      "--device",
+      "cuda",
+      "--dtype",
+      "bfloat16",
+      "--full-track",
+      "--output-dir",
+      "results/v244_t0_initializer/sift_causal_grace1_sparse_ep71_smoke_v3"
+    ],
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+    "seconds": 8.548560097930022,
+    "torch": "2.11.0+cu128",
+    "transformers": "5.5.4"
+  },
+  "sam2": {
+    "checkpoint": "/home/stargazer/.cache/sam2/checkpoints/sam2.1_hiera_large.pt",
+    "checkpoint_sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "classification_support_code": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/track_v243_sam2_teacher.py",
+      "sha256": "205c31169f014e9f5ee4dd607a68f359ae1a2d844ef93fbaf6d830660d407adf"
+    },
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "support_code": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/probe_v242_sam2_tracking.py",
+      "sha256": "9d02c46129a5b2e70616804ed2a7270bb2125d1fcc729aab8e9b98c84315144f"
+    },
+    "tensor_count": 903,
+    "transformers_modeling_source": {
+      "path": "/home/stargazer/miniconda3/envs/libero-render/lib/python3.12/site-packages/transformers/models/sam2_video/modeling_sam2_video.py",
+      "sha256": "7dee3aa3e106a7b00c1f08444be62595e7032b2d67c883c96d1adb42dbcfc748"
+    },
+    "transformers_processing_source": {
+      "path": "/home/stargazer/miniconda3/envs/libero-render/lib/python3.12/site-packages/transformers/models/sam2_video/processing_sam2_video.py",
+      "sha256": "f3b430f31dce2fd96100a033f39ab84616e2a55b997d2073290a240e9649cd74"
+    }
+  },
+  "schema": "v244_t0_initializer_probe_v1",
+  "sift": {
+    "calibration_episode_id": 0,
+    "calibration_image_sha256": "b6df01f00355031d62a5a7381b8c551918ef9a14d1c34483c31dd1888e646c13",
+    "calibration_manifests": [
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_reset_rgb/chain3_lr2_first16_v242/manifest.jsonl",
+        "selected_rows": 1,
+        "sha256": "13a6972981154454518ec4701a5b1c0429767203f17cfa912f0ff1f41c38fd0f"
+      }
+    ],
+    "causal_rule": "each frame uses only that frame RGB plus the fixed episode-0 template",
+    "cluster_eps_px": 22.0,
+    "cluster_min_unique_target_matches": 4,
+    "contrast_threshold": 0.01,
+    "development_lineage": {
+      "adaptive_episode_ids": [
+        0,
+        28,
+        37,
+        40,
+        63,
+        66,
+        71,
+        74,
+        87,
+        90,
+        93
+      ],
+      "independent_panels_opened": false,
+      "panel": "chain3_lr2 seed rule 8700 + episode_id"
+    },
+    "family": "OpenCV SIFT cluster + affine-partial-2D RANSAC causal re-acquisition",
+    "later_locator_failure": "soft: omit that object prompt and use past-only SAM2 propagation",
+    "lowe_ratio": 0.7,
+    "offline": true,
+    "opencv_version": "5.0.0",
+    "prompt_rule": "inverse-distance weighted centroid of RANSAC-inlier scene keypoints",
+    "ransac": {
+      "confidence": 0.99,
+      "max_iters": 2000,
+      "min_inlier_ratio": 0.5,
+      "min_inliers": 4,
+      "model": "cv2.estimateAffinePartial2D",
+      "refine_iters": 10,
+      "reprojection_threshold_px": 3.0,
+      "rng_seed_before_each_fit": 0,
+      "scale_range_inclusive": [
+        0.5,
+        2.0
+      ]
+    },
+    "relation_evidence_rule": "use affine-projected template center only when it lies in the current prompted target mask; otherwise retain the current SAM target-mask centroid",
+    "target_keypoint_deduplication": "lowest descriptor distance per trainIdx",
+    "template_derivation": {
+      "artifact": "results/v242_sam2_probe/chain3_ep0_agentview_dense_calibration_v6/result.json",
+      "artifact_sha256": "cf0a8c4a0a6bd376e7d16a4ae52478dcb8e962b908162b0e6db967be65d110f7",
+      "data_boundary": "RGB-only calibration; no event, success, simulator-state, or task-definition input",
+      "rule": "exact t0 RGB-visible SAM mask bounding boxes from development episode 0"
+    },
+    "template_diagnostics": {
+      "alphabet_soup_1": {
+        "crop_pixel_sha256": "35d2200653a1a3c72327bc1bbab2216343d88990582347ced49b510bd3d193f5",
+        "keypoints": 193
+      },
+      "basket_1": {
+        "crop_pixel_sha256": "ea60c116d6956c5ca5a2f80a7b52e27ec9270622cd067c2c423ec82569d531df",
+        "keypoints": 977
+      },
+      "cream_cheese_1": {
+        "crop_pixel_sha256": "1eea1fa1a90654849f62bc947cd120de8c8332809b0281c30143b1868a451e19",
+        "keypoints": 132
+      },
+      "tomato_sauce_1": {
+        "crop_pixel_sha256": "b9db19b8b2511a462faf16189367bc8048a41fd1b283d771658a0eaa2f47c77d",
+        "keypoints": 179
+      }
+    },
+    "template_xyxy": {
+      "alphabet_soup_1": [
+        228,
+        177,
+        265,
+        231
+      ],
+      "basket_1": [
+        0,
+        161,
+        81,
+        277
+      ],
+      "cream_cheese_1": [
+        282,
+        257,
+        319,
+        299
+      ],
+      "tomato_sauce_1": [
+        125,
+        179,
+        162,
+        233
+      ]
+    },
+    "upscale": 3
+  },
+  "status": "rgb_only_candidate_complete_not_privileged_evaluated",
+  "thresholds": {
+    "basket_mask_area_px_gt": 15000,
+    "basket_mask_area_px_lt": 3000,
+    "nonfinite_output": true,
+    "object_score_logit_lte": 0.0,
+    "target_mask_area_px_gt": 5000,
+    "target_mask_area_px_lt": 64
+  }
+}

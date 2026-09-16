@@ -1,0 +1,1407 @@
+{
+  "claim_scope": "development probe only; not a frozen V2 registration",
+  "code": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/probe_v244_t0_initializer.py",
+    "sha256": "73e1bb1c39213ec8968d2b1b2264256dc61f4a89fbefd7a3337699fef99688fe"
+  },
+  "created_utc": "2026-09-02T00:55:25.000341+00:00",
+  "data_boundary": "v242 replay/reset manifest JSONL and referenced agentview JPEGs only; no tape/summary/task-definition/simulator/event/milestone/success/BDDL access",
+  "dino": null,
+  "episode_ids": [
+    28,
+    37,
+    40,
+    63,
+    66,
+    74,
+    87,
+    90,
+    93
+  ],
+  "episodes": {
+    "28": {
+      "episode_id": 28,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1581,
+          "mask_bbox_xyxy": [
+            248,
+            171,
+            285,
+            222
+          ],
+          "mask_centroid_xy": [
+            265.4617330803289,
+            195.49082858950032
+          ],
+          "object_score_logit": 18.034027099609375,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 8967,
+          "mask_bbox_xyxy": [
+            0,
+            160,
+            82,
+            276
+          ],
+          "mask_centroid_xy": [
+            38.600089216014275,
+            216.37671462027433
+          ],
+          "object_score_logit": 19.372163772583008,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1205,
+          "mask_bbox_xyxy": [
+            297,
+            258,
+            336,
+            301
+          ],
+          "mask_centroid_xy": [
+            315.33609958506224,
+            279.0630705394191
+          ],
+          "object_score_logit": 17.92827033996582,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1536,
+          "mask_bbox_xyxy": [
+            143,
+            169,
+            178,
+            220
+          ],
+          "mask_centroid_xy": [
+            160.9296875,
+            193.61197916666666
+          ],
+          "object_score_logit": 18.58111000061035,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0028_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "37": {
+      "episode_id": 37,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1553,
+          "mask_bbox_xyxy": [
+            244,
+            169,
+            279,
+            220
+          ],
+          "mask_centroid_xy": [
+            260.4475209272376,
+            193.64520283322602
+          ],
+          "object_score_logit": 18.05826187133789,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9371,
+          "mask_bbox_xyxy": [
+            0,
+            162,
+            85,
+            279
+          ],
+          "mask_centroid_xy": [
+            40.08953153345428,
+            218.53697577633125
+          ],
+          "object_score_logit": 19.29915428161621,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1156,
+          "mask_bbox_xyxy": [
+            272,
+            256,
+            308,
+            298
+          ],
+          "mask_centroid_xy": [
+            289.18771626297575,
+            276.83391003460207
+          ],
+          "object_score_logit": 17.494138717651367,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1573,
+          "mask_bbox_xyxy": [
+            150,
+            170,
+            185,
+            222
+          ],
+          "mask_centroid_xy": [
+            167.90845518118246,
+            195.2638270820089
+          ],
+          "object_score_logit": 19.001296997070312,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0037_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "40": {
+      "episode_id": 40,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1605,
+          "mask_bbox_xyxy": [
+            241,
+            172,
+            278,
+            224
+          ],
+          "mask_centroid_xy": [
+            258.13707165109037,
+            196.8479750778816
+          ],
+          "object_score_logit": 18.217660903930664,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9837,
+          "mask_bbox_xyxy": [
+            0,
+            159,
+            90,
+            274
+          ],
+          "mask_centroid_xy": [
+            42.64094744332622,
+            214.97011283928026
+          ],
+          "object_score_logit": 19.089370727539062,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1274,
+          "mask_bbox_xyxy": [
+            299,
+            264,
+            339,
+            308
+          ],
+          "mask_centroid_xy": [
+            318.3045525902669,
+            285.7605965463108
+          ],
+          "object_score_logit": 17.902130126953125,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1548,
+          "mask_bbox_xyxy": [
+            149,
+            167,
+            184,
+            219
+          ],
+          "mask_centroid_xy": [
+            166.8113695090439,
+            192.23062015503876
+          ],
+          "object_score_logit": 18.954416275024414,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0040_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "63": {
+      "episode_id": 63,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1585,
+          "mask_bbox_xyxy": [
+            250,
+            169,
+            287,
+            221
+          ],
+          "mask_centroid_xy": [
+            267.2384858044164,
+            193.88706624605678
+          ],
+          "object_score_logit": 18.12953758239746,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9325,
+          "mask_bbox_xyxy": [
+            0,
+            158,
+            85,
+            273
+          ],
+          "mask_centroid_xy": [
+            40.558069705093835,
+            214.1195710455764
+          ],
+          "object_score_logit": 19.03084373474121,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1203,
+          "mask_bbox_xyxy": [
+            285,
+            262,
+            323,
+            305
+          ],
+          "mask_centroid_xy": [
+            303.118038237739,
+            283.29093931837076
+          ],
+          "object_score_logit": 17.55231285095215,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1589,
+          "mask_bbox_xyxy": [
+            145,
+            172,
+            180,
+            224
+          ],
+          "mask_centroid_xy": [
+            162.97168030207678,
+            197.2706104468219
+          ],
+          "object_score_logit": 18.987564086914062,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0063_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "66": {
+      "episode_id": 66,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1702,
+          "mask_bbox_xyxy": [
+            231,
+            178,
+            268,
+            232
+          ],
+          "mask_centroid_xy": [
+            248.35311398354875,
+            203.6668625146886
+          ],
+          "object_score_logit": 18.27103042602539,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9576,
+          "mask_bbox_xyxy": [
+            0,
+            162,
+            86,
+            279
+          ],
+          "mask_centroid_xy": [
+            40.934419381787805,
+            219.19246031746033
+          ],
+          "object_score_logit": 19.281599044799805,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1204,
+          "mask_bbox_xyxy": [
+            294,
+            260,
+            333,
+            303
+          ],
+          "mask_centroid_xy": [
+            312.6187707641196,
+            281.547342192691
+          ],
+          "object_score_logit": 18.21565818786621,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1566,
+          "mask_bbox_xyxy": [
+            142,
+            168,
+            177,
+            219
+          ],
+          "mask_centroid_xy": [
+            159.9463601532567,
+            192.757343550447
+          ],
+          "object_score_logit": 18.386106491088867,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0066_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "74": {
+      "episode_id": 74,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1701,
+          "mask_bbox_xyxy": [
+            230,
+            177,
+            267,
+            231
+          ],
+          "mask_centroid_xy": [
+            247.51734273956495,
+            202.93121693121694
+          ],
+          "object_score_logit": 18.35222816467285,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9462,
+          "mask_bbox_xyxy": [
+            0,
+            161,
+            85,
+            277
+          ],
+          "mask_centroid_xy": [
+            40.6145635172268,
+            217.15250475586558
+          ],
+          "object_score_logit": 19.25535774230957,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1297,
+          "mask_bbox_xyxy": [
+            274,
+            274,
+            312,
+            319
+          ],
+          "mask_centroid_xy": [
+            292.23978411719355,
+            296.2652274479568
+          ],
+          "object_score_logit": 16.97378921508789,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1545,
+          "mask_bbox_xyxy": [
+            145,
+            168,
+            180,
+            219
+          ],
+          "mask_centroid_xy": [
+            162.70550161812298,
+            192.54304207119742
+          ],
+          "object_score_logit": 18.641035079956055,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0074_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "87": {
+      "episode_id": 87,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1689,
+          "mask_bbox_xyxy": [
+            235,
+            177,
+            272,
+            230
+          ],
+          "mask_centroid_xy": [
+            252.54766133806987,
+            202.34339846062758
+          ],
+          "object_score_logit": 18.2215576171875,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 8837,
+          "mask_bbox_xyxy": [
+            0,
+            161,
+            80,
+            278
+          ],
+          "mask_centroid_xy": [
+            37.87665497340726,
+            218.0229715966957
+          ],
+          "object_score_logit": 19.420795440673828,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1161,
+          "mask_bbox_xyxy": [
+            282,
+            255,
+            319,
+            297
+          ],
+          "mask_centroid_xy": [
+            299.801894918174,
+            275.838931955211
+          ],
+          "object_score_logit": 17.635866165161133,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1553,
+          "mask_bbox_xyxy": [
+            142,
+            168,
+            177,
+            220
+          ],
+          "mask_centroid_xy": [
+            159.95299420476496,
+            193.4114616870573
+          ],
+          "object_score_logit": 18.532621383666992,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0087_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "90": {
+      "episode_id": 90,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1626,
+          "mask_bbox_xyxy": [
+            249,
+            172,
+            286,
+            224
+          ],
+          "mask_centroid_xy": [
+            266.22140221402213,
+            196.9360393603936
+          ],
+          "object_score_logit": 17.971717834472656,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9484,
+          "mask_bbox_xyxy": [
+            0,
+            160,
+            86,
+            276
+          ],
+          "mask_centroid_xy": [
+            40.9739561366512,
+            215.83234921973852
+          ],
+          "object_score_logit": 19.21515464782715,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1291,
+          "mask_bbox_xyxy": [
+            282,
+            271,
+            321,
+            316
+          ],
+          "mask_centroid_xy": [
+            300.87064291247094,
+            293.3919442292796
+          ],
+          "object_score_logit": 17.688308715820312,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1547,
+          "mask_bbox_xyxy": [
+            148,
+            167,
+            183,
+            219
+          ],
+          "mask_centroid_xy": [
+            165.40400775694894,
+            192.21266968325793
+          ],
+          "object_score_logit": 18.86178207397461,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0090_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    },
+    "93": {
+      "episode_id": 93,
+      "frame_count": 1,
+      "full_track": false,
+      "t0_objects": {
+        "alphabet_soup_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1744,
+          "mask_bbox_xyxy": [
+            247,
+            181,
+            285,
+            236
+          ],
+          "mask_centroid_xy": [
+            264.91284403669727,
+            207.0441513761468
+          ],
+          "object_score_logit": 18.282323837280273,
+          "sam_object_id": 3,
+          "uncertain_reasons": []
+        },
+        "basket_1": {
+          "finite_output": true,
+          "mask_area_px": 9177,
+          "mask_bbox_xyxy": [
+            0,
+            161,
+            83,
+            277
+          ],
+          "mask_centroid_xy": [
+            39.36700446769097,
+            217.18001525553012
+          ],
+          "object_score_logit": 19.366788864135742,
+          "reliable": true,
+          "sam_object_id": 1,
+          "uncertain_reasons": []
+        },
+        "cream_cheese_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1307,
+          "mask_bbox_xyxy": [
+            283,
+            272,
+            321,
+            318
+          ],
+          "mask_centroid_xy": [
+            301.3504208110176,
+            295.1484315225708
+          ],
+          "object_score_logit": 17.672592163085938,
+          "sam_object_id": 4,
+          "uncertain_reasons": []
+        },
+        "tomato_sauce_1": {
+          "centroid_in_tracked_basket_bbox": false,
+          "finite_output": true,
+          "label": "outside",
+          "mask_area_px": 1604,
+          "mask_bbox_xyxy": [
+            146,
+            172,
+            182,
+            225
+          ],
+          "mask_centroid_xy": [
+            164.85411471321694,
+            197.5773067331671
+          ],
+          "object_score_logit": 19.320301055908203,
+          "sam_object_id": 2,
+          "uncertain_reasons": []
+        }
+      },
+      "t0_overlay": "t0_overlays/ep0093_t0000.jpg",
+      "t0_point_contained_in_mask_bbox": {
+        "alphabet_soup_1": true,
+        "basket_1": true,
+        "cream_cheese_1": true,
+        "tomato_sauce_1": true
+      },
+      "transitions": {
+        "alphabet_soup_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "cream_cheese_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        },
+        "tomato_sauce_1": {
+          "first_certain_inside_t": null,
+          "first_certain_outside_to_inside_transition_t": null,
+          "label_counts": {
+            "inside": 0,
+            "outside": 1,
+            "uncertain": 0
+          },
+          "terminal_label": "outside"
+        }
+      },
+      "uncertain_fraction": 0.0
+    }
+  },
+  "full_track": false,
+  "initializer": {
+    "config_sha256": "f6f2bc515377645d34f77037af6d1311ef41410889798ae5e178c7e214a73431",
+    "dino_search_xyxy": null,
+    "fixed_points_xy": {
+      "alphabet_soup_1": [
+        255.0,
+        202.0
+      ],
+      "basket_1": [
+        35.0,
+        230.0
+      ],
+      "cream_cheese_1": [
+        303.0,
+        282.0
+      ],
+      "tomato_sauce_1": [
+        158.0,
+        202.0
+      ]
+    },
+    "per_episode_dino_cosine": null,
+    "per_episode_points_xy": {
+      "28": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "37": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "40": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "63": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "66": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "74": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "87": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "90": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      },
+      "93": {
+        "alphabet_soup_1": [
+          255.0,
+          202.0
+        ],
+        "basket_1": [
+          35.0,
+          230.0
+        ],
+        "cream_cheese_1": [
+          303.0,
+          282.0
+        ],
+        "tomato_sauce_1": [
+          158.0,
+          202.0
+        ]
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep17_35_stride1_v242_frozen/manifest.jsonl",
+      "selected_rows": 75,
+      "sha256": "a0a4fa08a6bd63d00b43250cdec1672e5dda3bb545eab6625f807ce9990f0b29"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep36_55_stride1_v242_frozen/manifest.jsonl",
+      "selected_rows": 150,
+      "sha256": "8e3f0cb29974ac6c13f57059c8d350f351cb6dbb4967eaeedf0a3414ce61f963"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep56_75_stride1_v242_frozen/manifest.jsonl",
+      "selected_rows": 225,
+      "sha256": "38b7ce2897d86deef79d7c963a80709aa13f9fbe22a94dfe9d1652289a12f5a5"
+    },
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep76_95_stride1_v242_frozen/manifest.jsonl",
+      "selected_rows": 225,
+      "sha256": "4ad407e539f7be0b4e5786147149f6e683e6d90bd76f8da64079ce94da10c8e2"
+    }
+  ],
+  "mode": "fixed_points",
+  "outputs": {
+    "label_rows": 9,
+    "labels": "labels.jsonl",
+    "labels_sha256": "68fc8daadd9b90b6728f6199ab0b091661ce5c59b5fe0b58a286088fc9fcff4b",
+    "t0_overlay_dir": "t0_overlays"
+  },
+  "privileged_inputs_read": false,
+  "runtime": {
+    "argv": [
+      "scripts/probe_v244_t0_initializer.py",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep17_35_stride1_v242_frozen/manifest.jsonl",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep36_55_stride1_v242_frozen/manifest.jsonl",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep56_75_stride1_v242_frozen/manifest.jsonl",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep76_95_stride1_v242_frozen/manifest.jsonl",
+      "--episode-id",
+      "28",
+      "--episode-id",
+      "37",
+      "--episode-id",
+      "40",
+      "--episode-id",
+      "63",
+      "--episode-id",
+      "66",
+      "--episode-id",
+      "74",
+      "--episode-id",
+      "87",
+      "--episode-id",
+      "90",
+      "--episode-id",
+      "93",
+      "--mode",
+      "fixed_points",
+      "--device",
+      "cpu",
+      "--dtype",
+      "float32",
+      "--output-dir",
+      "results/v244_t0_initializer/fixed_points_nine_t0_v1"
+    ],
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+    "seconds": 18.066759460023604,
+    "torch": "2.11.0+cu128",
+    "transformers": "5.5.4"
+  },
+  "sam2": {
+    "checkpoint": "/home/stargazer/.cache/sam2/checkpoints/sam2.1_hiera_large.pt",
+    "checkpoint_sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "classification_support_code": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/track_v243_sam2_teacher.py",
+      "sha256": "205c31169f014e9f5ee4dd607a68f359ae1a2d844ef93fbaf6d830660d407adf"
+    },
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "support_code": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/probe_v242_sam2_tracking.py",
+      "sha256": "9d02c46129a5b2e70616804ed2a7270bb2125d1fcc729aab8e9b98c84315144f"
+    },
+    "tensor_count": 903
+  },
+  "schema": "v244_t0_initializer_probe_v1",
+  "status": "rgb_only_candidate_complete_not_privileged_evaluated",
+  "thresholds": {
+    "basket_mask_area_px_gt": 15000,
+    "basket_mask_area_px_lt": 3000,
+    "nonfinite_output": true,
+    "object_score_logit_lte": 0.0,
+    "target_mask_area_px_gt": 5000,
+    "target_mask_area_px_lt": 64
+  }
+}

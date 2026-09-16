@@ -1,0 +1,5819 @@
+{
+  "checkpoint": {
+    "format": "original_meta_sam2_model_state",
+    "original_tensor_count": 903,
+    "path": "/home/stargazer/.cache/sam2/checkpoints/sam2.1_hiera_large.pt",
+    "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "strict_hf_load": true
+  },
+  "claim_scope": "ep0 human-t0-box calibration proof only; not an automatic/deployable detector",
+  "code_sha256": "9d02c46129a5b2e70616804ed2a7270bb2125d1fcc729aab8e9b98c84315144f",
+  "conversion_source": "https://github.com/huggingface/transformers/blob/main/src/transformers/models/sam2_video/convert_sam2_video_to_hf.py",
+  "created_utc": "2026-09-02T00:05:27.311892+00:00",
+  "data_access": "manifest JSONL image metadata plus JPEGs only; no replay summary/tape/simulator/event/success/task-definition access",
+  "final_centroid_in_tracked_basket_bbox": {
+    "cream_cheese_box": false,
+    "left_cylindrical_can": true,
+    "right_cylindrical_can": true
+  },
+  "final_t": 740,
+  "frames": [
+    {
+      "frame_id": "7dbff743ea89:ep16:t0",
+      "frame_index": 0,
+      "object_score_logits": {
+        "1": 21.625,
+        "2": 18.375,
+        "3": 20.25,
+        "4": 19.625
+      },
+      "objects": {
+        "1": {
+          "area_px": 9004,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.39349178143048,
+            218.4380275433141
+          ]
+        },
+        "2": {
+          "area_px": 2072,
+          "bbox_xyxy": [
+            116,
+            180,
+            226,
+            243
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.58204633204633,
+            216.03667953667954
+          ]
+        },
+        "3": {
+          "area_px": 1668,
+          "bbox_xyxy": [
+            228,
+            175,
+            264,
+            228
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            245.07973621103116,
+            200.39988009592327
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8108539505188,
+            288.7166799680766
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0000_t0000.jpg",
+      "t": 0
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t10",
+      "frame_index": 1,
+      "object_score_logits": {
+        "1": 7.375,
+        "2": 1.828125,
+        "3": 6.4375,
+        "4": 6.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 9027,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.437686939182456,
+            218.49927993796388
+          ]
+        },
+        "2": {
+          "area_px": 2088,
+          "bbox_xyxy": [
+            122,
+            181,
+            180,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            147.83189655172413,
+            216.64798850574712
+          ]
+        },
+        "3": {
+          "area_px": 671,
+          "bbox_xyxy": [
+            228,
+            175,
+            264,
+            202
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            246.51266766020865,
+            185.49329359165424
+          ]
+        },
+        "4": {
+          "area_px": 1250,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8488,
+            288.816
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0001_t0010.jpg",
+      "t": 10
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t20",
+      "frame_index": 2,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 2.109375,
+        "3": 5.625,
+        "4": 7.46875
+      },
+      "objects": {
+        "1": {
+          "area_px": 8967,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.31615925058548,
+            218.3866399018624
+          ]
+        },
+        "2": {
+          "area_px": 2122,
+          "bbox_xyxy": [
+            122,
+            181,
+            180,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            147.52733270499527,
+            216.41328934967012
+          ]
+        },
+        "3": {
+          "area_px": 613,
+          "bbox_xyxy": [
+            228,
+            175,
+            264,
+            201
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            246.41924959216965,
+            184.79771615008156
+          ]
+        },
+        "4": {
+          "area_px": 1244,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87218649517683,
+            288.81832797427654
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0002_t0020.jpg",
+      "t": 20
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t30",
+      "frame_index": 3,
+      "object_score_logits": {
+        "1": 9.25,
+        "2": 2.328125,
+        "3": 5.4375,
+        "4": 7.625
+      },
+      "objects": {
+        "1": {
+          "area_px": 8964,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.3111334225792,
+            218.3839803659081
+          ]
+        },
+        "2": {
+          "area_px": 2106,
+          "bbox_xyxy": [
+            122,
+            181,
+            180,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            147.1500474833808,
+            216.36894586894587
+          ]
+        },
+        "3": {
+          "area_px": 609,
+          "bbox_xyxy": [
+            228,
+            175,
+            264,
+            222
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            246.4384236453202,
+            184.79474548440066
+          ]
+        },
+        "4": {
+          "area_px": 1244,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87218649517683,
+            288.81832797427654
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0003_t0030.jpg",
+      "t": 30
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t40",
+      "frame_index": 4,
+      "object_score_logits": {
+        "1": 9.25,
+        "2": 2.328125,
+        "3": 4.9375,
+        "4": 7.78125
+      },
+      "objects": {
+        "1": {
+          "area_px": 8957,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.28514011387741,
+            218.402590152953
+          ]
+        },
+        "2": {
+          "area_px": 2096,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.71708015267177,
+            216.26717557251908
+          ]
+        },
+        "3": {
+          "area_px": 620,
+          "bbox_xyxy": [
+            227,
+            174,
+            264,
+            222
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            246.5032258064516,
+            184.67096774193547
+          ]
+        },
+        "4": {
+          "area_px": 1244,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87218649517683,
+            288.81832797427654
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0004_t0040.jpg",
+      "t": 40
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t50",
+      "frame_index": 5,
+      "object_score_logits": {
+        "1": 9.375,
+        "2": 2.4375,
+        "3": 3.875,
+        "4": 7.9375
+      },
+      "objects": {
+        "1": {
+          "area_px": 9013,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.40286253189837,
+            218.46255408853878
+          ]
+        },
+        "2": {
+          "area_px": 2115,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.7612293144208,
+            216.20898345153665
+          ]
+        },
+        "3": {
+          "area_px": 250,
+          "bbox_xyxy": [
+            230,
+            186,
+            263,
+            267
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            245.8,
+            190.708
+          ]
+        },
+        "4": {
+          "area_px": 1258,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8887122416534,
+            288.7972972972973
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0005_t0050.jpg",
+      "t": 50
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t60",
+      "frame_index": 6,
+      "object_score_logits": {
+        "1": 9.3125,
+        "2": 2.46875,
+        "3": 5.1875,
+        "4": 8.3125
+      },
+      "objects": {
+        "1": {
+          "area_px": 9006,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.3775260937153,
+            218.4712413946258
+          ]
+        },
+        "2": {
+          "area_px": 2090,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.52918660287082,
+            216.33062200956937
+          ]
+        },
+        "3": {
+          "area_px": 640,
+          "bbox_xyxy": [
+            231,
+            176,
+            267,
+            222
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            249.3171875,
+            186.0390625
+          ]
+        },
+        "4": {
+          "area_px": 1256,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8734076433121,
+            288.8200636942675
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0006_t0060.jpg",
+      "t": 60
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t70",
+      "frame_index": 7,
+      "object_score_logits": {
+        "1": 9.0,
+        "2": 2.671875,
+        "3": 4.5625,
+        "4": 8.375
+      },
+      "objects": {
+        "1": {
+          "area_px": 8965,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.30786391522588,
+            218.39085331846067
+          ]
+        },
+        "2": {
+          "area_px": 2089,
+          "bbox_xyxy": [
+            122,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            147.2091910004787,
+            216.11297271421734
+          ]
+        },
+        "3": {
+          "area_px": 1646,
+          "bbox_xyxy": [
+            208,
+            127,
+            246,
+            175
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            226.0965978128797,
+            149.72296476306198
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8387869114126,
+            288.8212290502793
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0007_t0070.jpg",
+      "t": 70
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t80",
+      "frame_index": 8,
+      "object_score_logits": {
+        "1": 9.25,
+        "2": 2.765625,
+        "3": 5.59375,
+        "4": 8.875
+      },
+      "objects": {
+        "1": {
+          "area_px": 9011,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.39928975696371,
+            218.46154699811342
+          ]
+        },
+        "2": {
+          "area_px": 2083,
+          "bbox_xyxy": [
+            122,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            147.0715314450312,
+            215.60393662986078
+          ]
+        },
+        "3": {
+          "area_px": 1967,
+          "bbox_xyxy": [
+            146,
+            98,
+            188,
+            150
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            167.20691408235894,
+            122.76258261311642
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.84984025559106,
+            288.8194888178914
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0008_t0080.jpg",
+      "t": 80
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t90",
+      "frame_index": 9,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 2.734375,
+        "3": 5.25,
+        "4": 8.9375
+      },
+      "objects": {
+        "1": {
+          "area_px": 8972,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.29157378510923,
+            218.55751226036557
+          ]
+        },
+        "2": {
+          "area_px": 2085,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            145.46139088729018,
+            215.8124700239808
+          ]
+        },
+        "3": {
+          "area_px": 2142,
+          "bbox_xyxy": [
+            74,
+            98,
+            123,
+            152
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            99.47619047619048,
+            122.81652661064426
+          ]
+        },
+        "4": {
+          "area_px": 1255,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9235059760956,
+            288.797609561753
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0009_t0090.jpg",
+      "t": 90
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t100",
+      "frame_index": 10,
+      "object_score_logits": {
+        "1": 9.1875,
+        "2": 2.71875,
+        "3": 4.21875,
+        "4": 8.875
+      },
+      "objects": {
+        "1": {
+          "area_px": 8794,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            38.33011143961792,
+            219.39356379349556
+          ]
+        },
+        "2": {
+          "area_px": 2020,
+          "bbox_xyxy": [
+            122,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.3970297029703,
+            216.2871287128713
+          ]
+        },
+        "3": {
+          "area_px": 2177,
+          "bbox_xyxy": [
+            7,
+            116,
+            66,
+            168
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            34.71474506201194,
+            139.69866789159394
+          ]
+        },
+        "4": {
+          "area_px": 1258,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9220985691574,
+            288.8330683624801
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0010_t0100.jpg",
+      "t": 100
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t110",
+      "frame_index": 11,
+      "object_score_logits": {
+        "1": 9.25,
+        "2": 2.6875,
+        "3": 4.40625,
+        "4": 8.875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7612,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.87073042564372,
+            225.75236468733578
+          ]
+        },
+        "2": {
+          "area_px": 2013,
+          "bbox_xyxy": [
+            122,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.9016393442623,
+            216.30253353204174
+          ]
+        },
+        "3": {
+          "area_px": 1762,
+          "bbox_xyxy": [
+            0,
+            149,
+            46,
+            199
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            17.75766174801362,
+            173.37457434733258
+          ]
+        },
+        "4": {
+          "area_px": 1258,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9220985691574,
+            288.8330683624801
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0011_t0110.jpg",
+      "t": 110
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t120",
+      "frame_index": 12,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 2.734375,
+        "3": 3.25,
+        "4": 9.0
+      },
+      "objects": {
+        "1": {
+          "area_px": 8147,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.79833067386768,
+            220.282189763103
+          ]
+        },
+        "2": {
+          "area_px": 2050,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.76439024390243,
+            216.27219512195123
+          ]
+        },
+        "3": {
+          "area_px": 785,
+          "bbox_xyxy": [
+            2,
+            189,
+            46,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.28152866242038,
+            200.72866242038216
+          ]
+        },
+        "4": {
+          "area_px": 1257,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9284009546539,
+            288.8162291169451
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0012_t0120.jpg",
+      "t": 120
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t130",
+      "frame_index": 13,
+      "object_score_logits": {
+        "1": 9.125,
+        "2": 2.78125,
+        "3": 2.734375,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 8232,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.67103984450923,
+            220.0648688046647
+          ]
+        },
+        "2": {
+          "area_px": 2066,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.52323330106486,
+            216.3165537270087
+          ]
+        },
+        "3": {
+          "area_px": 772,
+          "bbox_xyxy": [
+            2,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.067357512953368,
+            200.79533678756476
+          ]
+        },
+        "4": {
+          "area_px": 1256,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9203821656051,
+            288.82643312101914
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0013_t0130.jpg",
+      "t": 130
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t140",
+      "frame_index": 14,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 2.8125,
+        "3": 2.859375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 8178,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.762778185375396,
+            220.18097334311568
+          ]
+        },
+        "2": {
+          "area_px": 2081,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            145.86016338298896,
+            216.24026910139355
+          ]
+        },
+        "3": {
+          "area_px": 784,
+          "bbox_xyxy": [
+            1,
+            189,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.934948979591837,
+            200.7908163265306
+          ]
+        },
+        "4": {
+          "area_px": 1256,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9203821656051,
+            288.82643312101914
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0014_t0140.jpg",
+      "t": 140
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t150",
+      "frame_index": 15,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 2.984375,
+        "3": 2.90625,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 8176,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.77140410958904,
+            220.15203033268102
+          ]
+        },
+        "2": {
+          "area_px": 2158,
+          "bbox_xyxy": [
+            116,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            145.86144578313252,
+            216.1543095458758
+          ]
+        },
+        "3": {
+          "area_px": 788,
+          "bbox_xyxy": [
+            1,
+            189,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.90228426395939,
+            200.76903553299493
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.86821086261983,
+            288.79632587859425
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0015_t0150.jpg",
+      "t": 150
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t160",
+      "frame_index": 16,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 2.984375,
+        "3": 2.90625,
+        "4": 9.3125
+      },
+      "objects": {
+        "1": {
+          "area_px": 8184,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.761119257086996,
+            220.17167644183772
+          ]
+        },
+        "2": {
+          "area_px": 2081,
+          "bbox_xyxy": [
+            117,
+            181,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.45939452186448,
+            216.0778471888515
+          ]
+        },
+        "3": {
+          "area_px": 783,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.922094508301406,
+            200.81736909323115
+          ]
+        },
+        "4": {
+          "area_px": 1256,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9203821656051,
+            288.82643312101914
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0016_t0160.jpg",
+      "t": 160
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t170",
+      "frame_index": 17,
+      "object_score_logits": {
+        "1": 8.8125,
+        "2": 3.1875,
+        "3": 2.875,
+        "4": 9.375
+      },
+      "objects": {
+        "1": {
+          "area_px": 8182,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.75421657296504,
+            220.16291860180885
+          ]
+        },
+        "2": {
+          "area_px": 2099,
+          "bbox_xyxy": [
+            117,
+            180,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.34159123392092,
+            215.5712243925679
+          ]
+        },
+        "3": {
+          "area_px": 783,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.922094508301406,
+            200.81736909323115
+          ]
+        },
+        "4": {
+          "area_px": 1255,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.9051792828685,
+            288.81274900398404
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0017_t0170.jpg",
+      "t": 170
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t180",
+      "frame_index": 18,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 3.328125,
+        "3": 2.9375,
+        "4": 9.4375
+      },
+      "objects": {
+        "1": {
+          "area_px": 8180,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.75354523227384,
+            220.1711491442543
+          ]
+        },
+        "2": {
+          "area_px": 2061,
+          "bbox_xyxy": [
+            117,
+            180,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.25909752547307,
+            216.25278990781175
+          ]
+        },
+        "3": {
+          "area_px": 781,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.92573623559539,
+            200.81434058898847
+          ]
+        },
+        "4": {
+          "area_px": 1254,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.89234449760767,
+            288.80940988835727
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0018_t0180.jpg",
+      "t": 180
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t190",
+      "frame_index": 19,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 3.421875,
+        "3": 3.0625,
+        "4": 9.5
+      },
+      "objects": {
+        "1": {
+          "area_px": 8232,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.652453838678326,
+            220.08078231292518
+          ]
+        },
+        "2": {
+          "area_px": 2012,
+          "bbox_xyxy": [
+            117,
+            180,
+            179,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            146.05268389662027,
+            216.5328031809145
+          ]
+        },
+        "3": {
+          "area_px": 781,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.92573623559539,
+            200.81434058898847
+          ]
+        },
+        "4": {
+          "area_px": 1251,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8824940047962,
+            288.81374900079936
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0019_t0190.jpg",
+      "t": 190
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t200",
+      "frame_index": 20,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 2.828125,
+        "3": 3.15625,
+        "4": 9.3125
+      },
+      "objects": {
+        "1": {
+          "area_px": 8225,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.68401215805471,
+            220.10176291793314
+          ]
+        },
+        "2": {
+          "area_px": 2229,
+          "bbox_xyxy": [
+            117,
+            166,
+            173,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            144.14535666218035,
+            215.1498429789143
+          ]
+        },
+        "3": {
+          "area_px": 781,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.907810499359794,
+            200.8258642765685
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0020_t0200.jpg",
+      "t": 200
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t210",
+      "frame_index": 21,
+      "object_score_logits": {
+        "1": 8.75,
+        "2": 1.859375,
+        "3": 3.296875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 8222,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.690586232060326,
+            220.1075164193627
+          ]
+        },
+        "2": {
+          "area_px": 1727,
+          "bbox_xyxy": [
+            113,
+            155,
+            171,
+            242
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            139.35668789808918,
+            216.55877243775333
+          ]
+        },
+        "3": {
+          "area_px": 779,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.964056482670088,
+            200.82028241335044
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0021_t0210.jpg",
+      "t": 210
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t220",
+      "frame_index": 22,
+      "object_score_logits": {
+        "1": 8.75,
+        "2": 1.5234375,
+        "3": 3.234375,
+        "4": 9.0625
+      },
+      "objects": {
+        "1": {
+          "area_px": 8225,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            39.69872340425532,
+            220.08729483282676
+          ]
+        },
+        "2": {
+          "area_px": 1369,
+          "bbox_xyxy": [
+            34,
+            153,
+            170,
+            243
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            139.92403214024836,
+            221.63403944485026
+          ]
+        },
+        "3": {
+          "area_px": 779,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.964056482670088,
+            200.82028241335044
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8937699680511,
+            288.8123003194888
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0022_t0220.jpg",
+      "t": 220
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t230",
+      "frame_index": 23,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 1.3984375,
+        "3": 3.640625,
+        "4": 8.9375
+      },
+      "objects": {
+        "1": {
+          "area_px": 7597,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            40.25102013952876,
+            224.5760168487561
+          ]
+        },
+        "2": {
+          "area_px": 967,
+          "bbox_xyxy": [
+            40,
+            163,
+            165,
+            243
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            139.1034126163392,
+            225.8086866597725
+          ]
+        },
+        "3": {
+          "area_px": 779,
+          "bbox_xyxy": [
+            1,
+            190,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.761232349165596,
+            200.85622593068035
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0023_t0230.jpg",
+      "t": 230
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t240",
+      "frame_index": 24,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 1.109375,
+        "3": 3.578125,
+        "4": 9.0
+      },
+      "objects": {
+        "1": {
+          "area_px": 6976,
+          "bbox_xyxy": [
+            0,
+            163,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            42.46272935779817,
+            228.50559059633028
+          ]
+        },
+        "2": {
+          "area_px": 1541,
+          "bbox_xyxy": [
+            0,
+            144,
+            47,
+            197
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            22.98637248539909,
+            169.9214795587281
+          ]
+        },
+        "3": {
+          "area_px": 632,
+          "bbox_xyxy": [
+            0,
+            193,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            23.015822784810126,
+            202.8022151898734
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0024_t0240.jpg",
+      "t": 240
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t250",
+      "frame_index": 25,
+      "object_score_logits": {
+        "1": 8.875,
+        "2": 0.80859375,
+        "3": 1.7421875,
+        "4": 9.0
+      },
+      "objects": {
+        "1": {
+          "area_px": 7397,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.69149655265648,
+            224.5919967554414
+          ]
+        },
+        "2": {
+          "area_px": 633,
+          "bbox_xyxy": [
+            0,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.244865718799367,
+            195.12796208530807
+          ]
+        },
+        "3": {
+          "area_px": 86,
+          "bbox_xyxy": [
+            0,
+            202,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.046511627906977,
+            208.12790697674419
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0025_t0250.jpg",
+      "t": 250
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t260",
+      "frame_index": 26,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 1.2265625,
+        "3": 1.8515625,
+        "4": 9.0625
+      },
+      "objects": {
+        "1": {
+          "area_px": 7405,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.67575962187711,
+            224.54854827819042
+          ]
+        },
+        "2": {
+          "area_px": 658,
+          "bbox_xyxy": [
+            11,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.10182370820669,
+            195.209726443769
+          ]
+        },
+        "3": {
+          "area_px": 107,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.11214953271028,
+            207.6728971962617
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0026_t0260.jpg",
+      "t": 260
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t270",
+      "frame_index": 27,
+      "object_score_logits": {
+        "1": 8.9375,
+        "2": 1.3359375,
+        "3": 1.984375,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7379,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.693047838460494,
+            224.6346388399512
+          ]
+        },
+        "2": {
+          "area_px": 651,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.284178187403995,
+            195.14746543778801
+          ]
+        },
+        "3": {
+          "area_px": 105,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.82857142857143,
+            207.71428571428572
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0027_t0270.jpg",
+      "t": 270
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t280",
+      "frame_index": 28,
+      "object_score_logits": {
+        "1": 9.0625,
+        "2": 1.359375,
+        "3": 2.15625,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7378,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.68785578747628,
+            224.63648685280563
+          ]
+        },
+        "2": {
+          "area_px": 651,
+          "bbox_xyxy": [
+            17,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.3026113671275,
+            195.110599078341
+          ]
+        },
+        "3": {
+          "area_px": 105,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.866666666666667,
+            207.67619047619047
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0028_t0280.jpg",
+      "t": 280
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t290",
+      "frame_index": 29,
+      "object_score_logits": {
+        "1": 9.1875,
+        "2": 1.3359375,
+        "3": 2.203125,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7377,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.67696895757083,
+            224.63928426189509
+          ]
+        },
+        "2": {
+          "area_px": 649,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.32049306625578,
+            195.1340523882897
+          ]
+        },
+        "3": {
+          "area_px": 105,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.866666666666667,
+            207.67619047619047
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0029_t0290.jpg",
+      "t": 290
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t300",
+      "frame_index": 30,
+      "object_score_logits": {
+        "1": 9.3125,
+        "2": 1.3203125,
+        "3": 2.3125,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7375,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.67457627118644,
+            224.61233898305085
+          ]
+        },
+        "2": {
+          "area_px": 642,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.55295950155763,
+            195.28348909657322
+          ]
+        },
+        "3": {
+          "area_px": 104,
+          "bbox_xyxy": [
+            0,
+            201,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.701923076923077,
+            207.75
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0030_t0300.jpg",
+      "t": 300
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t310",
+      "frame_index": 31,
+      "object_score_logits": {
+        "1": 9.4375,
+        "2": 1.2734375,
+        "3": 2.359375,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7401,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.66531549790569,
+            224.56924739900015
+          ]
+        },
+        "2": {
+          "area_px": 643,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.51788491446345,
+            195.24105754276826
+          ]
+        },
+        "3": {
+          "area_px": 106,
+          "bbox_xyxy": [
+            0,
+            201,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            24.79245283018868,
+            207.6509433962264
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0031_t0310.jpg",
+      "t": 310
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t320",
+      "frame_index": 32,
+      "object_score_logits": {
+        "1": 9.5,
+        "2": 1.2890625,
+        "3": 2.484375,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7402,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.6522561469873,
+            224.54917589840585
+          ]
+        },
+        "2": {
+          "area_px": 645,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.54573643410853,
+            195.26821705426357
+          ]
+        },
+        "3": {
+          "area_px": 110,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.30909090909091,
+            207.56363636363636
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0032_t0320.jpg",
+      "t": 320
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t330",
+      "frame_index": 33,
+      "object_score_logits": {
+        "1": 9.5625,
+        "2": 1.2890625,
+        "3": 2.484375,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7400,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.634054054054054,
+            224.55905405405406
+          ]
+        },
+        "2": {
+          "area_px": 647,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.601236476043276,
+            195.31066460587326
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0033_t0330.jpg",
+      "t": 330
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t340",
+      "frame_index": 34,
+      "object_score_logits": {
+        "1": 9.5625,
+        "2": 1.3515625,
+        "3": 2.546875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7404,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.63560237709346,
+            224.5388978930308
+          ]
+        },
+        "2": {
+          "area_px": 646,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.61145510835913,
+            195.3188854489164
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0034_t0340.jpg",
+      "t": 340
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t350",
+      "frame_index": 35,
+      "object_score_logits": {
+        "1": 9.625,
+        "2": 1.359375,
+        "3": 2.5625,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7403,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.63528299338106,
+            224.54869647440228
+          ]
+        },
+        "2": {
+          "area_px": 645,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.629457364341086,
+            195.31162790697675
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0035_t0350.jpg",
+      "t": 350
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t360",
+      "frame_index": 36,
+      "object_score_logits": {
+        "1": 9.625,
+        "2": 1.3671875,
+        "3": 2.5625,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7407,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62130417172944,
+            224.5290941001755
+          ]
+        },
+        "2": {
+          "area_px": 644,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.63819875776397,
+            195.32453416149067
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0036_t0360.jpg",
+      "t": 360
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t370",
+      "frame_index": 37,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 1.4296875,
+        "3": 2.578125,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61735726818734,
+            224.52058307463895
+          ]
+        },
+        "2": {
+          "area_px": 646,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.626934984520126,
+            195.28328173374612
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0037_t0370.jpg",
+      "t": 370
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t380",
+      "frame_index": 38,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 1.4921875,
+        "3": 2.578125,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7414,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.63285675748584,
+            224.50795791745347
+          ]
+        },
+        "2": {
+          "area_px": 645,
+          "bbox_xyxy": [
+            17,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.63565891472868,
+            195.29612403100776
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8761980830671,
+            288.82987220447285
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0038_t0380.jpg",
+      "t": 380
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t390",
+      "frame_index": 39,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 1.5546875,
+        "3": 2.59375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.6276308688613,
+            224.5152455477604
+          ]
+        },
+        "2": {
+          "area_px": 649,
+          "bbox_xyxy": [
+            0,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.579352850539294,
+            195.36979969183358
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0039_t0390.jpg",
+      "t": 390
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t400",
+      "frame_index": 40,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 1.6640625,
+        "3": 2.546875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7406,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.614501755333514,
+            224.5417229273562
+          ]
+        },
+        "2": {
+          "area_px": 656,
+          "bbox_xyxy": [
+            0,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.44207317073171,
+            195.45426829268294
+          ]
+        },
+        "3": {
+          "area_px": 114,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.32456140350877,
+            207.56140350877192
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0040_t0400.jpg",
+      "t": 400
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t410",
+      "frame_index": 41,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 1.8515625,
+        "3": 2.734375,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7407,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.619414067773725,
+            224.54380990954502
+          ]
+        },
+        "2": {
+          "area_px": 656,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.44512195121951,
+            195.4496951219512
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1251,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8649080735412,
+            288.83133493205435
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0041_t0410.jpg",
+      "t": 410
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t420",
+      "frame_index": 42,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 1.953125,
+        "3": 2.796875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7408,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61663066954644,
+            224.53658207343412
+          ]
+        },
+        "2": {
+          "area_px": 653,
+          "bbox_xyxy": [
+            0,
+            175,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.34762633996937,
+            195.52373660030628
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0042_t0420.jpg",
+      "t": 420
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t430",
+      "frame_index": 43,
+      "object_score_logits": {
+        "1": 9.8125,
+        "2": 2.046875,
+        "3": 2.84375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7408,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.6167656587473,
+            224.52632289416846
+          ]
+        },
+        "2": {
+          "area_px": 654,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.34862385321101,
+            195.4908256880734
+          ]
+        },
+        "3": {
+          "area_px": 114,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.32456140350877,
+            207.56140350877192
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87220447284346,
+            288.81869009584665
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0043_t0430.jpg",
+      "t": 430
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t440",
+      "frame_index": 44,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.109375,
+        "3": 2.875,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61033877716291,
+            224.5204481036577
+          ]
+        },
+        "2": {
+          "area_px": 661,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.16338880484115,
+            195.60816944024205
+          ]
+        },
+        "3": {
+          "area_px": 113,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.442477876106196,
+            207.55752212389382
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0044_t0440.jpg",
+      "t": 440
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t450",
+      "frame_index": 45,
+      "object_score_logits": {
+        "1": 9.8125,
+        "2": 2.171875,
+        "3": 2.921875,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7408,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.625134989200866,
+            224.52645788336932
+          ]
+        },
+        "2": {
+          "area_px": 660,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.124242424242425,
+            195.5742424242424
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0045_t0450.jpg",
+      "t": 450
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t460",
+      "frame_index": 46,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.234375,
+        "3": 2.9375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62343096234309,
+            224.52193278445134
+          ]
+        },
+        "2": {
+          "area_px": 661,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            32.021180030257185,
+            195.59304084720122
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0046_t0460.jpg",
+      "t": 460
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t470",
+      "frame_index": 47,
+      "object_score_logits": {
+        "1": 9.8125,
+        "2": 2.296875,
+        "3": 2.984375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7408,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62257019438445,
+            224.5187634989201
+          ]
+        },
+        "2": {
+          "area_px": 665,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.855639097744362,
+            195.6706766917293
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0047_t0470.jpg",
+      "t": 470
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t480",
+      "frame_index": 48,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.296875,
+        "3": 2.984375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.60769230769231,
+            224.51052631578946
+          ]
+        },
+        "2": {
+          "area_px": 669,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.86846038863976,
+            195.71748878923768
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0048_t0480.jpg",
+      "t": 480
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t490",
+      "frame_index": 49,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.34375,
+        "3": 3.046875,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62294197031039,
+            224.50944669365722
+          ]
+        },
+        "2": {
+          "area_px": 673,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.84843982169391,
+            195.76820208023773
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0049_t0490.jpg",
+      "t": 490
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t500",
+      "frame_index": 50,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.390625,
+        "3": 3.078125,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61317316776893,
+            224.51680388716426
+          ]
+        },
+        "2": {
+          "area_px": 673,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.818722139673106,
+            195.78454680534918
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0050_t0500.jpg",
+      "t": 500
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t510",
+      "frame_index": 51,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.40625,
+        "3": 3.09375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7411,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.618270138982595,
+            224.51531507219
+          ]
+        },
+        "2": {
+          "area_px": 677,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.666174298375186,
+            195.8552437223043
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0051_t0510.jpg",
+      "t": 510
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t520",
+      "frame_index": 52,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.4375,
+        "3": 3.109375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7413,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61918251719951,
+            224.5042492917847
+          ]
+        },
+        "2": {
+          "area_px": 678,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.623893805309734,
+            195.87315634218288
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0052_t0520.jpg",
+      "t": 520
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t530",
+      "frame_index": 53,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.46875,
+        "3": 3.109375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.60750438655689,
+            224.51410446753948
+          ]
+        },
+        "2": {
+          "area_px": 678,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.623893805309734,
+            195.87315634218288
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.89776357827475,
+            288.82747603833866
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0053_t0530.jpg",
+      "t": 530
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t540",
+      "frame_index": 54,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.46875,
+        "3": 3.109375,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.6246963562753,
+            224.52118758434548
+          ]
+        },
+        "2": {
+          "area_px": 681,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.580029368575623,
+            195.90455212922174
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0054_t0540.jpg",
+      "t": 540
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t550",
+      "frame_index": 55,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.484375,
+        "3": 3.109375,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62803561791689,
+            224.50796006475986
+          ]
+        },
+        "2": {
+          "area_px": 680,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.62205882352941,
+            195.89411764705883
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0055_t0550.jpg",
+      "t": 550
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t560",
+      "frame_index": 56,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.515625,
+        "3": 3.140625,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62155963302752,
+            224.5056664867782
+          ]
+        },
+        "2": {
+          "area_px": 683,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.62957540263543,
+            195.95900439238653
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.89776357827475,
+            288.82747603833866
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0056_t0560.jpg",
+      "t": 560
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t570",
+      "frame_index": 57,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.53125,
+        "3": 3.140625,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7414,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.619368761801994,
+            224.5006743997842
+          ]
+        },
+        "2": {
+          "area_px": 681,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.515418502202643,
+            195.93245227606462
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0057_t0570.jpg",
+      "t": 570
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t580",
+      "frame_index": 58,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.53125,
+        "3": 3.140625,
+        "4": 9.25
+      },
+      "objects": {
+        "1": {
+          "area_px": 7413,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61446108188318,
+            224.4985835694051
+          ]
+        },
+        "2": {
+          "area_px": 687,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.55604075691412,
+            196.02765647743814
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.89776357827475,
+            288.82747603833866
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0058_t0580.jpg",
+      "t": 580
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t590",
+      "frame_index": 59,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.53125,
+        "3": 3.140625,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7408,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.625134989200866,
+            224.52443304535637
+          ]
+        },
+        "2": {
+          "area_px": 685,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.553284671532847,
+            196.02043795620438
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0059_t0590.jpg",
+      "t": 590
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t600",
+      "frame_index": 60,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.5625,
+        "3": 3.15625,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62941970310391,
+            224.5199730094467
+          ]
+        },
+        "2": {
+          "area_px": 689,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.587808417997095,
+            196.05515239477504
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0060_t0600.jpg",
+      "t": 600
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t610",
+      "frame_index": 61,
+      "object_score_logits": {
+        "1": 9.625,
+        "2": 2.5625,
+        "3": 3.109375,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7411,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62123869923087,
+            224.5258399676157
+          ]
+        },
+        "2": {
+          "area_px": 690,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.44927536231884,
+            196.07971014492753
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87220447284346,
+            288.81869009584665
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0061_t0610.jpg",
+      "t": 610
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t620",
+      "frame_index": 62,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.578125,
+        "3": 3.140625,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7409,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.6196517748684,
+            224.5204481036577
+          ]
+        },
+        "2": {
+          "area_px": 689,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.455732946298983,
+            196.09288824383165
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0062_t0620.jpg",
+      "t": 620
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t630",
+      "frame_index": 63,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.578125,
+        "3": 3.15625,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7413,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.624578443275325,
+            224.51949278294887
+          ]
+        },
+        "2": {
+          "area_px": 687,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.49344978165939,
+            196.1004366812227
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0063_t0630.jpg",
+      "t": 630
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t640",
+      "frame_index": 64,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.59375,
+        "3": 3.171875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62456140350877,
+            224.5225371120108
+          ]
+        },
+        "2": {
+          "area_px": 690,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.382608695652173,
+            196.15652173913043
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87220447284346,
+            288.81869009584665
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0064_t0640.jpg",
+      "t": 640
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t650",
+      "frame_index": 65,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.578125,
+        "3": 3.171875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7415,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62440997977073,
+            224.5153068105192
+          ]
+        },
+        "2": {
+          "area_px": 691,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.380607814761216,
+            196.13314037626628
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87220447284346,
+            288.81869009584665
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0065_t0650.jpg",
+      "t": 650
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t660",
+      "frame_index": 66,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.609375,
+        "3": 3.1875,
+        "4": 9.1875
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61764705882353,
+            224.508769562871
+          ]
+        },
+        "2": {
+          "area_px": 697,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.29555236728838,
+            196.20659971305597
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1252,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.87220447284346,
+            288.81869009584665
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0066_t0660.jpg",
+      "t": 660
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t670",
+      "frame_index": 67,
+      "object_score_logits": {
+        "1": 9.8125,
+        "2": 2.59375,
+        "3": 3.21875,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7411,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61948454999325,
+            224.51329105383888
+          ]
+        },
+        "2": {
+          "area_px": 695,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.35539568345324,
+            196.23884892086332
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0067_t0670.jpg",
+      "t": 670
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t680",
+      "frame_index": 68,
+      "object_score_logits": {
+        "1": 9.8125,
+        "2": 2.609375,
+        "3": 3.203125,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7411,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.608689785454054,
+            224.51018755903388
+          ]
+        },
+        "2": {
+          "area_px": 699,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.216022889842634,
+            196.3175965665236
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1250,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8792,
+            288.8416
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0068_t0680.jpg",
+      "t": 680
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t690",
+      "frame_index": 69,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.59375,
+        "3": 3.21875,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62439287641662,
+            224.51538046411224
+          ]
+        },
+        "2": {
+          "area_px": 697,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.258249641319942,
+            196.28981348637015
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0069_t0690.jpg",
+      "t": 690
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t700",
+      "frame_index": 70,
+      "object_score_logits": {
+        "1": 9.75,
+        "2": 2.609375,
+        "3": 3.203125,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62456140350877,
+            224.5225371120108
+          ]
+        },
+        "2": {
+          "area_px": 699,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.216022889842634,
+            196.3175965665236
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0070_t0700.jpg",
+      "t": 700
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t710",
+      "frame_index": 71,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.578125,
+        "3": 3.15625,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61902834008097,
+            224.5207827260459
+          ]
+        },
+        "2": {
+          "area_px": 701,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.139800285306706,
+            196.35663338088446
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1251,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8649080735412,
+            288.83133493205435
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0071_t0710.jpg",
+      "t": 710
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t720",
+      "frame_index": 72,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.578125,
+        "3": 3.1875,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7412,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.62439287641662,
+            224.51538046411224
+          ]
+        },
+        "2": {
+          "area_px": 701,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.139800285306706,
+            196.35663338088446
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1253,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.88347964884275,
+            288.8172386272945
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0072_t0720.jpg",
+      "t": 720
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t730",
+      "frame_index": 73,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.546875,
+        "3": 3.15625,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7411,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61921468087977,
+            224.51720415598436
+          ]
+        },
+        "2": {
+          "area_px": 701,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.139800285306706,
+            196.35663338088446
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1251,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8864908073541,
+            288.8289368505196
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0073_t0730.jpg",
+      "t": 730
+    },
+    {
+      "frame_id": "7dbff743ea89:ep16:t740",
+      "frame_index": 74,
+      "object_score_logits": {
+        "1": 9.6875,
+        "2": 2.5625,
+        "3": 3.1875,
+        "4": 9.125
+      },
+      "objects": {
+        "1": {
+          "area_px": 7410,
+          "bbox_xyxy": [
+            0,
+            162,
+            81,
+            279
+          ],
+          "centroid_xy": [
+            41.61430499325236,
+            224.51511470985156
+          ]
+        },
+        "2": {
+          "area_px": 701,
+          "bbox_xyxy": [
+            0,
+            174,
+            45,
+            211
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            31.139800285306706,
+            196.35663338088446
+          ]
+        },
+        "3": {
+          "area_px": 112,
+          "bbox_xyxy": [
+            0,
+            200,
+            45,
+            212
+          ],
+          "centroid_in_tracked_basket_bbox": true,
+          "centroid_xy": [
+            25.544642857142858,
+            207.54464285714286
+          ]
+        },
+        "4": {
+          "area_px": 1251,
+          "bbox_xyxy": [
+            282,
+            267,
+            320,
+            311
+          ],
+          "centroid_in_tracked_basket_bbox": false,
+          "centroid_xy": [
+            299.8864908073541,
+            288.8289368505196
+          ]
+        }
+      },
+      "overlay_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1/overlays/frame_0074_t0740.jpg",
+      "t": 740
+    }
+  ],
+  "inputs": {
+    "camera": "agentview",
+    "episode_id": 16,
+    "frame_count": 75,
+    "frame_times": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130,
+      140,
+      150,
+      160,
+      170,
+      180,
+      190,
+      200,
+      210,
+      220,
+      230,
+      240,
+      250,
+      260,
+      270,
+      280,
+      290,
+      300,
+      310,
+      320,
+      330,
+      340,
+      350,
+      360,
+      370,
+      380,
+      390,
+      400,
+      410,
+      420,
+      430,
+      440,
+      450,
+      460,
+      470,
+      480,
+      490,
+      500,
+      510,
+      520,
+      530,
+      540,
+      550,
+      560,
+      570,
+      580,
+      590,
+      600,
+      610,
+      620,
+      630,
+      640,
+      650,
+      660,
+      670,
+      680,
+      690,
+      700,
+      710,
+      720,
+      730,
+      740
+    ],
+    "frames": [
+      {
+        "frame_id": "7dbff743ea89:ep16:t0",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0000_agentview.jpg",
+        "image_sha256": "6e43b639aee08098eaa72853ddf8c973577a4559802c4657663f113093b9ff2e",
+        "t": 0
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t10",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0010_agentview.jpg",
+        "image_sha256": "96129ef579766337a988a64e8be19f3c2ec1b8f4508d71e437d04af8f71e5395",
+        "t": 10
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t20",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0020_agentview.jpg",
+        "image_sha256": "b144a0c5933e67e439f4f060c2b26cde4b223f13403bd3cb8ec29a99c7acaa93",
+        "t": 20
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t30",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0030_agentview.jpg",
+        "image_sha256": "eafdf8c97cfa8fc1196f0ca1389dd2e75dcae5e262cc971633462d08ee7869d4",
+        "t": 30
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t40",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0040_agentview.jpg",
+        "image_sha256": "58164302b8cb25d9647b28ac6ee884767bbf6f68dd0ea543e5d19fd23a49a89e",
+        "t": 40
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t50",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0050_agentview.jpg",
+        "image_sha256": "467a107fe50839ec5e7a07f39ef6aaee8dc4bbb760458d093d7de4f1fcec6548",
+        "t": 50
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t60",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0060_agentview.jpg",
+        "image_sha256": "37108f57e9a64593a6925f16d644c3b9d99b7ca8d0a5b4698d092d119dec5026",
+        "t": 60
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t70",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0070_agentview.jpg",
+        "image_sha256": "57eda217d81f72e3e14594a961945a4927c09ad2e7fde466d88124f7e247a38f",
+        "t": 70
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t80",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0080_agentview.jpg",
+        "image_sha256": "459fe5d7e151f7d518fdcdfce77f2034f176bc37d2dad8254ff36176ac56139e",
+        "t": 80
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t90",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0090_agentview.jpg",
+        "image_sha256": "5ff785e1c0ef3f8329680769e7a492b3bd4bd94bddf599abaac11607e85b52b0",
+        "t": 90
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t100",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0100_agentview.jpg",
+        "image_sha256": "60e99da19e1bbcf8e27d3e3a6d53744b9b29db4c5c3e1f2f2b853c9b523a296f",
+        "t": 100
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t110",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0110_agentview.jpg",
+        "image_sha256": "e9b46a73b7c5bff45321db2f3502b4742eb26d82ea13eaad0a61a21079e489cd",
+        "t": 110
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t120",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0120_agentview.jpg",
+        "image_sha256": "fc6fda034aab09b6399c5a3d1c0dc3f37a1957fccfd59fa4b7baa9a52545feaa",
+        "t": 120
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t130",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0130_agentview.jpg",
+        "image_sha256": "50d2d51f7c3aabb15d308ffefc9b8284747f86d2b0c0edc5bf0d8a84f1a360bc",
+        "t": 130
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t140",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0140_agentview.jpg",
+        "image_sha256": "a041443df53b179993ea2312718df7ba2f9ba1352074134aa75f8a76c39d8c44",
+        "t": 140
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t150",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0150_agentview.jpg",
+        "image_sha256": "34d53f576ccac34aecebe0d208604bc52e143c37b253c150868783a41d8bfd1c",
+        "t": 150
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t160",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0160_agentview.jpg",
+        "image_sha256": "d021d30c64cad7b20598061da42278f9e77acdc5bdfd9ec4229fe4043dfc0015",
+        "t": 160
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t170",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0170_agentview.jpg",
+        "image_sha256": "ded42881ea3365f1015adff09c2f7c4a8be72e2923de99e5b4661d4451b125d6",
+        "t": 170
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t180",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0180_agentview.jpg",
+        "image_sha256": "a246778f7ce507778eacdb1af0c05f6bdfe5a20fd586a916652998454c4ffe2d",
+        "t": 180
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t190",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0190_agentview.jpg",
+        "image_sha256": "64f0aa734e03cc472a69dc5307a42bea011601e55f8c88aa78e46eb63d27c014",
+        "t": 190
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t200",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0200_agentview.jpg",
+        "image_sha256": "f62a7231608c885ae8c6bb024780dbab8e9892bcb93d9342ed707a25ad48c21e",
+        "t": 200
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t210",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0210_agentview.jpg",
+        "image_sha256": "ec08024dfd33b9b9186f4c4041c0e7e201efc15d223b3b18607633b877c81fa3",
+        "t": 210
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t220",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0220_agentview.jpg",
+        "image_sha256": "3465f632f6ee155caa7913da24e73426fe5db13f2671cc54a4173346e3d34267",
+        "t": 220
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t230",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0230_agentview.jpg",
+        "image_sha256": "752dde3b95d14269693dfc47578d1d557a8f9f710e0da58f7f57e253eabaed71",
+        "t": 230
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t240",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0240_agentview.jpg",
+        "image_sha256": "7e3f76ca01393572f95a6326ad0acc41cb3f2557c607e46005b6d42d1b641a1c",
+        "t": 240
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t250",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0250_agentview.jpg",
+        "image_sha256": "e344d34da85f5d8f366be2d288738ecc997890f82ac727170ffebfc6b40a3361",
+        "t": 250
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t260",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0260_agentview.jpg",
+        "image_sha256": "0790946f042d29ab1d1684a428de572cff6799eea0142f1d4d5de75e825e9b94",
+        "t": 260
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t270",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0270_agentview.jpg",
+        "image_sha256": "82bf4e0b4e1c3e61db69549473b25c4614097c13d930710c18759ec2c19a2e8d",
+        "t": 270
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t280",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0280_agentview.jpg",
+        "image_sha256": "d21aa010dd76daac3b56d930944064c13b7ad8a4132e212d1349cf94840baae6",
+        "t": 280
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t290",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0290_agentview.jpg",
+        "image_sha256": "da1aff4e88fcf67427fc2c0b563a41ce4fb892d95b088f4adf1cf2f415141793",
+        "t": 290
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t300",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0300_agentview.jpg",
+        "image_sha256": "09c5f1a63529cf8de7eceda055872652673a323838c21ee3bb187d4a891d4e60",
+        "t": 300
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t310",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0310_agentview.jpg",
+        "image_sha256": "3113b8556fb795cb057e58bcca58c9f6830a3f9cd531df3d964785608af7d311",
+        "t": 310
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t320",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0320_agentview.jpg",
+        "image_sha256": "3107d3269dc526bed92896cfc8538f773d344a13aa16a019be51494b9c4dc47c",
+        "t": 320
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t330",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0330_agentview.jpg",
+        "image_sha256": "96351a555c044bc040bcfc6e8ce151366f1eaac97011203603c576cb2dac6786",
+        "t": 330
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t340",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0340_agentview.jpg",
+        "image_sha256": "cc53050bce8a9f16af1f6b7fd95f35bff872f4814a97868373829127ea4ae84b",
+        "t": 340
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t350",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0350_agentview.jpg",
+        "image_sha256": "b3a00e5693dd6ecc515c2f1d238209ad3993605ca27ac642af71da33703e2ea9",
+        "t": 350
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t360",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0360_agentview.jpg",
+        "image_sha256": "6aaed3bf64f65a31067aaba928c63319428d7bd4c8f2a6d803fcf8b317a2b151",
+        "t": 360
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t370",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0370_agentview.jpg",
+        "image_sha256": "6cbf87b85c6ff2120fe9cc7235ed231afff89688f44859e7e1bf1880a4eab9d8",
+        "t": 370
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t380",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0380_agentview.jpg",
+        "image_sha256": "9dbed20d35327e4b3d7cea3d957bc79fdd9221bf93c14a8ec7ba232834d796fc",
+        "t": 380
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t390",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0390_agentview.jpg",
+        "image_sha256": "4e979e4f7992b35e6068c2cbfc8e0252b627c6dff553277a23e0ea53169dcf87",
+        "t": 390
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t400",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0400_agentview.jpg",
+        "image_sha256": "a9da5ff16a67b6e663219eebc8638354540e0a25ae173b47212c0d011345263a",
+        "t": 400
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t410",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0410_agentview.jpg",
+        "image_sha256": "379e3445e5762e9d85a20387bc927d68f66379363084e5a6f9e10453d4fa4170",
+        "t": 410
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t420",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0420_agentview.jpg",
+        "image_sha256": "3acc98643e3bb23ea389087872c860dda80f2766c411c8d936081e4baab90e92",
+        "t": 420
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t430",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0430_agentview.jpg",
+        "image_sha256": "e84afa05acef5cc63a673d2b7f8dd0021c79a009c09cce218e57f98895a700fe",
+        "t": 430
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t440",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0440_agentview.jpg",
+        "image_sha256": "a213966deef035f140a4edb1adad0ab5fbbf2d3d41cfc46b7d20031f24788e9d",
+        "t": 440
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t450",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0450_agentview.jpg",
+        "image_sha256": "0f2c4fff11b6f4a27b4abffbed0ca160b72382244b40744ffe745b4444bb2f51",
+        "t": 450
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t460",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0460_agentview.jpg",
+        "image_sha256": "ef5559e59117a213a6d094f4357dc5adeac6757c3b57e565d7c31cf42c25dbe5",
+        "t": 460
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t470",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0470_agentview.jpg",
+        "image_sha256": "3e97b539dacdfc683d17832de7e7264a301722234253d69632ce435a4b23d81b",
+        "t": 470
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t480",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0480_agentview.jpg",
+        "image_sha256": "4f847e67b9a69b945d2d57908bcc712df1a624520ece22ac773485fe1c3ca612",
+        "t": 480
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t490",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0490_agentview.jpg",
+        "image_sha256": "141676fc03a2236ec2abd0ac4ce81314cb92d704f221c24982115bee4e8af4a7",
+        "t": 490
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t500",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0500_agentview.jpg",
+        "image_sha256": "80cab1c6d1125c20d825b9222b3327905226b261a101bcc0fdf012aacfed3965",
+        "t": 500
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t510",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0510_agentview.jpg",
+        "image_sha256": "fdff324ac4a2c11f3205b9c0470a10e9333ae4c9345e03595f91f6b4c2a76e8c",
+        "t": 510
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t520",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0520_agentview.jpg",
+        "image_sha256": "4b2d41b41cc788a7c119148af7fc9ca25ddcd5ff37a477e936ca76a399b9a4f0",
+        "t": 520
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t530",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0530_agentview.jpg",
+        "image_sha256": "058ff92948e3e37be969b96fed0ab7962f58a4d7b12a5dbf7a10053f38e6b439",
+        "t": 530
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t540",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0540_agentview.jpg",
+        "image_sha256": "86637678b6ab3ce859515d1e0256a33b3872bb27c90ccb1e8cd8b458ac1420da",
+        "t": 540
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t550",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0550_agentview.jpg",
+        "image_sha256": "8aca26ebf231fc4ef31fe4fd13f0ffb59f48a5e994eb3d10a2884622f5425835",
+        "t": 550
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t560",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0560_agentview.jpg",
+        "image_sha256": "3b84c734981174d777374b152a4fc9170e968f74c0f3f703f057b358fb52d4e1",
+        "t": 560
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t570",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0570_agentview.jpg",
+        "image_sha256": "6b4cd7b54a069b24020a556bacb4f7afb818521d7b40d3f7382d4f0bdc409efc",
+        "t": 570
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t580",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0580_agentview.jpg",
+        "image_sha256": "74031ae0ebd1e7db8a2ec04d69ba94aa8a1608b234bd0355c7b5c7c0d561625f",
+        "t": 580
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t590",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0590_agentview.jpg",
+        "image_sha256": "3587f55e3e8dd600bb92f7cf3f4aa030813d1377215ec6c48b0b05afe2e262bf",
+        "t": 590
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t600",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0600_agentview.jpg",
+        "image_sha256": "d45caa10ce75daef54d02a279b7aabb394cc121b93ad41672da71a6bbe671e48",
+        "t": 600
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t610",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0610_agentview.jpg",
+        "image_sha256": "d1b5adb87bf1ab86c31cb9da81162a8ddbb345987dcfdc615bbeb80ea4b636cc",
+        "t": 610
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t620",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0620_agentview.jpg",
+        "image_sha256": "75a62fc759edb463678f3aca02efe7986b13397daf253cd1e2e70168b94c31d0",
+        "t": 620
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t630",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0630_agentview.jpg",
+        "image_sha256": "4d0fc7446228824a44bd9bb2aa8b35a94a6dc2d1b5278497ea69fb470d82cfa6",
+        "t": 630
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t640",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0640_agentview.jpg",
+        "image_sha256": "becb1dc8695cead76a62caa33b66e24430dcc04bf092d2ee7a8bd49a8ab66ad6",
+        "t": 640
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t650",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0650_agentview.jpg",
+        "image_sha256": "b367b4bac7706ed5e8cd138e86c75234c47fd2df7b08209411a06464ae596af1",
+        "t": 650
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t660",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0660_agentview.jpg",
+        "image_sha256": "19b73f25dfdaedd8ec205e68da738010faff96ade9b1bd72d37c940a81190da8",
+        "t": 660
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t670",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0670_agentview.jpg",
+        "image_sha256": "30b4061364b8ccc664301a61c46f7a8da111a05d0cb6e5196a55ff86219e7093",
+        "t": 670
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t680",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0680_agentview.jpg",
+        "image_sha256": "30fa7c102244f0a0c4f717c064c65d19987339edaba77318c36d271e53af4066",
+        "t": 680
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t690",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0690_agentview.jpg",
+        "image_sha256": "1d2c488e58642f95cecce0a6e1c79624bf7437e4719b03038aafceba9c342992",
+        "t": 690
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t700",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0700_agentview.jpg",
+        "image_sha256": "7f6bcfc542483f91ac83be930d65b19d2fe36600fb687065557cfe203f3e3fbf",
+        "t": 700
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t710",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0710_agentview.jpg",
+        "image_sha256": "e133c736c462a328ff71e0d00106552160b00d975f89fd4385837657458ccec5",
+        "t": 710
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t720",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0720_agentview.jpg",
+        "image_sha256": "923e3417e91573dd7fef380aa45359880af4ce07f59348c3a2fc292820ac2c0f",
+        "t": 720
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t730",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0730_agentview.jpg",
+        "image_sha256": "442cedef32f4ea708c99722e07a5c8fcf2b7afe616542c1dd5649a79b2e07db8",
+        "t": 730
+      },
+      {
+        "frame_id": "7dbff743ea89:ep16:t740",
+        "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/images/ep0016_t0740_agentview.jpg",
+        "image_sha256": "b6a63ceef5f161b98df70fbb104507365ec27395d2e4e581cc336a42da6f9d24",
+        "t": 740
+      }
+    ],
+    "human_t0_calibration": {
+      "1": {
+        "box": [
+          0.0,
+          156.0,
+          83.0,
+          284.0
+        ],
+        "color": [
+          255,
+          255,
+          0
+        ],
+        "name": "basket"
+      },
+      "2": {
+        "box": [
+          123.0,
+          176.0,
+          165.0,
+          235.0
+        ],
+        "color": [
+          0,
+          255,
+          0
+        ],
+        "name": "left_cylindrical_can"
+      },
+      "3": {
+        "box": [
+          224.0,
+          176.0,
+          268.0,
+          235.0
+        ],
+        "color": [
+          0,
+          160,
+          255
+        ],
+        "name": "right_cylindrical_can"
+      },
+      "4": {
+        "box": [
+          283.0,
+          254.0,
+          321.0,
+          302.0
+        ],
+        "color": [
+          255,
+          0,
+          255
+        ],
+        "name": "cream_cheese_box"
+      }
+    },
+    "manifest_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen/manifest.jsonl",
+    "manifest_sha256": "b2e00de8f8e95bbeb9897294ca301473ca93a223e4bb8cb448180d2adfdd497e"
+  },
+  "runtime": {
+    "argv": [
+      "scripts/probe_v242_sam2_tracking.py",
+      "--replay-dir",
+      "results/v242_rgb_replay/chain3_lr2_ep16_stride1_v242_frozen",
+      "--episode-id",
+      "16",
+      "--camera",
+      "agentview",
+      "--device",
+      "cuda",
+      "--dtype",
+      "bfloat16",
+      "--output-dir",
+      "results/v242_sam2_probe/chain3_ep16_agentview_dense_frozen_v1"
+    ],
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.5.4"
+  },
+  "schema": "v242_sam2_calibration_probe_v1",
+  "t700_centroid_in_tracked_basket_bbox": {
+    "cream_cheese_box": false,
+    "left_cylindrical_can": true,
+    "right_cylindrical_can": true
+  },
+  "t700_relation_matches_calibration_question": true
+}

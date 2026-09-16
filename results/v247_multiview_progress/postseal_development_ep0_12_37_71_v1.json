@@ -1,0 +1,165 @@
+{
+  "decision": "STOP_FORMAL_PROMOTION_DEVELOPMENT_ONLY",
+  "episode_ids": [
+    0,
+    12,
+    37,
+    71
+  ],
+  "episodes": {
+    "0": {
+      "absolute_timing_errors_steps": [
+        0,
+        0
+      ],
+      "exact_scalar_frames": 75,
+      "extra_transitions": 0,
+      "frames": 75,
+      "missing_transitions": 0,
+      "oracle_transitions": {
+        "can": [
+          130,
+          230
+        ],
+        "cream": []
+      },
+      "predicted_transitions": {
+        "can": [
+          130,
+          230
+        ],
+        "cream": []
+      }
+    },
+    "12": {
+      "absolute_timing_errors_steps": [
+        0,
+        10
+      ],
+      "exact_scalar_frames": 75,
+      "extra_transitions": 0,
+      "frames": 76,
+      "missing_transitions": 0,
+      "oracle_transitions": {
+        "can": [
+          570
+        ],
+        "cream": [
+          470
+        ]
+      },
+      "predicted_transitions": {
+        "can": [
+          570
+        ],
+        "cream": [
+          480
+        ]
+      }
+    },
+    "37": {
+      "absolute_timing_errors_steps": [
+        10,
+        0
+      ],
+      "exact_scalar_frames": 74,
+      "extra_transitions": 0,
+      "frames": 75,
+      "missing_transitions": 0,
+      "oracle_transitions": {
+        "can": [
+          140,
+          260
+        ],
+        "cream": []
+      },
+      "predicted_transitions": {
+        "can": [
+          130,
+          260
+        ],
+        "cream": []
+      }
+    },
+    "71": {
+      "absolute_timing_errors_steps": [
+        0,
+        10
+      ],
+      "exact_scalar_frames": 74,
+      "extra_transitions": 0,
+      "frames": 75,
+      "missing_transitions": 0,
+      "oracle_transitions": {
+        "can": [
+          130,
+          250
+        ],
+        "cream": []
+      },
+      "predicted_transitions": {
+        "can": [
+          130,
+          240
+        ],
+        "cream": []
+      }
+    }
+  },
+  "evaluator_source_sha256": "bbaaed7c33248933e6f2f04b0df008b846dd05e1da407eb834bcdfcac72e7514",
+  "metrics": {
+    "absolute_timing_errors_steps": [
+      0,
+      0,
+      0,
+      10,
+      10,
+      0,
+      0,
+      10
+    ],
+    "atom_accuracy": {
+      "can_ge1": 0.9966777408637874,
+      "can_ge2": 0.9966777408637874,
+      "cream": 0.9966777408637874
+    },
+    "atom_f1": {
+      "can_ge1": 0.9975550122249389,
+      "can_ge2": 0.9966996699669967,
+      "cream": 0.9824561403508771
+    },
+    "evidence_coverage": 1.0,
+    "exact_scalar_accuracy": 0.9900332225913622,
+    "extra_transitions": 0,
+    "frames": 301,
+    "macro_f1": 0.9922369408476043,
+    "max_timing_error_steps": 10,
+    "median_timing_error_steps": 0.0,
+    "missing_transitions": 0,
+    "never_achieved_terminal_specificity": 1.0,
+    "uncertainty_rate": 0.0
+  },
+  "producer_seals_verified_before_summary_access": true,
+  "progress_run": {
+    "can_state_sha256": "403088c26b2edffd4465d2f17f06d326aa309d7beade6c98b2c5f2c4496e3bcd",
+    "complete_sha256": "2ee6f0c0308b557d65a8af258d8914469b21f849f80de3fa2b7e577ef403f78c",
+    "frames_sha256": "3e6f10926243f8c2f5671feaddeb9fa721291354aa729de92958d9faa63e7852",
+    "producer_sha256": "d067a446ba7827d4bc6e61ce95bea2888e9cb41b8ddb6d9664db8b1e312cec0e",
+    "result_sha256": "8c869d450d9092c951a60acb4ca88b162149a9041de803c74dbb0160e493cd90",
+    "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v247_multiview_progress/development_ep0_12_37_71_v1"
+  },
+  "reason": "the same episodes informed both rules and evaluation",
+  "schema": "v247_composed_progress_development_evaluation_v1",
+  "source_summary": {
+    "fields_used": [
+      "episode_records.idx",
+      "seed",
+      "steps",
+      "events"
+    ],
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+    "sha256": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58"
+  },
+  "status": "development_evaluation_complete",
+  "success_values_accessed": false
+}

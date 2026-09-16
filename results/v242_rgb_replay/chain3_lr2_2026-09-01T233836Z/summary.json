@@ -1,0 +1,73 @@
+{
+  "action_decoder": {
+    "implementation": "LeRobot policy_postprocessor + LIBERO env_postprocessor; no VLA weights, image processor, tokenizer, or new policy actions loaded",
+    "model_id": "lerobot/pi05_libero_finetuned"
+  },
+  "c": 10,
+  "chunks_replayed": 75,
+  "cli": [
+    "scripts/replay_v242_rgb_tape.py",
+    "--tape",
+    "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/tape.pt",
+    "--task",
+    "chain3_lr2",
+    "--expected-c",
+    "10",
+    "--episodes",
+    "1",
+    "--chunk-stride",
+    "5",
+    "--max-proprio-error",
+    "1e-6",
+    "--jpeg-quality",
+    "95"
+  ],
+  "code_sha256": "128e1c4fbeae1599481c6e2e9c184b314ba88b04bb1acf44d68e3a6e24578d69",
+  "env_seeds": [
+    8700
+  ],
+  "env_steps_replayed": 750,
+  "episode_ids": [
+    0
+  ],
+  "episodes_available": 96,
+  "episodes_replayed": 1,
+  "frames_saved": 15,
+  "git": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+  "images": {
+    "cameras": {
+      "agentview": "image",
+      "eye_in_hand": "image2"
+    },
+    "format": "JPEG",
+    "orientation": "rotated 180 degrees to match LeRobot LiberoProcessorStep",
+    "quality": 95
+  },
+  "latent_dim": 8217,
+  "manifest_path": "manifest.jsonl",
+  "manifest_sha256": "0bf52b783e08f9ce0b2a7102f711cf7906d2f25042d06025cbef9d2cd0142c58",
+  "proprio_dim": 25,
+  "proprio_validation": {
+    "frames_checked": 15,
+    "mean_of_frame_max_abs_error": 0.0,
+    "observed_max_abs_error": 0.0,
+    "threshold_max_abs_error": 1e-06
+  },
+  "sampling": {
+    "chunk_stride": 5,
+    "pre_action": true
+  },
+  "schema": "v242_rgb_replay_summary_v1",
+  "source_summary_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+  "summary_sha256": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58",
+  "tape_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/tape.pt",
+  "tape_sha256": "7dbff743ea89db5fd792d317111129d188d439122a46db7384f4549fd947f86c",
+  "task": "chain3_lr2",
+  "terminal_action_recovery": {
+    "episodes_with_unstored_terminal_steps": 0,
+    "note": "v121 stores an action chunk only when a subsequent z_next exists. A chunk that terminates mid-execution is therefore absent and cannot be recovered; this replay stops after the last stored chunk.",
+    "recoverable": false,
+    "unstored_terminal_env_steps": 0
+  },
+  "utc": "2026-09-01T233836Z"
+}

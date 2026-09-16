@@ -1,0 +1,83 @@
+{
+  "schema": "v245_cream_dev_rgb_registration_v1",
+  "status": "frozen_before_rgb_replay",
+  "created_utc": "2026-09-02T02:20:29Z",
+  "development_selection": {
+    "independent_validation": false,
+    "panel": "chain3_lr2 seed-8700 development only",
+    "selection_timing": "posthoc_after_opened_8700_summary",
+    "selection_reason": "episode 12 had already-opened event-5 support at t470 and its stored-u tape reaches t750",
+    "opened_summary_sha256_used_for_selection_only": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58",
+    "producer_opens_summary": false,
+    "formal_validation_prohibited": true,
+    "claim_scope": "development-only positive cream recall support; no independent accuracy claim"
+  },
+  "predecessor_rich_registration": {
+    "path": "results/v245_rich_reencode/registrations/chain3_8700_ep12_cream_posthoc_dev_v1.json",
+    "file_sha256": "e4a088cecbc3be959cbd1938fcc871abc95fb020f18c7e2a8838cb0faeee0b8e",
+    "canonical_self_sha256": "0d1ea6c27bcc5eebf4dce6f5cc592e52c105714e041d78075196d1f38d5e1ad0",
+    "declared_utc": "2026-09-02T020500Z",
+    "filesystem_mtime_ns": 1788315055163036594,
+    "filesystem_mtime_utc": "2026-09-02T02:10:55.163037Z",
+    "observed_utc": "2026-09-02T02:19:01Z",
+    "timing_interpretation": "declared UTC precedes file mtime by about six minutes, so internal time alone cannot prove immutable freeze order; only content hashes are used downstream"
+  },
+  "sanitized_source": {
+    "tape_sha256": "2b7130fb81b73fb682a18ac453e1e3028dc4861b37abfb86d0f14de809661ff2",
+    "result_sha256": "28e9f055dc21f9fd3b232658ca69fcae3626e543d58d2612e273d999fe9eb1a2",
+    "complete_sha256": "bab47b89c06045404b96fdede481b35ff0c013e4e1111725307085c04b9d4fce",
+    "producer_sha256": "34787c10a6c4697abc9dd8ccfadb61cf2b60f7f2ec06a90795a61c183c87d69b",
+    "outcome_fields_removed": true,
+    "summary_opened_by_sanitizer": false
+  },
+  "rich_oracle": {
+    "result_sha256": "01711d63a2e53219706fc0731bcffbdacbcf911a5cd0f5ffdf798ab8afc9fdc2",
+    "complete_sha256": "91c2643ace6734aa3180d79b9a1754af7f98de44663503b3c9f0891327fd2858",
+    "boundaries_sha256": "45a023ad6b9921126bf9740947cbc737885a79b22ee7521ae15191b0a62a6910",
+    "rich_tape_sha256": "fcbb81ddb5d08bac4a8e9c28e0fffadd84c151dd6e6333e27981ac7400d30858",
+    "producer_sha256": "6ff805cb6f0d928dfd77e63828c008891477d3be729b9e1d94e715bb7295c59e",
+    "registration_sha256": "e4a088cecbc3be959cbd1938fcc871abc95fb020f18c7e2a8838cb0faeee0b8e",
+    "oracle": "rich8217_exact",
+    "oracle_vectors_compared_exactly": 150
+  },
+  "producer": {
+    "path": "scripts/replay_v245_cream_dev_rgb.py",
+    "source_sha256": "dc30677ab0002b1fb028c62bcee63831963a50fac72396058ae0142d70dd2318"
+  },
+  "replay": {
+    "episode_id": 12,
+    "env_seed": 8712,
+    "seed_start": 8700,
+    "seed_rule": "seed_start_plus_episode_id",
+    "task": "chain3_lr2",
+    "c": 10,
+    "stored_rows": 75,
+    "stored_steps": 750,
+    "boundaries": 76,
+    "sampling": "all_pre_action_plus_final_n_plus_1",
+    "jpeg_quality": 95
+  },
+  "action_decoder": {
+    "new_policy_actions_generated": false,
+    "implementation": "stored normalized u through LeRobot PI05 policy postprocessor and LIBERO env postprocessor on CPU",
+    "policy_snapshot": {
+      "repo_id": "lerobot/pi05_libero_finetuned",
+      "revision": "8e174154ef5f6c60a8da12ae99c303d8963138c1",
+      "files_sha256": {
+        "config.json": "2f6d4b96b032593e1de65b391ee7252a70227bff398ef1b94658fea17818142f",
+        "model.safetensors": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae",
+        "policy_postprocessor.json": "37d719a6584600988e6c343306d2eaee0575109f235ad500313577f73e47e8a1",
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9",
+        "policy_preprocessor.json": "3d669ffc18d0364536735d8203076dcc69d3a6523aa5956ccaada3f9e1e6b748",
+        "policy_preprocessor_step_2_normalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9"
+      }
+    }
+  },
+  "source_files_sha256": {
+    "scripts/replay_v245_cream_dev_rgb.py": "dc30677ab0002b1fb028c62bcee63831963a50fac72396058ae0142d70dd2318",
+    "scripts/replay_v242_rgb_tape.py": "b857f62e73d638c56cf527d2793583a64e822b08bfb8e9e5f0e33be7e27fe85d",
+    "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
+    "bddl/chains/chain3_lr2.bddl": "312eaba15b045368b7fe48b22c44105d8276c1099f2e19e853cd62d47e748ca1"
+  },
+  "self_sha256": "0ba6687c1d4ca6fa801929baf6b89ef86f3f992bf80c71fc94a96f517df1863c"
+}

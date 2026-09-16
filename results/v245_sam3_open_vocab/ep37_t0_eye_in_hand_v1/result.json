@@ -1,0 +1,492 @@
+{
+  "created_utc": "2026-09-02T02:40:36.641370+00:00",
+  "image": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep36_55_stride1_v242_frozen/images/ep0037_t0000_eye_in_hand.jpg",
+    "sha256": "009e5d636bf6173b6f6b492559a7b0fc3b548b8d5c11107218135087fb6c08fb",
+    "size_wh": [
+      360,
+      360
+    ]
+  },
+  "model": {
+    "checkpoint": "/home/stargazer/.cache/huggingface/hub/models--1038lab--sam3/blobs/6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "checkpoint_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "checkpoint_subtree": "detector_model.",
+    "clip_tokenizer": "/home/stargazer/Desktop/UW_Madison/RoboOPE/rebuttal/ckpts/clip-vit-base-patch32",
+    "config": {
+      "_name_or_path": "",
+      "architectures": null,
+      "chunk_size_feed_forward": 0,
+      "detr_decoder_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "dropout": 0.1,
+        "dtype": null,
+        "hidden_act": "relu",
+        "hidden_dropout": 0.0,
+        "hidden_size": 256,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 2048,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-06,
+        "model_type": "sam3_detr_decoder",
+        "num_attention_heads": 8,
+        "num_layers": 6,
+        "num_queries": 200,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true
+      },
+      "detr_encoder_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "dropout": 0.1,
+        "dtype": null,
+        "hidden_act": "relu",
+        "hidden_dropout": 0.0,
+        "hidden_size": 256,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 2048,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-06,
+        "model_type": "sam3_detr_encoder",
+        "num_attention_heads": 8,
+        "num_layers": 6,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true
+      },
+      "dtype": null,
+      "geometry_encoder_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "dropout": 0.1,
+        "dtype": null,
+        "hidden_act": "relu",
+        "hidden_dropout": 0.0,
+        "hidden_size": 256,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "intermediate_size": 2048,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-06,
+        "model_type": "sam3_geometry_encoder",
+        "num_attention_heads": 8,
+        "num_layers": 3,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true,
+        "roi_size": 7
+      },
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "initializer_range": 0.02,
+      "is_encoder_decoder": false,
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "mask_decoder_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "dropout": 0.0,
+        "dtype": null,
+        "hidden_size": 256,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-06,
+        "model_type": "sam3_mask_decoder",
+        "num_attention_heads": 8,
+        "num_upsampling_stages": 3,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true
+      },
+      "model_type": "sam3",
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "problem_type": null,
+      "return_dict": true,
+      "text_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "attention_dropout": 0.0,
+        "bos_token_id": 49406,
+        "chunk_size_feed_forward": 0,
+        "dtype": null,
+        "eos_token_id": 49407,
+        "hidden_act": "gelu",
+        "hidden_size": 1024,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_factor": 1.0,
+        "initializer_range": 0.02,
+        "intermediate_size": 4096,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-05,
+        "max_position_embeddings": 32,
+        "model_type": "clip_text_model",
+        "num_attention_heads": 16,
+        "num_hidden_layers": 24,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "pad_token_id": 1,
+        "problem_type": null,
+        "projection_dim": 512,
+        "return_dict": true,
+        "vocab_size": 49408
+      },
+      "transformers_version": "5.5.4",
+      "vision_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "backbone_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "attention_dropout": 0.0,
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "global_attn_indexes": [
+            7,
+            15,
+            23,
+            31
+          ],
+          "hidden_act": "gelu",
+          "hidden_dropout": 0.0,
+          "hidden_size": 1024,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "image_size": 1008,
+          "initializer_range": 0.02,
+          "intermediate_size": 4736,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "layer_scale_init_value": null,
+          "model_type": "sam3_vit_model",
+          "num_attention_heads": 16,
+          "num_channels": 3,
+          "num_hidden_layers": 32,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "patch_size": 14,
+          "pretrain_image_size": 336,
+          "problem_type": null,
+          "return_dict": true,
+          "rope_theta": 10000.0,
+          "window_size": 24
+        },
+        "backbone_feature_sizes": [
+          [
+            288,
+            288
+          ],
+          [
+            144,
+            144
+          ],
+          [
+            72,
+            72
+          ]
+        ],
+        "chunk_size_feed_forward": 0,
+        "dtype": null,
+        "fpn_hidden_size": 256,
+        "hidden_act": "gelu",
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "layer_norm_eps": 1e-06,
+        "model_type": "sam3_vision_model",
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true,
+        "scale_factors": [
+          4.0,
+          2.0,
+          1.0,
+          0.5
+        ]
+      }
+    },
+    "device": "cuda",
+    "dtype": "bfloat16"
+  },
+  "predictions": {
+    "alphabet_soup_1": {
+      "instances": [
+        {
+          "box_xyxy": [
+            7.90625,
+            222.0,
+            92.0,
+            292.0
+          ],
+          "mask_area_px": 3754,
+          "mask_centroid_xy": [
+            48.46430474160895,
+            255.38971763452318
+          ],
+          "score": 0.7734375
+        },
+        {
+          "box_xyxy": [
+            172.0,
+            218.0,
+            233.0,
+            292.0
+          ],
+          "mask_area_px": 3292,
+          "mask_centroid_xy": [
+            199.05194410692587,
+            255.5528554070474
+          ],
+          "score": 0.6328125
+        },
+        {
+          "box_xyxy": [
+            30.625,
+            73.0,
+            68.0,
+            136.0
+          ],
+          "mask_area_px": 2179,
+          "mask_centroid_xy": [
+            48.504818724185405,
+            104.71959614502065
+          ],
+          "score": 0.1748046875
+        },
+        {
+          "box_xyxy": [
+            215.0,
+            83.5,
+            243.0,
+            141.0
+          ],
+          "mask_area_px": 1615,
+          "mask_centroid_xy": [
+            228.43962848297213,
+            112.2482972136223
+          ],
+          "score": 0.1669921875
+        }
+      ],
+      "presence_logit": 1.4765625,
+      "text_prompt": "alphabet soup can"
+    },
+    "basket_1": {
+      "instances": [],
+      "presence_logit": -2.484375,
+      "text_prompt": "white woven basket"
+    },
+    "cream_cheese_1": {
+      "instances": [
+        {
+          "box_xyxy": [
+            30.375,
+            74.0,
+            67.5,
+            136.0
+          ],
+          "mask_area_px": 2173,
+          "mask_centroid_xy": [
+            48.4054302807179,
+            104.76530142659917
+          ],
+          "score": 0.65625
+        },
+        {
+          "box_xyxy": [
+            306.0,
+            82.5,
+            360.0,
+            231.0
+          ],
+          "mask_area_px": 6413,
+          "mask_centroid_xy": [
+            335.0162170590987,
+            157.0053017308592
+          ],
+          "score": 0.208984375
+        },
+        {
+          "box_xyxy": [
+            215.0,
+            83.5,
+            243.0,
+            141.0
+          ],
+          "mask_area_px": 1629,
+          "mask_centroid_xy": [
+            228.53959484346225,
+            112.23879680785758
+          ],
+          "score": 0.208984375
+        },
+        {
+          "box_xyxy": [
+            7.03125,
+            222.0,
+            92.0,
+            292.0
+          ],
+          "mask_area_px": 3795,
+          "mask_centroid_xy": [
+            48.55942028985507,
+            255.42977602108036
+          ],
+          "score": 0.11279296875
+        }
+      ],
+      "presence_logit": 0.79296875,
+      "text_prompt": "cream cheese box"
+    },
+    "tomato_sauce_1": {
+      "instances": [
+        {
+          "box_xyxy": [
+            7.90625,
+            222.0,
+            92.0,
+            292.0
+          ],
+          "mask_area_px": 3761,
+          "mask_centroid_xy": [
+            48.45705929274129,
+            255.36373304972082
+          ],
+          "score": 0.57421875
+        },
+        {
+          "box_xyxy": [
+            172.0,
+            218.0,
+            233.0,
+            292.0
+          ],
+          "mask_area_px": 3300,
+          "mask_centroid_xy": [
+            199.1060606060606,
+            255.5239393939394
+          ],
+          "score": 0.5625
+        },
+        {
+          "box_xyxy": [
+            30.625,
+            74.0,
+            68.0,
+            136.0
+          ],
+          "mask_area_px": 2189,
+          "mask_centroid_xy": [
+            48.52169940612151,
+            104.72772955687529
+          ],
+          "score": 0.265625
+        },
+        {
+          "box_xyxy": [
+            214.0,
+            83.5,
+            245.0,
+            141.0
+          ],
+          "mask_area_px": 1623,
+          "mask_centroid_xy": [
+            228.44855206407885,
+            112.26740603820086
+          ],
+          "score": 0.259765625
+        }
+      ],
+      "presence_logit": 0.44921875,
+      "text_prompt": "tomato sauce can"
+    }
+  },
+  "privileged_inputs_read": false,
+  "producer_code_sha256": "f2ca26352db33c30a2ec1028ed73eb9f416bae74a85605b65609f9c327491e16",
+  "schema": "v245_sam3_open_vocab_probe_v1",
+  "selected_mask_files": {
+    "alphabet_soup_1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_open_vocab/ep37_t0_eye_in_hand_v1/masks/alphabet_soup_1.png",
+      "sha256": "b2f6f57b184595aae30605f197a736a0951440b02ef34c9de4b004fbe198f1b7"
+    },
+    "cream_cheese_1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_open_vocab/ep37_t0_eye_in_hand_v1/masks/cream_cheese_1.png",
+      "sha256": "72582dfab74975235c94e31d0939654f32ef29b260efb79943685db4107e8d31"
+    },
+    "tomato_sauce_1": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_open_vocab/ep37_t0_eye_in_hand_v1/masks/tomato_sauce_1.png",
+      "sha256": "901170e49deed18b72484f65335eeb01ad375c44316f2e0c4cae499b50e1b027"
+    }
+  },
+  "status": "rgb_only_development_probe_complete",
+  "thresholds": {
+    "mask": 0.5,
+    "score": 0.1
+  }
+}

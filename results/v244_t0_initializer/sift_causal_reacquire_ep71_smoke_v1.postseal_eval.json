@@ -1,0 +1,339 @@
+{
+  "causal_last_reliable_carry": {
+    "full_metrics": {
+      "classification": {
+        "all_object_labels": 225,
+        "certain_object_labels": 225,
+        "effective_accuracy_uncertain_counted_incorrect": 0.6088888888888889,
+        "empty_positive_f1_convention": "1.0 iff confident support exists and TP=FP=FN=0",
+        "evaluable_object_labels": 225,
+        "evaluable_uncertain_object_labels": 0,
+        "excluded_censored_frame_labels": 0,
+        "framewise_place_accuracy_certain_only": 0.6088888888888889,
+        "macro_inside_positive_f1": 0.45943608372253936,
+        "per_object_confusion": {
+          "alphabet_soup_1": {
+            "certain_support": 75,
+            "fn": 43,
+            "fp": 1,
+            "tn": 12,
+            "tp": 19,
+            "uncertain": 0
+          },
+          "cream_cheese_1": {
+            "certain_support": 75,
+            "fn": 0,
+            "fp": 36,
+            "tn": 39,
+            "tp": 0,
+            "uncertain": 0
+          },
+          "tomato_sauce_1": {
+            "certain_support": 75,
+            "fn": 7,
+            "fp": 1,
+            "tn": 24,
+            "tp": 43,
+            "uncertain": 0
+          }
+        },
+        "per_object_inside_positive_f1": {
+          "alphabet_soup_1": 0.4634146341463415,
+          "cream_cheese_1": 0.0,
+          "tomato_sauce_1": 0.9148936170212766
+        },
+        "uncertain_fraction": 0.0,
+        "uncertain_object_labels": 0
+      },
+      "coverage": {
+        "expected_source_chunk_start_frames_from_privileged_steps": 75,
+        "frame_coverage": 1.0,
+        "horizon_observation_fraction": 1.0,
+        "note": "gate frame_coverage is valid teacher labels divided by observable manifest RGB rows and is fail-closed by label/manifest bijection; source-chunk and registered-horizon observation fractions are reported separately, so an unrecoverable terminal chunk is right-censoring, not a missing teacher label",
+        "observable_manifest_frames": 75,
+        "registered_horizon_frames": 75,
+        "source_chunk_observation_fraction": 1.0,
+        "teacher_to_manifest_coverage": 1.0,
+        "valid_teacher_frames": 75
+      },
+      "terminal_specificity": {
+        "definition": "among object-episodes with no place event, only an outside label at the last observable frame counts as a true negative; uncertain is failure",
+        "denominator": 1,
+        "rows": [
+          {
+            "counts_as_true_negative": true,
+            "episode_id": 71,
+            "last_observed_t": 740,
+            "object": "cream_cheese_1",
+            "terminal_observable_label": "outside"
+          }
+        ],
+        "specificity": 1.0,
+        "true_negatives": 1
+      },
+      "transitions": {
+        "ground_truth": "sticky first-achievement place events 1/3/5",
+        "matched_observable_positive_events": 2,
+        "median_absolute_error_steps": 10.0,
+        "missing_observable_transitions": 0,
+        "observable_positive_events": 2,
+        "prediction": "first certain outside-to-inside transition; uncertain skipped",
+        "right_censored_positive_events": 0,
+        "rows": [
+          {
+            "absolute_error_steps": 10,
+            "episode_id": 71,
+            "event_step": 130,
+            "last_observed_t": 740,
+            "object": "alphabet_soup_1",
+            "predicted_transition_t": 120,
+            "status": "matched"
+          },
+          {
+            "absolute_error_steps": 10,
+            "episode_id": 71,
+            "event_step": 250,
+            "last_observed_t": 740,
+            "object": "tomato_sauce_1",
+            "predicted_transition_t": 240,
+            "status": "matched"
+          }
+        ]
+      }
+    },
+    "rule": "state starts outside independently per episode/object; each certain inside/outside updates immediately; uncertain holds previous state",
+    "summary": {
+      "certain_only_accuracy": 0.6088888888888889,
+      "effective_accuracy_uncertain_counted_incorrect": 0.6088888888888889,
+      "macro_inside_positive_f1": 0.45943608372253936,
+      "matched_observable_positive_transitions": 2,
+      "missing_observable_transitions": 0,
+      "observable_positive_transitions": 2,
+      "per_object_confusion": {
+        "alphabet_soup_1": {
+          "certain_support": 75,
+          "fn": 43,
+          "fp": 1,
+          "tn": 12,
+          "tp": 19,
+          "uncertain": 0
+        },
+        "cream_cheese_1": {
+          "certain_support": 75,
+          "fn": 0,
+          "fp": 36,
+          "tn": 39,
+          "tp": 0,
+          "uncertain": 0
+        },
+        "tomato_sauce_1": {
+          "certain_support": 75,
+          "fn": 7,
+          "fp": 1,
+          "tn": 24,
+          "tp": 43,
+          "uncertain": 0
+        }
+      },
+      "per_object_inside_positive_f1": {
+        "alphabet_soup_1": 0.4634146341463415,
+        "cream_cheese_1": 0.0,
+        "tomato_sauce_1": 0.9148936170212766
+      },
+      "right_censored_positive_events": 0,
+      "terminal_denominator": 1,
+      "terminal_specificity": 1.0,
+      "terminal_true_negatives": 1,
+      "transition_coverage": 1.0,
+      "transition_median_absolute_error_steps": 10.0,
+      "uncertain_fraction": 0.0
+    }
+  },
+  "created_utc": "2026-09-02T01:28:20.218848+00:00",
+  "episode_ids": [
+    71
+  ],
+  "probe_run": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v244_t0_initializer/sift_causal_reacquire_ep71_smoke_v1",
+  "probe_seal_verified_before_summary_access": {
+    "complete_sha256": "05386a8b19b32957550a43c0e1fa94bd7d4b0860882f49773b98f551648b44b8",
+    "labels_sha256": "97f3bbf9bafad3bb5d9e83b055caa7fda3ab821586e7b0fcd3d222c0db7808b1",
+    "producer_code_sha256": "190857bc146a858ea57959f6adb45812e7c9505eea501cf764094f039d9c4749",
+    "result_sha256": "efc6837ae2a0c77bd815e166f252263a09277c677ee3b0f4ba2df92d10ead2d0"
+  },
+  "provenance": {
+    "argv": [
+      "scripts/eval_v244_initializer_probe.py",
+      "--probe-run",
+      "results/v244_t0_initializer/sift_causal_reacquire_ep71_smoke_v1",
+      "--source-summary",
+      "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+      "--output",
+      "results/v244_t0_initializer/sift_causal_reacquire_ep71_smoke_v1.postseal_eval.json"
+    ],
+    "evaluator_code_sha256": "73b8b10b255e71b825328cad50fccc748a20218202342e4b7c9cf4a7ee88636c",
+    "gate_metric_support_code_sha256": "241f9c8540845fc2405849f5bce48ad3de621126e28cb5461f34dedc95158429",
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9"
+  },
+  "raw": {
+    "full_metrics": {
+      "classification": {
+        "all_object_labels": 225,
+        "certain_object_labels": 181,
+        "effective_accuracy_uncertain_counted_incorrect": 0.5955555555555555,
+        "empty_positive_f1_convention": "1.0 iff confident support exists and TP=FP=FN=0",
+        "evaluable_object_labels": 225,
+        "evaluable_uncertain_object_labels": 44,
+        "excluded_censored_frame_labels": 0,
+        "framewise_place_accuracy_certain_only": 0.7403314917127072,
+        "macro_inside_positive_f1": 0.6120401337792641,
+        "per_object_confusion": {
+          "alphabet_soup_1": {
+            "certain_support": 33,
+            "fn": 2,
+            "fp": 1,
+            "tn": 12,
+            "tp": 18,
+            "uncertain": 42
+          },
+          "cream_cheese_1": {
+            "certain_support": 74,
+            "fn": 0,
+            "fp": 36,
+            "tn": 38,
+            "tp": 0,
+            "uncertain": 1
+          },
+          "tomato_sauce_1": {
+            "certain_support": 74,
+            "fn": 7,
+            "fp": 1,
+            "tn": 24,
+            "tp": 42,
+            "uncertain": 1
+          }
+        },
+        "per_object_inside_positive_f1": {
+          "alphabet_soup_1": 0.9230769230769231,
+          "cream_cheese_1": 0.0,
+          "tomato_sauce_1": 0.9130434782608695
+        },
+        "uncertain_fraction": 0.19555555555555557,
+        "uncertain_object_labels": 44
+      },
+      "coverage": {
+        "expected_source_chunk_start_frames_from_privileged_steps": 75,
+        "frame_coverage": 1.0,
+        "horizon_observation_fraction": 1.0,
+        "note": "gate frame_coverage is valid teacher labels divided by observable manifest RGB rows and is fail-closed by label/manifest bijection; source-chunk and registered-horizon observation fractions are reported separately, so an unrecoverable terminal chunk is right-censoring, not a missing teacher label",
+        "observable_manifest_frames": 75,
+        "registered_horizon_frames": 75,
+        "source_chunk_observation_fraction": 1.0,
+        "teacher_to_manifest_coverage": 1.0,
+        "valid_teacher_frames": 75
+      },
+      "terminal_specificity": {
+        "definition": "among object-episodes with no place event, only an outside label at the last observable frame counts as a true negative; uncertain is failure",
+        "denominator": 1,
+        "rows": [
+          {
+            "counts_as_true_negative": true,
+            "episode_id": 71,
+            "last_observed_t": 740,
+            "object": "cream_cheese_1",
+            "terminal_observable_label": "outside"
+          }
+        ],
+        "specificity": 1.0,
+        "true_negatives": 1
+      },
+      "transitions": {
+        "ground_truth": "sticky first-achievement place events 1/3/5",
+        "matched_observable_positive_events": 2,
+        "median_absolute_error_steps": 10.0,
+        "missing_observable_transitions": 0,
+        "observable_positive_events": 2,
+        "prediction": "first certain outside-to-inside transition; uncertain skipped",
+        "right_censored_positive_events": 0,
+        "rows": [
+          {
+            "absolute_error_steps": 10,
+            "episode_id": 71,
+            "event_step": 130,
+            "last_observed_t": 740,
+            "object": "alphabet_soup_1",
+            "predicted_transition_t": 120,
+            "status": "matched"
+          },
+          {
+            "absolute_error_steps": 10,
+            "episode_id": 71,
+            "event_step": 250,
+            "last_observed_t": 740,
+            "object": "tomato_sauce_1",
+            "predicted_transition_t": 240,
+            "status": "matched"
+          }
+        ]
+      }
+    },
+    "summary": {
+      "certain_only_accuracy": 0.7403314917127072,
+      "effective_accuracy_uncertain_counted_incorrect": 0.5955555555555555,
+      "macro_inside_positive_f1": 0.6120401337792641,
+      "matched_observable_positive_transitions": 2,
+      "missing_observable_transitions": 0,
+      "observable_positive_transitions": 2,
+      "per_object_confusion": {
+        "alphabet_soup_1": {
+          "certain_support": 33,
+          "fn": 2,
+          "fp": 1,
+          "tn": 12,
+          "tp": 18,
+          "uncertain": 42
+        },
+        "cream_cheese_1": {
+          "certain_support": 74,
+          "fn": 0,
+          "fp": 36,
+          "tn": 38,
+          "tp": 0,
+          "uncertain": 1
+        },
+        "tomato_sauce_1": {
+          "certain_support": 74,
+          "fn": 7,
+          "fp": 1,
+          "tn": 24,
+          "tp": 42,
+          "uncertain": 1
+        }
+      },
+      "per_object_inside_positive_f1": {
+        "alphabet_soup_1": 0.9230769230769231,
+        "cream_cheese_1": 0.0,
+        "tomato_sauce_1": 0.9130434782608695
+      },
+      "right_censored_positive_events": 0,
+      "terminal_denominator": 1,
+      "terminal_specificity": 1.0,
+      "terminal_true_negatives": 1,
+      "transition_coverage": 1.0,
+      "transition_median_absolute_error_steps": 10.0,
+      "uncertain_fraction": 0.19555555555555557
+    }
+  },
+  "schema": "v244_t0_initializer_postseal_evaluation_v1",
+  "source_summary": {
+    "episode_success_fields_used": false,
+    "fields_used": [
+      "episode_records.idx",
+      "seed",
+      "steps",
+      "events"
+    ],
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+    "sha256": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58"
+  },
+  "status": "postseal_privileged_evaluation_complete"
+}

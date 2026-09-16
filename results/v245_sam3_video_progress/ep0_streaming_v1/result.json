@@ -1,0 +1,648 @@
+{
+  "claim_scope": "identity-free task-progress scalar on seed-8700 development RGB; not a per-can identity gate and not independent validation",
+  "created_utc": "2026-09-02T01:57:14.433697+00:00",
+  "data_boundary": {
+    "decoded_inputs": "agentview RGB only, one current frame at a time",
+    "explicitly_unopened": [
+      "rollout summary contents",
+      "latent tape contents",
+      "simulator state",
+      "task events",
+      "success labels",
+      "seed-8000/8100 and chain2b RGB"
+    ],
+    "manifest_metadata": "episode id, seed, t, image path, image hash, dimensions"
+  },
+  "episode_ids": [
+    0
+  ],
+  "episodes": {
+    "0": {
+      "carry_frame_counts": {
+        "can": 0,
+        "cream": 0
+      },
+      "episode_id": 0,
+      "flagged_duplicate_pairs": {
+        "basket": 4,
+        "can": 0,
+        "cream": 0
+      },
+      "frame_count": 75,
+      "progress_increase_frames": [
+        {
+          "frame_index": 13,
+          "t": 130,
+          "to": 1
+        },
+        {
+          "frame_index": 23,
+          "t": 230,
+          "to": 2
+        }
+      ],
+      "selected_can_id_set_changes": 0,
+      "selected_can_ids_at_t0": [
+        2,
+        4
+      ],
+      "terminal_progress_scalar": 2,
+      "terminal_sticky_can_count": 2,
+      "terminal_sticky_cream_inside": false,
+      "unique_track_ids_seen": {
+        "basket": [
+          0,
+          1,
+          12,
+          13
+        ],
+        "can": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          10,
+          11,
+          14,
+          15
+        ],
+        "cream": [
+          7,
+          8,
+          9
+        ]
+      }
+    }
+  },
+  "frames_jsonl": "frames.jsonl",
+  "frozen_rules": {
+    "can_selection": "top two valid nonduplicate instances by score then object id",
+    "detector_mask_nms_iou_threshold": 0.1,
+    "detector_score_threshold": 0.1,
+    "downstream_duplicate_box_iou_gte": 0.7,
+    "downstream_duplicate_mask_iou_gte": 0.5,
+    "mask_area_bounds_inclusive": {
+      "basket": [
+        3000,
+        15000
+      ],
+      "can": [
+        64,
+        5000
+      ],
+      "cream": [
+        64,
+        5000
+      ]
+    },
+    "new_track_score_threshold": 0.1,
+    "relation": "instance mask centroid inside selected basket mask bounding box",
+    "scalar": "sticky can count (0..2) + sticky cream indicator (0..1)",
+    "state_update": "can count is max(previous, current) only when basket and two cans are valid; cream is sticky after a current-frame inside observation"
+  },
+  "inputs": [
+    {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+      "selected_rows": 75,
+      "sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567"
+    }
+  ],
+  "model": {
+    "checkpoint": "/home/stargazer/.cache/huggingface/hub/models--1038lab--sam3/blobs/6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "checkpoint_sha256": "6d06f0a5f84e435071fe6603e61d0b4cc7b40e0d39d487cfd4d67d8cc11cc14a",
+    "clip_tokenizer": "/home/stargazer/Desktop/UW_Madison/RoboOPE/rebuttal/ckpts/clip-vit-base-patch32",
+    "clip_tokenizer_tree_sha256": "996aa1fbf0da69265533f360c2d84abe66ba64d3bd428c05686a15f336ba04d3",
+    "config": {
+      "_name_or_path": "",
+      "architectures": null,
+      "assoc_iou_thresh": 0.1,
+      "chunk_size_feed_forward": 0,
+      "decrease_trk_keep_alive_for_empty_masklets": false,
+      "det_nms_thresh": 0.1,
+      "detector_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "detr_decoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "chunk_size_feed_forward": 0,
+          "dropout": 0.1,
+          "dtype": null,
+          "hidden_act": "relu",
+          "hidden_dropout": 0.0,
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "intermediate_size": 2048,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_detr_decoder",
+          "num_attention_heads": 8,
+          "num_layers": 6,
+          "num_queries": 200,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true
+        },
+        "detr_encoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "chunk_size_feed_forward": 0,
+          "dropout": 0.1,
+          "dtype": null,
+          "hidden_act": "relu",
+          "hidden_dropout": 0.0,
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "intermediate_size": 2048,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_detr_encoder",
+          "num_attention_heads": 8,
+          "num_layers": 6,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true
+        },
+        "dtype": null,
+        "geometry_encoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "chunk_size_feed_forward": 0,
+          "dropout": 0.1,
+          "dtype": null,
+          "hidden_act": "relu",
+          "hidden_dropout": 0.0,
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "intermediate_size": 2048,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_geometry_encoder",
+          "num_attention_heads": 8,
+          "num_layers": 3,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true,
+          "roi_size": 7
+        },
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "initializer_range": 0.02,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "mask_decoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "chunk_size_feed_forward": 0,
+          "dropout": 0.0,
+          "dtype": null,
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_mask_decoder",
+          "num_attention_heads": 8,
+          "num_upsampling_stages": 3,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true
+        },
+        "model_type": "sam3",
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "return_dict": true,
+        "text_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "attention_dropout": 0.0,
+          "bos_token_id": 49406,
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "eos_token_id": 49407,
+          "hidden_act": "gelu",
+          "hidden_size": 1024,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_factor": 1.0,
+          "initializer_range": 0.02,
+          "intermediate_size": 4096,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-05,
+          "max_position_embeddings": 32,
+          "model_type": "clip_text_model",
+          "num_attention_heads": 16,
+          "num_hidden_layers": 24,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "pad_token_id": 1,
+          "problem_type": null,
+          "projection_dim": 512,
+          "return_dict": true,
+          "vocab_size": 49408
+        },
+        "vision_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "backbone_config": {
+            "_name_or_path": "",
+            "architectures": null,
+            "attention_dropout": 0.0,
+            "chunk_size_feed_forward": 0,
+            "dtype": null,
+            "global_attn_indexes": [
+              7,
+              15,
+              23,
+              31
+            ],
+            "hidden_act": "gelu",
+            "hidden_dropout": 0.0,
+            "hidden_size": 1024,
+            "id2label": {
+              "0": "LABEL_0",
+              "1": "LABEL_1"
+            },
+            "image_size": 1008,
+            "initializer_range": 0.02,
+            "intermediate_size": 4736,
+            "is_encoder_decoder": false,
+            "label2id": {
+              "LABEL_0": 0,
+              "LABEL_1": 1
+            },
+            "layer_norm_eps": 1e-06,
+            "layer_scale_init_value": null,
+            "model_type": "sam3_vit_model",
+            "num_attention_heads": 16,
+            "num_channels": 3,
+            "num_hidden_layers": 32,
+            "output_attentions": false,
+            "output_hidden_states": false,
+            "patch_size": 14,
+            "pretrain_image_size": 336,
+            "problem_type": null,
+            "return_dict": true,
+            "rope_theta": 10000.0,
+            "window_size": 24
+          },
+          "backbone_feature_sizes": [
+            [
+              288,
+              288
+            ],
+            [
+              144,
+              144
+            ],
+            [
+              72,
+              72
+            ]
+          ],
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "fpn_hidden_size": 256,
+          "hidden_act": "gelu",
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_vision_model",
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true,
+          "scale_factors": [
+            4.0,
+            2.0,
+            1.0,
+            0.5
+          ]
+        }
+      },
+      "dtype": null,
+      "fill_hole_area": 16,
+      "high_conf_thresh": 0.8,
+      "high_iou_thresh": 0.8,
+      "hotstart_delay": 15,
+      "hotstart_dup_thresh": 8,
+      "hotstart_unmatch_thresh": 8,
+      "id2label": {
+        "0": "LABEL_0",
+        "1": "LABEL_1"
+      },
+      "init_trk_keep_alive": 30,
+      "initializer_range": 0.02,
+      "is_encoder_decoder": false,
+      "label2id": {
+        "LABEL_0": 0,
+        "LABEL_1": 1
+      },
+      "low_res_mask_size": 288,
+      "max_num_objects": 10000,
+      "max_trk_keep_alive": 30,
+      "min_trk_keep_alive": -1,
+      "model_type": "sam3_video",
+      "new_det_thresh": 0.7,
+      "output_attentions": false,
+      "output_hidden_states": false,
+      "problem_type": null,
+      "recondition_every_nth_frame": 16,
+      "recondition_on_trk_masks": true,
+      "return_dict": true,
+      "score_threshold_detection": 0.5,
+      "suppress_overlapping_based_on_recent_occlusion_threshold": 0.7,
+      "suppress_unmatched_only_within_hotstart": true,
+      "tracker_config": {
+        "_name_or_path": "",
+        "architectures": null,
+        "chunk_size_feed_forward": 0,
+        "dtype": null,
+        "enable_occlusion_spatial_embedding": true,
+        "enable_temporal_pos_encoding_for_object_pointers": true,
+        "id2label": {
+          "0": "LABEL_0",
+          "1": "LABEL_1"
+        },
+        "image_size": 1008,
+        "initializer_range": 0.02,
+        "is_encoder_decoder": false,
+        "label2id": {
+          "LABEL_0": 0,
+          "LABEL_1": 1
+        },
+        "mask_decoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "attention_downsample_rate": 2,
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "dynamic_multimask_stability_delta": 0.05,
+          "dynamic_multimask_stability_thresh": 0.98,
+          "dynamic_multimask_via_stability": true,
+          "hidden_act": "gelu",
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "iou_head_depth": 3,
+          "iou_head_hidden_dim": 256,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "mlp_dim": 2048,
+          "model_type": "",
+          "num_attention_heads": 8,
+          "num_hidden_layers": 2,
+          "num_multimask_outputs": 3,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true
+        },
+        "mask_downsampler_embed_dim": 256,
+        "mask_downsampler_hidden_act": "gelu",
+        "mask_downsampler_kernel_size": 3,
+        "mask_downsampler_padding": 1,
+        "mask_downsampler_stride": 2,
+        "mask_downsampler_total_stride": 16,
+        "max_cond_frame_num": 4,
+        "max_object_pointers_in_encoder": 16,
+        "memory_attention_downsample_rate": 1,
+        "memory_attention_dropout": 0.1,
+        "memory_attention_feed_forward_hidden_act": "relu",
+        "memory_attention_feed_forward_hidden_size": 2048,
+        "memory_attention_hidden_size": 256,
+        "memory_attention_num_attention_heads": 1,
+        "memory_attention_num_layers": 4,
+        "memory_attention_rope_dropout": 0.1,
+        "memory_attention_rope_feat_sizes": [
+          72,
+          72
+        ],
+        "memory_attention_rope_theta": 10000,
+        "memory_encoder_hidden_size": 256,
+        "memory_encoder_output_channels": 64,
+        "memory_fuser_embed_dim": 256,
+        "memory_fuser_hidden_act": "gelu",
+        "memory_fuser_intermediate_dim": 1024,
+        "memory_fuser_kernel_size": 7,
+        "memory_fuser_layer_scale_init_value": 1e-06,
+        "memory_fuser_num_layers": 2,
+        "memory_fuser_padding": 3,
+        "model_type": "sam3_tracker_video",
+        "multimask_max_pt_num": 1,
+        "multimask_min_pt_num": 0,
+        "multimask_output_for_tracking": true,
+        "multimask_output_in_sam": true,
+        "num_maskmem": 7,
+        "output_attentions": false,
+        "output_hidden_states": false,
+        "problem_type": null,
+        "prompt_encoder_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "hidden_act": "gelu",
+          "hidden_size": 256,
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "image_size": 1008,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "mask_input_channels": 16,
+          "model_type": "",
+          "num_point_embeddings": 4,
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "patch_size": 14,
+          "problem_type": null,
+          "return_dict": true,
+          "scale": 1
+        },
+        "return_dict": true,
+        "sigmoid_bias_for_mem_enc": -10.0,
+        "sigmoid_scale_for_mem_enc": 20.0,
+        "vision_config": {
+          "_name_or_path": "",
+          "architectures": null,
+          "backbone_config": {
+            "_name_or_path": "",
+            "architectures": null,
+            "attention_dropout": 0.0,
+            "chunk_size_feed_forward": 0,
+            "dtype": null,
+            "global_attn_indexes": [
+              7,
+              15,
+              23,
+              31
+            ],
+            "hidden_act": "gelu",
+            "hidden_dropout": 0.0,
+            "hidden_size": 1024,
+            "id2label": {
+              "0": "LABEL_0",
+              "1": "LABEL_1"
+            },
+            "image_size": 1008,
+            "initializer_range": 0.02,
+            "intermediate_size": 4736,
+            "is_encoder_decoder": false,
+            "label2id": {
+              "LABEL_0": 0,
+              "LABEL_1": 1
+            },
+            "layer_norm_eps": 1e-06,
+            "layer_scale_init_value": null,
+            "model_type": "sam3_vit_model",
+            "num_attention_heads": 16,
+            "num_channels": 3,
+            "num_hidden_layers": 32,
+            "output_attentions": false,
+            "output_hidden_states": false,
+            "patch_size": 14,
+            "pretrain_image_size": 336,
+            "problem_type": null,
+            "return_dict": true,
+            "rope_theta": 10000.0,
+            "window_size": 24
+          },
+          "backbone_feature_sizes": [
+            [
+              288,
+              288
+            ],
+            [
+              144,
+              144
+            ],
+            [
+              72,
+              72
+            ]
+          ],
+          "chunk_size_feed_forward": 0,
+          "dtype": null,
+          "fpn_hidden_size": 256,
+          "hidden_act": "gelu",
+          "id2label": {
+            "0": "LABEL_0",
+            "1": "LABEL_1"
+          },
+          "initializer_range": 0.02,
+          "is_encoder_decoder": false,
+          "label2id": {
+            "LABEL_0": 0,
+            "LABEL_1": 1
+          },
+          "layer_norm_eps": 1e-06,
+          "model_type": "sam3_vision_model",
+          "output_attentions": false,
+          "output_hidden_states": false,
+          "problem_type": null,
+          "return_dict": true,
+          "scale_factors": [
+            4.0,
+            2.0,
+            1.0,
+            0.5
+          ]
+        }
+      },
+      "transformers_version": "5.5.4",
+      "trk_assoc_iou_thresh": 0.5
+    },
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "family": "Transformers Sam3VideoModel",
+    "state_device": "cpu",
+    "state_dict_exact_key_and_shape_match": true
+  },
+  "prefix_checks": {
+    "0": {
+      "exact_after_rounding_1e_6": true,
+      "frames": 8,
+      "fresh_session_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885",
+      "interpretation": "A fresh streaming session consumed only the same RGB prefix; no later image was decoded before its earlier output was recorded.",
+      "reference_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885"
+    }
+  },
+  "privileged_inputs_read": false,
+  "producer_source": "producer_source.py",
+  "producer_source_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+  "prompts": {
+    "basket": "white woven basket",
+    "can": "tomato sauce can",
+    "cream": "cream cheese box"
+  },
+  "schema": "v245_sam3_video_progress_probe_v1",
+  "status": "rgb_only_streaming_development_probe_complete"
+}

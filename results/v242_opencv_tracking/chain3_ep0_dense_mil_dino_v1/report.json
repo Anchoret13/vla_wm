@@ -1,0 +1,366 @@
+{
+  "dino_global_reid_diagnostic": {
+    "aggregate": {
+      "mean_final_center_error_px": 128.29833133,
+      "mean_final_iou": 0.22653847
+    },
+    "basket_relation": {
+      "exact_relation_match": false,
+      "per_target_accuracy": 0.33333333,
+      "predicted_inside_by_target": {
+        "target_a": false,
+        "target_b": false,
+        "target_c": false
+      },
+      "predicted_inside_count": 0,
+      "reference_inside_by_target": {
+        "target_a": true,
+        "target_b": true,
+        "target_c": false
+      },
+      "reference_inside_count": 2
+    },
+    "per_target": {
+      "target_a": {
+        "basket_relation_correct": false,
+        "center_error_px": 149.37649,
+        "iou": 0.0,
+        "peak_cosine_similarity": 0.72061479,
+        "peak_patch_center_xy": [
+          159.2308,
+          242.3077
+        ],
+        "predicted_box_xywh": [
+          137.2308,
+          208.3077,
+          44.0,
+          68.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          0.0,
+          160.0,
+          39.0,
+          59.0
+        ],
+        "reference_inside_basket": true,
+        "template_patch_count": 15
+      },
+      "target_b": {
+        "basket_relation_correct": false,
+        "center_error_px": 228.296537,
+        "iou": 0.0,
+        "peak_cosine_similarity": 0.65569216,
+        "peak_patch_center_xy": [
+          270.0,
+          228.4615
+        ],
+        "predicted_box_xywh": [
+          248.5,
+          194.4615,
+          43.0,
+          68.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          31.0,
+          153.0,
+          29.0,
+          68.0
+        ],
+        "reference_inside_basket": true,
+        "template_patch_count": 15
+      },
+      "target_c": {
+        "basket_relation_correct": true,
+        "center_error_px": 7.221967,
+        "iou": 0.67961542,
+        "peak_cosine_similarity": 0.89576828,
+        "peak_patch_center_xy": [
+          297.6923,
+          256.1538
+        ],
+        "predicted_box_xywh": [
+          276.6923,
+          230.6538,
+          42.0,
+          51.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          281.0,
+          224.0,
+          39.0,
+          51.0
+        ],
+        "reference_inside_basket": false,
+        "template_patch_count": 12
+      }
+    },
+    "provenance": {
+      "config_sha256": "1809f83e3bdb1609a501a610ad4a742f4fd8ae44d72ca4aa0df52d1f2ac8628d",
+      "snapshot": "/home/stargazer/.cache/huggingface/hub/models--facebook--dinov2-small/snapshots/ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "transform": "BGR->RGB; bicubic resize 364x364; ImageNet mean/std; mean normalized t0 box patches; final-frame global cosine argmax",
+      "weights_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1"
+    },
+    "scope": "appearance-only t=0 template to t=700 global re-identification; it is not used to alter the MIL trajectory"
+  },
+  "limitations": [
+    "This is a single-episode, manually initialized proof, not a detector or Gate-0 result.",
+    "TrackerMIL returning api_update_ok=true is not evidence that the object is localized.",
+    "No intermediate-frame ground-truth boxes were used; drift is measured against the t=700 RGB audit boxes.",
+    "The fixed basket ROI is valid only for this static agent-view camera geometry."
+  ],
+  "protocol": {
+    "allowed_runtime_inputs": [
+      "manifest t/episode_id/image path/image sha256",
+      "agentview JPEG pixels",
+      "three fixed t=0 RGB calibration boxes"
+    ],
+    "basket_roi_xyxy": [
+      0.0,
+      145.0,
+      86.0,
+      234.0
+    ],
+    "basket_rule": "bbox centre lies inside fixed agentview basket ROI",
+    "evaluation_only_t700_reference_boxes_xywh": {
+      "target_a": [
+        0.0,
+        160.0,
+        39.0,
+        59.0
+      ],
+      "target_b": [
+        31.0,
+        153.0,
+        29.0,
+        68.0
+      ],
+      "target_c": [
+        281.0,
+        224.0,
+        39.0,
+        51.0
+      ]
+    },
+    "evaluation_reference_note": "The t=700 boxes and basket ROI were annotated from RGB pixels only and are used only after tracking to quantify the proof.",
+    "explicitly_not_opened": [
+      "summary.json",
+      "action/latent tape",
+      "BDDL",
+      "simulator info",
+      "reward",
+      "event",
+      "milestone/stage",
+      "success/outcome labels"
+    ],
+    "initial_boxes_xywh": {
+      "target_a": [
+        122.0,
+        177.0,
+        44.0,
+        68.0
+      ],
+      "target_b": [
+        225.0,
+        175.0,
+        43.0,
+        68.0
+      ],
+      "target_c": [
+        280.0,
+        252.0,
+        42.0,
+        51.0
+      ]
+    },
+    "tracker": "OpenCV 5.0.0 TrackerMIL_create; RNG seed 0"
+  },
+  "schema": "v242_opencv_tracking_probe_v1",
+  "source": {
+    "camera": "agentview",
+    "frames": 75,
+    "image_shape_hwc": [
+      360,
+      360,
+      3
+    ],
+    "manifest": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+    "manifest_sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567",
+    "times": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130,
+      140,
+      150,
+      160,
+      170,
+      180,
+      190,
+      200,
+      210,
+      220,
+      230,
+      240,
+      250,
+      260,
+      270,
+      280,
+      290,
+      300,
+      310,
+      320,
+      330,
+      340,
+      350,
+      360,
+      370,
+      380,
+      390,
+      400,
+      410,
+      420,
+      430,
+      440,
+      450,
+      460,
+      470,
+      480,
+      490,
+      500,
+      510,
+      520,
+      530,
+      540,
+      550,
+      560,
+      570,
+      580,
+      590,
+      600,
+      610,
+      620,
+      630,
+      640,
+      650,
+      660,
+      670,
+      680,
+      690,
+      700,
+      710,
+      720,
+      730,
+      740
+    ]
+  },
+  "tracker_mil": {
+    "aggregate": {
+      "mean_final_center_error_px": 125.054665,
+      "mean_final_iou": 0.08457258
+    },
+    "basket_relation": {
+      "exact_relation_match": false,
+      "per_target_accuracy": 0.33333333,
+      "predicted_inside_by_target": {
+        "target_a": false,
+        "target_b": false,
+        "target_c": false
+      },
+      "predicted_inside_count": 0,
+      "reference_inside_by_target": {
+        "target_a": true,
+        "target_b": true,
+        "target_c": false
+      },
+      "reference_inside_count": 2
+    },
+    "per_target": {
+      "target_a": {
+        "api_updates_ok": 70,
+        "api_updates_total": 70,
+        "basket_relation_correct": false,
+        "center_error_px": 141.691566,
+        "frozen_transition_fraction_lt_2px": 0.67142857,
+        "iou": 0.0,
+        "net_displacement_px": 36.345564,
+        "path_length_px": 134.326367,
+        "predicted_box_xywh": [
+          127.0,
+          213.0,
+          44.0,
+          68.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          0.0,
+          160.0,
+          39.0,
+          59.0
+        ],
+        "reference_inside_basket": true
+      },
+      "target_b": {
+        "api_updates_ok": 70,
+        "api_updates_total": 70,
+        "basket_relation_correct": false,
+        "center_error_px": 204.36487,
+        "frozen_transition_fraction_lt_2px": 0.91428571,
+        "iou": 0.0,
+        "net_displacement_px": 9.055385,
+        "path_length_px": 40.560731,
+        "predicted_box_xywh": [
+          226.0,
+          184.0,
+          43.0,
+          68.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          31.0,
+          153.0,
+          29.0,
+          68.0
+        ],
+        "reference_inside_basket": true
+      },
+      "target_c": {
+        "api_updates_ok": 70,
+        "api_updates_total": 70,
+        "basket_relation_correct": true,
+        "center_error_px": 29.107559,
+        "frozen_transition_fraction_lt_2px": 0.95714286,
+        "iou": 0.25371775,
+        "net_displacement_px": 2.236068,
+        "path_length_px": 18.950845,
+        "predicted_box_xywh": [
+          282.0,
+          253.0,
+          42.0,
+          51.0
+        ],
+        "predicted_inside_basket": false,
+        "reference_box_xywh": [
+          281.0,
+          224.0,
+          39.0,
+          51.0
+        ],
+        "reference_inside_basket": false
+      }
+    }
+  },
+  "verdict": "REJECT: TrackerMIL does not preserve the two moved targets or recover the t=700 basket relation on this proof episode."
+}

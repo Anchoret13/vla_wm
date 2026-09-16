@@ -1,0 +1,131 @@
+{
+  "can_state_config": {
+    "expected_instances": 2,
+    "rim_margin_px": 8.0,
+    "schema": "v247_causal_can_count_v1"
+  },
+  "can_state_source_sha256": "403088c26b2edffd4465d2f17f06d326aa309d7beade6c98b2c5f2c4496e3bcd",
+  "claim_scope": "opened seed-8700 development only; not Gate-0 validation",
+  "created_utc": "2026-09-02T03:03:22.255695+00:00",
+  "episode_ids": [
+    0,
+    12,
+    37,
+    71
+  ],
+  "episodes": {
+    "0": {
+      "can_carry_frames": 0,
+      "can_transition_times": [
+        130,
+        230
+      ],
+      "cream_transition_times": [],
+      "frames": 75,
+      "reliable_frames": 75,
+      "terminal_scalar": 2
+    },
+    "12": {
+      "can_carry_frames": 0,
+      "can_transition_times": [
+        570
+      ],
+      "cream_transition_times": [
+        480
+      ],
+      "frames": 76,
+      "reliable_frames": 76,
+      "terminal_scalar": 2
+    },
+    "37": {
+      "can_carry_frames": 0,
+      "can_transition_times": [
+        130,
+        260
+      ],
+      "cream_transition_times": [],
+      "frames": 75,
+      "reliable_frames": 75,
+      "terminal_scalar": 2
+    },
+    "71": {
+      "can_carry_frames": 1,
+      "can_transition_times": [
+        130,
+        240
+      ],
+      "cream_transition_times": [],
+      "frames": 75,
+      "reliable_frames": 75,
+      "terminal_scalar": 2
+    }
+  },
+  "frames_jsonl": "frames.jsonl",
+  "inputs": {
+    "cream": {
+      "complete_sha256": "11cd09e770d157e2ea465007110303607979704c79c8eba9c5fa5d8220a2606c",
+      "frames_sha256": "e00fc8e42d1c946a7bbb553ac4dd36505dd454c7f454487d863263f6e0b6777d",
+      "producer_sha256": "89ab4ab374ff2d6f70445fca59c78468ce985e127660dc9581eb9791319e1fb8",
+      "result_sha256": "1f5829c43d7738648f383bfe17910d1bbe2b5d03ac28081db2864c1fa0d8fc37",
+      "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v247_multiview_cream/development_ep0_12_37_71_v2",
+      "state_sha256": "62415afadeb9593d03fe9658ae205fbe874c2108c6f9c78517a3d1a7f19d68ed"
+    },
+    "sam3": [
+      {
+        "complete_sha256": "855c0efd92a0ca5559a087b1c31b6d7ad48142582af25cdbcc42464d174b7ff5",
+        "frames_sha256": "33e2c3a85b01382f8a55e299bbebe6d6f0b82b1cedab76046e78faca4c9c65bf",
+        "producer_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+        "result_sha256": "31256ae5ffc67cb3910f9ff8783239b76a861f8c7a71ec15216062873843125e",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/ep0_streaming_v1",
+        "selected_frames": 75
+      },
+      {
+        "complete_sha256": "b24d13b7bd58832c7df4636a7fcccebe8ebf7a675f1f7e0fc165ca428f287d56",
+        "frames_sha256": "f422260028db65440a7bd43afe3759c0d3a1cdc91548dc4e166ecbcf98188eed",
+        "producer_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+        "result_sha256": "20993b0202d317c3e8616d5c14283f936fe39176fe05c5c2353b264467c72bc5",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/ep12_posthoc_dev_v1",
+        "selected_frames": 76
+      },
+      {
+        "complete_sha256": "8f2882e376d963c3c05c27aa4d8d0fcdb16e8577079598f40b2a420a5e7c4098",
+        "frames_sha256": "a3b49c9f6df18b145e1d044198bf87dc0fd8c243332b6eab6cb9889ab27679e7",
+        "producer_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+        "result_sha256": "ea110f02c3b4edf2cae201282596cb2fb264602696f20749e2d5b76f747cf8c9",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/hard_ep37_71_streaming_prefix_v2",
+        "selected_frames": 150
+      }
+    ]
+  },
+  "prefix_checks": {
+    "0": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "bc80e0b6a1e29bf6e1a1716475d9ba1e5936de3e77f74660053ef54f6b341112",
+      "prefix_only_sha256": "bc80e0b6a1e29bf6e1a1716475d9ba1e5936de3e77f74660053ef54f6b341112"
+    },
+    "12": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "70f9765db1404a5b0420cf27c88834851173295bee15a0cc1ad920de486cd7ed",
+      "prefix_only_sha256": "70f9765db1404a5b0420cf27c88834851173295bee15a0cc1ad920de486cd7ed"
+    },
+    "37": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "1f795616a48173832ec1a68b4b2575c2217271194629ed41ff47377f6dd11551",
+      "prefix_only_sha256": "1f795616a48173832ec1a68b4b2575c2217271194629ed41ff47377f6dd11551"
+    },
+    "71": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "f9ea61c69b9f330cd6c66b5f1172c94d91f1e67c54c97a19adbfd530933bbf30",
+      "prefix_only_sha256": "f9ea61c69b9f330cd6c66b5f1172c94d91f1e67c54c97a19adbfd530933bbf30"
+    }
+  },
+  "privileged_inputs_read": false,
+  "producer_source_sha256": "d067a446ba7827d4bc6e61ce95bea2888e9cb41b8ddb6d9664db8b1e312cec0e",
+  "scalar": "P(can_count>=1)+P(can_count>=2)+P(cream_achieved)",
+  "schema": "v247_multiview_progress_development_composition_v1",
+  "status": "development_composition_complete"
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "v245_rich_reencode_registration_v1",
+  "status": "frozen_before_replay",
+  "utc": "2026-09-02T015000Z",
+  "source": {
+    "sanitized_tape_sha256": "2b7130fb81b73fb682a18ac453e1e3028dc4861b37abfb86d0f14de809661ff2",
+    "sanitizer_result_sha256": "28e9f055dc21f9fd3b232658ca69fcae3626e543d58d2612e273d999fe9eb1a2",
+    "sanitizer_complete_sha256": "bab47b89c06045404b96fdede481b35ff0c013e4e1111725307085c04b9d4fce",
+    "task": "chain3_lr2",
+    "c": 10,
+    "source_latent_dim": 8217,
+    "source_episode_count": 96
+  },
+  "replay": {
+    "purpose": "development_calibration",
+    "episode_ids": [
+      0
+    ],
+    "seed_start": 8700,
+    "seed_rule": "seed_start_plus_episode_id",
+    "oracle": "rich8217_exact",
+    "legacy_dim": 2073,
+    "rich_dim": 8217,
+    "camera_token_blocks": [
+      [
+        0,
+        256
+      ],
+      [
+        256,
+        512
+      ]
+    ],
+    "suite_name": "libero_10",
+    "device": "cuda",
+    "policy_snapshot": {
+      "repo_id": "lerobot/pi05_libero_finetuned",
+      "revision": "8e174154ef5f6c60a8da12ae99c303d8963138c1",
+      "require_main_ref": true,
+      "files_sha256": {
+        "config.json": "2f6d4b96b032593e1de65b391ee7252a70227bff398ef1b94658fea17818142f",
+        "model.safetensors": "877b3ec1130548b69af7f8aeef3ec9d3fc7738040f0b9beb490857ec970997ae",
+        "policy_postprocessor.json": "37d719a6584600988e6c343306d2eaee0575109f235ad500313577f73e47e8a1",
+        "policy_postprocessor_step_0_unnormalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9",
+        "policy_preprocessor.json": "3d669ffc18d0364536735d8203076dcc69d3a6523aa5956ccaada3f9e1e6b748",
+        "policy_preprocessor_step_2_normalizer_processor.safetensors": "a002c0df7f79c5b169c5a899ad151d4ea1bed246c7d82bd93ed1556558d517a9"
+      }
+    },
+    "tokenizer_snapshot": {
+      "repo_id": "google/paligemma-3b-pt-224",
+      "revision": "35e4f46485b4d07967e7e9935bc3786aad50687c",
+      "require_main_ref": true,
+      "files_sha256": {
+        "added_tokens.json": "7d0bad90030d638a4bf89a82e91206e25f1fbe0012f14bca21666a64b643bc49",
+        "config.json": "e00c72cdff16296bf1229c3267b99f5247d8c740cae84336866338d64fa7918f",
+        "special_tokens_map.json": "5ef37093ae4236587b6e8266acb815b46e2db8ce656c66552bfa574d32880405",
+        "tokenizer.json": "ef6773c135b77b834de1d13c75a4c98ab7a3684ffd602d1831e1f1bf5467c563",
+        "tokenizer_config.json": "3259402b1d1802e02417d7bff75a889ec61d359d15be6050a957b307c48edbbe"
+      }
+    },
+    "runtime_versions": {
+      "python": "3.12.13",
+      "torch": "2.11.0+cu128",
+      "numpy": "2.2.6",
+      "lerobot": "0.6.1",
+      "libero": "unknown",
+      "robosuite": "1.4.0",
+      "mujoco": "3.8.1",
+      "transformers": "5.5.4"
+    }
+  },
+  "provenance": {
+    "source_files_sha256": {
+      "scripts/reencode_v245_rich_tape.py": "6ff805cb6f0d928dfd77e63828c008891477d3be729b9e1d94e715bb7295c59e",
+      "scripts/collect_v121_deploy_latents.py": "b32536a9dc2d6f204f73b483cfc68eb630748ad54cbd0400f67f3ace1889aafe",
+      "lcwm/chassis.py": "20f4207e38ff7944a164cb84f4d1d476b4e2729de48871efe733ba488a2d8705",
+      "lcwm/sampler.py": "85090148a2068d22d171dd9254d7141267f1ec765802a25b8a4168571a8ef3e5",
+      "lcwm/v082_m0.py": "cb5f9cd7fe912a62b45ddd368d1e07c7a1e2828c58b43511064aa4bd3fd6c1bf",
+      "lcwm/v080_bench.py": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e",
+      "bddl/chains/chain3_lr2.bddl": "312eaba15b045368b7fe48b22c44105d8276c1099f2e19e853cd62d47e748ca1"
+    }
+  },
+  "self_sha256": "0463c6f36193e98c89977f361185d3b101995107e9c449cf7ee4f750d8bce52f"
+}

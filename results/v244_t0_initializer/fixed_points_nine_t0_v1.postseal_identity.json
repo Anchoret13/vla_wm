@@ -1,0 +1,1317 @@
+{
+  "aggregate": {
+    "instances": 36,
+    "mask_centroid_error_px": {
+      "max": 34.125301017264746,
+      "mean": 9.79038250953922,
+      "p50": 1.956405204079326,
+      "p90": 33.835434006382584,
+      "p95": 33.930161537012324
+    },
+    "mask_centroid_identity_margin_px": {
+      "max": 106.1490997985994,
+      "mean": 92.10244937233013,
+      "p50": 91.28935842973908,
+      "p90": 100.82605403164692,
+      "p95": 101.31505915265492
+    },
+    "mask_centroid_nearest_identity_fraction": 1.0,
+    "projected_center_inside_mask_bbox_fraction": 1.0,
+    "prompt_error_px": {
+      "max": 23.153539945189348,
+      "mean": 12.364987771279058,
+      "p50": 10.555915690958969,
+      "p90": 20.854788666183907,
+      "p95": 21.983623924642636
+    },
+    "prompt_identity_margin_px": {
+      "max": 115.74849359175217,
+      "mean": 91.6902442331664,
+      "p50": 86.47905324636952,
+      "p90": 112.18338098695583,
+      "p95": 113.59539620747893
+    },
+    "prompt_nearest_identity_fraction": 1.0
+  },
+  "camera": "agentview",
+  "claim_scope": "evaluation-only reset-state object identity audit; projected body centers are not segmentation ground truth and no pass threshold is inferred",
+  "created_utc": "2026-09-02T01:20:03.721699+00:00",
+  "episode_ids": [
+    28,
+    37,
+    40,
+    63,
+    66,
+    74,
+    87,
+    90,
+    93
+  ],
+  "forbidden_rollout_fields_read": [],
+  "image_coordinate_convention": "policy-oriented agentview (x,y)",
+  "per_object": {
+    "alphabet_soup_1": {
+      "instances": 9,
+      "mask_centroid_error_px": {
+        "max": 2.233367628704882,
+        "mean": 2.1296097697315366,
+        "p50": 2.12216329393968,
+        "p90": 2.1652148308488,
+        "p95": 2.199291229776841
+      },
+      "mask_centroid_identity_margin_px": {
+        "max": 99.05768992629605,
+        "mean": 89.88011803115867,
+        "p50": 90.83965476822843,
+        "p90": 94.83762862656816,
+        "p95": 96.9476592764321
+      },
+      "mask_centroid_nearest_identity_fraction": 1.0,
+      "projected_center_inside_mask_bbox_fraction": 1.0,
+      "prompt_error_px": {
+        "max": 12.657755503893735,
+        "mean": 8.766644858757205,
+        "p50": 9.593104783927675,
+        "p90": 10.71403121598543,
+        "p95": 11.685893359939582
+      },
+      "prompt_identity_margin_px": {
+        "max": 87.70642556505723,
+        "mean": 82.14148208114251,
+        "p50": 81.64912940717146,
+        "p90": 86.03294294487456,
+        "p95": 86.8696842549659
+      },
+      "prompt_nearest_identity_fraction": 1.0
+    },
+    "basket_1": {
+      "instances": 9,
+      "mask_centroid_error_px": {
+        "max": 34.125301017264746,
+        "mean": 33.77187928027153,
+        "p50": 33.79940931878002,
+        "p90": 34.02973551282387,
+        "p95": 34.077518265044304
+      },
+      "mask_centroid_identity_margin_px": {
+        "max": 94.297875073912,
+        "mean": 90.10933294139585,
+        "p50": 89.36601059623737,
+        "p90": 92.14001613743643,
+        "p95": 93.21894560567421
+      },
+      "mask_centroid_nearest_identity_fraction": 1.0,
+      "projected_center_inside_mask_bbox_fraction": 1.0,
+      "prompt_error_px": {
+        "max": 23.153539945189348,
+        "mean": 20.689881194528922,
+        "p50": 20.821394391845626,
+        "p90": 22.535039718529706,
+        "p95": 22.844289831859527
+      },
+      "prompt_identity_margin_px": {
+        "max": 115.74849359175217,
+        "mean": 111.16786674157377,
+        "p50": 111.45484738573425,
+        "p90": 114.63767567077167,
+        "p95": 115.19308463126193
+      },
+      "prompt_nearest_identity_fraction": 1.0
+    },
+    "cream_cheese_1": {
+      "instances": 9,
+      "mask_centroid_error_px": {
+        "max": 1.8323729206158628,
+        "mean": 1.6398670387143246,
+        "p50": 1.6119827603667853,
+        "p90": 1.8312644632191781,
+        "p95": 1.8318186919175206
+      },
+      "mask_centroid_identity_margin_px": {
+        "max": 106.1490997985994,
+        "mean": 96.18794716100763,
+        "p50": 96.16741555767501,
+        "p90": 102.96965661038672,
+        "p95": 104.55937820449306
+      },
+      "mask_centroid_nearest_identity_fraction": 1.0,
+      "projected_center_inside_mask_bbox_fraction": 1.0,
+      "prompt_error_px": {
+        "max": 18.07671940074052,
+        "mean": 11.305492996266526,
+        "p50": 11.738933312101082,
+        "p90": 16.65476991490351,
+        "p95": 17.365744657822013
+      },
+      "prompt_identity_margin_px": {
+        "max": 93.93194851732483,
+        "mean": 83.01055265490622,
+        "p50": 82.17135868699702,
+        "p90": 88.92872966145578,
+        "p95": 91.4303390893903
+      },
+      "prompt_nearest_identity_fraction": 1.0
+    },
+    "tomato_sauce_1": {
+      "instances": 9,
+      "mask_centroid_error_px": {
+        "max": 1.6990477442744047,
+        "mean": 1.6201739494395004,
+        "p50": 1.6158897668801926,
+        "p90": 1.6886303444596535,
+        "p95": 1.693839044367029
+      },
+      "mask_centroid_identity_margin_px": {
+        "max": 101.02848026576204,
+        "mean": 92.23239935575837,
+        "p50": 89.5286568444917,
+        "p90": 100.85915230939092,
+        "p95": 100.94381628757648
+      },
+      "mask_centroid_nearest_identity_fraction": 1.0,
+      "projected_center_inside_mask_bbox_fraction": 1.0,
+      "prompt_error_px": {
+        "max": 11.607613289110004,
+        "mean": 8.69793203556358,
+        "p50": 8.491629361093679,
+        "p90": 10.97617269070797,
+        "p95": 11.291892989908987
+      },
+      "prompt_identity_margin_px": {
+        "max": 102.13564944654189,
+        "mean": 90.44107545504306,
+        "p50": 90.48503616839349,
+        "p90": 99.30320983116296,
+        "p95": 100.71942963885243
+      },
+      "prompt_nearest_identity_fraction": 1.0
+    }
+  },
+  "privileged_fields_used": [
+    "reset simulator object body positions",
+    "agentview camera calibration"
+  ],
+  "privileged_inputs_read": true,
+  "probe_mode": "fixed_points",
+  "probe_run": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v244_t0_initializer/fixed_points_nine_t0_v1",
+  "probe_seal_verified_before_simulator_import": {
+    "complete_sha256": "7e90b170edddfffca0520db6354679f034cc421c4063f6bf3543b6b9f101d6a1",
+    "labels_sha256": "68fc8daadd9b90b6728f6199ab0b091661ce5c59b5fe0b58a286088fc9fcff4b",
+    "producer_code_sha256": "73e1bb1c39213ec8968d2b1b2264256dc61f4a89fbefd7a3337699fef99688fe",
+    "result_sha256": "8fdbeaff8096654d97efe58fa4400ce02837af8ae5a97d1c981ca723cd3c2fbd"
+  },
+  "provenance": {
+    "argv": [
+      "scripts/eval_v244_t0_identity.py",
+      "--probe-run",
+      "results/v244_t0_initializer/fixed_points_nine_t0_v1",
+      "--output",
+      "results/v244_t0_initializer/fixed_points_nine_t0_v1.postseal_identity.json"
+    ],
+    "evaluator": {
+      "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/eval_v244_t0_identity.py",
+      "sha256": "5e8116516bbc93894e99f5aaf7ce7a2079ceea6d6f60a687de6aa12593425f50"
+    },
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+    "support": [
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/lcwm/probe_data.py",
+        "sha256": "3526093b9ecb08f5514ee5864c913880a7438b6b13c0077e8e4a63a1cdc5a16c"
+      },
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/lcwm/seg_masks.py",
+        "sha256": "d526ecb2c80df8bfd8f62a9f95a0b18a95970d989f6c43151dae067a55bfba57"
+      },
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/lcwm/v080_bench.py",
+        "sha256": "c82ac1334c22e6ae1bd6b46e9aa04e97f9f8b5cbb11fa45ee3677a198520cc3e"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "env_seed": 8728,
+      "episode_id": 28,
+      "mask_centroid_error_px": 33.79940931878002,
+      "mask_centroid_identity_margin_px": 89.12013012331018,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        33.889878201703596,
+        249.84631250401205
+      ],
+      "prompt_error_px": 19.877336099537025,
+      "prompt_identity_margin_px": 109.66817665208487,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        160,
+        82,
+        276
+      ],
+      "sealed_mask_centroid_xy": [
+        38.600089216014275,
+        216.37671462027433
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8728,
+      "episode_id": 28,
+      "mask_centroid_error_px": 1.5476069901096208,
+      "mask_centroid_identity_margin_px": 101.02848026576204,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        159.50599731657,
+        194.21876879861597
+      ],
+      "prompt_error_px": 7.9256284878177565,
+      "prompt_identity_margin_px": 97.70135514638956,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        143,
+        169,
+        178,
+        220
+      ],
+      "sealed_mask_centroid_xy": [
+        160.9296875,
+        193.61197916666666
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8728,
+      "episode_id": 28,
+      "mask_centroid_error_px": 2.1369001419895244,
+      "mask_centroid_identity_margin_px": 93.78261330163619,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        263.47136927373833,
+        196.2685137020293
+      ],
+      "prompt_error_px": 10.228100144008353,
+      "prompt_identity_margin_px": 85.5824008854317,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        248,
+        171,
+        285,
+        222
+      ],
+      "sealed_mask_centroid_xy": [
+        265.4617330803289,
+        195.49082858950032
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8728,
+      "episode_id": 28,
+      "mask_centroid_error_px": 1.5305316682832515,
+      "mask_centroid_identity_margin_px": 96.16741555767501,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        314.0954517856725,
+        278.16678920775627
+      ],
+      "prompt_error_px": 11.738933312101082,
+      "prompt_identity_margin_px": 82.66657706707272,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        297,
+        258,
+        336,
+        301
+      ],
+      "sealed_mask_centroid_xy": [
+        315.33609958506224,
+        279.0630705394191
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8737,
+      "episode_id": 37,
+      "mask_centroid_error_px": 34.00584413671365,
+      "mask_centroid_identity_margin_px": 94.297875073912,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        36.36798890413098,
+        252.33856680262159
+      ],
+      "prompt_error_px": 22.380414661864794,
+      "prompt_identity_margin_px": 113.34053787979639,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        162,
+        85,
+        279
+      ],
+      "sealed_mask_centroid_xy": [
+        40.08953153345428,
+        218.53697577633125
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8737,
+      "episode_id": 37,
+      "mask_centroid_error_px": 1.6990477442744047,
+      "mask_centroid_identity_margin_px": 88.89872875423728,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        166.4098835333624,
+        196.06448072352552
+      ],
+      "prompt_error_px": 10.293518840810476,
+      "prompt_identity_margin_px": 90.48503616839349,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        150,
+        170,
+        185,
+        222
+      ],
+      "sealed_mask_centroid_xy": [
+        167.90845518118246,
+        195.2638270820089
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8737,
+      "episode_id": 37,
+      "mask_centroid_error_px": 2.14817663138478,
+      "mask_centroid_identity_margin_px": 84.53349932758557,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        258.503491602121,
+        194.55921203597757
+      ],
+      "prompt_error_px": 8.224340638110364,
+      "prompt_identity_margin_px": 72.63615029622586,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        244,
+        169,
+        279,
+        220
+      ],
+      "sealed_mask_centroid_xy": [
+        260.4475209272376,
+        193.64520283322602
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8737,
+      "episode_id": 37,
+      "mask_centroid_error_px": 1.6119827603667853,
+      "mask_centroid_identity_margin_px": 86.19831033675636,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        287.89935483160025,
+        275.86508949298263
+      ],
+      "prompt_error_px": 16.29928254344426,
+      "prompt_identity_margin_px": 81.8120351491219,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        272,
+        256,
+        308,
+        298
+      ],
+      "sealed_mask_centroid_xy": [
+        289.18771626297575,
+        276.83391003460207
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8740,
+      "episode_id": 40,
+      "mask_centroid_error_px": 33.38341184228364,
+      "mask_centroid_identity_margin_px": 91.23021450639018,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        42.18811802909573,
+        248.35045333714115
+      ],
+      "prompt_error_px": 19.708073941377574,
+      "prompt_identity_margin_px": 115.74849359175217,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        159,
+        90,
+        274
+      ],
+      "sealed_mask_centroid_xy": [
+        42.64094744332622,
+        214.97011283928026
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8740,
+      "episode_id": 40,
+      "mask_centroid_error_px": 1.6860259945059657,
+      "mask_centroid_identity_margin_px": 87.87123770412805,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        165.29779398166565,
+        192.9734342482488
+      ],
+      "prompt_error_px": 11.607613289110004,
+      "prompt_identity_margin_px": 86.69607714396143,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        149,
+        167,
+        184,
+        219
+      ],
+      "sealed_mask_centroid_xy": [
+        166.8113695090439,
+        192.23062015503876
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8740,
+      "episode_id": 40,
+      "mask_centroid_error_px": 2.080437487542789,
+      "mask_centroid_identity_margin_px": 90.83965476822843,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        256.2061753750203,
+        197.62248118543147
+      ],
+      "prompt_error_px": 4.5406530375274,
+      "prompt_identity_margin_px": 85.6145722898289,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        241,
+        172,
+        278,
+        224
+      ],
+      "sealed_mask_centroid_xy": [
+        258.13707165109037,
+        196.8479750778816
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8740,
+      "episode_id": 40,
+      "mask_centroid_error_px": 1.668040917219696,
+      "mask_centroid_identity_margin_px": 106.1490997985994,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        317.06698795990053,
+        284.6422073979437
+      ],
+      "prompt_error_px": 14.31298047919213,
+      "prompt_identity_margin_px": 82.17135868699702,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        299,
+        264,
+        339,
+        308
+      ],
+      "sealed_mask_centroid_xy": [
+        318.3045525902669,
+        285.7605965463108
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8763,
+      "episode_id": 63,
+      "mask_centroid_error_px": 33.398354220666974,
+      "mask_centroid_identity_margin_px": 88.73277599973191,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        38.06067385762361,
+        247.4244217227703
+      ],
+      "prompt_error_px": 17.691189808367604,
+      "prompt_identity_margin_px": 112.91191458817741,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        158,
+        85,
+        273
+      ],
+      "sealed_mask_centroid_xy": [
+        40.558069705093835,
+        214.1195710455764
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8763,
+      "episode_id": 63,
+      "mask_centroid_error_px": 1.531084363904321,
+      "mask_centroid_identity_margin_px": 100.81682032029813,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        161.6191801618938,
+        197.98821946306776
+      ],
+      "prompt_error_px": 5.4030406366002826,
+      "prompt_identity_margin_px": 102.13564944654189,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        145,
+        172,
+        180,
+        224
+      ],
+      "sealed_mask_centroid_xy": [
+        162.97168030207678,
+        197.2706104468219
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8763,
+      "episode_id": 63,
+      "mask_centroid_error_px": 2.086955681952665,
+      "mask_centroid_identity_margin_px": 92.60142312989622,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        265.2853148989781,
+        194.62225835196082
+      ],
+      "prompt_error_px": 12.657755503893735,
+      "prompt_identity_margin_px": 80.05647274503534,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        250,
+        169,
+        287,
+        221
+      ],
+      "sealed_mask_centroid_xy": [
+        267.2384858044164,
+        193.88706624605678
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8763,
+      "episode_id": 63,
+      "mask_centroid_error_px": 1.8323729206158628,
+      "mask_centroid_identity_margin_px": 94.57016822613095,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        301.76357795292523,
+        282.05682917050365
+      ],
+      "prompt_error_px": 1.2377273662292083,
+      "prompt_identity_margin_px": 93.93194851732483,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        285,
+        262,
+        323,
+        305
+      ],
+      "sealed_mask_centroid_xy": [
+        303.118038237739,
+        283.29093931837076
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8766,
+      "episode_id": 66,
+      "mask_centroid_error_px": 33.871458693985154,
+      "mask_centroid_identity_margin_px": 86.45861772382813,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        38.0998063788208,
+        252.94509996507534
+      ],
+      "prompt_error_px": 23.153539945189348,
+      "prompt_identity_margin_px": 105.61564251455061,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        162,
+        86,
+        279
+      ],
+      "sealed_mask_centroid_xy": [
+        40.934419381787805,
+        219.19246031746033
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8766,
+      "episode_id": 66,
+      "mask_centroid_error_px": 1.6411953551059884,
+      "mask_centroid_identity_margin_px": 85.57233179807676,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        158.4945961060383,
+        193.52278678467505
+      ],
+      "prompt_error_px": 8.491629361093679,
+      "prompt_identity_margin_px": 79.9165196505885,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        142,
+        168,
+        177,
+        219
+      ],
+      "sealed_mask_centroid_xy": [
+        159.9463601532567,
+        192.757343550447
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8766,
+      "episode_id": 66,
+      "mask_centroid_error_px": 2.12216329393968,
+      "mask_centroid_identity_margin_px": 88.30712127449598,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        246.37462512137066,
+        204.4344293641435
+      ],
+      "prompt_error_px": 8.962339991648072,
+      "prompt_identity_margin_px": 87.70642556505723,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        231,
+        178,
+        268,
+        232
+      ],
+      "sealed_mask_centroid_xy": [
+        248.35311398354875,
+        203.6668625146886
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8766,
+      "episode_id": 66,
+      "mask_centroid_error_px": 1.6572521607802633,
+      "mask_centroid_identity_margin_px": 100.00241612925942,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        311.2434761134954,
+        280.62265340808545
+      ],
+      "prompt_error_px": 8.357749820856535,
+      "prompt_identity_margin_px": 87.67792494748852,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        294,
+        260,
+        333,
+        303
+      ],
+      "sealed_mask_centroid_xy": [
+        312.6187707641196,
+        281.547342192691
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8774,
+      "episode_id": 74,
+      "mask_centroid_error_px": 33.68447422087323,
+      "mask_centroid_identity_margin_px": 89.36601059623737,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        37.71057110175474,
+        250.71156659596406
+      ],
+      "prompt_error_px": 20.888182940522185,
+      "prompt_identity_margin_px": 110.66495883779383,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        161,
+        85,
+        277
+      ],
+      "sealed_mask_centroid_xy": [
+        40.6145635172268,
+        217.15250475586558
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8774,
+      "episode_id": 74,
+      "mask_centroid_error_px": 1.5718014090663859,
+      "mask_centroid_identity_margin_px": 82.04629476872013,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        161.33281747791312,
+        193.30874300547882
+      ],
+      "prompt_error_px": 9.30836293264807,
+      "prompt_identity_margin_px": 78.2778331776571,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        145,
+        168,
+        180,
+        219
+      ],
+      "sealed_mask_centroid_xy": [
+        162.70550161812298,
+        192.54304207119742
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8774,
+      "episode_id": 74,
+      "mask_centroid_error_px": 2.1153342981347003,
+      "mask_centroid_identity_margin_px": 84.60470029034902,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        245.56862932823412,
+        203.7541113554078
+      ],
+      "prompt_error_px": 9.593104783927675,
+      "prompt_identity_margin_px": 84.47643879831126,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        230,
+        177,
+        267,
+        231
+      ],
+      "sealed_mask_centroid_xy": [
+        247.51734273956495,
+        202.93121693121694
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8774,
+      "episode_id": 74,
+      "mask_centroid_error_px": 1.4423035960983492,
+      "mask_centroid_identity_margin_px": 102.17479581333356,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        291.0035383271961,
+        295.5223034881656
+      ],
+      "prompt_error_px": 18.07671940074052,
+      "prompt_identity_margin_px": 78.98399060603666,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        274,
+        274,
+        312,
+        319
+      ],
+      "sealed_mask_centroid_xy": [
+        292.23978411719355,
+        296.2652274479568
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8787,
+      "episode_id": 87,
+      "mask_centroid_error_px": 34.125301017264746,
+      "mask_centroid_identity_margin_px": 88.82931869274722,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        32.15945122662225,
+        251.6659463586973
+      ],
+      "prompt_error_px": 21.851360345568583,
+      "prompt_identity_margin_px": 106.74625803374794,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        161,
+        80,
+        278
+      ],
+      "sealed_mask_centroid_xy": [
+        37.87665497340726,
+        218.0229715966957
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8787,
+      "episode_id": 87,
+      "mask_centroid_error_px": 1.6158897668801926,
+      "mask_centroid_identity_margin_px": 89.5286568444917,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        158.4740622723925,
+        194.0625070603741
+      ],
+      "prompt_error_px": 7.951636888384501,
+      "prompt_identity_margin_px": 84.6328009077034,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        142,
+        168,
+        177,
+        220
+      ],
+      "sealed_mask_centroid_xy": [
+        159.95299420476496,
+        193.4114616870573
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8787,
+      "episode_id": 87,
+      "mask_centroid_error_px": 2.122898710114527,
+      "mask_centroid_identity_margin_px": 83.73017674328531,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        250.57749213072375,
+        203.13405149947022
+      ],
+      "prompt_error_px": 4.565594009245781,
+      "prompt_identity_margin_px": 80.29357504236202,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        235,
+        177,
+        272,
+        230
+      ],
+      "sealed_mask_centroid_xy": [
+        252.54766133806987,
+        202.34339846062758
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8787,
+      "episode_id": 87,
+      "mask_centroid_error_px": 1.6096040075949085,
+      "mask_centroid_identity_margin_px": 86.1915433189902,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        298.54286725669664,
+        274.83609876424634
+      ],
+      "prompt_error_px": 8.437269298005114,
+      "prompt_identity_margin_px": 86.2620293487776,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        282,
+        255,
+        319,
+        297
+      ],
+      "sealed_mask_centroid_xy": [
+        299.801894918174,
+        275.838931955211
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8790,
+      "episode_id": 90,
+      "mask_centroid_error_px": 33.77372606809783,
+      "mask_centroid_identity_margin_px": 91.34850235308797,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        38.54302845414446,
+        249.51847638100972
+      ],
+      "prompt_error_px": 19.837438616487553,
+      "prompt_identity_margin_px": 114.35997119052655,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        160,
+        86,
+        276
+      ],
+      "sealed_mask_centroid_xy": [
+        40.9739561366512,
+        215.83234921973852
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8790,
+      "episode_id": 90,
+      "mask_centroid_error_px": 1.6118911584047662,
+      "mask_centroid_identity_margin_px": 97.40148182093782,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        163.9942371041757,
+        192.99416812415387
+      ],
+      "prompt_error_px": 10.818312541107462,
+      "prompt_identity_margin_px": 95.52930752683415,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        148,
+        167,
+        183,
+        219
+      ],
+      "sealed_mask_centroid_xy": [
+        165.40400775694894,
+        192.21266968325793
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8790,
+      "episode_id": 90,
+      "mask_centroid_error_px": 2.120254053820283,
+      "mask_centroid_identity_margin_px": 99.05768992629605,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        264.2625631118188,
+        197.74747427732814
+      ],
+      "prompt_error_px": 10.192107261131628,
+      "prompt_identity_margin_px": 81.25817370085885,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        249,
+        172,
+        286,
+        224
+      ],
+      "sealed_mask_centroid_xy": [
+        266.22140221402213,
+        196.9360393603936
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8790,
+      "episode_id": 90,
+      "mask_centroid_error_px": 1.575727968599798,
+      "mask_centroid_identity_margin_px": 100.83528774299572,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        299.6104634645085,
+        292.445970450594
+      ],
+      "prompt_error_px": 10.982133516767824,
+      "prompt_identity_margin_px": 81.74907540080915,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        282,
+        271,
+        321,
+        316
+      ],
+      "sealed_mask_centroid_xy": [
+        300.87064291247094,
+        293.3919442292796
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    },
+    {
+      "env_seed": 8793,
+      "episode_id": 93,
+      "mask_centroid_error_px": 33.90493400377855,
+      "mask_centroid_identity_margin_px": 91.60055140331754,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "basket_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        35.143787185717485,
+        250.82089790729506
+      ],
+      "prompt_error_px": 20.821394391845626,
+      "prompt_identity_margin_px": 111.45484738573425,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        0,
+        161,
+        83,
+        277
+      ],
+      "sealed_mask_centroid_xy": [
+        39.36700446769097,
+        217.18001525553012
+      ],
+      "sealed_prompt_xy": [
+        35.0,
+        230.0
+      ]
+    },
+    {
+      "env_seed": 8793,
+      "episode_id": 93,
+      "mask_centroid_error_px": 1.6770227627038583,
+      "mask_centroid_identity_margin_px": 96.92756192517349,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "tomato_sauce_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        163.4804685600696,
+        198.53933666646978
+      ],
+      "prompt_error_px": 6.4816453424999905,
+      "prompt_identity_margin_px": 98.59509992731823,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        146,
+        172,
+        182,
+        225
+      ],
+      "sealed_mask_centroid_xy": [
+        164.85411471321694,
+        197.5773067331671
+      ],
+      "sealed_prompt_xy": [
+        158.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8793,
+      "episode_id": 93,
+      "mask_centroid_error_px": 2.233367628704882,
+      "mask_centroid_identity_margin_px": 91.46418351865518,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "alphabet_soup_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        262.9041345811603,
+        208.02037741973672
+      ],
+      "prompt_error_px": 9.93580835932184,
+      "prompt_identity_margin_px": 81.64912940717146,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        247,
+        181,
+        285,
+        236
+      ],
+      "sealed_mask_centroid_xy": [
+        264.91284403669727,
+        207.0441513761468
+      ],
+      "sealed_prompt_xy": [
+        255.0,
+        202.0
+      ]
+    },
+    {
+      "env_seed": 8793,
+      "episode_id": 93,
+      "mask_centroid_error_px": 1.830987348870007,
+      "mask_centroid_identity_margin_px": 93.40248752532796,
+      "mask_centroid_nearest_identity_correct": true,
+      "object": "cream_cheese_1",
+      "projected_center_inside_mask_bbox": true,
+      "projected_center_xy": [
+        299.9827680712962,
+        293.9310406012745
+      ],
+      "prompt_error_px": 12.306641229062063,
+      "prompt_identity_margin_px": 71.84003417052759,
+      "prompt_nearest_identity_correct": true,
+      "sealed_mask_bbox_xyxy": [
+        283,
+        272,
+        321,
+        318
+      ],
+      "sealed_mask_centroid_xy": [
+        301.3504208110176,
+        295.1484315225708
+      ],
+      "sealed_prompt_xy": [
+        303.0,
+        282.0
+      ]
+    }
+  ],
+  "schema": "v244_t0_identity_postseal_evaluation_v1",
+  "status": "postseal_privileged_identity_evaluation_complete",
+  "task": "chain3_lr2",
+  "thresholds_applied": null
+}

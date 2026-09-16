@@ -1,0 +1,1915 @@
+{
+  "created_utc": "2026-09-02T02:05:55.563503+00:00",
+  "cross_prompt_cream_can_collision_audit": {
+    "bbox_collision_rule_for_diagnostic": "intersection over the smaller selected cream/can bbox >= 0.50",
+    "cream_transition_rows": [
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": true,
+        "episode_id": 37,
+        "pairs": [
+          {
+            "can_object_id": 6,
+            "cream_object_id": 8,
+            "intersection_over_smaller_box": 1.0,
+            "intersection_px2": 1292.0,
+            "iou": 0.5417190775681342
+          }
+        ],
+        "t": 740
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.35294117647058826,
+            "intersection_px2": 408.0,
+            "iou": 0.16012558869701726
+          }
+        ],
+        "t": 340
+      }
+    ],
+    "frames_with_any_bbox_overlap": 46,
+    "frames_with_flagged_bbox_collision": 7,
+    "mask_overlap_limitation": "v1 sealed mask hashes but not mask pixels; evaluator therefore fails closed to bbox overlap and cannot claim cross-prompt mask separation",
+    "mask_overlap_quantifiable_from_sealed_v1": false,
+    "overlap_rows": [
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": false,
+        "episode_id": 37,
+        "pairs": [
+          {
+            "can_object_id": 6,
+            "cream_object_id": 8,
+            "intersection_over_smaller_box": 0.01788617886178862,
+            "intersection_px2": 33.0,
+            "iou": 0.006690997566909975
+          }
+        ],
+        "t": 710
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": false,
+        "episode_id": 37,
+        "pairs": [
+          {
+            "can_object_id": 6,
+            "cream_object_id": 8,
+            "intersection_over_smaller_box": 0.5,
+            "intersection_px2": 860.0,
+            "iou": 0.26791277258566976
+          }
+        ],
+        "t": 720
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": false,
+        "episode_id": 37,
+        "pairs": [
+          {
+            "can_object_id": 6,
+            "cream_object_id": 8,
+            "intersection_over_smaller_box": 0.675,
+            "intersection_px2": 1053.0,
+            "iou": 0.375668926150553
+          }
+        ],
+        "t": 730
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": true,
+        "episode_id": 37,
+        "pairs": [
+          {
+            "can_object_id": 6,
+            "cream_object_id": 8,
+            "intersection_over_smaller_box": 1.0,
+            "intersection_px2": 1292.0,
+            "iou": 0.5417190775681342
+          }
+        ],
+        "t": 740
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": false,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.9,
+            "intersection_px2": 153.0,
+            "iou": 0.07850179579271421
+          }
+        ],
+        "t": 330
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.35294117647058826,
+            "intersection_px2": 408.0,
+            "iou": 0.16012558869701726
+          }
+        ],
+        "t": 340
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.125,
+            "intersection_px2": 128.0,
+            "iou": 0.049689440993788817
+          }
+        ],
+        "t": 350
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.28205128205128205,
+            "intersection_px2": 407.0,
+            "iou": 0.14789244186046513
+          }
+        ],
+        "t": 360
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.3829787234042553,
+            "intersection_px2": 648.0,
+            "iou": 0.2151394422310757
+          }
+        ],
+        "t": 370
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.13636363636363635,
+            "intersection_px2": 192.0,
+            "iou": 0.06262230919765166
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.7142857142857143,
+            "intersection_px2": 110.0,
+            "iou": 0.07575757575757576
+          }
+        ],
+        "t": 380
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.1111111111111111,
+            "intersection_px2": 135.0,
+            "iou": 0.04588715159755268
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.45454545454545453,
+            "intersection_px2": 55.0,
+            "iou": 0.0429352068696331
+          }
+        ],
+        "t": 390
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09302325581395349,
+            "intersection_px2": 112.0,
+            "iou": 0.035897435897435895
+          }
+        ],
+        "t": 400
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09090909090909091,
+            "intersection_px2": 120.0,
+            "iou": 0.03857280617164899
+          }
+        ],
+        "t": 410
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09090909090909091,
+            "intersection_px2": 120.0,
+            "iou": 0.03857280617164899
+          }
+        ],
+        "t": 420
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09090909090909091,
+            "intersection_px2": 116.0,
+            "iou": 0.03777271247150765
+          }
+        ],
+        "t": 430
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.06976744186046512,
+            "intersection_px2": 87.0,
+            "iou": 0.02832953435363074
+          }
+        ],
+        "t": 440
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.11363636363636363,
+            "intersection_px2": 140.0,
+            "iou": 0.04648074369189907
+          }
+        ],
+        "t": 450
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09090909090909091,
+            "intersection_px2": 112.0,
+            "iou": 0.03895652173913043
+          }
+        ],
+        "t": 460
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.09090909090909091,
+            "intersection_px2": 112.0,
+            "iou": 0.03895652173913043
+          }
+        ],
+        "t": 470
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          }
+        ],
+        "t": 480
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.036734693877551024
+          }
+        ],
+        "t": 490
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          }
+        ],
+        "t": 500
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03578528827037773
+          }
+        ],
+        "t": 510
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03722854188210962
+          }
+        ],
+        "t": 520
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03722854188210962
+          }
+        ],
+        "t": 530
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.036734693877551024
+          }
+        ],
+        "t": 540
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.1111111111111111,
+            "intersection_px2": 135.0,
+            "iou": 0.04560810810810811
+          }
+        ],
+        "t": 550
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03722854188210962
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.3333333333333333,
+            "intersection_px2": 30.0,
+            "iou": 0.023529411764705882
+          }
+        ],
+        "t": 560
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03722854188210962
+          }
+        ],
+        "t": 570
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03825717321997875
+          }
+        ],
+        "t": 580
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.036734693877551024
+          }
+        ],
+        "t": 590
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          }
+        ],
+        "t": 600
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          }
+        ],
+        "t": 610
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.3333333333333333,
+            "intersection_px2": 27.0,
+            "iou": 0.02127659574468085
+          }
+        ],
+        "t": 620
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03625377643504532
+          }
+        ],
+        "t": 630
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.036734693877551024
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.3333333333333333,
+            "intersection_px2": 27.0,
+            "iou": 0.02127659574468085
+          }
+        ],
+        "t": 640
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.1111111111111111,
+            "intersection_px2": 135.0,
+            "iou": 0.05113636363636364
+          }
+        ],
+        "t": 650
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 108.0,
+            "iou": 0.03578528827037773
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.3333333333333333,
+            "intersection_px2": 27.0,
+            "iou": 0.02127659574468085
+          }
+        ],
+        "t": 660
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 104.0,
+            "iou": 0.03636363636363636
+          }
+        ],
+        "t": 670
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 104.0,
+            "iou": 0.035398230088495575
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.2222222222222222,
+            "intersection_px2": 18.0,
+            "iou": 0.014598540145985401
+          }
+        ],
+        "t": 680
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 3,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.08888888888888889,
+            "intersection_px2": 104.0,
+            "iou": 0.03686635944700461
+          },
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.2222222222222222,
+            "intersection_px2": 20.0,
+            "iou": 0.016129032258064516
+          }
+        ],
+        "t": 690
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.2727272727272727,
+            "intersection_px2": 45.0,
+            "iou": 0.039301310043668124
+          }
+        ],
+        "t": 700
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.45454545454545453,
+            "intersection_px2": 75.0,
+            "iou": 0.05995203836930456
+          }
+        ],
+        "t": 710
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": false,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.36363636363636365,
+            "intersection_px2": 60.0,
+            "iou": 0.048426150121065374
+          }
+        ],
+        "t": 720
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.5,
+            "intersection_px2": 75.0,
+            "iou": 0.058639562157935886
+          }
+        ],
+        "t": 730
+      },
+      {
+        "any_bbox_overlap": true,
+        "collision_flag_intersection_over_smaller_box_gte_0_5": true,
+        "cream_progress": true,
+        "episode_id": 71,
+        "pairs": [
+          {
+            "can_object_id": 2,
+            "cream_object_id": 7,
+            "intersection_over_smaller_box": 0.5555555555555556,
+            "intersection_px2": 75.0,
+            "iou": 0.058823529411764705
+          }
+        ],
+        "t": 740
+      }
+    ]
+  },
+  "decision": "STOP",
+  "ep71_can_identity_and_carry_audit": {
+    "can_carry_frame_count": 1,
+    "can_carry_rows": [
+      {
+        "raw_can_inside_count": null,
+        "selected_ids": [
+          3,
+          4
+        ],
+        "sticky_can_inside_count": 2,
+        "t": 320
+      }
+    ],
+    "can_increment_rows": [
+      {
+        "from": 0,
+        "raw_can_inside_count": 1,
+        "same_as_t0_ids": true,
+        "selected_ids": [
+          2,
+          3
+        ],
+        "t": 130,
+        "to": 1,
+        "used_can_carry": false
+      },
+      {
+        "from": 1,
+        "raw_can_inside_count": 2,
+        "same_as_t0_ids": true,
+        "selected_ids": [
+          2,
+          3
+        ],
+        "t": 240,
+        "to": 2,
+        "used_can_carry": false
+      }
+    ],
+    "carry_created_increment": false,
+    "id_churn_present_at_increment": false,
+    "selected_id_set_change_count": 14,
+    "selected_id_set_change_rows": [
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 320,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 330,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 340,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 380,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 400,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 560,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 570,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 620,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 630,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 640,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 650,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 660,
+        "to": [
+          2,
+          3
+        ]
+      },
+      {
+        "from": [
+          2,
+          3
+        ],
+        "t": 670,
+        "to": [
+          3,
+          4
+        ]
+      },
+      {
+        "from": [
+          3,
+          4
+        ],
+        "t": 680,
+        "to": [
+          2,
+          3
+        ]
+      }
+    ],
+    "t0_selected_can_ids": [
+      2,
+      3
+    ]
+  },
+  "episode_ids": [
+    0,
+    37,
+    71
+  ],
+  "fresh_prefix_checks": {
+    "0": {
+      "exact": true,
+      "frames": 8,
+      "fresh_session_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885",
+      "present": true,
+      "reference_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885"
+    },
+    "37": {
+      "exact": true,
+      "frames": 8,
+      "fresh_session_sha256": "67dbd8e4c047c8c28074df37e5da3bf257ba1813eb7f9721e5b0e49d65a508f1",
+      "present": true,
+      "reference_sha256": "67dbd8e4c047c8c28074df37e5da3bf257ba1813eb7f9721e5b0e49d65a508f1"
+    },
+    "71": {
+      "exact": true,
+      "frames": 8,
+      "fresh_session_sha256": "1d754da441d71768a15af82e253c6e5e1933649ea8c4a117d392bbab4f22f4ad",
+      "present": true,
+      "reference_sha256": "1d754da441d71768a15af82e253c6e5e1933649ea8c4a117d392bbab4f22f4ad"
+    }
+  },
+  "gate": {
+    "checks": {
+      "current_evidence_uncertainty_lte": true,
+      "emitted_frame_coverage_gte": true,
+      "extra_increment_count_lte": false,
+      "fresh_prefix_checks_required": true,
+      "median_absolute_transition_error_steps_lte": true,
+      "never_true_terminal_specificity_gte": false,
+      "stage_exact_accuracy_gte": false,
+      "true_increment_coverage_gte": true
+    },
+    "decision": "STOP",
+    "failed_checks": [
+      "extra_increment_count_lte",
+      "never_true_terminal_specificity_gte",
+      "stage_exact_accuracy_gte"
+    ],
+    "thresholds": {
+      "current_evidence_uncertainty_lte": 0.05,
+      "emitted_frame_coverage_gte": 0.95,
+      "extra_increment_count_lte": 0,
+      "fresh_prefix_checks_required": true,
+      "median_absolute_transition_error_steps_lte": 20,
+      "never_true_terminal_specificity_gte": 0.95,
+      "stage_exact_accuracy_gte": 0.95,
+      "true_increment_coverage_gte": 1.0
+    }
+  },
+  "identity_scope": {
+    "interpretation": "This evaluator can validate two-can count/stage but cannot satisfy a per-alphabet-versus-tomato identity gate.",
+    "per_can_identity_emitted": false
+  },
+  "metrics": {
+    "framewise": {
+      "can_carry_frames": 1,
+      "can_count_exact_accuracy": 0.9733333333333334,
+      "cream_carry_frames": 0,
+      "cream_state_exact_accuracy": 0.8133333333333334,
+      "current_evidence_certain_frames": 224,
+      "current_evidence_coverage": 0.9955555555555555,
+      "current_evidence_uncertainty": 0.004444444444444473,
+      "emitted_frame_coverage": 1.0,
+      "frames": 225,
+      "per_episode": {
+        "0": {
+          "frames": 75,
+          "stage_error_t": [],
+          "stage_exact_accuracy": 1.0,
+          "stage_exact_frames": 75
+        },
+        "37": {
+          "frames": 75,
+          "stage_error_t": [
+            260,
+            270,
+            280,
+            290,
+            300,
+            740
+          ],
+          "stage_exact_accuracy": 0.92,
+          "stage_exact_frames": 69
+        },
+        "71": {
+          "frames": 75,
+          "stage_error_t": [
+            240,
+            340,
+            350,
+            360,
+            370,
+            380,
+            390,
+            400,
+            410,
+            420,
+            430,
+            440,
+            450,
+            460,
+            470,
+            480,
+            490,
+            500,
+            510,
+            520,
+            530,
+            540,
+            550,
+            560,
+            570,
+            580,
+            590,
+            600,
+            610,
+            620,
+            630,
+            640,
+            650,
+            660,
+            670,
+            680,
+            690,
+            700,
+            710,
+            720,
+            730,
+            740
+          ],
+          "stage_exact_accuracy": 0.44,
+          "stage_exact_frames": 33
+        }
+      },
+      "stage_confusion": {
+        "true_0_pred_0": 40,
+        "true_1_pred_1": 33,
+        "true_1_pred_2": 1,
+        "true_2_pred_1": 5,
+        "true_2_pred_2": 104,
+        "true_2_pred_3": 42
+      },
+      "stage_error_rows": [
+        {
+          "episode_id": 37,
+          "pred_can_count": 1,
+          "pred_cream": false,
+          "pred_stage": 1,
+          "t": 260,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 37,
+          "pred_can_count": 1,
+          "pred_cream": false,
+          "pred_stage": 1,
+          "t": 270,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 37,
+          "pred_can_count": 1,
+          "pred_cream": false,
+          "pred_stage": 1,
+          "t": 280,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 37,
+          "pred_can_count": 1,
+          "pred_cream": false,
+          "pred_stage": 1,
+          "t": 290,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 37,
+          "pred_can_count": 1,
+          "pred_cream": false,
+          "pred_stage": 1,
+          "t": 300,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 37,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 740,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": false,
+          "pred_stage": 2,
+          "t": 240,
+          "true_can_count": 1,
+          "true_cream": false,
+          "true_stage": 1
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 340,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 350,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 360,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 370,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 380,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 390,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 400,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 410,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 420,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 430,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 440,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 450,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 460,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 470,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 480,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 490,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 500,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 510,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 520,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 530,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 540,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 550,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 560,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 570,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 580,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 590,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 600,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 610,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 620,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 630,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 640,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 650,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 660,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 670,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 680,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 690,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 700,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 710,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 720,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 730,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        },
+        {
+          "episode_id": 71,
+          "pred_can_count": 2,
+          "pred_cream": true,
+          "pred_stage": 3,
+          "t": 740,
+          "true_can_count": 2,
+          "true_cream": false,
+          "true_stage": 2
+        }
+      ],
+      "stage_exact_accuracy": 0.7866666666666666,
+      "stage_exact_frames": 177
+    },
+    "increments": {
+      "extra_increments": 2,
+      "ground_truth": "sticky first-achievement events 1/3/5",
+      "identity_free_can_matching": "predicted count levels 1/2 are matched in order to place events 1/3",
+      "matched_true_increments": 6,
+      "max_absolute_error_steps": 50,
+      "mean_absolute_error_steps": 10.0,
+      "median_absolute_error_steps": 0.0,
+      "missing_true_increments": 0,
+      "observable_true_increments": 6,
+      "rows": [
+        {
+          "absolute_error_steps": 0,
+          "episode_id": 0,
+          "event_index": 1,
+          "increment": "can_1",
+          "predicted_time": 130,
+          "signed_error_steps": 0,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 130
+        },
+        {
+          "absolute_error_steps": 0,
+          "episode_id": 0,
+          "event_index": 3,
+          "increment": "can_2",
+          "predicted_time": 230,
+          "signed_error_steps": 0,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 230
+        },
+        {
+          "absolute_error_steps": null,
+          "episode_id": 0,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": null,
+          "signed_error_steps": null,
+          "status": "true_negative",
+          "true_observable": false,
+          "true_time": null
+        },
+        {
+          "absolute_error_steps": 0,
+          "episode_id": 37,
+          "event_index": 1,
+          "increment": "can_1",
+          "predicted_time": 140,
+          "signed_error_steps": 0,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 140
+        },
+        {
+          "absolute_error_steps": 50,
+          "episode_id": 37,
+          "event_index": 3,
+          "increment": "can_2",
+          "predicted_time": 310,
+          "signed_error_steps": 50,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 260
+        },
+        {
+          "absolute_error_steps": null,
+          "episode_id": 37,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": 740,
+          "signed_error_steps": null,
+          "status": "extra",
+          "true_observable": false,
+          "true_time": null
+        },
+        {
+          "absolute_error_steps": 0,
+          "episode_id": 71,
+          "event_index": 1,
+          "increment": "can_1",
+          "predicted_time": 130,
+          "signed_error_steps": 0,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 130
+        },
+        {
+          "absolute_error_steps": 10,
+          "episode_id": 71,
+          "event_index": 3,
+          "increment": "can_2",
+          "predicted_time": 240,
+          "signed_error_steps": -10,
+          "status": "matched",
+          "true_observable": true,
+          "true_time": 250
+        },
+        {
+          "absolute_error_steps": null,
+          "episode_id": 71,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": 340,
+          "signed_error_steps": null,
+          "status": "extra",
+          "true_observable": false,
+          "true_time": null
+        }
+      ],
+      "status_by_increment": {
+        "can_1": {
+          "matched": 3
+        },
+        "can_2": {
+          "matched": 3
+        },
+        "cream": {
+          "extra": 2,
+          "true_negative": 1
+        }
+      },
+      "true_increment_coverage": 1.0,
+      "true_negative_increments": 1
+    },
+    "terminal_specificity": {
+      "definition": "never-true increment remains negative at final observed frame",
+      "denominator": 3,
+      "false_positives": 2,
+      "rows": [
+        {
+          "absolute_error_steps": null,
+          "episode_id": 0,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": null,
+          "signed_error_steps": null,
+          "status": "true_negative",
+          "true_observable": false,
+          "true_time": null
+        },
+        {
+          "absolute_error_steps": null,
+          "episode_id": 37,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": 740,
+          "signed_error_steps": null,
+          "status": "extra",
+          "true_observable": false,
+          "true_time": null
+        },
+        {
+          "absolute_error_steps": null,
+          "episode_id": 71,
+          "event_index": 5,
+          "increment": "cream",
+          "predicted_time": 340,
+          "signed_error_steps": null,
+          "status": "extra",
+          "true_observable": false,
+          "true_time": null
+        }
+      ],
+      "specificity": 0.3333333333333333,
+      "true_negatives": 1
+    }
+  },
+  "producer_seals_verified_before_summary_access": [
+    {
+      "complete_sha256": "855c0efd92a0ca5559a087b1c31b6d7ad48142582af25cdbcc42464d174b7ff5",
+      "frames_sha256": "33e2c3a85b01382f8a55e299bbebe6d6f0b82b1cedab76046e78faca4c9c65bf",
+      "prefix_checks": {
+        "0": {
+          "exact": true,
+          "frames": 8,
+          "fresh_session_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885",
+          "present": true,
+          "reference_sha256": "47c546930fec943f41ed0a63aaf0a93deef425e63da189de7df151b45890c885"
+        }
+      },
+      "producer_source_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+      "result_sha256": "31256ae5ffc67cb3910f9ff8783239b76a861f8c7a71ec15216062873843125e",
+      "run_dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/ep0_streaming_v1"
+    },
+    {
+      "complete_sha256": "8f2882e376d963c3c05c27aa4d8d0fcdb16e8577079598f40b2a420a5e7c4098",
+      "frames_sha256": "a3b49c9f6df18b145e1d044198bf87dc0fd8c243332b6eab6cb9889ab27679e7",
+      "prefix_checks": {
+        "37": {
+          "exact": true,
+          "frames": 8,
+          "fresh_session_sha256": "67dbd8e4c047c8c28074df37e5da3bf257ba1813eb7f9721e5b0e49d65a508f1",
+          "present": true,
+          "reference_sha256": "67dbd8e4c047c8c28074df37e5da3bf257ba1813eb7f9721e5b0e49d65a508f1"
+        },
+        "71": {
+          "exact": true,
+          "frames": 8,
+          "fresh_session_sha256": "1d754da441d71768a15af82e253c6e5e1933649ea8c4a117d392bbab4f22f4ad",
+          "present": true,
+          "reference_sha256": "1d754da441d71768a15af82e253c6e5e1933649ea8c4a117d392bbab4f22f4ad"
+        }
+      },
+      "producer_source_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1",
+      "result_sha256": "ea110f02c3b4edf2cae201282596cb2fb264602696f20749e2d5b76f747cf8c9",
+      "run_dir": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/hard_ep37_71_streaming_prefix_v2"
+    }
+  ],
+  "provenance": {
+    "argv": [
+      "scripts/eval_v245_sam3_video_progress.py",
+      "--probe-run",
+      "results/v245_sam3_video_progress/ep0_streaming_v1",
+      "--probe-run",
+      "results/v245_sam3_video_progress/hard_ep37_71_streaming_prefix_v2",
+      "--source-summary",
+      "results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+      "--output",
+      "results/v245_sam3_video_progress/postseal_ep0_37_71_v1.json"
+    ],
+    "evaluator_source_sha256": "4a72499035c6379f27c4535502beafdf337538faed8774e6d01e0c50de95fb99",
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+    "producer_source_sha256": "fe783028bc59459ac5642e285fee17b6842c5a7f597b190d430936ec0d5042f1"
+  },
+  "schema": "v245_sam3_video_progress_postseal_eval_v1",
+  "source_summary": {
+    "fields_used": [
+      "episode_records.idx",
+      "episode_records.seed",
+      "episode_records.steps",
+      "episode_records.events"
+    ],
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v121_deploy_latents/chain3_lr2_2026-08-30T083910Z/summary.json",
+    "sha256": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58",
+    "success_fields_used": false
+  },
+  "status": "postseal_privileged_evaluation_complete"
+}

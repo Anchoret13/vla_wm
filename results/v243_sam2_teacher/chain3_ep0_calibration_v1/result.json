@@ -1,0 +1,175 @@
+{
+  "checkpoint": {
+    "dtype": "torch.bfloat16",
+    "path": "/home/stargazer/.cache/sam2/checkpoints/sam2.1_hiera_large.pt",
+    "sha256": "2647878d5dfa5098f2f8649825738a9345572bae2d4350a2468587ece47dd318",
+    "strict_load": true,
+    "tensor_count": 903
+  },
+  "claim_scope": "task-specific frozen-initializer RGB teacher; not a general open-world detector",
+  "code": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/track_v243_sam2_teacher.py",
+    "sha256": "46417ef027b516fdef565e2087b93181dae64530324802b8961e55d81d232236"
+  },
+  "created_utc": "2026-09-02T00:13:24.745320+00:00",
+  "inputs": {
+    "episode_partitions": {
+      "0": "tracker_calibration"
+    },
+    "manifests": [
+      {
+        "episode_ids": [
+          0
+        ],
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+        "row_count": 75,
+        "sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567",
+        "verified_image_records": 150,
+        "verified_image_set_sha256": "8b0089e92baac55bf032ebb866e6d8ad1ceb3a22f786f07024f011f66e467a57"
+      }
+    ],
+    "requested_episode_ids": [
+      0
+    ],
+    "verified_frame_rows": 75
+  },
+  "label_rule": {
+    "basket_relation": "target-mask centroid lies inside the current tracked basket-mask bounding box",
+    "forbidden_runtime_inputs": [
+      "latent tape",
+      "source summary",
+      "simulator state",
+      "BDDL predicates",
+      "event or milestone times",
+      "episode success",
+      "normalized time",
+      "post-t0 human prompts"
+    ],
+    "labels": [
+      "inside",
+      "outside",
+      "uncertain"
+    ],
+    "progress_target": "sum of the three certain target-object inside indicators; uncertain object labels are masked, never imputed",
+    "temporal_smoothing": "none",
+    "uncertain_if": {
+      "basket_mask_area_px_gt": 15000,
+      "basket_mask_area_px_lt": 3000,
+      "nonfinite_output": true,
+      "object_score_logit_lte": 0.0,
+      "target_mask_area_px_gt": 5000,
+      "target_mask_area_px_lt": 64
+    }
+  },
+  "outputs": {
+    "episode_summaries": {
+      "0": {
+        "env_seed": 8700,
+        "episode_id": 0,
+        "expected_frame_count": 75,
+        "file_sha256": "0874d78fbf3aa9bb3afa7ffd65722c9e0047dadd178d0f85d1ac46e3dbcfc747",
+        "frame_count": 75,
+        "frame_coverage": 1.0,
+        "labels_canonical_sha256": "fe6976ebf00093465ef9a1e5af792f210f26222714c22437c456d3be85a22549",
+        "manifest_sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567",
+        "object_label_count": 225,
+        "objects": {
+          "alphabet_soup_1": {
+            "first_certain_inside_t": 130,
+            "first_certain_outside_to_inside_transition_t": 130,
+            "label_counts": {
+              "inside": 62,
+              "outside": 13,
+              "uncertain": 0
+            },
+            "terminal_label": "inside"
+          },
+          "cream_cheese_1": {
+            "first_certain_inside_t": null,
+            "first_certain_outside_to_inside_transition_t": null,
+            "label_counts": {
+              "inside": 0,
+              "outside": 75,
+              "uncertain": 0
+            },
+            "terminal_label": "outside"
+          },
+          "tomato_sauce_1": {
+            "first_certain_inside_t": 230,
+            "first_certain_outside_to_inside_transition_t": 230,
+            "label_counts": {
+              "inside": 52,
+              "outside": 23,
+              "uncertain": 0
+            },
+            "terminal_label": "inside"
+          }
+        },
+        "partition": "tracker_calibration",
+        "path": "episode_summaries/ep0000.json",
+        "post_t0_prompt_count": 0,
+        "prompt_frames": [
+          0
+        ],
+        "runtime_seconds": 4.48302878299728,
+        "schema": "v243_sam2_teacher_episode_summary_v1",
+        "uncertain_fraction": 0.0,
+        "uncertain_object_labels": 0
+      }
+    },
+    "label_rows": 75,
+    "labels_relative_path": "labels.jsonl",
+    "labels_sha256": "27015c8140d3ef3ea3c5945d80d6adaa9f2cad44e7a199dfd3ae3beb06dcda27",
+    "object_labels": 225,
+    "overlays_saved": true,
+    "per_manifest": [
+      {
+        "label_rows": 75,
+        "labels_relative_path": "labels_by_manifest/bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567.jsonl",
+        "labels_sha256": "27015c8140d3ef3ea3c5945d80d6adaa9f2cad44e7a199dfd3ae3beb06dcda27",
+        "manifest_sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567"
+      }
+    ],
+    "uncertain_fraction": 0.0,
+    "uncertain_object_labels": 0
+  },
+  "prompt_policy": {
+    "post_t0_prompts": 0,
+    "prompt_frames": [
+      0
+    ],
+    "source": "fixed_t0_initializer in frozen registration",
+    "temporal_smoothing": "none"
+  },
+  "registered_probe": {
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/scripts/probe_v242_sam2_tracking.py",
+    "sha256": "9d02c46129a5b2e70616804ed2a7270bb2125d1fcc729aab8e9b98c84315144f"
+  },
+  "registration": {
+    "expected_sha256_compiled_into_code": "3d892616b97442a080e16f50f226217eb00dd3d2e19f6fb7e048750a251363ab",
+    "path": "/home/stargazer/Desktop/vla_wm/vla_wm/plan_and_progress/v242_chain3_sam2_registration.json",
+    "sha256": "3d892616b97442a080e16f50f226217eb00dd3d2e19f6fb7e048750a251363ab"
+  },
+  "runtime": {
+    "argv": [
+      "scripts/track_v243_sam2_teacher.py",
+      "--manifest",
+      "results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+      "--episode-id",
+      "0",
+      "--output-dir",
+      "results/v243_sam2_teacher/chain3_ep0_calibration_v1",
+      "--device",
+      "cuda",
+      "--save-overlays"
+    ],
+    "device": "cuda",
+    "git_head": "1b87f34be275fa32b5155a048e1ce233dbae93c9",
+    "seconds_before_atomic_commit": 6.6736053839558735,
+    "torch": "2.11.0+cu128",
+    "transformers": "5.5.4"
+  },
+  "runtime_data_boundary": "registration + replay manifest JSONL + referenced JPEGs + registered SAM2 checkpoint/conversion code only; no tape/summary/simulator/event/success/BDDL access",
+  "schema": "v243_sam2_teacher_run_v1",
+  "status": "complete"
+}

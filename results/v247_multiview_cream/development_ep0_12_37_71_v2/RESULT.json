@@ -1,0 +1,176 @@
+{
+  "claim_scope": "post-hoc disclosed seed-8700 multiview cream diagnostic; not independent validation and not a Gate-0 pass",
+  "created_utc": "2026-09-02T02:55:47.084520+00:00",
+  "episode_ids": [
+    0,
+    12,
+    37,
+    71
+  ],
+  "episodes": {
+    "0": {
+      "cream_transition_frames": [],
+      "cross_class_collision_frames": 0,
+      "frames": 75,
+      "initial_cream_track_id": 7,
+      "near_rim_frames": 0,
+      "reliable_frames": 75,
+      "sift_valid_frames": 7,
+      "terminal_cream_achieved": false
+    },
+    "12": {
+      "cream_transition_frames": [
+        {
+          "frame_index": 48,
+          "t": 480
+        }
+      ],
+      "cross_class_collision_frames": 0,
+      "frames": 76,
+      "initial_cream_track_id": 9,
+      "near_rim_frames": 2,
+      "reliable_frames": 76,
+      "sift_valid_frames": 49,
+      "terminal_cream_achieved": true
+    },
+    "37": {
+      "cream_transition_frames": [],
+      "cross_class_collision_frames": 3,
+      "frames": 75,
+      "initial_cream_track_id": 8,
+      "near_rim_frames": 2,
+      "reliable_frames": 75,
+      "sift_valid_frames": 25,
+      "terminal_cream_achieved": false
+    },
+    "71": {
+      "cream_transition_frames": [],
+      "cross_class_collision_frames": 4,
+      "frames": 75,
+      "initial_cream_track_id": 7,
+      "near_rim_frames": 41,
+      "reliable_frames": 75,
+      "sift_valid_frames": 59,
+      "terminal_cream_achieved": false
+    }
+  },
+  "frames_jsonl": "frames.jsonl",
+  "frozen_rules": {
+    "cross_class_box_ios_gte": 0.5,
+    "rim_margin_px": 8.0,
+    "rim_max_depth_fraction": 0.3,
+    "sift": {
+      "cluster_eps_px": 22.0,
+      "contrast_threshold": 0.01,
+      "lowe_ratio": 0.7,
+      "min_cluster_matches": 4,
+      "ransac_min_inlier_ratio": 0.5,
+      "ransac_min_inliers": 4,
+      "ransac_reprojection_px": 3.0,
+      "scale_range": [
+        0.5,
+        4.0
+      ],
+      "upscale": 3
+    },
+    "state": {
+      "max_confirmation_frames": 4,
+      "occlusion_frames_required": 2,
+      "outside_frames_to_arm": 2,
+      "scale_collapse_ratio_lte": 0.4,
+      "schema": "v247_causal_cream_state_v1"
+    }
+  },
+  "inputs": {
+    "manifests": [
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/manifest.jsonl",
+        "selected_rows": 75,
+        "sha256": "bdcc55c0d8936779b253682d00580c6022863841fbd24f1e76c6567b3d1fa567"
+      },
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_cream_dev_rgb/chain3_8700_ep12_all_boundaries_posthoc_dev_v1/manifest.jsonl",
+        "selected_rows": 76,
+        "sha256": "6d228c5a2afdd6e1a74d84a622e575b5080dcd17b3b78b5b3bd3b32ab55b158f"
+      },
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep36_55_stride1_v242_frozen/manifest.jsonl",
+        "selected_rows": 75,
+        "sha256": "8e3f0cb29974ac6c13f57059c8d350f351cb6dbb4967eaeedf0a3414ce61f963"
+      },
+      {
+        "path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep56_75_stride1_v242_frozen/manifest.jsonl",
+        "selected_rows": 75,
+        "sha256": "38b7ce2897d86deef79d7c963a80709aa13f9fbe22a94dfe9d1652289a12f5a5"
+      }
+    ],
+    "sam3_artifacts": [
+      {
+        "complete_sha256": "855c0efd92a0ca5559a087b1c31b6d7ad48142582af25cdbcc42464d174b7ff5",
+        "frames_sha256": "33e2c3a85b01382f8a55e299bbebe6d6f0b82b1cedab76046e78faca4c9c65bf",
+        "result_sha256": "31256ae5ffc67cb3910f9ff8783239b76a861f8c7a71ec15216062873843125e",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/ep0_streaming_v1",
+        "selected_frames": 75
+      },
+      {
+        "complete_sha256": "b24d13b7bd58832c7df4636a7fcccebe8ebf7a675f1f7e0fc165ca428f287d56",
+        "frames_sha256": "f422260028db65440a7bd43afe3759c0d3a1cdc91548dc4e166ecbcf98188eed",
+        "result_sha256": "20993b0202d317c3e8616d5c14283f936fe39176fe05c5c2353b264467c72bc5",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/ep12_posthoc_dev_v1",
+        "selected_frames": 76
+      },
+      {
+        "complete_sha256": "8f2882e376d963c3c05c27aa4d8d0fcdb16e8577079598f40b2a420a5e7c4098",
+        "frames_sha256": "a3b49c9f6df18b145e1d044198bf87dc0fd8c243332b6eab6cb9889ab27679e7",
+        "result_sha256": "ea110f02c3b4edf2cae201282596cb2fb264602696f20749e2d5b76f747cf8c9",
+        "root": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_video_progress/hard_ep37_71_streaming_prefix_v2",
+        "selected_frames": 150
+      }
+    ]
+  },
+  "prefix_checks": {
+    "0": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "7cb27bc65f0953a2e2ca60de25d2fc48a50b53e724d245f2409ee0ee814b62db",
+      "prefix_only_sha256": "7cb27bc65f0953a2e2ca60de25d2fc48a50b53e724d245f2409ee0ee814b62db"
+    },
+    "12": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "37adc9c48ba270c065466dc300682b349398fd35dd98c8601d4122b1119dbb9d",
+      "prefix_only_sha256": "37adc9c48ba270c065466dc300682b349398fd35dd98c8601d4122b1119dbb9d"
+    },
+    "37": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "e570dfd26fab3481bd23b6e9ac6266dfcbea04dcbf5db09310aa707c240e4d52",
+      "prefix_only_sha256": "e570dfd26fab3481bd23b6e9ac6266dfcbea04dcbf5db09310aa707c240e4d52"
+    },
+    "71": {
+      "exact": true,
+      "frames": 50,
+      "full_prefix_sha256": "6e88cca5652aeee773d4d4f9e5ded9d60233a43f0be95e935b1bb74fc94d8287",
+      "prefix_only_sha256": "6e88cca5652aeee773d4d4f9e5ded9d60233a43f0be95e935b1bb74fc94d8287"
+    }
+  },
+  "privileged_inputs_read": false,
+  "producer_source_sha256": "89ab4ab374ff2d6f70445fca59c78468ce985e127660dc9581eb9791319e1fb8",
+  "schema": "v247_multiview_cream_development_probe_v1",
+  "state_source_sha256": "62415afadeb9593d03fe9658ae205fbe874c2108c6f9c78517a3d1a7f19d68ed",
+  "status": "development_probe_complete",
+  "template": {
+    "crop_sha256": "094559b431464c338de35de0fa9fdef5d10155f50b52da40ac11c1b3abb1ce70",
+    "crop_xyxy_nearest_even_rounding": [
+      18,
+      72,
+      55,
+      134
+    ],
+    "image_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v242_rgb_replay/chain3_lr2_ep0_stride1_v242/images/ep0000_t0000_eye_in_hand.jpg",
+    "image_sha256": "84e211e05688b0d02c6e98d58c6e0037e9feb5820e78f4840e72b8551dacbfe1",
+    "result_path": "/home/stargazer/Desktop/vla_wm/vla_wm/results/v245_sam3_open_vocab/ep0_t0_eye_in_hand_v1/result.json",
+    "result_sha256": "c85813f2cfd03e5aad839544d50849f3db8cdea2f0bbf2f93ca814b18014b881",
+    "template_keypoints": 213
+  }
+}

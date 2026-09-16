@@ -1,0 +1,57 @@
+{
+  "env_seed": 8731,
+  "episode_id": 31,
+  "expected_frame_count": 75,
+  "frame_count": 75,
+  "frame_coverage": 1.0,
+  "labels_canonical_sha256": "6ac80aeb5e2a0113ccafc2cca0814398815ce38f9fba01a25f97abe6b91e4671",
+  "manifest_is_gap_free_prefix": true,
+  "manifest_sha256": "a0a4fa08a6bd63d00b43250cdec1672e5dda3bb545eab6625f807ce9990f0b29",
+  "mechanical_replay_right_truncated": false,
+  "nominal_horizon_frame_count": 75,
+  "nominal_horizon_frame_coverage": 1.0,
+  "object_label_count": 225,
+  "objects": {
+    "alphabet_soup_1": {
+      "first_certain_inside_t": 140,
+      "first_certain_outside_to_inside_transition_t": 140,
+      "label_counts": {
+        "inside": 13,
+        "outside": 14,
+        "uncertain": 48
+      },
+      "terminal_label": "inside"
+    },
+    "cream_cheese_1": {
+      "first_certain_inside_t": null,
+      "first_certain_outside_to_inside_transition_t": null,
+      "label_counts": {
+        "inside": 0,
+        "outside": 75,
+        "uncertain": 0
+      },
+      "terminal_label": "outside"
+    },
+    "tomato_sauce_1": {
+      "first_certain_inside_t": 240,
+      "first_certain_outside_to_inside_transition_t": 240,
+      "label_counts": {
+        "inside": 51,
+        "outside": 24,
+        "uncertain": 0
+      },
+      "terminal_label": "inside"
+    }
+  },
+  "partition": "phi_fit",
+  "post_t0_prompt_count": 0,
+  "prompt_frames": [
+    0
+  ],
+  "runtime_seconds": 3.703559809946455,
+  "schema": "v243_sam2_teacher_episode_summary_v1",
+  "source_summary_sha256_declared_only_not_opened": "a4dc0d5f73328247d11592ad08d55031023a2bb00bbaa3c7436e0a4a9387ef58",
+  "uncertain_fraction": 0.21333333333333335,
+  "uncertain_object_labels": 48,
+  "unstored_terminal_env_steps_from_replay_metadata": null
+}
