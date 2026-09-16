@@ -316,7 +316,10 @@ def main() -> None:
                         "continuation_outcomes": (
                             gid == canon_of(s["task"])
                             and bool(tr["continuations"]))})
-    del runner
+    # drop the last reference to the policy runner before the GPU
+    # cache is released. Rebound rather than `del`-ed so that the
+    # verify_norm closure above keeps a resolvable free variable.
+    runner = None
     torch.cuda.empty_cache()
 
     # inherit the 26 V7.1.1 measured fidelity rows

@@ -61,7 +61,10 @@ def main() -> int:
         torch.manual_seed(seed); np.random.seed(seed)
         runner.reset(); obs, _ = env.reset(seed=int(seed))
         atoms = goal_atoms(env)
-        t, done, succ, bstate = 0, False, None, None
+        # last_u is read only under `bstate is not None`, which cannot happen
+        # before the first assignment below - but binding it here is what makes
+        # that argument checkable instead of a promise (F821).
+        t, done, succ, bstate, last_u = 0, False, None, None, None
         while not done and t < L:
             po = runner._obs_to_policy_batch(obs, env.task_description)
             with torch.no_grad():

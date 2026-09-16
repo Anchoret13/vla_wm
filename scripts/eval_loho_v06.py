@@ -165,6 +165,11 @@ def main() -> None:
                     automaton.evaluate(env, 0)
                     instruction = env.task_description
                     z = None
+                    # bound at the tail of each decision; the v06.step branch
+                    # below is reached only once z is not None, i.e. from the
+                    # second decision on. Explicit here so the binding is not
+                    # a lexical forward reference.
+                    prev_a = prev_m = None
                     actions_env, used_seeds = [], []
                     t, decision = 0, 0
                     term = trunc = False
