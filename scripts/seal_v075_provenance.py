@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.5 provenance seal — bind the record to CONTENT, not to a Git SHA.
 
-Registered as action item 1 of `plan_and_progress/2026-08-09.md`
+Registered as action item 1 of `plan_and_progress/archive/daily/2026-08-09.md`
 ("Next mainline action items") and `framework_design.md` v0.9 §11.1:
 
     Land and freeze the evidence before new execution. Commit the actual
@@ -456,7 +456,7 @@ def main() -> None:
         "run_schema": "v075",
         "run_id": RID,
         "sealed_on": date,
-        "registered_by": "plan_and_progress/2026-08-09.md — Next "
+        "registered_by": "plan_and_progress/archive/daily/2026-08-09.md — Next "
                          "mainline action items, item 1; "
                          "framework_design.md v0.9 §11.1",
         "purpose": "Bind the V7.5 evidence by content hash. The run "

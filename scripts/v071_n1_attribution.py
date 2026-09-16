@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.1 policy-boundary closure — bounded N1 attribution check.
 
-Registered item (2026-08-02.md, non-blocking): evaluate the EXISTING
+Registered item (plan_and_progress/archive/daily/2026-08-02.md, non-blocking): evaluate the EXISTING
 V7.1.0B smoke checkpoints once on the same live re-reached
 observation/history under `full LC`, `LCProj=0`, and reset/shuffled
 recurrent state; persist generated chunk hashes. This is a bounded

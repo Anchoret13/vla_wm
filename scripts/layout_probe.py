@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Layout probe set — properly-powered decision-time layout-reading test.
 
-PRE-REGISTERED (2026-07-19.md): for each libero_10 task, reset to ALL 50 init
+PRE-REGISTERED (plan_and_progress/archive/daily/2026-07-19.md): for each libero_10 task, reset to ALL 50 init
 states (static, settled, no policy rollout), tap {siglip, const_ll, real_ll}
 agentview tokens + GT object positions + proprio q. Probe: LocProbe trained on
 init states 0–39, tested on 40–49 (unseen layouts). Eval dims = init-varying

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.1.2c — full correction-aware LCWM (merge + semantic enablement).
 
-Bindings registered in plan_and_progress/2026-08-02.md before launch.
+Bindings registered in plan_and_progress/archive/daily/2026-08-02.md before launch.
 
 Data: frozen V7.1.1F union (724 rows, physical losses exactly as 2a,
 identities preserved) + the 22 frozen V7.1.2b semwin windows

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""V7.4C — train ONE balanced LC predictive state (2026-08-09.md).
+"""V7.4C — train ONE balanced LC predictive state (plan_and_progress/archive/daily/2026-08-09.md).
 
 Data: merged five-universe schedule (lcwm/v074_schedule.py): the
 V7.3 merged universe (v072B 96 + v072T 18 + v073 33) + the V7.4B
@@ -131,7 +131,7 @@ def main() -> None:
             f"SUCCESS_VARIANCE_TASKS "
             f"{sorted(SUCCESS_VARIANCE_TASKS)}; changing the mask "
             f"requires a registration amendment in "
-            f"plan_and_progress/2026-08-09.md, not a code edit")
+            f"plan_and_progress/archive/daily/2026-08-09.md, not a code edit")
     success_tasks = SUCCESS_VARIANCE_TASKS
 
     # v072B plumbing (delegated to the V7.2B machinery's data layout)

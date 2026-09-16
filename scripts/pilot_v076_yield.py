@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.6B yield pilot — does moving the snapshot actually raise yield?
 
-Registered in `plan_and_progress/2026-08-15.md` (V7.6B YIELD PILOT) before
+Registered in `plan_and_progress/archive/daily/2026-08-15.md` (V7.6B YIELD PILOT) before
 execution:
 
     n = 40 attempts on the three reacher-supported tasks. Pass at >= 8
@@ -287,7 +287,7 @@ def main() -> None:
     report = {
         "schema": "v076_yield_pilot_v1", "run_schema": "v076",
         "run_id": RID,
-        "registered_by": "plan_and_progress/2026-08-15.md — V7.6B YIELD "
+        "registered_by": "plan_and_progress/archive/daily/2026-08-15.md — V7.6B YIELD "
                          "PILOT, registered before execution",
         "registered": {
             "n_target": N_TARGET, "pass_min": PASS_MIN,

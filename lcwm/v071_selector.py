@@ -1,4 +1,4 @@
-"""V7.1.4A — compiled frozen selector (2026-08-03.md).
+"""V7.1.4A — compiled frozen selector (plan_and_progress/archive/daily/2026-08-03.md).
 
 Pure functions over ensemble predictions; no I/O, no simulator. The
 outcome ensemble and LCWM stay byte-frozen; this module only compiles

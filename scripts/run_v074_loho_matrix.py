@@ -13,7 +13,7 @@ centering c_t = (Pool(z) - mu_train) / sigma_train loaded from the
 policy run lineage (CenteredState.load; never refitted here).
 correction_bc deploys the registered constant c = 0.
 
-NEW registered artifact (2026-08-09.md V7.4E): per-decision ONLINE
+NEW registered artifact (plan_and_progress/archive/daily/2026-08-09.md V7.4E): per-decision ONLINE
 STATE TRACES for every rollout — "pre-pool tokens, c_t, and
 W_c c_t norms" (registration quoted verbatim: the actual [4,384]
 token states are saved, float16, not only their norms) — named in
@@ -67,7 +67,7 @@ EPISODE_LENGTH = {"loho_t1_drawer": 700, "loho_t2_basket3": 900,
                   "loho_t3_tray": 900, "loho_t4_tray": 900,
                   "loho_t5_drawer_cabinet": 990}
 SEEDS = [1850, 1860, 1870, 1880, 1890]
-# registered fresh development panel (2026-08-09.md): {1700..1740}
+# registered fresh development panel (plan_and_progress/archive/daily/2026-08-09.md): {1700..1740}
 # sealed; {1750..1790} (V7.2) and {1800..1840} (V7.3E) consumed
 assert SEEDS == list(range(1850, 1900, 10))
 assert not set(SEEDS) & set(range(1700, 1850, 10))
@@ -80,7 +80,7 @@ WINNER_RULE = ("lc_full > stock under the stock-only safety rule "
                "AND strictly greater task-balanced success than "
                "correction_bc, lc_grounded, lc_random "
                "(exact-rational comparison)")
-# frozen routing rows, quoted from 2026-08-09.md "Routing (frozen)"
+# frozen routing rows, quoted from plan_and_progress/archive/daily/2026-08-09.md "Routing (frozen)"
 ROUTING_ROWS = [
     "winner -> replicate on the same panel with fresh CRN noise "
     "ids; only a replicated winner opens the sealed panel;",
@@ -210,7 +210,7 @@ def main() -> None:
                  "final.pt — a stub root without the final "
                  "checkpoint does not count) / *_v074_policy_r1 "
                  "roots — V7.4E runs only after C and D land "
-                 "(execution order, 2026-08-09.md)")
+                 "(execution order, plan_and_progress/archive/daily/2026-08-09.md)")
     pm = json.loads((policy_root / "run_manifest.json").read_text())
     interface = pm.get("interface")
     if interface not in INTERFACES:
@@ -318,7 +318,7 @@ def main() -> None:
     manifest = {
         "schema": "v074_loho_dev_manifest_v1",
         "run_schema": "v074", "run_id": RID,
-        "registration": "plan_and_progress/2026-08-09.md V7.4E",
+        "registration": "plan_and_progress/archive/daily/2026-08-09.md V7.4E",
         "git_sha": subprocess.run(
             ["git", "rev-parse", "--short", "HEAD"],
             capture_output=True, text=True,
@@ -351,7 +351,7 @@ def main() -> None:
                       "named), token_norms [N,4], c [N,384] "
                       "(deployed c_t), c_norm [N], wc_c_norm "
                       "[N] per decision; empty for stock",
-            "registered": "2026-08-09.md V7.4E per-decision "
+            "registered": "plan_and_progress/archive/daily/2026-08-09.md V7.4E per-decision "
                           "online state traces"},
     }
     if mp.exists():
@@ -651,7 +651,7 @@ def main() -> None:
         "paired": list(verdicts.values()),
         "n_rollouts": len(recs),
         "routing_registered": {
-            "source": "plan_and_progress/2026-08-09.md — V7.4E "
+            "source": "plan_and_progress/archive/daily/2026-08-09.md — V7.4E "
                       "Routing (frozen)",
             "rows": ROUTING_ROWS},
         "support_coverage": support_coverage(),

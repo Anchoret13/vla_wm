@@ -1,4 +1,4 @@
-"""V7.5 Stage 1 — the repaired recurrent state (2026-08-09.md V7.5).
+"""V7.5 Stage 1 — the repaired recurrent state (plan_and_progress/archive/daily/2026-08-09.md V7.5).
 
 Stage 0 (`scripts/diag_v075_recurrence.py`) localized the V7.3C
 "functionally inert recurrence" to TWO independent sites in

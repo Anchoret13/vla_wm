@@ -1,5 +1,5 @@
 """A1 — phase-aware state potential Φ (registered 2026-07-27 in
-plan_and_progress/2026-07-25.md, review-to-action item A1).
+plan_and_progress/archive/daily/2026-07-25.md, review-to-action item A1).
 
 Lexicographic pick-place potential for the ACTIVE goal atom (first false
 atom in canonical goal order). Raw object-to-receptacle distance is used
@@ -26,7 +26,7 @@ from dataclasses import dataclass
 import torch
 from torch import Tensor
 
-# Registered constants (2026-07-25.md A1 registration).
+# Registered constants (plan_and_progress/archive/daily/2026-07-25.md A1 registration).
 NEAR_DISTANCE = 0.05          # m, matches the contact-collection trigger
 LIFT_THRESHOLD = 0.03         # m above the object's episode-start height
 LIFT_REFERENCE = 0.10         # m, full-credit lift height

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""The ONE fixed scorer refresh (pre-registered route, 2026-08-03.md).
+"""The ONE fixed scorer refresh (pre-registered route, plan_and_progress/archive/daily/2026-08-03.md).
 
 lc_full_selected stays byte-frozen. Same K=5 768-256-256-9 ensemble,
 same heads/target transforms/member seeds/optimizer/epoch budget/

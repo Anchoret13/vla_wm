@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """V7.4A — complete-anchor content assertion probe (registered
-instrument: plan_and_progress/2026-08-09.md V7.4A, thresholds T1-T5).
+instrument: plan_and_progress/archive/daily/2026-08-09.md V7.4A, thresholds T1-T5).
 
 --universe v073 is the A-STAGE DIAGNOSTIC: the instrument runs on the
 frozen V7.3C LCWM over the COMPLETE V7.3 real-anchor set — all 6
@@ -39,7 +39,7 @@ collide), plus ONE shared interface-independent probe_states.pt
 token cache reused by both runs.
 
 --universe v074 is the BINDING PRE-D GATE under the dated pre-C
-amendment (2026-08-09.md "V7.4A EXECUTED"): the instrument runs on
+amendment (plan_and_progress/archive/daily/2026-08-09.md "V7.4A EXECUTED"): the instrument runs on
 the frozen V7.4C final checkpoint over the COMPLETE V7.4
 policy-state set — every acq (train + dev) and teach anchor of the
 frozen V7.4B anchor manifest (SHORTFALL / family_shortfall budget
@@ -243,7 +243,7 @@ def load_demo_rows():
 
 def main_v074_gate(args) -> None:
     """BINDING pre-D gate (registration + the dated pre-C amendment
-    "V7.4A EXECUTED" in plan_and_progress/2026-08-09.md): T1 binding,
+    "V7.4A EXECUTED" in plan_and_progress/archive/daily/2026-08-09.md): T1 binding,
     T4/T5 binding where crossed support exists, T2/T3 measured and
     named next to the A-stage pooled values, never gating. A
     gate_pass=false report halts V7.4D (the fallback switch is
@@ -576,7 +576,7 @@ def main_v074_gate(args) -> None:
                      and pass_or_unsupported(t4)
                      and pass_or_unsupported(t5))
     gate = {
-        "rule": "AMENDED binding pre-D gate (2026-08-09.md pre-C "
+        "rule": "AMENDED binding pre-D gate (plan_and_progress/archive/daily/2026-08-09.md pre-C "
                 "amendment): gate_pass = T1 pass AND (T4 pass or "
                 "unsupported) AND (T5 pass or unsupported); T2/T3 "
                 "measured and named, never gating; the fallback "

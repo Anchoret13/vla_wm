@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.1.3 — direct task-conditioned outcome ensemble (first scorer).
 
-Bindings registered in plan_and_progress/2026-08-02.md before launch.
+Bindings registered in plan_and_progress/archive/daily/2026-08-02.md before launch.
 Predictive state FROZEN (lc_full_selected); only scorer heads train.
 166 train / 3 dev continuation-bearing transitions; the 6 audit-only
 stored-dev-winner rows are EVAL-ONLY ranking candidates. GT preference

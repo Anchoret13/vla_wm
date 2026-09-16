@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.5 Stage 3 — the binding pre-D gate on the frozen V7.5C checkpoint.
 
-Registered in plan_and_progress/2026-08-09.md ("V7.5 Stages 2-5 and
+Registered in plan_and_progress/archive/daily/2026-08-09.md ("V7.5 Stages 2-5 and
 routing"), with the binding quantity fixed by the Stage 1b finding.
 
 MEASUREMENT SPACE. T1/T4/T5 are evaluated on the CENTERED POOLED

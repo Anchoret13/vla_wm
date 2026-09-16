@@ -151,7 +151,7 @@ def variance_covariance_penalty(
 ) -> Tensor:
     """VICReg-form anti-collapse on the ONLINE posterior states [N,M,d].
 
-    v2 registration (2026-07-25.md): the v1 run collapsed jointly (target
+    v2 registration (plan_and_progress/archive/daily/2026-07-25.md): the v1 run collapsed jointly (target
     rank 9.1, prediction rank 5.0) because batch-1 episode training has none
     of BYOL's implicit variance sources. The hinge keeps every dimension's
     std near var_target; the covariance term decorrelates dimensions. The

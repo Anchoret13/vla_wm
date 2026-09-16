@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """V7.3C teacher step — outcome-derived model teacher + grounded
-ledger (2026-08-03.md "Outcome-derived model teacher").
+ledger (plan_and_progress/archive/daily/2026-08-03.md "Outcome-derived model teacher").
 
 Phase A (tensor-only, outcome-blind):
   - assert teacher-source disjointness: no source ID, transition ID,

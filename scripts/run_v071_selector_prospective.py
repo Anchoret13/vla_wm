@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""V7.1.4B — prospective frozen-selector intervention (2026-08-03.md).
+"""V7.1.4B — prospective frozen-selector intervention (plan_and_progress/archive/daily/2026-08-03.md).
 
 Phases (sequential, resumable; ledgers sealed BEFORE any candidate
 branch executes — mechanically asserted):

@@ -3,7 +3,7 @@
 
 Replay unit = one policy decision (c=10) with raw observations before
 every executed action and after the last. Bindings registered in
-2026-08-02.md before launch.
+plan_and_progress/archive/daily/2026-08-02.md before launch.
 
 Phases:
   bank    — re-reach all 26 correction anchors; execute every stored

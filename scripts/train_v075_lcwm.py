@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.5C — train ONE LC predictive state with a LIVE recurrence.
 
-Supersedes scripts/train_v074_lcwm.py before execution (2026-08-09.md,
+Supersedes scripts/train_v074_lcwm.py before execution (plan_and_progress/archive/daily/2026-08-09.md,
 "V7.5 registration"). V7.4C's two registered changes did not touch the
 mechanism that made the V7.3C state a (current observation, language)
 function, so running it would have spent a slice reproducing a known
@@ -165,7 +165,7 @@ def main() -> None:
             f"SUCCESS_VARIANCE_TASKS "
             f"{sorted(SUCCESS_VARIANCE_TASKS)}; changing the mask "
             f"requires a registration amendment in "
-            f"plan_and_progress/2026-08-09.md, not a code edit")
+            f"plan_and_progress/archive/daily/2026-08-09.md, not a code edit")
     success_tasks = SUCCESS_VARIANCE_TASKS
 
     src_lru, shard_lru, h_lru = {}, {}, {}
@@ -639,7 +639,7 @@ def main() -> None:
             semwin = False      # retired universe; kept for the census
             # history_dependence: real recurrent state vs reset state at
             # the SAME anchor observation. This is the Stage 3 binding
-            # quantity (2026-08-09.md V7.5 Stage 1b finding 1): the
+            # quantity (plan_and_progress/archive/daily/2026-08-09.md V7.5 Stage 1b finding 1): the
             # `gain_other` contrast can pass on an open channel carrying
             # nothing, the RESET contrast cannot. Reported raw and in
             # the centered units the state is actually consumed in.
@@ -954,7 +954,7 @@ def main() -> None:
         f"epoch-0 schedule unbalanced: {dict(visits0)}"
     # per-ANCHOR mass is NOT balanced on this universe (t4 has one
     # train anchor against a longest queue of 6) and is reported, not
-    # asserted away -- see 2026-08-09.md V7.5.
+    # asserted away -- see plan_and_progress/archive/daily/2026-08-09.md V7.5.
     task_mass, anchor_mass = S.exposure_census(anchors, "train")
     # the registered point of the query rotation: a wrapped repeat must
     # be a DIFFERENT query, never the same sample twice
@@ -973,7 +973,7 @@ def main() -> None:
                 "rule": "FRESH at seed 0 (the V7.2 shared "
                         "initialization is deleted and the "
                         "architecture changed); registered in "
-                        "plan_and_progress/2026-08-09.md V7.5",
+                        "plan_and_progress/archive/daily/2026-08-09.md V7.5",
                 "state_sha256": init_sha},
             "architecture": {
                 "module": "lcwm.v075_state.V075State",

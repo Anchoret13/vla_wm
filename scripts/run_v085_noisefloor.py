@@ -55,7 +55,7 @@ def main() -> int:
     out = OUT_ROOT / stamp
     manifest = {
         "schema": N.SCHEMA_VERSION, "action": "2M.3", "utc": stamp,
-        "daily": "plan_and_progress/2026-08-23.md (ACTION ITEM 2M.3)",
+        "daily": "plan_and_progress/archive/daily/2026-08-23.md (ACTION ITEM 2M.3)",
         "objective": ("does candidate identity move the registered H80 outcome "
                       "above continuation-seed variability at "
                       f"{N.TASK}@{N.DEADLINE}, tau={N.TAU}?"),

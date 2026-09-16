@@ -69,7 +69,7 @@ def preserve_and_write(path: Path, payload: str, stage: str) -> dict:
     `hcache_index.json` in place. The training index is unrecoverable --
     the stage counts do not subtract cleanly, so it cannot be
     reconstructed by filtering the survivor. See the 2026-08-14 audit
-    amendment in plan_and_progress/2026-08-09.md and action item 1
+    amendment in plan_and_progress/archive/daily/2026-08-09.md and action item 1
     ("preserve every new immutable input index before any cache
     expansion").
 

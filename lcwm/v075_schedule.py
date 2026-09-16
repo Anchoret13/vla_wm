@@ -1,6 +1,6 @@
 """V7.5C — deterministic schedule over the surviving anchor universe.
 
-Registered universe (2026-08-09.md V7.5). The v072B/v072T/v073 tensors
+Registered universe (plan_and_progress/archive/daily/2026-08-09.md V7.5). The v072B/v072T/v073 tensors
 and the V7.2 shared initialization were deliberately deleted; only
 their JSON/JSONL contracts survive. Two consequences, both verified
 against the tree rather than assumed:

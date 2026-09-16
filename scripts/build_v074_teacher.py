@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """V7.4D teacher step — u0-anchored model teacher + grounded ledger
-(2026-08-09.md "V7.4D — teacher, matched schedule, policy
+(plan_and_progress/archive/daily/2026-08-09.md "V7.4D — teacher, matched schedule, policy
 fine-tuning"; framework_design.md §11.6 / §13.5).
 
 Derived from scripts/build_v073_teacher.py with ONLY the registered
@@ -103,7 +103,7 @@ class BindingGateError(RuntimeError):
     """Registered execution order violated: the pre-D binding gate
     has not PASSED on the exact V7.4C checkpoint this script would
     score with. There is no override — the gate is not skippable by
-    registration (2026-08-09.md pre-C amendment)."""
+    registration (plan_and_progress/archive/daily/2026-08-09.md pre-C amendment)."""
 
 
 class DevMarginSupportError(RuntimeError):

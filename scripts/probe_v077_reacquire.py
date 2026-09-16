@@ -2,7 +2,7 @@
 """V7.7 — is pi0.5's `pick_up` 0/14 a capability, a prompt, an object, or a
 state effect?
 
-Registered in `plan_and_progress/2026-08-15.md` (V7.7) before execution.
+Registered in `plan_and_progress/archive/daily/2026-08-15.md` (V7.7) before execution.
 
 The V7.6 yield pilot ended with one exact residual: from reacher-built
 mid-chain states, pi0.5 under the ATOMIC prompt hit 0/14 on `pick_up`
@@ -284,7 +284,7 @@ def main() -> None:
     report = {
         "schema": "v077_reacquire_probe_v1", "run_schema": "v077",
         "run_id": RID,
-        "registered_by": "plan_and_progress/2026-08-15.md — V7.7, "
+        "registered_by": "plan_and_progress/archive/daily/2026-08-15.md — V7.7, "
                          "registered before execution",
         "question": "Is the V7.6 pilot's pick_up 0/14 a pi0.5 capability "
                     "limit (a), a prompt artifact (b), an object effect "

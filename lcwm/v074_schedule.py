@@ -1,6 +1,6 @@
 """V7.4C — merged deterministic schedule over five anchor universes.
 
-Extends lcwm.v073_schedule (never forks it — 2026-08-09.md V7.4C):
+Extends lcwm.v073_schedule (never forks it — plan_and_progress/archive/daily/2026-08-09.md V7.4C):
 
   v072B/v072T/v073  the V7.3 merged universe, delegated wholesale;
   v074   the V7.4B acquisition anchors (2500 seed family; shard

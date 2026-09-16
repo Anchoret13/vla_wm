@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """V6.8 step 2 — apply the FROZEN backlog selection rule (registered in
-2026-07-31.md BEFORE any backlog label was computed):
+plan_and_progress/archive/daily/2026-07-31.md BEFORE any backlog label was computed):
 
 Per task, rank backlog groups by (a) any-goal semantic effect
 (candidate-pair valid/event/flip/terminal disagreement), then (b) max

@@ -142,7 +142,7 @@ def registration() -> dict:
         "stage": "1R.0",
         "action": "Action 1R / V8.0R - executable registration and provenance closure",
         "framework": "v1.0 §14",
-        "daily": "plan_and_progress/2026-08-19.md §6",
+        "daily": "plan_and_progress/archive/daily/2026-08-19.md §6",
         "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ"),
         "supersedes": {
             "artifact": "results/v080_screen/BENCHMARK_FROZEN.json",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""P1 loader smoke test (the pre-registered P1 artifact, 2026-07-25.md).
+"""P1 loader smoke test (the pre-registered P1 artifact, plan_and_progress/archive/daily/2026-07-25.md).
 
 Asserts, on the real artifacts (CPU only, no model load):
 1. aligned window shapes from BOTH sources, printed:

@@ -127,7 +127,7 @@ def git_state() -> dict:
 def registration() -> dict:
     return {
         "schema_version": P.SCHEMA_VERSION, "action": "Action 2P / V8.1P",
-        "daily": "plan_and_progress/2026-08-20.md §4",
+        "daily": "plan_and_progress/archive/daily/2026-08-20.md §4",
         "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ"),
         "question": ("At distinct, stratum-matched pre-failure histories from stock "
                      "rollouts that miss L=250, do VLA-supported first-10-action "

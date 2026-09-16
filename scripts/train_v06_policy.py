@@ -2,7 +2,7 @@
 """V6.5 — π0.5 flow-interface post-training (one of three matched
 checkpoints: gt / random / wm).
 
-Registered contract (`plan_and_progress/2026-07-30.md`, execution record):
+Registered contract (`plan_and_progress/archive/daily/2026-07-30.md`, execution record):
 - trainable whitelist: the zero-initialized W_z projection ONLY (π0.5,
   E_a/T/U, every WM head frozen; byte-identity asserted);
 - every optimizer step in all three checkpoints: identical base batch

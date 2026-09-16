@@ -1,4 +1,4 @@
-"""V7.4A interface layer (registration: plan_and_progress/2026-08-09.md).
+"""V7.4A interface layer (registration: plan_and_progress/archive/daily/2026-08-09.md).
 
 CenteredState — the registered primary interface statistics:
 c_t = (Pool(z_t) - mu_train) / sigma_train, with mu_train the

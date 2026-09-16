@@ -1,4 +1,4 @@
-"""V7.1 run/video contract (2026-08-02.md).
+"""V7.1 run/video contract (plan_and_progress/archive/daily/2026-08-02.md).
 
 Every environment rollout invoked by a scheduled training-time
 evaluation saves one indexed video regardless of outcome or arm.

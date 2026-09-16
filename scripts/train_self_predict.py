@@ -52,7 +52,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--self-scale", type=float, default=1.0)
     parser.add_argument("--outcome-scale", type=float, default=1.0)
     parser.add_argument("--distance", default="cosine")
-    # v2 registration (2026-07-25.md): anti-collapse + residual objective +
+    # v2 registration (plan_and_progress/archive/daily/2026-07-25.md): anti-collapse + residual objective +
     # locked physical scales with Huber. Set all three weights to 0 and
     # --scales fit_std to reproduce the v1 configuration.
     parser.add_argument("--var-weight", type=float, default=1.0)

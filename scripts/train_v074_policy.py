@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """V7.4D — fine-tune pi0.5 through grounded + model-generated targets
-under the registered V7.4A interface (plan_and_progress/2026-08-09.md).
+under the registered V7.4A interface (plan_and_progress/archive/daily/2026-08-09.md).
 
 Derived from scripts/train_v073_policy.py. Registered deltas ONLY:
 
@@ -113,7 +113,7 @@ DEMO_DIR = Path("/home/stargazer/Desktop/vla_wm/datasets"
                 "/libero_loho_public_v1/demo_rehearsal_v067")
 RID = "v074_policy_r1"
 STEPS, LR, WD, CLIP, CKPT_EVERY = 300, 1e-4, 1e-4, 1.0, 50
-# registered V7.4 CRN bases (2026-08-09.md, frozen)
+# registered V7.4 CRN bases (plan_and_progress/archive/daily/2026-08-09.md, frozen)
 T_BASE, R_BASE, D_BASE = 974_000, 974_500_000, 974_900_000
 D_Z, GATE_STEP, GATE_MIN = 384, 50, 0.5
 STATE_SCHEMA = "v074_policy_states_v1"

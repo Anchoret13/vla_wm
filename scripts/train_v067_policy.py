@@ -2,7 +2,7 @@
 """V6.7.5 — repaired π0.5 flow post-training (one of three matched
 checkpoints: gt / random / wm). W_z remains the ONLY trainable tensor.
 
-Repairs vs iteration 1 (registered in 2026-07-31.md):
+Repairs vs iteration 1 (registered in plan_and_progress/archive/daily/2026-07-31.md):
 - sorted `k % len` sampling → frozen task/source/phase-stratified
   round-robin schedules; budget = ONE complete rehearsal sampler epoch
   (every rehearsal row exactly once; every task and demo visited before

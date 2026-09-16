@@ -1138,7 +1138,7 @@ Before any Action 2P environment step, the registration must seal the actual run
 
 ### 15.6 Action 2P outcome — HALT (2026-08-21)
 
-Executed under registration `0979c839` with execution seal `de5dedc5` written before any outcome existed. 20 sources and 168 branch segments, **19,906 / 20,120** environment steps, reserved seeds untouched. Full record: `plan_and_progress/2026-08-21.md`; artifact `results/v081p/2026-08-21T044523Z`.
+Executed under registration `0979c839` with execution seal `de5dedc5` written before any outcome existed. 20 sources and 168 branch segments, **19,906 / 20,120** environment steps, reserved seeds untouched. Full record: `plan_and_progress/archive/daily/2026-08-21.md`; artifact `results/v081p/2026-08-21T044523Z`.
 
 **Provenance conditions 1–3 pass, and — unlike their first implementation — they could have failed.** Restore is verified by re-snapping the live environment after `restore` and hashing that, not by hashing the stored snapshot against itself: **168/168**. Replay tolerance is measured over achieved post-prefix body positions rather than commanded actions: **max pairwise L2 = 0.00e+00** on all eight anchors, against a sealed `1e-3`. Pools are **32/32** unique after first-\(c\) deduplication.
 
@@ -1280,7 +1280,7 @@ The interaction contract behaved as designed: the halt landed at the end of the 
 
 ### 17.5 Action 2M.3 completed — `NOT_IDENTIFIED` (2026-08-23)
 
-Re-registered at 38 sources (the ceiling derived from the §17.4 measured yield; that one number was the only change) and executed: **15/15 anchors from 36 sources, 900 branches, restore verified 900/900, 89,789 / 90,500 steps**, execution seal written before any outcome existed. Record: `plan_and_progress/2026-08-23.md`.
+Re-registered at 38 sources (the ceiling derived from the §17.4 measured yield; that one number was the only change) and executed: **15/15 anchors from 36 sources, 900 branches, restore verified 900/900, 89,789 / 90,500 steps**, execution seal written before any outcome existed. Record: `plan_and_progress/archive/daily/2026-08-23.md`.
 
 | component | `D` | `D` lower | ICC | ICC lower | sign-consistent |
 |---|---:|---:|---:|---:|---:|
@@ -1316,13 +1316,13 @@ Re-registered at 38 sources (the ceiling derived from the §17.4 measured yield;
 
 `[LOCKED]` **Action 2M.4 is one uninterrupted bank-to-checkpoint action, not a new diagnostic ladder.** It collects a fresh source-disjoint bank, trains one fixed-schedule action-conditioned M0.2 and its capacity-matched state-only baseline, freezes checkpoints on validation, and opens held-out test once. Schema, restore, finite-loss, reload, and ledger smokes are implementation checks only. There is no label-count, non-tie, sign-consistency, or noise-floor gate between a passing mechanics smoke and full model training.
 
-The executable contract and exact collection sizes are in `plan_and_progress/2026-08-23.md`, Action 2M.4. Its mandatory deliverables are `B_boot-v3/groups.pt`, `M0.2/best.pt`, complete training curves, and one source-disjoint held-out comparison against state-only and simple prediction baselines. A useful M0.2 proceeds directly to matched-budget WM-guided acquisition; a negative M0.2 changes model/training of the observed continuous target rather than reopening proposal, anchor, horizon, or noise-floor diagnostics.
+The executable contract and exact collection sizes are in `plan_and_progress/archive/daily/2026-08-23.md`, Action 2M.4. Its mandatory deliverables are `B_boot-v3/groups.pt`, `M0.2/best.pt`, complete training curves, and one source-disjoint held-out comparison against state-only and simple prediction baselines. A useful M0.2 proceeds directly to matched-budget WM-guided acquisition; a negative M0.2 changes model/training of the observed continuous target rather than reopening proposal, anchor, horizon, or noise-floor diagnostics.
 
 ---
 
 ## 18. Action 2M.4 — continuous readout, `B_boot-v3`, and M0.2 (2026-08-24)
 
-§17.5 sent the next change to the **outcome readout**. Action 2M.4 took it: keep the anchor, setting, and stock-PI0 proposal family fixed, replace the deterministic label with a continuous action-consequence target, collect a fresh bank, and train one M0.2. Record: `plan_and_progress/2026-08-24.md`.
+§17.5 sent the next change to the **outcome readout**. Action 2M.4 took it: keep the anchor, setting, and stock-PI0 proposal family fixed, replace the deterministic label with a continuous action-consequence target, collect a fresh bank, and train one M0.2. Record: `plan_and_progress/archive/daily/2026-08-24.md`.
 
 ### 18.1 The readout change succeeded
 
@@ -1373,7 +1373,7 @@ Cost: of Action 2M.4's **318,242** environment steps, **158,275 (49.7%)** bought
 \hat\Delta(i)=h\big(z_s,u_0,u_i-u_0\big)-h\big(z_s,u_0,0\big),
 \]
 
-with \(b(s)\) and \(z_s\) frozen from M0.2's state-only checkpoint, one 64-unit residual head trained (32,505 parameters), and the independent rank head retired so the sibling score is the predicted consequence itself. Record: `plan_and_progress/2026-08-25.md`.
+with \(b(s)\) and \(z_s\) frozen from M0.2's state-only checkpoint, one 64-unit residual head trained (32,505 parameters), and the independent rank head retired so the sibling score is the predicted consequence itself. Record: `plan_and_progress/archive/daily/2026-08-25.md`.
 
 ### 19.1 What the factorization fixed, and what it did not
 
@@ -1395,7 +1395,7 @@ with \(b(s)\) and \(z_s\) frozen from M0.2's state-only checkpoint, one 64-unit 
 
 The two model-side changes registered since §17.5 — a continuous readout (2M.4) and a reference-centered residual factorization (2M.5) — have each done what they were designed to do. But an offline checkpoint is not the research target. Section 1 defines the target as a world model that repeatedly improves the deployed VLA through better counterfactual interaction and policy targets.
 
-`[DECISION]` **Close the improvement loop now.** Action 2M.6 trains the residual consequence model on the complete existing bootstrap bank, uses it to select executed branches at failures, appends those outcomes to the next WM, distills verified improvements into `pi_1`, and repeats once to produce `M_2` and `pi_2`. Its completion object is the full-prompt `N=1` behavior curve `pi_0 -> pi_1 -> pi_2`, not another offline promotion table. No standalone evaluation expansion, proposal diagnosis, noise-floor study, benchmark search, or architecture sweep intervenes. Executable contract: `plan_and_progress/2026-08-25.md` §"ACTION ITEM — Action 2M.6".
+`[DECISION]` **Close the improvement loop now.** Action 2M.6 trains the residual consequence model on the complete existing bootstrap bank, uses it to select executed branches at failures, appends those outcomes to the next WM, distills verified improvements into `pi_1`, and repeats once to produce `M_2` and `pi_2`. Its completion object is the full-prompt `N=1` behavior curve `pi_0 -> pi_1 -> pi_2`, not another offline promotion table. No standalone evaluation expansion, proposal diagnosis, noise-floor study, benchmark search, or architecture sweep intervenes. Executable contract: `plan_and_progress/archive/daily/2026-08-25.md` §"ACTION ITEM — Action 2M.6".
 
 Interaction: Action 2M.5 spent **25,490** steps with no discarded or aborted run. Project total across all V8 ledgers: **637,145**.
 
@@ -1456,4 +1456,3 @@ how *little* the gate suppresses (7/8 TP → 54/64; 5/8 TP → 58/64; no gate �
 - **An ablation that removes the proposed mechanism is mandatory before claiming
   it.** The gate looked essential for four arms; the first ungated run at the
   deployed timing overturned the entire causal story.
-

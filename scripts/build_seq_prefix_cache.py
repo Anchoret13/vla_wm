@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Build the full-prefix sequential episode cache (P1, pre-registered
-2026-07-25.md). Default scope: LIBERO-10 tasks 0 and 1 (LIVING_ROOM_SCENE2,
+plan_and_progress/archive/daily/2026-07-25.md). Default scope: LIBERO-10 tasks 0 and 1 (LIVING_ROOM_SCENE2,
 the chain3 scene family), train+dev roles from the SEALED v2 split manifest.
 Audit demos are never built unless --roles explicitly includes audit."""
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.6B reacher feasibility pre-check — the gate before 2-3 GPU-days.
 
-Registered in `plan_and_progress/2026-08-15.md` (V7.6B amendment):
+Registered in `plan_and_progress/archive/daily/2026-08-15.md` (V7.6B amendment):
 
     Before collecting 70 sources, run the reacher on one task x the four
     failure families x 3 attempts (12 attempts). Registered pass
@@ -275,7 +275,7 @@ def main() -> None:
     report = {
         "schema": "v076_reacher_precheck_v1",
         "run_schema": "v076", "run_id": RID,
-        "registered_by": "plan_and_progress/2026-08-15.md — V7.6B "
+        "registered_by": "plan_and_progress/archive/daily/2026-08-15.md — V7.6B "
                          "amendment, reacher feasibility pre-check",
         "task": args.task, "subgoals": subgoals,
         "registered": {

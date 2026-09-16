@@ -2,7 +2,7 @@
 """V6.7.1/V6.7.2 — rebuild paired continuations + crossed next labels for
 the 30 accepted groups, on the REUSED phase-A physical bank.
 
-Repairs relative to iteration 1 (registered in 2026-07-31.md):
+Repairs relative to iteration 1 (registered in plan_and_progress/archive/daily/2026-07-31.md):
 - sibling common randomness: continuation seed = stable hash of
   (run_id, source_id, snapshot_decision, goal_spec_id, repeat,
   continuation_decision); branch/candidate identity structurally absent;

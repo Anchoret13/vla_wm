@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""EVAL-001 regression test (required repair item 3, 2026-07-23.md).
+"""EVAL-001 regression test (required repair item 3, plan_and_progress/archive/daily/2026-07-23.md).
 
 A known successful terminal transition MUST be serialized as success=True,
 all goal bits true, Q=1 — i.e. the evaluator must score the PRE-reset terminal

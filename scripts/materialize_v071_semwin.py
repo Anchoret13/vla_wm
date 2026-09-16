@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """V7.1.2b — materialize semantic milestone-crossing windows.
 
-Frozen budget registered in plan_and_progress/2026-08-02.md BEFORE this
+Frozen budget registered in plan_and_progress/archive/daily/2026-08-02.md BEFORE this
 run: 22 simulator windows total, one indexed video each.
 
   Tranche A (17) — re-reach each registered natural crossing decision
@@ -58,7 +58,7 @@ EPISODE_LENGTH = {"loho_t1_drawer": 700, "loho_t2_basket3": 900,
 REREACH_ATOL = 2e-3
 B_MAX_CONT_DECISIONS = 5
 
-# ---- frozen window budget (registered 2026-08-02.md) -----------------------
+# ---- frozen window budget (registered plan_and_progress/archive/daily/2026-08-02.md) -----------------------
 TRANCHE_A = [
     ("loho_t1_drawer_acquire_s2200", 37),
     ("loho_t1_drawer_acquire_s2200", 47),

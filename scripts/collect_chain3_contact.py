@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Collect contact-proximal on-policy branch groups (chain3_contact_v1).
 
-Pre-registered 2026-07-24 (plan_and_progress/2026-07-24.md, execution
+Pre-registered 2026-07-24 (plan_and_progress/archive/daily/2026-07-24.md, execution
 section). Motivation: the stall+recovery collector produced no target-effect
 groups on fresh seeds (16 attempts -> 3 source episodes), while full-prompt
 rollouts reliably manipulate the first two chain3 goal objects (15/15 each in
@@ -29,7 +29,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 import collect_chain3_pilot as pilot  # noqa: E402  (shared contract helpers)
 
-# v1_1 (AMENDMENT 1, 2026-07-24.md): contact-contract admission is
+# v1_1 (AMENDMENT 1, plan_and_progress/archive/daily/2026-07-24.md): contact-contract admission is
 # structural_valid AND object_resolved. The q channel's resolved flag is
 # preserved per group and gates q-effect metrics downstream; both noise-ratio
 # thresholds are unchanged. Rationale: contact states replay with q noise

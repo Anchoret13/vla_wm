@@ -13,7 +13,7 @@ per-decision flow noise) capturing, at every decision boundary:
   sidecars at every decision (determinism regression, free).
 
 This is feature capture over already-used rollout states, not new
-interaction (2026-07-25.md A2 registration). Split assignments come from the
+interaction (plan_and_progress/archive/daily/2026-07-25.md A2 registration). Split assignments come from the
 branch manifest and are unchanged.
 """
 

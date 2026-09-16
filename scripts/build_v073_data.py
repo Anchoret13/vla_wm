@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""V7.3B — build one recovery-crossed training tranche (2026-08-03.md).
+"""V7.3B — build one recovery-crossed training tranche (plan_and_progress/archive/daily/2026-08-03.md).
 
 Frozen budget (registered before collection):
   seeds per task k (fresh 2400 family, disjoint from every prior

@@ -653,7 +653,7 @@ def train_group_step(
     effect_scales: EffectScales | None = None,
 ) -> dict[str, float]:
     """One optimizer step for one complete snapshot sibling group."""
-    # AMENDMENT 1 (2026-07-24.md): admission is per-channel. A group trains
+    # AMENDMENT 1 (plan_and_progress/archive/daily/2026-07-24.md): admission is per-channel. A group trains
     # iff its replay is structurally valid and its object channel is
     # resolved; a q-unresolved group additionally has its q effect blocks
     # masked out below so no channel ever trains against sub-noise targets.

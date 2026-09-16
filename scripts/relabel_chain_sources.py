@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""P3 relabel pass (registered 2026-07-25.md): deterministic replay of the
+"""P3 relabel pass (registered plan_and_progress/archive/daily/2026-07-25.md): deterministic replay of the
 chain source episodes, capturing per-decision labels aligned to the stored
 histories.
 
