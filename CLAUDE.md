@@ -159,7 +159,10 @@ long session bleeds on context resend; a short session bleeds on thinking.
 ### Rules
 
 1. **Clear between milestones.** Do not carry one session across a whole
-   experiment arc. Hand off through `plan_and_progress/<date>.md` — that file is
+   experiment arc. Hand off through `plan_and_progress/YYYY-MM-DD.md`; append all
+   work for a date to that single daily file, with no topic suffixes or separate
+   same-day research notes. Write project Markdown in English. Keep the current
+   state, decisions, evidence, and next actions concise there. The daily file is
    the continuity mechanism, not the context window. The 46-day session cost 59x
    what a same-work fresh session cost.
 
@@ -168,8 +171,10 @@ long session bleeds on context resend; a short session bleeds on thinking.
    running scripts, mechanical edits. 104 of 217 turns in one session were
    thinking-only — 3.5 reasoning turns per Edit is too many for routine work.
 
-3. **Read narrowly.** `plan_and_progress/*.md` dailies reach 114KB. Grep to
-   locate, then read the span with `offset`/`limit`. Never read a whole daily.
+3. **Read narrowly.** Read the latest daily log first. Existing monthly summaries
+   provide historical context; frozen detailed records live under
+   `plan_and_progress/archive/daily/`. Search to locate an exact record, then read
+   only the relevant span.
 
 4. **Never Read a PNG in a long session.** Images stay in context permanently and
    are re-sent every turn afterward. View them in a throwaway session.
