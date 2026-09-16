@@ -319,8 +319,17 @@ KNOWN_FAMILIES = (
                "D1 manifest with --collection-manifest to register the actual range"),
     SeedFamily("historical_eval_panel", 8900, 8996, "prior_eval",
                "chain3 evaluation panel used before 2026-09-12"),
-    SeedFamily("v249_residual_scale_probe", 9000, 9048, "probe",
-               "scripts/probe_v249_chain3_residual_scale.py, 7 arms x 48 seeds"),
+    # The 7 x 48 panel this family was named for was never run: probe_v249 spent
+    # 2 arms x 2 seeds (9900-9901, discarded) and the plan changed to the v250
+    # ladder before any result existed. 9000-9023 were spent by the calibration,
+    # 8 arms x 24 seeds; 9024-9047 stay reserved, so the range is unchanged and
+    # remains conservative. Corrected 2026-09-16; the attribution was wrong in
+    # every preregistration.json this driver has written.
+    SeedFamily("v249_v250_calibration", 9000, 9048, "probe",
+               "scripts/collect_v250_chain3_round.py basin calibration, 8 arms x "
+               "24 seeds over 9000-9023; 9024-9047 reserved and unspent "
+               "(scripts/probe_v249_chain3_residual_scale.py spent only the "
+               "discarded 9900-9901 smoke)"),
 )
 
 

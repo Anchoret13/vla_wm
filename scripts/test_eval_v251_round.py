@@ -280,7 +280,7 @@ def test_guard_refuses_a_probe_overlap_until_it_is_declared():
     assert "--acknowledge-panel-reuse" in str(exc.value)
     out = E.check_panel(9030, 24, E.KNOWN_FAMILIES, acknowledge_reuse=True)
     assert out["clean"] is False
-    assert out["declared_reuse"][0]["family"] == "v249_residual_scale_probe"
+    assert out["declared_reuse"][0]["family"] == "v249_v250_calibration"
 
 
 def test_guard_passes_a_disjoint_panel_and_records_what_it_checked():
