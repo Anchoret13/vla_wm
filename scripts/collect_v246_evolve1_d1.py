@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+# RETIRED 2026-09-16. Superseded by scripts/collect_v250_chain3_round.py, which
+# collected the round's D0 and D1. The --collect path here raises
+# RealCollectorNotImplemented after all validation, and the test file asserts that it
+# does; the contract reasoning is what is being kept.
+# Do not extend, do not import, do not cite as capability. Recoverable at 609c29f8.
 """Fail-closed contract core for the EVOLVE-1 rich-latent D1 collection.
 
 This module deliberately does **not** yet integrate the real LIBERO / pi0.5

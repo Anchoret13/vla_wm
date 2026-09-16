@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# RETIRED 2026-09-16. Nothing supersedes it: the gate it serves was removed as a
+# prerequisite at plan_and_progress/2026-09-12.md:105, and the round used a supplied
+# Phi' annotation instead. It has produced zero artifacts - none of
+# results/v248_gate0_{registration_bundle,materialized_models,formal_campaign}_v1 exists.
+# Blockers never cleared: WORM ledger, runtime fingerprint, registration bundle, and
+# non-deterministic cuDNN/TF32 (plan_and_progress/2026-09-02.md:108-129).
+# Do not extend, do not import, do not cite as capability. Recoverable at d35e2832.
 """Replay the pre-registered v248 Gate-0 panels into a sealed RGB manifest.
 
 Only an explicitly named outcome-sanitized legacy2073 tape and a registration
