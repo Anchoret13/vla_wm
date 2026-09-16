@@ -271,7 +271,7 @@ def build_ledger(results: Path):
     for rel, rel_dir, spelling, value, kind, blob in json_rows:
         ts = (parse_stamp(blob.get("utc") if isinstance(blob, dict) else None)
               or parse_stamp((blob.get("manifest") or {}).get("utc")
-                             if isinstance(blob, dict) and isinstance(blob.get("manifest"), dict) else None)
+                             if isinstance(blob, dict) and isinstance(blob.get("manifest"), dict) else None)  # noqa: E501
               or parse_stamp((blob.get("created_utc") if isinstance(blob, dict) else None))
               or parse_stamp(rel))
         date_source = "utc_field"
@@ -338,7 +338,7 @@ def build_ledger(results: Path):
             if tot <= 0:
                 continue
             rel = str(p.relative_to(results))
-            ts = parse_stamp(blob.get("utc") if isinstance(blob, dict) else None) or parse_stamp(rel)
+            ts = parse_stamp(blob.get("utc") if isinstance(blob, dict) else None) or parse_stamp(rel)  # noqa: E501
             date_source = "utc_field" if ts else "file_mtime"
             if ts is None:
                 ts = dt.datetime.utcfromtimestamp(p.stat().st_mtime)
@@ -677,7 +677,7 @@ def build_plot_data(ledger, results: Path):
             pt["milestone4_definition"] = "'4' in episode events (non-contiguous, as registered)"
         else:
             pt["milestone4_successes"] = None
-            pt["milestone4_note"] = "episode records carry no 'events' field; milestone-4 not computable"
+            pt["milestone4_note"] = "episode records carry no 'events' field; milestone-4 not computable"  # noqa: E501
         points.append(pt)
 
     claims = {

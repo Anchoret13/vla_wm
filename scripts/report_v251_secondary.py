@@ -557,7 +557,7 @@ def format_report(doc: dict) -> str:
             if block["n_seeds_dropped_for_missingness"]:
                 L.append(f"    complete on all 7 arms for "
                          f"{block['n_all_arm_complete_seeds']} of "
-                         f"{block['n_all_arm_complete_seeds'] + block['n_seeds_dropped_for_missingness']} "
+                         f"{block['n_all_arm_complete_seeds'] + block['n_seeds_dropped_for_missingness']} "  # noqa: E501
                          f"seeds; the mean/CI below are on that subset")
             L.append(f"    {'arm':9s} {'mean':>10s} {'bootstrap 95% CI':>24s} "
                      f"{'median':>10s} {'n_avail':>8s}")
@@ -618,12 +618,12 @@ def format_report(doc: dict) -> str:
 
     ck = doc["correctness_check"]
     L.append("")
-    L.append(f"CORRECTNESS CHECK vs the published primary table "
-             f"(plan_and_progress/2026-09-13.md)")
+    L.append("CORRECTNESS CHECK vs the published primary table "
+             "(plan_and_progress/2026-09-13.md)")
     L.append(f"    discordant tables: "
              f"{'ALL REPRODUCE' if ck['counts_passed'] else 'MISMATCH'}   "
              f"published p-values: "
-             f"{'all match' if ck['p_passed'] else 'MISMATCH on ' + ', '.join(ck['p_discrepancies'])}")
+             f"{'all match' if ck['p_passed'] else 'MISMATCH on ' + ', '.join(ck['p_discrepancies'])}")  # noqa: E501
     for name, case in ck["cases"].items():
         g, w = case["recomputed"], case["published"]
         flag = "match" if case["match"] else (

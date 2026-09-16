@@ -59,7 +59,6 @@ from train_v251_interface import (  # noqa: E402
     build_bundle,
     fit_phi_head,
     load_run,
-    pearson,
     sha256_file,
     spearman,
     stable_fraction,
@@ -155,8 +154,8 @@ def run_split(data: dict[str, Any], seed: int, *, steps: int, batch: int,
             or int(ho_idx.numel()) != int(metrics["holdout_boundaries"])
             or len(hold_eps) != int(metrics["holdout_episodes"])):
         raise AssertionError(
-            f"seed {seed}: recomputed split {(int(tr_idx.numel()), int(ho_idx.numel()), len(hold_eps))} "
-            f"!= fit_phi_head's {(metrics['train_boundaries'], metrics['holdout_boundaries'], metrics['holdout_episodes'])}"
+            f"seed {seed}: recomputed split {(int(tr_idx.numel()), int(ho_idx.numel()), len(hold_eps))} "  # noqa: E501
+            f"!= fit_phi_head's {(metrics['train_boundaries'], metrics['holdout_boundaries'], metrics['holdout_episodes'])}"  # noqa: E501
         )
     with torch.no_grad():
         pred = torch.cat([net(bundle.z_bound[i:i + 1024]).squeeze(-1)
@@ -240,7 +239,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     if a.threads:
         torch.set_num_threads(int(a.threads))
     if a.splits < 5:
-        raise SystemExit("--splits must be >= 5: one split is what this diagnostic exists to replace")
+        raise SystemExit("--splits must be >= 5: one split is what this diagnostic exists to "
+                         "replace")
 
     pair_path = (REPO / a.model_pair).resolve()
     pair = torch.load(pair_path, weights_only=False, map_location="cpu")
